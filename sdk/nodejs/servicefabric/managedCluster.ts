@@ -156,27 +156,27 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedClusterArgs | ManagedClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedClusterState | undefined;
-            inputs["authentication"] = state ? state.authentication : undefined;
-            inputs["backupServiceEnabled"] = state ? state.backupServiceEnabled : undefined;
-            inputs["clientConnectionPort"] = state ? state.clientConnectionPort : undefined;
-            inputs["customFabricSettings"] = state ? state.customFabricSettings : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["dnsServiceEnabled"] = state ? state.dnsServiceEnabled : undefined;
-            inputs["httpGatewayPort"] = state ? state.httpGatewayPort : undefined;
-            inputs["lbRules"] = state ? state.lbRules : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nodeTypes"] = state ? state.nodeTypes : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["upgradeWave"] = state ? state.upgradeWave : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["authentication"] = state ? state.authentication : undefined;
+            resourceInputs["backupServiceEnabled"] = state ? state.backupServiceEnabled : undefined;
+            resourceInputs["clientConnectionPort"] = state ? state.clientConnectionPort : undefined;
+            resourceInputs["customFabricSettings"] = state ? state.customFabricSettings : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["dnsServiceEnabled"] = state ? state.dnsServiceEnabled : undefined;
+            resourceInputs["httpGatewayPort"] = state ? state.httpGatewayPort : undefined;
+            resourceInputs["lbRules"] = state ? state.lbRules : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeTypes"] = state ? state.nodeTypes : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["upgradeWave"] = state ? state.upgradeWave : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as ManagedClusterArgs | undefined;
             if ((!args || args.clientConnectionPort === undefined) && !opts.urn) {
@@ -191,28 +191,26 @@ export class ManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["backupServiceEnabled"] = args ? args.backupServiceEnabled : undefined;
-            inputs["clientConnectionPort"] = args ? args.clientConnectionPort : undefined;
-            inputs["customFabricSettings"] = args ? args.customFabricSettings : undefined;
-            inputs["dnsName"] = args ? args.dnsName : undefined;
-            inputs["dnsServiceEnabled"] = args ? args.dnsServiceEnabled : undefined;
-            inputs["httpGatewayPort"] = args ? args.httpGatewayPort : undefined;
-            inputs["lbRules"] = args ? args.lbRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upgradeWave"] = args ? args.upgradeWave : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["backupServiceEnabled"] = args ? args.backupServiceEnabled : undefined;
+            resourceInputs["clientConnectionPort"] = args ? args.clientConnectionPort : undefined;
+            resourceInputs["customFabricSettings"] = args ? args.customFabricSettings : undefined;
+            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
+            resourceInputs["dnsServiceEnabled"] = args ? args.dnsServiceEnabled : undefined;
+            resourceInputs["httpGatewayPort"] = args ? args.httpGatewayPort : undefined;
+            resourceInputs["lbRules"] = args ? args.lbRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradeWave"] = args ? args.upgradeWave : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

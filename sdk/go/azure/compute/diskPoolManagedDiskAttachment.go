@@ -116,7 +116,7 @@ type DiskPoolManagedDiskAttachmentInput interface {
 }
 
 func (*DiskPoolManagedDiskAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPoolManagedDiskAttachment)(nil))
+	return reflect.TypeOf((**DiskPoolManagedDiskAttachment)(nil)).Elem()
 }
 
 func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentOutput() DiskPoolManagedDiskAttachmentOutput {
@@ -125,35 +125,6 @@ func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentOutput() 
 
 func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolManagedDiskAttachmentOutput)
-}
-
-func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentPtrOutput() DiskPoolManagedDiskAttachmentPtrOutput {
-	return i.ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolManagedDiskAttachmentPtrOutput)
-}
-
-type DiskPoolManagedDiskAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToDiskPoolManagedDiskAttachmentPtrOutput() DiskPoolManagedDiskAttachmentPtrOutput
-	ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentPtrOutput
-}
-
-type diskPoolManagedDiskAttachmentPtrType DiskPoolManagedDiskAttachmentArgs
-
-func (*diskPoolManagedDiskAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskPoolManagedDiskAttachment)(nil))
-}
-
-func (i *diskPoolManagedDiskAttachmentPtrType) ToDiskPoolManagedDiskAttachmentPtrOutput() DiskPoolManagedDiskAttachmentPtrOutput {
-	return i.ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *diskPoolManagedDiskAttachmentPtrType) ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolManagedDiskAttachmentPtrOutput)
 }
 
 // DiskPoolManagedDiskAttachmentArrayInput is an input type that accepts DiskPoolManagedDiskAttachmentArray and DiskPoolManagedDiskAttachmentArrayOutput values.
@@ -209,7 +180,7 @@ func (i DiskPoolManagedDiskAttachmentMap) ToDiskPoolManagedDiskAttachmentMapOutp
 type DiskPoolManagedDiskAttachmentOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolManagedDiskAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPoolManagedDiskAttachment)(nil))
+	return reflect.TypeOf((**DiskPoolManagedDiskAttachment)(nil)).Elem()
 }
 
 func (o DiskPoolManagedDiskAttachmentOutput) ToDiskPoolManagedDiskAttachmentOutput() DiskPoolManagedDiskAttachmentOutput {
@@ -220,44 +191,10 @@ func (o DiskPoolManagedDiskAttachmentOutput) ToDiskPoolManagedDiskAttachmentOutp
 	return o
 }
 
-func (o DiskPoolManagedDiskAttachmentOutput) ToDiskPoolManagedDiskAttachmentPtrOutput() DiskPoolManagedDiskAttachmentPtrOutput {
-	return o.ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o DiskPoolManagedDiskAttachmentOutput) ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskPoolManagedDiskAttachment) *DiskPoolManagedDiskAttachment {
-		return &v
-	}).(DiskPoolManagedDiskAttachmentPtrOutput)
-}
-
-type DiskPoolManagedDiskAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskPoolManagedDiskAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskPoolManagedDiskAttachment)(nil))
-}
-
-func (o DiskPoolManagedDiskAttachmentPtrOutput) ToDiskPoolManagedDiskAttachmentPtrOutput() DiskPoolManagedDiskAttachmentPtrOutput {
-	return o
-}
-
-func (o DiskPoolManagedDiskAttachmentPtrOutput) ToDiskPoolManagedDiskAttachmentPtrOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentPtrOutput {
-	return o
-}
-
-func (o DiskPoolManagedDiskAttachmentPtrOutput) Elem() DiskPoolManagedDiskAttachmentOutput {
-	return o.ApplyT(func(v *DiskPoolManagedDiskAttachment) DiskPoolManagedDiskAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret DiskPoolManagedDiskAttachment
-		return ret
-	}).(DiskPoolManagedDiskAttachmentOutput)
-}
-
 type DiskPoolManagedDiskAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolManagedDiskAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskPoolManagedDiskAttachment)(nil))
+	return reflect.TypeOf((*[]*DiskPoolManagedDiskAttachment)(nil)).Elem()
 }
 
 func (o DiskPoolManagedDiskAttachmentArrayOutput) ToDiskPoolManagedDiskAttachmentArrayOutput() DiskPoolManagedDiskAttachmentArrayOutput {
@@ -269,15 +206,15 @@ func (o DiskPoolManagedDiskAttachmentArrayOutput) ToDiskPoolManagedDiskAttachmen
 }
 
 func (o DiskPoolManagedDiskAttachmentArrayOutput) Index(i pulumi.IntInput) DiskPoolManagedDiskAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskPoolManagedDiskAttachment {
-		return vs[0].([]DiskPoolManagedDiskAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskPoolManagedDiskAttachment {
+		return vs[0].([]*DiskPoolManagedDiskAttachment)[vs[1].(int)]
 	}).(DiskPoolManagedDiskAttachmentOutput)
 }
 
 type DiskPoolManagedDiskAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolManagedDiskAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DiskPoolManagedDiskAttachment)(nil))
+	return reflect.TypeOf((*map[string]*DiskPoolManagedDiskAttachment)(nil)).Elem()
 }
 
 func (o DiskPoolManagedDiskAttachmentMapOutput) ToDiskPoolManagedDiskAttachmentMapOutput() DiskPoolManagedDiskAttachmentMapOutput {
@@ -289,18 +226,16 @@ func (o DiskPoolManagedDiskAttachmentMapOutput) ToDiskPoolManagedDiskAttachmentM
 }
 
 func (o DiskPoolManagedDiskAttachmentMapOutput) MapIndex(k pulumi.StringInput) DiskPoolManagedDiskAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DiskPoolManagedDiskAttachment {
-		return vs[0].(map[string]DiskPoolManagedDiskAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DiskPoolManagedDiskAttachment {
+		return vs[0].(map[string]*DiskPoolManagedDiskAttachment)[vs[1].(string)]
 	}).(DiskPoolManagedDiskAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolManagedDiskAttachmentInput)(nil)).Elem(), &DiskPoolManagedDiskAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolManagedDiskAttachmentPtrInput)(nil)).Elem(), &DiskPoolManagedDiskAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolManagedDiskAttachmentArrayInput)(nil)).Elem(), DiskPoolManagedDiskAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolManagedDiskAttachmentMapInput)(nil)).Elem(), DiskPoolManagedDiskAttachmentMap{})
 	pulumi.RegisterOutputType(DiskPoolManagedDiskAttachmentOutput{})
-	pulumi.RegisterOutputType(DiskPoolManagedDiskAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(DiskPoolManagedDiskAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(DiskPoolManagedDiskAttachmentMapOutput{})
 }

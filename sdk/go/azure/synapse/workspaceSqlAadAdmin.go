@@ -241,7 +241,7 @@ type WorkspaceSqlAadAdminInput interface {
 }
 
 func (*WorkspaceSqlAadAdmin) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))
+	return reflect.TypeOf((**WorkspaceSqlAadAdmin)(nil)).Elem()
 }
 
 func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
@@ -250,35 +250,6 @@ func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdm
 
 func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
-}
-
-func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
-	return i.ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminPtrOutput)
-}
-
-type WorkspaceSqlAadAdminPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput
-	ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput
-}
-
-type workspaceSqlAadAdminPtrType WorkspaceSqlAadAdminArgs
-
-func (*workspaceSqlAadAdminPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceSqlAadAdmin)(nil))
-}
-
-func (i *workspaceSqlAadAdminPtrType) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
-	return i.ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceSqlAadAdminPtrType) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminPtrOutput)
 }
 
 // WorkspaceSqlAadAdminArrayInput is an input type that accepts WorkspaceSqlAadAdminArray and WorkspaceSqlAadAdminArrayOutput values.
@@ -334,7 +305,7 @@ func (i WorkspaceSqlAadAdminMap) ToWorkspaceSqlAadAdminMapOutputWithContext(ctx 
 type WorkspaceSqlAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))
+	return reflect.TypeOf((**WorkspaceSqlAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
@@ -345,44 +316,10 @@ func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx 
 	return o
 }
 
-func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
-	return o.ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSqlAadAdmin) *WorkspaceSqlAadAdmin {
-		return &v
-	}).(WorkspaceSqlAadAdminPtrOutput)
-}
-
-type WorkspaceSqlAadAdminPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceSqlAadAdminPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceSqlAadAdmin)(nil))
-}
-
-func (o WorkspaceSqlAadAdminPtrOutput) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
-	return o
-}
-
-func (o WorkspaceSqlAadAdminPtrOutput) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
-	return o
-}
-
-func (o WorkspaceSqlAadAdminPtrOutput) Elem() WorkspaceSqlAadAdminOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) WorkspaceSqlAadAdmin {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceSqlAadAdmin
-		return ret
-	}).(WorkspaceSqlAadAdminOutput)
-}
-
 type WorkspaceSqlAadAdminArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSqlAadAdminArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceSqlAadAdmin)(nil))
+	return reflect.TypeOf((*[]*WorkspaceSqlAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceSqlAadAdminArrayOutput) ToWorkspaceSqlAadAdminArrayOutput() WorkspaceSqlAadAdminArrayOutput {
@@ -394,15 +331,15 @@ func (o WorkspaceSqlAadAdminArrayOutput) ToWorkspaceSqlAadAdminArrayOutputWithCo
 }
 
 func (o WorkspaceSqlAadAdminArrayOutput) Index(i pulumi.IntInput) WorkspaceSqlAadAdminOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceSqlAadAdmin {
-		return vs[0].([]WorkspaceSqlAadAdmin)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceSqlAadAdmin {
+		return vs[0].([]*WorkspaceSqlAadAdmin)[vs[1].(int)]
 	}).(WorkspaceSqlAadAdminOutput)
 }
 
 type WorkspaceSqlAadAdminMapOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSqlAadAdminMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkspaceSqlAadAdmin)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceSqlAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceSqlAadAdminMapOutput) ToWorkspaceSqlAadAdminMapOutput() WorkspaceSqlAadAdminMapOutput {
@@ -414,18 +351,16 @@ func (o WorkspaceSqlAadAdminMapOutput) ToWorkspaceSqlAadAdminMapOutputWithContex
 }
 
 func (o WorkspaceSqlAadAdminMapOutput) MapIndex(k pulumi.StringInput) WorkspaceSqlAadAdminOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceSqlAadAdmin {
-		return vs[0].(map[string]WorkspaceSqlAadAdmin)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkspaceSqlAadAdmin {
+		return vs[0].(map[string]*WorkspaceSqlAadAdmin)[vs[1].(string)]
 	}).(WorkspaceSqlAadAdminOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminInput)(nil)).Elem(), &WorkspaceSqlAadAdmin{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminPtrInput)(nil)).Elem(), &WorkspaceSqlAadAdmin{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminArrayInput)(nil)).Elem(), WorkspaceSqlAadAdminArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminMapInput)(nil)).Elem(), WorkspaceSqlAadAdminMap{})
 	pulumi.RegisterOutputType(WorkspaceSqlAadAdminOutput{})
-	pulumi.RegisterOutputType(WorkspaceSqlAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSqlAadAdminArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceSqlAadAdminMapOutput{})
 }

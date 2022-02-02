@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Billing
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Billing
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMcaAccountScopeResult> InvokeAsync(GetMcaAccountScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMcaAccountScopeResult>("azure:billing/getMcaAccountScope:getMcaAccountScope", args ?? new GetMcaAccountScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMcaAccountScopeResult>("azure:billing/getMcaAccountScope:getMcaAccountScope", args ?? new GetMcaAccountScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access an ID for your MCA Account billing scope.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Billing
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMcaAccountScopeResult> Invoke(GetMcaAccountScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMcaAccountScopeResult>("azure:billing/getMcaAccountScope:getMcaAccountScope", args ?? new GetMcaAccountScopeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMcaAccountScopeResult>("azure:billing/getMcaAccountScope:getMcaAccountScope", args ?? new GetMcaAccountScopeInvokeArgs(), options.WithDefaults());
     }
 
 

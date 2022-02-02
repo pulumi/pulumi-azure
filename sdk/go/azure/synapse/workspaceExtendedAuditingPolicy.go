@@ -215,7 +215,7 @@ type WorkspaceExtendedAuditingPolicyInput interface {
 }
 
 func (*WorkspaceExtendedAuditingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((**WorkspaceExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (i *WorkspaceExtendedAuditingPolicy) ToWorkspaceExtendedAuditingPolicyOutput() WorkspaceExtendedAuditingPolicyOutput {
@@ -224,35 +224,6 @@ func (i *WorkspaceExtendedAuditingPolicy) ToWorkspaceExtendedAuditingPolicyOutpu
 
 func (i *WorkspaceExtendedAuditingPolicy) ToWorkspaceExtendedAuditingPolicyOutputWithContext(ctx context.Context) WorkspaceExtendedAuditingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceExtendedAuditingPolicyOutput)
-}
-
-func (i *WorkspaceExtendedAuditingPolicy) ToWorkspaceExtendedAuditingPolicyPtrOutput() WorkspaceExtendedAuditingPolicyPtrOutput {
-	return i.ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkspaceExtendedAuditingPolicy) ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) WorkspaceExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceExtendedAuditingPolicyPtrOutput)
-}
-
-type WorkspaceExtendedAuditingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceExtendedAuditingPolicyPtrOutput() WorkspaceExtendedAuditingPolicyPtrOutput
-	ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) WorkspaceExtendedAuditingPolicyPtrOutput
-}
-
-type workspaceExtendedAuditingPolicyPtrType WorkspaceExtendedAuditingPolicyArgs
-
-func (*workspaceExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceExtendedAuditingPolicy)(nil))
-}
-
-func (i *workspaceExtendedAuditingPolicyPtrType) ToWorkspaceExtendedAuditingPolicyPtrOutput() WorkspaceExtendedAuditingPolicyPtrOutput {
-	return i.ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceExtendedAuditingPolicyPtrType) ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) WorkspaceExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceExtendedAuditingPolicyPtrOutput)
 }
 
 // WorkspaceExtendedAuditingPolicyArrayInput is an input type that accepts WorkspaceExtendedAuditingPolicyArray and WorkspaceExtendedAuditingPolicyArrayOutput values.
@@ -308,7 +279,7 @@ func (i WorkspaceExtendedAuditingPolicyMap) ToWorkspaceExtendedAuditingPolicyMap
 type WorkspaceExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((**WorkspaceExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o WorkspaceExtendedAuditingPolicyOutput) ToWorkspaceExtendedAuditingPolicyOutput() WorkspaceExtendedAuditingPolicyOutput {
@@ -319,44 +290,10 @@ func (o WorkspaceExtendedAuditingPolicyOutput) ToWorkspaceExtendedAuditingPolicy
 	return o
 }
 
-func (o WorkspaceExtendedAuditingPolicyOutput) ToWorkspaceExtendedAuditingPolicyPtrOutput() WorkspaceExtendedAuditingPolicyPtrOutput {
-	return o.ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceExtendedAuditingPolicyOutput) ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) WorkspaceExtendedAuditingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceExtendedAuditingPolicy) *WorkspaceExtendedAuditingPolicy {
-		return &v
-	}).(WorkspaceExtendedAuditingPolicyPtrOutput)
-}
-
-type WorkspaceExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceExtendedAuditingPolicy)(nil))
-}
-
-func (o WorkspaceExtendedAuditingPolicyPtrOutput) ToWorkspaceExtendedAuditingPolicyPtrOutput() WorkspaceExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o WorkspaceExtendedAuditingPolicyPtrOutput) ToWorkspaceExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) WorkspaceExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o WorkspaceExtendedAuditingPolicyPtrOutput) Elem() WorkspaceExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *WorkspaceExtendedAuditingPolicy) WorkspaceExtendedAuditingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceExtendedAuditingPolicy
-		return ret
-	}).(WorkspaceExtendedAuditingPolicyOutput)
-}
-
 type WorkspaceExtendedAuditingPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceExtendedAuditingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((*[]*WorkspaceExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o WorkspaceExtendedAuditingPolicyArrayOutput) ToWorkspaceExtendedAuditingPolicyArrayOutput() WorkspaceExtendedAuditingPolicyArrayOutput {
@@ -368,15 +305,15 @@ func (o WorkspaceExtendedAuditingPolicyArrayOutput) ToWorkspaceExtendedAuditingP
 }
 
 func (o WorkspaceExtendedAuditingPolicyArrayOutput) Index(i pulumi.IntInput) WorkspaceExtendedAuditingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceExtendedAuditingPolicy {
-		return vs[0].([]WorkspaceExtendedAuditingPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceExtendedAuditingPolicy {
+		return vs[0].([]*WorkspaceExtendedAuditingPolicy)[vs[1].(int)]
 	}).(WorkspaceExtendedAuditingPolicyOutput)
 }
 
 type WorkspaceExtendedAuditingPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceExtendedAuditingPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkspaceExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o WorkspaceExtendedAuditingPolicyMapOutput) ToWorkspaceExtendedAuditingPolicyMapOutput() WorkspaceExtendedAuditingPolicyMapOutput {
@@ -388,18 +325,16 @@ func (o WorkspaceExtendedAuditingPolicyMapOutput) ToWorkspaceExtendedAuditingPol
 }
 
 func (o WorkspaceExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceExtendedAuditingPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceExtendedAuditingPolicy {
-		return vs[0].(map[string]WorkspaceExtendedAuditingPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkspaceExtendedAuditingPolicy {
+		return vs[0].(map[string]*WorkspaceExtendedAuditingPolicy)[vs[1].(string)]
 	}).(WorkspaceExtendedAuditingPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceExtendedAuditingPolicyInput)(nil)).Elem(), &WorkspaceExtendedAuditingPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceExtendedAuditingPolicyPtrInput)(nil)).Elem(), &WorkspaceExtendedAuditingPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceExtendedAuditingPolicyArrayInput)(nil)).Elem(), WorkspaceExtendedAuditingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceExtendedAuditingPolicyMapInput)(nil)).Elem(), WorkspaceExtendedAuditingPolicyMap{})
 	pulumi.RegisterOutputType(WorkspaceExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(WorkspaceExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceExtendedAuditingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceExtendedAuditingPolicyMapOutput{})
 }

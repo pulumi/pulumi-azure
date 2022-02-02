@@ -193,7 +193,7 @@ type SlotCustomHostnameBindingInput interface {
 }
 
 func (*SlotCustomHostnameBinding) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlotCustomHostnameBinding)(nil))
+	return reflect.TypeOf((**SlotCustomHostnameBinding)(nil)).Elem()
 }
 
 func (i *SlotCustomHostnameBinding) ToSlotCustomHostnameBindingOutput() SlotCustomHostnameBindingOutput {
@@ -202,35 +202,6 @@ func (i *SlotCustomHostnameBinding) ToSlotCustomHostnameBindingOutput() SlotCust
 
 func (i *SlotCustomHostnameBinding) ToSlotCustomHostnameBindingOutputWithContext(ctx context.Context) SlotCustomHostnameBindingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotCustomHostnameBindingOutput)
-}
-
-func (i *SlotCustomHostnameBinding) ToSlotCustomHostnameBindingPtrOutput() SlotCustomHostnameBindingPtrOutput {
-	return i.ToSlotCustomHostnameBindingPtrOutputWithContext(context.Background())
-}
-
-func (i *SlotCustomHostnameBinding) ToSlotCustomHostnameBindingPtrOutputWithContext(ctx context.Context) SlotCustomHostnameBindingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlotCustomHostnameBindingPtrOutput)
-}
-
-type SlotCustomHostnameBindingPtrInput interface {
-	pulumi.Input
-
-	ToSlotCustomHostnameBindingPtrOutput() SlotCustomHostnameBindingPtrOutput
-	ToSlotCustomHostnameBindingPtrOutputWithContext(ctx context.Context) SlotCustomHostnameBindingPtrOutput
-}
-
-type slotCustomHostnameBindingPtrType SlotCustomHostnameBindingArgs
-
-func (*slotCustomHostnameBindingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SlotCustomHostnameBinding)(nil))
-}
-
-func (i *slotCustomHostnameBindingPtrType) ToSlotCustomHostnameBindingPtrOutput() SlotCustomHostnameBindingPtrOutput {
-	return i.ToSlotCustomHostnameBindingPtrOutputWithContext(context.Background())
-}
-
-func (i *slotCustomHostnameBindingPtrType) ToSlotCustomHostnameBindingPtrOutputWithContext(ctx context.Context) SlotCustomHostnameBindingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlotCustomHostnameBindingPtrOutput)
 }
 
 // SlotCustomHostnameBindingArrayInput is an input type that accepts SlotCustomHostnameBindingArray and SlotCustomHostnameBindingArrayOutput values.
@@ -286,7 +257,7 @@ func (i SlotCustomHostnameBindingMap) ToSlotCustomHostnameBindingMapOutputWithCo
 type SlotCustomHostnameBindingOutput struct{ *pulumi.OutputState }
 
 func (SlotCustomHostnameBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlotCustomHostnameBinding)(nil))
+	return reflect.TypeOf((**SlotCustomHostnameBinding)(nil)).Elem()
 }
 
 func (o SlotCustomHostnameBindingOutput) ToSlotCustomHostnameBindingOutput() SlotCustomHostnameBindingOutput {
@@ -297,44 +268,10 @@ func (o SlotCustomHostnameBindingOutput) ToSlotCustomHostnameBindingOutputWithCo
 	return o
 }
 
-func (o SlotCustomHostnameBindingOutput) ToSlotCustomHostnameBindingPtrOutput() SlotCustomHostnameBindingPtrOutput {
-	return o.ToSlotCustomHostnameBindingPtrOutputWithContext(context.Background())
-}
-
-func (o SlotCustomHostnameBindingOutput) ToSlotCustomHostnameBindingPtrOutputWithContext(ctx context.Context) SlotCustomHostnameBindingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotCustomHostnameBinding) *SlotCustomHostnameBinding {
-		return &v
-	}).(SlotCustomHostnameBindingPtrOutput)
-}
-
-type SlotCustomHostnameBindingPtrOutput struct{ *pulumi.OutputState }
-
-func (SlotCustomHostnameBindingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SlotCustomHostnameBinding)(nil))
-}
-
-func (o SlotCustomHostnameBindingPtrOutput) ToSlotCustomHostnameBindingPtrOutput() SlotCustomHostnameBindingPtrOutput {
-	return o
-}
-
-func (o SlotCustomHostnameBindingPtrOutput) ToSlotCustomHostnameBindingPtrOutputWithContext(ctx context.Context) SlotCustomHostnameBindingPtrOutput {
-	return o
-}
-
-func (o SlotCustomHostnameBindingPtrOutput) Elem() SlotCustomHostnameBindingOutput {
-	return o.ApplyT(func(v *SlotCustomHostnameBinding) SlotCustomHostnameBinding {
-		if v != nil {
-			return *v
-		}
-		var ret SlotCustomHostnameBinding
-		return ret
-	}).(SlotCustomHostnameBindingOutput)
-}
-
 type SlotCustomHostnameBindingArrayOutput struct{ *pulumi.OutputState }
 
 func (SlotCustomHostnameBindingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SlotCustomHostnameBinding)(nil))
+	return reflect.TypeOf((*[]*SlotCustomHostnameBinding)(nil)).Elem()
 }
 
 func (o SlotCustomHostnameBindingArrayOutput) ToSlotCustomHostnameBindingArrayOutput() SlotCustomHostnameBindingArrayOutput {
@@ -346,15 +283,15 @@ func (o SlotCustomHostnameBindingArrayOutput) ToSlotCustomHostnameBindingArrayOu
 }
 
 func (o SlotCustomHostnameBindingArrayOutput) Index(i pulumi.IntInput) SlotCustomHostnameBindingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlotCustomHostnameBinding {
-		return vs[0].([]SlotCustomHostnameBinding)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SlotCustomHostnameBinding {
+		return vs[0].([]*SlotCustomHostnameBinding)[vs[1].(int)]
 	}).(SlotCustomHostnameBindingOutput)
 }
 
 type SlotCustomHostnameBindingMapOutput struct{ *pulumi.OutputState }
 
 func (SlotCustomHostnameBindingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SlotCustomHostnameBinding)(nil))
+	return reflect.TypeOf((*map[string]*SlotCustomHostnameBinding)(nil)).Elem()
 }
 
 func (o SlotCustomHostnameBindingMapOutput) ToSlotCustomHostnameBindingMapOutput() SlotCustomHostnameBindingMapOutput {
@@ -366,18 +303,16 @@ func (o SlotCustomHostnameBindingMapOutput) ToSlotCustomHostnameBindingMapOutput
 }
 
 func (o SlotCustomHostnameBindingMapOutput) MapIndex(k pulumi.StringInput) SlotCustomHostnameBindingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SlotCustomHostnameBinding {
-		return vs[0].(map[string]SlotCustomHostnameBinding)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SlotCustomHostnameBinding {
+		return vs[0].(map[string]*SlotCustomHostnameBinding)[vs[1].(string)]
 	}).(SlotCustomHostnameBindingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotCustomHostnameBindingInput)(nil)).Elem(), &SlotCustomHostnameBinding{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SlotCustomHostnameBindingPtrInput)(nil)).Elem(), &SlotCustomHostnameBinding{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotCustomHostnameBindingArrayInput)(nil)).Elem(), SlotCustomHostnameBindingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotCustomHostnameBindingMapInput)(nil)).Elem(), SlotCustomHostnameBindingMap{})
 	pulumi.RegisterOutputType(SlotCustomHostnameBindingOutput{})
-	pulumi.RegisterOutputType(SlotCustomHostnameBindingPtrOutput{})
 	pulumi.RegisterOutputType(SlotCustomHostnameBindingArrayOutput{})
 	pulumi.RegisterOutputType(SlotCustomHostnameBindingMapOutput{})
 }

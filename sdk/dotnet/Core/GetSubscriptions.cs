@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionsResult> InvokeAsync(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about all the Subscriptions currently available.
@@ -74,7 +73,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionsResult> Invoke(GetSubscriptionsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsInvokeArgs(), options.WithDefaults());
     }
 
 

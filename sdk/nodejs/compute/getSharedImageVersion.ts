@@ -27,9 +27,7 @@ export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", {
         "galleryName": args.galleryName,
         "imageName": args.imageName,

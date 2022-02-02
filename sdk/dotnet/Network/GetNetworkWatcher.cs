@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure:network/getNetworkWatcher:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure:network/getNetworkWatcher:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Network Watcher.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkWatcherResult> Invoke(GetNetworkWatcherInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure:network/getNetworkWatcher:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure:network/getNetworkWatcher:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithDefaults());
     }
 
 

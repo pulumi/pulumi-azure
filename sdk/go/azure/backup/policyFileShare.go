@@ -269,7 +269,7 @@ type PolicyFileShareInput interface {
 }
 
 func (*PolicyFileShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyFileShare)(nil))
+	return reflect.TypeOf((**PolicyFileShare)(nil)).Elem()
 }
 
 func (i *PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
@@ -278,35 +278,6 @@ func (i *PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
 
 func (i *PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareOutput)
-}
-
-func (i *PolicyFileShare) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
-	return i.ToPolicyFileSharePtrOutputWithContext(context.Background())
-}
-
-func (i *PolicyFileShare) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileSharePtrOutput)
-}
-
-type PolicyFileSharePtrInput interface {
-	pulumi.Input
-
-	ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput
-	ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput
-}
-
-type policyFileSharePtrType PolicyFileShareArgs
-
-func (*policyFileSharePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyFileShare)(nil))
-}
-
-func (i *policyFileSharePtrType) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
-	return i.ToPolicyFileSharePtrOutputWithContext(context.Background())
-}
-
-func (i *policyFileSharePtrType) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileSharePtrOutput)
 }
 
 // PolicyFileShareArrayInput is an input type that accepts PolicyFileShareArray and PolicyFileShareArrayOutput values.
@@ -362,7 +333,7 @@ func (i PolicyFileShareMap) ToPolicyFileShareMapOutputWithContext(ctx context.Co
 type PolicyFileShareOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyFileShare)(nil))
+	return reflect.TypeOf((**PolicyFileShare)(nil)).Elem()
 }
 
 func (o PolicyFileShareOutput) ToPolicyFileShareOutput() PolicyFileShareOutput {
@@ -373,44 +344,10 @@ func (o PolicyFileShareOutput) ToPolicyFileShareOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o PolicyFileShareOutput) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
-	return o.ToPolicyFileSharePtrOutputWithContext(context.Background())
-}
-
-func (o PolicyFileShareOutput) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShare) *PolicyFileShare {
-		return &v
-	}).(PolicyFileSharePtrOutput)
-}
-
-type PolicyFileSharePtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyFileSharePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyFileShare)(nil))
-}
-
-func (o PolicyFileSharePtrOutput) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
-	return o
-}
-
-func (o PolicyFileSharePtrOutput) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
-	return o
-}
-
-func (o PolicyFileSharePtrOutput) Elem() PolicyFileShareOutput {
-	return o.ApplyT(func(v *PolicyFileShare) PolicyFileShare {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyFileShare
-		return ret
-	}).(PolicyFileShareOutput)
-}
-
 type PolicyFileShareArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyFileShare)(nil))
+	return reflect.TypeOf((*[]*PolicyFileShare)(nil)).Elem()
 }
 
 func (o PolicyFileShareArrayOutput) ToPolicyFileShareArrayOutput() PolicyFileShareArrayOutput {
@@ -422,15 +359,15 @@ func (o PolicyFileShareArrayOutput) ToPolicyFileShareArrayOutputWithContext(ctx 
 }
 
 func (o PolicyFileShareArrayOutput) Index(i pulumi.IntInput) PolicyFileShareOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyFileShare {
-		return vs[0].([]PolicyFileShare)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyFileShare {
+		return vs[0].([]*PolicyFileShare)[vs[1].(int)]
 	}).(PolicyFileShareOutput)
 }
 
 type PolicyFileShareMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PolicyFileShare)(nil))
+	return reflect.TypeOf((*map[string]*PolicyFileShare)(nil)).Elem()
 }
 
 func (o PolicyFileShareMapOutput) ToPolicyFileShareMapOutput() PolicyFileShareMapOutput {
@@ -442,18 +379,16 @@ func (o PolicyFileShareMapOutput) ToPolicyFileShareMapOutputWithContext(ctx cont
 }
 
 func (o PolicyFileShareMapOutput) MapIndex(k pulumi.StringInput) PolicyFileShareOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyFileShare {
-		return vs[0].(map[string]PolicyFileShare)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PolicyFileShare {
+		return vs[0].(map[string]*PolicyFileShare)[vs[1].(string)]
 	}).(PolicyFileShareOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareInput)(nil)).Elem(), &PolicyFileShare{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileSharePtrInput)(nil)).Elem(), &PolicyFileShare{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareArrayInput)(nil)).Elem(), PolicyFileShareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareMapInput)(nil)).Elem(), PolicyFileShareMap{})
 	pulumi.RegisterOutputType(PolicyFileShareOutput{})
-	pulumi.RegisterOutputType(PolicyFileSharePtrOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareArrayOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareMapOutput{})
 }

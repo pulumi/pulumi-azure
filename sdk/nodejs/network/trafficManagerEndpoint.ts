@@ -183,27 +183,27 @@ export class TrafficManagerEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: TrafficManagerEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TrafficManagerEndpointArgs | TrafficManagerEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficManagerEndpointState | undefined;
-            inputs["customHeaders"] = state ? state.customHeaders : undefined;
-            inputs["endpointLocation"] = state ? state.endpointLocation : undefined;
-            inputs["endpointMonitorStatus"] = state ? state.endpointMonitorStatus : undefined;
-            inputs["endpointStatus"] = state ? state.endpointStatus : undefined;
-            inputs["geoMappings"] = state ? state.geoMappings : undefined;
-            inputs["minChildEndpoints"] = state ? state.minChildEndpoints : undefined;
-            inputs["minimumRequiredChildEndpointsIpv4"] = state ? state.minimumRequiredChildEndpointsIpv4 : undefined;
-            inputs["minimumRequiredChildEndpointsIpv6"] = state ? state.minimumRequiredChildEndpointsIpv6 : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["profileName"] = state ? state.profileName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subnets"] = state ? state.subnets : undefined;
-            inputs["target"] = state ? state.target : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["weight"] = state ? state.weight : undefined;
+            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
+            resourceInputs["endpointLocation"] = state ? state.endpointLocation : undefined;
+            resourceInputs["endpointMonitorStatus"] = state ? state.endpointMonitorStatus : undefined;
+            resourceInputs["endpointStatus"] = state ? state.endpointStatus : undefined;
+            resourceInputs["geoMappings"] = state ? state.geoMappings : undefined;
+            resourceInputs["minChildEndpoints"] = state ? state.minChildEndpoints : undefined;
+            resourceInputs["minimumRequiredChildEndpointsIpv4"] = state ? state.minimumRequiredChildEndpointsIpv4 : undefined;
+            resourceInputs["minimumRequiredChildEndpointsIpv6"] = state ? state.minimumRequiredChildEndpointsIpv6 : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["profileName"] = state ? state.profileName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subnets"] = state ? state.subnets : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["weight"] = state ? state.weight : undefined;
         } else {
             const args = argsOrState as TrafficManagerEndpointArgs | undefined;
             if ((!args || args.profileName === undefined) && !opts.urn) {
@@ -215,30 +215,28 @@ export class TrafficManagerEndpoint extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["customHeaders"] = args ? args.customHeaders : undefined;
-            inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
-            inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
-            inputs["geoMappings"] = args ? args.geoMappings : undefined;
-            inputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
-            inputs["minimumRequiredChildEndpointsIpv4"] = args ? args.minimumRequiredChildEndpointsIpv4 : undefined;
-            inputs["minimumRequiredChildEndpointsIpv6"] = args ? args.minimumRequiredChildEndpointsIpv6 : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["weight"] = args ? args.weight : undefined;
-            inputs["endpointMonitorStatus"] = undefined /*out*/;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
+            resourceInputs["endpointStatus"] = args ? args.endpointStatus : undefined;
+            resourceInputs["geoMappings"] = args ? args.geoMappings : undefined;
+            resourceInputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
+            resourceInputs["minimumRequiredChildEndpointsIpv4"] = args ? args.minimumRequiredChildEndpointsIpv4 : undefined;
+            resourceInputs["minimumRequiredChildEndpointsIpv6"] = args ? args.minimumRequiredChildEndpointsIpv6 : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["endpointMonitorStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:trafficmanager/endpoint:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TrafficManagerEndpoint.__pulumiType, name, inputs, opts);
+        super(TrafficManagerEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

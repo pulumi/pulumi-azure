@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -16,13 +15,13 @@ namespace Pulumi.Azure.Core
         /// Use this data source to access information about existing resources.
         /// </summary>
         public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing resources.
         /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

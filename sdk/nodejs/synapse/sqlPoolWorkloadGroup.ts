@@ -123,18 +123,18 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolWorkloadGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlPoolWorkloadGroupArgs | SqlPoolWorkloadGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlPoolWorkloadGroupState | undefined;
-            inputs["importance"] = state ? state.importance : undefined;
-            inputs["maxResourcePercent"] = state ? state.maxResourcePercent : undefined;
-            inputs["maxResourcePercentPerRequest"] = state ? state.maxResourcePercentPerRequest : undefined;
-            inputs["minResourcePercent"] = state ? state.minResourcePercent : undefined;
-            inputs["minResourcePercentPerRequest"] = state ? state.minResourcePercentPerRequest : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["queryExecutionTimeoutInSeconds"] = state ? state.queryExecutionTimeoutInSeconds : undefined;
-            inputs["sqlPoolId"] = state ? state.sqlPoolId : undefined;
+            resourceInputs["importance"] = state ? state.importance : undefined;
+            resourceInputs["maxResourcePercent"] = state ? state.maxResourcePercent : undefined;
+            resourceInputs["maxResourcePercentPerRequest"] = state ? state.maxResourcePercentPerRequest : undefined;
+            resourceInputs["minResourcePercent"] = state ? state.minResourcePercent : undefined;
+            resourceInputs["minResourcePercentPerRequest"] = state ? state.minResourcePercentPerRequest : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryExecutionTimeoutInSeconds"] = state ? state.queryExecutionTimeoutInSeconds : undefined;
+            resourceInputs["sqlPoolId"] = state ? state.sqlPoolId : undefined;
         } else {
             const args = argsOrState as SqlPoolWorkloadGroupArgs | undefined;
             if ((!args || args.maxResourcePercent === undefined) && !opts.urn) {
@@ -146,19 +146,17 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
             if ((!args || args.sqlPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolId'");
             }
-            inputs["importance"] = args ? args.importance : undefined;
-            inputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
-            inputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
-            inputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
-            inputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryExecutionTimeoutInSeconds"] = args ? args.queryExecutionTimeoutInSeconds : undefined;
-            inputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
+            resourceInputs["importance"] = args ? args.importance : undefined;
+            resourceInputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
+            resourceInputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
+            resourceInputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
+            resourceInputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryExecutionTimeoutInSeconds"] = args ? args.queryExecutionTimeoutInSeconds : undefined;
+            resourceInputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlPoolWorkloadGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

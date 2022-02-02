@@ -109,32 +109,30 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseExtendedAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseExtendedAuditingPolicyArgs | DatabaseExtendedAuditingPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseExtendedAuditingPolicyState | undefined;
-            inputs["databaseId"] = state ? state.databaseId : undefined;
-            inputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
-            inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            inputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
-            inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
+            resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
+            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
+            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
+            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as DatabaseExtendedAuditingPolicyArgs | undefined;
             if ((!args || args.databaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            inputs["databaseId"] = args ? args.databaseId : undefined;
-            inputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
+            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DatabaseExtendedAuditingPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DatabaseExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

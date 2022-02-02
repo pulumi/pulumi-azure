@@ -177,7 +177,7 @@ type ApiPolicyInput interface {
 }
 
 func (*ApiPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPolicy)(nil))
+	return reflect.TypeOf((**ApiPolicy)(nil)).Elem()
 }
 
 func (i *ApiPolicy) ToApiPolicyOutput() ApiPolicyOutput {
@@ -186,35 +186,6 @@ func (i *ApiPolicy) ToApiPolicyOutput() ApiPolicyOutput {
 
 func (i *ApiPolicy) ToApiPolicyOutputWithContext(ctx context.Context) ApiPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyOutput)
-}
-
-func (i *ApiPolicy) ToApiPolicyPtrOutput() ApiPolicyPtrOutput {
-	return i.ToApiPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiPolicy) ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyPtrOutput)
-}
-
-type ApiPolicyPtrInput interface {
-	pulumi.Input
-
-	ToApiPolicyPtrOutput() ApiPolicyPtrOutput
-	ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput
-}
-
-type apiPolicyPtrType ApiPolicyArgs
-
-func (*apiPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPolicy)(nil))
-}
-
-func (i *apiPolicyPtrType) ToApiPolicyPtrOutput() ApiPolicyPtrOutput {
-	return i.ToApiPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *apiPolicyPtrType) ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyPtrOutput)
 }
 
 // ApiPolicyArrayInput is an input type that accepts ApiPolicyArray and ApiPolicyArrayOutput values.
@@ -270,7 +241,7 @@ func (i ApiPolicyMap) ToApiPolicyMapOutputWithContext(ctx context.Context) ApiPo
 type ApiPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPolicy)(nil))
+	return reflect.TypeOf((**ApiPolicy)(nil)).Elem()
 }
 
 func (o ApiPolicyOutput) ToApiPolicyOutput() ApiPolicyOutput {
@@ -281,44 +252,10 @@ func (o ApiPolicyOutput) ToApiPolicyOutputWithContext(ctx context.Context) ApiPo
 	return o
 }
 
-func (o ApiPolicyOutput) ToApiPolicyPtrOutput() ApiPolicyPtrOutput {
-	return o.ToApiPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ApiPolicyOutput) ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPolicy) *ApiPolicy {
-		return &v
-	}).(ApiPolicyPtrOutput)
-}
-
-type ApiPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPolicy)(nil))
-}
-
-func (o ApiPolicyPtrOutput) ToApiPolicyPtrOutput() ApiPolicyPtrOutput {
-	return o
-}
-
-func (o ApiPolicyPtrOutput) ToApiPolicyPtrOutputWithContext(ctx context.Context) ApiPolicyPtrOutput {
-	return o
-}
-
-func (o ApiPolicyPtrOutput) Elem() ApiPolicyOutput {
-	return o.ApplyT(func(v *ApiPolicy) ApiPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ApiPolicy
-		return ret
-	}).(ApiPolicyOutput)
-}
-
 type ApiPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiPolicy)(nil))
+	return reflect.TypeOf((*[]*ApiPolicy)(nil)).Elem()
 }
 
 func (o ApiPolicyArrayOutput) ToApiPolicyArrayOutput() ApiPolicyArrayOutput {
@@ -330,15 +267,15 @@ func (o ApiPolicyArrayOutput) ToApiPolicyArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ApiPolicyArrayOutput) Index(i pulumi.IntInput) ApiPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiPolicy {
-		return vs[0].([]ApiPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiPolicy {
+		return vs[0].([]*ApiPolicy)[vs[1].(int)]
 	}).(ApiPolicyOutput)
 }
 
 type ApiPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ApiPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ApiPolicy)(nil)).Elem()
 }
 
 func (o ApiPolicyMapOutput) ToApiPolicyMapOutput() ApiPolicyMapOutput {
@@ -350,18 +287,16 @@ func (o ApiPolicyMapOutput) ToApiPolicyMapOutputWithContext(ctx context.Context)
 }
 
 func (o ApiPolicyMapOutput) MapIndex(k pulumi.StringInput) ApiPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiPolicy {
-		return vs[0].(map[string]ApiPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiPolicy {
+		return vs[0].(map[string]*ApiPolicy)[vs[1].(string)]
 	}).(ApiPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiPolicyInput)(nil)).Elem(), &ApiPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiPolicyPtrInput)(nil)).Elem(), &ApiPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiPolicyArrayInput)(nil)).Elem(), ApiPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiPolicyMapInput)(nil)).Elem(), ApiPolicyMap{})
 	pulumi.RegisterOutputType(ApiPolicyOutput{})
-	pulumi.RegisterOutputType(ApiPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ApiPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ApiPolicyMapOutput{})
 }

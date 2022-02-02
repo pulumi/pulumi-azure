@@ -391,7 +391,7 @@ type AppServiceInput interface {
 }
 
 func (*AppService) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppService)(nil))
+	return reflect.TypeOf((**AppService)(nil)).Elem()
 }
 
 func (i *AppService) ToAppServiceOutput() AppServiceOutput {
@@ -400,35 +400,6 @@ func (i *AppService) ToAppServiceOutput() AppServiceOutput {
 
 func (i *AppService) ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceOutput)
-}
-
-func (i *AppService) ToAppServicePtrOutput() AppServicePtrOutput {
-	return i.ToAppServicePtrOutputWithContext(context.Background())
-}
-
-func (i *AppService) ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServicePtrOutput)
-}
-
-type AppServicePtrInput interface {
-	pulumi.Input
-
-	ToAppServicePtrOutput() AppServicePtrOutput
-	ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput
-}
-
-type appServicePtrType AppServiceArgs
-
-func (*appServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppService)(nil))
-}
-
-func (i *appServicePtrType) ToAppServicePtrOutput() AppServicePtrOutput {
-	return i.ToAppServicePtrOutputWithContext(context.Background())
-}
-
-func (i *appServicePtrType) ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServicePtrOutput)
 }
 
 // AppServiceArrayInput is an input type that accepts AppServiceArray and AppServiceArrayOutput values.
@@ -484,7 +455,7 @@ func (i AppServiceMap) ToAppServiceMapOutputWithContext(ctx context.Context) App
 type AppServiceOutput struct{ *pulumi.OutputState }
 
 func (AppServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppService)(nil))
+	return reflect.TypeOf((**AppService)(nil)).Elem()
 }
 
 func (o AppServiceOutput) ToAppServiceOutput() AppServiceOutput {
@@ -495,44 +466,10 @@ func (o AppServiceOutput) ToAppServiceOutputWithContext(ctx context.Context) App
 	return o
 }
 
-func (o AppServiceOutput) ToAppServicePtrOutput() AppServicePtrOutput {
-	return o.ToAppServicePtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceOutput) ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppService) *AppService {
-		return &v
-	}).(AppServicePtrOutput)
-}
-
-type AppServicePtrOutput struct{ *pulumi.OutputState }
-
-func (AppServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppService)(nil))
-}
-
-func (o AppServicePtrOutput) ToAppServicePtrOutput() AppServicePtrOutput {
-	return o
-}
-
-func (o AppServicePtrOutput) ToAppServicePtrOutputWithContext(ctx context.Context) AppServicePtrOutput {
-	return o
-}
-
-func (o AppServicePtrOutput) Elem() AppServiceOutput {
-	return o.ApplyT(func(v *AppService) AppService {
-		if v != nil {
-			return *v
-		}
-		var ret AppService
-		return ret
-	}).(AppServiceOutput)
-}
-
 type AppServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (AppServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppService)(nil))
+	return reflect.TypeOf((*[]*AppService)(nil)).Elem()
 }
 
 func (o AppServiceArrayOutput) ToAppServiceArrayOutput() AppServiceArrayOutput {
@@ -544,15 +481,15 @@ func (o AppServiceArrayOutput) ToAppServiceArrayOutputWithContext(ctx context.Co
 }
 
 func (o AppServiceArrayOutput) Index(i pulumi.IntInput) AppServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppService {
-		return vs[0].([]AppService)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppService {
+		return vs[0].([]*AppService)[vs[1].(int)]
 	}).(AppServiceOutput)
 }
 
 type AppServiceMapOutput struct{ *pulumi.OutputState }
 
 func (AppServiceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppService)(nil))
+	return reflect.TypeOf((*map[string]*AppService)(nil)).Elem()
 }
 
 func (o AppServiceMapOutput) ToAppServiceMapOutput() AppServiceMapOutput {
@@ -564,18 +501,16 @@ func (o AppServiceMapOutput) ToAppServiceMapOutputWithContext(ctx context.Contex
 }
 
 func (o AppServiceMapOutput) MapIndex(k pulumi.StringInput) AppServiceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppService {
-		return vs[0].(map[string]AppService)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AppService {
+		return vs[0].(map[string]*AppService)[vs[1].(string)]
 	}).(AppServiceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceInput)(nil)).Elem(), &AppService{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppServicePtrInput)(nil)).Elem(), &AppService{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceArrayInput)(nil)).Elem(), AppServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppServiceMapInput)(nil)).Elem(), AppServiceMap{})
 	pulumi.RegisterOutputType(AppServiceOutput{})
-	pulumi.RegisterOutputType(AppServicePtrOutput{})
 	pulumi.RegisterOutputType(AppServiceArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceMapOutput{})
 }

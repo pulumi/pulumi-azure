@@ -250,8 +250,8 @@ def get_public_ip(name: Optional[str] = None,
         resource_group_name=example_resource_group.name,
         network_interface_ids=[example_network_interface.id])
     # ...
-    example_public_ip = pulumi.Output.all(example_public_ip.name, example_virtual_machine.resource_group_name).apply(lambda name, resource_group_name: azure.network.get_public_ip(name=name,
-        resource_group_name=resource_group_name))
+    example_public_ip = azure.network.get_public_ip_output(name=example_public_ip.name,
+        resource_group_name=example_virtual_machine.resource_group_name)
     pulumi.export("publicIpAddress", example_public_ip.ip_address)
     ```
 
@@ -346,8 +346,8 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name=example_resource_group.name,
         network_interface_ids=[example_network_interface.id])
     # ...
-    example_public_ip = pulumi.Output.all(example_public_ip.name, example_virtual_machine.resource_group_name).apply(lambda name, resource_group_name: azure.network.get_public_ip(name=name,
-        resource_group_name=resource_group_name))
+    example_public_ip = azure.network.get_public_ip_output(name=example_public_ip.name,
+        resource_group_name=example_virtual_machine.resource_group_name)
     pulumi.export("publicIpAddress", example_public_ip.ip_address)
     ```
 

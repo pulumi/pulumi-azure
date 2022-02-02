@@ -206,7 +206,7 @@ type MxRecordInput interface {
 }
 
 func (*MxRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*MxRecord)(nil))
+	return reflect.TypeOf((**MxRecord)(nil)).Elem()
 }
 
 func (i *MxRecord) ToMxRecordOutput() MxRecordOutput {
@@ -215,35 +215,6 @@ func (i *MxRecord) ToMxRecordOutput() MxRecordOutput {
 
 func (i *MxRecord) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordOutput)
-}
-
-func (i *MxRecord) ToMxRecordPtrOutput() MxRecordPtrOutput {
-	return i.ToMxRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *MxRecord) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MxRecordPtrOutput)
-}
-
-type MxRecordPtrInput interface {
-	pulumi.Input
-
-	ToMxRecordPtrOutput() MxRecordPtrOutput
-	ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput
-}
-
-type mxRecordPtrType MxRecordArgs
-
-func (*mxRecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MxRecord)(nil))
-}
-
-func (i *mxRecordPtrType) ToMxRecordPtrOutput() MxRecordPtrOutput {
-	return i.ToMxRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *mxRecordPtrType) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MxRecordPtrOutput)
 }
 
 // MxRecordArrayInput is an input type that accepts MxRecordArray and MxRecordArrayOutput values.
@@ -299,7 +270,7 @@ func (i MxRecordMap) ToMxRecordMapOutputWithContext(ctx context.Context) MxRecor
 type MxRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MxRecord)(nil))
+	return reflect.TypeOf((**MxRecord)(nil)).Elem()
 }
 
 func (o MxRecordOutput) ToMxRecordOutput() MxRecordOutput {
@@ -310,44 +281,10 @@ func (o MxRecordOutput) ToMxRecordOutputWithContext(ctx context.Context) MxRecor
 	return o
 }
 
-func (o MxRecordOutput) ToMxRecordPtrOutput() MxRecordPtrOutput {
-	return o.ToMxRecordPtrOutputWithContext(context.Background())
-}
-
-func (o MxRecordOutput) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MxRecord) *MxRecord {
-		return &v
-	}).(MxRecordPtrOutput)
-}
-
-type MxRecordPtrOutput struct{ *pulumi.OutputState }
-
-func (MxRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MxRecord)(nil))
-}
-
-func (o MxRecordPtrOutput) ToMxRecordPtrOutput() MxRecordPtrOutput {
-	return o
-}
-
-func (o MxRecordPtrOutput) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
-	return o
-}
-
-func (o MxRecordPtrOutput) Elem() MxRecordOutput {
-	return o.ApplyT(func(v *MxRecord) MxRecord {
-		if v != nil {
-			return *v
-		}
-		var ret MxRecord
-		return ret
-	}).(MxRecordOutput)
-}
-
 type MxRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (MxRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MxRecord)(nil))
+	return reflect.TypeOf((*[]*MxRecord)(nil)).Elem()
 }
 
 func (o MxRecordArrayOutput) ToMxRecordArrayOutput() MxRecordArrayOutput {
@@ -359,15 +296,15 @@ func (o MxRecordArrayOutput) ToMxRecordArrayOutputWithContext(ctx context.Contex
 }
 
 func (o MxRecordArrayOutput) Index(i pulumi.IntInput) MxRecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MxRecord {
-		return vs[0].([]MxRecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MxRecord {
+		return vs[0].([]*MxRecord)[vs[1].(int)]
 	}).(MxRecordOutput)
 }
 
 type MxRecordMapOutput struct{ *pulumi.OutputState }
 
 func (MxRecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MxRecord)(nil))
+	return reflect.TypeOf((*map[string]*MxRecord)(nil)).Elem()
 }
 
 func (o MxRecordMapOutput) ToMxRecordMapOutput() MxRecordMapOutput {
@@ -379,18 +316,16 @@ func (o MxRecordMapOutput) ToMxRecordMapOutputWithContext(ctx context.Context) M
 }
 
 func (o MxRecordMapOutput) MapIndex(k pulumi.StringInput) MxRecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MxRecord {
-		return vs[0].(map[string]MxRecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MxRecord {
+		return vs[0].(map[string]*MxRecord)[vs[1].(string)]
 	}).(MxRecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordInput)(nil)).Elem(), &MxRecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordPtrInput)(nil)).Elem(), &MxRecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordArrayInput)(nil)).Elem(), MxRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordMapInput)(nil)).Elem(), MxRecordMap{})
 	pulumi.RegisterOutputType(MxRecordOutput{})
-	pulumi.RegisterOutputType(MxRecordPtrOutput{})
 	pulumi.RegisterOutputType(MxRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordMapOutput{})
 }

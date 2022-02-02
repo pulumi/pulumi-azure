@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.CosmosDB
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMongoDatabaseResult> InvokeAsync(GetMongoDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB Mongo Database.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMongoDatabaseResult> Invoke(GetMongoDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

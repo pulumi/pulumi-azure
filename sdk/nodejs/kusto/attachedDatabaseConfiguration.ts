@@ -141,19 +141,19 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: AttachedDatabaseConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AttachedDatabaseConfigurationArgs | AttachedDatabaseConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachedDatabaseConfigurationState | undefined;
-            inputs["attachedDatabaseNames"] = state ? state.attachedDatabaseNames : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["defaultPrincipalModificationKind"] = state ? state.defaultPrincipalModificationKind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sharing"] = state ? state.sharing : undefined;
+            resourceInputs["attachedDatabaseNames"] = state ? state.attachedDatabaseNames : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["defaultPrincipalModificationKind"] = state ? state.defaultPrincipalModificationKind : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sharing"] = state ? state.sharing : undefined;
         } else {
             const args = argsOrState as AttachedDatabaseConfigurationArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -168,20 +168,18 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["defaultPrincipalModificationKind"] = args ? args.defaultPrincipalModificationKind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharing"] = args ? args.sharing : undefined;
-            inputs["attachedDatabaseNames"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["defaultPrincipalModificationKind"] = args ? args.defaultPrincipalModificationKind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharing"] = args ? args.sharing : undefined;
+            resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

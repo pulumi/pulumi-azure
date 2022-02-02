@@ -34,17 +34,17 @@ namespace Pulumi.Azure.KeyVault
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///         });
-    ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+    ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
     ///         {
-    ///             ConnectionString = primaryConnectionString,
+    ///             ConnectionString = exampleAccount.PrimaryConnectionString,
     ///             HttpsOnly = true,
-    ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+    ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
     ///             {
     ///                 Service = true,
     ///                 Container = false,
     ///                 Object = false,
     ///             },
-    ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+    ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
     ///             {
     ///                 Blob = true,
     ///                 Queue = false,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.KeyVault
     ///             },
     ///             Start = "2021-04-30T00:00:00Z",
     ///             Expiry = "2023-04-30T00:00:00Z",
-    ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+    ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
     ///             {
     ///                 Read = true,
     ///                 Write = true,
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.KeyVault
     ///                 Update = false,
     ///                 Process = false,
     ///             },
-    ///         }));
+    ///         });
     ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,

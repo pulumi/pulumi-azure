@@ -26,9 +26,7 @@ export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<Get
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:lb/getLB:getLB", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

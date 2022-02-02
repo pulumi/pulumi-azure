@@ -169,7 +169,7 @@ type FlexibleServerDatabaseInput interface {
 }
 
 func (*FlexibleServerDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlexibleServerDatabase)(nil))
+	return reflect.TypeOf((**FlexibleServerDatabase)(nil)).Elem()
 }
 
 func (i *FlexibleServerDatabase) ToFlexibleServerDatabaseOutput() FlexibleServerDatabaseOutput {
@@ -178,35 +178,6 @@ func (i *FlexibleServerDatabase) ToFlexibleServerDatabaseOutput() FlexibleServer
 
 func (i *FlexibleServerDatabase) ToFlexibleServerDatabaseOutputWithContext(ctx context.Context) FlexibleServerDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerDatabaseOutput)
-}
-
-func (i *FlexibleServerDatabase) ToFlexibleServerDatabasePtrOutput() FlexibleServerDatabasePtrOutput {
-	return i.ToFlexibleServerDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *FlexibleServerDatabase) ToFlexibleServerDatabasePtrOutputWithContext(ctx context.Context) FlexibleServerDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerDatabasePtrOutput)
-}
-
-type FlexibleServerDatabasePtrInput interface {
-	pulumi.Input
-
-	ToFlexibleServerDatabasePtrOutput() FlexibleServerDatabasePtrOutput
-	ToFlexibleServerDatabasePtrOutputWithContext(ctx context.Context) FlexibleServerDatabasePtrOutput
-}
-
-type flexibleServerDatabasePtrType FlexibleServerDatabaseArgs
-
-func (*flexibleServerDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlexibleServerDatabase)(nil))
-}
-
-func (i *flexibleServerDatabasePtrType) ToFlexibleServerDatabasePtrOutput() FlexibleServerDatabasePtrOutput {
-	return i.ToFlexibleServerDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *flexibleServerDatabasePtrType) ToFlexibleServerDatabasePtrOutputWithContext(ctx context.Context) FlexibleServerDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerDatabasePtrOutput)
 }
 
 // FlexibleServerDatabaseArrayInput is an input type that accepts FlexibleServerDatabaseArray and FlexibleServerDatabaseArrayOutput values.
@@ -262,7 +233,7 @@ func (i FlexibleServerDatabaseMap) ToFlexibleServerDatabaseMapOutputWithContext(
 type FlexibleServerDatabaseOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlexibleServerDatabase)(nil))
+	return reflect.TypeOf((**FlexibleServerDatabase)(nil)).Elem()
 }
 
 func (o FlexibleServerDatabaseOutput) ToFlexibleServerDatabaseOutput() FlexibleServerDatabaseOutput {
@@ -273,44 +244,10 @@ func (o FlexibleServerDatabaseOutput) ToFlexibleServerDatabaseOutputWithContext(
 	return o
 }
 
-func (o FlexibleServerDatabaseOutput) ToFlexibleServerDatabasePtrOutput() FlexibleServerDatabasePtrOutput {
-	return o.ToFlexibleServerDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o FlexibleServerDatabaseOutput) ToFlexibleServerDatabasePtrOutputWithContext(ctx context.Context) FlexibleServerDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerDatabase) *FlexibleServerDatabase {
-		return &v
-	}).(FlexibleServerDatabasePtrOutput)
-}
-
-type FlexibleServerDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (FlexibleServerDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlexibleServerDatabase)(nil))
-}
-
-func (o FlexibleServerDatabasePtrOutput) ToFlexibleServerDatabasePtrOutput() FlexibleServerDatabasePtrOutput {
-	return o
-}
-
-func (o FlexibleServerDatabasePtrOutput) ToFlexibleServerDatabasePtrOutputWithContext(ctx context.Context) FlexibleServerDatabasePtrOutput {
-	return o
-}
-
-func (o FlexibleServerDatabasePtrOutput) Elem() FlexibleServerDatabaseOutput {
-	return o.ApplyT(func(v *FlexibleServerDatabase) FlexibleServerDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret FlexibleServerDatabase
-		return ret
-	}).(FlexibleServerDatabaseOutput)
-}
-
 type FlexibleServerDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlexibleServerDatabase)(nil))
+	return reflect.TypeOf((*[]*FlexibleServerDatabase)(nil)).Elem()
 }
 
 func (o FlexibleServerDatabaseArrayOutput) ToFlexibleServerDatabaseArrayOutput() FlexibleServerDatabaseArrayOutput {
@@ -322,15 +259,15 @@ func (o FlexibleServerDatabaseArrayOutput) ToFlexibleServerDatabaseArrayOutputWi
 }
 
 func (o FlexibleServerDatabaseArrayOutput) Index(i pulumi.IntInput) FlexibleServerDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlexibleServerDatabase {
-		return vs[0].([]FlexibleServerDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServerDatabase {
+		return vs[0].([]*FlexibleServerDatabase)[vs[1].(int)]
 	}).(FlexibleServerDatabaseOutput)
 }
 
 type FlexibleServerDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FlexibleServerDatabase)(nil))
+	return reflect.TypeOf((*map[string]*FlexibleServerDatabase)(nil)).Elem()
 }
 
 func (o FlexibleServerDatabaseMapOutput) ToFlexibleServerDatabaseMapOutput() FlexibleServerDatabaseMapOutput {
@@ -342,18 +279,16 @@ func (o FlexibleServerDatabaseMapOutput) ToFlexibleServerDatabaseMapOutputWithCo
 }
 
 func (o FlexibleServerDatabaseMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FlexibleServerDatabase {
-		return vs[0].(map[string]FlexibleServerDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FlexibleServerDatabase {
+		return vs[0].(map[string]*FlexibleServerDatabase)[vs[1].(string)]
 	}).(FlexibleServerDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabaseInput)(nil)).Elem(), &FlexibleServerDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabasePtrInput)(nil)).Elem(), &FlexibleServerDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabaseArrayInput)(nil)).Elem(), FlexibleServerDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabaseMapInput)(nil)).Elem(), FlexibleServerDatabaseMap{})
 	pulumi.RegisterOutputType(FlexibleServerDatabaseOutput{})
-	pulumi.RegisterOutputType(FlexibleServerDatabasePtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(FlexibleServerDatabaseMapOutput{})
 }

@@ -312,7 +312,7 @@ type EventhubDataConnectionInput interface {
 }
 
 func (*EventhubDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventhubDataConnection)(nil))
+	return reflect.TypeOf((**EventhubDataConnection)(nil)).Elem()
 }
 
 func (i *EventhubDataConnection) ToEventhubDataConnectionOutput() EventhubDataConnectionOutput {
@@ -321,35 +321,6 @@ func (i *EventhubDataConnection) ToEventhubDataConnectionOutput() EventhubDataCo
 
 func (i *EventhubDataConnection) ToEventhubDataConnectionOutputWithContext(ctx context.Context) EventhubDataConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionOutput)
-}
-
-func (i *EventhubDataConnection) ToEventhubDataConnectionPtrOutput() EventhubDataConnectionPtrOutput {
-	return i.ToEventhubDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *EventhubDataConnection) ToEventhubDataConnectionPtrOutputWithContext(ctx context.Context) EventhubDataConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionPtrOutput)
-}
-
-type EventhubDataConnectionPtrInput interface {
-	pulumi.Input
-
-	ToEventhubDataConnectionPtrOutput() EventhubDataConnectionPtrOutput
-	ToEventhubDataConnectionPtrOutputWithContext(ctx context.Context) EventhubDataConnectionPtrOutput
-}
-
-type eventhubDataConnectionPtrType EventhubDataConnectionArgs
-
-func (*eventhubDataConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventhubDataConnection)(nil))
-}
-
-func (i *eventhubDataConnectionPtrType) ToEventhubDataConnectionPtrOutput() EventhubDataConnectionPtrOutput {
-	return i.ToEventhubDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *eventhubDataConnectionPtrType) ToEventhubDataConnectionPtrOutputWithContext(ctx context.Context) EventhubDataConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionPtrOutput)
 }
 
 // EventhubDataConnectionArrayInput is an input type that accepts EventhubDataConnectionArray and EventhubDataConnectionArrayOutput values.
@@ -405,7 +376,7 @@ func (i EventhubDataConnectionMap) ToEventhubDataConnectionMapOutputWithContext(
 type EventhubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventhubDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventhubDataConnection)(nil))
+	return reflect.TypeOf((**EventhubDataConnection)(nil)).Elem()
 }
 
 func (o EventhubDataConnectionOutput) ToEventhubDataConnectionOutput() EventhubDataConnectionOutput {
@@ -416,44 +387,10 @@ func (o EventhubDataConnectionOutput) ToEventhubDataConnectionOutputWithContext(
 	return o
 }
 
-func (o EventhubDataConnectionOutput) ToEventhubDataConnectionPtrOutput() EventhubDataConnectionPtrOutput {
-	return o.ToEventhubDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o EventhubDataConnectionOutput) ToEventhubDataConnectionPtrOutputWithContext(ctx context.Context) EventhubDataConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventhubDataConnection) *EventhubDataConnection {
-		return &v
-	}).(EventhubDataConnectionPtrOutput)
-}
-
-type EventhubDataConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (EventhubDataConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventhubDataConnection)(nil))
-}
-
-func (o EventhubDataConnectionPtrOutput) ToEventhubDataConnectionPtrOutput() EventhubDataConnectionPtrOutput {
-	return o
-}
-
-func (o EventhubDataConnectionPtrOutput) ToEventhubDataConnectionPtrOutputWithContext(ctx context.Context) EventhubDataConnectionPtrOutput {
-	return o
-}
-
-func (o EventhubDataConnectionPtrOutput) Elem() EventhubDataConnectionOutput {
-	return o.ApplyT(func(v *EventhubDataConnection) EventhubDataConnection {
-		if v != nil {
-			return *v
-		}
-		var ret EventhubDataConnection
-		return ret
-	}).(EventhubDataConnectionOutput)
-}
-
 type EventhubDataConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (EventhubDataConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventhubDataConnection)(nil))
+	return reflect.TypeOf((*[]*EventhubDataConnection)(nil)).Elem()
 }
 
 func (o EventhubDataConnectionArrayOutput) ToEventhubDataConnectionArrayOutput() EventhubDataConnectionArrayOutput {
@@ -465,15 +402,15 @@ func (o EventhubDataConnectionArrayOutput) ToEventhubDataConnectionArrayOutputWi
 }
 
 func (o EventhubDataConnectionArrayOutput) Index(i pulumi.IntInput) EventhubDataConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventhubDataConnection {
-		return vs[0].([]EventhubDataConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventhubDataConnection {
+		return vs[0].([]*EventhubDataConnection)[vs[1].(int)]
 	}).(EventhubDataConnectionOutput)
 }
 
 type EventhubDataConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (EventhubDataConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventhubDataConnection)(nil))
+	return reflect.TypeOf((*map[string]*EventhubDataConnection)(nil)).Elem()
 }
 
 func (o EventhubDataConnectionMapOutput) ToEventhubDataConnectionMapOutput() EventhubDataConnectionMapOutput {
@@ -485,18 +422,16 @@ func (o EventhubDataConnectionMapOutput) ToEventhubDataConnectionMapOutputWithCo
 }
 
 func (o EventhubDataConnectionMapOutput) MapIndex(k pulumi.StringInput) EventhubDataConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventhubDataConnection {
-		return vs[0].(map[string]EventhubDataConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventhubDataConnection {
+		return vs[0].(map[string]*EventhubDataConnection)[vs[1].(string)]
 	}).(EventhubDataConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionInput)(nil)).Elem(), &EventhubDataConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionPtrInput)(nil)).Elem(), &EventhubDataConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionArrayInput)(nil)).Elem(), EventhubDataConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionMapInput)(nil)).Elem(), EventhubDataConnectionMap{})
 	pulumi.RegisterOutputType(EventhubDataConnectionOutput{})
-	pulumi.RegisterOutputType(EventhubDataConnectionPtrOutput{})
 	pulumi.RegisterOutputType(EventhubDataConnectionArrayOutput{})
 	pulumi.RegisterOutputType(EventhubDataConnectionMapOutput{})
 }

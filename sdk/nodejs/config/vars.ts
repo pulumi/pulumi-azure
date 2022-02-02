@@ -174,7 +174,7 @@ Object.defineProperty(exports, "skipCredentialsValidation", {
 export declare const skipProviderRegistration: boolean;
 Object.defineProperty(exports, "skipProviderRegistration", {
     get() {
-        return __config.getObject<boolean>("skipProviderRegistration") ?? (<any>utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
+        return __config.getObject<boolean>("skipProviderRegistration") ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
     },
     enumerable: true,
 });
@@ -185,7 +185,7 @@ Object.defineProperty(exports, "skipProviderRegistration", {
 export declare const storageUseAzuread: boolean;
 Object.defineProperty(exports, "storageUseAzuread", {
     get() {
-        return __config.getObject<boolean>("storageUseAzuread") ?? (<any>utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false);
+        return __config.getObject<boolean>("storageUseAzuread") ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false);
     },
     enumerable: true,
 });

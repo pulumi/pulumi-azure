@@ -211,7 +211,7 @@ type DatasetKustoDatabaseInput interface {
 }
 
 func (*DatasetKustoDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetKustoDatabase)(nil))
+	return reflect.TypeOf((**DatasetKustoDatabase)(nil)).Elem()
 }
 
 func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {
@@ -220,35 +220,6 @@ func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutput() DatasetKustoDataba
 
 func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabaseOutput)
-}
-
-func (i *DatasetKustoDatabase) ToDatasetKustoDatabasePtrOutput() DatasetKustoDatabasePtrOutput {
-	return i.ToDatasetKustoDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetKustoDatabase) ToDatasetKustoDatabasePtrOutputWithContext(ctx context.Context) DatasetKustoDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabasePtrOutput)
-}
-
-type DatasetKustoDatabasePtrInput interface {
-	pulumi.Input
-
-	ToDatasetKustoDatabasePtrOutput() DatasetKustoDatabasePtrOutput
-	ToDatasetKustoDatabasePtrOutputWithContext(ctx context.Context) DatasetKustoDatabasePtrOutput
-}
-
-type datasetKustoDatabasePtrType DatasetKustoDatabaseArgs
-
-func (*datasetKustoDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetKustoDatabase)(nil))
-}
-
-func (i *datasetKustoDatabasePtrType) ToDatasetKustoDatabasePtrOutput() DatasetKustoDatabasePtrOutput {
-	return i.ToDatasetKustoDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *datasetKustoDatabasePtrType) ToDatasetKustoDatabasePtrOutputWithContext(ctx context.Context) DatasetKustoDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabasePtrOutput)
 }
 
 // DatasetKustoDatabaseArrayInput is an input type that accepts DatasetKustoDatabaseArray and DatasetKustoDatabaseArrayOutput values.
@@ -304,7 +275,7 @@ func (i DatasetKustoDatabaseMap) ToDatasetKustoDatabaseMapOutputWithContext(ctx 
 type DatasetKustoDatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatasetKustoDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetKustoDatabase)(nil))
+	return reflect.TypeOf((**DatasetKustoDatabase)(nil)).Elem()
 }
 
 func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {
@@ -315,44 +286,10 @@ func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutputWithContext(ctx 
 	return o
 }
 
-func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabasePtrOutput() DatasetKustoDatabasePtrOutput {
-	return o.ToDatasetKustoDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabasePtrOutputWithContext(ctx context.Context) DatasetKustoDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetKustoDatabase) *DatasetKustoDatabase {
-		return &v
-	}).(DatasetKustoDatabasePtrOutput)
-}
-
-type DatasetKustoDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetKustoDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetKustoDatabase)(nil))
-}
-
-func (o DatasetKustoDatabasePtrOutput) ToDatasetKustoDatabasePtrOutput() DatasetKustoDatabasePtrOutput {
-	return o
-}
-
-func (o DatasetKustoDatabasePtrOutput) ToDatasetKustoDatabasePtrOutputWithContext(ctx context.Context) DatasetKustoDatabasePtrOutput {
-	return o
-}
-
-func (o DatasetKustoDatabasePtrOutput) Elem() DatasetKustoDatabaseOutput {
-	return o.ApplyT(func(v *DatasetKustoDatabase) DatasetKustoDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetKustoDatabase
-		return ret
-	}).(DatasetKustoDatabaseOutput)
-}
-
 type DatasetKustoDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetKustoDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetKustoDatabase)(nil))
+	return reflect.TypeOf((*[]*DatasetKustoDatabase)(nil)).Elem()
 }
 
 func (o DatasetKustoDatabaseArrayOutput) ToDatasetKustoDatabaseArrayOutput() DatasetKustoDatabaseArrayOutput {
@@ -364,15 +301,15 @@ func (o DatasetKustoDatabaseArrayOutput) ToDatasetKustoDatabaseArrayOutputWithCo
 }
 
 func (o DatasetKustoDatabaseArrayOutput) Index(i pulumi.IntInput) DatasetKustoDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetKustoDatabase {
-		return vs[0].([]DatasetKustoDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetKustoDatabase {
+		return vs[0].([]*DatasetKustoDatabase)[vs[1].(int)]
 	}).(DatasetKustoDatabaseOutput)
 }
 
 type DatasetKustoDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetKustoDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetKustoDatabase)(nil))
+	return reflect.TypeOf((*map[string]*DatasetKustoDatabase)(nil)).Elem()
 }
 
 func (o DatasetKustoDatabaseMapOutput) ToDatasetKustoDatabaseMapOutput() DatasetKustoDatabaseMapOutput {
@@ -384,18 +321,16 @@ func (o DatasetKustoDatabaseMapOutput) ToDatasetKustoDatabaseMapOutputWithContex
 }
 
 func (o DatasetKustoDatabaseMapOutput) MapIndex(k pulumi.StringInput) DatasetKustoDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetKustoDatabase {
-		return vs[0].(map[string]DatasetKustoDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetKustoDatabase {
+		return vs[0].(map[string]*DatasetKustoDatabase)[vs[1].(string)]
 	}).(DatasetKustoDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoDatabaseInput)(nil)).Elem(), &DatasetKustoDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoDatabasePtrInput)(nil)).Elem(), &DatasetKustoDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoDatabaseArrayInput)(nil)).Elem(), DatasetKustoDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoDatabaseMapInput)(nil)).Elem(), DatasetKustoDatabaseMap{})
 	pulumi.RegisterOutputType(DatasetKustoDatabaseOutput{})
-	pulumi.RegisterOutputType(DatasetKustoDatabasePtrOutput{})
 	pulumi.RegisterOutputType(DatasetKustoDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(DatasetKustoDatabaseMapOutput{})
 }

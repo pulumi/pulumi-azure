@@ -244,7 +244,7 @@ type AuthomationRuleInput interface {
 }
 
 func (*AuthomationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthomationRule)(nil))
+	return reflect.TypeOf((**AuthomationRule)(nil)).Elem()
 }
 
 func (i *AuthomationRule) ToAuthomationRuleOutput() AuthomationRuleOutput {
@@ -253,35 +253,6 @@ func (i *AuthomationRule) ToAuthomationRuleOutput() AuthomationRuleOutput {
 
 func (i *AuthomationRule) ToAuthomationRuleOutputWithContext(ctx context.Context) AuthomationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleOutput)
-}
-
-func (i *AuthomationRule) ToAuthomationRulePtrOutput() AuthomationRulePtrOutput {
-	return i.ToAuthomationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *AuthomationRule) ToAuthomationRulePtrOutputWithContext(ctx context.Context) AuthomationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRulePtrOutput)
-}
-
-type AuthomationRulePtrInput interface {
-	pulumi.Input
-
-	ToAuthomationRulePtrOutput() AuthomationRulePtrOutput
-	ToAuthomationRulePtrOutputWithContext(ctx context.Context) AuthomationRulePtrOutput
-}
-
-type authomationRulePtrType AuthomationRuleArgs
-
-func (*authomationRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthomationRule)(nil))
-}
-
-func (i *authomationRulePtrType) ToAuthomationRulePtrOutput() AuthomationRulePtrOutput {
-	return i.ToAuthomationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *authomationRulePtrType) ToAuthomationRulePtrOutputWithContext(ctx context.Context) AuthomationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRulePtrOutput)
 }
 
 // AuthomationRuleArrayInput is an input type that accepts AuthomationRuleArray and AuthomationRuleArrayOutput values.
@@ -337,7 +308,7 @@ func (i AuthomationRuleMap) ToAuthomationRuleMapOutputWithContext(ctx context.Co
 type AuthomationRuleOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthomationRule)(nil))
+	return reflect.TypeOf((**AuthomationRule)(nil)).Elem()
 }
 
 func (o AuthomationRuleOutput) ToAuthomationRuleOutput() AuthomationRuleOutput {
@@ -348,44 +319,10 @@ func (o AuthomationRuleOutput) ToAuthomationRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AuthomationRuleOutput) ToAuthomationRulePtrOutput() AuthomationRulePtrOutput {
-	return o.ToAuthomationRulePtrOutputWithContext(context.Background())
-}
-
-func (o AuthomationRuleOutput) ToAuthomationRulePtrOutputWithContext(ctx context.Context) AuthomationRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthomationRule) *AuthomationRule {
-		return &v
-	}).(AuthomationRulePtrOutput)
-}
-
-type AuthomationRulePtrOutput struct{ *pulumi.OutputState }
-
-func (AuthomationRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthomationRule)(nil))
-}
-
-func (o AuthomationRulePtrOutput) ToAuthomationRulePtrOutput() AuthomationRulePtrOutput {
-	return o
-}
-
-func (o AuthomationRulePtrOutput) ToAuthomationRulePtrOutputWithContext(ctx context.Context) AuthomationRulePtrOutput {
-	return o
-}
-
-func (o AuthomationRulePtrOutput) Elem() AuthomationRuleOutput {
-	return o.ApplyT(func(v *AuthomationRule) AuthomationRule {
-		if v != nil {
-			return *v
-		}
-		var ret AuthomationRule
-		return ret
-	}).(AuthomationRuleOutput)
-}
-
 type AuthomationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AuthomationRule)(nil))
+	return reflect.TypeOf((*[]*AuthomationRule)(nil)).Elem()
 }
 
 func (o AuthomationRuleArrayOutput) ToAuthomationRuleArrayOutput() AuthomationRuleArrayOutput {
@@ -397,15 +334,15 @@ func (o AuthomationRuleArrayOutput) ToAuthomationRuleArrayOutputWithContext(ctx 
 }
 
 func (o AuthomationRuleArrayOutput) Index(i pulumi.IntInput) AuthomationRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthomationRule {
-		return vs[0].([]AuthomationRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthomationRule {
+		return vs[0].([]*AuthomationRule)[vs[1].(int)]
 	}).(AuthomationRuleOutput)
 }
 
 type AuthomationRuleMapOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AuthomationRule)(nil))
+	return reflect.TypeOf((*map[string]*AuthomationRule)(nil)).Elem()
 }
 
 func (o AuthomationRuleMapOutput) ToAuthomationRuleMapOutput() AuthomationRuleMapOutput {
@@ -417,18 +354,16 @@ func (o AuthomationRuleMapOutput) ToAuthomationRuleMapOutputWithContext(ctx cont
 }
 
 func (o AuthomationRuleMapOutput) MapIndex(k pulumi.StringInput) AuthomationRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AuthomationRule {
-		return vs[0].(map[string]AuthomationRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AuthomationRule {
+		return vs[0].(map[string]*AuthomationRule)[vs[1].(string)]
 	}).(AuthomationRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleInput)(nil)).Elem(), &AuthomationRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRulePtrInput)(nil)).Elem(), &AuthomationRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleArrayInput)(nil)).Elem(), AuthomationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleMapInput)(nil)).Elem(), AuthomationRuleMap{})
 	pulumi.RegisterOutputType(AuthomationRuleOutput{})
-	pulumi.RegisterOutputType(AuthomationRulePtrOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleArrayOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleMapOutput{})
 }

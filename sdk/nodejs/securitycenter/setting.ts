@@ -77,12 +77,12 @@ export class Setting extends pulumi.CustomResource {
      */
     constructor(name: string, args: SettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SettingArgs | SettingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SettingState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["settingName"] = state ? state.settingName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["settingName"] = state ? state.settingName : undefined;
         } else {
             const args = argsOrState as SettingArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -91,13 +91,11 @@ export class Setting extends pulumi.CustomResource {
             if ((!args || args.settingName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settingName'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["settingName"] = args ? args.settingName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["settingName"] = args ? args.settingName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Setting.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Setting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

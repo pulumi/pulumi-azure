@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppInsights
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppInsights
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInsightsResult> InvokeAsync(GetInsightsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Application Insights component.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppInsights
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetInsightsResult> Invoke(GetInsightsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithDefaults());
     }
 
 

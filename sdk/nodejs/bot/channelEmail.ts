@@ -99,15 +99,15 @@ export class ChannelEmail extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelEmailArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelEmailArgs | ChannelEmailState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelEmailState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["emailAddress"] = state ? state.emailAddress : undefined;
-            inputs["emailPassword"] = state ? state.emailPassword : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
+            resourceInputs["emailPassword"] = state ? state.emailPassword : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelEmailArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -122,16 +122,14 @@ export class ChannelEmail extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["emailAddress"] = args ? args.emailAddress : undefined;
-            inputs["emailPassword"] = args ? args.emailPassword : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["emailPassword"] = args ? args.emailPassword : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ChannelEmail.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ChannelEmail.__pulumiType, name, resourceInputs, opts);
     }
 }
 

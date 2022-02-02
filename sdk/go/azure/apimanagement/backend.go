@@ -214,7 +214,7 @@ type BackendInput interface {
 }
 
 func (*Backend) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backend)(nil))
+	return reflect.TypeOf((**Backend)(nil)).Elem()
 }
 
 func (i *Backend) ToBackendOutput() BackendOutput {
@@ -223,35 +223,6 @@ func (i *Backend) ToBackendOutput() BackendOutput {
 
 func (i *Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackendOutput)
-}
-
-func (i *Backend) ToBackendPtrOutput() BackendPtrOutput {
-	return i.ToBackendPtrOutputWithContext(context.Background())
-}
-
-func (i *Backend) ToBackendPtrOutputWithContext(ctx context.Context) BackendPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendPtrOutput)
-}
-
-type BackendPtrInput interface {
-	pulumi.Input
-
-	ToBackendPtrOutput() BackendPtrOutput
-	ToBackendPtrOutputWithContext(ctx context.Context) BackendPtrOutput
-}
-
-type backendPtrType BackendArgs
-
-func (*backendPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Backend)(nil))
-}
-
-func (i *backendPtrType) ToBackendPtrOutput() BackendPtrOutput {
-	return i.ToBackendPtrOutputWithContext(context.Background())
-}
-
-func (i *backendPtrType) ToBackendPtrOutputWithContext(ctx context.Context) BackendPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendPtrOutput)
 }
 
 // BackendArrayInput is an input type that accepts BackendArray and BackendArrayOutput values.
@@ -307,7 +278,7 @@ func (i BackendMap) ToBackendMapOutputWithContext(ctx context.Context) BackendMa
 type BackendOutput struct{ *pulumi.OutputState }
 
 func (BackendOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backend)(nil))
+	return reflect.TypeOf((**Backend)(nil)).Elem()
 }
 
 func (o BackendOutput) ToBackendOutput() BackendOutput {
@@ -318,44 +289,10 @@ func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOu
 	return o
 }
 
-func (o BackendOutput) ToBackendPtrOutput() BackendPtrOutput {
-	return o.ToBackendPtrOutputWithContext(context.Background())
-}
-
-func (o BackendOutput) ToBackendPtrOutputWithContext(ctx context.Context) BackendPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Backend) *Backend {
-		return &v
-	}).(BackendPtrOutput)
-}
-
-type BackendPtrOutput struct{ *pulumi.OutputState }
-
-func (BackendPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Backend)(nil))
-}
-
-func (o BackendPtrOutput) ToBackendPtrOutput() BackendPtrOutput {
-	return o
-}
-
-func (o BackendPtrOutput) ToBackendPtrOutputWithContext(ctx context.Context) BackendPtrOutput {
-	return o
-}
-
-func (o BackendPtrOutput) Elem() BackendOutput {
-	return o.ApplyT(func(v *Backend) Backend {
-		if v != nil {
-			return *v
-		}
-		var ret Backend
-		return ret
-	}).(BackendOutput)
-}
-
 type BackendArrayOutput struct{ *pulumi.OutputState }
 
 func (BackendArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Backend)(nil))
+	return reflect.TypeOf((*[]*Backend)(nil)).Elem()
 }
 
 func (o BackendArrayOutput) ToBackendArrayOutput() BackendArrayOutput {
@@ -367,15 +304,15 @@ func (o BackendArrayOutput) ToBackendArrayOutputWithContext(ctx context.Context)
 }
 
 func (o BackendArrayOutput) Index(i pulumi.IntInput) BackendOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Backend {
-		return vs[0].([]Backend)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Backend {
+		return vs[0].([]*Backend)[vs[1].(int)]
 	}).(BackendOutput)
 }
 
 type BackendMapOutput struct{ *pulumi.OutputState }
 
 func (BackendMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Backend)(nil))
+	return reflect.TypeOf((*map[string]*Backend)(nil)).Elem()
 }
 
 func (o BackendMapOutput) ToBackendMapOutput() BackendMapOutput {
@@ -387,18 +324,16 @@ func (o BackendMapOutput) ToBackendMapOutputWithContext(ctx context.Context) Bac
 }
 
 func (o BackendMapOutput) MapIndex(k pulumi.StringInput) BackendOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Backend {
-		return vs[0].(map[string]Backend)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Backend {
+		return vs[0].(map[string]*Backend)[vs[1].(string)]
 	}).(BackendOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendInput)(nil)).Elem(), &Backend{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackendPtrInput)(nil)).Elem(), &Backend{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendArrayInput)(nil)).Elem(), BackendArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendMapInput)(nil)).Elem(), BackendMap{})
 	pulumi.RegisterOutputType(BackendOutput{})
-	pulumi.RegisterOutputType(BackendPtrOutput{})
 	pulumi.RegisterOutputType(BackendArrayOutput{})
 	pulumi.RegisterOutputType(BackendMapOutput{})
 }

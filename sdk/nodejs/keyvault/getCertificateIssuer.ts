@@ -30,9 +30,7 @@ export function getCertificateIssuer(args: GetCertificateIssuerArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:keyvault/getCertificateIssuer:getCertificateIssuer", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,

@@ -142,24 +142,24 @@ export class WebTest extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebTestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebTestArgs | WebTestState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebTestState | undefined;
-            inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["geoLocations"] = state ? state.geoLocations : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retryEnabled"] = state ? state.retryEnabled : undefined;
-            inputs["syntheticMonitorId"] = state ? state.syntheticMonitorId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["geoLocations"] = state ? state.geoLocations : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retryEnabled"] = state ? state.retryEnabled : undefined;
+            resourceInputs["syntheticMonitorId"] = state ? state.syntheticMonitorId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as WebTestArgs | undefined;
             if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
@@ -177,25 +177,23 @@ export class WebTest extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["geoLocations"] = args ? args.geoLocations : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retryEnabled"] = args ? args.retryEnabled : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["syntheticMonitorId"] = undefined /*out*/;
+            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["geoLocations"] = args ? args.geoLocations : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retryEnabled"] = args ? args.retryEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["syntheticMonitorId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WebTest.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WebTest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Policy
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Policy Set Definition.
@@ -74,7 +73,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

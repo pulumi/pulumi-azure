@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Kusto
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.Kusto
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.Kusto
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

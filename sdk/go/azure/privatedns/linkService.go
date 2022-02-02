@@ -293,7 +293,7 @@ type LinkServiceInput interface {
 }
 
 func (*LinkService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkService)(nil))
+	return reflect.TypeOf((**LinkService)(nil)).Elem()
 }
 
 func (i *LinkService) ToLinkServiceOutput() LinkServiceOutput {
@@ -302,35 +302,6 @@ func (i *LinkService) ToLinkServiceOutput() LinkServiceOutput {
 
 func (i *LinkService) ToLinkServiceOutputWithContext(ctx context.Context) LinkServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceOutput)
-}
-
-func (i *LinkService) ToLinkServicePtrOutput() LinkServicePtrOutput {
-	return i.ToLinkServicePtrOutputWithContext(context.Background())
-}
-
-func (i *LinkService) ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkServicePtrOutput)
-}
-
-type LinkServicePtrInput interface {
-	pulumi.Input
-
-	ToLinkServicePtrOutput() LinkServicePtrOutput
-	ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput
-}
-
-type linkServicePtrType LinkServiceArgs
-
-func (*linkServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkService)(nil))
-}
-
-func (i *linkServicePtrType) ToLinkServicePtrOutput() LinkServicePtrOutput {
-	return i.ToLinkServicePtrOutputWithContext(context.Background())
-}
-
-func (i *linkServicePtrType) ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkServicePtrOutput)
 }
 
 // LinkServiceArrayInput is an input type that accepts LinkServiceArray and LinkServiceArrayOutput values.
@@ -386,7 +357,7 @@ func (i LinkServiceMap) ToLinkServiceMapOutputWithContext(ctx context.Context) L
 type LinkServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkService)(nil))
+	return reflect.TypeOf((**LinkService)(nil)).Elem()
 }
 
 func (o LinkServiceOutput) ToLinkServiceOutput() LinkServiceOutput {
@@ -397,44 +368,10 @@ func (o LinkServiceOutput) ToLinkServiceOutputWithContext(ctx context.Context) L
 	return o
 }
 
-func (o LinkServiceOutput) ToLinkServicePtrOutput() LinkServicePtrOutput {
-	return o.ToLinkServicePtrOutputWithContext(context.Background())
-}
-
-func (o LinkServiceOutput) ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkService) *LinkService {
-		return &v
-	}).(LinkServicePtrOutput)
-}
-
-type LinkServicePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkService)(nil))
-}
-
-func (o LinkServicePtrOutput) ToLinkServicePtrOutput() LinkServicePtrOutput {
-	return o
-}
-
-func (o LinkServicePtrOutput) ToLinkServicePtrOutputWithContext(ctx context.Context) LinkServicePtrOutput {
-	return o
-}
-
-func (o LinkServicePtrOutput) Elem() LinkServiceOutput {
-	return o.ApplyT(func(v *LinkService) LinkService {
-		if v != nil {
-			return *v
-		}
-		var ret LinkService
-		return ret
-	}).(LinkServiceOutput)
-}
-
 type LinkServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkService)(nil))
+	return reflect.TypeOf((*[]*LinkService)(nil)).Elem()
 }
 
 func (o LinkServiceArrayOutput) ToLinkServiceArrayOutput() LinkServiceArrayOutput {
@@ -446,15 +383,15 @@ func (o LinkServiceArrayOutput) ToLinkServiceArrayOutputWithContext(ctx context.
 }
 
 func (o LinkServiceArrayOutput) Index(i pulumi.IntInput) LinkServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkService {
-		return vs[0].([]LinkService)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkService {
+		return vs[0].([]*LinkService)[vs[1].(int)]
 	}).(LinkServiceOutput)
 }
 
 type LinkServiceMapOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkService)(nil))
+	return reflect.TypeOf((*map[string]*LinkService)(nil)).Elem()
 }
 
 func (o LinkServiceMapOutput) ToLinkServiceMapOutput() LinkServiceMapOutput {
@@ -466,18 +403,16 @@ func (o LinkServiceMapOutput) ToLinkServiceMapOutputWithContext(ctx context.Cont
 }
 
 func (o LinkServiceMapOutput) MapIndex(k pulumi.StringInput) LinkServiceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkService {
-		return vs[0].(map[string]LinkService)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkService {
+		return vs[0].(map[string]*LinkService)[vs[1].(string)]
 	}).(LinkServiceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceInput)(nil)).Elem(), &LinkService{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkServicePtrInput)(nil)).Elem(), &LinkService{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceArrayInput)(nil)).Elem(), LinkServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceMapInput)(nil)).Elem(), LinkServiceMap{})
 	pulumi.RegisterOutputType(LinkServiceOutput{})
-	pulumi.RegisterOutputType(LinkServicePtrOutput{})
 	pulumi.RegisterOutputType(LinkServiceArrayOutput{})
 	pulumi.RegisterOutputType(LinkServiceMapOutput{})
 }

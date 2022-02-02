@@ -81,26 +81,24 @@ export class Queue extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Queue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

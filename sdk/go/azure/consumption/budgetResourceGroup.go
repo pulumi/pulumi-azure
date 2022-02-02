@@ -264,7 +264,7 @@ type BudgetResourceGroupInput interface {
 }
 
 func (*BudgetResourceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetResourceGroup)(nil))
+	return reflect.TypeOf((**BudgetResourceGroup)(nil)).Elem()
 }
 
 func (i *BudgetResourceGroup) ToBudgetResourceGroupOutput() BudgetResourceGroupOutput {
@@ -273,35 +273,6 @@ func (i *BudgetResourceGroup) ToBudgetResourceGroupOutput() BudgetResourceGroupO
 
 func (i *BudgetResourceGroup) ToBudgetResourceGroupOutputWithContext(ctx context.Context) BudgetResourceGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupOutput)
-}
-
-func (i *BudgetResourceGroup) ToBudgetResourceGroupPtrOutput() BudgetResourceGroupPtrOutput {
-	return i.ToBudgetResourceGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *BudgetResourceGroup) ToBudgetResourceGroupPtrOutputWithContext(ctx context.Context) BudgetResourceGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupPtrOutput)
-}
-
-type BudgetResourceGroupPtrInput interface {
-	pulumi.Input
-
-	ToBudgetResourceGroupPtrOutput() BudgetResourceGroupPtrOutput
-	ToBudgetResourceGroupPtrOutputWithContext(ctx context.Context) BudgetResourceGroupPtrOutput
-}
-
-type budgetResourceGroupPtrType BudgetResourceGroupArgs
-
-func (*budgetResourceGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetResourceGroup)(nil))
-}
-
-func (i *budgetResourceGroupPtrType) ToBudgetResourceGroupPtrOutput() BudgetResourceGroupPtrOutput {
-	return i.ToBudgetResourceGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetResourceGroupPtrType) ToBudgetResourceGroupPtrOutputWithContext(ctx context.Context) BudgetResourceGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupPtrOutput)
 }
 
 // BudgetResourceGroupArrayInput is an input type that accepts BudgetResourceGroupArray and BudgetResourceGroupArrayOutput values.
@@ -357,7 +328,7 @@ func (i BudgetResourceGroupMap) ToBudgetResourceGroupMapOutputWithContext(ctx co
 type BudgetResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetResourceGroup)(nil))
+	return reflect.TypeOf((**BudgetResourceGroup)(nil)).Elem()
 }
 
 func (o BudgetResourceGroupOutput) ToBudgetResourceGroupOutput() BudgetResourceGroupOutput {
@@ -368,44 +339,10 @@ func (o BudgetResourceGroupOutput) ToBudgetResourceGroupOutputWithContext(ctx co
 	return o
 }
 
-func (o BudgetResourceGroupOutput) ToBudgetResourceGroupPtrOutput() BudgetResourceGroupPtrOutput {
-	return o.ToBudgetResourceGroupPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetResourceGroupOutput) ToBudgetResourceGroupPtrOutputWithContext(ctx context.Context) BudgetResourceGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroup) *BudgetResourceGroup {
-		return &v
-	}).(BudgetResourceGroupPtrOutput)
-}
-
-type BudgetResourceGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetResourceGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetResourceGroup)(nil))
-}
-
-func (o BudgetResourceGroupPtrOutput) ToBudgetResourceGroupPtrOutput() BudgetResourceGroupPtrOutput {
-	return o
-}
-
-func (o BudgetResourceGroupPtrOutput) ToBudgetResourceGroupPtrOutputWithContext(ctx context.Context) BudgetResourceGroupPtrOutput {
-	return o
-}
-
-func (o BudgetResourceGroupPtrOutput) Elem() BudgetResourceGroupOutput {
-	return o.ApplyT(func(v *BudgetResourceGroup) BudgetResourceGroup {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetResourceGroup
-		return ret
-	}).(BudgetResourceGroupOutput)
-}
-
 type BudgetResourceGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BudgetResourceGroup)(nil))
+	return reflect.TypeOf((*[]*BudgetResourceGroup)(nil)).Elem()
 }
 
 func (o BudgetResourceGroupArrayOutput) ToBudgetResourceGroupArrayOutput() BudgetResourceGroupArrayOutput {
@@ -417,15 +354,15 @@ func (o BudgetResourceGroupArrayOutput) ToBudgetResourceGroupArrayOutputWithCont
 }
 
 func (o BudgetResourceGroupArrayOutput) Index(i pulumi.IntInput) BudgetResourceGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetResourceGroup {
-		return vs[0].([]BudgetResourceGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetResourceGroup {
+		return vs[0].([]*BudgetResourceGroup)[vs[1].(int)]
 	}).(BudgetResourceGroupOutput)
 }
 
 type BudgetResourceGroupMapOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BudgetResourceGroup)(nil))
+	return reflect.TypeOf((*map[string]*BudgetResourceGroup)(nil)).Elem()
 }
 
 func (o BudgetResourceGroupMapOutput) ToBudgetResourceGroupMapOutput() BudgetResourceGroupMapOutput {
@@ -437,18 +374,16 @@ func (o BudgetResourceGroupMapOutput) ToBudgetResourceGroupMapOutputWithContext(
 }
 
 func (o BudgetResourceGroupMapOutput) MapIndex(k pulumi.StringInput) BudgetResourceGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BudgetResourceGroup {
-		return vs[0].(map[string]BudgetResourceGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BudgetResourceGroup {
+		return vs[0].(map[string]*BudgetResourceGroup)[vs[1].(string)]
 	}).(BudgetResourceGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupInput)(nil)).Elem(), &BudgetResourceGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupPtrInput)(nil)).Elem(), &BudgetResourceGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupArrayInput)(nil)).Elem(), BudgetResourceGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupMapInput)(nil)).Elem(), BudgetResourceGroupMap{})
 	pulumi.RegisterOutputType(BudgetResourceGroupOutput{})
-	pulumi.RegisterOutputType(BudgetResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupArrayOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.PostgreSql
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.PostgreSql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFlexibleServerResult> InvokeAsync(GetFlexibleServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Flexible Server.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.PostgreSql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());
     }
 
 

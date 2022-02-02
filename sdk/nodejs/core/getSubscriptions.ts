@@ -25,9 +25,7 @@ export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.Invo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
         "displayNameContains": args.displayNameContains,
         "displayNamePrefix": args.displayNamePrefix,

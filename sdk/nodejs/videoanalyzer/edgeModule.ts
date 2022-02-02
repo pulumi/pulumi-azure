@@ -119,13 +119,13 @@ export class EdgeModule extends pulumi.CustomResource {
      */
     constructor(name: string, args: EdgeModuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EdgeModuleArgs | EdgeModuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EdgeModuleState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["videoAnalyzerName"] = state ? state.videoAnalyzerName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["videoAnalyzerName"] = state ? state.videoAnalyzerName : undefined;
         } else {
             const args = argsOrState as EdgeModuleArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -134,14 +134,12 @@ export class EdgeModule extends pulumi.CustomResource {
             if ((!args || args.videoAnalyzerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'videoAnalyzerName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["videoAnalyzerName"] = args ? args.videoAnalyzerName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["videoAnalyzerName"] = args ? args.videoAnalyzerName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EdgeModule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EdgeModule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

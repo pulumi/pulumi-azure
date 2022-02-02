@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MSSql
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.MSSql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Microsoft SQL Server.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.MSSql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 

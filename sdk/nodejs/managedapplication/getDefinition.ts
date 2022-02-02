@@ -25,9 +25,7 @@ export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:managedapplication/getDefinition:getDefinition", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

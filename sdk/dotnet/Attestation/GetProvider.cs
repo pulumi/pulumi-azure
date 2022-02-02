@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Attestation
 {
     public static class GetProvider
     {
         public static Task<GetProviderResult> InvokeAsync(GetProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderArgs(), options.WithDefaults());
 
         public static Output<GetProviderResult> Invoke(GetProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithDefaults());
     }
 
 

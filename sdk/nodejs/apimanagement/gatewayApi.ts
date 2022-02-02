@@ -88,12 +88,12 @@ export class GatewayApi extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayApiArgs | GatewayApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayApiState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["gatewayId"] = state ? state.gatewayId : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
         } else {
             const args = argsOrState as GatewayApiArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -102,13 +102,11 @@ export class GatewayApi extends pulumi.CustomResource {
             if ((!args || args.gatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GatewayApi.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GatewayApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

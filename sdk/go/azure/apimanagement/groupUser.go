@@ -168,7 +168,7 @@ type GroupUserInput interface {
 }
 
 func (*GroupUser) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupUser)(nil))
+	return reflect.TypeOf((**GroupUser)(nil)).Elem()
 }
 
 func (i *GroupUser) ToGroupUserOutput() GroupUserOutput {
@@ -177,35 +177,6 @@ func (i *GroupUser) ToGroupUserOutput() GroupUserOutput {
 
 func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
-}
-
-func (i *GroupUser) ToGroupUserPtrOutput() GroupUserPtrOutput {
-	return i.ToGroupUserPtrOutputWithContext(context.Background())
-}
-
-func (i *GroupUser) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupUserPtrOutput)
-}
-
-type GroupUserPtrInput interface {
-	pulumi.Input
-
-	ToGroupUserPtrOutput() GroupUserPtrOutput
-	ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput
-}
-
-type groupUserPtrType GroupUserArgs
-
-func (*groupUserPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupUser)(nil))
-}
-
-func (i *groupUserPtrType) ToGroupUserPtrOutput() GroupUserPtrOutput {
-	return i.ToGroupUserPtrOutputWithContext(context.Background())
-}
-
-func (i *groupUserPtrType) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupUserPtrOutput)
 }
 
 // GroupUserArrayInput is an input type that accepts GroupUserArray and GroupUserArrayOutput values.
@@ -261,7 +232,7 @@ func (i GroupUserMap) ToGroupUserMapOutputWithContext(ctx context.Context) Group
 type GroupUserOutput struct{ *pulumi.OutputState }
 
 func (GroupUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupUser)(nil))
+	return reflect.TypeOf((**GroupUser)(nil)).Elem()
 }
 
 func (o GroupUserOutput) ToGroupUserOutput() GroupUserOutput {
@@ -272,44 +243,10 @@ func (o GroupUserOutput) ToGroupUserOutputWithContext(ctx context.Context) Group
 	return o
 }
 
-func (o GroupUserOutput) ToGroupUserPtrOutput() GroupUserPtrOutput {
-	return o.ToGroupUserPtrOutputWithContext(context.Background())
-}
-
-func (o GroupUserOutput) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupUser) *GroupUser {
-		return &v
-	}).(GroupUserPtrOutput)
-}
-
-type GroupUserPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupUserPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupUser)(nil))
-}
-
-func (o GroupUserPtrOutput) ToGroupUserPtrOutput() GroupUserPtrOutput {
-	return o
-}
-
-func (o GroupUserPtrOutput) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
-	return o
-}
-
-func (o GroupUserPtrOutput) Elem() GroupUserOutput {
-	return o.ApplyT(func(v *GroupUser) GroupUser {
-		if v != nil {
-			return *v
-		}
-		var ret GroupUser
-		return ret
-	}).(GroupUserOutput)
-}
-
 type GroupUserArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupUserArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupUser)(nil))
+	return reflect.TypeOf((*[]*GroupUser)(nil)).Elem()
 }
 
 func (o GroupUserArrayOutput) ToGroupUserArrayOutput() GroupUserArrayOutput {
@@ -321,15 +258,15 @@ func (o GroupUserArrayOutput) ToGroupUserArrayOutputWithContext(ctx context.Cont
 }
 
 func (o GroupUserArrayOutput) Index(i pulumi.IntInput) GroupUserOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupUser {
-		return vs[0].([]GroupUser)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupUser {
+		return vs[0].([]*GroupUser)[vs[1].(int)]
 	}).(GroupUserOutput)
 }
 
 type GroupUserMapOutput struct{ *pulumi.OutputState }
 
 func (GroupUserMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GroupUser)(nil))
+	return reflect.TypeOf((*map[string]*GroupUser)(nil)).Elem()
 }
 
 func (o GroupUserMapOutput) ToGroupUserMapOutput() GroupUserMapOutput {
@@ -341,18 +278,16 @@ func (o GroupUserMapOutput) ToGroupUserMapOutputWithContext(ctx context.Context)
 }
 
 func (o GroupUserMapOutput) MapIndex(k pulumi.StringInput) GroupUserOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GroupUser {
-		return vs[0].(map[string]GroupUser)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GroupUser {
+		return vs[0].(map[string]*GroupUser)[vs[1].(string)]
 	}).(GroupUserOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupUserInput)(nil)).Elem(), &GroupUser{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupUserPtrInput)(nil)).Elem(), &GroupUser{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupUserArrayInput)(nil)).Elem(), GroupUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupUserMapInput)(nil)).Elem(), GroupUserMap{})
 	pulumi.RegisterOutputType(GroupUserOutput{})
-	pulumi.RegisterOutputType(GroupUserPtrOutput{})
 	pulumi.RegisterOutputType(GroupUserArrayOutput{})
 	pulumi.RegisterOutputType(GroupUserMapOutput{})
 }

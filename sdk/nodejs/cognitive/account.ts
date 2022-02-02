@@ -140,32 +140,32 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            inputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["fqdns"] = state ? state.fqdns : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metricsAdvisorAadClientId"] = state ? state.metricsAdvisorAadClientId : undefined;
-            inputs["metricsAdvisorAadTenantId"] = state ? state.metricsAdvisorAadTenantId : undefined;
-            inputs["metricsAdvisorSuperUserName"] = state ? state.metricsAdvisorSuperUserName : undefined;
-            inputs["metricsAdvisorWebsiteName"] = state ? state.metricsAdvisorWebsiteName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkAcls"] = state ? state.networkAcls : undefined;
-            inputs["outboundNetworkAccessRestrited"] = state ? state.outboundNetworkAccessRestrited : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["qnaRuntimeEndpoint"] = state ? state.qnaRuntimeEndpoint : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["storages"] = state ? state.storages : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["metricsAdvisorAadClientId"] = state ? state.metricsAdvisorAadClientId : undefined;
+            resourceInputs["metricsAdvisorAadTenantId"] = state ? state.metricsAdvisorAadTenantId : undefined;
+            resourceInputs["metricsAdvisorSuperUserName"] = state ? state.metricsAdvisorSuperUserName : undefined;
+            resourceInputs["metricsAdvisorWebsiteName"] = state ? state.metricsAdvisorWebsiteName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
+            resourceInputs["outboundNetworkAccessRestrited"] = state ? state.outboundNetworkAccessRestrited : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["qnaRuntimeEndpoint"] = state ? state.qnaRuntimeEndpoint : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["storages"] = state ? state.storages : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -177,33 +177,31 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
-            inputs["fqdns"] = args ? args.fqdns : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metricsAdvisorAadClientId"] = args ? args.metricsAdvisorAadClientId : undefined;
-            inputs["metricsAdvisorAadTenantId"] = args ? args.metricsAdvisorAadTenantId : undefined;
-            inputs["metricsAdvisorSuperUserName"] = args ? args.metricsAdvisorSuperUserName : undefined;
-            inputs["metricsAdvisorWebsiteName"] = args ? args.metricsAdvisorWebsiteName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkAcls"] = args ? args.networkAcls : undefined;
-            inputs["outboundNetworkAccessRestrited"] = args ? args.outboundNetworkAccessRestrited : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["qnaRuntimeEndpoint"] = args ? args.qnaRuntimeEndpoint : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["storages"] = args ? args.storages : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
+            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metricsAdvisorAadClientId"] = args ? args.metricsAdvisorAadClientId : undefined;
+            resourceInputs["metricsAdvisorAadTenantId"] = args ? args.metricsAdvisorAadTenantId : undefined;
+            resourceInputs["metricsAdvisorSuperUserName"] = args ? args.metricsAdvisorSuperUserName : undefined;
+            resourceInputs["metricsAdvisorWebsiteName"] = args ? args.metricsAdvisorWebsiteName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
+            resourceInputs["outboundNetworkAccessRestrited"] = args ? args.outboundNetworkAccessRestrited : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["qnaRuntimeEndpoint"] = args ? args.qnaRuntimeEndpoint : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["storages"] = args ? args.storages : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Account.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

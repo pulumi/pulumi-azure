@@ -199,7 +199,7 @@ type AvailabilitySetInput interface {
 }
 
 func (*AvailabilitySet) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySet)(nil))
+	return reflect.TypeOf((**AvailabilitySet)(nil)).Elem()
 }
 
 func (i *AvailabilitySet) ToAvailabilitySetOutput() AvailabilitySetOutput {
@@ -208,35 +208,6 @@ func (i *AvailabilitySet) ToAvailabilitySetOutput() AvailabilitySetOutput {
 
 func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetOutput)
-}
-
-func (i *AvailabilitySet) ToAvailabilitySetPtrOutput() AvailabilitySetPtrOutput {
-	return i.ToAvailabilitySetPtrOutputWithContext(context.Background())
-}
-
-func (i *AvailabilitySet) ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetPtrOutput)
-}
-
-type AvailabilitySetPtrInput interface {
-	pulumi.Input
-
-	ToAvailabilitySetPtrOutput() AvailabilitySetPtrOutput
-	ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput
-}
-
-type availabilitySetPtrType AvailabilitySetArgs
-
-func (*availabilitySetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AvailabilitySet)(nil))
-}
-
-func (i *availabilitySetPtrType) ToAvailabilitySetPtrOutput() AvailabilitySetPtrOutput {
-	return i.ToAvailabilitySetPtrOutputWithContext(context.Background())
-}
-
-func (i *availabilitySetPtrType) ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetPtrOutput)
 }
 
 // AvailabilitySetArrayInput is an input type that accepts AvailabilitySetArray and AvailabilitySetArrayOutput values.
@@ -292,7 +263,7 @@ func (i AvailabilitySetMap) ToAvailabilitySetMapOutputWithContext(ctx context.Co
 type AvailabilitySetOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySet)(nil))
+	return reflect.TypeOf((**AvailabilitySet)(nil)).Elem()
 }
 
 func (o AvailabilitySetOutput) ToAvailabilitySetOutput() AvailabilitySetOutput {
@@ -303,44 +274,10 @@ func (o AvailabilitySetOutput) ToAvailabilitySetOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AvailabilitySetOutput) ToAvailabilitySetPtrOutput() AvailabilitySetPtrOutput {
-	return o.ToAvailabilitySetPtrOutputWithContext(context.Background())
-}
-
-func (o AvailabilitySetOutput) ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AvailabilitySet) *AvailabilitySet {
-		return &v
-	}).(AvailabilitySetPtrOutput)
-}
-
-type AvailabilitySetPtrOutput struct{ *pulumi.OutputState }
-
-func (AvailabilitySetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AvailabilitySet)(nil))
-}
-
-func (o AvailabilitySetPtrOutput) ToAvailabilitySetPtrOutput() AvailabilitySetPtrOutput {
-	return o
-}
-
-func (o AvailabilitySetPtrOutput) ToAvailabilitySetPtrOutputWithContext(ctx context.Context) AvailabilitySetPtrOutput {
-	return o
-}
-
-func (o AvailabilitySetPtrOutput) Elem() AvailabilitySetOutput {
-	return o.ApplyT(func(v *AvailabilitySet) AvailabilitySet {
-		if v != nil {
-			return *v
-		}
-		var ret AvailabilitySet
-		return ret
-	}).(AvailabilitySetOutput)
-}
-
 type AvailabilitySetArrayOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AvailabilitySet)(nil))
+	return reflect.TypeOf((*[]*AvailabilitySet)(nil)).Elem()
 }
 
 func (o AvailabilitySetArrayOutput) ToAvailabilitySetArrayOutput() AvailabilitySetArrayOutput {
@@ -352,15 +289,15 @@ func (o AvailabilitySetArrayOutput) ToAvailabilitySetArrayOutputWithContext(ctx 
 }
 
 func (o AvailabilitySetArrayOutput) Index(i pulumi.IntInput) AvailabilitySetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AvailabilitySet {
-		return vs[0].([]AvailabilitySet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AvailabilitySet {
+		return vs[0].([]*AvailabilitySet)[vs[1].(int)]
 	}).(AvailabilitySetOutput)
 }
 
 type AvailabilitySetMapOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AvailabilitySet)(nil))
+	return reflect.TypeOf((*map[string]*AvailabilitySet)(nil)).Elem()
 }
 
 func (o AvailabilitySetMapOutput) ToAvailabilitySetMapOutput() AvailabilitySetMapOutput {
@@ -372,18 +309,16 @@ func (o AvailabilitySetMapOutput) ToAvailabilitySetMapOutputWithContext(ctx cont
 }
 
 func (o AvailabilitySetMapOutput) MapIndex(k pulumi.StringInput) AvailabilitySetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AvailabilitySet {
-		return vs[0].(map[string]AvailabilitySet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AvailabilitySet {
+		return vs[0].(map[string]*AvailabilitySet)[vs[1].(string)]
 	}).(AvailabilitySetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetInput)(nil)).Elem(), &AvailabilitySet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetPtrInput)(nil)).Elem(), &AvailabilitySet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetArrayInput)(nil)).Elem(), AvailabilitySetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetMapInput)(nil)).Elem(), AvailabilitySetMap{})
 	pulumi.RegisterOutputType(AvailabilitySetOutput{})
-	pulumi.RegisterOutputType(AvailabilitySetPtrOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetArrayOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetMapOutput{})
 }

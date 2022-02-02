@@ -114,14 +114,14 @@ export class Hub extends pulumi.CustomResource {
      */
     constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HubArgs | HubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HubState | undefined;
-            inputs["anonymousConnectionsEnabled"] = state ? state.anonymousConnectionsEnabled : undefined;
-            inputs["eventHandlers"] = state ? state.eventHandlers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["webPubsubId"] = state ? state.webPubsubId : undefined;
+            resourceInputs["anonymousConnectionsEnabled"] = state ? state.anonymousConnectionsEnabled : undefined;
+            resourceInputs["eventHandlers"] = state ? state.eventHandlers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
         } else {
             const args = argsOrState as HubArgs | undefined;
             if ((!args || args.eventHandlers === undefined) && !opts.urn) {
@@ -130,15 +130,13 @@ export class Hub extends pulumi.CustomResource {
             if ((!args || args.webPubsubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubId'");
             }
-            inputs["anonymousConnectionsEnabled"] = args ? args.anonymousConnectionsEnabled : undefined;
-            inputs["eventHandlers"] = args ? args.eventHandlers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["webPubsubId"] = args ? args.webPubsubId : undefined;
+            resourceInputs["anonymousConnectionsEnabled"] = args ? args.anonymousConnectionsEnabled : undefined;
+            resourceInputs["eventHandlers"] = args ? args.eventHandlers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Hub.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Hub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

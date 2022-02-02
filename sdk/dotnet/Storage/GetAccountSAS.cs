@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -47,18 +46,18 @@ namespace Pulumi.Azure.Storage
         ///                 { "environment", "staging" },
         ///             },
         ///         });
-        ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+        ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
         ///         {
-        ///             ConnectionString = primaryConnectionString,
+        ///             ConnectionString = exampleAccount.PrimaryConnectionString,
         ///             HttpsOnly = true,
         ///             SignedVersion = "2017-07-29",
-        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///             {
         ///                 Service = true,
         ///                 Container = false,
         ///                 Object = false,
         ///             },
-        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
         ///             {
         ///                 Blob = true,
         ///                 Queue = false,
@@ -67,7 +66,7 @@ namespace Pulumi.Azure.Storage
         ///             },
         ///             Start = "2018-03-21T00:00:00Z",
         ///             Expiry = "2020-03-21T00:00:00Z",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///             {
         ///                 Read = true,
         ///                 Write = true,
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Storage
         ///                 Update = false,
         ///                 Process = false,
         ///             },
-        ///         }));
+        ///         });
         ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
         ///     }
         /// 
@@ -90,7 +89,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountSASResult> InvokeAsync(GetAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
@@ -127,18 +126,18 @@ namespace Pulumi.Azure.Storage
         ///                 { "environment", "staging" },
         ///             },
         ///         });
-        ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+        ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
         ///         {
-        ///             ConnectionString = primaryConnectionString,
+        ///             ConnectionString = exampleAccount.PrimaryConnectionString,
         ///             HttpsOnly = true,
         ///             SignedVersion = "2017-07-29",
-        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///             {
         ///                 Service = true,
         ///                 Container = false,
         ///                 Object = false,
         ///             },
-        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
         ///             {
         ///                 Blob = true,
         ///                 Queue = false,
@@ -147,7 +146,7 @@ namespace Pulumi.Azure.Storage
         ///             },
         ///             Start = "2018-03-21T00:00:00Z",
         ///             Expiry = "2020-03-21T00:00:00Z",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///             {
         ///                 Read = true,
         ///                 Write = true,
@@ -158,7 +157,7 @@ namespace Pulumi.Azure.Storage
         ///                 Update = false,
         ///                 Process = false,
         ///             },
-        ///         }));
+        ///         });
         ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
         ///     }
         /// 
@@ -170,7 +169,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountSASResult> Invoke(GetAccountSASInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASInvokeArgs(), options.WithDefaults());
     }
 
 

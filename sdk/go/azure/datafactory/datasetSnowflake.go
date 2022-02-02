@@ -289,7 +289,7 @@ type DatasetSnowflakeInput interface {
 }
 
 func (*DatasetSnowflake) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSnowflake)(nil))
+	return reflect.TypeOf((**DatasetSnowflake)(nil)).Elem()
 }
 
 func (i *DatasetSnowflake) ToDatasetSnowflakeOutput() DatasetSnowflakeOutput {
@@ -298,35 +298,6 @@ func (i *DatasetSnowflake) ToDatasetSnowflakeOutput() DatasetSnowflakeOutput {
 
 func (i *DatasetSnowflake) ToDatasetSnowflakeOutputWithContext(ctx context.Context) DatasetSnowflakeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeOutput)
-}
-
-func (i *DatasetSnowflake) ToDatasetSnowflakePtrOutput() DatasetSnowflakePtrOutput {
-	return i.ToDatasetSnowflakePtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetSnowflake) ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakePtrOutput)
-}
-
-type DatasetSnowflakePtrInput interface {
-	pulumi.Input
-
-	ToDatasetSnowflakePtrOutput() DatasetSnowflakePtrOutput
-	ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput
-}
-
-type datasetSnowflakePtrType DatasetSnowflakeArgs
-
-func (*datasetSnowflakePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetSnowflake)(nil))
-}
-
-func (i *datasetSnowflakePtrType) ToDatasetSnowflakePtrOutput() DatasetSnowflakePtrOutput {
-	return i.ToDatasetSnowflakePtrOutputWithContext(context.Background())
-}
-
-func (i *datasetSnowflakePtrType) ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakePtrOutput)
 }
 
 // DatasetSnowflakeArrayInput is an input type that accepts DatasetSnowflakeArray and DatasetSnowflakeArrayOutput values.
@@ -382,7 +353,7 @@ func (i DatasetSnowflakeMap) ToDatasetSnowflakeMapOutputWithContext(ctx context.
 type DatasetSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (DatasetSnowflakeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSnowflake)(nil))
+	return reflect.TypeOf((**DatasetSnowflake)(nil)).Elem()
 }
 
 func (o DatasetSnowflakeOutput) ToDatasetSnowflakeOutput() DatasetSnowflakeOutput {
@@ -393,44 +364,10 @@ func (o DatasetSnowflakeOutput) ToDatasetSnowflakeOutputWithContext(ctx context.
 	return o
 }
 
-func (o DatasetSnowflakeOutput) ToDatasetSnowflakePtrOutput() DatasetSnowflakePtrOutput {
-	return o.ToDatasetSnowflakePtrOutputWithContext(context.Background())
-}
-
-func (o DatasetSnowflakeOutput) ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSnowflake) *DatasetSnowflake {
-		return &v
-	}).(DatasetSnowflakePtrOutput)
-}
-
-type DatasetSnowflakePtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetSnowflakePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetSnowflake)(nil))
-}
-
-func (o DatasetSnowflakePtrOutput) ToDatasetSnowflakePtrOutput() DatasetSnowflakePtrOutput {
-	return o
-}
-
-func (o DatasetSnowflakePtrOutput) ToDatasetSnowflakePtrOutputWithContext(ctx context.Context) DatasetSnowflakePtrOutput {
-	return o
-}
-
-func (o DatasetSnowflakePtrOutput) Elem() DatasetSnowflakeOutput {
-	return o.ApplyT(func(v *DatasetSnowflake) DatasetSnowflake {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetSnowflake
-		return ret
-	}).(DatasetSnowflakeOutput)
-}
-
 type DatasetSnowflakeArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetSnowflakeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetSnowflake)(nil))
+	return reflect.TypeOf((*[]*DatasetSnowflake)(nil)).Elem()
 }
 
 func (o DatasetSnowflakeArrayOutput) ToDatasetSnowflakeArrayOutput() DatasetSnowflakeArrayOutput {
@@ -442,15 +379,15 @@ func (o DatasetSnowflakeArrayOutput) ToDatasetSnowflakeArrayOutputWithContext(ct
 }
 
 func (o DatasetSnowflakeArrayOutput) Index(i pulumi.IntInput) DatasetSnowflakeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSnowflake {
-		return vs[0].([]DatasetSnowflake)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetSnowflake {
+		return vs[0].([]*DatasetSnowflake)[vs[1].(int)]
 	}).(DatasetSnowflakeOutput)
 }
 
 type DatasetSnowflakeMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetSnowflakeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetSnowflake)(nil))
+	return reflect.TypeOf((*map[string]*DatasetSnowflake)(nil)).Elem()
 }
 
 func (o DatasetSnowflakeMapOutput) ToDatasetSnowflakeMapOutput() DatasetSnowflakeMapOutput {
@@ -462,18 +399,16 @@ func (o DatasetSnowflakeMapOutput) ToDatasetSnowflakeMapOutputWithContext(ctx co
 }
 
 func (o DatasetSnowflakeMapOutput) MapIndex(k pulumi.StringInput) DatasetSnowflakeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetSnowflake {
-		return vs[0].(map[string]DatasetSnowflake)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetSnowflake {
+		return vs[0].(map[string]*DatasetSnowflake)[vs[1].(string)]
 	}).(DatasetSnowflakeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeInput)(nil)).Elem(), &DatasetSnowflake{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakePtrInput)(nil)).Elem(), &DatasetSnowflake{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeArrayInput)(nil)).Elem(), DatasetSnowflakeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeMapInput)(nil)).Elem(), DatasetSnowflakeMap{})
 	pulumi.RegisterOutputType(DatasetSnowflakeOutput{})
-	pulumi.RegisterOutputType(DatasetSnowflakePtrOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeMapOutput{})
 }

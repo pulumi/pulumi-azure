@@ -116,18 +116,18 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayArgs | VpnGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
-            inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routingPreference"] = state ? state.routingPreference : undefined;
-            inputs["scaleUnit"] = state ? state.scaleUnit : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routingPreference"] = state ? state.routingPreference : undefined;
+            resourceInputs["scaleUnit"] = state ? state.scaleUnit : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VpnGatewayArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -136,19 +136,17 @@ export class VpnGateway extends pulumi.CustomResource {
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingPreference"] = args ? args.routingPreference : undefined;
-            inputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingPreference"] = args ? args.routingPreference : undefined;
+            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VpnGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VpnGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

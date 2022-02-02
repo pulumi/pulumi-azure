@@ -26,9 +26,7 @@ export function getFlexibleServer(args: GetFlexibleServerArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:mysql/getFlexibleServer:getFlexibleServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

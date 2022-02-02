@@ -212,26 +212,26 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkGatewayArgs | VirtualNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayState | undefined;
-            inputs["activeActive"] = state ? state.activeActive : undefined;
-            inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
-            inputs["customRoute"] = state ? state.customRoute : undefined;
-            inputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;
-            inputs["enableBgp"] = state ? state.enableBgp : undefined;
-            inputs["generation"] = state ? state.generation : undefined;
-            inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpAddressEnabled"] = state ? state.privateIpAddressEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vpnClientConfiguration"] = state ? state.vpnClientConfiguration : undefined;
-            inputs["vpnType"] = state ? state.vpnType : undefined;
+            resourceInputs["activeActive"] = state ? state.activeActive : undefined;
+            resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
+            resourceInputs["customRoute"] = state ? state.customRoute : undefined;
+            resourceInputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;
+            resourceInputs["enableBgp"] = state ? state.enableBgp : undefined;
+            resourceInputs["generation"] = state ? state.generation : undefined;
+            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateIpAddressEnabled"] = state ? state.privateIpAddressEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vpnClientConfiguration"] = state ? state.vpnClientConfiguration : undefined;
+            resourceInputs["vpnType"] = state ? state.vpnType : undefined;
         } else {
             const args = argsOrState as VirtualNetworkGatewayArgs | undefined;
             if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
@@ -246,27 +246,25 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["activeActive"] = args ? args.activeActive : undefined;
-            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            inputs["customRoute"] = args ? args.customRoute : undefined;
-            inputs["defaultLocalNetworkGatewayId"] = args ? args.defaultLocalNetworkGatewayId : undefined;
-            inputs["enableBgp"] = args ? args.enableBgp : undefined;
-            inputs["generation"] = args ? args.generation : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateIpAddressEnabled"] = args ? args.privateIpAddressEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
-            inputs["vpnType"] = args ? args.vpnType : undefined;
+            resourceInputs["activeActive"] = args ? args.activeActive : undefined;
+            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            resourceInputs["customRoute"] = args ? args.customRoute : undefined;
+            resourceInputs["defaultLocalNetworkGatewayId"] = args ? args.defaultLocalNetworkGatewayId : undefined;
+            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
+            resourceInputs["generation"] = args ? args.generation : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateIpAddressEnabled"] = args ? args.privateIpAddressEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
+            resourceInputs["vpnType"] = args ? args.vpnType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualNetworkGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualNetworkGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

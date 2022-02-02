@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MariaDB
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.MariaDB
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMariaDbServerResult> InvokeAsync(GetMariaDbServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing MariaDB Server.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.MariaDB
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMariaDbServerResult> Invoke(GetMariaDbServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerInvokeArgs(), options.WithDefaults());
     }
 
 

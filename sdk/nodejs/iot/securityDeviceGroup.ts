@@ -107,28 +107,26 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityDeviceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityDeviceGroupArgs | SecurityDeviceGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityDeviceGroupState | undefined;
-            inputs["allowRule"] = state ? state.allowRule : undefined;
-            inputs["iothubId"] = state ? state.iothubId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rangeRules"] = state ? state.rangeRules : undefined;
+            resourceInputs["allowRule"] = state ? state.allowRule : undefined;
+            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rangeRules"] = state ? state.rangeRules : undefined;
         } else {
             const args = argsOrState as SecurityDeviceGroupArgs | undefined;
             if ((!args || args.iothubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            inputs["allowRule"] = args ? args.allowRule : undefined;
-            inputs["iothubId"] = args ? args.iothubId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rangeRules"] = args ? args.rangeRules : undefined;
+            resourceInputs["allowRule"] = args ? args.allowRule : undefined;
+            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rangeRules"] = args ? args.rangeRules : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecurityDeviceGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecurityDeviceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

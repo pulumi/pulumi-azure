@@ -141,23 +141,23 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceAzureBotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceAzureBotArgs | ServiceAzureBotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceAzureBotState | undefined;
-            inputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
-            inputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
-            inputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["luisAppIds"] = state ? state.luisAppIds : undefined;
-            inputs["luisKey"] = state ? state.luisKey : undefined;
-            inputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
+            resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["luisAppIds"] = state ? state.luisAppIds : undefined;
+            resourceInputs["luisKey"] = state ? state.luisKey : undefined;
+            resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceAzureBotArgs | undefined;
             if ((!args || args.microsoftAppId === undefined) && !opts.urn) {
@@ -169,24 +169,22 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
-            inputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
-            inputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["luisAppIds"] = args ? args.luisAppIds : undefined;
-            inputs["luisKey"] = args ? args.luisKey : undefined;
-            inputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
+            resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["luisAppIds"] = args ? args.luisAppIds : undefined;
+            resourceInputs["luisKey"] = args ? args.luisKey : undefined;
+            resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceAzureBot.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceAzureBot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

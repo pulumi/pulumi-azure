@@ -136,56 +136,54 @@ export class Workflow extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkflowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkflowArgs | WorkflowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
-            inputs["accessControl"] = state ? state.accessControl : undefined;
-            inputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
-            inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
-            inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
-            inputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
-            inputs["workflowParameters"] = state ? state.workflowParameters : undefined;
-            inputs["workflowSchema"] = state ? state.workflowSchema : undefined;
-            inputs["workflowVersion"] = state ? state.workflowVersion : undefined;
+            resourceInputs["accessControl"] = state ? state.accessControl : undefined;
+            resourceInputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
+            resourceInputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
+            resourceInputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
+            resourceInputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
+            resourceInputs["workflowParameters"] = state ? state.workflowParameters : undefined;
+            resourceInputs["workflowSchema"] = state ? state.workflowSchema : undefined;
+            resourceInputs["workflowVersion"] = state ? state.workflowVersion : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessControl"] = args ? args.accessControl : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workflowParameters"] = args ? args.workflowParameters : undefined;
-            inputs["workflowSchema"] = args ? args.workflowSchema : undefined;
-            inputs["workflowVersion"] = args ? args.workflowVersion : undefined;
-            inputs["accessEndpoint"] = undefined /*out*/;
-            inputs["connectorEndpointIpAddresses"] = undefined /*out*/;
-            inputs["connectorOutboundIpAddresses"] = undefined /*out*/;
-            inputs["workflowEndpointIpAddresses"] = undefined /*out*/;
-            inputs["workflowOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workflowParameters"] = args ? args.workflowParameters : undefined;
+            resourceInputs["workflowSchema"] = args ? args.workflowSchema : undefined;
+            resourceInputs["workflowVersion"] = args ? args.workflowVersion : undefined;
+            resourceInputs["accessEndpoint"] = undefined /*out*/;
+            resourceInputs["connectorEndpointIpAddresses"] = undefined /*out*/;
+            resourceInputs["connectorOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["workflowEndpointIpAddresses"] = undefined /*out*/;
+            resourceInputs["workflowOutboundIpAddresses"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workflow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

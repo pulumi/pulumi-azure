@@ -223,7 +223,7 @@ type AnalyticsSolutionInput interface {
 }
 
 func (*AnalyticsSolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsSolution)(nil))
+	return reflect.TypeOf((**AnalyticsSolution)(nil)).Elem()
 }
 
 func (i *AnalyticsSolution) ToAnalyticsSolutionOutput() AnalyticsSolutionOutput {
@@ -232,35 +232,6 @@ func (i *AnalyticsSolution) ToAnalyticsSolutionOutput() AnalyticsSolutionOutput 
 
 func (i *AnalyticsSolution) ToAnalyticsSolutionOutputWithContext(ctx context.Context) AnalyticsSolutionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionOutput)
-}
-
-func (i *AnalyticsSolution) ToAnalyticsSolutionPtrOutput() AnalyticsSolutionPtrOutput {
-	return i.ToAnalyticsSolutionPtrOutputWithContext(context.Background())
-}
-
-func (i *AnalyticsSolution) ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPtrOutput)
-}
-
-type AnalyticsSolutionPtrInput interface {
-	pulumi.Input
-
-	ToAnalyticsSolutionPtrOutput() AnalyticsSolutionPtrOutput
-	ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput
-}
-
-type analyticsSolutionPtrType AnalyticsSolutionArgs
-
-func (*analyticsSolutionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsSolution)(nil))
-}
-
-func (i *analyticsSolutionPtrType) ToAnalyticsSolutionPtrOutput() AnalyticsSolutionPtrOutput {
-	return i.ToAnalyticsSolutionPtrOutputWithContext(context.Background())
-}
-
-func (i *analyticsSolutionPtrType) ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPtrOutput)
 }
 
 // AnalyticsSolutionArrayInput is an input type that accepts AnalyticsSolutionArray and AnalyticsSolutionArrayOutput values.
@@ -316,7 +287,7 @@ func (i AnalyticsSolutionMap) ToAnalyticsSolutionMapOutputWithContext(ctx contex
 type AnalyticsSolutionOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsSolution)(nil))
+	return reflect.TypeOf((**AnalyticsSolution)(nil)).Elem()
 }
 
 func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutput() AnalyticsSolutionOutput {
@@ -327,44 +298,10 @@ func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutputWithContext(ctx contex
 	return o
 }
 
-func (o AnalyticsSolutionOutput) ToAnalyticsSolutionPtrOutput() AnalyticsSolutionPtrOutput {
-	return o.ToAnalyticsSolutionPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyticsSolutionOutput) ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsSolution) *AnalyticsSolution {
-		return &v
-	}).(AnalyticsSolutionPtrOutput)
-}
-
-type AnalyticsSolutionPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyticsSolutionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsSolution)(nil))
-}
-
-func (o AnalyticsSolutionPtrOutput) ToAnalyticsSolutionPtrOutput() AnalyticsSolutionPtrOutput {
-	return o
-}
-
-func (o AnalyticsSolutionPtrOutput) ToAnalyticsSolutionPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPtrOutput {
-	return o
-}
-
-func (o AnalyticsSolutionPtrOutput) Elem() AnalyticsSolutionOutput {
-	return o.ApplyT(func(v *AnalyticsSolution) AnalyticsSolution {
-		if v != nil {
-			return *v
-		}
-		var ret AnalyticsSolution
-		return ret
-	}).(AnalyticsSolutionOutput)
-}
-
 type AnalyticsSolutionArrayOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyticsSolution)(nil))
+	return reflect.TypeOf((*[]*AnalyticsSolution)(nil)).Elem()
 }
 
 func (o AnalyticsSolutionArrayOutput) ToAnalyticsSolutionArrayOutput() AnalyticsSolutionArrayOutput {
@@ -376,15 +313,15 @@ func (o AnalyticsSolutionArrayOutput) ToAnalyticsSolutionArrayOutputWithContext(
 }
 
 func (o AnalyticsSolutionArrayOutput) Index(i pulumi.IntInput) AnalyticsSolutionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsSolution {
-		return vs[0].([]AnalyticsSolution)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsSolution {
+		return vs[0].([]*AnalyticsSolution)[vs[1].(int)]
 	}).(AnalyticsSolutionOutput)
 }
 
 type AnalyticsSolutionMapOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AnalyticsSolution)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsSolution)(nil)).Elem()
 }
 
 func (o AnalyticsSolutionMapOutput) ToAnalyticsSolutionMapOutput() AnalyticsSolutionMapOutput {
@@ -396,18 +333,16 @@ func (o AnalyticsSolutionMapOutput) ToAnalyticsSolutionMapOutputWithContext(ctx 
 }
 
 func (o AnalyticsSolutionMapOutput) MapIndex(k pulumi.StringInput) AnalyticsSolutionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsSolution {
-		return vs[0].(map[string]AnalyticsSolution)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AnalyticsSolution {
+		return vs[0].(map[string]*AnalyticsSolution)[vs[1].(string)]
 	}).(AnalyticsSolutionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionInput)(nil)).Elem(), &AnalyticsSolution{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPtrInput)(nil)).Elem(), &AnalyticsSolution{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionArrayInput)(nil)).Elem(), AnalyticsSolutionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionMapInput)(nil)).Elem(), AnalyticsSolutionMap{})
 	pulumi.RegisterOutputType(AnalyticsSolutionOutput{})
-	pulumi.RegisterOutputType(AnalyticsSolutionPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsSolutionArrayOutput{})
 	pulumi.RegisterOutputType(AnalyticsSolutionMapOutput{})
 }

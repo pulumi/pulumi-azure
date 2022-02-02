@@ -227,7 +227,7 @@ type StorageInsightsInput interface {
 }
 
 func (*StorageInsights) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsights)(nil))
+	return reflect.TypeOf((**StorageInsights)(nil)).Elem()
 }
 
 func (i *StorageInsights) ToStorageInsightsOutput() StorageInsightsOutput {
@@ -236,35 +236,6 @@ func (i *StorageInsights) ToStorageInsightsOutput() StorageInsightsOutput {
 
 func (i *StorageInsights) ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsOutput)
-}
-
-func (i *StorageInsights) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
-	return i.ToStorageInsightsPtrOutputWithContext(context.Background())
-}
-
-func (i *StorageInsights) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsPtrOutput)
-}
-
-type StorageInsightsPtrInput interface {
-	pulumi.Input
-
-	ToStorageInsightsPtrOutput() StorageInsightsPtrOutput
-	ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput
-}
-
-type storageInsightsPtrType StorageInsightsArgs
-
-func (*storageInsightsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageInsights)(nil))
-}
-
-func (i *storageInsightsPtrType) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
-	return i.ToStorageInsightsPtrOutputWithContext(context.Background())
-}
-
-func (i *storageInsightsPtrType) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsPtrOutput)
 }
 
 // StorageInsightsArrayInput is an input type that accepts StorageInsightsArray and StorageInsightsArrayOutput values.
@@ -320,7 +291,7 @@ func (i StorageInsightsMap) ToStorageInsightsMapOutputWithContext(ctx context.Co
 type StorageInsightsOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsights)(nil))
+	return reflect.TypeOf((**StorageInsights)(nil)).Elem()
 }
 
 func (o StorageInsightsOutput) ToStorageInsightsOutput() StorageInsightsOutput {
@@ -331,44 +302,10 @@ func (o StorageInsightsOutput) ToStorageInsightsOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o StorageInsightsOutput) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
-	return o.ToStorageInsightsPtrOutputWithContext(context.Background())
-}
-
-func (o StorageInsightsOutput) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageInsights) *StorageInsights {
-		return &v
-	}).(StorageInsightsPtrOutput)
-}
-
-type StorageInsightsPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageInsightsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageInsights)(nil))
-}
-
-func (o StorageInsightsPtrOutput) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
-	return o
-}
-
-func (o StorageInsightsPtrOutput) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
-	return o
-}
-
-func (o StorageInsightsPtrOutput) Elem() StorageInsightsOutput {
-	return o.ApplyT(func(v *StorageInsights) StorageInsights {
-		if v != nil {
-			return *v
-		}
-		var ret StorageInsights
-		return ret
-	}).(StorageInsightsOutput)
-}
-
 type StorageInsightsArrayOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageInsights)(nil))
+	return reflect.TypeOf((*[]*StorageInsights)(nil)).Elem()
 }
 
 func (o StorageInsightsArrayOutput) ToStorageInsightsArrayOutput() StorageInsightsArrayOutput {
@@ -380,15 +317,15 @@ func (o StorageInsightsArrayOutput) ToStorageInsightsArrayOutputWithContext(ctx 
 }
 
 func (o StorageInsightsArrayOutput) Index(i pulumi.IntInput) StorageInsightsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageInsights {
-		return vs[0].([]StorageInsights)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StorageInsights {
+		return vs[0].([]*StorageInsights)[vs[1].(int)]
 	}).(StorageInsightsOutput)
 }
 
 type StorageInsightsMapOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StorageInsights)(nil))
+	return reflect.TypeOf((*map[string]*StorageInsights)(nil)).Elem()
 }
 
 func (o StorageInsightsMapOutput) ToStorageInsightsMapOutput() StorageInsightsMapOutput {
@@ -400,18 +337,16 @@ func (o StorageInsightsMapOutput) ToStorageInsightsMapOutputWithContext(ctx cont
 }
 
 func (o StorageInsightsMapOutput) MapIndex(k pulumi.StringInput) StorageInsightsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageInsights {
-		return vs[0].(map[string]StorageInsights)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StorageInsights {
+		return vs[0].(map[string]*StorageInsights)[vs[1].(string)]
 	}).(StorageInsightsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsInput)(nil)).Elem(), &StorageInsights{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsPtrInput)(nil)).Elem(), &StorageInsights{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsArrayInput)(nil)).Elem(), StorageInsightsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsMapInput)(nil)).Elem(), StorageInsightsMap{})
 	pulumi.RegisterOutputType(StorageInsightsOutput{})
-	pulumi.RegisterOutputType(StorageInsightsPtrOutput{})
 	pulumi.RegisterOutputType(StorageInsightsArrayOutput{})
 	pulumi.RegisterOutputType(StorageInsightsMapOutput{})
 }

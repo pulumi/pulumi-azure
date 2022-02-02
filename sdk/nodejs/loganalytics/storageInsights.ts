@@ -112,18 +112,18 @@ export class StorageInsights extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageInsightsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StorageInsightsArgs | StorageInsightsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StorageInsightsState | undefined;
-            inputs["blobContainerNames"] = state ? state.blobContainerNames : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            inputs["tableNames"] = state ? state.tableNames : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["blobContainerNames"] = state ? state.blobContainerNames : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
+            resourceInputs["tableNames"] = state ? state.tableNames : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as StorageInsightsArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -138,19 +138,17 @@ export class StorageInsights extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["blobContainerNames"] = args ? args.blobContainerNames : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            inputs["tableNames"] = args ? args.tableNames : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["blobContainerNames"] = args ? args.blobContainerNames : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StorageInsights.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StorageInsights.__pulumiType, name, resourceInputs, opts);
     }
 }
 

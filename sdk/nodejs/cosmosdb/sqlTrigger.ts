@@ -102,15 +102,15 @@ export class SqlTrigger extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlTriggerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlTriggerArgs | SqlTriggerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlTriggerState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["containerId"] = state ? state.containerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operation"] = state ? state.operation : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["containerId"] = state ? state.containerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operation"] = state ? state.operation : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SqlTriggerArgs | undefined;
             if ((!args || args.body === undefined) && !opts.urn) {
@@ -125,16 +125,14 @@ export class SqlTrigger extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["containerId"] = args ? args.containerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operation"] = args ? args.operation : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["containerId"] = args ? args.containerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operation"] = args ? args.operation : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlTrigger.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlTrigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

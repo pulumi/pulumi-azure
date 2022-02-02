@@ -104,15 +104,15 @@ export class SpringCloudAppRedisAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudAppRedisAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudAppRedisAssociationArgs | SpringCloudAppRedisAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppRedisAssociationState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redisAccessKey"] = state ? state.redisAccessKey : undefined;
-            inputs["redisCacheId"] = state ? state.redisCacheId : undefined;
-            inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            inputs["sslEnabled"] = state ? state.sslEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redisAccessKey"] = state ? state.redisAccessKey : undefined;
+            resourceInputs["redisCacheId"] = state ? state.redisCacheId : undefined;
+            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["sslEnabled"] = state ? state.sslEnabled : undefined;
         } else {
             const args = argsOrState as SpringCloudAppRedisAssociationArgs | undefined;
             if ((!args || args.redisAccessKey === undefined) && !opts.urn) {
@@ -124,16 +124,14 @@ export class SpringCloudAppRedisAssociation extends pulumi.CustomResource {
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redisAccessKey"] = args ? args.redisAccessKey : undefined;
-            inputs["redisCacheId"] = args ? args.redisCacheId : undefined;
-            inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            inputs["sslEnabled"] = args ? args.sslEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redisAccessKey"] = args ? args.redisAccessKey : undefined;
+            resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
+            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["sslEnabled"] = args ? args.sslEnabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpringCloudAppRedisAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpringCloudAppRedisAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

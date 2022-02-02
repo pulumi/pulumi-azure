@@ -253,7 +253,7 @@ type FirewallNatRuleCollectionInput interface {
 }
 
 func (*FirewallNatRuleCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallNatRuleCollection)(nil))
+	return reflect.TypeOf((**FirewallNatRuleCollection)(nil)).Elem()
 }
 
 func (i *FirewallNatRuleCollection) ToFirewallNatRuleCollectionOutput() FirewallNatRuleCollectionOutput {
@@ -262,35 +262,6 @@ func (i *FirewallNatRuleCollection) ToFirewallNatRuleCollectionOutput() Firewall
 
 func (i *FirewallNatRuleCollection) ToFirewallNatRuleCollectionOutputWithContext(ctx context.Context) FirewallNatRuleCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionOutput)
-}
-
-func (i *FirewallNatRuleCollection) ToFirewallNatRuleCollectionPtrOutput() FirewallNatRuleCollectionPtrOutput {
-	return i.ToFirewallNatRuleCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i *FirewallNatRuleCollection) ToFirewallNatRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallNatRuleCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionPtrOutput)
-}
-
-type FirewallNatRuleCollectionPtrInput interface {
-	pulumi.Input
-
-	ToFirewallNatRuleCollectionPtrOutput() FirewallNatRuleCollectionPtrOutput
-	ToFirewallNatRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallNatRuleCollectionPtrOutput
-}
-
-type firewallNatRuleCollectionPtrType FirewallNatRuleCollectionArgs
-
-func (*firewallNatRuleCollectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallNatRuleCollection)(nil))
-}
-
-func (i *firewallNatRuleCollectionPtrType) ToFirewallNatRuleCollectionPtrOutput() FirewallNatRuleCollectionPtrOutput {
-	return i.ToFirewallNatRuleCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallNatRuleCollectionPtrType) ToFirewallNatRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallNatRuleCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionPtrOutput)
 }
 
 // FirewallNatRuleCollectionArrayInput is an input type that accepts FirewallNatRuleCollectionArray and FirewallNatRuleCollectionArrayOutput values.
@@ -346,7 +317,7 @@ func (i FirewallNatRuleCollectionMap) ToFirewallNatRuleCollectionMapOutputWithCo
 type FirewallNatRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (FirewallNatRuleCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallNatRuleCollection)(nil))
+	return reflect.TypeOf((**FirewallNatRuleCollection)(nil)).Elem()
 }
 
 func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionOutput() FirewallNatRuleCollectionOutput {
@@ -357,44 +328,10 @@ func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionOutputWithCo
 	return o
 }
 
-func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionPtrOutput() FirewallNatRuleCollectionPtrOutput {
-	return o.ToFirewallNatRuleCollectionPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallNatRuleCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallNatRuleCollection) *FirewallNatRuleCollection {
-		return &v
-	}).(FirewallNatRuleCollectionPtrOutput)
-}
-
-type FirewallNatRuleCollectionPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallNatRuleCollectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallNatRuleCollection)(nil))
-}
-
-func (o FirewallNatRuleCollectionPtrOutput) ToFirewallNatRuleCollectionPtrOutput() FirewallNatRuleCollectionPtrOutput {
-	return o
-}
-
-func (o FirewallNatRuleCollectionPtrOutput) ToFirewallNatRuleCollectionPtrOutputWithContext(ctx context.Context) FirewallNatRuleCollectionPtrOutput {
-	return o
-}
-
-func (o FirewallNatRuleCollectionPtrOutput) Elem() FirewallNatRuleCollectionOutput {
-	return o.ApplyT(func(v *FirewallNatRuleCollection) FirewallNatRuleCollection {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallNatRuleCollection
-		return ret
-	}).(FirewallNatRuleCollectionOutput)
-}
-
 type FirewallNatRuleCollectionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallNatRuleCollectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallNatRuleCollection)(nil))
+	return reflect.TypeOf((*[]*FirewallNatRuleCollection)(nil)).Elem()
 }
 
 func (o FirewallNatRuleCollectionArrayOutput) ToFirewallNatRuleCollectionArrayOutput() FirewallNatRuleCollectionArrayOutput {
@@ -406,15 +343,15 @@ func (o FirewallNatRuleCollectionArrayOutput) ToFirewallNatRuleCollectionArrayOu
 }
 
 func (o FirewallNatRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallNatRuleCollectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallNatRuleCollection {
-		return vs[0].([]FirewallNatRuleCollection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallNatRuleCollection {
+		return vs[0].([]*FirewallNatRuleCollection)[vs[1].(int)]
 	}).(FirewallNatRuleCollectionOutput)
 }
 
 type FirewallNatRuleCollectionMapOutput struct{ *pulumi.OutputState }
 
 func (FirewallNatRuleCollectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FirewallNatRuleCollection)(nil))
+	return reflect.TypeOf((*map[string]*FirewallNatRuleCollection)(nil)).Elem()
 }
 
 func (o FirewallNatRuleCollectionMapOutput) ToFirewallNatRuleCollectionMapOutput() FirewallNatRuleCollectionMapOutput {
@@ -426,18 +363,16 @@ func (o FirewallNatRuleCollectionMapOutput) ToFirewallNatRuleCollectionMapOutput
 }
 
 func (o FirewallNatRuleCollectionMapOutput) MapIndex(k pulumi.StringInput) FirewallNatRuleCollectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FirewallNatRuleCollection {
-		return vs[0].(map[string]FirewallNatRuleCollection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FirewallNatRuleCollection {
+		return vs[0].(map[string]*FirewallNatRuleCollection)[vs[1].(string)]
 	}).(FirewallNatRuleCollectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNatRuleCollectionInput)(nil)).Elem(), &FirewallNatRuleCollection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNatRuleCollectionPtrInput)(nil)).Elem(), &FirewallNatRuleCollection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNatRuleCollectionArrayInput)(nil)).Elem(), FirewallNatRuleCollectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNatRuleCollectionMapInput)(nil)).Elem(), FirewallNatRuleCollectionMap{})
 	pulumi.RegisterOutputType(FirewallNatRuleCollectionOutput{})
-	pulumi.RegisterOutputType(FirewallNatRuleCollectionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallNatRuleCollectionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallNatRuleCollectionMapOutput{})
 }

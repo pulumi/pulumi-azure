@@ -161,18 +161,18 @@ export class Module extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModuleArgs | ModuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModuleState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkProfile"] = state ? state.networkProfile : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["stampId"] = state ? state.stampId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["stampId"] = state ? state.stampId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ModuleArgs | undefined;
             if ((!args || args.networkProfile === undefined) && !opts.urn) {
@@ -184,19 +184,17 @@ export class Module extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["stampId"] = args ? args.stampId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["stampId"] = args ? args.stampId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Module.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Module.__pulumiType, name, resourceInputs, opts);
     }
 }
 

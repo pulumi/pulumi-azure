@@ -98,16 +98,16 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationAccountMapArgs | IntegrationAccountMapState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountMapState | undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            inputs["mapType"] = state ? state.mapType : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
+            resourceInputs["mapType"] = state ? state.mapType : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationAccountMapArgs | undefined;
             if ((!args || args.content === undefined) && !opts.urn) {
@@ -122,17 +122,15 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["mapType"] = args ? args.mapType : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["mapType"] = args ? args.mapType : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationAccountMap.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationAccountMap.__pulumiType, name, resourceInputs, opts);
     }
 }
 

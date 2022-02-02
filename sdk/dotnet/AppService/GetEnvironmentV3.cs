@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnvironmentV3Result> InvokeAsync(GetEnvironmentV3Args args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3Args(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3Args(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnvironmentV3Result> Invoke(GetEnvironmentV3InvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3InvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3InvokeArgs(), options.WithDefaults());
     }
 
 

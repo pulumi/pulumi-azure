@@ -112,15 +112,15 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupPolicyDiskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupPolicyDiskArgs | BackupPolicyDiskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyDiskState | undefined;
-            inputs["backupRepeatingTimeIntervals"] = state ? state.backupRepeatingTimeIntervals : undefined;
-            inputs["defaultRetentionDuration"] = state ? state.defaultRetentionDuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionRules"] = state ? state.retentionRules : undefined;
-            inputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = state ? state.backupRepeatingTimeIntervals : undefined;
+            resourceInputs["defaultRetentionDuration"] = state ? state.defaultRetentionDuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retentionRules"] = state ? state.retentionRules : undefined;
+            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupPolicyDiskArgs | undefined;
             if ((!args || args.backupRepeatingTimeIntervals === undefined) && !opts.urn) {
@@ -132,16 +132,14 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
             if ((!args || args.vaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            inputs["backupRepeatingTimeIntervals"] = args ? args.backupRepeatingTimeIntervals : undefined;
-            inputs["defaultRetentionDuration"] = args ? args.defaultRetentionDuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionRules"] = args ? args.retentionRules : undefined;
-            inputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = args ? args.backupRepeatingTimeIntervals : undefined;
+            resourceInputs["defaultRetentionDuration"] = args ? args.defaultRetentionDuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionRules"] = args ? args.retentionRules : undefined;
+            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackupPolicyDisk.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackupPolicyDisk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

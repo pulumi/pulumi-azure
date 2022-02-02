@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Waf
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Waf
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure:waf/getFirewallPolicy:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure:waf/getFirewallPolicy:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Web Application Firewall Policy.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Waf
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure:waf/getFirewallPolicy:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure:waf/getFirewallPolicy:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

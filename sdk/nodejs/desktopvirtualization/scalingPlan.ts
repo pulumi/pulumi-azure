@@ -188,20 +188,20 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScalingPlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScalingPlanArgs | ScalingPlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScalingPlanState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["exclusionTag"] = state ? state.exclusionTag : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["hostPools"] = state ? state.hostPools : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["schedules"] = state ? state.schedules : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["exclusionTag"] = state ? state.exclusionTag : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["hostPools"] = state ? state.hostPools : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["schedules"] = state ? state.schedules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as ScalingPlanArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -213,21 +213,19 @@ export class ScalingPlan extends pulumi.CustomResource {
             if ((!args || args.timeZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["exclusionTag"] = args ? args.exclusionTag : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hostPools"] = args ? args.hostPools : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["exclusionTag"] = args ? args.exclusionTag : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["hostPools"] = args ? args.hostPools : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ScalingPlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ScalingPlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

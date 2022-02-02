@@ -179,7 +179,7 @@ type ChannelAlexaInput interface {
 }
 
 func (*ChannelAlexa) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelAlexa)(nil))
+	return reflect.TypeOf((**ChannelAlexa)(nil)).Elem()
 }
 
 func (i *ChannelAlexa) ToChannelAlexaOutput() ChannelAlexaOutput {
@@ -188,35 +188,6 @@ func (i *ChannelAlexa) ToChannelAlexaOutput() ChannelAlexaOutput {
 
 func (i *ChannelAlexa) ToChannelAlexaOutputWithContext(ctx context.Context) ChannelAlexaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaOutput)
-}
-
-func (i *ChannelAlexa) ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput {
-	return i.ToChannelAlexaPtrOutputWithContext(context.Background())
-}
-
-func (i *ChannelAlexa) ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaPtrOutput)
-}
-
-type ChannelAlexaPtrInput interface {
-	pulumi.Input
-
-	ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput
-	ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput
-}
-
-type channelAlexaPtrType ChannelAlexaArgs
-
-func (*channelAlexaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelAlexa)(nil))
-}
-
-func (i *channelAlexaPtrType) ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput {
-	return i.ToChannelAlexaPtrOutputWithContext(context.Background())
-}
-
-func (i *channelAlexaPtrType) ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaPtrOutput)
 }
 
 // ChannelAlexaArrayInput is an input type that accepts ChannelAlexaArray and ChannelAlexaArrayOutput values.
@@ -272,7 +243,7 @@ func (i ChannelAlexaMap) ToChannelAlexaMapOutputWithContext(ctx context.Context)
 type ChannelAlexaOutput struct{ *pulumi.OutputState }
 
 func (ChannelAlexaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelAlexa)(nil))
+	return reflect.TypeOf((**ChannelAlexa)(nil)).Elem()
 }
 
 func (o ChannelAlexaOutput) ToChannelAlexaOutput() ChannelAlexaOutput {
@@ -283,44 +254,10 @@ func (o ChannelAlexaOutput) ToChannelAlexaOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ChannelAlexaOutput) ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput {
-	return o.ToChannelAlexaPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelAlexaOutput) ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelAlexa) *ChannelAlexa {
-		return &v
-	}).(ChannelAlexaPtrOutput)
-}
-
-type ChannelAlexaPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelAlexaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelAlexa)(nil))
-}
-
-func (o ChannelAlexaPtrOutput) ToChannelAlexaPtrOutput() ChannelAlexaPtrOutput {
-	return o
-}
-
-func (o ChannelAlexaPtrOutput) ToChannelAlexaPtrOutputWithContext(ctx context.Context) ChannelAlexaPtrOutput {
-	return o
-}
-
-func (o ChannelAlexaPtrOutput) Elem() ChannelAlexaOutput {
-	return o.ApplyT(func(v *ChannelAlexa) ChannelAlexa {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelAlexa
-		return ret
-	}).(ChannelAlexaOutput)
-}
-
 type ChannelAlexaArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelAlexaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelAlexa)(nil))
+	return reflect.TypeOf((*[]*ChannelAlexa)(nil)).Elem()
 }
 
 func (o ChannelAlexaArrayOutput) ToChannelAlexaArrayOutput() ChannelAlexaArrayOutput {
@@ -332,15 +269,15 @@ func (o ChannelAlexaArrayOutput) ToChannelAlexaArrayOutputWithContext(ctx contex
 }
 
 func (o ChannelAlexaArrayOutput) Index(i pulumi.IntInput) ChannelAlexaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelAlexa {
-		return vs[0].([]ChannelAlexa)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelAlexa {
+		return vs[0].([]*ChannelAlexa)[vs[1].(int)]
 	}).(ChannelAlexaOutput)
 }
 
 type ChannelAlexaMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelAlexaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChannelAlexa)(nil))
+	return reflect.TypeOf((*map[string]*ChannelAlexa)(nil)).Elem()
 }
 
 func (o ChannelAlexaMapOutput) ToChannelAlexaMapOutput() ChannelAlexaMapOutput {
@@ -352,18 +289,16 @@ func (o ChannelAlexaMapOutput) ToChannelAlexaMapOutputWithContext(ctx context.Co
 }
 
 func (o ChannelAlexaMapOutput) MapIndex(k pulumi.StringInput) ChannelAlexaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelAlexa {
-		return vs[0].(map[string]ChannelAlexa)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChannelAlexa {
+		return vs[0].(map[string]*ChannelAlexa)[vs[1].(string)]
 	}).(ChannelAlexaOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaInput)(nil)).Elem(), &ChannelAlexa{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaPtrInput)(nil)).Elem(), &ChannelAlexa{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaArrayInput)(nil)).Elem(), ChannelAlexaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaMapInput)(nil)).Elem(), ChannelAlexaMap{})
 	pulumi.RegisterOutputType(ChannelAlexaOutput{})
-	pulumi.RegisterOutputType(ChannelAlexaPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAlexaArrayOutput{})
 	pulumi.RegisterOutputType(ChannelAlexaMapOutput{})
 }

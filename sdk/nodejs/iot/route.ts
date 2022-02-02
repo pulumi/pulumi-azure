@@ -131,17 +131,17 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            inputs["condition"] = state ? state.condition : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["endpointNames"] = state ? state.endpointNames : undefined;
-            inputs["iothubName"] = state ? state.iothubName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["source"] = state ? state.source : undefined;
+            resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["endpointNames"] = state ? state.endpointNames : undefined;
+            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -159,18 +159,16 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["endpointNames"] = args ? args.endpointNames : undefined;
-            inputs["iothubName"] = args ? args.iothubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["endpointNames"] = args ? args.endpointNames : undefined;
+            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Route.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -196,7 +196,7 @@ type ShareInput interface {
 }
 
 func (*Share) ElementType() reflect.Type {
-	return reflect.TypeOf((*Share)(nil))
+	return reflect.TypeOf((**Share)(nil)).Elem()
 }
 
 func (i *Share) ToShareOutput() ShareOutput {
@@ -205,35 +205,6 @@ func (i *Share) ToShareOutput() ShareOutput {
 
 func (i *Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareOutput)
-}
-
-func (i *Share) ToSharePtrOutput() SharePtrOutput {
-	return i.ToSharePtrOutputWithContext(context.Background())
-}
-
-func (i *Share) ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharePtrOutput)
-}
-
-type SharePtrInput interface {
-	pulumi.Input
-
-	ToSharePtrOutput() SharePtrOutput
-	ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput
-}
-
-type sharePtrType ShareArgs
-
-func (*sharePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Share)(nil))
-}
-
-func (i *sharePtrType) ToSharePtrOutput() SharePtrOutput {
-	return i.ToSharePtrOutputWithContext(context.Background())
-}
-
-func (i *sharePtrType) ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharePtrOutput)
 }
 
 // ShareArrayInput is an input type that accepts ShareArray and ShareArrayOutput values.
@@ -289,7 +260,7 @@ func (i ShareMap) ToShareMapOutputWithContext(ctx context.Context) ShareMapOutpu
 type ShareOutput struct{ *pulumi.OutputState }
 
 func (ShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Share)(nil))
+	return reflect.TypeOf((**Share)(nil)).Elem()
 }
 
 func (o ShareOutput) ToShareOutput() ShareOutput {
@@ -300,44 +271,10 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
-func (o ShareOutput) ToSharePtrOutput() SharePtrOutput {
-	return o.ToSharePtrOutputWithContext(context.Background())
-}
-
-func (o ShareOutput) ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Share) *Share {
-		return &v
-	}).(SharePtrOutput)
-}
-
-type SharePtrOutput struct{ *pulumi.OutputState }
-
-func (SharePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Share)(nil))
-}
-
-func (o SharePtrOutput) ToSharePtrOutput() SharePtrOutput {
-	return o
-}
-
-func (o SharePtrOutput) ToSharePtrOutputWithContext(ctx context.Context) SharePtrOutput {
-	return o
-}
-
-func (o SharePtrOutput) Elem() ShareOutput {
-	return o.ApplyT(func(v *Share) Share {
-		if v != nil {
-			return *v
-		}
-		var ret Share
-		return ret
-	}).(ShareOutput)
-}
-
 type ShareArrayOutput struct{ *pulumi.OutputState }
 
 func (ShareArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Share)(nil))
+	return reflect.TypeOf((*[]*Share)(nil)).Elem()
 }
 
 func (o ShareArrayOutput) ToShareArrayOutput() ShareArrayOutput {
@@ -349,15 +286,15 @@ func (o ShareArrayOutput) ToShareArrayOutputWithContext(ctx context.Context) Sha
 }
 
 func (o ShareArrayOutput) Index(i pulumi.IntInput) ShareOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Share {
-		return vs[0].([]Share)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Share {
+		return vs[0].([]*Share)[vs[1].(int)]
 	}).(ShareOutput)
 }
 
 type ShareMapOutput struct{ *pulumi.OutputState }
 
 func (ShareMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Share)(nil))
+	return reflect.TypeOf((*map[string]*Share)(nil)).Elem()
 }
 
 func (o ShareMapOutput) ToShareMapOutput() ShareMapOutput {
@@ -369,18 +306,16 @@ func (o ShareMapOutput) ToShareMapOutputWithContext(ctx context.Context) ShareMa
 }
 
 func (o ShareMapOutput) MapIndex(k pulumi.StringInput) ShareOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Share {
-		return vs[0].(map[string]Share)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Share {
+		return vs[0].(map[string]*Share)[vs[1].(string)]
 	}).(ShareOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareInput)(nil)).Elem(), &Share{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SharePtrInput)(nil)).Elem(), &Share{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareArrayInput)(nil)).Elem(), ShareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareMapInput)(nil)).Elem(), ShareMap{})
 	pulumi.RegisterOutputType(ShareOutput{})
-	pulumi.RegisterOutputType(SharePtrOutput{})
 	pulumi.RegisterOutputType(ShareArrayOutput{})
 	pulumi.RegisterOutputType(ShareMapOutput{})
 }

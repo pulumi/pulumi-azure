@@ -27,9 +27,7 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
         "displayName": args.displayName,
         "groupId": args.groupId,

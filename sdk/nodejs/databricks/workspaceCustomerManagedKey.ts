@@ -59,12 +59,12 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceCustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceCustomerManagedKeyArgs | WorkspaceCustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceCustomerManagedKeyState | undefined;
-            inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceCustomerManagedKeyArgs | undefined;
             if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
@@ -73,13 +73,11 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WorkspaceCustomerManagedKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WorkspaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

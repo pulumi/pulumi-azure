@@ -26,9 +26,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:batch/getApplication:getApplication", {
         "accountName": args.accountName,
         "name": args.name,

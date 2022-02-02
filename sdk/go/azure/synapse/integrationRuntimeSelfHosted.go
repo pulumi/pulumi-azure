@@ -199,7 +199,7 @@ type IntegrationRuntimeSelfHostedInput interface {
 }
 
 func (*IntegrationRuntimeSelfHosted) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSelfHosted)(nil))
+	return reflect.TypeOf((**IntegrationRuntimeSelfHosted)(nil)).Elem()
 }
 
 func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutput() IntegrationRuntimeSelfHostedOutput {
@@ -208,35 +208,6 @@ func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutput() In
 
 func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedOutput)
-}
-
-func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedPtrOutput() IntegrationRuntimeSelfHostedPtrOutput {
-	return i.ToIntegrationRuntimeSelfHostedPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedPtrOutput)
-}
-
-type IntegrationRuntimeSelfHostedPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeSelfHostedPtrOutput() IntegrationRuntimeSelfHostedPtrOutput
-	ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput
-}
-
-type integrationRuntimeSelfHostedPtrType IntegrationRuntimeSelfHostedArgs
-
-func (*integrationRuntimeSelfHostedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeSelfHosted)(nil))
-}
-
-func (i *integrationRuntimeSelfHostedPtrType) ToIntegrationRuntimeSelfHostedPtrOutput() IntegrationRuntimeSelfHostedPtrOutput {
-	return i.ToIntegrationRuntimeSelfHostedPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeSelfHostedPtrType) ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedPtrOutput)
 }
 
 // IntegrationRuntimeSelfHostedArrayInput is an input type that accepts IntegrationRuntimeSelfHostedArray and IntegrationRuntimeSelfHostedArrayOutput values.
@@ -292,7 +263,7 @@ func (i IntegrationRuntimeSelfHostedMap) ToIntegrationRuntimeSelfHostedMapOutput
 type IntegrationRuntimeSelfHostedOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSelfHostedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSelfHosted)(nil))
+	return reflect.TypeOf((**IntegrationRuntimeSelfHosted)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedOutput() IntegrationRuntimeSelfHostedOutput {
@@ -303,44 +274,10 @@ func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedOutput
 	return o
 }
 
-func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedPtrOutput() IntegrationRuntimeSelfHostedPtrOutput {
-	return o.ToIntegrationRuntimeSelfHostedPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSelfHosted) *IntegrationRuntimeSelfHosted {
-		return &v
-	}).(IntegrationRuntimeSelfHostedPtrOutput)
-}
-
-type IntegrationRuntimeSelfHostedPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeSelfHostedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeSelfHosted)(nil))
-}
-
-func (o IntegrationRuntimeSelfHostedPtrOutput) ToIntegrationRuntimeSelfHostedPtrOutput() IntegrationRuntimeSelfHostedPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSelfHostedPtrOutput) ToIntegrationRuntimeSelfHostedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSelfHostedPtrOutput) Elem() IntegrationRuntimeSelfHostedOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSelfHosted) IntegrationRuntimeSelfHosted {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeSelfHosted
-		return ret
-	}).(IntegrationRuntimeSelfHostedOutput)
-}
-
 type IntegrationRuntimeSelfHostedArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSelfHostedArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationRuntimeSelfHosted)(nil))
+	return reflect.TypeOf((*[]*IntegrationRuntimeSelfHosted)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeSelfHostedArrayOutput) ToIntegrationRuntimeSelfHostedArrayOutput() IntegrationRuntimeSelfHostedArrayOutput {
@@ -352,15 +289,15 @@ func (o IntegrationRuntimeSelfHostedArrayOutput) ToIntegrationRuntimeSelfHostedA
 }
 
 func (o IntegrationRuntimeSelfHostedArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSelfHostedOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSelfHosted {
-		return vs[0].([]IntegrationRuntimeSelfHosted)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeSelfHosted {
+		return vs[0].([]*IntegrationRuntimeSelfHosted)[vs[1].(int)]
 	}).(IntegrationRuntimeSelfHostedOutput)
 }
 
 type IntegrationRuntimeSelfHostedMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSelfHostedMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationRuntimeSelfHosted)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationRuntimeSelfHosted)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeSelfHostedMapOutput) ToIntegrationRuntimeSelfHostedMapOutput() IntegrationRuntimeSelfHostedMapOutput {
@@ -372,18 +309,16 @@ func (o IntegrationRuntimeSelfHostedMapOutput) ToIntegrationRuntimeSelfHostedMap
 }
 
 func (o IntegrationRuntimeSelfHostedMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeSelfHostedOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationRuntimeSelfHosted {
-		return vs[0].(map[string]IntegrationRuntimeSelfHosted)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationRuntimeSelfHosted {
+		return vs[0].(map[string]*IntegrationRuntimeSelfHosted)[vs[1].(string)]
 	}).(IntegrationRuntimeSelfHostedOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedInput)(nil)).Elem(), &IntegrationRuntimeSelfHosted{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedPtrInput)(nil)).Elem(), &IntegrationRuntimeSelfHosted{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedArrayInput)(nil)).Elem(), IntegrationRuntimeSelfHostedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedMapInput)(nil)).Elem(), IntegrationRuntimeSelfHostedMap{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedOutput{})
-	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedMapOutput{})
 }

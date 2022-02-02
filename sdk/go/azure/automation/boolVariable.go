@@ -148,7 +148,7 @@ type BoolVariableInput interface {
 }
 
 func (*BoolVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*BoolVariable)(nil))
+	return reflect.TypeOf((**BoolVariable)(nil)).Elem()
 }
 
 func (i *BoolVariable) ToBoolVariableOutput() BoolVariableOutput {
@@ -157,35 +157,6 @@ func (i *BoolVariable) ToBoolVariableOutput() BoolVariableOutput {
 
 func (i *BoolVariable) ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableOutput)
-}
-
-func (i *BoolVariable) ToBoolVariablePtrOutput() BoolVariablePtrOutput {
-	return i.ToBoolVariablePtrOutputWithContext(context.Background())
-}
-
-func (i *BoolVariable) ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BoolVariablePtrOutput)
-}
-
-type BoolVariablePtrInput interface {
-	pulumi.Input
-
-	ToBoolVariablePtrOutput() BoolVariablePtrOutput
-	ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput
-}
-
-type boolVariablePtrType BoolVariableArgs
-
-func (*boolVariablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BoolVariable)(nil))
-}
-
-func (i *boolVariablePtrType) ToBoolVariablePtrOutput() BoolVariablePtrOutput {
-	return i.ToBoolVariablePtrOutputWithContext(context.Background())
-}
-
-func (i *boolVariablePtrType) ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BoolVariablePtrOutput)
 }
 
 // BoolVariableArrayInput is an input type that accepts BoolVariableArray and BoolVariableArrayOutput values.
@@ -241,7 +212,7 @@ func (i BoolVariableMap) ToBoolVariableMapOutputWithContext(ctx context.Context)
 type BoolVariableOutput struct{ *pulumi.OutputState }
 
 func (BoolVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BoolVariable)(nil))
+	return reflect.TypeOf((**BoolVariable)(nil)).Elem()
 }
 
 func (o BoolVariableOutput) ToBoolVariableOutput() BoolVariableOutput {
@@ -252,44 +223,10 @@ func (o BoolVariableOutput) ToBoolVariableOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o BoolVariableOutput) ToBoolVariablePtrOutput() BoolVariablePtrOutput {
-	return o.ToBoolVariablePtrOutputWithContext(context.Background())
-}
-
-func (o BoolVariableOutput) ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BoolVariable) *BoolVariable {
-		return &v
-	}).(BoolVariablePtrOutput)
-}
-
-type BoolVariablePtrOutput struct{ *pulumi.OutputState }
-
-func (BoolVariablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BoolVariable)(nil))
-}
-
-func (o BoolVariablePtrOutput) ToBoolVariablePtrOutput() BoolVariablePtrOutput {
-	return o
-}
-
-func (o BoolVariablePtrOutput) ToBoolVariablePtrOutputWithContext(ctx context.Context) BoolVariablePtrOutput {
-	return o
-}
-
-func (o BoolVariablePtrOutput) Elem() BoolVariableOutput {
-	return o.ApplyT(func(v *BoolVariable) BoolVariable {
-		if v != nil {
-			return *v
-		}
-		var ret BoolVariable
-		return ret
-	}).(BoolVariableOutput)
-}
-
 type BoolVariableArrayOutput struct{ *pulumi.OutputState }
 
 func (BoolVariableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BoolVariable)(nil))
+	return reflect.TypeOf((*[]*BoolVariable)(nil)).Elem()
 }
 
 func (o BoolVariableArrayOutput) ToBoolVariableArrayOutput() BoolVariableArrayOutput {
@@ -301,15 +238,15 @@ func (o BoolVariableArrayOutput) ToBoolVariableArrayOutputWithContext(ctx contex
 }
 
 func (o BoolVariableArrayOutput) Index(i pulumi.IntInput) BoolVariableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BoolVariable {
-		return vs[0].([]BoolVariable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BoolVariable {
+		return vs[0].([]*BoolVariable)[vs[1].(int)]
 	}).(BoolVariableOutput)
 }
 
 type BoolVariableMapOutput struct{ *pulumi.OutputState }
 
 func (BoolVariableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BoolVariable)(nil))
+	return reflect.TypeOf((*map[string]*BoolVariable)(nil)).Elem()
 }
 
 func (o BoolVariableMapOutput) ToBoolVariableMapOutput() BoolVariableMapOutput {
@@ -321,18 +258,16 @@ func (o BoolVariableMapOutput) ToBoolVariableMapOutputWithContext(ctx context.Co
 }
 
 func (o BoolVariableMapOutput) MapIndex(k pulumi.StringInput) BoolVariableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BoolVariable {
-		return vs[0].(map[string]BoolVariable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BoolVariable {
+		return vs[0].(map[string]*BoolVariable)[vs[1].(string)]
 	}).(BoolVariableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BoolVariableInput)(nil)).Elem(), &BoolVariable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BoolVariablePtrInput)(nil)).Elem(), &BoolVariable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BoolVariableArrayInput)(nil)).Elem(), BoolVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BoolVariableMapInput)(nil)).Elem(), BoolVariableMap{})
 	pulumi.RegisterOutputType(BoolVariableOutput{})
-	pulumi.RegisterOutputType(BoolVariablePtrOutput{})
 	pulumi.RegisterOutputType(BoolVariableArrayOutput{})
 	pulumi.RegisterOutputType(BoolVariableMapOutput{})
 }

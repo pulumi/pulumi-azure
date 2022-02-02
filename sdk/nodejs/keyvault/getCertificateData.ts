@@ -31,9 +31,7 @@ export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:keyvault/getCertificateData:getCertificateData", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,

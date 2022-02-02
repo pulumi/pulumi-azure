@@ -154,24 +154,24 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitPeeringArgs | ExpressRouteCircuitPeeringState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitPeeringState | undefined;
-            inputs["azureAsn"] = state ? state.azureAsn : undefined;
-            inputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
-            inputs["ipv6"] = state ? state.ipv6 : undefined;
-            inputs["microsoftPeeringConfig"] = state ? state.microsoftPeeringConfig : undefined;
-            inputs["peerAsn"] = state ? state.peerAsn : undefined;
-            inputs["peeringType"] = state ? state.peeringType : undefined;
-            inputs["primaryAzurePort"] = state ? state.primaryAzurePort : undefined;
-            inputs["primaryPeerAddressPrefix"] = state ? state.primaryPeerAddressPrefix : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routeFilterId"] = state ? state.routeFilterId : undefined;
-            inputs["secondaryAzurePort"] = state ? state.secondaryAzurePort : undefined;
-            inputs["secondaryPeerAddressPrefix"] = state ? state.secondaryPeerAddressPrefix : undefined;
-            inputs["sharedKey"] = state ? state.sharedKey : undefined;
-            inputs["vlanId"] = state ? state.vlanId : undefined;
+            resourceInputs["azureAsn"] = state ? state.azureAsn : undefined;
+            resourceInputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
+            resourceInputs["ipv6"] = state ? state.ipv6 : undefined;
+            resourceInputs["microsoftPeeringConfig"] = state ? state.microsoftPeeringConfig : undefined;
+            resourceInputs["peerAsn"] = state ? state.peerAsn : undefined;
+            resourceInputs["peeringType"] = state ? state.peeringType : undefined;
+            resourceInputs["primaryAzurePort"] = state ? state.primaryAzurePort : undefined;
+            resourceInputs["primaryPeerAddressPrefix"] = state ? state.primaryPeerAddressPrefix : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routeFilterId"] = state ? state.routeFilterId : undefined;
+            resourceInputs["secondaryAzurePort"] = state ? state.secondaryAzurePort : undefined;
+            resourceInputs["secondaryPeerAddressPrefix"] = state ? state.secondaryPeerAddressPrefix : undefined;
+            resourceInputs["sharedKey"] = state ? state.sharedKey : undefined;
+            resourceInputs["vlanId"] = state ? state.vlanId : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitPeeringArgs | undefined;
             if ((!args || args.expressRouteCircuitName === undefined) && !opts.urn) {
@@ -192,25 +192,23 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             if ((!args || args.vlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
-            inputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
-            inputs["ipv6"] = args ? args.ipv6 : undefined;
-            inputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
-            inputs["peerAsn"] = args ? args.peerAsn : undefined;
-            inputs["peeringType"] = args ? args.peeringType : undefined;
-            inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeFilterId"] = args ? args.routeFilterId : undefined;
-            inputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
-            inputs["sharedKey"] = args ? args.sharedKey : undefined;
-            inputs["vlanId"] = args ? args.vlanId : undefined;
-            inputs["azureAsn"] = undefined /*out*/;
-            inputs["primaryAzurePort"] = undefined /*out*/;
-            inputs["secondaryAzurePort"] = undefined /*out*/;
+            resourceInputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
+            resourceInputs["ipv6"] = args ? args.ipv6 : undefined;
+            resourceInputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
+            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
+            resourceInputs["peeringType"] = args ? args.peeringType : undefined;
+            resourceInputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeFilterId"] = args ? args.routeFilterId : undefined;
+            resourceInputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
+            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["azureAsn"] = undefined /*out*/;
+            resourceInputs["primaryAzurePort"] = undefined /*out*/;
+            resourceInputs["secondaryAzurePort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExpressRouteCircuitPeering.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExpressRouteCircuitPeering.__pulumiType, name, resourceInputs, opts);
     }
 }
 

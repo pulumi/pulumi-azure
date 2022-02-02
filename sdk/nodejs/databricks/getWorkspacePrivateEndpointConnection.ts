@@ -26,9 +26,7 @@ export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateE
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", {
         "privateEndpointId": args.privateEndpointId,
         "workspaceId": args.workspaceId,

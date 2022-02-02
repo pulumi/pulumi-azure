@@ -103,15 +103,15 @@ export class CassandraCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: CassandraClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CassandraClusterArgs | CassandraClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraClusterState | undefined;
-            inputs["defaultAdminPassword"] = state ? state.defaultAdminPassword : undefined;
-            inputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["defaultAdminPassword"] = state ? state.defaultAdminPassword : undefined;
+            resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as CassandraClusterArgs | undefined;
             if ((!args || args.defaultAdminPassword === undefined) && !opts.urn) {
@@ -123,16 +123,14 @@ export class CassandraCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["defaultAdminPassword"] = args ? args.defaultAdminPassword : undefined;
-            inputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["defaultAdminPassword"] = args ? args.defaultAdminPassword : undefined;
+            resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CassandraCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CassandraCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

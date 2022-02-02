@@ -99,13 +99,13 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheAccessPolicyArgs | CacheAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheAccessPolicyState | undefined;
-            inputs["accessRules"] = state ? state.accessRules : undefined;
-            inputs["hpcCacheId"] = state ? state.hpcCacheId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["accessRules"] = state ? state.accessRules : undefined;
+            resourceInputs["hpcCacheId"] = state ? state.hpcCacheId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as CacheAccessPolicyArgs | undefined;
             if ((!args || args.accessRules === undefined) && !opts.urn) {
@@ -114,14 +114,12 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.hpcCacheId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hpcCacheId'");
             }
-            inputs["accessRules"] = args ? args.accessRules : undefined;
-            inputs["hpcCacheId"] = args ? args.hpcCacheId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["accessRules"] = args ? args.accessRules : undefined;
+            resourceInputs["hpcCacheId"] = args ? args.hpcCacheId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CacheAccessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CacheAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

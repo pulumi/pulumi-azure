@@ -178,7 +178,7 @@ type PrivateLinkScopedServiceInput interface {
 }
 
 func (*PrivateLinkScopedService) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedService)(nil))
+	return reflect.TypeOf((**PrivateLinkScopedService)(nil)).Elem()
 }
 
 func (i *PrivateLinkScopedService) ToPrivateLinkScopedServiceOutput() PrivateLinkScopedServiceOutput {
@@ -187,35 +187,6 @@ func (i *PrivateLinkScopedService) ToPrivateLinkScopedServiceOutput() PrivateLin
 
 func (i *PrivateLinkScopedService) ToPrivateLinkScopedServiceOutputWithContext(ctx context.Context) PrivateLinkScopedServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedServiceOutput)
-}
-
-func (i *PrivateLinkScopedService) ToPrivateLinkScopedServicePtrOutput() PrivateLinkScopedServicePtrOutput {
-	return i.ToPrivateLinkScopedServicePtrOutputWithContext(context.Background())
-}
-
-func (i *PrivateLinkScopedService) ToPrivateLinkScopedServicePtrOutputWithContext(ctx context.Context) PrivateLinkScopedServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedServicePtrOutput)
-}
-
-type PrivateLinkScopedServicePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedServicePtrOutput() PrivateLinkScopedServicePtrOutput
-	ToPrivateLinkScopedServicePtrOutputWithContext(ctx context.Context) PrivateLinkScopedServicePtrOutput
-}
-
-type privateLinkScopedServicePtrType PrivateLinkScopedServiceArgs
-
-func (*privateLinkScopedServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkScopedService)(nil))
-}
-
-func (i *privateLinkScopedServicePtrType) ToPrivateLinkScopedServicePtrOutput() PrivateLinkScopedServicePtrOutput {
-	return i.ToPrivateLinkScopedServicePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkScopedServicePtrType) ToPrivateLinkScopedServicePtrOutputWithContext(ctx context.Context) PrivateLinkScopedServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedServicePtrOutput)
 }
 
 // PrivateLinkScopedServiceArrayInput is an input type that accepts PrivateLinkScopedServiceArray and PrivateLinkScopedServiceArrayOutput values.
@@ -271,7 +242,7 @@ func (i PrivateLinkScopedServiceMap) ToPrivateLinkScopedServiceMapOutputWithCont
 type PrivateLinkScopedServiceOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedService)(nil))
+	return reflect.TypeOf((**PrivateLinkScopedService)(nil)).Elem()
 }
 
 func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServiceOutput() PrivateLinkScopedServiceOutput {
@@ -282,44 +253,10 @@ func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServiceOutputWithCont
 	return o
 }
 
-func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServicePtrOutput() PrivateLinkScopedServicePtrOutput {
-	return o.ToPrivateLinkScopedServicePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServicePtrOutputWithContext(ctx context.Context) PrivateLinkScopedServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkScopedService) *PrivateLinkScopedService {
-		return &v
-	}).(PrivateLinkScopedServicePtrOutput)
-}
-
-type PrivateLinkScopedServicePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkScopedServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkScopedService)(nil))
-}
-
-func (o PrivateLinkScopedServicePtrOutput) ToPrivateLinkScopedServicePtrOutput() PrivateLinkScopedServicePtrOutput {
-	return o
-}
-
-func (o PrivateLinkScopedServicePtrOutput) ToPrivateLinkScopedServicePtrOutputWithContext(ctx context.Context) PrivateLinkScopedServicePtrOutput {
-	return o
-}
-
-func (o PrivateLinkScopedServicePtrOutput) Elem() PrivateLinkScopedServiceOutput {
-	return o.ApplyT(func(v *PrivateLinkScopedService) PrivateLinkScopedService {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkScopedService
-		return ret
-	}).(PrivateLinkScopedServiceOutput)
-}
-
 type PrivateLinkScopedServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateLinkScopedService)(nil))
+	return reflect.TypeOf((*[]*PrivateLinkScopedService)(nil)).Elem()
 }
 
 func (o PrivateLinkScopedServiceArrayOutput) ToPrivateLinkScopedServiceArrayOutput() PrivateLinkScopedServiceArrayOutput {
@@ -331,15 +268,15 @@ func (o PrivateLinkScopedServiceArrayOutput) ToPrivateLinkScopedServiceArrayOutp
 }
 
 func (o PrivateLinkScopedServiceArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopedServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkScopedService {
-		return vs[0].([]PrivateLinkScopedService)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkScopedService {
+		return vs[0].([]*PrivateLinkScopedService)[vs[1].(int)]
 	}).(PrivateLinkScopedServiceOutput)
 }
 
 type PrivateLinkScopedServiceMapOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedServiceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PrivateLinkScopedService)(nil))
+	return reflect.TypeOf((*map[string]*PrivateLinkScopedService)(nil)).Elem()
 }
 
 func (o PrivateLinkScopedServiceMapOutput) ToPrivateLinkScopedServiceMapOutput() PrivateLinkScopedServiceMapOutput {
@@ -351,18 +288,16 @@ func (o PrivateLinkScopedServiceMapOutput) ToPrivateLinkScopedServiceMapOutputWi
 }
 
 func (o PrivateLinkScopedServiceMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkScopedServiceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrivateLinkScopedService {
-		return vs[0].(map[string]PrivateLinkScopedService)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PrivateLinkScopedService {
+		return vs[0].(map[string]*PrivateLinkScopedService)[vs[1].(string)]
 	}).(PrivateLinkScopedServiceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedServiceInput)(nil)).Elem(), &PrivateLinkScopedService{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedServicePtrInput)(nil)).Elem(), &PrivateLinkScopedService{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedServiceArrayInput)(nil)).Elem(), PrivateLinkScopedServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopedServiceMapInput)(nil)).Elem(), PrivateLinkScopedServiceMap{})
 	pulumi.RegisterOutputType(PrivateLinkScopedServiceOutput{})
-	pulumi.RegisterOutputType(PrivateLinkScopedServicePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedServiceArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedServiceMapOutput{})
 }

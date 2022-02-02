@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpnGatewayResult> InvokeAsync(GetVpnGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("azure:network/getVpnGateway:getVpnGateway", args ?? new GetVpnGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("azure:network/getVpnGateway:getVpnGateway", args ?? new GetVpnGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpnGatewayResult> Invoke(GetVpnGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("azure:network/getVpnGateway:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("azure:network/getVpnGateway:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

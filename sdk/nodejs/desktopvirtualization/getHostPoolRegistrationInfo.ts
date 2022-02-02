@@ -63,13 +63,13 @@ export class GetHostPoolRegistrationInfo extends pulumi.CustomResource {
      */
     constructor(name: string, args: GetHostPoolRegistrationInfoArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GetHostPoolRegistrationInfoArgs | GetHostPoolRegistrationInfoState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GetHostPoolRegistrationInfoState | undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["hostpoolId"] = state ? state.hostpoolId : undefined;
-            inputs["token"] = state ? state.token : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["hostpoolId"] = state ? state.hostpoolId : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
         } else {
             const args = argsOrState as GetHostPoolRegistrationInfoArgs | undefined;
             if ((!args || args.expirationDate === undefined) && !opts.urn) {
@@ -78,14 +78,12 @@ export class GetHostPoolRegistrationInfo extends pulumi.CustomResource {
             if ((!args || args.hostpoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostpoolId'");
             }
-            inputs["expirationDate"] = args ? args.expirationDate : undefined;
-            inputs["hostpoolId"] = args ? args.hostpoolId : undefined;
-            inputs["token"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
+            resourceInputs["hostpoolId"] = args ? args.hostpoolId : undefined;
+            resourceInputs["token"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GetHostPoolRegistrationInfo.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GetHostPoolRegistrationInfo.__pulumiType, name, resourceInputs, opts);
     }
 }
 

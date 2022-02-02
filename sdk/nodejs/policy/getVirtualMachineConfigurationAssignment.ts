@@ -26,9 +26,7 @@ export function getVirtualMachineConfigurationAssignment(args: GetVirtualMachine
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

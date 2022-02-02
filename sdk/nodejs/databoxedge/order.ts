@@ -125,20 +125,20 @@ export class Order extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrderArgs | OrderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrderState | undefined;
-            inputs["contact"] = state ? state.contact : undefined;
-            inputs["deviceName"] = state ? state.deviceName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["returnTrackings"] = state ? state.returnTrackings : undefined;
-            inputs["serialNumber"] = state ? state.serialNumber : undefined;
-            inputs["shipmentAddress"] = state ? state.shipmentAddress : undefined;
-            inputs["shipmentHistories"] = state ? state.shipmentHistories : undefined;
-            inputs["shipmentTrackings"] = state ? state.shipmentTrackings : undefined;
-            inputs["statuses"] = state ? state.statuses : undefined;
+            resourceInputs["contact"] = state ? state.contact : undefined;
+            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["returnTrackings"] = state ? state.returnTrackings : undefined;
+            resourceInputs["serialNumber"] = state ? state.serialNumber : undefined;
+            resourceInputs["shipmentAddress"] = state ? state.shipmentAddress : undefined;
+            resourceInputs["shipmentHistories"] = state ? state.shipmentHistories : undefined;
+            resourceInputs["shipmentTrackings"] = state ? state.shipmentTrackings : undefined;
+            resourceInputs["statuses"] = state ? state.statuses : undefined;
         } else {
             const args = argsOrState as OrderArgs | undefined;
             if ((!args || args.contact === undefined) && !opts.urn) {
@@ -153,21 +153,19 @@ export class Order extends pulumi.CustomResource {
             if ((!args || args.shipmentAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shipmentAddress'");
             }
-            inputs["contact"] = args ? args.contact : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shipmentAddress"] = args ? args.shipmentAddress : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["returnTrackings"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["shipmentHistories"] = undefined /*out*/;
-            inputs["shipmentTrackings"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
+            resourceInputs["contact"] = args ? args.contact : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shipmentAddress"] = args ? args.shipmentAddress : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["returnTrackings"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["shipmentHistories"] = undefined /*out*/;
+            resourceInputs["shipmentTrackings"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Order.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Order.__pulumiType, name, resourceInputs, opts);
     }
 }
 

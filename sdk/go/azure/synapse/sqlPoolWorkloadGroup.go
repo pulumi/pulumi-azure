@@ -242,7 +242,7 @@ type SqlPoolWorkloadGroupInput interface {
 }
 
 func (*SqlPoolWorkloadGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadGroup)(nil)).Elem()
 }
 
 func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
@@ -251,35 +251,6 @@ func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGro
 
 func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
-}
-
-func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupPtrOutput() SqlPoolWorkloadGroupPtrOutput {
-	return i.ToSqlPoolWorkloadGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupPtrOutput)
-}
-
-type SqlPoolWorkloadGroupPtrInput interface {
-	pulumi.Input
-
-	ToSqlPoolWorkloadGroupPtrOutput() SqlPoolWorkloadGroupPtrOutput
-	ToSqlPoolWorkloadGroupPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupPtrOutput
-}
-
-type sqlPoolWorkloadGroupPtrType SqlPoolWorkloadGroupArgs
-
-func (*sqlPoolWorkloadGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPoolWorkloadGroup)(nil))
-}
-
-func (i *sqlPoolWorkloadGroupPtrType) ToSqlPoolWorkloadGroupPtrOutput() SqlPoolWorkloadGroupPtrOutput {
-	return i.ToSqlPoolWorkloadGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlPoolWorkloadGroupPtrType) ToSqlPoolWorkloadGroupPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupPtrOutput)
 }
 
 // SqlPoolWorkloadGroupArrayInput is an input type that accepts SqlPoolWorkloadGroupArray and SqlPoolWorkloadGroupArrayOutput values.
@@ -335,7 +306,7 @@ func (i SqlPoolWorkloadGroupMap) ToSqlPoolWorkloadGroupMapOutputWithContext(ctx 
 type SqlPoolWorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadGroup)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
@@ -346,44 +317,10 @@ func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutputWithContext(ctx 
 	return o
 }
 
-func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupPtrOutput() SqlPoolWorkloadGroupPtrOutput {
-	return o.ToSqlPoolWorkloadGroupPtrOutputWithContext(context.Background())
-}
-
-func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolWorkloadGroup) *SqlPoolWorkloadGroup {
-		return &v
-	}).(SqlPoolWorkloadGroupPtrOutput)
-}
-
-type SqlPoolWorkloadGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlPoolWorkloadGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPoolWorkloadGroup)(nil))
-}
-
-func (o SqlPoolWorkloadGroupPtrOutput) ToSqlPoolWorkloadGroupPtrOutput() SqlPoolWorkloadGroupPtrOutput {
-	return o
-}
-
-func (o SqlPoolWorkloadGroupPtrOutput) ToSqlPoolWorkloadGroupPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupPtrOutput {
-	return o
-}
-
-func (o SqlPoolWorkloadGroupPtrOutput) Elem() SqlPoolWorkloadGroupOutput {
-	return o.ApplyT(func(v *SqlPoolWorkloadGroup) SqlPoolWorkloadGroup {
-		if v != nil {
-			return *v
-		}
-		var ret SqlPoolWorkloadGroup
-		return ret
-	}).(SqlPoolWorkloadGroupOutput)
-}
-
 type SqlPoolWorkloadGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlPoolWorkloadGroup)(nil))
+	return reflect.TypeOf((*[]*SqlPoolWorkloadGroup)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadGroupArrayOutput) ToSqlPoolWorkloadGroupArrayOutput() SqlPoolWorkloadGroupArrayOutput {
@@ -395,15 +332,15 @@ func (o SqlPoolWorkloadGroupArrayOutput) ToSqlPoolWorkloadGroupArrayOutputWithCo
 }
 
 func (o SqlPoolWorkloadGroupArrayOutput) Index(i pulumi.IntInput) SqlPoolWorkloadGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolWorkloadGroup {
-		return vs[0].([]SqlPoolWorkloadGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolWorkloadGroup {
+		return vs[0].([]*SqlPoolWorkloadGroup)[vs[1].(int)]
 	}).(SqlPoolWorkloadGroupOutput)
 }
 
 type SqlPoolWorkloadGroupMapOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlPoolWorkloadGroup)(nil))
+	return reflect.TypeOf((*map[string]*SqlPoolWorkloadGroup)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadGroupMapOutput) ToSqlPoolWorkloadGroupMapOutput() SqlPoolWorkloadGroupMapOutput {
@@ -415,18 +352,16 @@ func (o SqlPoolWorkloadGroupMapOutput) ToSqlPoolWorkloadGroupMapOutputWithContex
 }
 
 func (o SqlPoolWorkloadGroupMapOutput) MapIndex(k pulumi.StringInput) SqlPoolWorkloadGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlPoolWorkloadGroup {
-		return vs[0].(map[string]SqlPoolWorkloadGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlPoolWorkloadGroup {
+		return vs[0].(map[string]*SqlPoolWorkloadGroup)[vs[1].(string)]
 	}).(SqlPoolWorkloadGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadGroupInput)(nil)).Elem(), &SqlPoolWorkloadGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadGroupPtrInput)(nil)).Elem(), &SqlPoolWorkloadGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadGroupArrayInput)(nil)).Elem(), SqlPoolWorkloadGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadGroupMapInput)(nil)).Elem(), SqlPoolWorkloadGroupMap{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadGroupOutput{})
-	pulumi.RegisterOutputType(SqlPoolWorkloadGroupPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadGroupArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadGroupMapOutput{})
 }

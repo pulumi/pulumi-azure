@@ -308,30 +308,30 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedInstanceArgs | ManagedInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceState | undefined;
-            inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            inputs["collation"] = state ? state.collation : undefined;
-            inputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["proxyOverride"] = state ? state.proxyOverride : undefined;
-            inputs["publicDataEndpointEnabled"] = state ? state.publicDataEndpointEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
-            inputs["storageSizeInGb"] = state ? state.storageSizeInGb : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timezoneId"] = state ? state.timezoneId : undefined;
-            inputs["vcores"] = state ? state.vcores : undefined;
+            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["proxyOverride"] = state ? state.proxyOverride : undefined;
+            resourceInputs["publicDataEndpointEnabled"] = state ? state.publicDataEndpointEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["storageAccountType"] = state ? state.storageAccountType : undefined;
+            resourceInputs["storageSizeInGb"] = state ? state.storageSizeInGb : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timezoneId"] = state ? state.timezoneId : undefined;
+            resourceInputs["vcores"] = state ? state.vcores : undefined;
         } else {
             const args = argsOrState as ManagedInstanceArgs | undefined;
             if ((!args || args.administratorLogin === undefined) && !opts.urn) {
@@ -358,31 +358,29 @@ export class ManagedInstance extends pulumi.CustomResource {
             if ((!args || args.vcores === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vcores'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["proxyOverride"] = args ? args.proxyOverride : undefined;
-            inputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            inputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timezoneId"] = args ? args.timezoneId : undefined;
-            inputs["vcores"] = args ? args.vcores : undefined;
-            inputs["fqdn"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["proxyOverride"] = args ? args.proxyOverride : undefined;
+            resourceInputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
+            resourceInputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
+            resourceInputs["vcores"] = args ? args.vcores : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedInstance.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

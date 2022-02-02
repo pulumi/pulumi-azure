@@ -176,20 +176,20 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["data"] = state ? state.data : undefined;
-            inputs["expiration"] = state ? state.expiration : undefined;
-            inputs["keyVaultIdentityClientId"] = state ? state.keyVaultIdentityClientId : undefined;
-            inputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subject"] = state ? state.subject : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["data"] = state ? state.data : undefined;
+            resourceInputs["expiration"] = state ? state.expiration : undefined;
+            resourceInputs["keyVaultIdentityClientId"] = state ? state.keyVaultIdentityClientId : undefined;
+            resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subject"] = state ? state.subject : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -198,21 +198,19 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["keyVaultIdentityClientId"] = args ? args.keyVaultIdentityClientId : undefined;
-            inputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["expiration"] = undefined /*out*/;
-            inputs["subject"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["keyVaultIdentityClientId"] = args ? args.keyVaultIdentityClientId : undefined;
+            resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["expiration"] = undefined /*out*/;
+            resourceInputs["subject"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

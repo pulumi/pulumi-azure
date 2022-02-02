@@ -101,15 +101,15 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedPrivateEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPrivateEndpointArgs | ManagedPrivateEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["streamAnalyticsClusterName"] = state ? state.streamAnalyticsClusterName : undefined;
-            inputs["subresourceName"] = state ? state.subresourceName : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["streamAnalyticsClusterName"] = state ? state.streamAnalyticsClusterName : undefined;
+            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as ManagedPrivateEndpointArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -124,16 +124,14 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["streamAnalyticsClusterName"] = args ? args.streamAnalyticsClusterName : undefined;
-            inputs["subresourceName"] = args ? args.subresourceName : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamAnalyticsClusterName"] = args ? args.streamAnalyticsClusterName : undefined;
+            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

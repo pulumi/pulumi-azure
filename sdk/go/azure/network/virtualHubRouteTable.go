@@ -226,7 +226,7 @@ type VirtualHubRouteTableInput interface {
 }
 
 func (*VirtualHubRouteTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubRouteTable)(nil))
+	return reflect.TypeOf((**VirtualHubRouteTable)(nil)).Elem()
 }
 
 func (i *VirtualHubRouteTable) ToVirtualHubRouteTableOutput() VirtualHubRouteTableOutput {
@@ -235,35 +235,6 @@ func (i *VirtualHubRouteTable) ToVirtualHubRouteTableOutput() VirtualHubRouteTab
 
 func (i *VirtualHubRouteTable) ToVirtualHubRouteTableOutputWithContext(ctx context.Context) VirtualHubRouteTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableOutput)
-}
-
-func (i *VirtualHubRouteTable) ToVirtualHubRouteTablePtrOutput() VirtualHubRouteTablePtrOutput {
-	return i.ToVirtualHubRouteTablePtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualHubRouteTable) ToVirtualHubRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubRouteTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTablePtrOutput)
-}
-
-type VirtualHubRouteTablePtrInput interface {
-	pulumi.Input
-
-	ToVirtualHubRouteTablePtrOutput() VirtualHubRouteTablePtrOutput
-	ToVirtualHubRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubRouteTablePtrOutput
-}
-
-type virtualHubRouteTablePtrType VirtualHubRouteTableArgs
-
-func (*virtualHubRouteTablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualHubRouteTable)(nil))
-}
-
-func (i *virtualHubRouteTablePtrType) ToVirtualHubRouteTablePtrOutput() VirtualHubRouteTablePtrOutput {
-	return i.ToVirtualHubRouteTablePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualHubRouteTablePtrType) ToVirtualHubRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubRouteTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTablePtrOutput)
 }
 
 // VirtualHubRouteTableArrayInput is an input type that accepts VirtualHubRouteTableArray and VirtualHubRouteTableArrayOutput values.
@@ -319,7 +290,7 @@ func (i VirtualHubRouteTableMap) ToVirtualHubRouteTableMapOutputWithContext(ctx 
 type VirtualHubRouteTableOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubRouteTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubRouteTable)(nil))
+	return reflect.TypeOf((**VirtualHubRouteTable)(nil)).Elem()
 }
 
 func (o VirtualHubRouteTableOutput) ToVirtualHubRouteTableOutput() VirtualHubRouteTableOutput {
@@ -330,44 +301,10 @@ func (o VirtualHubRouteTableOutput) ToVirtualHubRouteTableOutputWithContext(ctx 
 	return o
 }
 
-func (o VirtualHubRouteTableOutput) ToVirtualHubRouteTablePtrOutput() VirtualHubRouteTablePtrOutput {
-	return o.ToVirtualHubRouteTablePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualHubRouteTableOutput) ToVirtualHubRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubRouteTablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHubRouteTable) *VirtualHubRouteTable {
-		return &v
-	}).(VirtualHubRouteTablePtrOutput)
-}
-
-type VirtualHubRouteTablePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualHubRouteTablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualHubRouteTable)(nil))
-}
-
-func (o VirtualHubRouteTablePtrOutput) ToVirtualHubRouteTablePtrOutput() VirtualHubRouteTablePtrOutput {
-	return o
-}
-
-func (o VirtualHubRouteTablePtrOutput) ToVirtualHubRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubRouteTablePtrOutput {
-	return o
-}
-
-func (o VirtualHubRouteTablePtrOutput) Elem() VirtualHubRouteTableOutput {
-	return o.ApplyT(func(v *VirtualHubRouteTable) VirtualHubRouteTable {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualHubRouteTable
-		return ret
-	}).(VirtualHubRouteTableOutput)
-}
-
 type VirtualHubRouteTableArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubRouteTableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualHubRouteTable)(nil))
+	return reflect.TypeOf((*[]*VirtualHubRouteTable)(nil)).Elem()
 }
 
 func (o VirtualHubRouteTableArrayOutput) ToVirtualHubRouteTableArrayOutput() VirtualHubRouteTableArrayOutput {
@@ -379,15 +316,15 @@ func (o VirtualHubRouteTableArrayOutput) ToVirtualHubRouteTableArrayOutputWithCo
 }
 
 func (o VirtualHubRouteTableArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteTableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubRouteTable {
-		return vs[0].([]VirtualHubRouteTable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHubRouteTable {
+		return vs[0].([]*VirtualHubRouteTable)[vs[1].(int)]
 	}).(VirtualHubRouteTableOutput)
 }
 
 type VirtualHubRouteTableMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubRouteTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualHubRouteTable)(nil))
+	return reflect.TypeOf((*map[string]*VirtualHubRouteTable)(nil)).Elem()
 }
 
 func (o VirtualHubRouteTableMapOutput) ToVirtualHubRouteTableMapOutput() VirtualHubRouteTableMapOutput {
@@ -399,18 +336,16 @@ func (o VirtualHubRouteTableMapOutput) ToVirtualHubRouteTableMapOutputWithContex
 }
 
 func (o VirtualHubRouteTableMapOutput) MapIndex(k pulumi.StringInput) VirtualHubRouteTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualHubRouteTable {
-		return vs[0].(map[string]VirtualHubRouteTable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualHubRouteTable {
+		return vs[0].(map[string]*VirtualHubRouteTable)[vs[1].(string)]
 	}).(VirtualHubRouteTableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableInput)(nil)).Elem(), &VirtualHubRouteTable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTablePtrInput)(nil)).Elem(), &VirtualHubRouteTable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableArrayInput)(nil)).Elem(), VirtualHubRouteTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableMapInput)(nil)).Elem(), VirtualHubRouteTableMap{})
 	pulumi.RegisterOutputType(VirtualHubRouteTableOutput{})
-	pulumi.RegisterOutputType(VirtualHubRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteTableArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteTableMapOutput{})
 }

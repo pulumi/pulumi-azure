@@ -95,14 +95,14 @@ export class ChannelDirectLine extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelDirectLineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelDirectLineArgs | ChannelDirectLineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelDirectLineState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sites"] = state ? state.sites : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sites"] = state ? state.sites : undefined;
         } else {
             const args = argsOrState as ChannelDirectLineArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -114,15 +114,13 @@ export class ChannelDirectLine extends pulumi.CustomResource {
             if ((!args || args.sites === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sites'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sites"] = args ? args.sites : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sites"] = args ? args.sites : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ChannelDirectLine.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ChannelDirectLine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

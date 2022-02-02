@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Batch
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Batch pool
@@ -72,7 +71,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -115,18 +115,18 @@ export class Logger extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoggerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoggerArgs | LoggerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoggerState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["applicationInsights"] = state ? state.applicationInsights : undefined;
-            inputs["buffered"] = state ? state.buffered : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["eventhub"] = state ? state.eventhub : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["applicationInsights"] = state ? state.applicationInsights : undefined;
+            resourceInputs["buffered"] = state ? state.buffered : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eventhub"] = state ? state.eventhub : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as LoggerArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -135,19 +135,17 @@ export class Logger extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["applicationInsights"] = args ? args.applicationInsights : undefined;
-            inputs["buffered"] = args ? args.buffered : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventhub"] = args ? args.eventhub : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["applicationInsights"] = args ? args.applicationInsights : undefined;
+            resourceInputs["buffered"] = args ? args.buffered : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventhub"] = args ? args.eventhub : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Logger.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Logger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

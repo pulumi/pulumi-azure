@@ -203,7 +203,7 @@ type RulesEngineInput interface {
 }
 
 func (*RulesEngine) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesEngine)(nil))
+	return reflect.TypeOf((**RulesEngine)(nil)).Elem()
 }
 
 func (i *RulesEngine) ToRulesEngineOutput() RulesEngineOutput {
@@ -212,35 +212,6 @@ func (i *RulesEngine) ToRulesEngineOutput() RulesEngineOutput {
 
 func (i *RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineOutput)
-}
-
-func (i *RulesEngine) ToRulesEnginePtrOutput() RulesEnginePtrOutput {
-	return i.ToRulesEnginePtrOutputWithContext(context.Background())
-}
-
-func (i *RulesEngine) ToRulesEnginePtrOutputWithContext(ctx context.Context) RulesEnginePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RulesEnginePtrOutput)
-}
-
-type RulesEnginePtrInput interface {
-	pulumi.Input
-
-	ToRulesEnginePtrOutput() RulesEnginePtrOutput
-	ToRulesEnginePtrOutputWithContext(ctx context.Context) RulesEnginePtrOutput
-}
-
-type rulesEnginePtrType RulesEngineArgs
-
-func (*rulesEnginePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RulesEngine)(nil))
-}
-
-func (i *rulesEnginePtrType) ToRulesEnginePtrOutput() RulesEnginePtrOutput {
-	return i.ToRulesEnginePtrOutputWithContext(context.Background())
-}
-
-func (i *rulesEnginePtrType) ToRulesEnginePtrOutputWithContext(ctx context.Context) RulesEnginePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RulesEnginePtrOutput)
 }
 
 // RulesEngineArrayInput is an input type that accepts RulesEngineArray and RulesEngineArrayOutput values.
@@ -296,7 +267,7 @@ func (i RulesEngineMap) ToRulesEngineMapOutputWithContext(ctx context.Context) R
 type RulesEngineOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesEngine)(nil))
+	return reflect.TypeOf((**RulesEngine)(nil)).Elem()
 }
 
 func (o RulesEngineOutput) ToRulesEngineOutput() RulesEngineOutput {
@@ -307,44 +278,10 @@ func (o RulesEngineOutput) ToRulesEngineOutputWithContext(ctx context.Context) R
 	return o
 }
 
-func (o RulesEngineOutput) ToRulesEnginePtrOutput() RulesEnginePtrOutput {
-	return o.ToRulesEnginePtrOutputWithContext(context.Background())
-}
-
-func (o RulesEngineOutput) ToRulesEnginePtrOutputWithContext(ctx context.Context) RulesEnginePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesEngine) *RulesEngine {
-		return &v
-	}).(RulesEnginePtrOutput)
-}
-
-type RulesEnginePtrOutput struct{ *pulumi.OutputState }
-
-func (RulesEnginePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RulesEngine)(nil))
-}
-
-func (o RulesEnginePtrOutput) ToRulesEnginePtrOutput() RulesEnginePtrOutput {
-	return o
-}
-
-func (o RulesEnginePtrOutput) ToRulesEnginePtrOutputWithContext(ctx context.Context) RulesEnginePtrOutput {
-	return o
-}
-
-func (o RulesEnginePtrOutput) Elem() RulesEngineOutput {
-	return o.ApplyT(func(v *RulesEngine) RulesEngine {
-		if v != nil {
-			return *v
-		}
-		var ret RulesEngine
-		return ret
-	}).(RulesEngineOutput)
-}
-
 type RulesEngineArrayOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RulesEngine)(nil))
+	return reflect.TypeOf((*[]*RulesEngine)(nil)).Elem()
 }
 
 func (o RulesEngineArrayOutput) ToRulesEngineArrayOutput() RulesEngineArrayOutput {
@@ -356,15 +293,15 @@ func (o RulesEngineArrayOutput) ToRulesEngineArrayOutputWithContext(ctx context.
 }
 
 func (o RulesEngineArrayOutput) Index(i pulumi.IntInput) RulesEngineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesEngine {
-		return vs[0].([]RulesEngine)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RulesEngine {
+		return vs[0].([]*RulesEngine)[vs[1].(int)]
 	}).(RulesEngineOutput)
 }
 
 type RulesEngineMapOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RulesEngine)(nil))
+	return reflect.TypeOf((*map[string]*RulesEngine)(nil)).Elem()
 }
 
 func (o RulesEngineMapOutput) ToRulesEngineMapOutput() RulesEngineMapOutput {
@@ -376,18 +313,16 @@ func (o RulesEngineMapOutput) ToRulesEngineMapOutputWithContext(ctx context.Cont
 }
 
 func (o RulesEngineMapOutput) MapIndex(k pulumi.StringInput) RulesEngineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RulesEngine {
-		return vs[0].(map[string]RulesEngine)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RulesEngine {
+		return vs[0].(map[string]*RulesEngine)[vs[1].(string)]
 	}).(RulesEngineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineInput)(nil)).Elem(), &RulesEngine{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RulesEnginePtrInput)(nil)).Elem(), &RulesEngine{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineArrayInput)(nil)).Elem(), RulesEngineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesEngineMapInput)(nil)).Elem(), RulesEngineMap{})
 	pulumi.RegisterOutputType(RulesEngineOutput{})
-	pulumi.RegisterOutputType(RulesEnginePtrOutput{})
 	pulumi.RegisterOutputType(RulesEngineArrayOutput{})
 	pulumi.RegisterOutputType(RulesEngineMapOutput{})
 }

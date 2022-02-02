@@ -132,16 +132,16 @@ export class CacheBlobTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheBlobTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheBlobTargetArgs | CacheBlobTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheBlobTargetState | undefined;
-            inputs["accessPolicyName"] = state ? state.accessPolicyName : undefined;
-            inputs["cacheName"] = state ? state.cacheName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespacePath"] = state ? state.namespacePath : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageContainerId"] = state ? state.storageContainerId : undefined;
+            resourceInputs["accessPolicyName"] = state ? state.accessPolicyName : undefined;
+            resourceInputs["cacheName"] = state ? state.cacheName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespacePath"] = state ? state.namespacePath : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageContainerId"] = state ? state.storageContainerId : undefined;
         } else {
             const args = argsOrState as CacheBlobTargetArgs | undefined;
             if ((!args || args.cacheName === undefined) && !opts.urn) {
@@ -156,17 +156,15 @@ export class CacheBlobTarget extends pulumi.CustomResource {
             if ((!args || args.storageContainerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
-            inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            inputs["cacheName"] = args ? args.cacheName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespacePath"] = args ? args.namespacePath : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageContainerId"] = args ? args.storageContainerId : undefined;
+            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
+            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespacePath"] = args ? args.namespacePath : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CacheBlobTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CacheBlobTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

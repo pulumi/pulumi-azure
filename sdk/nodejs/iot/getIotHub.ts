@@ -25,9 +25,7 @@ export function getIotHub(args: GetIotHubArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:iot/getIotHub:getIotHub", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

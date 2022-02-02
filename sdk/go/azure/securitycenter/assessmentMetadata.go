@@ -201,7 +201,7 @@ type AssessmentMetadataInput interface {
 }
 
 func (*AssessmentMetadata) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentMetadata)(nil))
+	return reflect.TypeOf((**AssessmentMetadata)(nil)).Elem()
 }
 
 func (i *AssessmentMetadata) ToAssessmentMetadataOutput() AssessmentMetadataOutput {
@@ -210,35 +210,6 @@ func (i *AssessmentMetadata) ToAssessmentMetadataOutput() AssessmentMetadataOutp
 
 func (i *AssessmentMetadata) ToAssessmentMetadataOutputWithContext(ctx context.Context) AssessmentMetadataOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataOutput)
-}
-
-func (i *AssessmentMetadata) ToAssessmentMetadataPtrOutput() AssessmentMetadataPtrOutput {
-	return i.ToAssessmentMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *AssessmentMetadata) ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataPtrOutput)
-}
-
-type AssessmentMetadataPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentMetadataPtrOutput() AssessmentMetadataPtrOutput
-	ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput
-}
-
-type assessmentMetadataPtrType AssessmentMetadataArgs
-
-func (*assessmentMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentMetadata)(nil))
-}
-
-func (i *assessmentMetadataPtrType) ToAssessmentMetadataPtrOutput() AssessmentMetadataPtrOutput {
-	return i.ToAssessmentMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentMetadataPtrType) ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataPtrOutput)
 }
 
 // AssessmentMetadataArrayInput is an input type that accepts AssessmentMetadataArray and AssessmentMetadataArrayOutput values.
@@ -294,7 +265,7 @@ func (i AssessmentMetadataMap) ToAssessmentMetadataMapOutputWithContext(ctx cont
 type AssessmentMetadataOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentMetadata)(nil))
+	return reflect.TypeOf((**AssessmentMetadata)(nil)).Elem()
 }
 
 func (o AssessmentMetadataOutput) ToAssessmentMetadataOutput() AssessmentMetadataOutput {
@@ -305,44 +276,10 @@ func (o AssessmentMetadataOutput) ToAssessmentMetadataOutputWithContext(ctx cont
 	return o
 }
 
-func (o AssessmentMetadataOutput) ToAssessmentMetadataPtrOutput() AssessmentMetadataPtrOutput {
-	return o.ToAssessmentMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentMetadataOutput) ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentMetadata) *AssessmentMetadata {
-		return &v
-	}).(AssessmentMetadataPtrOutput)
-}
-
-type AssessmentMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentMetadata)(nil))
-}
-
-func (o AssessmentMetadataPtrOutput) ToAssessmentMetadataPtrOutput() AssessmentMetadataPtrOutput {
-	return o
-}
-
-func (o AssessmentMetadataPtrOutput) ToAssessmentMetadataPtrOutputWithContext(ctx context.Context) AssessmentMetadataPtrOutput {
-	return o
-}
-
-func (o AssessmentMetadataPtrOutput) Elem() AssessmentMetadataOutput {
-	return o.ApplyT(func(v *AssessmentMetadata) AssessmentMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentMetadata
-		return ret
-	}).(AssessmentMetadataOutput)
-}
-
 type AssessmentMetadataArrayOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentMetadata)(nil))
+	return reflect.TypeOf((*[]*AssessmentMetadata)(nil)).Elem()
 }
 
 func (o AssessmentMetadataArrayOutput) ToAssessmentMetadataArrayOutput() AssessmentMetadataArrayOutput {
@@ -354,15 +291,15 @@ func (o AssessmentMetadataArrayOutput) ToAssessmentMetadataArrayOutputWithContex
 }
 
 func (o AssessmentMetadataArrayOutput) Index(i pulumi.IntInput) AssessmentMetadataOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentMetadata {
-		return vs[0].([]AssessmentMetadata)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentMetadata {
+		return vs[0].([]*AssessmentMetadata)[vs[1].(int)]
 	}).(AssessmentMetadataOutput)
 }
 
 type AssessmentMetadataMapOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssessmentMetadata)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentMetadata)(nil)).Elem()
 }
 
 func (o AssessmentMetadataMapOutput) ToAssessmentMetadataMapOutput() AssessmentMetadataMapOutput {
@@ -374,18 +311,16 @@ func (o AssessmentMetadataMapOutput) ToAssessmentMetadataMapOutputWithContext(ct
 }
 
 func (o AssessmentMetadataMapOutput) MapIndex(k pulumi.StringInput) AssessmentMetadataOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssessmentMetadata {
-		return vs[0].(map[string]AssessmentMetadata)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AssessmentMetadata {
+		return vs[0].(map[string]*AssessmentMetadata)[vs[1].(string)]
 	}).(AssessmentMetadataOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataInput)(nil)).Elem(), &AssessmentMetadata{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataPtrInput)(nil)).Elem(), &AssessmentMetadata{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataArrayInput)(nil)).Elem(), AssessmentMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataMapInput)(nil)).Elem(), AssessmentMetadataMap{})
 	pulumi.RegisterOutputType(AssessmentMetadataOutput{})
-	pulumi.RegisterOutputType(AssessmentMetadataPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentMetadataArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentMetadataMapOutput{})
 }

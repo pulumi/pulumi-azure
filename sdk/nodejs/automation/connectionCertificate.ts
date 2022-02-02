@@ -106,16 +106,16 @@ export class ConnectionCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionCertificateArgs | ConnectionCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionCertificateState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["automationCertificateName"] = state ? state.automationCertificateName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["automationCertificateName"] = state ? state.automationCertificateName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
         } else {
             const args = argsOrState as ConnectionCertificateArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -130,17 +130,15 @@ export class ConnectionCertificate extends pulumi.CustomResource {
             if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["automationCertificateName"] = args ? args.automationCertificateName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["automationCertificateName"] = args ? args.automationCertificateName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConnectionCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConnectionCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

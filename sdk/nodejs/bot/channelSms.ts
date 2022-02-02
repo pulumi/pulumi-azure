@@ -103,16 +103,16 @@ export class ChannelSms extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelSmsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelSmsArgs | ChannelSmsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelSmsState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["smsChannelAccountSecurityId"] = state ? state.smsChannelAccountSecurityId : undefined;
-            inputs["smsChannelAuthToken"] = state ? state.smsChannelAuthToken : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["smsChannelAccountSecurityId"] = state ? state.smsChannelAccountSecurityId : undefined;
+            resourceInputs["smsChannelAuthToken"] = state ? state.smsChannelAuthToken : undefined;
         } else {
             const args = argsOrState as ChannelSmsArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -130,17 +130,15 @@ export class ChannelSms extends pulumi.CustomResource {
             if ((!args || args.smsChannelAuthToken === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'smsChannelAuthToken'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["smsChannelAccountSecurityId"] = args ? args.smsChannelAccountSecurityId : undefined;
-            inputs["smsChannelAuthToken"] = args ? args.smsChannelAuthToken : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["smsChannelAccountSecurityId"] = args ? args.smsChannelAccountSecurityId : undefined;
+            resourceInputs["smsChannelAuthToken"] = args ? args.smsChannelAuthToken : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ChannelSms.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ChannelSms.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -91,14 +91,14 @@ export class ChannelWebChat extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelWebChatArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelWebChatArgs | ChannelWebChatState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelWebChatState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["siteNames"] = state ? state.siteNames : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["siteNames"] = state ? state.siteNames : undefined;
         } else {
             const args = argsOrState as ChannelWebChatArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -110,15 +110,13 @@ export class ChannelWebChat extends pulumi.CustomResource {
             if ((!args || args.siteNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'siteNames'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteNames"] = args ? args.siteNames : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["siteNames"] = args ? args.siteNames : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ChannelWebChat.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ChannelWebChat.__pulumiType, name, resourceInputs, opts);
     }
 }
 

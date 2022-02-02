@@ -103,36 +103,34 @@ export class Configuration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["visibility"] = state ? state.visibility : undefined;
-            inputs["window"] = state ? state.window : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["window"] = state ? state.window : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
-            inputs["window"] = args ? args.window : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["window"] = args ? args.window : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Configuration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

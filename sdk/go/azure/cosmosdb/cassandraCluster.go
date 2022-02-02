@@ -204,7 +204,7 @@ type CassandraClusterInput interface {
 }
 
 func (*CassandraCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraCluster)(nil))
+	return reflect.TypeOf((**CassandraCluster)(nil)).Elem()
 }
 
 func (i *CassandraCluster) ToCassandraClusterOutput() CassandraClusterOutput {
@@ -213,35 +213,6 @@ func (i *CassandraCluster) ToCassandraClusterOutput() CassandraClusterOutput {
 
 func (i *CassandraCluster) ToCassandraClusterOutputWithContext(ctx context.Context) CassandraClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterOutput)
-}
-
-func (i *CassandraCluster) ToCassandraClusterPtrOutput() CassandraClusterPtrOutput {
-	return i.ToCassandraClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *CassandraCluster) ToCassandraClusterPtrOutputWithContext(ctx context.Context) CassandraClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterPtrOutput)
-}
-
-type CassandraClusterPtrInput interface {
-	pulumi.Input
-
-	ToCassandraClusterPtrOutput() CassandraClusterPtrOutput
-	ToCassandraClusterPtrOutputWithContext(ctx context.Context) CassandraClusterPtrOutput
-}
-
-type cassandraClusterPtrType CassandraClusterArgs
-
-func (*cassandraClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CassandraCluster)(nil))
-}
-
-func (i *cassandraClusterPtrType) ToCassandraClusterPtrOutput() CassandraClusterPtrOutput {
-	return i.ToCassandraClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *cassandraClusterPtrType) ToCassandraClusterPtrOutputWithContext(ctx context.Context) CassandraClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterPtrOutput)
 }
 
 // CassandraClusterArrayInput is an input type that accepts CassandraClusterArray and CassandraClusterArrayOutput values.
@@ -297,7 +268,7 @@ func (i CassandraClusterMap) ToCassandraClusterMapOutputWithContext(ctx context.
 type CassandraClusterOutput struct{ *pulumi.OutputState }
 
 func (CassandraClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraCluster)(nil))
+	return reflect.TypeOf((**CassandraCluster)(nil)).Elem()
 }
 
 func (o CassandraClusterOutput) ToCassandraClusterOutput() CassandraClusterOutput {
@@ -308,44 +279,10 @@ func (o CassandraClusterOutput) ToCassandraClusterOutputWithContext(ctx context.
 	return o
 }
 
-func (o CassandraClusterOutput) ToCassandraClusterPtrOutput() CassandraClusterPtrOutput {
-	return o.ToCassandraClusterPtrOutputWithContext(context.Background())
-}
-
-func (o CassandraClusterOutput) ToCassandraClusterPtrOutputWithContext(ctx context.Context) CassandraClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraCluster) *CassandraCluster {
-		return &v
-	}).(CassandraClusterPtrOutput)
-}
-
-type CassandraClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (CassandraClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CassandraCluster)(nil))
-}
-
-func (o CassandraClusterPtrOutput) ToCassandraClusterPtrOutput() CassandraClusterPtrOutput {
-	return o
-}
-
-func (o CassandraClusterPtrOutput) ToCassandraClusterPtrOutputWithContext(ctx context.Context) CassandraClusterPtrOutput {
-	return o
-}
-
-func (o CassandraClusterPtrOutput) Elem() CassandraClusterOutput {
-	return o.ApplyT(func(v *CassandraCluster) CassandraCluster {
-		if v != nil {
-			return *v
-		}
-		var ret CassandraCluster
-		return ret
-	}).(CassandraClusterOutput)
-}
-
 type CassandraClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (CassandraClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CassandraCluster)(nil))
+	return reflect.TypeOf((*[]*CassandraCluster)(nil)).Elem()
 }
 
 func (o CassandraClusterArrayOutput) ToCassandraClusterArrayOutput() CassandraClusterArrayOutput {
@@ -357,15 +294,15 @@ func (o CassandraClusterArrayOutput) ToCassandraClusterArrayOutputWithContext(ct
 }
 
 func (o CassandraClusterArrayOutput) Index(i pulumi.IntInput) CassandraClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraCluster {
-		return vs[0].([]CassandraCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CassandraCluster {
+		return vs[0].([]*CassandraCluster)[vs[1].(int)]
 	}).(CassandraClusterOutput)
 }
 
 type CassandraClusterMapOutput struct{ *pulumi.OutputState }
 
 func (CassandraClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CassandraCluster)(nil))
+	return reflect.TypeOf((*map[string]*CassandraCluster)(nil)).Elem()
 }
 
 func (o CassandraClusterMapOutput) ToCassandraClusterMapOutput() CassandraClusterMapOutput {
@@ -377,18 +314,16 @@ func (o CassandraClusterMapOutput) ToCassandraClusterMapOutputWithContext(ctx co
 }
 
 func (o CassandraClusterMapOutput) MapIndex(k pulumi.StringInput) CassandraClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CassandraCluster {
-		return vs[0].(map[string]CassandraCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CassandraCluster {
+		return vs[0].(map[string]*CassandraCluster)[vs[1].(string)]
 	}).(CassandraClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterInput)(nil)).Elem(), &CassandraCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterPtrInput)(nil)).Elem(), &CassandraCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterArrayInput)(nil)).Elem(), CassandraClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterMapInput)(nil)).Elem(), CassandraClusterMap{})
 	pulumi.RegisterOutputType(CassandraClusterOutput{})
-	pulumi.RegisterOutputType(CassandraClusterPtrOutput{})
 	pulumi.RegisterOutputType(CassandraClusterArrayOutput{})
 	pulumi.RegisterOutputType(CassandraClusterMapOutput{})
 }

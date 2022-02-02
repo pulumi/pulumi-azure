@@ -26,9 +26,7 @@ export function getRestorableDatabaseAccounts(args: GetRestorableDatabaseAccount
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", {
         "location": args.location,
         "name": args.name,

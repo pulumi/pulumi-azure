@@ -543,8 +543,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = example_resource_group.name.apply(lambda name: azure.storage.get_account(name="storageaccountname",
-            resource_group_name=name))
+        example_account = azure.storage.get_account_output(name="storageaccountname",
+            resource_group_name=example_resource_group.name)
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
@@ -602,8 +602,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = example_resource_group.name.apply(lambda name: azure.storage.get_account(name="storageaccountname",
-            resource_group_name=name))
+        example_account = azure.storage.get_account_output(name="storageaccountname",
+            resource_group_name=example_resource_group.name)
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)

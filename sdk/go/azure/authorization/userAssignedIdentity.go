@@ -195,7 +195,7 @@ type UserAssignedIdentityInput interface {
 }
 
 func (*UserAssignedIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil))
+	return reflect.TypeOf((**UserAssignedIdentity)(nil)).Elem()
 }
 
 func (i *UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
@@ -204,35 +204,6 @@ func (i *UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdenti
 
 func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
-}
-
-func (i *UserAssignedIdentity) ToUserAssignedIdentityPtrOutput() UserAssignedIdentityPtrOutput {
-	return i.ToUserAssignedIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *UserAssignedIdentity) ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPtrOutput)
-}
-
-type UserAssignedIdentityPtrInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityPtrOutput() UserAssignedIdentityPtrOutput
-	ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput
-}
-
-type userAssignedIdentityPtrType UserAssignedIdentityArgs
-
-func (*userAssignedIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAssignedIdentity)(nil))
-}
-
-func (i *userAssignedIdentityPtrType) ToUserAssignedIdentityPtrOutput() UserAssignedIdentityPtrOutput {
-	return i.ToUserAssignedIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *userAssignedIdentityPtrType) ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPtrOutput)
 }
 
 // UserAssignedIdentityArrayInput is an input type that accepts UserAssignedIdentityArray and UserAssignedIdentityArrayOutput values.
@@ -288,7 +259,7 @@ func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx 
 type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil))
+	return reflect.TypeOf((**UserAssignedIdentity)(nil)).Elem()
 }
 
 func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
@@ -299,44 +270,10 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 	return o
 }
 
-func (o UserAssignedIdentityOutput) ToUserAssignedIdentityPtrOutput() UserAssignedIdentityPtrOutput {
-	return o.ToUserAssignedIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o UserAssignedIdentityOutput) ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAssignedIdentity) *UserAssignedIdentity {
-		return &v
-	}).(UserAssignedIdentityPtrOutput)
-}
-
-type UserAssignedIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAssignedIdentity)(nil))
-}
-
-func (o UserAssignedIdentityPtrOutput) ToUserAssignedIdentityPtrOutput() UserAssignedIdentityPtrOutput {
-	return o
-}
-
-func (o UserAssignedIdentityPtrOutput) ToUserAssignedIdentityPtrOutputWithContext(ctx context.Context) UserAssignedIdentityPtrOutput {
-	return o
-}
-
-func (o UserAssignedIdentityPtrOutput) Elem() UserAssignedIdentityOutput {
-	return o.ApplyT(func(v *UserAssignedIdentity) UserAssignedIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret UserAssignedIdentity
-		return ret
-	}).(UserAssignedIdentityOutput)
-}
-
 type UserAssignedIdentityArrayOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserAssignedIdentity)(nil))
+	return reflect.TypeOf((*[]*UserAssignedIdentity)(nil)).Elem()
 }
 
 func (o UserAssignedIdentityArrayOutput) ToUserAssignedIdentityArrayOutput() UserAssignedIdentityArrayOutput {
@@ -348,15 +285,15 @@ func (o UserAssignedIdentityArrayOutput) ToUserAssignedIdentityArrayOutputWithCo
 }
 
 func (o UserAssignedIdentityArrayOutput) Index(i pulumi.IntInput) UserAssignedIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAssignedIdentity {
-		return vs[0].([]UserAssignedIdentity)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserAssignedIdentity {
+		return vs[0].([]*UserAssignedIdentity)[vs[1].(int)]
 	}).(UserAssignedIdentityOutput)
 }
 
 type UserAssignedIdentityMapOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentity)(nil))
+	return reflect.TypeOf((*map[string]*UserAssignedIdentity)(nil)).Elem()
 }
 
 func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
@@ -368,18 +305,16 @@ func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContex
 }
 
 func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentity {
-		return vs[0].(map[string]UserAssignedIdentity)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserAssignedIdentity {
+		return vs[0].(map[string]*UserAssignedIdentity)[vs[1].(string)]
 	}).(UserAssignedIdentityOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityInput)(nil)).Elem(), &UserAssignedIdentity{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityPtrInput)(nil)).Elem(), &UserAssignedIdentity{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityArrayInput)(nil)).Elem(), UserAssignedIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityMapInput)(nil)).Elem(), UserAssignedIdentityMap{})
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityArrayOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
 }

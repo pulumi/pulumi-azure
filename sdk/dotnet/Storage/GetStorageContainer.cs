@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Container.
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataLake
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DataLake
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStoreResult> InvokeAsync(GetStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Lake Store.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DataLake
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStoreResult> Invoke(GetStoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreInvokeArgs(), options.WithDefaults());
     }
 
 

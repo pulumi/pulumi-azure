@@ -109,20 +109,20 @@ export class Directory extends pulumi.CustomResource {
      */
     constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
-            inputs["billingType"] = state ? state.billingType : undefined;
-            inputs["countryCode"] = state ? state.countryCode : undefined;
-            inputs["dataResidencyLocation"] = state ? state.dataResidencyLocation : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["effectiveStartDate"] = state ? state.effectiveStartDate : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["billingType"] = state ? state.billingType : undefined;
+            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
+            resourceInputs["dataResidencyLocation"] = state ? state.dataResidencyLocation : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["effectiveStartDate"] = state ? state.effectiveStartDate : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
             if ((!args || args.dataResidencyLocation === undefined) && !opts.urn) {
@@ -137,21 +137,19 @@ export class Directory extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["countryCode"] = args ? args.countryCode : undefined;
-            inputs["dataResidencyLocation"] = args ? args.dataResidencyLocation : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["billingType"] = undefined /*out*/;
-            inputs["effectiveStartDate"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
+            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
+            resourceInputs["dataResidencyLocation"] = args ? args.dataResidencyLocation : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingType"] = undefined /*out*/;
+            resourceInputs["effectiveStartDate"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Directory.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Directory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

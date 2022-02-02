@@ -185,25 +185,25 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiagnosticArgs | DiagnosticState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiagnosticState | undefined;
-            inputs["alwaysLogErrors"] = state ? state.alwaysLogErrors : undefined;
-            inputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["backendRequest"] = state ? state.backendRequest : undefined;
-            inputs["backendResponse"] = state ? state.backendResponse : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frontendRequest"] = state ? state.frontendRequest : undefined;
-            inputs["frontendResponse"] = state ? state.frontendResponse : undefined;
-            inputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["logClientIp"] = state ? state.logClientIp : undefined;
-            inputs["operationNameFormat"] = state ? state.operationNameFormat : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            inputs["verbosity"] = state ? state.verbosity : undefined;
+            resourceInputs["alwaysLogErrors"] = state ? state.alwaysLogErrors : undefined;
+            resourceInputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["backendRequest"] = state ? state.backendRequest : undefined;
+            resourceInputs["backendResponse"] = state ? state.backendResponse : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frontendRequest"] = state ? state.frontendRequest : undefined;
+            resourceInputs["frontendResponse"] = state ? state.frontendResponse : undefined;
+            resourceInputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["logClientIp"] = state ? state.logClientIp : undefined;
+            resourceInputs["operationNameFormat"] = state ? state.operationNameFormat : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
+            resourceInputs["verbosity"] = state ? state.verbosity : undefined;
         } else {
             const args = argsOrState as DiagnosticArgs | undefined;
             if ((!args || args.apiManagementLoggerId === undefined) && !opts.urn) {
@@ -218,26 +218,24 @@ export class Diagnostic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;
-            inputs["apiManagementLoggerId"] = args ? args.apiManagementLoggerId : undefined;
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["backendRequest"] = args ? args.backendRequest : undefined;
-            inputs["backendResponse"] = args ? args.backendResponse : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frontendRequest"] = args ? args.frontendRequest : undefined;
-            inputs["frontendResponse"] = args ? args.frontendResponse : undefined;
-            inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["logClientIp"] = args ? args.logClientIp : undefined;
-            inputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            inputs["verbosity"] = args ? args.verbosity : undefined;
+            resourceInputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;
+            resourceInputs["apiManagementLoggerId"] = args ? args.apiManagementLoggerId : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["backendRequest"] = args ? args.backendRequest : undefined;
+            resourceInputs["backendResponse"] = args ? args.backendResponse : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frontendRequest"] = args ? args.frontendRequest : undefined;
+            resourceInputs["frontendResponse"] = args ? args.frontendResponse : undefined;
+            resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
+            resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
+            resourceInputs["verbosity"] = args ? args.verbosity : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Diagnostic.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Diagnostic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

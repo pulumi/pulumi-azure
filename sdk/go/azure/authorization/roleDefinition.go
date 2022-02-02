@@ -197,7 +197,7 @@ type RoleDefinitionInput interface {
 }
 
 func (*RoleDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinition)(nil))
+	return reflect.TypeOf((**RoleDefinition)(nil)).Elem()
 }
 
 func (i *RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
@@ -206,35 +206,6 @@ func (i *RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
 
 func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
-}
-
-func (i *RoleDefinition) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
-	return i.ToRoleDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *RoleDefinition) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPtrOutput)
-}
-
-type RoleDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput
-	ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput
-}
-
-type roleDefinitionPtrType RoleDefinitionArgs
-
-func (*roleDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleDefinition)(nil))
-}
-
-func (i *roleDefinitionPtrType) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
-	return i.ToRoleDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *roleDefinitionPtrType) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPtrOutput)
 }
 
 // RoleDefinitionArrayInput is an input type that accepts RoleDefinitionArray and RoleDefinitionArrayOutput values.
@@ -290,7 +261,7 @@ func (i RoleDefinitionMap) ToRoleDefinitionMapOutputWithContext(ctx context.Cont
 type RoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinition)(nil))
+	return reflect.TypeOf((**RoleDefinition)(nil)).Elem()
 }
 
 func (o RoleDefinitionOutput) ToRoleDefinitionOutput() RoleDefinitionOutput {
@@ -301,44 +272,10 @@ func (o RoleDefinitionOutput) ToRoleDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RoleDefinitionOutput) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
-	return o.ToRoleDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o RoleDefinitionOutput) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleDefinition) *RoleDefinition {
-		return &v
-	}).(RoleDefinitionPtrOutput)
-}
-
-type RoleDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (RoleDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleDefinition)(nil))
-}
-
-func (o RoleDefinitionPtrOutput) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
-	return o
-}
-
-func (o RoleDefinitionPtrOutput) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
-	return o
-}
-
-func (o RoleDefinitionPtrOutput) Elem() RoleDefinitionOutput {
-	return o.ApplyT(func(v *RoleDefinition) RoleDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret RoleDefinition
-		return ret
-	}).(RoleDefinitionOutput)
-}
-
 type RoleDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoleDefinition)(nil))
+	return reflect.TypeOf((*[]*RoleDefinition)(nil)).Elem()
 }
 
 func (o RoleDefinitionArrayOutput) ToRoleDefinitionArrayOutput() RoleDefinitionArrayOutput {
@@ -350,15 +287,15 @@ func (o RoleDefinitionArrayOutput) ToRoleDefinitionArrayOutputWithContext(ctx co
 }
 
 func (o RoleDefinitionArrayOutput) Index(i pulumi.IntInput) RoleDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleDefinition {
-		return vs[0].([]RoleDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleDefinition {
+		return vs[0].([]*RoleDefinition)[vs[1].(int)]
 	}).(RoleDefinitionOutput)
 }
 
 type RoleDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RoleDefinition)(nil))
+	return reflect.TypeOf((*map[string]*RoleDefinition)(nil)).Elem()
 }
 
 func (o RoleDefinitionMapOutput) ToRoleDefinitionMapOutput() RoleDefinitionMapOutput {
@@ -370,18 +307,16 @@ func (o RoleDefinitionMapOutput) ToRoleDefinitionMapOutputWithContext(ctx contex
 }
 
 func (o RoleDefinitionMapOutput) MapIndex(k pulumi.StringInput) RoleDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoleDefinition {
-		return vs[0].(map[string]RoleDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RoleDefinition {
+		return vs[0].(map[string]*RoleDefinition)[vs[1].(string)]
 	}).(RoleDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionInput)(nil)).Elem(), &RoleDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionPtrInput)(nil)).Elem(), &RoleDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionArrayInput)(nil)).Elem(), RoleDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleDefinitionMapInput)(nil)).Elem(), RoleDefinitionMap{})
 	pulumi.RegisterOutputType(RoleDefinitionOutput{})
-	pulumi.RegisterOutputType(RoleDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RoleDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(RoleDefinitionMapOutput{})
 }

@@ -102,17 +102,17 @@ export class Hub extends pulumi.CustomResource {
      */
     constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HubArgs | HubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HubState | undefined;
-            inputs["apnsCredential"] = state ? state.apnsCredential : undefined;
-            inputs["gcmCredential"] = state ? state.gcmCredential : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apnsCredential"] = state ? state.apnsCredential : undefined;
+            resourceInputs["gcmCredential"] = state ? state.gcmCredential : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as HubArgs | undefined;
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -121,18 +121,16 @@ export class Hub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apnsCredential"] = args ? args.apnsCredential : undefined;
-            inputs["gcmCredential"] = args ? args.gcmCredential : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apnsCredential"] = args ? args.apnsCredential : undefined;
+            resourceInputs["gcmCredential"] = args ? args.gcmCredential : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Hub.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Hub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

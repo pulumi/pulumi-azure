@@ -202,7 +202,7 @@ type WatchlistInput interface {
 }
 
 func (*Watchlist) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watchlist)(nil))
+	return reflect.TypeOf((**Watchlist)(nil)).Elem()
 }
 
 func (i *Watchlist) ToWatchlistOutput() WatchlistOutput {
@@ -211,35 +211,6 @@ func (i *Watchlist) ToWatchlistOutput() WatchlistOutput {
 
 func (i *Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistOutput)
-}
-
-func (i *Watchlist) ToWatchlistPtrOutput() WatchlistPtrOutput {
-	return i.ToWatchlistPtrOutputWithContext(context.Background())
-}
-
-func (i *Watchlist) ToWatchlistPtrOutputWithContext(ctx context.Context) WatchlistPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WatchlistPtrOutput)
-}
-
-type WatchlistPtrInput interface {
-	pulumi.Input
-
-	ToWatchlistPtrOutput() WatchlistPtrOutput
-	ToWatchlistPtrOutputWithContext(ctx context.Context) WatchlistPtrOutput
-}
-
-type watchlistPtrType WatchlistArgs
-
-func (*watchlistPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Watchlist)(nil))
-}
-
-func (i *watchlistPtrType) ToWatchlistPtrOutput() WatchlistPtrOutput {
-	return i.ToWatchlistPtrOutputWithContext(context.Background())
-}
-
-func (i *watchlistPtrType) ToWatchlistPtrOutputWithContext(ctx context.Context) WatchlistPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WatchlistPtrOutput)
 }
 
 // WatchlistArrayInput is an input type that accepts WatchlistArray and WatchlistArrayOutput values.
@@ -295,7 +266,7 @@ func (i WatchlistMap) ToWatchlistMapOutputWithContext(ctx context.Context) Watch
 type WatchlistOutput struct{ *pulumi.OutputState }
 
 func (WatchlistOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watchlist)(nil))
+	return reflect.TypeOf((**Watchlist)(nil)).Elem()
 }
 
 func (o WatchlistOutput) ToWatchlistOutput() WatchlistOutput {
@@ -306,44 +277,10 @@ func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) Watch
 	return o
 }
 
-func (o WatchlistOutput) ToWatchlistPtrOutput() WatchlistPtrOutput {
-	return o.ToWatchlistPtrOutputWithContext(context.Background())
-}
-
-func (o WatchlistOutput) ToWatchlistPtrOutputWithContext(ctx context.Context) WatchlistPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Watchlist) *Watchlist {
-		return &v
-	}).(WatchlistPtrOutput)
-}
-
-type WatchlistPtrOutput struct{ *pulumi.OutputState }
-
-func (WatchlistPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Watchlist)(nil))
-}
-
-func (o WatchlistPtrOutput) ToWatchlistPtrOutput() WatchlistPtrOutput {
-	return o
-}
-
-func (o WatchlistPtrOutput) ToWatchlistPtrOutputWithContext(ctx context.Context) WatchlistPtrOutput {
-	return o
-}
-
-func (o WatchlistPtrOutput) Elem() WatchlistOutput {
-	return o.ApplyT(func(v *Watchlist) Watchlist {
-		if v != nil {
-			return *v
-		}
-		var ret Watchlist
-		return ret
-	}).(WatchlistOutput)
-}
-
 type WatchlistArrayOutput struct{ *pulumi.OutputState }
 
 func (WatchlistArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Watchlist)(nil))
+	return reflect.TypeOf((*[]*Watchlist)(nil)).Elem()
 }
 
 func (o WatchlistArrayOutput) ToWatchlistArrayOutput() WatchlistArrayOutput {
@@ -355,15 +292,15 @@ func (o WatchlistArrayOutput) ToWatchlistArrayOutputWithContext(ctx context.Cont
 }
 
 func (o WatchlistArrayOutput) Index(i pulumi.IntInput) WatchlistOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Watchlist {
-		return vs[0].([]Watchlist)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Watchlist {
+		return vs[0].([]*Watchlist)[vs[1].(int)]
 	}).(WatchlistOutput)
 }
 
 type WatchlistMapOutput struct{ *pulumi.OutputState }
 
 func (WatchlistMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Watchlist)(nil))
+	return reflect.TypeOf((*map[string]*Watchlist)(nil)).Elem()
 }
 
 func (o WatchlistMapOutput) ToWatchlistMapOutput() WatchlistMapOutput {
@@ -375,18 +312,16 @@ func (o WatchlistMapOutput) ToWatchlistMapOutputWithContext(ctx context.Context)
 }
 
 func (o WatchlistMapOutput) MapIndex(k pulumi.StringInput) WatchlistOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Watchlist {
-		return vs[0].(map[string]Watchlist)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Watchlist {
+		return vs[0].(map[string]*Watchlist)[vs[1].(string)]
 	}).(WatchlistOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WatchlistInput)(nil)).Elem(), &Watchlist{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WatchlistPtrInput)(nil)).Elem(), &Watchlist{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WatchlistArrayInput)(nil)).Elem(), WatchlistArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WatchlistMapInput)(nil)).Elem(), WatchlistMap{})
 	pulumi.RegisterOutputType(WatchlistOutput{})
-	pulumi.RegisterOutputType(WatchlistPtrOutput{})
 	pulumi.RegisterOutputType(WatchlistArrayOutput{})
 	pulumi.RegisterOutputType(WatchlistMapOutput{})
 }

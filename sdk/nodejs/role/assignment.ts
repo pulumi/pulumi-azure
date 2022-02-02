@@ -194,21 +194,21 @@ export class Assignment extends pulumi.CustomResource {
     /** @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Assignment is deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
-            inputs["condition"] = state ? state.condition : undefined;
-            inputs["conditionVersion"] = state ? state.conditionVersion : undefined;
-            inputs["delegatedManagedIdentityResourceId"] = state ? state.delegatedManagedIdentityResourceId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["principalId"] = state ? state.principalId : undefined;
-            inputs["principalType"] = state ? state.principalType : undefined;
-            inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            inputs["roleDefinitionName"] = state ? state.roleDefinitionName : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["skipServicePrincipalAadCheck"] = state ? state.skipServicePrincipalAadCheck : undefined;
+            resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["conditionVersion"] = state ? state.conditionVersion : undefined;
+            resourceInputs["delegatedManagedIdentityResourceId"] = state ? state.delegatedManagedIdentityResourceId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
+            resourceInputs["roleDefinitionName"] = state ? state.roleDefinitionName : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["skipServicePrincipalAadCheck"] = state ? state.skipServicePrincipalAadCheck : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
             if ((!args || args.principalId === undefined) && !opts.urn) {
@@ -217,22 +217,20 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            inputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            inputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
-            inputs["principalType"] = undefined /*out*/;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
+            resourceInputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
+            resourceInputs["principalType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Assignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

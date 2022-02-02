@@ -394,7 +394,7 @@ type LinkedServiceAzureDatabricksInput interface {
 }
 
 func (*LinkedServiceAzureDatabricks) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureDatabricks)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureDatabricks)(nil)).Elem()
 }
 
 func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksOutput() LinkedServiceAzureDatabricksOutput {
@@ -403,35 +403,6 @@ func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksOutput() Li
 
 func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksOutput)
-}
-
-func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksPtrOutput() LinkedServiceAzureDatabricksPtrOutput {
-	return i.ToLinkedServiceAzureDatabricksPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksPtrOutput)
-}
-
-type LinkedServiceAzureDatabricksPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureDatabricksPtrOutput() LinkedServiceAzureDatabricksPtrOutput
-	ToLinkedServiceAzureDatabricksPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksPtrOutput
-}
-
-type linkedServiceAzureDatabricksPtrType LinkedServiceAzureDatabricksArgs
-
-func (*linkedServiceAzureDatabricksPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureDatabricks)(nil))
-}
-
-func (i *linkedServiceAzureDatabricksPtrType) ToLinkedServiceAzureDatabricksPtrOutput() LinkedServiceAzureDatabricksPtrOutput {
-	return i.ToLinkedServiceAzureDatabricksPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureDatabricksPtrType) ToLinkedServiceAzureDatabricksPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksPtrOutput)
 }
 
 // LinkedServiceAzureDatabricksArrayInput is an input type that accepts LinkedServiceAzureDatabricksArray and LinkedServiceAzureDatabricksArrayOutput values.
@@ -487,7 +458,7 @@ func (i LinkedServiceAzureDatabricksMap) ToLinkedServiceAzureDatabricksMapOutput
 type LinkedServiceAzureDatabricksOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureDatabricksOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureDatabricks)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureDatabricks)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksOutput() LinkedServiceAzureDatabricksOutput {
@@ -498,44 +469,10 @@ func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksOutput
 	return o
 }
 
-func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksPtrOutput() LinkedServiceAzureDatabricksPtrOutput {
-	return o.ToLinkedServiceAzureDatabricksPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureDatabricks) *LinkedServiceAzureDatabricks {
-		return &v
-	}).(LinkedServiceAzureDatabricksPtrOutput)
-}
-
-type LinkedServiceAzureDatabricksPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureDatabricksPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureDatabricks)(nil))
-}
-
-func (o LinkedServiceAzureDatabricksPtrOutput) ToLinkedServiceAzureDatabricksPtrOutput() LinkedServiceAzureDatabricksPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureDatabricksPtrOutput) ToLinkedServiceAzureDatabricksPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureDatabricksPtrOutput) Elem() LinkedServiceAzureDatabricksOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) LinkedServiceAzureDatabricks {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureDatabricks
-		return ret
-	}).(LinkedServiceAzureDatabricksOutput)
-}
-
 type LinkedServiceAzureDatabricksArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureDatabricksArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceAzureDatabricks)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceAzureDatabricks)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureDatabricksArrayOutput) ToLinkedServiceAzureDatabricksArrayOutput() LinkedServiceAzureDatabricksArrayOutput {
@@ -547,15 +484,15 @@ func (o LinkedServiceAzureDatabricksArrayOutput) ToLinkedServiceAzureDatabricksA
 }
 
 func (o LinkedServiceAzureDatabricksArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureDatabricksOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceAzureDatabricks {
-		return vs[0].([]LinkedServiceAzureDatabricks)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureDatabricks {
+		return vs[0].([]*LinkedServiceAzureDatabricks)[vs[1].(int)]
 	}).(LinkedServiceAzureDatabricksOutput)
 }
 
 type LinkedServiceAzureDatabricksMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureDatabricksMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceAzureDatabricks)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceAzureDatabricks)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureDatabricksMapOutput) ToLinkedServiceAzureDatabricksMapOutput() LinkedServiceAzureDatabricksMapOutput {
@@ -567,18 +504,16 @@ func (o LinkedServiceAzureDatabricksMapOutput) ToLinkedServiceAzureDatabricksMap
 }
 
 func (o LinkedServiceAzureDatabricksMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureDatabricksOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceAzureDatabricks {
-		return vs[0].(map[string]LinkedServiceAzureDatabricks)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceAzureDatabricks {
+		return vs[0].(map[string]*LinkedServiceAzureDatabricks)[vs[1].(string)]
 	}).(LinkedServiceAzureDatabricksOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksInput)(nil)).Elem(), &LinkedServiceAzureDatabricks{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksPtrInput)(nil)).Elem(), &LinkedServiceAzureDatabricks{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksArrayInput)(nil)).Elem(), LinkedServiceAzureDatabricksArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksMapInput)(nil)).Elem(), LinkedServiceAzureDatabricksMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksMapOutput{})
 }

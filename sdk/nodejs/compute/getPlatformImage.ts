@@ -27,9 +27,7 @@ export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {
         "location": args.location,
         "offer": args.offer,

@@ -53,10 +53,10 @@ namespace Pulumi.Azure.DataShare
     ///         {
     ///             StorageAccountId = exampleStorage / accountAccount.Id,
     ///         });
-    ///         var exampleServicePrincipal = exampleAccount.Name.Apply(name =&gt; AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
+    ///         var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new AzureAD.GetServicePrincipalInvokeArgs
     ///         {
-    ///             DisplayName = name,
-    ///         }));
+    ///             DisplayName = exampleAccount.Name,
+    ///         });
     ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
     ///         {
     ///             Scope = exampleStorage / accountAccount.Id,

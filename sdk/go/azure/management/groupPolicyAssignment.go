@@ -250,7 +250,7 @@ type GroupPolicyAssignmentInput interface {
 }
 
 func (*GroupPolicyAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupPolicyAssignment)(nil))
+	return reflect.TypeOf((**GroupPolicyAssignment)(nil)).Elem()
 }
 
 func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentOutput() GroupPolicyAssignmentOutput {
@@ -259,35 +259,6 @@ func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentOutput() GroupPolicyAssig
 
 func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentOutputWithContext(ctx context.Context) GroupPolicyAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOutput)
-}
-
-func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentPtrOutput() GroupPolicyAssignmentPtrOutput {
-	return i.ToGroupPolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentPtrOutput)
-}
-
-type GroupPolicyAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToGroupPolicyAssignmentPtrOutput() GroupPolicyAssignmentPtrOutput
-	ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput
-}
-
-type groupPolicyAssignmentPtrType GroupPolicyAssignmentArgs
-
-func (*groupPolicyAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupPolicyAssignment)(nil))
-}
-
-func (i *groupPolicyAssignmentPtrType) ToGroupPolicyAssignmentPtrOutput() GroupPolicyAssignmentPtrOutput {
-	return i.ToGroupPolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *groupPolicyAssignmentPtrType) ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentPtrOutput)
 }
 
 // GroupPolicyAssignmentArrayInput is an input type that accepts GroupPolicyAssignmentArray and GroupPolicyAssignmentArrayOutput values.
@@ -343,7 +314,7 @@ func (i GroupPolicyAssignmentMap) ToGroupPolicyAssignmentMapOutputWithContext(ct
 type GroupPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupPolicyAssignment)(nil))
+	return reflect.TypeOf((**GroupPolicyAssignment)(nil)).Elem()
 }
 
 func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentOutput() GroupPolicyAssignmentOutput {
@@ -354,44 +325,10 @@ func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentOutputWithContext(ct
 	return o
 }
 
-func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentPtrOutput() GroupPolicyAssignmentPtrOutput {
-	return o.ToGroupPolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupPolicyAssignment) *GroupPolicyAssignment {
-		return &v
-	}).(GroupPolicyAssignmentPtrOutput)
-}
-
-type GroupPolicyAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupPolicyAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupPolicyAssignment)(nil))
-}
-
-func (o GroupPolicyAssignmentPtrOutput) ToGroupPolicyAssignmentPtrOutput() GroupPolicyAssignmentPtrOutput {
-	return o
-}
-
-func (o GroupPolicyAssignmentPtrOutput) ToGroupPolicyAssignmentPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentPtrOutput {
-	return o
-}
-
-func (o GroupPolicyAssignmentPtrOutput) Elem() GroupPolicyAssignmentOutput {
-	return o.ApplyT(func(v *GroupPolicyAssignment) GroupPolicyAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret GroupPolicyAssignment
-		return ret
-	}).(GroupPolicyAssignmentOutput)
-}
-
 type GroupPolicyAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GroupPolicyAssignment)(nil))
+	return reflect.TypeOf((*[]*GroupPolicyAssignment)(nil)).Elem()
 }
 
 func (o GroupPolicyAssignmentArrayOutput) ToGroupPolicyAssignmentArrayOutput() GroupPolicyAssignmentArrayOutput {
@@ -403,15 +340,15 @@ func (o GroupPolicyAssignmentArrayOutput) ToGroupPolicyAssignmentArrayOutputWith
 }
 
 func (o GroupPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicyAssignment {
-		return vs[0].([]GroupPolicyAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupPolicyAssignment {
+		return vs[0].([]*GroupPolicyAssignment)[vs[1].(int)]
 	}).(GroupPolicyAssignmentOutput)
 }
 
 type GroupPolicyAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GroupPolicyAssignment)(nil))
+	return reflect.TypeOf((*map[string]*GroupPolicyAssignment)(nil)).Elem()
 }
 
 func (o GroupPolicyAssignmentMapOutput) ToGroupPolicyAssignmentMapOutput() GroupPolicyAssignmentMapOutput {
@@ -423,18 +360,16 @@ func (o GroupPolicyAssignmentMapOutput) ToGroupPolicyAssignmentMapOutputWithCont
 }
 
 func (o GroupPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) GroupPolicyAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GroupPolicyAssignment {
-		return vs[0].(map[string]GroupPolicyAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GroupPolicyAssignment {
+		return vs[0].(map[string]*GroupPolicyAssignment)[vs[1].(string)]
 	}).(GroupPolicyAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentInput)(nil)).Elem(), &GroupPolicyAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentPtrInput)(nil)).Elem(), &GroupPolicyAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentArrayInput)(nil)).Elem(), GroupPolicyAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentMapInput)(nil)).Elem(), GroupPolicyAssignmentMap{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentOutput{})
-	pulumi.RegisterOutputType(GroupPolicyAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentMapOutput{})
 }

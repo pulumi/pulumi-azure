@@ -270,7 +270,7 @@ type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationInput interf
 }
 
 func (*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil))
+	return reflect.TypeOf((**NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil)).Elem()
 }
 
 func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
@@ -279,35 +279,6 @@ func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetw
 
 func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)
-}
-
-func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return i.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput)
-}
-
-type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput
-	ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput
-}
-
-type networkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrType NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs
-
-func (*networkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil))
-}
-
-func (i *networkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrType) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return i.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *networkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrType) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput)
 }
 
 // NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput is an input type that accepts NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray and NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput values.
@@ -363,7 +334,7 @@ func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap) ToNe
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil))
+	return reflect.TypeOf((**NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil)).Elem()
 }
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
@@ -374,44 +345,10 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) T
 	return o
 }
 
-func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return o.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
-		return &v
-	}).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput)
-}
-
-type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil))
-}
-
-func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return o
-}
-
-func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput {
-	return o
-}
-
-func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput) Elem() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
-	return o.ApplyT(func(v *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation
-		return ret
-	}).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)
-}
-
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil))
+	return reflect.TypeOf((*[]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil)).Elem()
 }
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput {
@@ -423,15 +360,15 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutp
 }
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
-		return vs[0].([]NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
+		return vs[0].([]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)[vs[1].(int)]
 	}).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)
 }
 
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil))
+	return reflect.TypeOf((*map[string]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil)).Elem()
 }
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput {
@@ -443,18 +380,16 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput
 }
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
-		return vs[0].(map[string]NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
+		return vs[0].(map[string]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)[vs[1].(string)]
 	}).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationInput)(nil)).Elem(), &NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrInput)(nil)).Elem(), &NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput)(nil)).Elem(), NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapInput)(nil)).Elem(), NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput{})
 }

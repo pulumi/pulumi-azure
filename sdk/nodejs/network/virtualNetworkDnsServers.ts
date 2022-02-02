@@ -59,24 +59,22 @@ export class VirtualNetworkDnsServers extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkDnsServersArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkDnsServersArgs | VirtualNetworkDnsServersState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkDnsServersState | undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkDnsServersArgs | undefined;
             if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualNetworkDnsServers.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualNetworkDnsServers.__pulumiType, name, resourceInputs, opts);
     }
 }
 

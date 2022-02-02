@@ -26,13 +26,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceGroup(ctx, "example_primaryResourceGroup", &core.ResourceGroupArgs{
+// 		_, err := core.NewResourceGroup(ctx, "example-primaryResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("East US"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = redis.NewCache(ctx, "example_primaryCache", &redis.CacheArgs{
+// 		_, err = redis.NewCache(ctx, "example-primaryCache", &redis.CacheArgs{
 // 			Location:          example_primaryResourceGroup.Location,
 // 			ResourceGroupName: example_primaryResourceGroup.Name,
 // 			Capacity:          pulumi.Int(1),
@@ -48,13 +48,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = core.NewResourceGroup(ctx, "example_secondaryResourceGroup", &core.ResourceGroupArgs{
+// 		_, err = core.NewResourceGroup(ctx, "example-secondaryResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West US"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = redis.NewCache(ctx, "example_secondaryCache", &redis.CacheArgs{
+// 		_, err = redis.NewCache(ctx, "example-secondaryCache", &redis.CacheArgs{
 // 			Location:          example_secondaryResourceGroup.Location,
 // 			ResourceGroupName: example_secondaryResourceGroup.Name,
 // 			Capacity:          pulumi.Int(1),
@@ -70,7 +70,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = redis.NewLinkedServer(ctx, "example_link", &redis.LinkedServerArgs{
+// 		_, err = redis.NewLinkedServer(ctx, "example-link", &redis.LinkedServerArgs{
 // 			TargetRedisCacheName:     example_primaryCache.Name,
 // 			ResourceGroupName:        example_primaryCache.ResourceGroupName,
 // 			LinkedRedisCacheId:       example_secondaryCache.ID(),
@@ -225,7 +225,7 @@ type LinkedServerInput interface {
 }
 
 func (*LinkedServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServer)(nil))
+	return reflect.TypeOf((**LinkedServer)(nil)).Elem()
 }
 
 func (i *LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
@@ -234,35 +234,6 @@ func (i *LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
 
 func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
-}
-
-func (i *LinkedServer) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
-	return i.ToLinkedServerPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServer) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerPtrOutput)
-}
-
-type LinkedServerPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServerPtrOutput() LinkedServerPtrOutput
-	ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput
-}
-
-type linkedServerPtrType LinkedServerArgs
-
-func (*linkedServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServer)(nil))
-}
-
-func (i *linkedServerPtrType) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
-	return i.ToLinkedServerPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServerPtrType) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerPtrOutput)
 }
 
 // LinkedServerArrayInput is an input type that accepts LinkedServerArray and LinkedServerArrayOutput values.
@@ -318,7 +289,7 @@ func (i LinkedServerMap) ToLinkedServerMapOutputWithContext(ctx context.Context)
 type LinkedServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServer)(nil))
+	return reflect.TypeOf((**LinkedServer)(nil)).Elem()
 }
 
 func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {
@@ -329,44 +300,10 @@ func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o LinkedServerOutput) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
-	return o.ToLinkedServerPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServerOutput) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServer) *LinkedServer {
-		return &v
-	}).(LinkedServerPtrOutput)
-}
-
-type LinkedServerPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServer)(nil))
-}
-
-func (o LinkedServerPtrOutput) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
-	return o
-}
-
-func (o LinkedServerPtrOutput) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
-	return o
-}
-
-func (o LinkedServerPtrOutput) Elem() LinkedServerOutput {
-	return o.ApplyT(func(v *LinkedServer) LinkedServer {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServer
-		return ret
-	}).(LinkedServerOutput)
-}
-
 type LinkedServerArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServer)(nil))
+	return reflect.TypeOf((*[]*LinkedServer)(nil)).Elem()
 }
 
 func (o LinkedServerArrayOutput) ToLinkedServerArrayOutput() LinkedServerArrayOutput {
@@ -378,15 +315,15 @@ func (o LinkedServerArrayOutput) ToLinkedServerArrayOutputWithContext(ctx contex
 }
 
 func (o LinkedServerArrayOutput) Index(i pulumi.IntInput) LinkedServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServer {
-		return vs[0].([]LinkedServer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServer {
+		return vs[0].([]*LinkedServer)[vs[1].(int)]
 	}).(LinkedServerOutput)
 }
 
 type LinkedServerMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServer)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServer)(nil)).Elem()
 }
 
 func (o LinkedServerMapOutput) ToLinkedServerMapOutput() LinkedServerMapOutput {
@@ -398,18 +335,16 @@ func (o LinkedServerMapOutput) ToLinkedServerMapOutputWithContext(ctx context.Co
 }
 
 func (o LinkedServerMapOutput) MapIndex(k pulumi.StringInput) LinkedServerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServer {
-		return vs[0].(map[string]LinkedServer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServer {
+		return vs[0].(map[string]*LinkedServer)[vs[1].(string)]
 	}).(LinkedServerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerInput)(nil)).Elem(), &LinkedServer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerPtrInput)(nil)).Elem(), &LinkedServer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerArrayInput)(nil)).Elem(), LinkedServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerMapInput)(nil)).Elem(), LinkedServerMap{})
 	pulumi.RegisterOutputType(LinkedServerOutput{})
-	pulumi.RegisterOutputType(LinkedServerPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServerArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServerMapOutput{})
 }

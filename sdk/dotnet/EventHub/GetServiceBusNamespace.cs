@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventHub
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceBusNamespaceResult> InvokeAsync(GetServiceBusNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? new GetServiceBusNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? new GetServiceBusNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Namespace.
@@ -77,7 +76,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceBusNamespaceResult> Invoke(GetServiceBusNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? new GetServiceBusNamespaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? new GetServiceBusNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

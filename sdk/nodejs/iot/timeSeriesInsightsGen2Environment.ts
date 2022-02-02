@@ -116,19 +116,19 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
      */
     constructor(name: string, args: TimeSeriesInsightsGen2EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeSeriesInsightsGen2EnvironmentArgs | TimeSeriesInsightsGen2EnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TimeSeriesInsightsGen2EnvironmentState | undefined;
-            inputs["dataAccessFqdn"] = state ? state.dataAccessFqdn : undefined;
-            inputs["idProperties"] = state ? state.idProperties : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["storage"] = state ? state.storage : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["warmStoreDataRetentionTime"] = state ? state.warmStoreDataRetentionTime : undefined;
+            resourceInputs["dataAccessFqdn"] = state ? state.dataAccessFqdn : undefined;
+            resourceInputs["idProperties"] = state ? state.idProperties : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["storage"] = state ? state.storage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["warmStoreDataRetentionTime"] = state ? state.warmStoreDataRetentionTime : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsGen2EnvironmentArgs | undefined;
             if ((!args || args.idProperties === undefined) && !opts.urn) {
@@ -143,20 +143,18 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
             if ((!args || args.storage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storage'");
             }
-            inputs["idProperties"] = args ? args.idProperties : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["storage"] = args ? args.storage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["warmStoreDataRetentionTime"] = args ? args.warmStoreDataRetentionTime : undefined;
-            inputs["dataAccessFqdn"] = undefined /*out*/;
+            resourceInputs["idProperties"] = args ? args.idProperties : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["storage"] = args ? args.storage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["warmStoreDataRetentionTime"] = args ? args.warmStoreDataRetentionTime : undefined;
+            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TimeSeriesInsightsGen2Environment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TimeSeriesInsightsGen2Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

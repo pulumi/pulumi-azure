@@ -25,9 +25,7 @@ export function getPolicyDefintion(args?: GetPolicyDefintionArgs, opts?: pulumi.
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
         "displayName": args.displayName,
         "managementGroupId": args.managementGroupId,

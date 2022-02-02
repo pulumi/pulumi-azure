@@ -185,7 +185,7 @@ type CacheAccessPolicyInput interface {
 }
 
 func (*CacheAccessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheAccessPolicy)(nil))
+	return reflect.TypeOf((**CacheAccessPolicy)(nil)).Elem()
 }
 
 func (i *CacheAccessPolicy) ToCacheAccessPolicyOutput() CacheAccessPolicyOutput {
@@ -194,35 +194,6 @@ func (i *CacheAccessPolicy) ToCacheAccessPolicyOutput() CacheAccessPolicyOutput 
 
 func (i *CacheAccessPolicy) ToCacheAccessPolicyOutputWithContext(ctx context.Context) CacheAccessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyOutput)
-}
-
-func (i *CacheAccessPolicy) ToCacheAccessPolicyPtrOutput() CacheAccessPolicyPtrOutput {
-	return i.ToCacheAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *CacheAccessPolicy) ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyPtrOutput)
-}
-
-type CacheAccessPolicyPtrInput interface {
-	pulumi.Input
-
-	ToCacheAccessPolicyPtrOutput() CacheAccessPolicyPtrOutput
-	ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput
-}
-
-type cacheAccessPolicyPtrType CacheAccessPolicyArgs
-
-func (*cacheAccessPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheAccessPolicy)(nil))
-}
-
-func (i *cacheAccessPolicyPtrType) ToCacheAccessPolicyPtrOutput() CacheAccessPolicyPtrOutput {
-	return i.ToCacheAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *cacheAccessPolicyPtrType) ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyPtrOutput)
 }
 
 // CacheAccessPolicyArrayInput is an input type that accepts CacheAccessPolicyArray and CacheAccessPolicyArrayOutput values.
@@ -278,7 +249,7 @@ func (i CacheAccessPolicyMap) ToCacheAccessPolicyMapOutputWithContext(ctx contex
 type CacheAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (CacheAccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheAccessPolicy)(nil))
+	return reflect.TypeOf((**CacheAccessPolicy)(nil)).Elem()
 }
 
 func (o CacheAccessPolicyOutput) ToCacheAccessPolicyOutput() CacheAccessPolicyOutput {
@@ -289,44 +260,10 @@ func (o CacheAccessPolicyOutput) ToCacheAccessPolicyOutputWithContext(ctx contex
 	return o
 }
 
-func (o CacheAccessPolicyOutput) ToCacheAccessPolicyPtrOutput() CacheAccessPolicyPtrOutput {
-	return o.ToCacheAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o CacheAccessPolicyOutput) ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheAccessPolicy) *CacheAccessPolicy {
-		return &v
-	}).(CacheAccessPolicyPtrOutput)
-}
-
-type CacheAccessPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (CacheAccessPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheAccessPolicy)(nil))
-}
-
-func (o CacheAccessPolicyPtrOutput) ToCacheAccessPolicyPtrOutput() CacheAccessPolicyPtrOutput {
-	return o
-}
-
-func (o CacheAccessPolicyPtrOutput) ToCacheAccessPolicyPtrOutputWithContext(ctx context.Context) CacheAccessPolicyPtrOutput {
-	return o
-}
-
-func (o CacheAccessPolicyPtrOutput) Elem() CacheAccessPolicyOutput {
-	return o.ApplyT(func(v *CacheAccessPolicy) CacheAccessPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret CacheAccessPolicy
-		return ret
-	}).(CacheAccessPolicyOutput)
-}
-
 type CacheAccessPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (CacheAccessPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CacheAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*CacheAccessPolicy)(nil)).Elem()
 }
 
 func (o CacheAccessPolicyArrayOutput) ToCacheAccessPolicyArrayOutput() CacheAccessPolicyArrayOutput {
@@ -338,15 +275,15 @@ func (o CacheAccessPolicyArrayOutput) ToCacheAccessPolicyArrayOutputWithContext(
 }
 
 func (o CacheAccessPolicyArrayOutput) Index(i pulumi.IntInput) CacheAccessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheAccessPolicy {
-		return vs[0].([]CacheAccessPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CacheAccessPolicy {
+		return vs[0].([]*CacheAccessPolicy)[vs[1].(int)]
 	}).(CacheAccessPolicyOutput)
 }
 
 type CacheAccessPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (CacheAccessPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CacheAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*CacheAccessPolicy)(nil)).Elem()
 }
 
 func (o CacheAccessPolicyMapOutput) ToCacheAccessPolicyMapOutput() CacheAccessPolicyMapOutput {
@@ -358,18 +295,16 @@ func (o CacheAccessPolicyMapOutput) ToCacheAccessPolicyMapOutputWithContext(ctx 
 }
 
 func (o CacheAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) CacheAccessPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CacheAccessPolicy {
-		return vs[0].(map[string]CacheAccessPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CacheAccessPolicy {
+		return vs[0].(map[string]*CacheAccessPolicy)[vs[1].(string)]
 	}).(CacheAccessPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyInput)(nil)).Elem(), &CacheAccessPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyPtrInput)(nil)).Elem(), &CacheAccessPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyArrayInput)(nil)).Elem(), CacheAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyMapInput)(nil)).Elem(), CacheAccessPolicyMap{})
 	pulumi.RegisterOutputType(CacheAccessPolicyOutput{})
-	pulumi.RegisterOutputType(CacheAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CacheAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(CacheAccessPolicyMapOutput{})
 }

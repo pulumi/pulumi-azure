@@ -184,33 +184,33 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetDelimitedTextArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetDelimitedTextArgs | DatasetDelimitedTextState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetDelimitedTextState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["azureBlobFsLocation"] = state ? state.azureBlobFsLocation : undefined;
-            inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
-            inputs["columnDelimiter"] = state ? state.columnDelimiter : undefined;
-            inputs["compressionCodec"] = state ? state.compressionCodec : undefined;
-            inputs["compressionLevel"] = state ? state.compressionLevel : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encoding"] = state ? state.encoding : undefined;
-            inputs["escapeCharacter"] = state ? state.escapeCharacter : undefined;
-            inputs["firstRowAsHeader"] = state ? state.firstRowAsHeader : undefined;
-            inputs["folder"] = state ? state.folder : undefined;
-            inputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
-            inputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nullValue"] = state ? state.nullValue : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["quoteCharacter"] = state ? state.quoteCharacter : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rowDelimiter"] = state ? state.rowDelimiter : undefined;
-            inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["azureBlobFsLocation"] = state ? state.azureBlobFsLocation : undefined;
+            resourceInputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
+            resourceInputs["columnDelimiter"] = state ? state.columnDelimiter : undefined;
+            resourceInputs["compressionCodec"] = state ? state.compressionCodec : undefined;
+            resourceInputs["compressionLevel"] = state ? state.compressionLevel : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encoding"] = state ? state.encoding : undefined;
+            resourceInputs["escapeCharacter"] = state ? state.escapeCharacter : undefined;
+            resourceInputs["firstRowAsHeader"] = state ? state.firstRowAsHeader : undefined;
+            resourceInputs["folder"] = state ? state.folder : undefined;
+            resourceInputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
+            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nullValue"] = state ? state.nullValue : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["quoteCharacter"] = state ? state.quoteCharacter : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rowDelimiter"] = state ? state.rowDelimiter : undefined;
+            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetDelimitedTextArgs | undefined;
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
@@ -219,34 +219,32 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["azureBlobFsLocation"] = args ? args.azureBlobFsLocation : undefined;
-            inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
-            inputs["columnDelimiter"] = args ? args.columnDelimiter : undefined;
-            inputs["compressionCodec"] = args ? args.compressionCodec : undefined;
-            inputs["compressionLevel"] = args ? args.compressionLevel : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encoding"] = args ? args.encoding : undefined;
-            inputs["escapeCharacter"] = args ? args.escapeCharacter : undefined;
-            inputs["firstRowAsHeader"] = args ? args.firstRowAsHeader : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
-            inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nullValue"] = args ? args.nullValue : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["quoteCharacter"] = args ? args.quoteCharacter : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rowDelimiter"] = args ? args.rowDelimiter : undefined;
-            inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["azureBlobFsLocation"] = args ? args.azureBlobFsLocation : undefined;
+            resourceInputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
+            resourceInputs["columnDelimiter"] = args ? args.columnDelimiter : undefined;
+            resourceInputs["compressionCodec"] = args ? args.compressionCodec : undefined;
+            resourceInputs["compressionLevel"] = args ? args.compressionLevel : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encoding"] = args ? args.encoding : undefined;
+            resourceInputs["escapeCharacter"] = args ? args.escapeCharacter : undefined;
+            resourceInputs["firstRowAsHeader"] = args ? args.firstRowAsHeader : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
+            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nullValue"] = args ? args.nullValue : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["quoteCharacter"] = args ? args.quoteCharacter : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rowDelimiter"] = args ? args.rowDelimiter : undefined;
+            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DatasetDelimitedText.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DatasetDelimitedText.__pulumiType, name, resourceInputs, opts);
     }
 }
 

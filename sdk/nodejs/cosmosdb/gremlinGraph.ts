@@ -140,22 +140,22 @@ export class GremlinGraph extends pulumi.CustomResource {
      */
     constructor(name: string, args: GremlinGraphArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GremlinGraphArgs | GremlinGraphState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GremlinGraphState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            inputs["conflictResolutionPolicies"] = state ? state.conflictResolutionPolicies : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            inputs["indexPolicies"] = state ? state.indexPolicies : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
-            inputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["throughput"] = state ? state.throughput : undefined;
-            inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
+            resourceInputs["conflictResolutionPolicies"] = state ? state.conflictResolutionPolicies : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
+            resourceInputs["indexPolicies"] = state ? state.indexPolicies : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
+            resourceInputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
         } else {
             const args = argsOrState as GremlinGraphArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -170,23 +170,21 @@ export class GremlinGraph extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            inputs["conflictResolutionPolicies"] = args ? args.conflictResolutionPolicies : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            inputs["indexPolicies"] = args ? args.indexPolicies : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
-            inputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["throughput"] = args ? args.throughput : undefined;
-            inputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
+            resourceInputs["conflictResolutionPolicies"] = args ? args.conflictResolutionPolicies : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
+            resourceInputs["indexPolicies"] = args ? args.indexPolicies : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
+            resourceInputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GremlinGraph.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GremlinGraph.__pulumiType, name, resourceInputs, opts);
     }
 }
 

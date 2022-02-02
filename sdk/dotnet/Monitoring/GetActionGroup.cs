@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Monitoring
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the properties of an Action Group.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

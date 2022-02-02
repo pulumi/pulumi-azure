@@ -139,7 +139,7 @@ type ManagedDatabaseInput interface {
 }
 
 func (*ManagedDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabase)(nil))
+	return reflect.TypeOf((**ManagedDatabase)(nil)).Elem()
 }
 
 func (i *ManagedDatabase) ToManagedDatabaseOutput() ManagedDatabaseOutput {
@@ -148,35 +148,6 @@ func (i *ManagedDatabase) ToManagedDatabaseOutput() ManagedDatabaseOutput {
 
 func (i *ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseOutput)
-}
-
-func (i *ManagedDatabase) ToManagedDatabasePtrOutput() ManagedDatabasePtrOutput {
-	return i.ToManagedDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedDatabase) ToManagedDatabasePtrOutputWithContext(ctx context.Context) ManagedDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabasePtrOutput)
-}
-
-type ManagedDatabasePtrInput interface {
-	pulumi.Input
-
-	ToManagedDatabasePtrOutput() ManagedDatabasePtrOutput
-	ToManagedDatabasePtrOutputWithContext(ctx context.Context) ManagedDatabasePtrOutput
-}
-
-type managedDatabasePtrType ManagedDatabaseArgs
-
-func (*managedDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedDatabase)(nil))
-}
-
-func (i *managedDatabasePtrType) ToManagedDatabasePtrOutput() ManagedDatabasePtrOutput {
-	return i.ToManagedDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *managedDatabasePtrType) ToManagedDatabasePtrOutputWithContext(ctx context.Context) ManagedDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabasePtrOutput)
 }
 
 // ManagedDatabaseArrayInput is an input type that accepts ManagedDatabaseArray and ManagedDatabaseArrayOutput values.
@@ -232,7 +203,7 @@ func (i ManagedDatabaseMap) ToManagedDatabaseMapOutputWithContext(ctx context.Co
 type ManagedDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabase)(nil))
+	return reflect.TypeOf((**ManagedDatabase)(nil)).Elem()
 }
 
 func (o ManagedDatabaseOutput) ToManagedDatabaseOutput() ManagedDatabaseOutput {
@@ -243,44 +214,10 @@ func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ManagedDatabaseOutput) ToManagedDatabasePtrOutput() ManagedDatabasePtrOutput {
-	return o.ToManagedDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedDatabaseOutput) ToManagedDatabasePtrOutputWithContext(ctx context.Context) ManagedDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDatabase) *ManagedDatabase {
-		return &v
-	}).(ManagedDatabasePtrOutput)
-}
-
-type ManagedDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedDatabase)(nil))
-}
-
-func (o ManagedDatabasePtrOutput) ToManagedDatabasePtrOutput() ManagedDatabasePtrOutput {
-	return o
-}
-
-func (o ManagedDatabasePtrOutput) ToManagedDatabasePtrOutputWithContext(ctx context.Context) ManagedDatabasePtrOutput {
-	return o
-}
-
-func (o ManagedDatabasePtrOutput) Elem() ManagedDatabaseOutput {
-	return o.ApplyT(func(v *ManagedDatabase) ManagedDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedDatabase
-		return ret
-	}).(ManagedDatabaseOutput)
-}
-
 type ManagedDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedDatabase)(nil))
+	return reflect.TypeOf((*[]*ManagedDatabase)(nil)).Elem()
 }
 
 func (o ManagedDatabaseArrayOutput) ToManagedDatabaseArrayOutput() ManagedDatabaseArrayOutput {
@@ -292,15 +229,15 @@ func (o ManagedDatabaseArrayOutput) ToManagedDatabaseArrayOutputWithContext(ctx 
 }
 
 func (o ManagedDatabaseArrayOutput) Index(i pulumi.IntInput) ManagedDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDatabase {
-		return vs[0].([]ManagedDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedDatabase {
+		return vs[0].([]*ManagedDatabase)[vs[1].(int)]
 	}).(ManagedDatabaseOutput)
 }
 
 type ManagedDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedDatabase)(nil))
+	return reflect.TypeOf((*map[string]*ManagedDatabase)(nil)).Elem()
 }
 
 func (o ManagedDatabaseMapOutput) ToManagedDatabaseMapOutput() ManagedDatabaseMapOutput {
@@ -312,18 +249,16 @@ func (o ManagedDatabaseMapOutput) ToManagedDatabaseMapOutputWithContext(ctx cont
 }
 
 func (o ManagedDatabaseMapOutput) MapIndex(k pulumi.StringInput) ManagedDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedDatabase {
-		return vs[0].(map[string]ManagedDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedDatabase {
+		return vs[0].(map[string]*ManagedDatabase)[vs[1].(string)]
 	}).(ManagedDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseInput)(nil)).Elem(), &ManagedDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePtrInput)(nil)).Elem(), &ManagedDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseArrayInput)(nil)).Elem(), ManagedDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseMapInput)(nil)).Elem(), ManagedDatabaseMap{})
 	pulumi.RegisterOutputType(ManagedDatabaseOutput{})
-	pulumi.RegisterOutputType(ManagedDatabasePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseMapOutput{})
 }

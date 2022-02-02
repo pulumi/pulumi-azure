@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServiceResult> InvokeAsync(GetAppServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing App Service.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppServiceResult> Invoke(GetAppServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Lb
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Lb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLBResult> InvokeAsync(GetLBArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Lb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLBResult> Invoke(GetLBInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBInvokeArgs(), options.WithDefaults());
     }
 
 

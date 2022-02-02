@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
     }
 
 

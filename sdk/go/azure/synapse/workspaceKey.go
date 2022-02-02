@@ -109,7 +109,7 @@ type WorkspaceKeyInput interface {
 }
 
 func (*WorkspaceKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceKey)(nil))
+	return reflect.TypeOf((**WorkspaceKey)(nil)).Elem()
 }
 
 func (i *WorkspaceKey) ToWorkspaceKeyOutput() WorkspaceKeyOutput {
@@ -118,35 +118,6 @@ func (i *WorkspaceKey) ToWorkspaceKeyOutput() WorkspaceKeyOutput {
 
 func (i *WorkspaceKey) ToWorkspaceKeyOutputWithContext(ctx context.Context) WorkspaceKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyOutput)
-}
-
-func (i *WorkspaceKey) ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput {
-	return i.ToWorkspaceKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkspaceKey) ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyPtrOutput)
-}
-
-type WorkspaceKeyPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput
-	ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput
-}
-
-type workspaceKeyPtrType WorkspaceKeyArgs
-
-func (*workspaceKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceKey)(nil))
-}
-
-func (i *workspaceKeyPtrType) ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput {
-	return i.ToWorkspaceKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceKeyPtrType) ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyPtrOutput)
 }
 
 // WorkspaceKeyArrayInput is an input type that accepts WorkspaceKeyArray and WorkspaceKeyArrayOutput values.
@@ -202,7 +173,7 @@ func (i WorkspaceKeyMap) ToWorkspaceKeyMapOutputWithContext(ctx context.Context)
 type WorkspaceKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceKey)(nil))
+	return reflect.TypeOf((**WorkspaceKey)(nil)).Elem()
 }
 
 func (o WorkspaceKeyOutput) ToWorkspaceKeyOutput() WorkspaceKeyOutput {
@@ -213,44 +184,10 @@ func (o WorkspaceKeyOutput) ToWorkspaceKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o WorkspaceKeyOutput) ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput {
-	return o.ToWorkspaceKeyPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceKeyOutput) ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceKey) *WorkspaceKey {
-		return &v
-	}).(WorkspaceKeyPtrOutput)
-}
-
-type WorkspaceKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceKey)(nil))
-}
-
-func (o WorkspaceKeyPtrOutput) ToWorkspaceKeyPtrOutput() WorkspaceKeyPtrOutput {
-	return o
-}
-
-func (o WorkspaceKeyPtrOutput) ToWorkspaceKeyPtrOutputWithContext(ctx context.Context) WorkspaceKeyPtrOutput {
-	return o
-}
-
-func (o WorkspaceKeyPtrOutput) Elem() WorkspaceKeyOutput {
-	return o.ApplyT(func(v *WorkspaceKey) WorkspaceKey {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceKey
-		return ret
-	}).(WorkspaceKeyOutput)
-}
-
 type WorkspaceKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceKey)(nil))
+	return reflect.TypeOf((*[]*WorkspaceKey)(nil)).Elem()
 }
 
 func (o WorkspaceKeyArrayOutput) ToWorkspaceKeyArrayOutput() WorkspaceKeyArrayOutput {
@@ -262,15 +199,15 @@ func (o WorkspaceKeyArrayOutput) ToWorkspaceKeyArrayOutputWithContext(ctx contex
 }
 
 func (o WorkspaceKeyArrayOutput) Index(i pulumi.IntInput) WorkspaceKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceKey {
-		return vs[0].([]WorkspaceKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceKey {
+		return vs[0].([]*WorkspaceKey)[vs[1].(int)]
 	}).(WorkspaceKeyOutput)
 }
 
 type WorkspaceKeyMapOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkspaceKey)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceKey)(nil)).Elem()
 }
 
 func (o WorkspaceKeyMapOutput) ToWorkspaceKeyMapOutput() WorkspaceKeyMapOutput {
@@ -282,18 +219,16 @@ func (o WorkspaceKeyMapOutput) ToWorkspaceKeyMapOutputWithContext(ctx context.Co
 }
 
 func (o WorkspaceKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceKey {
-		return vs[0].(map[string]WorkspaceKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkspaceKey {
+		return vs[0].(map[string]*WorkspaceKey)[vs[1].(string)]
 	}).(WorkspaceKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyInput)(nil)).Elem(), &WorkspaceKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyPtrInput)(nil)).Elem(), &WorkspaceKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyArrayInput)(nil)).Elem(), WorkspaceKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyMapInput)(nil)).Elem(), WorkspaceKeyMap{})
 	pulumi.RegisterOutputType(WorkspaceKeyOutput{})
-	pulumi.RegisterOutputType(WorkspaceKeyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceKeyArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceKeyMapOutput{})
 }

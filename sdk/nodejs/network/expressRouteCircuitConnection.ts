@@ -146,16 +146,16 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCircuitConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitConnectionArgs | ExpressRouteCircuitConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitConnectionState | undefined;
-            inputs["addressPrefixIpv4"] = state ? state.addressPrefixIpv4 : undefined;
-            inputs["addressPrefixIpv6"] = state ? state.addressPrefixIpv6 : undefined;
-            inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["peerPeeringId"] = state ? state.peerPeeringId : undefined;
-            inputs["peeringId"] = state ? state.peeringId : undefined;
+            resourceInputs["addressPrefixIpv4"] = state ? state.addressPrefixIpv4 : undefined;
+            resourceInputs["addressPrefixIpv6"] = state ? state.addressPrefixIpv6 : undefined;
+            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["peerPeeringId"] = state ? state.peerPeeringId : undefined;
+            resourceInputs["peeringId"] = state ? state.peeringId : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitConnectionArgs | undefined;
             if ((!args || args.addressPrefixIpv4 === undefined) && !opts.urn) {
@@ -167,17 +167,15 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             if ((!args || args.peeringId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringId'");
             }
-            inputs["addressPrefixIpv4"] = args ? args.addressPrefixIpv4 : undefined;
-            inputs["addressPrefixIpv6"] = args ? args.addressPrefixIpv6 : undefined;
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peerPeeringId"] = args ? args.peerPeeringId : undefined;
-            inputs["peeringId"] = args ? args.peeringId : undefined;
+            resourceInputs["addressPrefixIpv4"] = args ? args.addressPrefixIpv4 : undefined;
+            resourceInputs["addressPrefixIpv6"] = args ? args.addressPrefixIpv6 : undefined;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peerPeeringId"] = args ? args.peerPeeringId : undefined;
+            resourceInputs["peeringId"] = args ? args.peeringId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExpressRouteCircuitConnection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExpressRouteCircuitConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

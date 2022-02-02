@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventHub
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventhubNamespaceResult> InvokeAsync(GetEventhubNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing EventHub Namespace.
@@ -77,7 +76,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventhubNamespaceResult> Invoke(GetEventhubNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

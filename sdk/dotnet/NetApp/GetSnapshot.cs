@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.NetApp
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.NetApp
         /// ```
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Snapshot.
@@ -74,7 +73,7 @@ namespace Pulumi.Azure.NetApp
         /// ```
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

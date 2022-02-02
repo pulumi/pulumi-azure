@@ -26,9 +26,7 @@ export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", {
         "eventhubName": args.eventhubName,
         "listen": args.listen,

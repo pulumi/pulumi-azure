@@ -206,7 +206,7 @@ type RedisCacheInput interface {
 }
 
 func (*RedisCache) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisCache)(nil))
+	return reflect.TypeOf((**RedisCache)(nil)).Elem()
 }
 
 func (i *RedisCache) ToRedisCacheOutput() RedisCacheOutput {
@@ -215,35 +215,6 @@ func (i *RedisCache) ToRedisCacheOutput() RedisCacheOutput {
 
 func (i *RedisCache) ToRedisCacheOutputWithContext(ctx context.Context) RedisCacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisCacheOutput)
-}
-
-func (i *RedisCache) ToRedisCachePtrOutput() RedisCachePtrOutput {
-	return i.ToRedisCachePtrOutputWithContext(context.Background())
-}
-
-func (i *RedisCache) ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisCachePtrOutput)
-}
-
-type RedisCachePtrInput interface {
-	pulumi.Input
-
-	ToRedisCachePtrOutput() RedisCachePtrOutput
-	ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput
-}
-
-type redisCachePtrType RedisCacheArgs
-
-func (*redisCachePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RedisCache)(nil))
-}
-
-func (i *redisCachePtrType) ToRedisCachePtrOutput() RedisCachePtrOutput {
-	return i.ToRedisCachePtrOutputWithContext(context.Background())
-}
-
-func (i *redisCachePtrType) ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisCachePtrOutput)
 }
 
 // RedisCacheArrayInput is an input type that accepts RedisCacheArray and RedisCacheArrayOutput values.
@@ -299,7 +270,7 @@ func (i RedisCacheMap) ToRedisCacheMapOutputWithContext(ctx context.Context) Red
 type RedisCacheOutput struct{ *pulumi.OutputState }
 
 func (RedisCacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisCache)(nil))
+	return reflect.TypeOf((**RedisCache)(nil)).Elem()
 }
 
 func (o RedisCacheOutput) ToRedisCacheOutput() RedisCacheOutput {
@@ -310,44 +281,10 @@ func (o RedisCacheOutput) ToRedisCacheOutputWithContext(ctx context.Context) Red
 	return o
 }
 
-func (o RedisCacheOutput) ToRedisCachePtrOutput() RedisCachePtrOutput {
-	return o.ToRedisCachePtrOutputWithContext(context.Background())
-}
-
-func (o RedisCacheOutput) ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisCache) *RedisCache {
-		return &v
-	}).(RedisCachePtrOutput)
-}
-
-type RedisCachePtrOutput struct{ *pulumi.OutputState }
-
-func (RedisCachePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RedisCache)(nil))
-}
-
-func (o RedisCachePtrOutput) ToRedisCachePtrOutput() RedisCachePtrOutput {
-	return o
-}
-
-func (o RedisCachePtrOutput) ToRedisCachePtrOutputWithContext(ctx context.Context) RedisCachePtrOutput {
-	return o
-}
-
-func (o RedisCachePtrOutput) Elem() RedisCacheOutput {
-	return o.ApplyT(func(v *RedisCache) RedisCache {
-		if v != nil {
-			return *v
-		}
-		var ret RedisCache
-		return ret
-	}).(RedisCacheOutput)
-}
-
 type RedisCacheArrayOutput struct{ *pulumi.OutputState }
 
 func (RedisCacheArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RedisCache)(nil))
+	return reflect.TypeOf((*[]*RedisCache)(nil)).Elem()
 }
 
 func (o RedisCacheArrayOutput) ToRedisCacheArrayOutput() RedisCacheArrayOutput {
@@ -359,15 +296,15 @@ func (o RedisCacheArrayOutput) ToRedisCacheArrayOutputWithContext(ctx context.Co
 }
 
 func (o RedisCacheArrayOutput) Index(i pulumi.IntInput) RedisCacheOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RedisCache {
-		return vs[0].([]RedisCache)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RedisCache {
+		return vs[0].([]*RedisCache)[vs[1].(int)]
 	}).(RedisCacheOutput)
 }
 
 type RedisCacheMapOutput struct{ *pulumi.OutputState }
 
 func (RedisCacheMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RedisCache)(nil))
+	return reflect.TypeOf((*map[string]*RedisCache)(nil)).Elem()
 }
 
 func (o RedisCacheMapOutput) ToRedisCacheMapOutput() RedisCacheMapOutput {
@@ -379,18 +316,16 @@ func (o RedisCacheMapOutput) ToRedisCacheMapOutputWithContext(ctx context.Contex
 }
 
 func (o RedisCacheMapOutput) MapIndex(k pulumi.StringInput) RedisCacheOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RedisCache {
-		return vs[0].(map[string]RedisCache)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RedisCache {
+		return vs[0].(map[string]*RedisCache)[vs[1].(string)]
 	}).(RedisCacheOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RedisCacheInput)(nil)).Elem(), &RedisCache{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RedisCachePtrInput)(nil)).Elem(), &RedisCache{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RedisCacheArrayInput)(nil)).Elem(), RedisCacheArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RedisCacheMapInput)(nil)).Elem(), RedisCacheMap{})
 	pulumi.RegisterOutputType(RedisCacheOutput{})
-	pulumi.RegisterOutputType(RedisCachePtrOutput{})
 	pulumi.RegisterOutputType(RedisCacheArrayOutput{})
 	pulumi.RegisterOutputType(RedisCacheMapOutput{})
 }

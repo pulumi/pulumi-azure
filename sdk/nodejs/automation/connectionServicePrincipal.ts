@@ -111,18 +111,18 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionServicePrincipalArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionServicePrincipalArgs | ConnectionServicePrincipalState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionServicePrincipalState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["certificateThumbprint"] = state ? state.certificateThumbprint : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["certificateThumbprint"] = state ? state.certificateThumbprint : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ConnectionServicePrincipalArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -143,19 +143,17 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["certificateThumbprint"] = args ? args.certificateThumbprint : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["certificateThumbprint"] = args ? args.certificateThumbprint : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ConnectionServicePrincipal.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ConnectionServicePrincipal.__pulumiType, name, resourceInputs, opts);
     }
 }
 

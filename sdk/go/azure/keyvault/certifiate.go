@@ -431,7 +431,7 @@ type CertifiateInput interface {
 }
 
 func (*Certifiate) ElementType() reflect.Type {
-	return reflect.TypeOf((*Certifiate)(nil))
+	return reflect.TypeOf((**Certifiate)(nil)).Elem()
 }
 
 func (i *Certifiate) ToCertifiateOutput() CertifiateOutput {
@@ -440,35 +440,6 @@ func (i *Certifiate) ToCertifiateOutput() CertifiateOutput {
 
 func (i *Certifiate) ToCertifiateOutputWithContext(ctx context.Context) CertifiateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateOutput)
-}
-
-func (i *Certifiate) ToCertifiatePtrOutput() CertifiatePtrOutput {
-	return i.ToCertifiatePtrOutputWithContext(context.Background())
-}
-
-func (i *Certifiate) ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertifiatePtrOutput)
-}
-
-type CertifiatePtrInput interface {
-	pulumi.Input
-
-	ToCertifiatePtrOutput() CertifiatePtrOutput
-	ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput
-}
-
-type certifiatePtrType CertifiateArgs
-
-func (*certifiatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Certifiate)(nil))
-}
-
-func (i *certifiatePtrType) ToCertifiatePtrOutput() CertifiatePtrOutput {
-	return i.ToCertifiatePtrOutputWithContext(context.Background())
-}
-
-func (i *certifiatePtrType) ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertifiatePtrOutput)
 }
 
 // CertifiateArrayInput is an input type that accepts CertifiateArray and CertifiateArrayOutput values.
@@ -524,7 +495,7 @@ func (i CertifiateMap) ToCertifiateMapOutputWithContext(ctx context.Context) Cer
 type CertifiateOutput struct{ *pulumi.OutputState }
 
 func (CertifiateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Certifiate)(nil))
+	return reflect.TypeOf((**Certifiate)(nil)).Elem()
 }
 
 func (o CertifiateOutput) ToCertifiateOutput() CertifiateOutput {
@@ -535,44 +506,10 @@ func (o CertifiateOutput) ToCertifiateOutputWithContext(ctx context.Context) Cer
 	return o
 }
 
-func (o CertifiateOutput) ToCertifiatePtrOutput() CertifiatePtrOutput {
-	return o.ToCertifiatePtrOutputWithContext(context.Background())
-}
-
-func (o CertifiateOutput) ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Certifiate) *Certifiate {
-		return &v
-	}).(CertifiatePtrOutput)
-}
-
-type CertifiatePtrOutput struct{ *pulumi.OutputState }
-
-func (CertifiatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Certifiate)(nil))
-}
-
-func (o CertifiatePtrOutput) ToCertifiatePtrOutput() CertifiatePtrOutput {
-	return o
-}
-
-func (o CertifiatePtrOutput) ToCertifiatePtrOutputWithContext(ctx context.Context) CertifiatePtrOutput {
-	return o
-}
-
-func (o CertifiatePtrOutput) Elem() CertifiateOutput {
-	return o.ApplyT(func(v *Certifiate) Certifiate {
-		if v != nil {
-			return *v
-		}
-		var ret Certifiate
-		return ret
-	}).(CertifiateOutput)
-}
-
 type CertifiateArrayOutput struct{ *pulumi.OutputState }
 
 func (CertifiateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Certifiate)(nil))
+	return reflect.TypeOf((*[]*Certifiate)(nil)).Elem()
 }
 
 func (o CertifiateArrayOutput) ToCertifiateArrayOutput() CertifiateArrayOutput {
@@ -584,15 +521,15 @@ func (o CertifiateArrayOutput) ToCertifiateArrayOutputWithContext(ctx context.Co
 }
 
 func (o CertifiateArrayOutput) Index(i pulumi.IntInput) CertifiateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Certifiate {
-		return vs[0].([]Certifiate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certifiate {
+		return vs[0].([]*Certifiate)[vs[1].(int)]
 	}).(CertifiateOutput)
 }
 
 type CertifiateMapOutput struct{ *pulumi.OutputState }
 
 func (CertifiateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Certifiate)(nil))
+	return reflect.TypeOf((*map[string]*Certifiate)(nil)).Elem()
 }
 
 func (o CertifiateMapOutput) ToCertifiateMapOutput() CertifiateMapOutput {
@@ -604,18 +541,16 @@ func (o CertifiateMapOutput) ToCertifiateMapOutputWithContext(ctx context.Contex
 }
 
 func (o CertifiateMapOutput) MapIndex(k pulumi.StringInput) CertifiateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Certifiate {
-		return vs[0].(map[string]Certifiate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Certifiate {
+		return vs[0].(map[string]*Certifiate)[vs[1].(string)]
 	}).(CertifiateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertifiateInput)(nil)).Elem(), &Certifiate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertifiatePtrInput)(nil)).Elem(), &Certifiate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertifiateArrayInput)(nil)).Elem(), CertifiateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertifiateMapInput)(nil)).Elem(), CertifiateMap{})
 	pulumi.RegisterOutputType(CertifiateOutput{})
-	pulumi.RegisterOutputType(CertifiatePtrOutput{})
 	pulumi.RegisterOutputType(CertifiateArrayOutput{})
 	pulumi.RegisterOutputType(CertifiateMapOutput{})
 }

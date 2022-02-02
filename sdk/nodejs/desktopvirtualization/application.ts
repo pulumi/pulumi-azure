@@ -134,20 +134,20 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            inputs["applicationGroupId"] = state ? state.applicationGroupId : undefined;
-            inputs["commandLineArgumentPolicy"] = state ? state.commandLineArgumentPolicy : undefined;
-            inputs["commandLineArguments"] = state ? state.commandLineArguments : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["iconIndex"] = state ? state.iconIndex : undefined;
-            inputs["iconPath"] = state ? state.iconPath : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["showInPortal"] = state ? state.showInPortal : undefined;
+            resourceInputs["applicationGroupId"] = state ? state.applicationGroupId : undefined;
+            resourceInputs["commandLineArgumentPolicy"] = state ? state.commandLineArgumentPolicy : undefined;
+            resourceInputs["commandLineArguments"] = state ? state.commandLineArguments : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["iconIndex"] = state ? state.iconIndex : undefined;
+            resourceInputs["iconPath"] = state ? state.iconPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["showInPortal"] = state ? state.showInPortal : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             if ((!args || args.applicationGroupId === undefined) && !opts.urn) {
@@ -159,21 +159,19 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            inputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;
-            inputs["commandLineArgumentPolicy"] = args ? args.commandLineArgumentPolicy : undefined;
-            inputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["iconIndex"] = args ? args.iconIndex : undefined;
-            inputs["iconPath"] = args ? args.iconPath : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["showInPortal"] = args ? args.showInPortal : undefined;
+            resourceInputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;
+            resourceInputs["commandLineArgumentPolicy"] = args ? args.commandLineArgumentPolicy : undefined;
+            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["iconIndex"] = args ? args.iconIndex : undefined;
+            resourceInputs["iconPath"] = args ? args.iconPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

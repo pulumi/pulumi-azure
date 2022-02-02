@@ -27,9 +27,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:redis/getCache:getCache", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -126,44 +126,42 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            inputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["accountEndpoint"] = undefined /*out*/;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Account.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

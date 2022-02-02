@@ -91,14 +91,14 @@ export class IdentityProviderTwitter extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityProviderTwitterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderTwitterArgs | IdentityProviderTwitterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderTwitterState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["apiSecretKey"] = state ? state.apiSecretKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["apiSecretKey"] = state ? state.apiSecretKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IdentityProviderTwitterArgs | undefined;
             if ((!args || args.apiKey === undefined) && !opts.urn) {
@@ -113,15 +113,13 @@ export class IdentityProviderTwitter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["apiSecretKey"] = args ? args.apiSecretKey : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiSecretKey"] = args ? args.apiSecretKey : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityProviderTwitter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityProviderTwitter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

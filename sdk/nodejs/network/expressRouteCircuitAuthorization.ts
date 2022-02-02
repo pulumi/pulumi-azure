@@ -103,15 +103,15 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitAuthorizationArgs | ExpressRouteCircuitAuthorizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
-            inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            inputs["authorizationUseStatus"] = state ? state.authorizationUseStatus : undefined;
-            inputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
+            resourceInputs["authorizationUseStatus"] = state ? state.authorizationUseStatus : undefined;
+            resourceInputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
             if ((!args || args.expressRouteCircuitName === undefined) && !opts.urn) {
@@ -120,16 +120,14 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["authorizationKey"] = undefined /*out*/;
-            inputs["authorizationUseStatus"] = undefined /*out*/;
+            resourceInputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["authorizationUseStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExpressRouteCircuitAuthorization.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExpressRouteCircuitAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

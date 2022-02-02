@@ -284,7 +284,7 @@ type TimeSeriesInsightsEventSourceIothubInput interface {
 }
 
 func (*TimeSeriesInsightsEventSourceIothub) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsEventSourceIothub)(nil))
+	return reflect.TypeOf((**TimeSeriesInsightsEventSourceIothub)(nil)).Elem()
 }
 
 func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIothubOutput() TimeSeriesInsightsEventSourceIothubOutput {
@@ -293,35 +293,6 @@ func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIot
 
 func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIothubOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubOutput)
-}
-
-func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIothubPtrOutput() TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return i.ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(context.Background())
-}
-
-func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubPtrOutput)
-}
-
-type TimeSeriesInsightsEventSourceIothubPtrInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsEventSourceIothubPtrOutput() TimeSeriesInsightsEventSourceIothubPtrOutput
-	ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput
-}
-
-type timeSeriesInsightsEventSourceIothubPtrType TimeSeriesInsightsEventSourceIothubArgs
-
-func (*timeSeriesInsightsEventSourceIothubPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsEventSourceIothub)(nil))
-}
-
-func (i *timeSeriesInsightsEventSourceIothubPtrType) ToTimeSeriesInsightsEventSourceIothubPtrOutput() TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return i.ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(context.Background())
-}
-
-func (i *timeSeriesInsightsEventSourceIothubPtrType) ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubPtrOutput)
 }
 
 // TimeSeriesInsightsEventSourceIothubArrayInput is an input type that accepts TimeSeriesInsightsEventSourceIothubArray and TimeSeriesInsightsEventSourceIothubArrayOutput values.
@@ -377,7 +348,7 @@ func (i TimeSeriesInsightsEventSourceIothubMap) ToTimeSeriesInsightsEventSourceI
 type TimeSeriesInsightsEventSourceIothubOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsEventSourceIothubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsEventSourceIothub)(nil))
+	return reflect.TypeOf((**TimeSeriesInsightsEventSourceIothub)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSourceIothubOutput() TimeSeriesInsightsEventSourceIothubOutput {
@@ -388,44 +359,10 @@ func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSour
 	return o
 }
 
-func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSourceIothubPtrOutput() TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return o.ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(context.Background())
-}
-
-func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsEventSourceIothub) *TimeSeriesInsightsEventSourceIothub {
-		return &v
-	}).(TimeSeriesInsightsEventSourceIothubPtrOutput)
-}
-
-type TimeSeriesInsightsEventSourceIothubPtrOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsEventSourceIothubPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsEventSourceIothub)(nil))
-}
-
-func (o TimeSeriesInsightsEventSourceIothubPtrOutput) ToTimeSeriesInsightsEventSourceIothubPtrOutput() TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsEventSourceIothubPtrOutput) ToTimeSeriesInsightsEventSourceIothubPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubPtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsEventSourceIothubPtrOutput) Elem() TimeSeriesInsightsEventSourceIothubOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsEventSourceIothub) TimeSeriesInsightsEventSourceIothub {
-		if v != nil {
-			return *v
-		}
-		var ret TimeSeriesInsightsEventSourceIothub
-		return ret
-	}).(TimeSeriesInsightsEventSourceIothubOutput)
-}
-
 type TimeSeriesInsightsEventSourceIothubArrayOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsEventSourceIothubArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeSeriesInsightsEventSourceIothub)(nil))
+	return reflect.TypeOf((*[]*TimeSeriesInsightsEventSourceIothub)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsEventSourceIothubArrayOutput) ToTimeSeriesInsightsEventSourceIothubArrayOutput() TimeSeriesInsightsEventSourceIothubArrayOutput {
@@ -437,15 +374,15 @@ func (o TimeSeriesInsightsEventSourceIothubArrayOutput) ToTimeSeriesInsightsEven
 }
 
 func (o TimeSeriesInsightsEventSourceIothubArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsEventSourceIothubOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesInsightsEventSourceIothub {
-		return vs[0].([]TimeSeriesInsightsEventSourceIothub)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsEventSourceIothub {
+		return vs[0].([]*TimeSeriesInsightsEventSourceIothub)[vs[1].(int)]
 	}).(TimeSeriesInsightsEventSourceIothubOutput)
 }
 
 type TimeSeriesInsightsEventSourceIothubMapOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsEventSourceIothubMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TimeSeriesInsightsEventSourceIothub)(nil))
+	return reflect.TypeOf((*map[string]*TimeSeriesInsightsEventSourceIothub)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsEventSourceIothubMapOutput) ToTimeSeriesInsightsEventSourceIothubMapOutput() TimeSeriesInsightsEventSourceIothubMapOutput {
@@ -457,18 +394,16 @@ func (o TimeSeriesInsightsEventSourceIothubMapOutput) ToTimeSeriesInsightsEventS
 }
 
 func (o TimeSeriesInsightsEventSourceIothubMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsEventSourceIothubOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TimeSeriesInsightsEventSourceIothub {
-		return vs[0].(map[string]TimeSeriesInsightsEventSourceIothub)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TimeSeriesInsightsEventSourceIothub {
+		return vs[0].(map[string]*TimeSeriesInsightsEventSourceIothub)[vs[1].(string)]
 	}).(TimeSeriesInsightsEventSourceIothubOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubInput)(nil)).Elem(), &TimeSeriesInsightsEventSourceIothub{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubPtrInput)(nil)).Elem(), &TimeSeriesInsightsEventSourceIothub{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubArrayInput)(nil)).Elem(), TimeSeriesInsightsEventSourceIothubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubMapInput)(nil)).Elem(), TimeSeriesInsightsEventSourceIothubMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubArrayOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubMapOutput{})
 }

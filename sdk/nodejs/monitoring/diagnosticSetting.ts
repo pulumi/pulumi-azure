@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = exampleResourceGroup.name.apply(name => azure.storage.getAccount({
+ * const exampleAccount = azure.storage.getAccountOutput({
  *     name: "examplestoracc",
- *     resourceGroupName: name,
- * }));
- * const exampleKeyVault = exampleResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleKeyVault = azure.keyvault.getKeyVaultOutput({
  *     name: "example-vault",
- *     resourceGroupName: name,
- * }));
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
  *     targetResourceId: exampleKeyVault.apply(exampleKeyVault => exampleKeyVault.id),
  *     storageAccountId: exampleAccount.apply(exampleAccount => exampleAccount.id),
@@ -124,38 +124,36 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiagnosticSettingArgs | DiagnosticSettingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiagnosticSettingState | undefined;
-            inputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
-            inputs["eventhubName"] = state ? state.eventhubName : undefined;
-            inputs["logAnalyticsDestinationType"] = state ? state.logAnalyticsDestinationType : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["logs"] = state ? state.logs : undefined;
-            inputs["metrics"] = state ? state.metrics : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
+            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
+            resourceInputs["logAnalyticsDestinationType"] = state ? state.logAnalyticsDestinationType : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logs"] = state ? state.logs : undefined;
+            resourceInputs["metrics"] = state ? state.metrics : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as DiagnosticSettingArgs | undefined;
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
-            inputs["eventhubName"] = args ? args.eventhubName : undefined;
-            inputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["metrics"] = args ? args.metrics : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
+            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
+            resourceInputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["metrics"] = args ? args.metrics : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DiagnosticSetting.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -150,23 +150,23 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceKustoArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceKustoArgs | LinkedServiceKustoState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceKustoState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            inputs["kustoDatabaseName"] = state ? state.kustoDatabaseName : undefined;
-            inputs["kustoEndpoint"] = state ? state.kustoEndpoint : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            inputs["tenant"] = state ? state.tenant : undefined;
-            inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            resourceInputs["kustoDatabaseName"] = state ? state.kustoDatabaseName : undefined;
+            resourceInputs["kustoEndpoint"] = state ? state.kustoEndpoint : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
+            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
+            resourceInputs["tenant"] = state ? state.tenant : undefined;
+            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceKustoArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -178,24 +178,22 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
             if ((!args || args.kustoEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kustoEndpoint'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            inputs["kustoDatabaseName"] = args ? args.kustoDatabaseName : undefined;
-            inputs["kustoEndpoint"] = args ? args.kustoEndpoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            inputs["tenant"] = args ? args.tenant : undefined;
-            inputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            resourceInputs["kustoDatabaseName"] = args ? args.kustoDatabaseName : undefined;
+            resourceInputs["kustoEndpoint"] = args ? args.kustoEndpoint : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
+            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
+            resourceInputs["tenant"] = args ? args.tenant : undefined;
+            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LinkedServiceKusto.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LinkedServiceKusto.__pulumiType, name, resourceInputs, opts);
     }
 }
 

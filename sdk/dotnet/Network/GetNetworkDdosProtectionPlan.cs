@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkDdosProtectionPlanResult> InvokeAsync(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkDdosProtectionPlanResult> Invoke(GetNetworkDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanInvokeArgs(), options.WithDefaults());
     }
 
 

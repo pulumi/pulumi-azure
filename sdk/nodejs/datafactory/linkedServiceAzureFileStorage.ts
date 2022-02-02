@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = exampleResourceGroup.name.apply(name => azure.storage.getAccount({
+ * const exampleAccount = azure.storage.getAccountOutput({
  *     name: "storageaccountname",
- *     resourceGroupName: name,
- * }));
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -130,25 +130,25 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceAzureFileStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceAzureFileStorageArgs | LinkedServiceAzureFileStorageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureFileStorageState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["fileShare"] = state ? state.fileShare : undefined;
-            inputs["host"] = state ? state.host : undefined;
-            inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            inputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["fileShare"] = state ? state.fileShare : undefined;
+            resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureFileStorageArgs | undefined;
             if ((!args || args.connectionString === undefined) && !opts.urn) {
@@ -157,26 +157,24 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["fileShare"] = args ? args.fileShare : undefined;
-            inputs["host"] = args ? args.host : undefined;
-            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            inputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fileShare"] = args ? args.fileShare : undefined;
+            resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LinkedServiceAzureFileStorage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LinkedServiceAzureFileStorage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -183,7 +183,7 @@ type SubscriptionTemplateDeploymentInput interface {
 }
 
 func (*SubscriptionTemplateDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionTemplateDeployment)(nil))
+	return reflect.TypeOf((**SubscriptionTemplateDeployment)(nil)).Elem()
 }
 
 func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {
@@ -192,35 +192,6 @@ func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutput(
 
 func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentOutput)
-}
-
-func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentPtrOutput() SubscriptionTemplateDeploymentPtrOutput {
-	return i.ToSubscriptionTemplateDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentPtrOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentPtrOutput)
-}
-
-type SubscriptionTemplateDeploymentPtrInput interface {
-	pulumi.Input
-
-	ToSubscriptionTemplateDeploymentPtrOutput() SubscriptionTemplateDeploymentPtrOutput
-	ToSubscriptionTemplateDeploymentPtrOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentPtrOutput
-}
-
-type subscriptionTemplateDeploymentPtrType SubscriptionTemplateDeploymentArgs
-
-func (*subscriptionTemplateDeploymentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionTemplateDeployment)(nil))
-}
-
-func (i *subscriptionTemplateDeploymentPtrType) ToSubscriptionTemplateDeploymentPtrOutput() SubscriptionTemplateDeploymentPtrOutput {
-	return i.ToSubscriptionTemplateDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (i *subscriptionTemplateDeploymentPtrType) ToSubscriptionTemplateDeploymentPtrOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentPtrOutput)
 }
 
 // SubscriptionTemplateDeploymentArrayInput is an input type that accepts SubscriptionTemplateDeploymentArray and SubscriptionTemplateDeploymentArrayOutput values.
@@ -276,7 +247,7 @@ func (i SubscriptionTemplateDeploymentMap) ToSubscriptionTemplateDeploymentMapOu
 type SubscriptionTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionTemplateDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionTemplateDeployment)(nil))
+	return reflect.TypeOf((**SubscriptionTemplateDeployment)(nil)).Elem()
 }
 
 func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {
@@ -287,44 +258,10 @@ func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOu
 	return o
 }
 
-func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentPtrOutput() SubscriptionTemplateDeploymentPtrOutput {
-	return o.ToSubscriptionTemplateDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentPtrOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionTemplateDeployment) *SubscriptionTemplateDeployment {
-		return &v
-	}).(SubscriptionTemplateDeploymentPtrOutput)
-}
-
-type SubscriptionTemplateDeploymentPtrOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionTemplateDeploymentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionTemplateDeployment)(nil))
-}
-
-func (o SubscriptionTemplateDeploymentPtrOutput) ToSubscriptionTemplateDeploymentPtrOutput() SubscriptionTemplateDeploymentPtrOutput {
-	return o
-}
-
-func (o SubscriptionTemplateDeploymentPtrOutput) ToSubscriptionTemplateDeploymentPtrOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentPtrOutput {
-	return o
-}
-
-func (o SubscriptionTemplateDeploymentPtrOutput) Elem() SubscriptionTemplateDeploymentOutput {
-	return o.ApplyT(func(v *SubscriptionTemplateDeployment) SubscriptionTemplateDeployment {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionTemplateDeployment
-		return ret
-	}).(SubscriptionTemplateDeploymentOutput)
-}
-
 type SubscriptionTemplateDeploymentArrayOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionTemplateDeploymentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubscriptionTemplateDeployment)(nil))
+	return reflect.TypeOf((*[]*SubscriptionTemplateDeployment)(nil)).Elem()
 }
 
 func (o SubscriptionTemplateDeploymentArrayOutput) ToSubscriptionTemplateDeploymentArrayOutput() SubscriptionTemplateDeploymentArrayOutput {
@@ -336,15 +273,15 @@ func (o SubscriptionTemplateDeploymentArrayOutput) ToSubscriptionTemplateDeploym
 }
 
 func (o SubscriptionTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) SubscriptionTemplateDeploymentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionTemplateDeployment {
-		return vs[0].([]SubscriptionTemplateDeployment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionTemplateDeployment {
+		return vs[0].([]*SubscriptionTemplateDeployment)[vs[1].(int)]
 	}).(SubscriptionTemplateDeploymentOutput)
 }
 
 type SubscriptionTemplateDeploymentMapOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionTemplateDeploymentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SubscriptionTemplateDeployment)(nil))
+	return reflect.TypeOf((*map[string]*SubscriptionTemplateDeployment)(nil)).Elem()
 }
 
 func (o SubscriptionTemplateDeploymentMapOutput) ToSubscriptionTemplateDeploymentMapOutput() SubscriptionTemplateDeploymentMapOutput {
@@ -356,18 +293,16 @@ func (o SubscriptionTemplateDeploymentMapOutput) ToSubscriptionTemplateDeploymen
 }
 
 func (o SubscriptionTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) SubscriptionTemplateDeploymentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubscriptionTemplateDeployment {
-		return vs[0].(map[string]SubscriptionTemplateDeployment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SubscriptionTemplateDeployment {
+		return vs[0].(map[string]*SubscriptionTemplateDeployment)[vs[1].(string)]
 	}).(SubscriptionTemplateDeploymentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentInput)(nil)).Elem(), &SubscriptionTemplateDeployment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentPtrInput)(nil)).Elem(), &SubscriptionTemplateDeployment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentArrayInput)(nil)).Elem(), SubscriptionTemplateDeploymentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentMapInput)(nil)).Elem(), SubscriptionTemplateDeploymentMap{})
 	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentOutput{})
-	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentMapOutput{})
 }

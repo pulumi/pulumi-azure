@@ -222,7 +222,7 @@ type LoggerInput interface {
 }
 
 func (*Logger) ElementType() reflect.Type {
-	return reflect.TypeOf((*Logger)(nil))
+	return reflect.TypeOf((**Logger)(nil)).Elem()
 }
 
 func (i *Logger) ToLoggerOutput() LoggerOutput {
@@ -231,35 +231,6 @@ func (i *Logger) ToLoggerOutput() LoggerOutput {
 
 func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
-}
-
-func (i *Logger) ToLoggerPtrOutput() LoggerPtrOutput {
-	return i.ToLoggerPtrOutputWithContext(context.Background())
-}
-
-func (i *Logger) ToLoggerPtrOutputWithContext(ctx context.Context) LoggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggerPtrOutput)
-}
-
-type LoggerPtrInput interface {
-	pulumi.Input
-
-	ToLoggerPtrOutput() LoggerPtrOutput
-	ToLoggerPtrOutputWithContext(ctx context.Context) LoggerPtrOutput
-}
-
-type loggerPtrType LoggerArgs
-
-func (*loggerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Logger)(nil))
-}
-
-func (i *loggerPtrType) ToLoggerPtrOutput() LoggerPtrOutput {
-	return i.ToLoggerPtrOutputWithContext(context.Background())
-}
-
-func (i *loggerPtrType) ToLoggerPtrOutputWithContext(ctx context.Context) LoggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggerPtrOutput)
 }
 
 // LoggerArrayInput is an input type that accepts LoggerArray and LoggerArrayOutput values.
@@ -315,7 +286,7 @@ func (i LoggerMap) ToLoggerMapOutputWithContext(ctx context.Context) LoggerMapOu
 type LoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Logger)(nil))
+	return reflect.TypeOf((**Logger)(nil)).Elem()
 }
 
 func (o LoggerOutput) ToLoggerOutput() LoggerOutput {
@@ -326,44 +297,10 @@ func (o LoggerOutput) ToLoggerOutputWithContext(ctx context.Context) LoggerOutpu
 	return o
 }
 
-func (o LoggerOutput) ToLoggerPtrOutput() LoggerPtrOutput {
-	return o.ToLoggerPtrOutputWithContext(context.Background())
-}
-
-func (o LoggerOutput) ToLoggerPtrOutputWithContext(ctx context.Context) LoggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Logger) *Logger {
-		return &v
-	}).(LoggerPtrOutput)
-}
-
-type LoggerPtrOutput struct{ *pulumi.OutputState }
-
-func (LoggerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Logger)(nil))
-}
-
-func (o LoggerPtrOutput) ToLoggerPtrOutput() LoggerPtrOutput {
-	return o
-}
-
-func (o LoggerPtrOutput) ToLoggerPtrOutputWithContext(ctx context.Context) LoggerPtrOutput {
-	return o
-}
-
-func (o LoggerPtrOutput) Elem() LoggerOutput {
-	return o.ApplyT(func(v *Logger) Logger {
-		if v != nil {
-			return *v
-		}
-		var ret Logger
-		return ret
-	}).(LoggerOutput)
-}
-
 type LoggerArrayOutput struct{ *pulumi.OutputState }
 
 func (LoggerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Logger)(nil))
+	return reflect.TypeOf((*[]*Logger)(nil)).Elem()
 }
 
 func (o LoggerArrayOutput) ToLoggerArrayOutput() LoggerArrayOutput {
@@ -375,15 +312,15 @@ func (o LoggerArrayOutput) ToLoggerArrayOutputWithContext(ctx context.Context) L
 }
 
 func (o LoggerArrayOutput) Index(i pulumi.IntInput) LoggerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Logger {
-		return vs[0].([]Logger)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Logger {
+		return vs[0].([]*Logger)[vs[1].(int)]
 	}).(LoggerOutput)
 }
 
 type LoggerMapOutput struct{ *pulumi.OutputState }
 
 func (LoggerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Logger)(nil))
+	return reflect.TypeOf((*map[string]*Logger)(nil)).Elem()
 }
 
 func (o LoggerMapOutput) ToLoggerMapOutput() LoggerMapOutput {
@@ -395,18 +332,16 @@ func (o LoggerMapOutput) ToLoggerMapOutputWithContext(ctx context.Context) Logge
 }
 
 func (o LoggerMapOutput) MapIndex(k pulumi.StringInput) LoggerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Logger {
-		return vs[0].(map[string]Logger)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Logger {
+		return vs[0].(map[string]*Logger)[vs[1].(string)]
 	}).(LoggerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerInput)(nil)).Elem(), &Logger{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggerPtrInput)(nil)).Elem(), &Logger{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerArrayInput)(nil)).Elem(), LoggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerMapInput)(nil)).Elem(), LoggerMap{})
 	pulumi.RegisterOutputType(LoggerOutput{})
-	pulumi.RegisterOutputType(LoggerPtrOutput{})
 	pulumi.RegisterOutputType(LoggerArrayOutput{})
 	pulumi.RegisterOutputType(LoggerMapOutput{})
 }

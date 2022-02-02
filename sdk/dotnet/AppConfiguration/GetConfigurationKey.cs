@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppConfiguration
 {
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationKeyResult> InvokeAsync(GetConfigurationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationKeyResult>("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args ?? new GetConfigurationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationKeyResult>("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args ?? new GetConfigurationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure App Configuration Key.
@@ -82,7 +81,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationKeyResult> Invoke(GetConfigurationKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationKeyResult>("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args ?? new GetConfigurationKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationKeyResult>("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args ?? new GetConfigurationKeyInvokeArgs(), options.WithDefaults());
     }
 
 

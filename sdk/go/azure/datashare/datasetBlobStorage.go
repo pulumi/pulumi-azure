@@ -52,7 +52,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleStorage_accountAccount", &storage.AccountArgs{
+// 		_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
@@ -68,6 +68,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, GetServicePrincipalOutputArgs{
+// 			DisplayName: exampleAccount.Name,
+// 		}, nil)
 // 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Scope:              exampleStorage / accountAccount.Id,
 // 			RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
@@ -242,7 +245,7 @@ type DatasetBlobStorageInput interface {
 }
 
 func (*DatasetBlobStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetBlobStorage)(nil))
+	return reflect.TypeOf((**DatasetBlobStorage)(nil)).Elem()
 }
 
 func (i *DatasetBlobStorage) ToDatasetBlobStorageOutput() DatasetBlobStorageOutput {
@@ -251,35 +254,6 @@ func (i *DatasetBlobStorage) ToDatasetBlobStorageOutput() DatasetBlobStorageOutp
 
 func (i *DatasetBlobStorage) ToDatasetBlobStorageOutputWithContext(ctx context.Context) DatasetBlobStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageOutput)
-}
-
-func (i *DatasetBlobStorage) ToDatasetBlobStoragePtrOutput() DatasetBlobStoragePtrOutput {
-	return i.ToDatasetBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetBlobStorage) ToDatasetBlobStoragePtrOutputWithContext(ctx context.Context) DatasetBlobStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStoragePtrOutput)
-}
-
-type DatasetBlobStoragePtrInput interface {
-	pulumi.Input
-
-	ToDatasetBlobStoragePtrOutput() DatasetBlobStoragePtrOutput
-	ToDatasetBlobStoragePtrOutputWithContext(ctx context.Context) DatasetBlobStoragePtrOutput
-}
-
-type datasetBlobStoragePtrType DatasetBlobStorageArgs
-
-func (*datasetBlobStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetBlobStorage)(nil))
-}
-
-func (i *datasetBlobStoragePtrType) ToDatasetBlobStoragePtrOutput() DatasetBlobStoragePtrOutput {
-	return i.ToDatasetBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *datasetBlobStoragePtrType) ToDatasetBlobStoragePtrOutputWithContext(ctx context.Context) DatasetBlobStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStoragePtrOutput)
 }
 
 // DatasetBlobStorageArrayInput is an input type that accepts DatasetBlobStorageArray and DatasetBlobStorageArrayOutput values.
@@ -335,7 +309,7 @@ func (i DatasetBlobStorageMap) ToDatasetBlobStorageMapOutputWithContext(ctx cont
 type DatasetBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (DatasetBlobStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetBlobStorage)(nil))
+	return reflect.TypeOf((**DatasetBlobStorage)(nil)).Elem()
 }
 
 func (o DatasetBlobStorageOutput) ToDatasetBlobStorageOutput() DatasetBlobStorageOutput {
@@ -346,44 +320,10 @@ func (o DatasetBlobStorageOutput) ToDatasetBlobStorageOutputWithContext(ctx cont
 	return o
 }
 
-func (o DatasetBlobStorageOutput) ToDatasetBlobStoragePtrOutput() DatasetBlobStoragePtrOutput {
-	return o.ToDatasetBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (o DatasetBlobStorageOutput) ToDatasetBlobStoragePtrOutputWithContext(ctx context.Context) DatasetBlobStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBlobStorage) *DatasetBlobStorage {
-		return &v
-	}).(DatasetBlobStoragePtrOutput)
-}
-
-type DatasetBlobStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetBlobStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetBlobStorage)(nil))
-}
-
-func (o DatasetBlobStoragePtrOutput) ToDatasetBlobStoragePtrOutput() DatasetBlobStoragePtrOutput {
-	return o
-}
-
-func (o DatasetBlobStoragePtrOutput) ToDatasetBlobStoragePtrOutputWithContext(ctx context.Context) DatasetBlobStoragePtrOutput {
-	return o
-}
-
-func (o DatasetBlobStoragePtrOutput) Elem() DatasetBlobStorageOutput {
-	return o.ApplyT(func(v *DatasetBlobStorage) DatasetBlobStorage {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetBlobStorage
-		return ret
-	}).(DatasetBlobStorageOutput)
-}
-
 type DatasetBlobStorageArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetBlobStorageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetBlobStorage)(nil))
+	return reflect.TypeOf((*[]*DatasetBlobStorage)(nil)).Elem()
 }
 
 func (o DatasetBlobStorageArrayOutput) ToDatasetBlobStorageArrayOutput() DatasetBlobStorageArrayOutput {
@@ -395,15 +335,15 @@ func (o DatasetBlobStorageArrayOutput) ToDatasetBlobStorageArrayOutputWithContex
 }
 
 func (o DatasetBlobStorageArrayOutput) Index(i pulumi.IntInput) DatasetBlobStorageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetBlobStorage {
-		return vs[0].([]DatasetBlobStorage)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetBlobStorage {
+		return vs[0].([]*DatasetBlobStorage)[vs[1].(int)]
 	}).(DatasetBlobStorageOutput)
 }
 
 type DatasetBlobStorageMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetBlobStorageMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetBlobStorage)(nil))
+	return reflect.TypeOf((*map[string]*DatasetBlobStorage)(nil)).Elem()
 }
 
 func (o DatasetBlobStorageMapOutput) ToDatasetBlobStorageMapOutput() DatasetBlobStorageMapOutput {
@@ -415,18 +355,16 @@ func (o DatasetBlobStorageMapOutput) ToDatasetBlobStorageMapOutputWithContext(ct
 }
 
 func (o DatasetBlobStorageMapOutput) MapIndex(k pulumi.StringInput) DatasetBlobStorageOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetBlobStorage {
-		return vs[0].(map[string]DatasetBlobStorage)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetBlobStorage {
+		return vs[0].(map[string]*DatasetBlobStorage)[vs[1].(string)]
 	}).(DatasetBlobStorageOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageInput)(nil)).Elem(), &DatasetBlobStorage{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStoragePtrInput)(nil)).Elem(), &DatasetBlobStorage{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageArrayInput)(nil)).Elem(), DatasetBlobStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageMapInput)(nil)).Elem(), DatasetBlobStorageMap{})
 	pulumi.RegisterOutputType(DatasetBlobStorageOutput{})
-	pulumi.RegisterOutputType(DatasetBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(DatasetBlobStorageArrayOutput{})
 	pulumi.RegisterOutputType(DatasetBlobStorageMapOutput{})
 }

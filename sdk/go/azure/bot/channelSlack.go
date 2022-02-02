@@ -227,7 +227,7 @@ type ChannelSlackInput interface {
 }
 
 func (*ChannelSlack) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelSlack)(nil))
+	return reflect.TypeOf((**ChannelSlack)(nil)).Elem()
 }
 
 func (i *ChannelSlack) ToChannelSlackOutput() ChannelSlackOutput {
@@ -236,35 +236,6 @@ func (i *ChannelSlack) ToChannelSlackOutput() ChannelSlackOutput {
 
 func (i *ChannelSlack) ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackOutput)
-}
-
-func (i *ChannelSlack) ToChannelSlackPtrOutput() ChannelSlackPtrOutput {
-	return i.ToChannelSlackPtrOutputWithContext(context.Background())
-}
-
-func (i *ChannelSlack) ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackPtrOutput)
-}
-
-type ChannelSlackPtrInput interface {
-	pulumi.Input
-
-	ToChannelSlackPtrOutput() ChannelSlackPtrOutput
-	ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput
-}
-
-type channelSlackPtrType ChannelSlackArgs
-
-func (*channelSlackPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelSlack)(nil))
-}
-
-func (i *channelSlackPtrType) ToChannelSlackPtrOutput() ChannelSlackPtrOutput {
-	return i.ToChannelSlackPtrOutputWithContext(context.Background())
-}
-
-func (i *channelSlackPtrType) ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackPtrOutput)
 }
 
 // ChannelSlackArrayInput is an input type that accepts ChannelSlackArray and ChannelSlackArrayOutput values.
@@ -320,7 +291,7 @@ func (i ChannelSlackMap) ToChannelSlackMapOutputWithContext(ctx context.Context)
 type ChannelSlackOutput struct{ *pulumi.OutputState }
 
 func (ChannelSlackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelSlack)(nil))
+	return reflect.TypeOf((**ChannelSlack)(nil)).Elem()
 }
 
 func (o ChannelSlackOutput) ToChannelSlackOutput() ChannelSlackOutput {
@@ -331,44 +302,10 @@ func (o ChannelSlackOutput) ToChannelSlackOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ChannelSlackOutput) ToChannelSlackPtrOutput() ChannelSlackPtrOutput {
-	return o.ToChannelSlackPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelSlackOutput) ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelSlack) *ChannelSlack {
-		return &v
-	}).(ChannelSlackPtrOutput)
-}
-
-type ChannelSlackPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelSlackPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelSlack)(nil))
-}
-
-func (o ChannelSlackPtrOutput) ToChannelSlackPtrOutput() ChannelSlackPtrOutput {
-	return o
-}
-
-func (o ChannelSlackPtrOutput) ToChannelSlackPtrOutputWithContext(ctx context.Context) ChannelSlackPtrOutput {
-	return o
-}
-
-func (o ChannelSlackPtrOutput) Elem() ChannelSlackOutput {
-	return o.ApplyT(func(v *ChannelSlack) ChannelSlack {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelSlack
-		return ret
-	}).(ChannelSlackOutput)
-}
-
 type ChannelSlackArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelSlackArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelSlack)(nil))
+	return reflect.TypeOf((*[]*ChannelSlack)(nil)).Elem()
 }
 
 func (o ChannelSlackArrayOutput) ToChannelSlackArrayOutput() ChannelSlackArrayOutput {
@@ -380,15 +317,15 @@ func (o ChannelSlackArrayOutput) ToChannelSlackArrayOutputWithContext(ctx contex
 }
 
 func (o ChannelSlackArrayOutput) Index(i pulumi.IntInput) ChannelSlackOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelSlack {
-		return vs[0].([]ChannelSlack)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelSlack {
+		return vs[0].([]*ChannelSlack)[vs[1].(int)]
 	}).(ChannelSlackOutput)
 }
 
 type ChannelSlackMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelSlackMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChannelSlack)(nil))
+	return reflect.TypeOf((*map[string]*ChannelSlack)(nil)).Elem()
 }
 
 func (o ChannelSlackMapOutput) ToChannelSlackMapOutput() ChannelSlackMapOutput {
@@ -400,18 +337,16 @@ func (o ChannelSlackMapOutput) ToChannelSlackMapOutputWithContext(ctx context.Co
 }
 
 func (o ChannelSlackMapOutput) MapIndex(k pulumi.StringInput) ChannelSlackOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelSlack {
-		return vs[0].(map[string]ChannelSlack)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChannelSlack {
+		return vs[0].(map[string]*ChannelSlack)[vs[1].(string)]
 	}).(ChannelSlackOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackInput)(nil)).Elem(), &ChannelSlack{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackPtrInput)(nil)).Elem(), &ChannelSlack{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackArrayInput)(nil)).Elem(), ChannelSlackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackMapInput)(nil)).Elem(), ChannelSlackMap{})
 	pulumi.RegisterOutputType(ChannelSlackOutput{})
-	pulumi.RegisterOutputType(ChannelSlackPtrOutput{})
 	pulumi.RegisterOutputType(ChannelSlackArrayOutput{})
 	pulumi.RegisterOutputType(ChannelSlackMapOutput{})
 }

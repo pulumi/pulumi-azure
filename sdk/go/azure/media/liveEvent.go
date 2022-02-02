@@ -322,7 +322,7 @@ type LiveEventInput interface {
 }
 
 func (*LiveEvent) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEvent)(nil))
+	return reflect.TypeOf((**LiveEvent)(nil)).Elem()
 }
 
 func (i *LiveEvent) ToLiveEventOutput() LiveEventOutput {
@@ -331,35 +331,6 @@ func (i *LiveEvent) ToLiveEventOutput() LiveEventOutput {
 
 func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
-}
-
-func (i *LiveEvent) ToLiveEventPtrOutput() LiveEventPtrOutput {
-	return i.ToLiveEventPtrOutputWithContext(context.Background())
-}
-
-func (i *LiveEvent) ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPtrOutput)
-}
-
-type LiveEventPtrInput interface {
-	pulumi.Input
-
-	ToLiveEventPtrOutput() LiveEventPtrOutput
-	ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput
-}
-
-type liveEventPtrType LiveEventArgs
-
-func (*liveEventPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEvent)(nil))
-}
-
-func (i *liveEventPtrType) ToLiveEventPtrOutput() LiveEventPtrOutput {
-	return i.ToLiveEventPtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventPtrType) ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPtrOutput)
 }
 
 // LiveEventArrayInput is an input type that accepts LiveEventArray and LiveEventArrayOutput values.
@@ -415,7 +386,7 @@ func (i LiveEventMap) ToLiveEventMapOutputWithContext(ctx context.Context) LiveE
 type LiveEventOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEvent)(nil))
+	return reflect.TypeOf((**LiveEvent)(nil)).Elem()
 }
 
 func (o LiveEventOutput) ToLiveEventOutput() LiveEventOutput {
@@ -426,44 +397,10 @@ func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveE
 	return o
 }
 
-func (o LiveEventOutput) ToLiveEventPtrOutput() LiveEventPtrOutput {
-	return o.ToLiveEventPtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventOutput) ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEvent) *LiveEvent {
-		return &v
-	}).(LiveEventPtrOutput)
-}
-
-type LiveEventPtrOutput struct{ *pulumi.OutputState }
-
-func (LiveEventPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEvent)(nil))
-}
-
-func (o LiveEventPtrOutput) ToLiveEventPtrOutput() LiveEventPtrOutput {
-	return o
-}
-
-func (o LiveEventPtrOutput) ToLiveEventPtrOutputWithContext(ctx context.Context) LiveEventPtrOutput {
-	return o
-}
-
-func (o LiveEventPtrOutput) Elem() LiveEventOutput {
-	return o.ApplyT(func(v *LiveEvent) LiveEvent {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEvent
-		return ret
-	}).(LiveEventOutput)
-}
-
 type LiveEventArrayOutput struct{ *pulumi.OutputState }
 
 func (LiveEventArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveEvent)(nil))
+	return reflect.TypeOf((*[]*LiveEvent)(nil)).Elem()
 }
 
 func (o LiveEventArrayOutput) ToLiveEventArrayOutput() LiveEventArrayOutput {
@@ -475,15 +412,15 @@ func (o LiveEventArrayOutput) ToLiveEventArrayOutputWithContext(ctx context.Cont
 }
 
 func (o LiveEventArrayOutput) Index(i pulumi.IntInput) LiveEventOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEvent {
-		return vs[0].([]LiveEvent)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LiveEvent {
+		return vs[0].([]*LiveEvent)[vs[1].(int)]
 	}).(LiveEventOutput)
 }
 
 type LiveEventMapOutput struct{ *pulumi.OutputState }
 
 func (LiveEventMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LiveEvent)(nil))
+	return reflect.TypeOf((*map[string]*LiveEvent)(nil)).Elem()
 }
 
 func (o LiveEventMapOutput) ToLiveEventMapOutput() LiveEventMapOutput {
@@ -495,18 +432,16 @@ func (o LiveEventMapOutput) ToLiveEventMapOutputWithContext(ctx context.Context)
 }
 
 func (o LiveEventMapOutput) MapIndex(k pulumi.StringInput) LiveEventOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LiveEvent {
-		return vs[0].(map[string]LiveEvent)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LiveEvent {
+		return vs[0].(map[string]*LiveEvent)[vs[1].(string)]
 	}).(LiveEventOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInput)(nil)).Elem(), &LiveEvent{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventPtrInput)(nil)).Elem(), &LiveEvent{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventArrayInput)(nil)).Elem(), LiveEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventMapInput)(nil)).Elem(), LiveEventMap{})
 	pulumi.RegisterOutputType(LiveEventOutput{})
-	pulumi.RegisterOutputType(LiveEventPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventMapOutput{})
 }

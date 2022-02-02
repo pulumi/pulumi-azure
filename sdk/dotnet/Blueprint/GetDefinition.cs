@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Blueprint
 {
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.Blueprint
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefinitionResult> InvokeAsync(GetDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Blueprint Definition
@@ -84,7 +83,7 @@ namespace Pulumi.Azure.Blueprint
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDefinitionResult> Invoke(GetDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

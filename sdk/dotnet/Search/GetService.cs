@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Search
 {
@@ -31,11 +30,11 @@ namespace Pulumi.Azure.Search
         ///         {
         ///             Location = "West Europe",
         ///         });
-        ///         var exampleService = exampleResourceGroup.Name.Apply(name =&gt; Azure.Search.GetService.InvokeAsync(new Azure.Search.GetServiceArgs
+        ///         var exampleService = Azure.Search.GetService.Invoke(new Azure.Search.GetServiceInvokeArgs
         ///         {
         ///             Name = "example-search-service",
-        ///             ResourceGroupName = name,
-        ///         }));
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///         });
         ///     }
         /// 
         /// }
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Search
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages a Search Service.
@@ -65,11 +64,11 @@ namespace Pulumi.Azure.Search
         ///         {
         ///             Location = "West Europe",
         ///         });
-        ///         var exampleService = exampleResourceGroup.Name.Apply(name =&gt; Azure.Search.GetService.InvokeAsync(new Azure.Search.GetServiceArgs
+        ///         var exampleService = Azure.Search.GetService.Invoke(new Azure.Search.GetServiceInvokeArgs
         ///         {
         ///             Name = "example-search-service",
-        ///             ResourceGroupName = name,
-        ///         }));
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///         });
         ///     }
         /// 
         /// }
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Search
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

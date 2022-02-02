@@ -176,23 +176,23 @@ export class Plan extends pulumi.CustomResource {
      */
     constructor(name: string, args: PlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlanState | undefined;
-            inputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
-            inputs["isXenon"] = state ? state.isXenon : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maximumElasticWorkerCount"] = state ? state.maximumElasticWorkerCount : undefined;
-            inputs["maximumNumberOfWorkers"] = state ? state.maximumNumberOfWorkers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["perSiteScaling"] = state ? state.perSiteScaling : undefined;
-            inputs["reserved"] = state ? state.reserved : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
+            resourceInputs["isXenon"] = state ? state.isXenon : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maximumElasticWorkerCount"] = state ? state.maximumElasticWorkerCount : undefined;
+            resourceInputs["maximumNumberOfWorkers"] = state ? state.maximumNumberOfWorkers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["perSiteScaling"] = state ? state.perSiteScaling : undefined;
+            resourceInputs["reserved"] = state ? state.reserved : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as PlanArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -201,24 +201,22 @@ export class Plan extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["appServiceEnvironmentId"] = args ? args.appServiceEnvironmentId : undefined;
-            inputs["isXenon"] = args ? args.isXenon : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
-            inputs["reserved"] = args ? args.reserved : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            resourceInputs["appServiceEnvironmentId"] = args ? args.appServiceEnvironmentId : undefined;
+            resourceInputs["isXenon"] = args ? args.isXenon : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
+            resourceInputs["reserved"] = args ? args.reserved : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Plan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Plan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

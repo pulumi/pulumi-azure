@@ -125,19 +125,19 @@ export class Webhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["expiryTime"] = state ? state.expiryTime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["runOnWorkerGroup"] = state ? state.runOnWorkerGroup : undefined;
-            inputs["runbookName"] = state ? state.runbookName : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["expiryTime"] = state ? state.expiryTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["runOnWorkerGroup"] = state ? state.runOnWorkerGroup : undefined;
+            resourceInputs["runbookName"] = state ? state.runbookName : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -152,20 +152,18 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.runbookName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["expiryTime"] = args ? args.expiryTime : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runOnWorkerGroup"] = args ? args.runOnWorkerGroup : undefined;
-            inputs["runbookName"] = args ? args.runbookName : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runOnWorkerGroup"] = args ? args.runOnWorkerGroup : undefined;
+            resourceInputs["runbookName"] = args ? args.runbookName : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Webhook.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

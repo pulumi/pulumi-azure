@@ -143,21 +143,21 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkWatcherFlowLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkWatcherFlowLogArgs | NetworkWatcherFlowLogState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkWatcherFlowLogState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
-            inputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trafficAnalytics"] = state ? state.trafficAnalytics : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
+            resourceInputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trafficAnalytics"] = state ? state.trafficAnalytics : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NetworkWatcherFlowLogArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -178,22 +178,20 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
+            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkWatcherFlowLog.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkWatcherFlowLog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

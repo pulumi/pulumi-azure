@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedHardwareSecurityModuleResult> InvokeAsync(GetManagedHardwareSecurityModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleResult> Invoke(GetManagedHardwareSecurityModuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleInvokeArgs(), options.WithDefaults());
     }
 
 

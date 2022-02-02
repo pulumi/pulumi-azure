@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Sentinel
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Sentinel
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAlertRuleTemplateResult> InvokeAsync(GetAlertRuleTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Sentinel Alert Rule Template.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Sentinel
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAlertRuleTemplateResult> Invoke(GetAlertRuleTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

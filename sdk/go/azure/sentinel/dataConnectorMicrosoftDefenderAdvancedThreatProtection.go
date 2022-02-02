@@ -168,7 +168,7 @@ type DataConnectorMicrosoftDefenderAdvancedThreatProtectionInput interface {
 }
 
 func (*DataConnectorMicrosoftDefenderAdvancedThreatProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
+	return reflect.TypeOf((**DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil)).Elem()
 }
 
 func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
@@ -177,35 +177,6 @@ func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToDataConnector
 
 func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput)
-}
-
-func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return i.ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput)
-}
-
-type DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput
-	ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput
-}
-
-type dataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrType DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs
-
-func (*dataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
-}
-
-func (i *dataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrType) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return i.ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrType) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput)
 }
 
 // DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayInput is an input type that accepts DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray and DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput values.
@@ -261,7 +232,7 @@ func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap) ToDataConnect
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
+	return reflect.TypeOf((**DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil)).Elem()
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
@@ -272,44 +243,10 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConn
 	return o
 }
 
-func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return o.ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorMicrosoftDefenderAdvancedThreatProtection) *DataConnectorMicrosoftDefenderAdvancedThreatProtection {
-		return &v
-	}).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput)
-}
-
-type DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput struct{ *pulumi.OutputState }
-
-func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
-}
-
-func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return o
-}
-
-func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput {
-	return o
-}
-
-func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput) Elem() DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
-	return o.ApplyT(func(v *DataConnectorMicrosoftDefenderAdvancedThreatProtection) DataConnectorMicrosoftDefenderAdvancedThreatProtection {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorMicrosoftDefenderAdvancedThreatProtection
-		return ret
-	}).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput)
-}
-
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*[]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil)).Elem()
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput {
@@ -321,15 +258,15 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) ToDat
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) Index(i pulumi.IntInput) DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataConnectorMicrosoftDefenderAdvancedThreatProtection {
-		return vs[0].([]DataConnectorMicrosoftDefenderAdvancedThreatProtection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftDefenderAdvancedThreatProtection {
+		return vs[0].([]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)[vs[1].(int)]
 	}).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput)
 }
 
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)(nil)).Elem()
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput() DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput {
@@ -341,18 +278,16 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) ToDataC
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataConnectorMicrosoftDefenderAdvancedThreatProtection {
-		return vs[0].(map[string]DataConnectorMicrosoftDefenderAdvancedThreatProtection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftDefenderAdvancedThreatProtection {
+		return vs[0].(map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)[vs[1].(string)]
 	}).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionInput)(nil)).Elem(), &DataConnectorMicrosoftDefenderAdvancedThreatProtection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrInput)(nil)).Elem(), &DataConnectorMicrosoftDefenderAdvancedThreatProtection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayInput)(nil)).Elem(), DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapInput)(nil)).Elem(), DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput{})
-	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput{})
 }

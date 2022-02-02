@@ -25,9 +25,7 @@ export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {
         "name": args.name,
     }, opts);

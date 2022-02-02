@@ -100,16 +100,16 @@ export class IdentityProviderAad extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityProviderAadArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderAadArgs | IdentityProviderAadState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderAadState | undefined;
-            inputs["allowedTenants"] = state ? state.allowedTenants : undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["signinTenant"] = state ? state.signinTenant : undefined;
+            resourceInputs["allowedTenants"] = state ? state.allowedTenants : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["signinTenant"] = state ? state.signinTenant : undefined;
         } else {
             const args = argsOrState as IdentityProviderAadArgs | undefined;
             if ((!args || args.allowedTenants === undefined) && !opts.urn) {
@@ -127,17 +127,15 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowedTenants"] = args ? args.allowedTenants : undefined;
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["signinTenant"] = args ? args.signinTenant : undefined;
+            resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityProviderAad.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityProviderAad.__pulumiType, name, resourceInputs, opts);
     }
 }
 

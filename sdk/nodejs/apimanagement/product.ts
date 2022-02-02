@@ -118,20 +118,20 @@ export class Product extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductArgs | ProductState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["approvalRequired"] = state ? state.approvalRequired : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["published"] = state ? state.published : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
-            inputs["subscriptionsLimit"] = state ? state.subscriptionsLimit : undefined;
-            inputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["approvalRequired"] = state ? state.approvalRequired : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["published"] = state ? state.published : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
+            resourceInputs["subscriptionsLimit"] = state ? state.subscriptionsLimit : undefined;
+            resourceInputs["terms"] = state ? state.terms : undefined;
         } else {
             const args = argsOrState as ProductArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -152,21 +152,19 @@ export class Product extends pulumi.CustomResource {
             if ((!args || args.subscriptionRequired === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionRequired'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["approvalRequired"] = args ? args.approvalRequired : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["published"] = args ? args.published : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["approvalRequired"] = args ? args.approvalRequired : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["published"] = args ? args.published : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
+            resourceInputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Product.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Product.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -120,19 +120,19 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["format"] = state ? state.format : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["publicData"] = state ? state.publicData : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
-            inputs["thumbprintAlgorithm"] = state ? state.thumbprintAlgorithm : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["publicData"] = state ? state.publicData : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["thumbprintAlgorithm"] = state ? state.thumbprintAlgorithm : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -153,20 +153,18 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.thumbprintAlgorithm === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thumbprintAlgorithm'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicData"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicData"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

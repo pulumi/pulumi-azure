@@ -105,16 +105,16 @@ export class Share extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareArgs | ShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["snapshotSchedule"] = state ? state.snapshotSchedule : undefined;
-            inputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["snapshotSchedule"] = state ? state.snapshotSchedule : undefined;
+            resourceInputs["terms"] = state ? state.terms : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -123,17 +123,15 @@ export class Share extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["snapshotSchedule"] = args ? args.snapshotSchedule : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["snapshotSchedule"] = args ? args.snapshotSchedule : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Share.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Share.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -125,19 +125,19 @@ export class Secret extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecretArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretArgs | SecretState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretState | undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["versionlessId"] = state ? state.versionlessId : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
@@ -146,20 +146,18 @@ export class Secret extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["expirationDate"] = args ? args.expirationDate : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionlessId"] = undefined /*out*/;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionlessId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Secret.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Secret.__pulumiType, name, resourceInputs, opts);
     }
 }
 

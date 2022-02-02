@@ -240,7 +240,7 @@ type AssetFilterInput interface {
 }
 
 func (*AssetFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFilter)(nil))
+	return reflect.TypeOf((**AssetFilter)(nil)).Elem()
 }
 
 func (i *AssetFilter) ToAssetFilterOutput() AssetFilterOutput {
@@ -249,35 +249,6 @@ func (i *AssetFilter) ToAssetFilterOutput() AssetFilterOutput {
 
 func (i *AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
-}
-
-func (i *AssetFilter) ToAssetFilterPtrOutput() AssetFilterPtrOutput {
-	return i.ToAssetFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *AssetFilter) ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPtrOutput)
-}
-
-type AssetFilterPtrInput interface {
-	pulumi.Input
-
-	ToAssetFilterPtrOutput() AssetFilterPtrOutput
-	ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput
-}
-
-type assetFilterPtrType AssetFilterArgs
-
-func (*assetFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssetFilter)(nil))
-}
-
-func (i *assetFilterPtrType) ToAssetFilterPtrOutput() AssetFilterPtrOutput {
-	return i.ToAssetFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *assetFilterPtrType) ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPtrOutput)
 }
 
 // AssetFilterArrayInput is an input type that accepts AssetFilterArray and AssetFilterArrayOutput values.
@@ -333,7 +304,7 @@ func (i AssetFilterMap) ToAssetFilterMapOutputWithContext(ctx context.Context) A
 type AssetFilterOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFilter)(nil))
+	return reflect.TypeOf((**AssetFilter)(nil)).Elem()
 }
 
 func (o AssetFilterOutput) ToAssetFilterOutput() AssetFilterOutput {
@@ -344,44 +315,10 @@ func (o AssetFilterOutput) ToAssetFilterOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o AssetFilterOutput) ToAssetFilterPtrOutput() AssetFilterPtrOutput {
-	return o.ToAssetFilterPtrOutputWithContext(context.Background())
-}
-
-func (o AssetFilterOutput) ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetFilter) *AssetFilter {
-		return &v
-	}).(AssetFilterPtrOutput)
-}
-
-type AssetFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (AssetFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssetFilter)(nil))
-}
-
-func (o AssetFilterPtrOutput) ToAssetFilterPtrOutput() AssetFilterPtrOutput {
-	return o
-}
-
-func (o AssetFilterPtrOutput) ToAssetFilterPtrOutputWithContext(ctx context.Context) AssetFilterPtrOutput {
-	return o
-}
-
-func (o AssetFilterPtrOutput) Elem() AssetFilterOutput {
-	return o.ApplyT(func(v *AssetFilter) AssetFilter {
-		if v != nil {
-			return *v
-		}
-		var ret AssetFilter
-		return ret
-	}).(AssetFilterOutput)
-}
-
 type AssetFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetFilter)(nil))
+	return reflect.TypeOf((*[]*AssetFilter)(nil)).Elem()
 }
 
 func (o AssetFilterArrayOutput) ToAssetFilterArrayOutput() AssetFilterArrayOutput {
@@ -393,15 +330,15 @@ func (o AssetFilterArrayOutput) ToAssetFilterArrayOutputWithContext(ctx context.
 }
 
 func (o AssetFilterArrayOutput) Index(i pulumi.IntInput) AssetFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFilter {
-		return vs[0].([]AssetFilter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssetFilter {
+		return vs[0].([]*AssetFilter)[vs[1].(int)]
 	}).(AssetFilterOutput)
 }
 
 type AssetFilterMapOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssetFilter)(nil))
+	return reflect.TypeOf((*map[string]*AssetFilter)(nil)).Elem()
 }
 
 func (o AssetFilterMapOutput) ToAssetFilterMapOutput() AssetFilterMapOutput {
@@ -413,18 +350,16 @@ func (o AssetFilterMapOutput) ToAssetFilterMapOutputWithContext(ctx context.Cont
 }
 
 func (o AssetFilterMapOutput) MapIndex(k pulumi.StringInput) AssetFilterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssetFilter {
-		return vs[0].(map[string]AssetFilter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AssetFilter {
+		return vs[0].(map[string]*AssetFilter)[vs[1].(string)]
 	}).(AssetFilterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterInput)(nil)).Elem(), &AssetFilter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterPtrInput)(nil)).Elem(), &AssetFilter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterArrayInput)(nil)).Elem(), AssetFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterMapInput)(nil)).Elem(), AssetFilterMap{})
 	pulumi.RegisterOutputType(AssetFilterOutput{})
-	pulumi.RegisterOutputType(AssetFilterPtrOutput{})
 	pulumi.RegisterOutputType(AssetFilterArrayOutput{})
 	pulumi.RegisterOutputType(AssetFilterMapOutput{})
 }

@@ -128,21 +128,21 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertRuleMsSecurityIncidentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertRuleMsSecurityIncidentArgs | AlertRuleMsSecurityIncidentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleMsSecurityIncidentState | undefined;
-            inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["displayNameExcludeFilters"] = state ? state.displayNameExcludeFilters : undefined;
-            inputs["displayNameFilters"] = state ? state.displayNameFilters : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productFilter"] = state ? state.productFilter : undefined;
-            inputs["severityFilters"] = state ? state.severityFilters : undefined;
-            inputs["textWhitelists"] = state ? state.textWhitelists : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["displayNameExcludeFilters"] = state ? state.displayNameExcludeFilters : undefined;
+            resourceInputs["displayNameFilters"] = state ? state.displayNameFilters : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["productFilter"] = state ? state.productFilter : undefined;
+            resourceInputs["severityFilters"] = state ? state.severityFilters : undefined;
+            resourceInputs["textWhitelists"] = state ? state.textWhitelists : undefined;
         } else {
             const args = argsOrState as AlertRuleMsSecurityIncidentArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -157,22 +157,20 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             if ((!args || args.severityFilters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severityFilters'");
             }
-            inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["displayNameExcludeFilters"] = args ? args.displayNameExcludeFilters : undefined;
-            inputs["displayNameFilters"] = args ? args.displayNameFilters : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productFilter"] = args ? args.productFilter : undefined;
-            inputs["severityFilters"] = args ? args.severityFilters : undefined;
-            inputs["textWhitelists"] = args ? args.textWhitelists : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["displayNameExcludeFilters"] = args ? args.displayNameExcludeFilters : undefined;
+            resourceInputs["displayNameFilters"] = args ? args.displayNameFilters : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["productFilter"] = args ? args.productFilter : undefined;
+            resourceInputs["severityFilters"] = args ? args.severityFilters : undefined;
+            resourceInputs["textWhitelists"] = args ? args.textWhitelists : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertRuleMsSecurityIncident.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertRuleMsSecurityIncident.__pulumiType, name, resourceInputs, opts);
     }
 }
 

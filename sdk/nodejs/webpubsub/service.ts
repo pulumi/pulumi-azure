@@ -150,30 +150,30 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["aadAuthEnabled"] = state ? state.aadAuthEnabled : undefined;
-            inputs["capacity"] = state ? state.capacity : undefined;
-            inputs["externalIp"] = state ? state.externalIp : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["liveTrace"] = state ? state.liveTrace : undefined;
-            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["publicPort"] = state ? state.publicPort : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["serverPort"] = state ? state.serverPort : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tlsClientCertEnabled"] = state ? state.tlsClientCertEnabled : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["aadAuthEnabled"] = state ? state.aadAuthEnabled : undefined;
+            resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["externalIp"] = state ? state.externalIp : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["publicPort"] = state ? state.publicPort : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["serverPort"] = state ? state.serverPort : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tlsClientCertEnabled"] = state ? state.tlsClientCertEnabled : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -182,31 +182,29 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["liveTrace"] = args ? args.liveTrace : undefined;
-            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tlsClientCertEnabled"] = args ? args.tlsClientCertEnabled : undefined;
-            inputs["externalIp"] = undefined /*out*/;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["publicPort"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tlsClientCertEnabled"] = args ? args.tlsClientCertEnabled : undefined;
+            resourceInputs["externalIp"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

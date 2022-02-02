@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Application Security Group.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationSecurityGroupResult> Invoke(GetApplicationSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationSecurityGroupResult>("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationSecurityGroupResult>("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -207,7 +207,7 @@ type ChannelSmsInput interface {
 }
 
 func (*ChannelSms) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelSms)(nil))
+	return reflect.TypeOf((**ChannelSms)(nil)).Elem()
 }
 
 func (i *ChannelSms) ToChannelSmsOutput() ChannelSmsOutput {
@@ -216,35 +216,6 @@ func (i *ChannelSms) ToChannelSmsOutput() ChannelSmsOutput {
 
 func (i *ChannelSms) ToChannelSmsOutputWithContext(ctx context.Context) ChannelSmsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsOutput)
-}
-
-func (i *ChannelSms) ToChannelSmsPtrOutput() ChannelSmsPtrOutput {
-	return i.ToChannelSmsPtrOutputWithContext(context.Background())
-}
-
-func (i *ChannelSms) ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsPtrOutput)
-}
-
-type ChannelSmsPtrInput interface {
-	pulumi.Input
-
-	ToChannelSmsPtrOutput() ChannelSmsPtrOutput
-	ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput
-}
-
-type channelSmsPtrType ChannelSmsArgs
-
-func (*channelSmsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelSms)(nil))
-}
-
-func (i *channelSmsPtrType) ToChannelSmsPtrOutput() ChannelSmsPtrOutput {
-	return i.ToChannelSmsPtrOutputWithContext(context.Background())
-}
-
-func (i *channelSmsPtrType) ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsPtrOutput)
 }
 
 // ChannelSmsArrayInput is an input type that accepts ChannelSmsArray and ChannelSmsArrayOutput values.
@@ -300,7 +271,7 @@ func (i ChannelSmsMap) ToChannelSmsMapOutputWithContext(ctx context.Context) Cha
 type ChannelSmsOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelSms)(nil))
+	return reflect.TypeOf((**ChannelSms)(nil)).Elem()
 }
 
 func (o ChannelSmsOutput) ToChannelSmsOutput() ChannelSmsOutput {
@@ -311,44 +282,10 @@ func (o ChannelSmsOutput) ToChannelSmsOutputWithContext(ctx context.Context) Cha
 	return o
 }
 
-func (o ChannelSmsOutput) ToChannelSmsPtrOutput() ChannelSmsPtrOutput {
-	return o.ToChannelSmsPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelSmsOutput) ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelSms) *ChannelSms {
-		return &v
-	}).(ChannelSmsPtrOutput)
-}
-
-type ChannelSmsPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelSmsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelSms)(nil))
-}
-
-func (o ChannelSmsPtrOutput) ToChannelSmsPtrOutput() ChannelSmsPtrOutput {
-	return o
-}
-
-func (o ChannelSmsPtrOutput) ToChannelSmsPtrOutputWithContext(ctx context.Context) ChannelSmsPtrOutput {
-	return o
-}
-
-func (o ChannelSmsPtrOutput) Elem() ChannelSmsOutput {
-	return o.ApplyT(func(v *ChannelSms) ChannelSms {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelSms
-		return ret
-	}).(ChannelSmsOutput)
-}
-
 type ChannelSmsArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelSms)(nil))
+	return reflect.TypeOf((*[]*ChannelSms)(nil)).Elem()
 }
 
 func (o ChannelSmsArrayOutput) ToChannelSmsArrayOutput() ChannelSmsArrayOutput {
@@ -360,15 +297,15 @@ func (o ChannelSmsArrayOutput) ToChannelSmsArrayOutputWithContext(ctx context.Co
 }
 
 func (o ChannelSmsArrayOutput) Index(i pulumi.IntInput) ChannelSmsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelSms {
-		return vs[0].([]ChannelSms)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelSms {
+		return vs[0].([]*ChannelSms)[vs[1].(int)]
 	}).(ChannelSmsOutput)
 }
 
 type ChannelSmsMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChannelSms)(nil))
+	return reflect.TypeOf((*map[string]*ChannelSms)(nil)).Elem()
 }
 
 func (o ChannelSmsMapOutput) ToChannelSmsMapOutput() ChannelSmsMapOutput {
@@ -380,18 +317,16 @@ func (o ChannelSmsMapOutput) ToChannelSmsMapOutputWithContext(ctx context.Contex
 }
 
 func (o ChannelSmsMapOutput) MapIndex(k pulumi.StringInput) ChannelSmsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelSms {
-		return vs[0].(map[string]ChannelSms)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChannelSms {
+		return vs[0].(map[string]*ChannelSms)[vs[1].(string)]
 	}).(ChannelSmsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSmsInput)(nil)).Elem(), &ChannelSms{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSmsPtrInput)(nil)).Elem(), &ChannelSms{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSmsArrayInput)(nil)).Elem(), ChannelSmsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSmsMapInput)(nil)).Elem(), ChannelSmsMap{})
 	pulumi.RegisterOutputType(ChannelSmsOutput{})
-	pulumi.RegisterOutputType(ChannelSmsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelSmsArrayOutput{})
 	pulumi.RegisterOutputType(ChannelSmsMapOutput{})
 }

@@ -111,17 +111,17 @@ export class ProtectedVM extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectedVMArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectedVMArgs | ProtectedVMState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectedVMState | undefined;
-            inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            inputs["excludeDiskLuns"] = state ? state.excludeDiskLuns : undefined;
-            inputs["includeDiskLuns"] = state ? state.includeDiskLuns : undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceVmId"] = state ? state.sourceVmId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            resourceInputs["excludeDiskLuns"] = state ? state.excludeDiskLuns : undefined;
+            resourceInputs["includeDiskLuns"] = state ? state.includeDiskLuns : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceVmId"] = state ? state.sourceVmId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ProtectedVMArgs | undefined;
             if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
@@ -136,18 +136,16 @@ export class ProtectedVM extends pulumi.CustomResource {
             if ((!args || args.sourceVmId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceVmId'");
             }
-            inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            inputs["excludeDiskLuns"] = args ? args.excludeDiskLuns : undefined;
-            inputs["includeDiskLuns"] = args ? args.includeDiskLuns : undefined;
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            resourceInputs["excludeDiskLuns"] = args ? args.excludeDiskLuns : undefined;
+            resourceInputs["includeDiskLuns"] = args ? args.includeDiskLuns : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceVmId"] = args ? args.sourceVmId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProtectedVM.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProtectedVM.__pulumiType, name, resourceInputs, opts);
     }
 }
 

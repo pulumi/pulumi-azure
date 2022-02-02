@@ -236,7 +236,7 @@ type ResourceGroupCostManagementExportInput interface {
 }
 
 func (*ResourceGroupCostManagementExport) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupCostManagementExport)(nil))
+	return reflect.TypeOf((**ResourceGroupCostManagementExport)(nil)).Elem()
 }
 
 func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportOutput() ResourceGroupCostManagementExportOutput {
@@ -245,35 +245,6 @@ func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportO
 
 func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportOutput)
-}
-
-func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportPtrOutput() ResourceGroupCostManagementExportPtrOutput {
-	return i.ToResourceGroupCostManagementExportPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportPtrOutput)
-}
-
-type ResourceGroupCostManagementExportPtrInput interface {
-	pulumi.Input
-
-	ToResourceGroupCostManagementExportPtrOutput() ResourceGroupCostManagementExportPtrOutput
-	ToResourceGroupCostManagementExportPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportPtrOutput
-}
-
-type resourceGroupCostManagementExportPtrType ResourceGroupCostManagementExportArgs
-
-func (*resourceGroupCostManagementExportPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupCostManagementExport)(nil))
-}
-
-func (i *resourceGroupCostManagementExportPtrType) ToResourceGroupCostManagementExportPtrOutput() ResourceGroupCostManagementExportPtrOutput {
-	return i.ToResourceGroupCostManagementExportPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceGroupCostManagementExportPtrType) ToResourceGroupCostManagementExportPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportPtrOutput)
 }
 
 // ResourceGroupCostManagementExportArrayInput is an input type that accepts ResourceGroupCostManagementExportArray and ResourceGroupCostManagementExportArrayOutput values.
@@ -329,7 +300,7 @@ func (i ResourceGroupCostManagementExportMap) ToResourceGroupCostManagementExpor
 type ResourceGroupCostManagementExportOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupCostManagementExport)(nil))
+	return reflect.TypeOf((**ResourceGroupCostManagementExport)(nil)).Elem()
 }
 
 func (o ResourceGroupCostManagementExportOutput) ToResourceGroupCostManagementExportOutput() ResourceGroupCostManagementExportOutput {
@@ -340,44 +311,10 @@ func (o ResourceGroupCostManagementExportOutput) ToResourceGroupCostManagementEx
 	return o
 }
 
-func (o ResourceGroupCostManagementExportOutput) ToResourceGroupCostManagementExportPtrOutput() ResourceGroupCostManagementExportPtrOutput {
-	return o.ToResourceGroupCostManagementExportPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceGroupCostManagementExportOutput) ToResourceGroupCostManagementExportPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupCostManagementExport) *ResourceGroupCostManagementExport {
-		return &v
-	}).(ResourceGroupCostManagementExportPtrOutput)
-}
-
-type ResourceGroupCostManagementExportPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceGroupCostManagementExportPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupCostManagementExport)(nil))
-}
-
-func (o ResourceGroupCostManagementExportPtrOutput) ToResourceGroupCostManagementExportPtrOutput() ResourceGroupCostManagementExportPtrOutput {
-	return o
-}
-
-func (o ResourceGroupCostManagementExportPtrOutput) ToResourceGroupCostManagementExportPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportPtrOutput {
-	return o
-}
-
-func (o ResourceGroupCostManagementExportPtrOutput) Elem() ResourceGroupCostManagementExportOutput {
-	return o.ApplyT(func(v *ResourceGroupCostManagementExport) ResourceGroupCostManagementExport {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceGroupCostManagementExport
-		return ret
-	}).(ResourceGroupCostManagementExportOutput)
-}
-
 type ResourceGroupCostManagementExportArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementExportArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceGroupCostManagementExport)(nil))
+	return reflect.TypeOf((*[]*ResourceGroupCostManagementExport)(nil)).Elem()
 }
 
 func (o ResourceGroupCostManagementExportArrayOutput) ToResourceGroupCostManagementExportArrayOutput() ResourceGroupCostManagementExportArrayOutput {
@@ -389,15 +326,15 @@ func (o ResourceGroupCostManagementExportArrayOutput) ToResourceGroupCostManagem
 }
 
 func (o ResourceGroupCostManagementExportArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementExportOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupCostManagementExport {
-		return vs[0].([]ResourceGroupCostManagementExport)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupCostManagementExport {
+		return vs[0].([]*ResourceGroupCostManagementExport)[vs[1].(int)]
 	}).(ResourceGroupCostManagementExportOutput)
 }
 
 type ResourceGroupCostManagementExportMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementExportMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceGroupCostManagementExport)(nil))
+	return reflect.TypeOf((*map[string]*ResourceGroupCostManagementExport)(nil)).Elem()
 }
 
 func (o ResourceGroupCostManagementExportMapOutput) ToResourceGroupCostManagementExportMapOutput() ResourceGroupCostManagementExportMapOutput {
@@ -409,18 +346,16 @@ func (o ResourceGroupCostManagementExportMapOutput) ToResourceGroupCostManagemen
 }
 
 func (o ResourceGroupCostManagementExportMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupCostManagementExportOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceGroupCostManagementExport {
-		return vs[0].(map[string]ResourceGroupCostManagementExport)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceGroupCostManagementExport {
+		return vs[0].(map[string]*ResourceGroupCostManagementExport)[vs[1].(string)]
 	}).(ResourceGroupCostManagementExportOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportInput)(nil)).Elem(), &ResourceGroupCostManagementExport{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportPtrInput)(nil)).Elem(), &ResourceGroupCostManagementExport{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportArrayInput)(nil)).Elem(), ResourceGroupCostManagementExportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportMapInput)(nil)).Elem(), ResourceGroupCostManagementExportMap{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportOutput{})
-	pulumi.RegisterOutputType(ResourceGroupCostManagementExportPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportArrayOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportMapOutput{})
 }

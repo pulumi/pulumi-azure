@@ -289,7 +289,7 @@ type CustomDatasetInput interface {
 }
 
 func (*CustomDataset) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataset)(nil))
+	return reflect.TypeOf((**CustomDataset)(nil)).Elem()
 }
 
 func (i *CustomDataset) ToCustomDatasetOutput() CustomDatasetOutput {
@@ -298,35 +298,6 @@ func (i *CustomDataset) ToCustomDatasetOutput() CustomDatasetOutput {
 
 func (i *CustomDataset) ToCustomDatasetOutputWithContext(ctx context.Context) CustomDatasetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetOutput)
-}
-
-func (i *CustomDataset) ToCustomDatasetPtrOutput() CustomDatasetPtrOutput {
-	return i.ToCustomDatasetPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomDataset) ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetPtrOutput)
-}
-
-type CustomDatasetPtrInput interface {
-	pulumi.Input
-
-	ToCustomDatasetPtrOutput() CustomDatasetPtrOutput
-	ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput
-}
-
-type customDatasetPtrType CustomDatasetArgs
-
-func (*customDatasetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDataset)(nil))
-}
-
-func (i *customDatasetPtrType) ToCustomDatasetPtrOutput() CustomDatasetPtrOutput {
-	return i.ToCustomDatasetPtrOutputWithContext(context.Background())
-}
-
-func (i *customDatasetPtrType) ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetPtrOutput)
 }
 
 // CustomDatasetArrayInput is an input type that accepts CustomDatasetArray and CustomDatasetArrayOutput values.
@@ -382,7 +353,7 @@ func (i CustomDatasetMap) ToCustomDatasetMapOutputWithContext(ctx context.Contex
 type CustomDatasetOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataset)(nil))
+	return reflect.TypeOf((**CustomDataset)(nil)).Elem()
 }
 
 func (o CustomDatasetOutput) ToCustomDatasetOutput() CustomDatasetOutput {
@@ -393,44 +364,10 @@ func (o CustomDatasetOutput) ToCustomDatasetOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o CustomDatasetOutput) ToCustomDatasetPtrOutput() CustomDatasetPtrOutput {
-	return o.ToCustomDatasetPtrOutputWithContext(context.Background())
-}
-
-func (o CustomDatasetOutput) ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDataset) *CustomDataset {
-		return &v
-	}).(CustomDatasetPtrOutput)
-}
-
-type CustomDatasetPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDatasetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDataset)(nil))
-}
-
-func (o CustomDatasetPtrOutput) ToCustomDatasetPtrOutput() CustomDatasetPtrOutput {
-	return o
-}
-
-func (o CustomDatasetPtrOutput) ToCustomDatasetPtrOutputWithContext(ctx context.Context) CustomDatasetPtrOutput {
-	return o
-}
-
-func (o CustomDatasetPtrOutput) Elem() CustomDatasetOutput {
-	return o.ApplyT(func(v *CustomDataset) CustomDataset {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDataset
-		return ret
-	}).(CustomDatasetOutput)
-}
-
 type CustomDatasetArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDataset)(nil))
+	return reflect.TypeOf((*[]*CustomDataset)(nil)).Elem()
 }
 
 func (o CustomDatasetArrayOutput) ToCustomDatasetArrayOutput() CustomDatasetArrayOutput {
@@ -442,15 +379,15 @@ func (o CustomDatasetArrayOutput) ToCustomDatasetArrayOutputWithContext(ctx cont
 }
 
 func (o CustomDatasetArrayOutput) Index(i pulumi.IntInput) CustomDatasetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDataset {
-		return vs[0].([]CustomDataset)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDataset {
+		return vs[0].([]*CustomDataset)[vs[1].(int)]
 	}).(CustomDatasetOutput)
 }
 
 type CustomDatasetMapOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomDataset)(nil))
+	return reflect.TypeOf((*map[string]*CustomDataset)(nil)).Elem()
 }
 
 func (o CustomDatasetMapOutput) ToCustomDatasetMapOutput() CustomDatasetMapOutput {
@@ -462,18 +399,16 @@ func (o CustomDatasetMapOutput) ToCustomDatasetMapOutputWithContext(ctx context.
 }
 
 func (o CustomDatasetMapOutput) MapIndex(k pulumi.StringInput) CustomDatasetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomDataset {
-		return vs[0].(map[string]CustomDataset)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomDataset {
+		return vs[0].(map[string]*CustomDataset)[vs[1].(string)]
 	}).(CustomDatasetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetInput)(nil)).Elem(), &CustomDataset{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetPtrInput)(nil)).Elem(), &CustomDataset{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetArrayInput)(nil)).Elem(), CustomDatasetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetMapInput)(nil)).Elem(), CustomDatasetMap{})
 	pulumi.RegisterOutputType(CustomDatasetOutput{})
-	pulumi.RegisterOutputType(CustomDatasetPtrOutput{})
 	pulumi.RegisterOutputType(CustomDatasetArrayOutput{})
 	pulumi.RegisterOutputType(CustomDatasetMapOutput{})
 }

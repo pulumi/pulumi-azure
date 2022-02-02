@@ -183,7 +183,7 @@ type ProductGroupInput interface {
 }
 
 func (*ProductGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductGroup)(nil))
+	return reflect.TypeOf((**ProductGroup)(nil)).Elem()
 }
 
 func (i *ProductGroup) ToProductGroupOutput() ProductGroupOutput {
@@ -192,35 +192,6 @@ func (i *ProductGroup) ToProductGroupOutput() ProductGroupOutput {
 
 func (i *ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupOutput)
-}
-
-func (i *ProductGroup) ToProductGroupPtrOutput() ProductGroupPtrOutput {
-	return i.ToProductGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ProductGroup) ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupPtrOutput)
-}
-
-type ProductGroupPtrInput interface {
-	pulumi.Input
-
-	ToProductGroupPtrOutput() ProductGroupPtrOutput
-	ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput
-}
-
-type productGroupPtrType ProductGroupArgs
-
-func (*productGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductGroup)(nil))
-}
-
-func (i *productGroupPtrType) ToProductGroupPtrOutput() ProductGroupPtrOutput {
-	return i.ToProductGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *productGroupPtrType) ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupPtrOutput)
 }
 
 // ProductGroupArrayInput is an input type that accepts ProductGroupArray and ProductGroupArrayOutput values.
@@ -276,7 +247,7 @@ func (i ProductGroupMap) ToProductGroupMapOutputWithContext(ctx context.Context)
 type ProductGroupOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductGroup)(nil))
+	return reflect.TypeOf((**ProductGroup)(nil)).Elem()
 }
 
 func (o ProductGroupOutput) ToProductGroupOutput() ProductGroupOutput {
@@ -287,44 +258,10 @@ func (o ProductGroupOutput) ToProductGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ProductGroupOutput) ToProductGroupPtrOutput() ProductGroupPtrOutput {
-	return o.ToProductGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ProductGroupOutput) ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductGroup) *ProductGroup {
-		return &v
-	}).(ProductGroupPtrOutput)
-}
-
-type ProductGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ProductGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductGroup)(nil))
-}
-
-func (o ProductGroupPtrOutput) ToProductGroupPtrOutput() ProductGroupPtrOutput {
-	return o
-}
-
-func (o ProductGroupPtrOutput) ToProductGroupPtrOutputWithContext(ctx context.Context) ProductGroupPtrOutput {
-	return o
-}
-
-func (o ProductGroupPtrOutput) Elem() ProductGroupOutput {
-	return o.ApplyT(func(v *ProductGroup) ProductGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ProductGroup
-		return ret
-	}).(ProductGroupOutput)
-}
-
 type ProductGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductGroup)(nil))
+	return reflect.TypeOf((*[]*ProductGroup)(nil)).Elem()
 }
 
 func (o ProductGroupArrayOutput) ToProductGroupArrayOutput() ProductGroupArrayOutput {
@@ -336,15 +273,15 @@ func (o ProductGroupArrayOutput) ToProductGroupArrayOutputWithContext(ctx contex
 }
 
 func (o ProductGroupArrayOutput) Index(i pulumi.IntInput) ProductGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductGroup {
-		return vs[0].([]ProductGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductGroup {
+		return vs[0].([]*ProductGroup)[vs[1].(int)]
 	}).(ProductGroupOutput)
 }
 
 type ProductGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProductGroup)(nil))
+	return reflect.TypeOf((*map[string]*ProductGroup)(nil)).Elem()
 }
 
 func (o ProductGroupMapOutput) ToProductGroupMapOutput() ProductGroupMapOutput {
@@ -356,18 +293,16 @@ func (o ProductGroupMapOutput) ToProductGroupMapOutputWithContext(ctx context.Co
 }
 
 func (o ProductGroupMapOutput) MapIndex(k pulumi.StringInput) ProductGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProductGroup {
-		return vs[0].(map[string]ProductGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProductGroup {
+		return vs[0].(map[string]*ProductGroup)[vs[1].(string)]
 	}).(ProductGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductGroupInput)(nil)).Elem(), &ProductGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductGroupPtrInput)(nil)).Elem(), &ProductGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductGroupArrayInput)(nil)).Elem(), ProductGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductGroupMapInput)(nil)).Elem(), ProductGroupMap{})
 	pulumi.RegisterOutputType(ProductGroupOutput{})
-	pulumi.RegisterOutputType(ProductGroupPtrOutput{})
 	pulumi.RegisterOutputType(ProductGroupArrayOutput{})
 	pulumi.RegisterOutputType(ProductGroupMapOutput{})
 }

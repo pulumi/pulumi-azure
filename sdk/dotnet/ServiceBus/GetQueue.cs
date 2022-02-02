@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Service Bus Queue.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

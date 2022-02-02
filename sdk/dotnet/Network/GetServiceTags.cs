@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceTagsResult> InvokeAsync(GetServiceTagsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about Service Tags.
@@ -84,7 +83,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceTagsResult> Invoke(GetServiceTagsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithDefaults());
     }
 
 

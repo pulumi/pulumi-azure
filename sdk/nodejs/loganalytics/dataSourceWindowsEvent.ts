@@ -93,15 +93,15 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataSourceWindowsEventArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataSourceWindowsEventArgs | DataSourceWindowsEventState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceWindowsEventState | undefined;
-            inputs["eventLogName"] = state ? state.eventLogName : undefined;
-            inputs["eventTypes"] = state ? state.eventTypes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["workspaceName"] = state ? state.workspaceName : undefined;
+            resourceInputs["eventLogName"] = state ? state.eventLogName : undefined;
+            resourceInputs["eventTypes"] = state ? state.eventTypes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
         } else {
             const args = argsOrState as DataSourceWindowsEventArgs | undefined;
             if ((!args || args.eventLogName === undefined) && !opts.urn) {
@@ -116,16 +116,14 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["eventLogName"] = args ? args.eventLogName : undefined;
-            inputs["eventTypes"] = args ? args.eventTypes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["eventLogName"] = args ? args.eventLogName : undefined;
+            resourceInputs["eventTypes"] = args ? args.eventTypes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataSourceWindowsEvent.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataSourceWindowsEvent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

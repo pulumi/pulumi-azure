@@ -184,7 +184,7 @@ type ChannelLineInput interface {
 }
 
 func (*ChannelLine) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelLine)(nil))
+	return reflect.TypeOf((**ChannelLine)(nil)).Elem()
 }
 
 func (i *ChannelLine) ToChannelLineOutput() ChannelLineOutput {
@@ -193,35 +193,6 @@ func (i *ChannelLine) ToChannelLineOutput() ChannelLineOutput {
 
 func (i *ChannelLine) ToChannelLineOutputWithContext(ctx context.Context) ChannelLineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineOutput)
-}
-
-func (i *ChannelLine) ToChannelLinePtrOutput() ChannelLinePtrOutput {
-	return i.ToChannelLinePtrOutputWithContext(context.Background())
-}
-
-func (i *ChannelLine) ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelLinePtrOutput)
-}
-
-type ChannelLinePtrInput interface {
-	pulumi.Input
-
-	ToChannelLinePtrOutput() ChannelLinePtrOutput
-	ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput
-}
-
-type channelLinePtrType ChannelLineArgs
-
-func (*channelLinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelLine)(nil))
-}
-
-func (i *channelLinePtrType) ToChannelLinePtrOutput() ChannelLinePtrOutput {
-	return i.ToChannelLinePtrOutputWithContext(context.Background())
-}
-
-func (i *channelLinePtrType) ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelLinePtrOutput)
 }
 
 // ChannelLineArrayInput is an input type that accepts ChannelLineArray and ChannelLineArrayOutput values.
@@ -277,7 +248,7 @@ func (i ChannelLineMap) ToChannelLineMapOutputWithContext(ctx context.Context) C
 type ChannelLineOutput struct{ *pulumi.OutputState }
 
 func (ChannelLineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelLine)(nil))
+	return reflect.TypeOf((**ChannelLine)(nil)).Elem()
 }
 
 func (o ChannelLineOutput) ToChannelLineOutput() ChannelLineOutput {
@@ -288,44 +259,10 @@ func (o ChannelLineOutput) ToChannelLineOutputWithContext(ctx context.Context) C
 	return o
 }
 
-func (o ChannelLineOutput) ToChannelLinePtrOutput() ChannelLinePtrOutput {
-	return o.ToChannelLinePtrOutputWithContext(context.Background())
-}
-
-func (o ChannelLineOutput) ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLine) *ChannelLine {
-		return &v
-	}).(ChannelLinePtrOutput)
-}
-
-type ChannelLinePtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelLinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelLine)(nil))
-}
-
-func (o ChannelLinePtrOutput) ToChannelLinePtrOutput() ChannelLinePtrOutput {
-	return o
-}
-
-func (o ChannelLinePtrOutput) ToChannelLinePtrOutputWithContext(ctx context.Context) ChannelLinePtrOutput {
-	return o
-}
-
-func (o ChannelLinePtrOutput) Elem() ChannelLineOutput {
-	return o.ApplyT(func(v *ChannelLine) ChannelLine {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelLine
-		return ret
-	}).(ChannelLineOutput)
-}
-
 type ChannelLineArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelLineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelLine)(nil))
+	return reflect.TypeOf((*[]*ChannelLine)(nil)).Elem()
 }
 
 func (o ChannelLineArrayOutput) ToChannelLineArrayOutput() ChannelLineArrayOutput {
@@ -337,15 +274,15 @@ func (o ChannelLineArrayOutput) ToChannelLineArrayOutputWithContext(ctx context.
 }
 
 func (o ChannelLineArrayOutput) Index(i pulumi.IntInput) ChannelLineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelLine {
-		return vs[0].([]ChannelLine)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelLine {
+		return vs[0].([]*ChannelLine)[vs[1].(int)]
 	}).(ChannelLineOutput)
 }
 
 type ChannelLineMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelLineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChannelLine)(nil))
+	return reflect.TypeOf((*map[string]*ChannelLine)(nil)).Elem()
 }
 
 func (o ChannelLineMapOutput) ToChannelLineMapOutput() ChannelLineMapOutput {
@@ -357,18 +294,16 @@ func (o ChannelLineMapOutput) ToChannelLineMapOutputWithContext(ctx context.Cont
 }
 
 func (o ChannelLineMapOutput) MapIndex(k pulumi.StringInput) ChannelLineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelLine {
-		return vs[0].(map[string]ChannelLine)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChannelLine {
+		return vs[0].(map[string]*ChannelLine)[vs[1].(string)]
 	}).(ChannelLineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLineInput)(nil)).Elem(), &ChannelLine{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLinePtrInput)(nil)).Elem(), &ChannelLine{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLineArrayInput)(nil)).Elem(), ChannelLineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLineMapInput)(nil)).Elem(), ChannelLineMap{})
 	pulumi.RegisterOutputType(ChannelLineOutput{})
-	pulumi.RegisterOutputType(ChannelLinePtrOutput{})
 	pulumi.RegisterOutputType(ChannelLineArrayOutput{})
 	pulumi.RegisterOutputType(ChannelLineMapOutput{})
 }

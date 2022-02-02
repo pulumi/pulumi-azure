@@ -26,9 +26,7 @@ export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

@@ -99,14 +99,14 @@ export class JobCredential extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobCredentialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobCredentialArgs | JobCredentialState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobCredentialState | undefined;
-            inputs["jobAgentId"] = state ? state.jobAgentId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["jobAgentId"] = state ? state.jobAgentId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as JobCredentialArgs | undefined;
             if ((!args || args.jobAgentId === undefined) && !opts.urn) {
@@ -118,15 +118,13 @@ export class JobCredential extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["jobAgentId"] = args ? args.jobAgentId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(JobCredential.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(JobCredential.__pulumiType, name, resourceInputs, opts);
     }
 }
 

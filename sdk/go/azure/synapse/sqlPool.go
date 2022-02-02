@@ -237,7 +237,7 @@ type SqlPoolInput interface {
 }
 
 func (*SqlPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPool)(nil))
+	return reflect.TypeOf((**SqlPool)(nil)).Elem()
 }
 
 func (i *SqlPool) ToSqlPoolOutput() SqlPoolOutput {
@@ -246,35 +246,6 @@ func (i *SqlPool) ToSqlPoolOutput() SqlPoolOutput {
 
 func (i *SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
-}
-
-func (i *SqlPool) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
-	return i.ToSqlPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlPool) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolPtrOutput)
-}
-
-type SqlPoolPtrInput interface {
-	pulumi.Input
-
-	ToSqlPoolPtrOutput() SqlPoolPtrOutput
-	ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput
-}
-
-type sqlPoolPtrType SqlPoolArgs
-
-func (*sqlPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPool)(nil))
-}
-
-func (i *sqlPoolPtrType) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
-	return i.ToSqlPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlPoolPtrType) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolPtrOutput)
 }
 
 // SqlPoolArrayInput is an input type that accepts SqlPoolArray and SqlPoolArrayOutput values.
@@ -330,7 +301,7 @@ func (i SqlPoolMap) ToSqlPoolMapOutputWithContext(ctx context.Context) SqlPoolMa
 type SqlPoolOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPool)(nil))
+	return reflect.TypeOf((**SqlPool)(nil)).Elem()
 }
 
 func (o SqlPoolOutput) ToSqlPoolOutput() SqlPoolOutput {
@@ -341,44 +312,10 @@ func (o SqlPoolOutput) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOu
 	return o
 }
 
-func (o SqlPoolOutput) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
-	return o.ToSqlPoolPtrOutputWithContext(context.Background())
-}
-
-func (o SqlPoolOutput) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPool) *SqlPool {
-		return &v
-	}).(SqlPoolPtrOutput)
-}
-
-type SqlPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPool)(nil))
-}
-
-func (o SqlPoolPtrOutput) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
-	return o
-}
-
-func (o SqlPoolPtrOutput) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
-	return o
-}
-
-func (o SqlPoolPtrOutput) Elem() SqlPoolOutput {
-	return o.ApplyT(func(v *SqlPool) SqlPool {
-		if v != nil {
-			return *v
-		}
-		var ret SqlPool
-		return ret
-	}).(SqlPoolOutput)
-}
-
 type SqlPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlPool)(nil))
+	return reflect.TypeOf((*[]*SqlPool)(nil)).Elem()
 }
 
 func (o SqlPoolArrayOutput) ToSqlPoolArrayOutput() SqlPoolArrayOutput {
@@ -390,15 +327,15 @@ func (o SqlPoolArrayOutput) ToSqlPoolArrayOutputWithContext(ctx context.Context)
 }
 
 func (o SqlPoolArrayOutput) Index(i pulumi.IntInput) SqlPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPool {
-		return vs[0].([]SqlPool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPool {
+		return vs[0].([]*SqlPool)[vs[1].(int)]
 	}).(SqlPoolOutput)
 }
 
 type SqlPoolMapOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlPool)(nil))
+	return reflect.TypeOf((*map[string]*SqlPool)(nil)).Elem()
 }
 
 func (o SqlPoolMapOutput) ToSqlPoolMapOutput() SqlPoolMapOutput {
@@ -410,18 +347,16 @@ func (o SqlPoolMapOutput) ToSqlPoolMapOutputWithContext(ctx context.Context) Sql
 }
 
 func (o SqlPoolMapOutput) MapIndex(k pulumi.StringInput) SqlPoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlPool {
-		return vs[0].(map[string]SqlPool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlPool {
+		return vs[0].(map[string]*SqlPool)[vs[1].(string)]
 	}).(SqlPoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolInput)(nil)).Elem(), &SqlPool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolPtrInput)(nil)).Elem(), &SqlPool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolArrayInput)(nil)).Elem(), SqlPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolMapInput)(nil)).Elem(), SqlPoolMap{})
 	pulumi.RegisterOutputType(SqlPoolOutput{})
-	pulumi.RegisterOutputType(SqlPoolPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolMapOutput{})
 }

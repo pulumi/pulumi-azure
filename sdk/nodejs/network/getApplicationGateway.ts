@@ -26,9 +26,7 @@ export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getApplicationGateway:getApplicationGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

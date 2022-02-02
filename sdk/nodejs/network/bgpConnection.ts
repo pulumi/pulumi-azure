@@ -112,14 +112,14 @@ export class BgpConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: BgpConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BgpConnectionArgs | BgpConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BgpConnectionState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["peerAsn"] = state ? state.peerAsn : undefined;
-            inputs["peerIp"] = state ? state.peerIp : undefined;
-            inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["peerAsn"] = state ? state.peerAsn : undefined;
+            resourceInputs["peerIp"] = state ? state.peerIp : undefined;
+            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as BgpConnectionArgs | undefined;
             if ((!args || args.peerAsn === undefined) && !opts.urn) {
@@ -131,15 +131,13 @@ export class BgpConnection extends pulumi.CustomResource {
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peerAsn"] = args ? args.peerAsn : undefined;
-            inputs["peerIp"] = args ? args.peerIp : undefined;
-            inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
+            resourceInputs["peerIp"] = args ? args.peerIp : undefined;
+            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BgpConnection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BgpConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

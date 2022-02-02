@@ -282,7 +282,7 @@ type ServiceAzureBotInput interface {
 }
 
 func (*ServiceAzureBot) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAzureBot)(nil))
+	return reflect.TypeOf((**ServiceAzureBot)(nil)).Elem()
 }
 
 func (i *ServiceAzureBot) ToServiceAzureBotOutput() ServiceAzureBotOutput {
@@ -291,35 +291,6 @@ func (i *ServiceAzureBot) ToServiceAzureBotOutput() ServiceAzureBotOutput {
 
 func (i *ServiceAzureBot) ToServiceAzureBotOutputWithContext(ctx context.Context) ServiceAzureBotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureBotOutput)
-}
-
-func (i *ServiceAzureBot) ToServiceAzureBotPtrOutput() ServiceAzureBotPtrOutput {
-	return i.ToServiceAzureBotPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceAzureBot) ToServiceAzureBotPtrOutputWithContext(ctx context.Context) ServiceAzureBotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureBotPtrOutput)
-}
-
-type ServiceAzureBotPtrInput interface {
-	pulumi.Input
-
-	ToServiceAzureBotPtrOutput() ServiceAzureBotPtrOutput
-	ToServiceAzureBotPtrOutputWithContext(ctx context.Context) ServiceAzureBotPtrOutput
-}
-
-type serviceAzureBotPtrType ServiceAzureBotArgs
-
-func (*serviceAzureBotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAzureBot)(nil))
-}
-
-func (i *serviceAzureBotPtrType) ToServiceAzureBotPtrOutput() ServiceAzureBotPtrOutput {
-	return i.ToServiceAzureBotPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceAzureBotPtrType) ToServiceAzureBotPtrOutputWithContext(ctx context.Context) ServiceAzureBotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureBotPtrOutput)
 }
 
 // ServiceAzureBotArrayInput is an input type that accepts ServiceAzureBotArray and ServiceAzureBotArrayOutput values.
@@ -375,7 +346,7 @@ func (i ServiceAzureBotMap) ToServiceAzureBotMapOutputWithContext(ctx context.Co
 type ServiceAzureBotOutput struct{ *pulumi.OutputState }
 
 func (ServiceAzureBotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAzureBot)(nil))
+	return reflect.TypeOf((**ServiceAzureBot)(nil)).Elem()
 }
 
 func (o ServiceAzureBotOutput) ToServiceAzureBotOutput() ServiceAzureBotOutput {
@@ -386,44 +357,10 @@ func (o ServiceAzureBotOutput) ToServiceAzureBotOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ServiceAzureBotOutput) ToServiceAzureBotPtrOutput() ServiceAzureBotPtrOutput {
-	return o.ToServiceAzureBotPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceAzureBotOutput) ToServiceAzureBotPtrOutputWithContext(ctx context.Context) ServiceAzureBotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAzureBot) *ServiceAzureBot {
-		return &v
-	}).(ServiceAzureBotPtrOutput)
-}
-
-type ServiceAzureBotPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceAzureBotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAzureBot)(nil))
-}
-
-func (o ServiceAzureBotPtrOutput) ToServiceAzureBotPtrOutput() ServiceAzureBotPtrOutput {
-	return o
-}
-
-func (o ServiceAzureBotPtrOutput) ToServiceAzureBotPtrOutputWithContext(ctx context.Context) ServiceAzureBotPtrOutput {
-	return o
-}
-
-func (o ServiceAzureBotPtrOutput) Elem() ServiceAzureBotOutput {
-	return o.ApplyT(func(v *ServiceAzureBot) ServiceAzureBot {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceAzureBot
-		return ret
-	}).(ServiceAzureBotOutput)
-}
-
 type ServiceAzureBotArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceAzureBotArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceAzureBot)(nil))
+	return reflect.TypeOf((*[]*ServiceAzureBot)(nil)).Elem()
 }
 
 func (o ServiceAzureBotArrayOutput) ToServiceAzureBotArrayOutput() ServiceAzureBotArrayOutput {
@@ -435,15 +372,15 @@ func (o ServiceAzureBotArrayOutput) ToServiceAzureBotArrayOutputWithContext(ctx 
 }
 
 func (o ServiceAzureBotArrayOutput) Index(i pulumi.IntInput) ServiceAzureBotOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAzureBot {
-		return vs[0].([]ServiceAzureBot)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceAzureBot {
+		return vs[0].([]*ServiceAzureBot)[vs[1].(int)]
 	}).(ServiceAzureBotOutput)
 }
 
 type ServiceAzureBotMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceAzureBotMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceAzureBot)(nil))
+	return reflect.TypeOf((*map[string]*ServiceAzureBot)(nil)).Elem()
 }
 
 func (o ServiceAzureBotMapOutput) ToServiceAzureBotMapOutput() ServiceAzureBotMapOutput {
@@ -455,18 +392,16 @@ func (o ServiceAzureBotMapOutput) ToServiceAzureBotMapOutputWithContext(ctx cont
 }
 
 func (o ServiceAzureBotMapOutput) MapIndex(k pulumi.StringInput) ServiceAzureBotOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceAzureBot {
-		return vs[0].(map[string]ServiceAzureBot)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceAzureBot {
+		return vs[0].(map[string]*ServiceAzureBot)[vs[1].(string)]
 	}).(ServiceAzureBotOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAzureBotInput)(nil)).Elem(), &ServiceAzureBot{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAzureBotPtrInput)(nil)).Elem(), &ServiceAzureBot{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAzureBotArrayInput)(nil)).Elem(), ServiceAzureBotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAzureBotMapInput)(nil)).Elem(), ServiceAzureBotMap{})
 	pulumi.RegisterOutputType(ServiceAzureBotOutput{})
-	pulumi.RegisterOutputType(ServiceAzureBotPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAzureBotArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAzureBotMapOutput{})
 }

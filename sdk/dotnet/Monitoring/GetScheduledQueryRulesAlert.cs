@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Monitoring
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduledQueryRulesAlertResult> InvokeAsync(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the properties of an AlertingAction scheduled query rule.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetScheduledQueryRulesAlertResult> Invoke(GetScheduledQueryRulesAlertInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());
     }
 
 

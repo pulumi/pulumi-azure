@@ -139,20 +139,20 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotPolicyArgs | SnapshotPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotPolicyState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["dailySchedule"] = state ? state.dailySchedule : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["hourlySchedule"] = state ? state.hourlySchedule : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["monthlySchedule"] = state ? state.monthlySchedule : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["weeklySchedule"] = state ? state.weeklySchedule : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["dailySchedule"] = state ? state.dailySchedule : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["hourlySchedule"] = state ? state.hourlySchedule : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["monthlySchedule"] = state ? state.monthlySchedule : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["weeklySchedule"] = state ? state.weeklySchedule : undefined;
         } else {
             const args = argsOrState as SnapshotPolicyArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -164,21 +164,19 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dailySchedule"] = args ? args.dailySchedule : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dailySchedule"] = args ? args.dailySchedule : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SnapshotPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SnapshotPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

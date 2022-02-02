@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -16,13 +15,13 @@ namespace Pulumi.Azure.KeyVault
         /// Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -175,7 +175,7 @@ type NotificationRecipientUserInput interface {
 }
 
 func (*NotificationRecipientUser) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientUser)(nil))
+	return reflect.TypeOf((**NotificationRecipientUser)(nil)).Elem()
 }
 
 func (i *NotificationRecipientUser) ToNotificationRecipientUserOutput() NotificationRecipientUserOutput {
@@ -184,35 +184,6 @@ func (i *NotificationRecipientUser) ToNotificationRecipientUserOutput() Notifica
 
 func (i *NotificationRecipientUser) ToNotificationRecipientUserOutputWithContext(ctx context.Context) NotificationRecipientUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserOutput)
-}
-
-func (i *NotificationRecipientUser) ToNotificationRecipientUserPtrOutput() NotificationRecipientUserPtrOutput {
-	return i.ToNotificationRecipientUserPtrOutputWithContext(context.Background())
-}
-
-func (i *NotificationRecipientUser) ToNotificationRecipientUserPtrOutputWithContext(ctx context.Context) NotificationRecipientUserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserPtrOutput)
-}
-
-type NotificationRecipientUserPtrInput interface {
-	pulumi.Input
-
-	ToNotificationRecipientUserPtrOutput() NotificationRecipientUserPtrOutput
-	ToNotificationRecipientUserPtrOutputWithContext(ctx context.Context) NotificationRecipientUserPtrOutput
-}
-
-type notificationRecipientUserPtrType NotificationRecipientUserArgs
-
-func (*notificationRecipientUserPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationRecipientUser)(nil))
-}
-
-func (i *notificationRecipientUserPtrType) ToNotificationRecipientUserPtrOutput() NotificationRecipientUserPtrOutput {
-	return i.ToNotificationRecipientUserPtrOutputWithContext(context.Background())
-}
-
-func (i *notificationRecipientUserPtrType) ToNotificationRecipientUserPtrOutputWithContext(ctx context.Context) NotificationRecipientUserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserPtrOutput)
 }
 
 // NotificationRecipientUserArrayInput is an input type that accepts NotificationRecipientUserArray and NotificationRecipientUserArrayOutput values.
@@ -268,7 +239,7 @@ func (i NotificationRecipientUserMap) ToNotificationRecipientUserMapOutputWithCo
 type NotificationRecipientUserOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRecipientUser)(nil))
+	return reflect.TypeOf((**NotificationRecipientUser)(nil)).Elem()
 }
 
 func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutput() NotificationRecipientUserOutput {
@@ -279,44 +250,10 @@ func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutputWithCo
 	return o
 }
 
-func (o NotificationRecipientUserOutput) ToNotificationRecipientUserPtrOutput() NotificationRecipientUserPtrOutput {
-	return o.ToNotificationRecipientUserPtrOutputWithContext(context.Background())
-}
-
-func (o NotificationRecipientUserOutput) ToNotificationRecipientUserPtrOutputWithContext(ctx context.Context) NotificationRecipientUserPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationRecipientUser) *NotificationRecipientUser {
-		return &v
-	}).(NotificationRecipientUserPtrOutput)
-}
-
-type NotificationRecipientUserPtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationRecipientUserPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationRecipientUser)(nil))
-}
-
-func (o NotificationRecipientUserPtrOutput) ToNotificationRecipientUserPtrOutput() NotificationRecipientUserPtrOutput {
-	return o
-}
-
-func (o NotificationRecipientUserPtrOutput) ToNotificationRecipientUserPtrOutputWithContext(ctx context.Context) NotificationRecipientUserPtrOutput {
-	return o
-}
-
-func (o NotificationRecipientUserPtrOutput) Elem() NotificationRecipientUserOutput {
-	return o.ApplyT(func(v *NotificationRecipientUser) NotificationRecipientUser {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationRecipientUser
-		return ret
-	}).(NotificationRecipientUserOutput)
-}
-
 type NotificationRecipientUserArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationRecipientUser)(nil))
+	return reflect.TypeOf((*[]*NotificationRecipientUser)(nil)).Elem()
 }
 
 func (o NotificationRecipientUserArrayOutput) ToNotificationRecipientUserArrayOutput() NotificationRecipientUserArrayOutput {
@@ -328,15 +265,15 @@ func (o NotificationRecipientUserArrayOutput) ToNotificationRecipientUserArrayOu
 }
 
 func (o NotificationRecipientUserArrayOutput) Index(i pulumi.IntInput) NotificationRecipientUserOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationRecipientUser {
-		return vs[0].([]NotificationRecipientUser)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationRecipientUser {
+		return vs[0].([]*NotificationRecipientUser)[vs[1].(int)]
 	}).(NotificationRecipientUserOutput)
 }
 
 type NotificationRecipientUserMapOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NotificationRecipientUser)(nil))
+	return reflect.TypeOf((*map[string]*NotificationRecipientUser)(nil)).Elem()
 }
 
 func (o NotificationRecipientUserMapOutput) ToNotificationRecipientUserMapOutput() NotificationRecipientUserMapOutput {
@@ -348,18 +285,16 @@ func (o NotificationRecipientUserMapOutput) ToNotificationRecipientUserMapOutput
 }
 
 func (o NotificationRecipientUserMapOutput) MapIndex(k pulumi.StringInput) NotificationRecipientUserOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationRecipientUser {
-		return vs[0].(map[string]NotificationRecipientUser)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NotificationRecipientUser {
+		return vs[0].(map[string]*NotificationRecipientUser)[vs[1].(string)]
 	}).(NotificationRecipientUserOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientUserInput)(nil)).Elem(), &NotificationRecipientUser{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientUserPtrInput)(nil)).Elem(), &NotificationRecipientUser{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientUserArrayInput)(nil)).Elem(), NotificationRecipientUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientUserMapInput)(nil)).Elem(), NotificationRecipientUserMap{})
 	pulumi.RegisterOutputType(NotificationRecipientUserOutput{})
-	pulumi.RegisterOutputType(NotificationRecipientUserPtrOutput{})
 	pulumi.RegisterOutputType(NotificationRecipientUserArrayOutput{})
 	pulumi.RegisterOutputType(NotificationRecipientUserMapOutput{})
 }

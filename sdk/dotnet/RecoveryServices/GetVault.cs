@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.RecoveryServices
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Recovery Services Vault.
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

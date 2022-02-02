@@ -110,18 +110,18 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     constructor(name: string, args: SystemTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SystemTopicArgs | SystemTopicState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SystemTopicState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceArmResourceId"] = state ? state.sourceArmResourceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["topicType"] = state ? state.topicType : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceArmResourceId"] = state ? state.sourceArmResourceId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["topicType"] = state ? state.topicType : undefined;
         } else {
             const args = argsOrState as SystemTopicArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -133,19 +133,17 @@ export class SystemTopic extends pulumi.CustomResource {
             if ((!args || args.topicType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicType'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceArmResourceId"] = args ? args.sourceArmResourceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["topicType"] = args ? args.topicType : undefined;
-            inputs["metricArmResourceId"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceArmResourceId"] = args ? args.sourceArmResourceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topicType"] = args ? args.topicType : undefined;
+            resourceInputs["metricArmResourceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SystemTopic.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SystemTopic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

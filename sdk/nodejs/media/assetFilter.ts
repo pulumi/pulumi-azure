@@ -149,30 +149,28 @@ export class AssetFilter extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssetFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssetFilterArgs | AssetFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssetFilterState | undefined;
-            inputs["assetId"] = state ? state.assetId : undefined;
-            inputs["firstQualityBitrate"] = state ? state.firstQualityBitrate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["presentationTimeRange"] = state ? state.presentationTimeRange : undefined;
-            inputs["trackSelections"] = state ? state.trackSelections : undefined;
+            resourceInputs["assetId"] = state ? state.assetId : undefined;
+            resourceInputs["firstQualityBitrate"] = state ? state.firstQualityBitrate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["presentationTimeRange"] = state ? state.presentationTimeRange : undefined;
+            resourceInputs["trackSelections"] = state ? state.trackSelections : undefined;
         } else {
             const args = argsOrState as AssetFilterArgs | undefined;
             if ((!args || args.assetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetId'");
             }
-            inputs["assetId"] = args ? args.assetId : undefined;
-            inputs["firstQualityBitrate"] = args ? args.firstQualityBitrate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
-            inputs["trackSelections"] = args ? args.trackSelections : undefined;
+            resourceInputs["assetId"] = args ? args.assetId : undefined;
+            resourceInputs["firstQualityBitrate"] = args ? args.firstQualityBitrate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
+            resourceInputs["trackSelections"] = args ? args.trackSelections : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AssetFilter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AssetFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

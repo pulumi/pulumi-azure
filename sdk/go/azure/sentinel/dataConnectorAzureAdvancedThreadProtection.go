@@ -170,7 +170,7 @@ type DataConnectorAzureAdvancedThreadProtectionInput interface {
 }
 
 func (*DataConnectorAzureAdvancedThreadProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtection)(nil))
+	return reflect.TypeOf((**DataConnectorAzureAdvancedThreadProtection)(nil)).Elem()
 }
 
 func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvancedThreadProtectionOutput() DataConnectorAzureAdvancedThreadProtectionOutput {
@@ -179,35 +179,6 @@ func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvance
 
 func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvancedThreadProtectionOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureAdvancedThreadProtectionOutput)
-}
-
-func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvancedThreadProtectionPtrOutput() DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return i.ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureAdvancedThreadProtectionPtrOutput)
-}
-
-type DataConnectorAzureAdvancedThreadProtectionPtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorAzureAdvancedThreadProtectionPtrOutput() DataConnectorAzureAdvancedThreadProtectionPtrOutput
-	ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionPtrOutput
-}
-
-type dataConnectorAzureAdvancedThreadProtectionPtrType DataConnectorAzureAdvancedThreadProtectionArgs
-
-func (*dataConnectorAzureAdvancedThreadProtectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorAzureAdvancedThreadProtection)(nil))
-}
-
-func (i *dataConnectorAzureAdvancedThreadProtectionPtrType) ToDataConnectorAzureAdvancedThreadProtectionPtrOutput() DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return i.ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorAzureAdvancedThreadProtectionPtrType) ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureAdvancedThreadProtectionPtrOutput)
 }
 
 // DataConnectorAzureAdvancedThreadProtectionArrayInput is an input type that accepts DataConnectorAzureAdvancedThreadProtectionArray and DataConnectorAzureAdvancedThreadProtectionArrayOutput values.
@@ -263,7 +234,7 @@ func (i DataConnectorAzureAdvancedThreadProtectionMap) ToDataConnectorAzureAdvan
 type DataConnectorAzureAdvancedThreadProtectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureAdvancedThreadProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtection)(nil))
+	return reflect.TypeOf((**DataConnectorAzureAdvancedThreadProtection)(nil)).Elem()
 }
 
 func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToDataConnectorAzureAdvancedThreadProtectionOutput() DataConnectorAzureAdvancedThreadProtectionOutput {
@@ -274,44 +245,10 @@ func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToDataConnectorAzureAd
 	return o
 }
 
-func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToDataConnectorAzureAdvancedThreadProtectionPtrOutput() DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return o.ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorAzureAdvancedThreadProtection) *DataConnectorAzureAdvancedThreadProtection {
-		return &v
-	}).(DataConnectorAzureAdvancedThreadProtectionPtrOutput)
-}
-
-type DataConnectorAzureAdvancedThreadProtectionPtrOutput struct{ *pulumi.OutputState }
-
-func (DataConnectorAzureAdvancedThreadProtectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorAzureAdvancedThreadProtection)(nil))
-}
-
-func (o DataConnectorAzureAdvancedThreadProtectionPtrOutput) ToDataConnectorAzureAdvancedThreadProtectionPtrOutput() DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return o
-}
-
-func (o DataConnectorAzureAdvancedThreadProtectionPtrOutput) ToDataConnectorAzureAdvancedThreadProtectionPtrOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionPtrOutput {
-	return o
-}
-
-func (o DataConnectorAzureAdvancedThreadProtectionPtrOutput) Elem() DataConnectorAzureAdvancedThreadProtectionOutput {
-	return o.ApplyT(func(v *DataConnectorAzureAdvancedThreadProtection) DataConnectorAzureAdvancedThreadProtection {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorAzureAdvancedThreadProtection
-		return ret
-	}).(DataConnectorAzureAdvancedThreadProtectionOutput)
-}
-
 type DataConnectorAzureAdvancedThreadProtectionArrayOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureAdvancedThreadProtectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataConnectorAzureAdvancedThreadProtection)(nil))
+	return reflect.TypeOf((*[]*DataConnectorAzureAdvancedThreadProtection)(nil)).Elem()
 }
 
 func (o DataConnectorAzureAdvancedThreadProtectionArrayOutput) ToDataConnectorAzureAdvancedThreadProtectionArrayOutput() DataConnectorAzureAdvancedThreadProtectionArrayOutput {
@@ -323,15 +260,15 @@ func (o DataConnectorAzureAdvancedThreadProtectionArrayOutput) ToDataConnectorAz
 }
 
 func (o DataConnectorAzureAdvancedThreadProtectionArrayOutput) Index(i pulumi.IntInput) DataConnectorAzureAdvancedThreadProtectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataConnectorAzureAdvancedThreadProtection {
-		return vs[0].([]DataConnectorAzureAdvancedThreadProtection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAzureAdvancedThreadProtection {
+		return vs[0].([]*DataConnectorAzureAdvancedThreadProtection)[vs[1].(int)]
 	}).(DataConnectorAzureAdvancedThreadProtectionOutput)
 }
 
 type DataConnectorAzureAdvancedThreadProtectionMapOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureAdvancedThreadProtectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataConnectorAzureAdvancedThreadProtection)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorAzureAdvancedThreadProtection)(nil)).Elem()
 }
 
 func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) ToDataConnectorAzureAdvancedThreadProtectionMapOutput() DataConnectorAzureAdvancedThreadProtectionMapOutput {
@@ -343,18 +280,16 @@ func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) ToDataConnectorAzur
 }
 
 func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAzureAdvancedThreadProtectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataConnectorAzureAdvancedThreadProtection {
-		return vs[0].(map[string]DataConnectorAzureAdvancedThreadProtection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataConnectorAzureAdvancedThreadProtection {
+		return vs[0].(map[string]*DataConnectorAzureAdvancedThreadProtection)[vs[1].(string)]
 	}).(DataConnectorAzureAdvancedThreadProtectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionInput)(nil)).Elem(), &DataConnectorAzureAdvancedThreadProtection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionPtrInput)(nil)).Elem(), &DataConnectorAzureAdvancedThreadProtection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionArrayInput)(nil)).Elem(), DataConnectorAzureAdvancedThreadProtectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionMapInput)(nil)).Elem(), DataConnectorAzureAdvancedThreadProtectionMap{})
 	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionOutput{})
-	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionMapOutput{})
 }

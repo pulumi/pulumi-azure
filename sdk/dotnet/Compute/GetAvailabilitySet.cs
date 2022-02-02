@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Availability Set.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
     }
 
 

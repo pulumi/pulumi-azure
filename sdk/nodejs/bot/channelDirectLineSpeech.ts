@@ -110,17 +110,17 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelDirectLineSpeechArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelDirectLineSpeechArgs | ChannelDirectLineSpeechState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelDirectLineSpeechState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["cognitiveServiceAccessKey"] = state ? state.cognitiveServiceAccessKey : undefined;
-            inputs["cognitiveServiceLocation"] = state ? state.cognitiveServiceLocation : undefined;
-            inputs["customSpeechModelId"] = state ? state.customSpeechModelId : undefined;
-            inputs["customVoiceDeploymentId"] = state ? state.customVoiceDeploymentId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["cognitiveServiceAccessKey"] = state ? state.cognitiveServiceAccessKey : undefined;
+            resourceInputs["cognitiveServiceLocation"] = state ? state.cognitiveServiceLocation : undefined;
+            resourceInputs["customSpeechModelId"] = state ? state.customSpeechModelId : undefined;
+            resourceInputs["customVoiceDeploymentId"] = state ? state.customVoiceDeploymentId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelDirectLineSpeechArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -135,18 +135,16 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["cognitiveServiceAccessKey"] = args ? args.cognitiveServiceAccessKey : undefined;
-            inputs["cognitiveServiceLocation"] = args ? args.cognitiveServiceLocation : undefined;
-            inputs["customSpeechModelId"] = args ? args.customSpeechModelId : undefined;
-            inputs["customVoiceDeploymentId"] = args ? args.customVoiceDeploymentId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["cognitiveServiceAccessKey"] = args ? args.cognitiveServiceAccessKey : undefined;
+            resourceInputs["cognitiveServiceLocation"] = args ? args.cognitiveServiceLocation : undefined;
+            resourceInputs["customSpeechModelId"] = args ? args.customSpeechModelId : undefined;
+            resourceInputs["customVoiceDeploymentId"] = args ? args.customVoiceDeploymentId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ChannelDirectLineSpeech.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ChannelDirectLineSpeech.__pulumiType, name, resourceInputs, opts);
     }
 }
 

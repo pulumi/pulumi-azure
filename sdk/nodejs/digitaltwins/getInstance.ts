@@ -25,9 +25,7 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:digitaltwins/getInstance:getInstance", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

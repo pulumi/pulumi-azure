@@ -110,14 +110,14 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkRuleArgs | VirtualNetworkRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkRuleState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkRuleArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -129,15 +129,13 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Monitoring
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDiagnosticCategoriesResult> InvokeAsync(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDiagnosticCategoriesResult> Invoke(GetDiagnosticCategoriesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesInvokeArgs(), options.WithDefaults());
     }
 
 

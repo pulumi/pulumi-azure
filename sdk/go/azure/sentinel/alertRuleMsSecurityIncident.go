@@ -262,7 +262,7 @@ type AlertRuleMsSecurityIncidentInput interface {
 }
 
 func (*AlertRuleMsSecurityIncident) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleMsSecurityIncident)(nil))
+	return reflect.TypeOf((**AlertRuleMsSecurityIncident)(nil)).Elem()
 }
 
 func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutput() AlertRuleMsSecurityIncidentOutput {
@@ -271,35 +271,6 @@ func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutput() Aler
 
 func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentOutput)
-}
-
-func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentPtrOutput() AlertRuleMsSecurityIncidentPtrOutput {
-	return i.ToAlertRuleMsSecurityIncidentPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentPtrOutput)
-}
-
-type AlertRuleMsSecurityIncidentPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleMsSecurityIncidentPtrOutput() AlertRuleMsSecurityIncidentPtrOutput
-	ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput
-}
-
-type alertRuleMsSecurityIncidentPtrType AlertRuleMsSecurityIncidentArgs
-
-func (*alertRuleMsSecurityIncidentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleMsSecurityIncident)(nil))
-}
-
-func (i *alertRuleMsSecurityIncidentPtrType) ToAlertRuleMsSecurityIncidentPtrOutput() AlertRuleMsSecurityIncidentPtrOutput {
-	return i.ToAlertRuleMsSecurityIncidentPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleMsSecurityIncidentPtrType) ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentPtrOutput)
 }
 
 // AlertRuleMsSecurityIncidentArrayInput is an input type that accepts AlertRuleMsSecurityIncidentArray and AlertRuleMsSecurityIncidentArrayOutput values.
@@ -355,7 +326,7 @@ func (i AlertRuleMsSecurityIncidentMap) ToAlertRuleMsSecurityIncidentMapOutputWi
 type AlertRuleMsSecurityIncidentOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMsSecurityIncidentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleMsSecurityIncident)(nil))
+	return reflect.TypeOf((**AlertRuleMsSecurityIncident)(nil)).Elem()
 }
 
 func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentOutput() AlertRuleMsSecurityIncidentOutput {
@@ -366,44 +337,10 @@ func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentOutputWi
 	return o
 }
 
-func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentPtrOutput() AlertRuleMsSecurityIncidentPtrOutput {
-	return o.ToAlertRuleMsSecurityIncidentPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleMsSecurityIncident) *AlertRuleMsSecurityIncident {
-		return &v
-	}).(AlertRuleMsSecurityIncidentPtrOutput)
-}
-
-type AlertRuleMsSecurityIncidentPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleMsSecurityIncidentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleMsSecurityIncident)(nil))
-}
-
-func (o AlertRuleMsSecurityIncidentPtrOutput) ToAlertRuleMsSecurityIncidentPtrOutput() AlertRuleMsSecurityIncidentPtrOutput {
-	return o
-}
-
-func (o AlertRuleMsSecurityIncidentPtrOutput) ToAlertRuleMsSecurityIncidentPtrOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentPtrOutput {
-	return o
-}
-
-func (o AlertRuleMsSecurityIncidentPtrOutput) Elem() AlertRuleMsSecurityIncidentOutput {
-	return o.ApplyT(func(v *AlertRuleMsSecurityIncident) AlertRuleMsSecurityIncident {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleMsSecurityIncident
-		return ret
-	}).(AlertRuleMsSecurityIncidentOutput)
-}
-
 type AlertRuleMsSecurityIncidentArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMsSecurityIncidentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertRuleMsSecurityIncident)(nil))
+	return reflect.TypeOf((*[]*AlertRuleMsSecurityIncident)(nil)).Elem()
 }
 
 func (o AlertRuleMsSecurityIncidentArrayOutput) ToAlertRuleMsSecurityIncidentArrayOutput() AlertRuleMsSecurityIncidentArrayOutput {
@@ -415,15 +352,15 @@ func (o AlertRuleMsSecurityIncidentArrayOutput) ToAlertRuleMsSecurityIncidentArr
 }
 
 func (o AlertRuleMsSecurityIncidentArrayOutput) Index(i pulumi.IntInput) AlertRuleMsSecurityIncidentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleMsSecurityIncident {
-		return vs[0].([]AlertRuleMsSecurityIncident)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleMsSecurityIncident {
+		return vs[0].([]*AlertRuleMsSecurityIncident)[vs[1].(int)]
 	}).(AlertRuleMsSecurityIncidentOutput)
 }
 
 type AlertRuleMsSecurityIncidentMapOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMsSecurityIncidentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertRuleMsSecurityIncident)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleMsSecurityIncident)(nil)).Elem()
 }
 
 func (o AlertRuleMsSecurityIncidentMapOutput) ToAlertRuleMsSecurityIncidentMapOutput() AlertRuleMsSecurityIncidentMapOutput {
@@ -435,18 +372,16 @@ func (o AlertRuleMsSecurityIncidentMapOutput) ToAlertRuleMsSecurityIncidentMapOu
 }
 
 func (o AlertRuleMsSecurityIncidentMapOutput) MapIndex(k pulumi.StringInput) AlertRuleMsSecurityIncidentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertRuleMsSecurityIncident {
-		return vs[0].(map[string]AlertRuleMsSecurityIncident)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertRuleMsSecurityIncident {
+		return vs[0].(map[string]*AlertRuleMsSecurityIncident)[vs[1].(string)]
 	}).(AlertRuleMsSecurityIncidentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentInput)(nil)).Elem(), &AlertRuleMsSecurityIncident{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentPtrInput)(nil)).Elem(), &AlertRuleMsSecurityIncident{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentArrayInput)(nil)).Elem(), AlertRuleMsSecurityIncidentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentMapInput)(nil)).Elem(), AlertRuleMsSecurityIncidentMap{})
 	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentOutput{})
-	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentMapOutput{})
 }

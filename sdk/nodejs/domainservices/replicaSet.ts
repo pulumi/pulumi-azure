@@ -294,16 +294,16 @@ export class ReplicaSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicaSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicaSetArgs | ReplicaSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicaSetState | undefined;
-            inputs["domainControllerIpAddresses"] = state ? state.domainControllerIpAddresses : undefined;
-            inputs["domainServiceId"] = state ? state.domainServiceId : undefined;
-            inputs["externalAccessIpAddress"] = state ? state.externalAccessIpAddress : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["serviceStatus"] = state ? state.serviceStatus : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["domainControllerIpAddresses"] = state ? state.domainControllerIpAddresses : undefined;
+            resourceInputs["domainServiceId"] = state ? state.domainServiceId : undefined;
+            resourceInputs["externalAccessIpAddress"] = state ? state.externalAccessIpAddress : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["serviceStatus"] = state ? state.serviceStatus : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as ReplicaSetArgs | undefined;
             if ((!args || args.domainServiceId === undefined) && !opts.urn) {
@@ -312,17 +312,15 @@ export class ReplicaSet extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["domainServiceId"] = args ? args.domainServiceId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["domainControllerIpAddresses"] = undefined /*out*/;
-            inputs["externalAccessIpAddress"] = undefined /*out*/;
-            inputs["serviceStatus"] = undefined /*out*/;
+            resourceInputs["domainServiceId"] = args ? args.domainServiceId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["domainControllerIpAddresses"] = undefined /*out*/;
+            resourceInputs["externalAccessIpAddress"] = undefined /*out*/;
+            resourceInputs["serviceStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicaSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicaSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

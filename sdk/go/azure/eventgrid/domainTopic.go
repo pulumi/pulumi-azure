@@ -159,7 +159,7 @@ type DomainTopicInput interface {
 }
 
 func (*DomainTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopic)(nil))
+	return reflect.TypeOf((**DomainTopic)(nil)).Elem()
 }
 
 func (i *DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
@@ -168,35 +168,6 @@ func (i *DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
 
 func (i *DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
-}
-
-func (i *DomainTopic) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
-	return i.ToDomainTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *DomainTopic) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicPtrOutput)
-}
-
-type DomainTopicPtrInput interface {
-	pulumi.Input
-
-	ToDomainTopicPtrOutput() DomainTopicPtrOutput
-	ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput
-}
-
-type domainTopicPtrType DomainTopicArgs
-
-func (*domainTopicPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainTopic)(nil))
-}
-
-func (i *domainTopicPtrType) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
-	return i.ToDomainTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *domainTopicPtrType) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicPtrOutput)
 }
 
 // DomainTopicArrayInput is an input type that accepts DomainTopicArray and DomainTopicArrayOutput values.
@@ -252,7 +223,7 @@ func (i DomainTopicMap) ToDomainTopicMapOutputWithContext(ctx context.Context) D
 type DomainTopicOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopic)(nil))
+	return reflect.TypeOf((**DomainTopic)(nil)).Elem()
 }
 
 func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {
@@ -263,44 +234,10 @@ func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) D
 	return o
 }
 
-func (o DomainTopicOutput) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
-	return o.ToDomainTopicPtrOutputWithContext(context.Background())
-}
-
-func (o DomainTopicOutput) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTopic) *DomainTopic {
-		return &v
-	}).(DomainTopicPtrOutput)
-}
-
-type DomainTopicPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainTopicPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainTopic)(nil))
-}
-
-func (o DomainTopicPtrOutput) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
-	return o
-}
-
-func (o DomainTopicPtrOutput) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
-	return o
-}
-
-func (o DomainTopicPtrOutput) Elem() DomainTopicOutput {
-	return o.ApplyT(func(v *DomainTopic) DomainTopic {
-		if v != nil {
-			return *v
-		}
-		var ret DomainTopic
-		return ret
-	}).(DomainTopicOutput)
-}
-
 type DomainTopicArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainTopic)(nil))
+	return reflect.TypeOf((*[]*DomainTopic)(nil)).Elem()
 }
 
 func (o DomainTopicArrayOutput) ToDomainTopicArrayOutput() DomainTopicArrayOutput {
@@ -312,15 +249,15 @@ func (o DomainTopicArrayOutput) ToDomainTopicArrayOutputWithContext(ctx context.
 }
 
 func (o DomainTopicArrayOutput) Index(i pulumi.IntInput) DomainTopicOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTopic {
-		return vs[0].([]DomainTopic)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainTopic {
+		return vs[0].([]*DomainTopic)[vs[1].(int)]
 	}).(DomainTopicOutput)
 }
 
 type DomainTopicMapOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DomainTopic)(nil))
+	return reflect.TypeOf((*map[string]*DomainTopic)(nil)).Elem()
 }
 
 func (o DomainTopicMapOutput) ToDomainTopicMapOutput() DomainTopicMapOutput {
@@ -332,18 +269,16 @@ func (o DomainTopicMapOutput) ToDomainTopicMapOutputWithContext(ctx context.Cont
 }
 
 func (o DomainTopicMapOutput) MapIndex(k pulumi.StringInput) DomainTopicOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainTopic {
-		return vs[0].(map[string]DomainTopic)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DomainTopic {
+		return vs[0].(map[string]*DomainTopic)[vs[1].(string)]
 	}).(DomainTopicOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicInput)(nil)).Elem(), &DomainTopic{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicPtrInput)(nil)).Elem(), &DomainTopic{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicArrayInput)(nil)).Elem(), DomainTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicMapInput)(nil)).Elem(), DomainTopicMap{})
 	pulumi.RegisterOutputType(DomainTopicOutput{})
-	pulumi.RegisterOutputType(DomainTopicPtrOutput{})
 	pulumi.RegisterOutputType(DomainTopicArrayOutput{})
 	pulumi.RegisterOutputType(DomainTopicMapOutput{})
 }

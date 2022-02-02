@@ -102,18 +102,18 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            inputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
-            inputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
-            inputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
+            resourceInputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
+            resourceInputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -122,19 +122,17 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["dscPrimaryAccessKey"] = undefined /*out*/;
-            inputs["dscSecondaryAccessKey"] = undefined /*out*/;
-            inputs["dscServerEndpoint"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dscPrimaryAccessKey"] = undefined /*out*/;
+            resourceInputs["dscSecondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["dscServerEndpoint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Account.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

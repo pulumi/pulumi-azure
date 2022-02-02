@@ -217,7 +217,7 @@ type SavedSearchInput interface {
 }
 
 func (*SavedSearch) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearch)(nil))
+	return reflect.TypeOf((**SavedSearch)(nil)).Elem()
 }
 
 func (i *SavedSearch) ToSavedSearchOutput() SavedSearchOutput {
@@ -226,35 +226,6 @@ func (i *SavedSearch) ToSavedSearchOutput() SavedSearchOutput {
 
 func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
-}
-
-func (i *SavedSearch) ToSavedSearchPtrOutput() SavedSearchPtrOutput {
-	return i.ToSavedSearchPtrOutputWithContext(context.Background())
-}
-
-func (i *SavedSearch) ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchPtrOutput)
-}
-
-type SavedSearchPtrInput interface {
-	pulumi.Input
-
-	ToSavedSearchPtrOutput() SavedSearchPtrOutput
-	ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput
-}
-
-type savedSearchPtrType SavedSearchArgs
-
-func (*savedSearchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SavedSearch)(nil))
-}
-
-func (i *savedSearchPtrType) ToSavedSearchPtrOutput() SavedSearchPtrOutput {
-	return i.ToSavedSearchPtrOutputWithContext(context.Background())
-}
-
-func (i *savedSearchPtrType) ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchPtrOutput)
 }
 
 // SavedSearchArrayInput is an input type that accepts SavedSearchArray and SavedSearchArrayOutput values.
@@ -310,7 +281,7 @@ func (i SavedSearchMap) ToSavedSearchMapOutputWithContext(ctx context.Context) S
 type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearch)(nil))
+	return reflect.TypeOf((**SavedSearch)(nil)).Elem()
 }
 
 func (o SavedSearchOutput) ToSavedSearchOutput() SavedSearchOutput {
@@ -321,44 +292,10 @@ func (o SavedSearchOutput) ToSavedSearchOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SavedSearchOutput) ToSavedSearchPtrOutput() SavedSearchPtrOutput {
-	return o.ToSavedSearchPtrOutputWithContext(context.Background())
-}
-
-func (o SavedSearchOutput) ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SavedSearch) *SavedSearch {
-		return &v
-	}).(SavedSearchPtrOutput)
-}
-
-type SavedSearchPtrOutput struct{ *pulumi.OutputState }
-
-func (SavedSearchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SavedSearch)(nil))
-}
-
-func (o SavedSearchPtrOutput) ToSavedSearchPtrOutput() SavedSearchPtrOutput {
-	return o
-}
-
-func (o SavedSearchPtrOutput) ToSavedSearchPtrOutputWithContext(ctx context.Context) SavedSearchPtrOutput {
-	return o
-}
-
-func (o SavedSearchPtrOutput) Elem() SavedSearchOutput {
-	return o.ApplyT(func(v *SavedSearch) SavedSearch {
-		if v != nil {
-			return *v
-		}
-		var ret SavedSearch
-		return ret
-	}).(SavedSearchOutput)
-}
-
 type SavedSearchArrayOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SavedSearch)(nil))
+	return reflect.TypeOf((*[]*SavedSearch)(nil)).Elem()
 }
 
 func (o SavedSearchArrayOutput) ToSavedSearchArrayOutput() SavedSearchArrayOutput {
@@ -370,15 +307,15 @@ func (o SavedSearchArrayOutput) ToSavedSearchArrayOutputWithContext(ctx context.
 }
 
 func (o SavedSearchArrayOutput) Index(i pulumi.IntInput) SavedSearchOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SavedSearch {
-		return vs[0].([]SavedSearch)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SavedSearch {
+		return vs[0].([]*SavedSearch)[vs[1].(int)]
 	}).(SavedSearchOutput)
 }
 
 type SavedSearchMapOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SavedSearch)(nil))
+	return reflect.TypeOf((*map[string]*SavedSearch)(nil)).Elem()
 }
 
 func (o SavedSearchMapOutput) ToSavedSearchMapOutput() SavedSearchMapOutput {
@@ -390,18 +327,16 @@ func (o SavedSearchMapOutput) ToSavedSearchMapOutputWithContext(ctx context.Cont
 }
 
 func (o SavedSearchMapOutput) MapIndex(k pulumi.StringInput) SavedSearchOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SavedSearch {
-		return vs[0].(map[string]SavedSearch)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SavedSearch {
+		return vs[0].(map[string]*SavedSearch)[vs[1].(string)]
 	}).(SavedSearchOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchInput)(nil)).Elem(), &SavedSearch{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchPtrInput)(nil)).Elem(), &SavedSearch{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchArrayInput)(nil)).Elem(), SavedSearchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchMapInput)(nil)).Elem(), SavedSearchMap{})
 	pulumi.RegisterOutputType(SavedSearchOutput{})
-	pulumi.RegisterOutputType(SavedSearchPtrOutput{})
 	pulumi.RegisterOutputType(SavedSearchArrayOutput{})
 	pulumi.RegisterOutputType(SavedSearchMapOutput{})
 }

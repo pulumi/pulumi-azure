@@ -261,7 +261,7 @@ type CacheBlobTargetInput interface {
 }
 
 func (*CacheBlobTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheBlobTarget)(nil))
+	return reflect.TypeOf((**CacheBlobTarget)(nil)).Elem()
 }
 
 func (i *CacheBlobTarget) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
@@ -270,35 +270,6 @@ func (i *CacheBlobTarget) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
 
 func (i *CacheBlobTarget) ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetOutput)
-}
-
-func (i *CacheBlobTarget) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
-	return i.ToCacheBlobTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *CacheBlobTarget) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetPtrOutput)
-}
-
-type CacheBlobTargetPtrInput interface {
-	pulumi.Input
-
-	ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput
-	ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput
-}
-
-type cacheBlobTargetPtrType CacheBlobTargetArgs
-
-func (*cacheBlobTargetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheBlobTarget)(nil))
-}
-
-func (i *cacheBlobTargetPtrType) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
-	return i.ToCacheBlobTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *cacheBlobTargetPtrType) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetPtrOutput)
 }
 
 // CacheBlobTargetArrayInput is an input type that accepts CacheBlobTargetArray and CacheBlobTargetArrayOutput values.
@@ -354,7 +325,7 @@ func (i CacheBlobTargetMap) ToCacheBlobTargetMapOutputWithContext(ctx context.Co
 type CacheBlobTargetOutput struct{ *pulumi.OutputState }
 
 func (CacheBlobTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheBlobTarget)(nil))
+	return reflect.TypeOf((**CacheBlobTarget)(nil)).Elem()
 }
 
 func (o CacheBlobTargetOutput) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
@@ -365,44 +336,10 @@ func (o CacheBlobTargetOutput) ToCacheBlobTargetOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o CacheBlobTargetOutput) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
-	return o.ToCacheBlobTargetPtrOutputWithContext(context.Background())
-}
-
-func (o CacheBlobTargetOutput) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheBlobTarget) *CacheBlobTarget {
-		return &v
-	}).(CacheBlobTargetPtrOutput)
-}
-
-type CacheBlobTargetPtrOutput struct{ *pulumi.OutputState }
-
-func (CacheBlobTargetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheBlobTarget)(nil))
-}
-
-func (o CacheBlobTargetPtrOutput) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
-	return o
-}
-
-func (o CacheBlobTargetPtrOutput) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
-	return o
-}
-
-func (o CacheBlobTargetPtrOutput) Elem() CacheBlobTargetOutput {
-	return o.ApplyT(func(v *CacheBlobTarget) CacheBlobTarget {
-		if v != nil {
-			return *v
-		}
-		var ret CacheBlobTarget
-		return ret
-	}).(CacheBlobTargetOutput)
-}
-
 type CacheBlobTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (CacheBlobTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CacheBlobTarget)(nil))
+	return reflect.TypeOf((*[]*CacheBlobTarget)(nil)).Elem()
 }
 
 func (o CacheBlobTargetArrayOutput) ToCacheBlobTargetArrayOutput() CacheBlobTargetArrayOutput {
@@ -414,15 +351,15 @@ func (o CacheBlobTargetArrayOutput) ToCacheBlobTargetArrayOutputWithContext(ctx 
 }
 
 func (o CacheBlobTargetArrayOutput) Index(i pulumi.IntInput) CacheBlobTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheBlobTarget {
-		return vs[0].([]CacheBlobTarget)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CacheBlobTarget {
+		return vs[0].([]*CacheBlobTarget)[vs[1].(int)]
 	}).(CacheBlobTargetOutput)
 }
 
 type CacheBlobTargetMapOutput struct{ *pulumi.OutputState }
 
 func (CacheBlobTargetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CacheBlobTarget)(nil))
+	return reflect.TypeOf((*map[string]*CacheBlobTarget)(nil)).Elem()
 }
 
 func (o CacheBlobTargetMapOutput) ToCacheBlobTargetMapOutput() CacheBlobTargetMapOutput {
@@ -434,18 +371,16 @@ func (o CacheBlobTargetMapOutput) ToCacheBlobTargetMapOutputWithContext(ctx cont
 }
 
 func (o CacheBlobTargetMapOutput) MapIndex(k pulumi.StringInput) CacheBlobTargetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CacheBlobTarget {
-		return vs[0].(map[string]CacheBlobTarget)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CacheBlobTarget {
+		return vs[0].(map[string]*CacheBlobTarget)[vs[1].(string)]
 	}).(CacheBlobTargetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetInput)(nil)).Elem(), &CacheBlobTarget{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetPtrInput)(nil)).Elem(), &CacheBlobTarget{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetArrayInput)(nil)).Elem(), CacheBlobTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetMapInput)(nil)).Elem(), CacheBlobTargetMap{})
 	pulumi.RegisterOutputType(CacheBlobTargetOutput{})
-	pulumi.RegisterOutputType(CacheBlobTargetPtrOutput{})
 	pulumi.RegisterOutputType(CacheBlobTargetArrayOutput{})
 	pulumi.RegisterOutputType(CacheBlobTargetMapOutput{})
 }

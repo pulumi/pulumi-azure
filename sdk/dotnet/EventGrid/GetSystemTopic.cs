@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventGrid
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.EventGrid
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing EventGrid System Topic
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.EventGrid
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithDefaults());
     }
 
 

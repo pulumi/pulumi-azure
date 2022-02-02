@@ -93,14 +93,14 @@ export class ChannelAlexa extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelAlexaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelAlexaArgs | ChannelAlexaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelAlexaState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skillId"] = state ? state.skillId : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skillId"] = state ? state.skillId : undefined;
         } else {
             const args = argsOrState as ChannelAlexaArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -112,15 +112,13 @@ export class ChannelAlexa extends pulumi.CustomResource {
             if ((!args || args.skillId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skillId'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skillId"] = args ? args.skillId : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skillId"] = args ? args.skillId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ChannelAlexa.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ChannelAlexa.__pulumiType, name, resourceInputs, opts);
     }
 }
 

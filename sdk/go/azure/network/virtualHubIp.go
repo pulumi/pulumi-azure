@@ -218,7 +218,7 @@ type VirtualHubIpInput interface {
 }
 
 func (*VirtualHubIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIp)(nil))
+	return reflect.TypeOf((**VirtualHubIp)(nil)).Elem()
 }
 
 func (i *VirtualHubIp) ToVirtualHubIpOutput() VirtualHubIpOutput {
@@ -227,35 +227,6 @@ func (i *VirtualHubIp) ToVirtualHubIpOutput() VirtualHubIpOutput {
 
 func (i *VirtualHubIp) ToVirtualHubIpOutputWithContext(ctx context.Context) VirtualHubIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpOutput)
-}
-
-func (i *VirtualHubIp) ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput {
-	return i.ToVirtualHubIpPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualHubIp) ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpPtrOutput)
-}
-
-type VirtualHubIpPtrInput interface {
-	pulumi.Input
-
-	ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput
-	ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput
-}
-
-type virtualHubIpPtrType VirtualHubIpArgs
-
-func (*virtualHubIpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualHubIp)(nil))
-}
-
-func (i *virtualHubIpPtrType) ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput {
-	return i.ToVirtualHubIpPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualHubIpPtrType) ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpPtrOutput)
 }
 
 // VirtualHubIpArrayInput is an input type that accepts VirtualHubIpArray and VirtualHubIpArrayOutput values.
@@ -311,7 +282,7 @@ func (i VirtualHubIpMap) ToVirtualHubIpMapOutputWithContext(ctx context.Context)
 type VirtualHubIpOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIp)(nil))
+	return reflect.TypeOf((**VirtualHubIp)(nil)).Elem()
 }
 
 func (o VirtualHubIpOutput) ToVirtualHubIpOutput() VirtualHubIpOutput {
@@ -322,44 +293,10 @@ func (o VirtualHubIpOutput) ToVirtualHubIpOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o VirtualHubIpOutput) ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput {
-	return o.ToVirtualHubIpPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualHubIpOutput) ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHubIp) *VirtualHubIp {
-		return &v
-	}).(VirtualHubIpPtrOutput)
-}
-
-type VirtualHubIpPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualHubIpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualHubIp)(nil))
-}
-
-func (o VirtualHubIpPtrOutput) ToVirtualHubIpPtrOutput() VirtualHubIpPtrOutput {
-	return o
-}
-
-func (o VirtualHubIpPtrOutput) ToVirtualHubIpPtrOutputWithContext(ctx context.Context) VirtualHubIpPtrOutput {
-	return o
-}
-
-func (o VirtualHubIpPtrOutput) Elem() VirtualHubIpOutput {
-	return o.ApplyT(func(v *VirtualHubIp) VirtualHubIp {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualHubIp
-		return ret
-	}).(VirtualHubIpOutput)
-}
-
 type VirtualHubIpArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualHubIp)(nil))
+	return reflect.TypeOf((*[]*VirtualHubIp)(nil)).Elem()
 }
 
 func (o VirtualHubIpArrayOutput) ToVirtualHubIpArrayOutput() VirtualHubIpArrayOutput {
@@ -371,15 +308,15 @@ func (o VirtualHubIpArrayOutput) ToVirtualHubIpArrayOutputWithContext(ctx contex
 }
 
 func (o VirtualHubIpArrayOutput) Index(i pulumi.IntInput) VirtualHubIpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubIp {
-		return vs[0].([]VirtualHubIp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHubIp {
+		return vs[0].([]*VirtualHubIp)[vs[1].(int)]
 	}).(VirtualHubIpOutput)
 }
 
 type VirtualHubIpMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualHubIp)(nil))
+	return reflect.TypeOf((*map[string]*VirtualHubIp)(nil)).Elem()
 }
 
 func (o VirtualHubIpMapOutput) ToVirtualHubIpMapOutput() VirtualHubIpMapOutput {
@@ -391,18 +328,16 @@ func (o VirtualHubIpMapOutput) ToVirtualHubIpMapOutputWithContext(ctx context.Co
 }
 
 func (o VirtualHubIpMapOutput) MapIndex(k pulumi.StringInput) VirtualHubIpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualHubIp {
-		return vs[0].(map[string]VirtualHubIp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualHubIp {
+		return vs[0].(map[string]*VirtualHubIp)[vs[1].(string)]
 	}).(VirtualHubIpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpInput)(nil)).Elem(), &VirtualHubIp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpPtrInput)(nil)).Elem(), &VirtualHubIp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpArrayInput)(nil)).Elem(), VirtualHubIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpMapInput)(nil)).Elem(), VirtualHubIpMap{})
 	pulumi.RegisterOutputType(VirtualHubIpOutput{})
-	pulumi.RegisterOutputType(VirtualHubIpPtrOutput{})
 	pulumi.RegisterOutputType(VirtualHubIpArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHubIpMapOutput{})
 }

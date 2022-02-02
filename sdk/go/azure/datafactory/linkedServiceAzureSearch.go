@@ -192,7 +192,7 @@ type LinkedServiceAzureSearchInput interface {
 }
 
 func (*LinkedServiceAzureSearch) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureSearch)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureSearch)(nil)).Elem()
 }
 
 func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchOutput() LinkedServiceAzureSearchOutput {
@@ -201,35 +201,6 @@ func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchOutput() LinkedServ
 
 func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchOutputWithContext(ctx context.Context) LinkedServiceAzureSearchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSearchOutput)
-}
-
-func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchPtrOutput() LinkedServiceAzureSearchPtrOutput {
-	return i.ToLinkedServiceAzureSearchPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSearchPtrOutput)
-}
-
-type LinkedServiceAzureSearchPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureSearchPtrOutput() LinkedServiceAzureSearchPtrOutput
-	ToLinkedServiceAzureSearchPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSearchPtrOutput
-}
-
-type linkedServiceAzureSearchPtrType LinkedServiceAzureSearchArgs
-
-func (*linkedServiceAzureSearchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureSearch)(nil))
-}
-
-func (i *linkedServiceAzureSearchPtrType) ToLinkedServiceAzureSearchPtrOutput() LinkedServiceAzureSearchPtrOutput {
-	return i.ToLinkedServiceAzureSearchPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureSearchPtrType) ToLinkedServiceAzureSearchPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSearchPtrOutput)
 }
 
 // LinkedServiceAzureSearchArrayInput is an input type that accepts LinkedServiceAzureSearchArray and LinkedServiceAzureSearchArrayOutput values.
@@ -285,7 +256,7 @@ func (i LinkedServiceAzureSearchMap) ToLinkedServiceAzureSearchMapOutputWithCont
 type LinkedServiceAzureSearchOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureSearch)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureSearch)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchOutput() LinkedServiceAzureSearchOutput {
@@ -296,44 +267,10 @@ func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchOutputWithCont
 	return o
 }
 
-func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchPtrOutput() LinkedServiceAzureSearchPtrOutput {
-	return o.ToLinkedServiceAzureSearchPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSearchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureSearch) *LinkedServiceAzureSearch {
-		return &v
-	}).(LinkedServiceAzureSearchPtrOutput)
-}
-
-type LinkedServiceAzureSearchPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureSearchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureSearch)(nil))
-}
-
-func (o LinkedServiceAzureSearchPtrOutput) ToLinkedServiceAzureSearchPtrOutput() LinkedServiceAzureSearchPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureSearchPtrOutput) ToLinkedServiceAzureSearchPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSearchPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureSearchPtrOutput) Elem() LinkedServiceAzureSearchOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureSearch) LinkedServiceAzureSearch {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureSearch
-		return ret
-	}).(LinkedServiceAzureSearchOutput)
-}
-
 type LinkedServiceAzureSearchArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSearchArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceAzureSearch)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceAzureSearch)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureSearchArrayOutput) ToLinkedServiceAzureSearchArrayOutput() LinkedServiceAzureSearchArrayOutput {
@@ -345,15 +282,15 @@ func (o LinkedServiceAzureSearchArrayOutput) ToLinkedServiceAzureSearchArrayOutp
 }
 
 func (o LinkedServiceAzureSearchArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureSearchOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceAzureSearch {
-		return vs[0].([]LinkedServiceAzureSearch)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureSearch {
+		return vs[0].([]*LinkedServiceAzureSearch)[vs[1].(int)]
 	}).(LinkedServiceAzureSearchOutput)
 }
 
 type LinkedServiceAzureSearchMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSearchMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceAzureSearch)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceAzureSearch)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureSearchMapOutput) ToLinkedServiceAzureSearchMapOutput() LinkedServiceAzureSearchMapOutput {
@@ -365,18 +302,16 @@ func (o LinkedServiceAzureSearchMapOutput) ToLinkedServiceAzureSearchMapOutputWi
 }
 
 func (o LinkedServiceAzureSearchMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureSearchOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceAzureSearch {
-		return vs[0].(map[string]LinkedServiceAzureSearch)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceAzureSearch {
+		return vs[0].(map[string]*LinkedServiceAzureSearch)[vs[1].(string)]
 	}).(LinkedServiceAzureSearchOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSearchInput)(nil)).Elem(), &LinkedServiceAzureSearch{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSearchPtrInput)(nil)).Elem(), &LinkedServiceAzureSearch{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSearchArrayInput)(nil)).Elem(), LinkedServiceAzureSearchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSearchMapInput)(nil)).Elem(), LinkedServiceAzureSearchMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSearchOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureSearchPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSearchArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSearchMapOutput{})
 }

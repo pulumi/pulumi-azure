@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.NotificationHub
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.NotificationHub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.NotificationHub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
     }
 
 

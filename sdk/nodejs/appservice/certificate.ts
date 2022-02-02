@@ -134,52 +134,50 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["hostNames"] = state ? state.hostNames : undefined;
-            inputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
-            inputs["issueDate"] = state ? state.issueDate : undefined;
-            inputs["issuer"] = state ? state.issuer : undefined;
-            inputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["pfxBlob"] = state ? state.pfxBlob : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subjectName"] = state ? state.subjectName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["hostNames"] = state ? state.hostNames : undefined;
+            resourceInputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
+            resourceInputs["issueDate"] = state ? state.issueDate : undefined;
+            resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["pfxBlob"] = state ? state.pfxBlob : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            inputs["hostingEnvironmentProfileId"] = args ? args.hostingEnvironmentProfileId : undefined;
-            inputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["pfxBlob"] = args ? args.pfxBlob : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["hostNames"] = undefined /*out*/;
-            inputs["issueDate"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["subjectName"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
+            resourceInputs["hostingEnvironmentProfileId"] = args ? args.hostingEnvironmentProfileId : undefined;
+            resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["pfxBlob"] = args ? args.pfxBlob : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["hostNames"] = undefined /*out*/;
+            resourceInputs["issueDate"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["subjectName"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

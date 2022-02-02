@@ -25,9 +25,7 @@ export function getDatasetDataLakeGen1(args: GetDatasetDataLakeGen1Args, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", {
         "dataShareId": args.dataShareId,
         "name": args.name,

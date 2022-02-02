@@ -97,14 +97,14 @@ export class ProductGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProductGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductGroupArgs | ProductGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductGroupState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["groupName"] = state ? state.groupName : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProductGroupArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -119,15 +119,13 @@ export class ProductGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProductGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProductGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

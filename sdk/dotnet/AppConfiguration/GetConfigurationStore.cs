@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppConfiguration
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing App Configuration.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
     }
 
 

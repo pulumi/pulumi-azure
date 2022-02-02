@@ -117,19 +117,19 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizationRuleArgs | AuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizationRuleState | undefined;
-            inputs["listen"] = state ? state.listen : undefined;
-            inputs["manage"] = state ? state.manage : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["notificationHubName"] = state ? state.notificationHubName : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["send"] = state ? state.send : undefined;
+            resourceInputs["listen"] = state ? state.listen : undefined;
+            resourceInputs["manage"] = state ? state.manage : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["notificationHubName"] = state ? state.notificationHubName : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -141,20 +141,18 @@ export class AuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["listen"] = args ? args.listen : undefined;
-            inputs["manage"] = args ? args.manage : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["send"] = args ? args.send : undefined;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["listen"] = args ? args.listen : undefined;
+            resourceInputs["manage"] = args ? args.manage : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AuthorizationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

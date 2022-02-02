@@ -298,7 +298,7 @@ type DatasetBinaryInput interface {
 }
 
 func (*DatasetBinary) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetBinary)(nil))
+	return reflect.TypeOf((**DatasetBinary)(nil)).Elem()
 }
 
 func (i *DatasetBinary) ToDatasetBinaryOutput() DatasetBinaryOutput {
@@ -307,35 +307,6 @@ func (i *DatasetBinary) ToDatasetBinaryOutput() DatasetBinaryOutput {
 
 func (i *DatasetBinary) ToDatasetBinaryOutputWithContext(ctx context.Context) DatasetBinaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryOutput)
-}
-
-func (i *DatasetBinary) ToDatasetBinaryPtrOutput() DatasetBinaryPtrOutput {
-	return i.ToDatasetBinaryPtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetBinary) ToDatasetBinaryPtrOutputWithContext(ctx context.Context) DatasetBinaryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryPtrOutput)
-}
-
-type DatasetBinaryPtrInput interface {
-	pulumi.Input
-
-	ToDatasetBinaryPtrOutput() DatasetBinaryPtrOutput
-	ToDatasetBinaryPtrOutputWithContext(ctx context.Context) DatasetBinaryPtrOutput
-}
-
-type datasetBinaryPtrType DatasetBinaryArgs
-
-func (*datasetBinaryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetBinary)(nil))
-}
-
-func (i *datasetBinaryPtrType) ToDatasetBinaryPtrOutput() DatasetBinaryPtrOutput {
-	return i.ToDatasetBinaryPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetBinaryPtrType) ToDatasetBinaryPtrOutputWithContext(ctx context.Context) DatasetBinaryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryPtrOutput)
 }
 
 // DatasetBinaryArrayInput is an input type that accepts DatasetBinaryArray and DatasetBinaryArrayOutput values.
@@ -391,7 +362,7 @@ func (i DatasetBinaryMap) ToDatasetBinaryMapOutputWithContext(ctx context.Contex
 type DatasetBinaryOutput struct{ *pulumi.OutputState }
 
 func (DatasetBinaryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetBinary)(nil))
+	return reflect.TypeOf((**DatasetBinary)(nil)).Elem()
 }
 
 func (o DatasetBinaryOutput) ToDatasetBinaryOutput() DatasetBinaryOutput {
@@ -402,44 +373,10 @@ func (o DatasetBinaryOutput) ToDatasetBinaryOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DatasetBinaryOutput) ToDatasetBinaryPtrOutput() DatasetBinaryPtrOutput {
-	return o.ToDatasetBinaryPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetBinaryOutput) ToDatasetBinaryPtrOutputWithContext(ctx context.Context) DatasetBinaryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBinary) *DatasetBinary {
-		return &v
-	}).(DatasetBinaryPtrOutput)
-}
-
-type DatasetBinaryPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetBinaryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetBinary)(nil))
-}
-
-func (o DatasetBinaryPtrOutput) ToDatasetBinaryPtrOutput() DatasetBinaryPtrOutput {
-	return o
-}
-
-func (o DatasetBinaryPtrOutput) ToDatasetBinaryPtrOutputWithContext(ctx context.Context) DatasetBinaryPtrOutput {
-	return o
-}
-
-func (o DatasetBinaryPtrOutput) Elem() DatasetBinaryOutput {
-	return o.ApplyT(func(v *DatasetBinary) DatasetBinary {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetBinary
-		return ret
-	}).(DatasetBinaryOutput)
-}
-
 type DatasetBinaryArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetBinaryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetBinary)(nil))
+	return reflect.TypeOf((*[]*DatasetBinary)(nil)).Elem()
 }
 
 func (o DatasetBinaryArrayOutput) ToDatasetBinaryArrayOutput() DatasetBinaryArrayOutput {
@@ -451,15 +388,15 @@ func (o DatasetBinaryArrayOutput) ToDatasetBinaryArrayOutputWithContext(ctx cont
 }
 
 func (o DatasetBinaryArrayOutput) Index(i pulumi.IntInput) DatasetBinaryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetBinary {
-		return vs[0].([]DatasetBinary)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetBinary {
+		return vs[0].([]*DatasetBinary)[vs[1].(int)]
 	}).(DatasetBinaryOutput)
 }
 
 type DatasetBinaryMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetBinaryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetBinary)(nil))
+	return reflect.TypeOf((*map[string]*DatasetBinary)(nil)).Elem()
 }
 
 func (o DatasetBinaryMapOutput) ToDatasetBinaryMapOutput() DatasetBinaryMapOutput {
@@ -471,18 +408,16 @@ func (o DatasetBinaryMapOutput) ToDatasetBinaryMapOutputWithContext(ctx context.
 }
 
 func (o DatasetBinaryMapOutput) MapIndex(k pulumi.StringInput) DatasetBinaryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetBinary {
-		return vs[0].(map[string]DatasetBinary)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetBinary {
+		return vs[0].(map[string]*DatasetBinary)[vs[1].(string)]
 	}).(DatasetBinaryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryInput)(nil)).Elem(), &DatasetBinary{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryPtrInput)(nil)).Elem(), &DatasetBinary{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryArrayInput)(nil)).Elem(), DatasetBinaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryMapInput)(nil)).Elem(), DatasetBinaryMap{})
 	pulumi.RegisterOutputType(DatasetBinaryOutput{})
-	pulumi.RegisterOutputType(DatasetBinaryPtrOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryArrayOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryMapOutput{})
 }

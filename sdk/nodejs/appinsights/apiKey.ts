@@ -122,30 +122,28 @@ export class ApiKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["readPermissions"] = state ? state.readPermissions : undefined;
-            inputs["writePermissions"] = state ? state.writePermissions : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["readPermissions"] = state ? state.readPermissions : undefined;
+            resourceInputs["writePermissions"] = state ? state.writePermissions : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["readPermissions"] = args ? args.readPermissions : undefined;
-            inputs["writePermissions"] = args ? args.writePermissions : undefined;
-            inputs["apiKey"] = undefined /*out*/;
+            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["readPermissions"] = args ? args.readPermissions : undefined;
+            resourceInputs["writePermissions"] = args ? args.writePermissions : undefined;
+            resourceInputs["apiKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

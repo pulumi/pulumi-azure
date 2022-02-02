@@ -255,7 +255,7 @@ type OutputSynapseInput interface {
 }
 
 func (*OutputSynapse) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputSynapse)(nil))
+	return reflect.TypeOf((**OutputSynapse)(nil)).Elem()
 }
 
 func (i *OutputSynapse) ToOutputSynapseOutput() OutputSynapseOutput {
@@ -264,35 +264,6 @@ func (i *OutputSynapse) ToOutputSynapseOutput() OutputSynapseOutput {
 
 func (i *OutputSynapse) ToOutputSynapseOutputWithContext(ctx context.Context) OutputSynapseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputSynapseOutput)
-}
-
-func (i *OutputSynapse) ToOutputSynapsePtrOutput() OutputSynapsePtrOutput {
-	return i.ToOutputSynapsePtrOutputWithContext(context.Background())
-}
-
-func (i *OutputSynapse) ToOutputSynapsePtrOutputWithContext(ctx context.Context) OutputSynapsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputSynapsePtrOutput)
-}
-
-type OutputSynapsePtrInput interface {
-	pulumi.Input
-
-	ToOutputSynapsePtrOutput() OutputSynapsePtrOutput
-	ToOutputSynapsePtrOutputWithContext(ctx context.Context) OutputSynapsePtrOutput
-}
-
-type outputSynapsePtrType OutputSynapseArgs
-
-func (*outputSynapsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputSynapse)(nil))
-}
-
-func (i *outputSynapsePtrType) ToOutputSynapsePtrOutput() OutputSynapsePtrOutput {
-	return i.ToOutputSynapsePtrOutputWithContext(context.Background())
-}
-
-func (i *outputSynapsePtrType) ToOutputSynapsePtrOutputWithContext(ctx context.Context) OutputSynapsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputSynapsePtrOutput)
 }
 
 // OutputSynapseArrayInput is an input type that accepts OutputSynapseArray and OutputSynapseArrayOutput values.
@@ -348,7 +319,7 @@ func (i OutputSynapseMap) ToOutputSynapseMapOutputWithContext(ctx context.Contex
 type OutputSynapseOutput struct{ *pulumi.OutputState }
 
 func (OutputSynapseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputSynapse)(nil))
+	return reflect.TypeOf((**OutputSynapse)(nil)).Elem()
 }
 
 func (o OutputSynapseOutput) ToOutputSynapseOutput() OutputSynapseOutput {
@@ -359,44 +330,10 @@ func (o OutputSynapseOutput) ToOutputSynapseOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o OutputSynapseOutput) ToOutputSynapsePtrOutput() OutputSynapsePtrOutput {
-	return o.ToOutputSynapsePtrOutputWithContext(context.Background())
-}
-
-func (o OutputSynapseOutput) ToOutputSynapsePtrOutputWithContext(ctx context.Context) OutputSynapsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputSynapse) *OutputSynapse {
-		return &v
-	}).(OutputSynapsePtrOutput)
-}
-
-type OutputSynapsePtrOutput struct{ *pulumi.OutputState }
-
-func (OutputSynapsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputSynapse)(nil))
-}
-
-func (o OutputSynapsePtrOutput) ToOutputSynapsePtrOutput() OutputSynapsePtrOutput {
-	return o
-}
-
-func (o OutputSynapsePtrOutput) ToOutputSynapsePtrOutputWithContext(ctx context.Context) OutputSynapsePtrOutput {
-	return o
-}
-
-func (o OutputSynapsePtrOutput) Elem() OutputSynapseOutput {
-	return o.ApplyT(func(v *OutputSynapse) OutputSynapse {
-		if v != nil {
-			return *v
-		}
-		var ret OutputSynapse
-		return ret
-	}).(OutputSynapseOutput)
-}
-
 type OutputSynapseArrayOutput struct{ *pulumi.OutputState }
 
 func (OutputSynapseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OutputSynapse)(nil))
+	return reflect.TypeOf((*[]*OutputSynapse)(nil)).Elem()
 }
 
 func (o OutputSynapseArrayOutput) ToOutputSynapseArrayOutput() OutputSynapseArrayOutput {
@@ -408,15 +345,15 @@ func (o OutputSynapseArrayOutput) ToOutputSynapseArrayOutputWithContext(ctx cont
 }
 
 func (o OutputSynapseArrayOutput) Index(i pulumi.IntInput) OutputSynapseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputSynapse {
-		return vs[0].([]OutputSynapse)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputSynapse {
+		return vs[0].([]*OutputSynapse)[vs[1].(int)]
 	}).(OutputSynapseOutput)
 }
 
 type OutputSynapseMapOutput struct{ *pulumi.OutputState }
 
 func (OutputSynapseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OutputSynapse)(nil))
+	return reflect.TypeOf((*map[string]*OutputSynapse)(nil)).Elem()
 }
 
 func (o OutputSynapseMapOutput) ToOutputSynapseMapOutput() OutputSynapseMapOutput {
@@ -428,18 +365,16 @@ func (o OutputSynapseMapOutput) ToOutputSynapseMapOutputWithContext(ctx context.
 }
 
 func (o OutputSynapseMapOutput) MapIndex(k pulumi.StringInput) OutputSynapseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputSynapse {
-		return vs[0].(map[string]OutputSynapse)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OutputSynapse {
+		return vs[0].(map[string]*OutputSynapse)[vs[1].(string)]
 	}).(OutputSynapseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapseInput)(nil)).Elem(), &OutputSynapse{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapsePtrInput)(nil)).Elem(), &OutputSynapse{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapseArrayInput)(nil)).Elem(), OutputSynapseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapseMapInput)(nil)).Elem(), OutputSynapseMap{})
 	pulumi.RegisterOutputType(OutputSynapseOutput{})
-	pulumi.RegisterOutputType(OutputSynapsePtrOutput{})
 	pulumi.RegisterOutputType(OutputSynapseArrayOutput{})
 	pulumi.RegisterOutputType(OutputSynapseMapOutput{})
 }

@@ -260,7 +260,7 @@ type ConfigurationPolicyAssignmentInput interface {
 }
 
 func (*ConfigurationPolicyAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationPolicyAssignment)(nil))
+	return reflect.TypeOf((**ConfigurationPolicyAssignment)(nil)).Elem()
 }
 
 func (i *ConfigurationPolicyAssignment) ToConfigurationPolicyAssignmentOutput() ConfigurationPolicyAssignmentOutput {
@@ -269,35 +269,6 @@ func (i *ConfigurationPolicyAssignment) ToConfigurationPolicyAssignmentOutput() 
 
 func (i *ConfigurationPolicyAssignment) ToConfigurationPolicyAssignmentOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentOutput)
-}
-
-func (i *ConfigurationPolicyAssignment) ToConfigurationPolicyAssignmentPtrOutput() ConfigurationPolicyAssignmentPtrOutput {
-	return i.ToConfigurationPolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *ConfigurationPolicyAssignment) ToConfigurationPolicyAssignmentPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentPtrOutput)
-}
-
-type ConfigurationPolicyAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationPolicyAssignmentPtrOutput() ConfigurationPolicyAssignmentPtrOutput
-	ToConfigurationPolicyAssignmentPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentPtrOutput
-}
-
-type configurationPolicyAssignmentPtrType ConfigurationPolicyAssignmentArgs
-
-func (*configurationPolicyAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationPolicyAssignment)(nil))
-}
-
-func (i *configurationPolicyAssignmentPtrType) ToConfigurationPolicyAssignmentPtrOutput() ConfigurationPolicyAssignmentPtrOutput {
-	return i.ToConfigurationPolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationPolicyAssignmentPtrType) ToConfigurationPolicyAssignmentPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentPtrOutput)
 }
 
 // ConfigurationPolicyAssignmentArrayInput is an input type that accepts ConfigurationPolicyAssignmentArray and ConfigurationPolicyAssignmentArrayOutput values.
@@ -353,7 +324,7 @@ func (i ConfigurationPolicyAssignmentMap) ToConfigurationPolicyAssignmentMapOutp
 type ConfigurationPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationPolicyAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationPolicyAssignment)(nil))
+	return reflect.TypeOf((**ConfigurationPolicyAssignment)(nil)).Elem()
 }
 
 func (o ConfigurationPolicyAssignmentOutput) ToConfigurationPolicyAssignmentOutput() ConfigurationPolicyAssignmentOutput {
@@ -364,44 +335,10 @@ func (o ConfigurationPolicyAssignmentOutput) ToConfigurationPolicyAssignmentOutp
 	return o
 }
 
-func (o ConfigurationPolicyAssignmentOutput) ToConfigurationPolicyAssignmentPtrOutput() ConfigurationPolicyAssignmentPtrOutput {
-	return o.ToConfigurationPolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationPolicyAssignmentOutput) ToConfigurationPolicyAssignmentPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyAssignment) *ConfigurationPolicyAssignment {
-		return &v
-	}).(ConfigurationPolicyAssignmentPtrOutput)
-}
-
-type ConfigurationPolicyAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationPolicyAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationPolicyAssignment)(nil))
-}
-
-func (o ConfigurationPolicyAssignmentPtrOutput) ToConfigurationPolicyAssignmentPtrOutput() ConfigurationPolicyAssignmentPtrOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentPtrOutput) ToConfigurationPolicyAssignmentPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentPtrOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentPtrOutput) Elem() ConfigurationPolicyAssignmentOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignment) ConfigurationPolicyAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationPolicyAssignment
-		return ret
-	}).(ConfigurationPolicyAssignmentOutput)
-}
-
 type ConfigurationPolicyAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationPolicyAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationPolicyAssignment)(nil))
+	return reflect.TypeOf((*[]*ConfigurationPolicyAssignment)(nil)).Elem()
 }
 
 func (o ConfigurationPolicyAssignmentArrayOutput) ToConfigurationPolicyAssignmentArrayOutput() ConfigurationPolicyAssignmentArrayOutput {
@@ -413,15 +350,15 @@ func (o ConfigurationPolicyAssignmentArrayOutput) ToConfigurationPolicyAssignmen
 }
 
 func (o ConfigurationPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) ConfigurationPolicyAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationPolicyAssignment {
-		return vs[0].([]ConfigurationPolicyAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationPolicyAssignment {
+		return vs[0].([]*ConfigurationPolicyAssignment)[vs[1].(int)]
 	}).(ConfigurationPolicyAssignmentOutput)
 }
 
 type ConfigurationPolicyAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationPolicyAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConfigurationPolicyAssignment)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationPolicyAssignment)(nil)).Elem()
 }
 
 func (o ConfigurationPolicyAssignmentMapOutput) ToConfigurationPolicyAssignmentMapOutput() ConfigurationPolicyAssignmentMapOutput {
@@ -433,18 +370,16 @@ func (o ConfigurationPolicyAssignmentMapOutput) ToConfigurationPolicyAssignmentM
 }
 
 func (o ConfigurationPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) ConfigurationPolicyAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationPolicyAssignment {
-		return vs[0].(map[string]ConfigurationPolicyAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConfigurationPolicyAssignment {
+		return vs[0].(map[string]*ConfigurationPolicyAssignment)[vs[1].(string)]
 	}).(ConfigurationPolicyAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentInput)(nil)).Elem(), &ConfigurationPolicyAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentPtrInput)(nil)).Elem(), &ConfigurationPolicyAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentArrayInput)(nil)).Elem(), ConfigurationPolicyAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentMapInput)(nil)).Elem(), ConfigurationPolicyAssignmentMap{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentOutput{})
-	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentMapOutput{})
 }

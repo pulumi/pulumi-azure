@@ -136,7 +136,7 @@ type MeshSecretValueInput interface {
 }
 
 func (*MeshSecretValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshSecretValue)(nil))
+	return reflect.TypeOf((**MeshSecretValue)(nil)).Elem()
 }
 
 func (i *MeshSecretValue) ToMeshSecretValueOutput() MeshSecretValueOutput {
@@ -145,35 +145,6 @@ func (i *MeshSecretValue) ToMeshSecretValueOutput() MeshSecretValueOutput {
 
 func (i *MeshSecretValue) ToMeshSecretValueOutputWithContext(ctx context.Context) MeshSecretValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretValueOutput)
-}
-
-func (i *MeshSecretValue) ToMeshSecretValuePtrOutput() MeshSecretValuePtrOutput {
-	return i.ToMeshSecretValuePtrOutputWithContext(context.Background())
-}
-
-func (i *MeshSecretValue) ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretValuePtrOutput)
-}
-
-type MeshSecretValuePtrInput interface {
-	pulumi.Input
-
-	ToMeshSecretValuePtrOutput() MeshSecretValuePtrOutput
-	ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput
-}
-
-type meshSecretValuePtrType MeshSecretValueArgs
-
-func (*meshSecretValuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MeshSecretValue)(nil))
-}
-
-func (i *meshSecretValuePtrType) ToMeshSecretValuePtrOutput() MeshSecretValuePtrOutput {
-	return i.ToMeshSecretValuePtrOutputWithContext(context.Background())
-}
-
-func (i *meshSecretValuePtrType) ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretValuePtrOutput)
 }
 
 // MeshSecretValueArrayInput is an input type that accepts MeshSecretValueArray and MeshSecretValueArrayOutput values.
@@ -229,7 +200,7 @@ func (i MeshSecretValueMap) ToMeshSecretValueMapOutputWithContext(ctx context.Co
 type MeshSecretValueOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshSecretValue)(nil))
+	return reflect.TypeOf((**MeshSecretValue)(nil)).Elem()
 }
 
 func (o MeshSecretValueOutput) ToMeshSecretValueOutput() MeshSecretValueOutput {
@@ -240,44 +211,10 @@ func (o MeshSecretValueOutput) ToMeshSecretValueOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o MeshSecretValueOutput) ToMeshSecretValuePtrOutput() MeshSecretValuePtrOutput {
-	return o.ToMeshSecretValuePtrOutputWithContext(context.Background())
-}
-
-func (o MeshSecretValueOutput) ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSecretValue) *MeshSecretValue {
-		return &v
-	}).(MeshSecretValuePtrOutput)
-}
-
-type MeshSecretValuePtrOutput struct{ *pulumi.OutputState }
-
-func (MeshSecretValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MeshSecretValue)(nil))
-}
-
-func (o MeshSecretValuePtrOutput) ToMeshSecretValuePtrOutput() MeshSecretValuePtrOutput {
-	return o
-}
-
-func (o MeshSecretValuePtrOutput) ToMeshSecretValuePtrOutputWithContext(ctx context.Context) MeshSecretValuePtrOutput {
-	return o
-}
-
-func (o MeshSecretValuePtrOutput) Elem() MeshSecretValueOutput {
-	return o.ApplyT(func(v *MeshSecretValue) MeshSecretValue {
-		if v != nil {
-			return *v
-		}
-		var ret MeshSecretValue
-		return ret
-	}).(MeshSecretValueOutput)
-}
-
 type MeshSecretValueArrayOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MeshSecretValue)(nil))
+	return reflect.TypeOf((*[]*MeshSecretValue)(nil)).Elem()
 }
 
 func (o MeshSecretValueArrayOutput) ToMeshSecretValueArrayOutput() MeshSecretValueArrayOutput {
@@ -289,15 +226,15 @@ func (o MeshSecretValueArrayOutput) ToMeshSecretValueArrayOutputWithContext(ctx 
 }
 
 func (o MeshSecretValueArrayOutput) Index(i pulumi.IntInput) MeshSecretValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshSecretValue {
-		return vs[0].([]MeshSecretValue)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MeshSecretValue {
+		return vs[0].([]*MeshSecretValue)[vs[1].(int)]
 	}).(MeshSecretValueOutput)
 }
 
 type MeshSecretValueMapOutput struct{ *pulumi.OutputState }
 
 func (MeshSecretValueMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MeshSecretValue)(nil))
+	return reflect.TypeOf((*map[string]*MeshSecretValue)(nil)).Elem()
 }
 
 func (o MeshSecretValueMapOutput) ToMeshSecretValueMapOutput() MeshSecretValueMapOutput {
@@ -309,18 +246,16 @@ func (o MeshSecretValueMapOutput) ToMeshSecretValueMapOutputWithContext(ctx cont
 }
 
 func (o MeshSecretValueMapOutput) MapIndex(k pulumi.StringInput) MeshSecretValueOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MeshSecretValue {
-		return vs[0].(map[string]MeshSecretValue)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MeshSecretValue {
+		return vs[0].(map[string]*MeshSecretValue)[vs[1].(string)]
 	}).(MeshSecretValueOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretValueInput)(nil)).Elem(), &MeshSecretValue{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretValuePtrInput)(nil)).Elem(), &MeshSecretValue{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretValueArrayInput)(nil)).Elem(), MeshSecretValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretValueMapInput)(nil)).Elem(), MeshSecretValueMap{})
 	pulumi.RegisterOutputType(MeshSecretValueOutput{})
-	pulumi.RegisterOutputType(MeshSecretValuePtrOutput{})
 	pulumi.RegisterOutputType(MeshSecretValueArrayOutput{})
 	pulumi.RegisterOutputType(MeshSecretValueMapOutput{})
 }

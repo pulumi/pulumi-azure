@@ -67,14 +67,14 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: StaticSiteCustomDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StaticSiteCustomDomainArgs | StaticSiteCustomDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticSiteCustomDomainState | undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["staticSiteId"] = state ? state.staticSiteId : undefined;
-            inputs["validationToken"] = state ? state.validationToken : undefined;
-            inputs["validationType"] = state ? state.validationType : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["staticSiteId"] = state ? state.staticSiteId : undefined;
+            resourceInputs["validationToken"] = state ? state.validationToken : undefined;
+            resourceInputs["validationType"] = state ? state.validationType : undefined;
         } else {
             const args = argsOrState as StaticSiteCustomDomainArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -86,15 +86,13 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
             if ((!args || args.validationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validationType'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["staticSiteId"] = args ? args.staticSiteId : undefined;
-            inputs["validationType"] = args ? args.validationType : undefined;
-            inputs["validationToken"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["staticSiteId"] = args ? args.staticSiteId : undefined;
+            resourceInputs["validationType"] = args ? args.validationType : undefined;
+            resourceInputs["validationToken"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StaticSiteCustomDomain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StaticSiteCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

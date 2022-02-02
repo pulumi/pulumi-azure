@@ -214,7 +214,7 @@ type NamedValueInput interface {
 }
 
 func (*NamedValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValue)(nil))
+	return reflect.TypeOf((**NamedValue)(nil)).Elem()
 }
 
 func (i *NamedValue) ToNamedValueOutput() NamedValueOutput {
@@ -223,35 +223,6 @@ func (i *NamedValue) ToNamedValueOutput() NamedValueOutput {
 
 func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
-}
-
-func (i *NamedValue) ToNamedValuePtrOutput() NamedValuePtrOutput {
-	return i.ToNamedValuePtrOutputWithContext(context.Background())
-}
-
-func (i *NamedValue) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamedValuePtrOutput)
-}
-
-type NamedValuePtrInput interface {
-	pulumi.Input
-
-	ToNamedValuePtrOutput() NamedValuePtrOutput
-	ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput
-}
-
-type namedValuePtrType NamedValueArgs
-
-func (*namedValuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamedValue)(nil))
-}
-
-func (i *namedValuePtrType) ToNamedValuePtrOutput() NamedValuePtrOutput {
-	return i.ToNamedValuePtrOutputWithContext(context.Background())
-}
-
-func (i *namedValuePtrType) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamedValuePtrOutput)
 }
 
 // NamedValueArrayInput is an input type that accepts NamedValueArray and NamedValueArrayOutput values.
@@ -307,7 +278,7 @@ func (i NamedValueMap) ToNamedValueMapOutputWithContext(ctx context.Context) Nam
 type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValue)(nil))
+	return reflect.TypeOf((**NamedValue)(nil)).Elem()
 }
 
 func (o NamedValueOutput) ToNamedValueOutput() NamedValueOutput {
@@ -318,44 +289,10 @@ func (o NamedValueOutput) ToNamedValueOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
-func (o NamedValueOutput) ToNamedValuePtrOutput() NamedValuePtrOutput {
-	return o.ToNamedValuePtrOutputWithContext(context.Background())
-}
-
-func (o NamedValueOutput) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamedValue) *NamedValue {
-		return &v
-	}).(NamedValuePtrOutput)
-}
-
-type NamedValuePtrOutput struct{ *pulumi.OutputState }
-
-func (NamedValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamedValue)(nil))
-}
-
-func (o NamedValuePtrOutput) ToNamedValuePtrOutput() NamedValuePtrOutput {
-	return o
-}
-
-func (o NamedValuePtrOutput) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
-	return o
-}
-
-func (o NamedValuePtrOutput) Elem() NamedValueOutput {
-	return o.ApplyT(func(v *NamedValue) NamedValue {
-		if v != nil {
-			return *v
-		}
-		var ret NamedValue
-		return ret
-	}).(NamedValueOutput)
-}
-
 type NamedValueArrayOutput struct{ *pulumi.OutputState }
 
 func (NamedValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NamedValue)(nil))
+	return reflect.TypeOf((*[]*NamedValue)(nil)).Elem()
 }
 
 func (o NamedValueArrayOutput) ToNamedValueArrayOutput() NamedValueArrayOutput {
@@ -367,15 +304,15 @@ func (o NamedValueArrayOutput) ToNamedValueArrayOutputWithContext(ctx context.Co
 }
 
 func (o NamedValueArrayOutput) Index(i pulumi.IntInput) NamedValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamedValue {
-		return vs[0].([]NamedValue)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamedValue {
+		return vs[0].([]*NamedValue)[vs[1].(int)]
 	}).(NamedValueOutput)
 }
 
 type NamedValueMapOutput struct{ *pulumi.OutputState }
 
 func (NamedValueMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NamedValue)(nil))
+	return reflect.TypeOf((*map[string]*NamedValue)(nil)).Elem()
 }
 
 func (o NamedValueMapOutput) ToNamedValueMapOutput() NamedValueMapOutput {
@@ -387,18 +324,16 @@ func (o NamedValueMapOutput) ToNamedValueMapOutputWithContext(ctx context.Contex
 }
 
 func (o NamedValueMapOutput) MapIndex(k pulumi.StringInput) NamedValueOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NamedValue {
-		return vs[0].(map[string]NamedValue)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NamedValue {
+		return vs[0].(map[string]*NamedValue)[vs[1].(string)]
 	}).(NamedValueOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueInput)(nil)).Elem(), &NamedValue{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamedValuePtrInput)(nil)).Elem(), &NamedValue{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueArrayInput)(nil)).Elem(), NamedValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueMapInput)(nil)).Elem(), NamedValueMap{})
 	pulumi.RegisterOutputType(NamedValueOutput{})
-	pulumi.RegisterOutputType(NamedValuePtrOutput{})
 	pulumi.RegisterOutputType(NamedValueArrayOutput{})
 	pulumi.RegisterOutputType(NamedValueMapOutput{})
 }

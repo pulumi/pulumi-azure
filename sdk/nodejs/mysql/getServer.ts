@@ -26,9 +26,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:mysql/getServer:getServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

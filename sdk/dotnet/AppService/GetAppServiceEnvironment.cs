@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing App Service Environment.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppServiceEnvironmentResult> Invoke(GetAppServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

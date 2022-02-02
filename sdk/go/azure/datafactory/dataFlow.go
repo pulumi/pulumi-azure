@@ -288,7 +288,7 @@ type DataFlowInput interface {
 }
 
 func (*DataFlow) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil))
+	return reflect.TypeOf((**DataFlow)(nil)).Elem()
 }
 
 func (i *DataFlow) ToDataFlowOutput() DataFlowOutput {
@@ -297,35 +297,6 @@ func (i *DataFlow) ToDataFlowOutput() DataFlowOutput {
 
 func (i *DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput)
-}
-
-func (i *DataFlow) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return i.ToDataFlowPtrOutputWithContext(context.Background())
-}
-
-func (i *DataFlow) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowPtrOutput)
-}
-
-type DataFlowPtrInput interface {
-	pulumi.Input
-
-	ToDataFlowPtrOutput() DataFlowPtrOutput
-	ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput
-}
-
-type dataFlowPtrType DataFlowArgs
-
-func (*dataFlowPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataFlow)(nil))
-}
-
-func (i *dataFlowPtrType) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return i.ToDataFlowPtrOutputWithContext(context.Background())
-}
-
-func (i *dataFlowPtrType) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowPtrOutput)
 }
 
 // DataFlowArrayInput is an input type that accepts DataFlowArray and DataFlowArrayOutput values.
@@ -381,7 +352,7 @@ func (i DataFlowMap) ToDataFlowMapOutputWithContext(ctx context.Context) DataFlo
 type DataFlowOutput struct{ *pulumi.OutputState }
 
 func (DataFlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil))
+	return reflect.TypeOf((**DataFlow)(nil)).Elem()
 }
 
 func (o DataFlowOutput) ToDataFlowOutput() DataFlowOutput {
@@ -392,44 +363,10 @@ func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlo
 	return o
 }
 
-func (o DataFlowOutput) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return o.ToDataFlowPtrOutputWithContext(context.Background())
-}
-
-func (o DataFlowOutput) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlow) *DataFlow {
-		return &v
-	}).(DataFlowPtrOutput)
-}
-
-type DataFlowPtrOutput struct{ *pulumi.OutputState }
-
-func (DataFlowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataFlow)(nil))
-}
-
-func (o DataFlowPtrOutput) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return o
-}
-
-func (o DataFlowPtrOutput) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return o
-}
-
-func (o DataFlowPtrOutput) Elem() DataFlowOutput {
-	return o.ApplyT(func(v *DataFlow) DataFlow {
-		if v != nil {
-			return *v
-		}
-		var ret DataFlow
-		return ret
-	}).(DataFlowOutput)
-}
-
 type DataFlowArrayOutput struct{ *pulumi.OutputState }
 
 func (DataFlowArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataFlow)(nil))
+	return reflect.TypeOf((*[]*DataFlow)(nil)).Elem()
 }
 
 func (o DataFlowArrayOutput) ToDataFlowArrayOutput() DataFlowArrayOutput {
@@ -441,15 +378,15 @@ func (o DataFlowArrayOutput) ToDataFlowArrayOutputWithContext(ctx context.Contex
 }
 
 func (o DataFlowArrayOutput) Index(i pulumi.IntInput) DataFlowOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFlow {
-		return vs[0].([]DataFlow)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataFlow {
+		return vs[0].([]*DataFlow)[vs[1].(int)]
 	}).(DataFlowOutput)
 }
 
 type DataFlowMapOutput struct{ *pulumi.OutputState }
 
 func (DataFlowMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataFlow)(nil))
+	return reflect.TypeOf((*map[string]*DataFlow)(nil)).Elem()
 }
 
 func (o DataFlowMapOutput) ToDataFlowMapOutput() DataFlowMapOutput {
@@ -461,18 +398,16 @@ func (o DataFlowMapOutput) ToDataFlowMapOutputWithContext(ctx context.Context) D
 }
 
 func (o DataFlowMapOutput) MapIndex(k pulumi.StringInput) DataFlowOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataFlow {
-		return vs[0].(map[string]DataFlow)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataFlow {
+		return vs[0].(map[string]*DataFlow)[vs[1].(string)]
 	}).(DataFlowOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowInput)(nil)).Elem(), &DataFlow{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowPtrInput)(nil)).Elem(), &DataFlow{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowArrayInput)(nil)).Elem(), DataFlowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowMapInput)(nil)).Elem(), DataFlowMap{})
 	pulumi.RegisterOutputType(DataFlowOutput{})
-	pulumi.RegisterOutputType(DataFlowPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowArrayOutput{})
 	pulumi.RegisterOutputType(DataFlowMapOutput{})
 }

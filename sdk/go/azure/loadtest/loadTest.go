@@ -162,7 +162,7 @@ type LoadTestInput interface {
 }
 
 func (*LoadTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadTest)(nil))
+	return reflect.TypeOf((**LoadTest)(nil)).Elem()
 }
 
 func (i *LoadTest) ToLoadTestOutput() LoadTestOutput {
@@ -171,35 +171,6 @@ func (i *LoadTest) ToLoadTestOutput() LoadTestOutput {
 
 func (i *LoadTest) ToLoadTestOutputWithContext(ctx context.Context) LoadTestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadTestOutput)
-}
-
-func (i *LoadTest) ToLoadTestPtrOutput() LoadTestPtrOutput {
-	return i.ToLoadTestPtrOutputWithContext(context.Background())
-}
-
-func (i *LoadTest) ToLoadTestPtrOutputWithContext(ctx context.Context) LoadTestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadTestPtrOutput)
-}
-
-type LoadTestPtrInput interface {
-	pulumi.Input
-
-	ToLoadTestPtrOutput() LoadTestPtrOutput
-	ToLoadTestPtrOutputWithContext(ctx context.Context) LoadTestPtrOutput
-}
-
-type loadTestPtrType LoadTestArgs
-
-func (*loadTestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadTest)(nil))
-}
-
-func (i *loadTestPtrType) ToLoadTestPtrOutput() LoadTestPtrOutput {
-	return i.ToLoadTestPtrOutputWithContext(context.Background())
-}
-
-func (i *loadTestPtrType) ToLoadTestPtrOutputWithContext(ctx context.Context) LoadTestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadTestPtrOutput)
 }
 
 // LoadTestArrayInput is an input type that accepts LoadTestArray and LoadTestArrayOutput values.
@@ -255,7 +226,7 @@ func (i LoadTestMap) ToLoadTestMapOutputWithContext(ctx context.Context) LoadTes
 type LoadTestOutput struct{ *pulumi.OutputState }
 
 func (LoadTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadTest)(nil))
+	return reflect.TypeOf((**LoadTest)(nil)).Elem()
 }
 
 func (o LoadTestOutput) ToLoadTestOutput() LoadTestOutput {
@@ -266,44 +237,10 @@ func (o LoadTestOutput) ToLoadTestOutputWithContext(ctx context.Context) LoadTes
 	return o
 }
 
-func (o LoadTestOutput) ToLoadTestPtrOutput() LoadTestPtrOutput {
-	return o.ToLoadTestPtrOutputWithContext(context.Background())
-}
-
-func (o LoadTestOutput) ToLoadTestPtrOutputWithContext(ctx context.Context) LoadTestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadTest) *LoadTest {
-		return &v
-	}).(LoadTestPtrOutput)
-}
-
-type LoadTestPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadTestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadTest)(nil))
-}
-
-func (o LoadTestPtrOutput) ToLoadTestPtrOutput() LoadTestPtrOutput {
-	return o
-}
-
-func (o LoadTestPtrOutput) ToLoadTestPtrOutputWithContext(ctx context.Context) LoadTestPtrOutput {
-	return o
-}
-
-func (o LoadTestPtrOutput) Elem() LoadTestOutput {
-	return o.ApplyT(func(v *LoadTest) LoadTest {
-		if v != nil {
-			return *v
-		}
-		var ret LoadTest
-		return ret
-	}).(LoadTestOutput)
-}
-
 type LoadTestArrayOutput struct{ *pulumi.OutputState }
 
 func (LoadTestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadTest)(nil))
+	return reflect.TypeOf((*[]*LoadTest)(nil)).Elem()
 }
 
 func (o LoadTestArrayOutput) ToLoadTestArrayOutput() LoadTestArrayOutput {
@@ -315,15 +252,15 @@ func (o LoadTestArrayOutput) ToLoadTestArrayOutputWithContext(ctx context.Contex
 }
 
 func (o LoadTestArrayOutput) Index(i pulumi.IntInput) LoadTestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadTest {
-		return vs[0].([]LoadTest)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadTest {
+		return vs[0].([]*LoadTest)[vs[1].(int)]
 	}).(LoadTestOutput)
 }
 
 type LoadTestMapOutput struct{ *pulumi.OutputState }
 
 func (LoadTestMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LoadTest)(nil))
+	return reflect.TypeOf((*map[string]*LoadTest)(nil)).Elem()
 }
 
 func (o LoadTestMapOutput) ToLoadTestMapOutput() LoadTestMapOutput {
@@ -335,18 +272,16 @@ func (o LoadTestMapOutput) ToLoadTestMapOutputWithContext(ctx context.Context) L
 }
 
 func (o LoadTestMapOutput) MapIndex(k pulumi.StringInput) LoadTestOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LoadTest {
-		return vs[0].(map[string]LoadTest)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LoadTest {
+		return vs[0].(map[string]*LoadTest)[vs[1].(string)]
 	}).(LoadTestOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestInput)(nil)).Elem(), &LoadTest{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestPtrInput)(nil)).Elem(), &LoadTest{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestArrayInput)(nil)).Elem(), LoadTestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestMapInput)(nil)).Elem(), LoadTestMap{})
 	pulumi.RegisterOutputType(LoadTestOutput{})
-	pulumi.RegisterOutputType(LoadTestPtrOutput{})
 	pulumi.RegisterOutputType(LoadTestArrayOutput{})
 	pulumi.RegisterOutputType(LoadTestMapOutput{})
 }

@@ -107,16 +107,16 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
      */
     constructor(name: string, args: FunctionJavaScriptUDFArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionJavaScriptUDFArgs | FunctionJavaScriptUDFState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionJavaScriptUDFState | undefined;
-            inputs["inputs"] = state ? state.inputs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["output"] = state ? state.output : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["script"] = state ? state.script : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["inputs"] = state ? state.inputs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["output"] = state ? state.output : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["script"] = state ? state.script : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as FunctionJavaScriptUDFArgs | undefined;
             if ((!args || args.inputs === undefined) && !opts.urn) {
@@ -134,17 +134,15 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            inputs["inputs"] = args ? args.inputs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["output"] = args ? args.output : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["script"] = args ? args.script : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["inputs"] = args ? args.inputs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["output"] = args ? args.output : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["script"] = args ? args.script : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FunctionJavaScriptUDF.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FunctionJavaScriptUDF.__pulumiType, name, resourceInputs, opts);
     }
 }
 

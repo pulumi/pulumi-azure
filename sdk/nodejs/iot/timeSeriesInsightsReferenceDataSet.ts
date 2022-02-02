@@ -101,16 +101,16 @@ export class TimeSeriesInsightsReferenceDataSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: TimeSeriesInsightsReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeSeriesInsightsReferenceDataSetArgs | TimeSeriesInsightsReferenceDataSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TimeSeriesInsightsReferenceDataSetState | undefined;
-            inputs["dataStringComparisonBehavior"] = state ? state.dataStringComparisonBehavior : undefined;
-            inputs["keyProperties"] = state ? state.keyProperties : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timeSeriesInsightsEnvironmentId"] = state ? state.timeSeriesInsightsEnvironmentId : undefined;
+            resourceInputs["dataStringComparisonBehavior"] = state ? state.dataStringComparisonBehavior : undefined;
+            resourceInputs["keyProperties"] = state ? state.keyProperties : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timeSeriesInsightsEnvironmentId"] = state ? state.timeSeriesInsightsEnvironmentId : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsReferenceDataSetArgs | undefined;
             if ((!args || args.keyProperties === undefined) && !opts.urn) {
@@ -119,17 +119,15 @@ export class TimeSeriesInsightsReferenceDataSet extends pulumi.CustomResource {
             if ((!args || args.timeSeriesInsightsEnvironmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeSeriesInsightsEnvironmentId'");
             }
-            inputs["dataStringComparisonBehavior"] = args ? args.dataStringComparisonBehavior : undefined;
-            inputs["keyProperties"] = args ? args.keyProperties : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeSeriesInsightsEnvironmentId"] = args ? args.timeSeriesInsightsEnvironmentId : undefined;
+            resourceInputs["dataStringComparisonBehavior"] = args ? args.dataStringComparisonBehavior : undefined;
+            resourceInputs["keyProperties"] = args ? args.keyProperties : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeSeriesInsightsEnvironmentId"] = args ? args.timeSeriesInsightsEnvironmentId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TimeSeriesInsightsReferenceDataSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TimeSeriesInsightsReferenceDataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

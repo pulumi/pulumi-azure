@@ -97,15 +97,15 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActiveDirectoryAdministratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActiveDirectoryAdministratorArgs | ActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActiveDirectoryAdministratorState | undefined;
-            inputs["login"] = state ? state.login : undefined;
-            inputs["objectId"] = state ? state.objectId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["login"] = state ? state.login : undefined;
+            resourceInputs["objectId"] = state ? state.objectId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ActiveDirectoryAdministratorArgs | undefined;
             if ((!args || args.login === undefined) && !opts.urn) {
@@ -123,16 +123,14 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["login"] = args ? args.login : undefined;
-            inputs["objectId"] = args ? args.objectId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["objectId"] = args ? args.objectId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ActiveDirectoryAdministrator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

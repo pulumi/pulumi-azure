@@ -223,7 +223,7 @@ type CaaRecordInput interface {
 }
 
 func (*CaaRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*CaaRecord)(nil))
+	return reflect.TypeOf((**CaaRecord)(nil)).Elem()
 }
 
 func (i *CaaRecord) ToCaaRecordOutput() CaaRecordOutput {
@@ -232,35 +232,6 @@ func (i *CaaRecord) ToCaaRecordOutput() CaaRecordOutput {
 
 func (i *CaaRecord) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordOutput)
-}
-
-func (i *CaaRecord) ToCaaRecordPtrOutput() CaaRecordPtrOutput {
-	return i.ToCaaRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *CaaRecord) ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordPtrOutput)
-}
-
-type CaaRecordPtrInput interface {
-	pulumi.Input
-
-	ToCaaRecordPtrOutput() CaaRecordPtrOutput
-	ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput
-}
-
-type caaRecordPtrType CaaRecordArgs
-
-func (*caaRecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CaaRecord)(nil))
-}
-
-func (i *caaRecordPtrType) ToCaaRecordPtrOutput() CaaRecordPtrOutput {
-	return i.ToCaaRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *caaRecordPtrType) ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordPtrOutput)
 }
 
 // CaaRecordArrayInput is an input type that accepts CaaRecordArray and CaaRecordArrayOutput values.
@@ -316,7 +287,7 @@ func (i CaaRecordMap) ToCaaRecordMapOutputWithContext(ctx context.Context) CaaRe
 type CaaRecordOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CaaRecord)(nil))
+	return reflect.TypeOf((**CaaRecord)(nil)).Elem()
 }
 
 func (o CaaRecordOutput) ToCaaRecordOutput() CaaRecordOutput {
@@ -327,44 +298,10 @@ func (o CaaRecordOutput) ToCaaRecordOutputWithContext(ctx context.Context) CaaRe
 	return o
 }
 
-func (o CaaRecordOutput) ToCaaRecordPtrOutput() CaaRecordPtrOutput {
-	return o.ToCaaRecordPtrOutputWithContext(context.Background())
-}
-
-func (o CaaRecordOutput) ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaaRecord) *CaaRecord {
-		return &v
-	}).(CaaRecordPtrOutput)
-}
-
-type CaaRecordPtrOutput struct{ *pulumi.OutputState }
-
-func (CaaRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CaaRecord)(nil))
-}
-
-func (o CaaRecordPtrOutput) ToCaaRecordPtrOutput() CaaRecordPtrOutput {
-	return o
-}
-
-func (o CaaRecordPtrOutput) ToCaaRecordPtrOutputWithContext(ctx context.Context) CaaRecordPtrOutput {
-	return o
-}
-
-func (o CaaRecordPtrOutput) Elem() CaaRecordOutput {
-	return o.ApplyT(func(v *CaaRecord) CaaRecord {
-		if v != nil {
-			return *v
-		}
-		var ret CaaRecord
-		return ret
-	}).(CaaRecordOutput)
-}
-
 type CaaRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CaaRecord)(nil))
+	return reflect.TypeOf((*[]*CaaRecord)(nil)).Elem()
 }
 
 func (o CaaRecordArrayOutput) ToCaaRecordArrayOutput() CaaRecordArrayOutput {
@@ -376,15 +313,15 @@ func (o CaaRecordArrayOutput) ToCaaRecordArrayOutputWithContext(ctx context.Cont
 }
 
 func (o CaaRecordArrayOutput) Index(i pulumi.IntInput) CaaRecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CaaRecord {
-		return vs[0].([]CaaRecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CaaRecord {
+		return vs[0].([]*CaaRecord)[vs[1].(int)]
 	}).(CaaRecordOutput)
 }
 
 type CaaRecordMapOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CaaRecord)(nil))
+	return reflect.TypeOf((*map[string]*CaaRecord)(nil)).Elem()
 }
 
 func (o CaaRecordMapOutput) ToCaaRecordMapOutput() CaaRecordMapOutput {
@@ -396,18 +333,16 @@ func (o CaaRecordMapOutput) ToCaaRecordMapOutputWithContext(ctx context.Context)
 }
 
 func (o CaaRecordMapOutput) MapIndex(k pulumi.StringInput) CaaRecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CaaRecord {
-		return vs[0].(map[string]CaaRecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CaaRecord {
+		return vs[0].(map[string]*CaaRecord)[vs[1].(string)]
 	}).(CaaRecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordInput)(nil)).Elem(), &CaaRecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordPtrInput)(nil)).Elem(), &CaaRecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordArrayInput)(nil)).Elem(), CaaRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordMapInput)(nil)).Elem(), CaaRecordMap{})
 	pulumi.RegisterOutputType(CaaRecordOutput{})
-	pulumi.RegisterOutputType(CaaRecordPtrOutput{})
 	pulumi.RegisterOutputType(CaaRecordArrayOutput{})
 	pulumi.RegisterOutputType(CaaRecordMapOutput{})
 }

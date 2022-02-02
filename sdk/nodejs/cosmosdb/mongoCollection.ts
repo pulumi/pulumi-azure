@@ -123,21 +123,21 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     constructor(name: string, args: MongoCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MongoCollectionArgs | MongoCollectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MongoCollectionState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
-            inputs["indices"] = state ? state.indices : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["shardKey"] = state ? state.shardKey : undefined;
-            inputs["systemIndexes"] = state ? state.systemIndexes : undefined;
-            inputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
+            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
+            resourceInputs["indices"] = state ? state.indices : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["shardKey"] = state ? state.shardKey : undefined;
+            resourceInputs["systemIndexes"] = state ? state.systemIndexes : undefined;
+            resourceInputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as MongoCollectionArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -149,22 +149,20 @@ export class MongoCollection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
-            inputs["indices"] = args ? args.indices : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shardKey"] = args ? args.shardKey : undefined;
-            inputs["throughput"] = args ? args.throughput : undefined;
-            inputs["systemIndexes"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
+            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
+            resourceInputs["indices"] = args ? args.indices : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shardKey"] = args ? args.shardKey : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["systemIndexes"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MongoCollection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MongoCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

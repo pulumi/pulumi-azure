@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventHub
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthorizationRuleResult> InvokeAsync(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
@@ -74,7 +73,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthorizationRuleResult> Invoke(GetAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

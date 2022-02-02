@@ -55,6 +55,7 @@ setup(name='pulumi_azure',
       package_data={
           'pulumi_azure': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

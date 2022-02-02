@@ -292,46 +292,44 @@ export class Certifiate extends pulumi.CustomResource {
     /** @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate */
     constructor(name: string, argsOrState?: CertifiateArgs | CertifiateState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Certifiate is deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertifiateState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateAttributes"] = state ? state.certificateAttributes : undefined;
-            inputs["certificateData"] = state ? state.certificateData : undefined;
-            inputs["certificateDataBase64"] = state ? state.certificateDataBase64 : undefined;
-            inputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["secretId"] = state ? state.secretId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["versionlessId"] = state ? state.versionlessId : undefined;
-            inputs["versionlessSecretId"] = state ? state.versionlessSecretId : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateAttributes"] = state ? state.certificateAttributes : undefined;
+            resourceInputs["certificateData"] = state ? state.certificateData : undefined;
+            resourceInputs["certificateDataBase64"] = state ? state.certificateDataBase64 : undefined;
+            resourceInputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["secretId"] = state ? state.secretId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
+            resourceInputs["versionlessSecretId"] = state ? state.versionlessSecretId : undefined;
         } else {
             const args = argsOrState as CertifiateArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificatePolicy"] = args ? args.certificatePolicy : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["certificateAttributes"] = undefined /*out*/;
-            inputs["certificateData"] = undefined /*out*/;
-            inputs["certificateDataBase64"] = undefined /*out*/;
-            inputs["secretId"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionlessId"] = undefined /*out*/;
-            inputs["versionlessSecretId"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificatePolicy"] = args ? args.certificatePolicy : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateAttributes"] = undefined /*out*/;
+            resourceInputs["certificateData"] = undefined /*out*/;
+            resourceInputs["certificateDataBase64"] = undefined /*out*/;
+            resourceInputs["secretId"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionlessId"] = undefined /*out*/;
+            resourceInputs["versionlessSecretId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certifiate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certifiate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

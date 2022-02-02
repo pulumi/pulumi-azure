@@ -168,16 +168,16 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudCertificateArgs | SpringCloudCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudCertificateState | undefined;
-            inputs["certificateContent"] = state ? state.certificateContent : undefined;
-            inputs["keyVaultCertificateId"] = state ? state.keyVaultCertificateId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
+            resourceInputs["keyVaultCertificateId"] = state ? state.keyVaultCertificateId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as SpringCloudCertificateArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -186,17 +186,15 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["certificateContent"] = args ? args.certificateContent : undefined;
-            inputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["certificateContent"] = args ? args.certificateContent : undefined;
+            resourceInputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpringCloudCertificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpringCloudCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

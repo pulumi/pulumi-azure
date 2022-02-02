@@ -119,15 +119,15 @@ export class ProtectedFileShare extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectedFileShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectedFileShareArgs | ProtectedFileShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectedFileShareState | undefined;
-            inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceFileShareName"] = state ? state.sourceFileShareName : undefined;
-            inputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
+            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceFileShareName"] = state ? state.sourceFileShareName : undefined;
+            resourceInputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
         } else {
             const args = argsOrState as ProtectedFileShareArgs | undefined;
             if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
@@ -145,16 +145,14 @@ export class ProtectedFileShare extends pulumi.CustomResource {
             if ((!args || args.sourceStorageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceStorageAccountId'");
             }
-            inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceFileShareName"] = args ? args.sourceFileShareName : undefined;
-            inputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
+            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceFileShareName"] = args ? args.sourceFileShareName : undefined;
+            resourceInputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProtectedFileShare.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProtectedFileShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

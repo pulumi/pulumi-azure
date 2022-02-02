@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ContainerService
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.ContainerService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container Registry.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.ContainerService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -157,27 +157,27 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertRuleScheduledArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertRuleScheduledArgs | AlertRuleScheduledState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleScheduledState | undefined;
-            inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["eventGrouping"] = state ? state.eventGrouping : undefined;
-            inputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["queryFrequency"] = state ? state.queryFrequency : undefined;
-            inputs["queryPeriod"] = state ? state.queryPeriod : undefined;
-            inputs["severity"] = state ? state.severity : undefined;
-            inputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
-            inputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
-            inputs["tactics"] = state ? state.tactics : undefined;
-            inputs["triggerOperator"] = state ? state.triggerOperator : undefined;
-            inputs["triggerThreshold"] = state ? state.triggerThreshold : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["eventGrouping"] = state ? state.eventGrouping : undefined;
+            resourceInputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["queryFrequency"] = state ? state.queryFrequency : undefined;
+            resourceInputs["queryPeriod"] = state ? state.queryPeriod : undefined;
+            resourceInputs["severity"] = state ? state.severity : undefined;
+            resourceInputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
+            resourceInputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
+            resourceInputs["tactics"] = state ? state.tactics : undefined;
+            resourceInputs["triggerOperator"] = state ? state.triggerOperator : undefined;
+            resourceInputs["triggerThreshold"] = state ? state.triggerThreshold : undefined;
         } else {
             const args = argsOrState as AlertRuleScheduledArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -192,28 +192,26 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventGrouping"] = args ? args.eventGrouping : undefined;
-            inputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["queryFrequency"] = args ? args.queryFrequency : undefined;
-            inputs["queryPeriod"] = args ? args.queryPeriod : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
-            inputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
-            inputs["tactics"] = args ? args.tactics : undefined;
-            inputs["triggerOperator"] = args ? args.triggerOperator : undefined;
-            inputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventGrouping"] = args ? args.eventGrouping : undefined;
+            resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["queryFrequency"] = args ? args.queryFrequency : undefined;
+            resourceInputs["queryPeriod"] = args ? args.queryPeriod : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
+            resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
+            resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
+            resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertRuleScheduled.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertRuleScheduled.__pulumiType, name, resourceInputs, opts);
     }
 }
 

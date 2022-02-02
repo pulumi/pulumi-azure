@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFunctionAppResult> InvokeAsync(GetFunctionAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a Function App.
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFunctionAppResult> Invoke(GetFunctionAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppInvokeArgs(), options.WithDefaults());
     }
 
 

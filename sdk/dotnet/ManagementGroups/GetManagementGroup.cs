@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ManagementGroups
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Management Group.
@@ -75,7 +74,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

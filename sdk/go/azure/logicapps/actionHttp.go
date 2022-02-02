@@ -200,7 +200,7 @@ type ActionHttpInput interface {
 }
 
 func (*ActionHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionHttp)(nil))
+	return reflect.TypeOf((**ActionHttp)(nil)).Elem()
 }
 
 func (i *ActionHttp) ToActionHttpOutput() ActionHttpOutput {
@@ -209,35 +209,6 @@ func (i *ActionHttp) ToActionHttpOutput() ActionHttpOutput {
 
 func (i *ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpOutput)
-}
-
-func (i *ActionHttp) ToActionHttpPtrOutput() ActionHttpPtrOutput {
-	return i.ToActionHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionHttp) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpPtrOutput)
-}
-
-type ActionHttpPtrInput interface {
-	pulumi.Input
-
-	ToActionHttpPtrOutput() ActionHttpPtrOutput
-	ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput
-}
-
-type actionHttpPtrType ActionHttpArgs
-
-func (*actionHttpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionHttp)(nil))
-}
-
-func (i *actionHttpPtrType) ToActionHttpPtrOutput() ActionHttpPtrOutput {
-	return i.ToActionHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *actionHttpPtrType) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpPtrOutput)
 }
 
 // ActionHttpArrayInput is an input type that accepts ActionHttpArray and ActionHttpArrayOutput values.
@@ -293,7 +264,7 @@ func (i ActionHttpMap) ToActionHttpMapOutputWithContext(ctx context.Context) Act
 type ActionHttpOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionHttp)(nil))
+	return reflect.TypeOf((**ActionHttp)(nil)).Elem()
 }
 
 func (o ActionHttpOutput) ToActionHttpOutput() ActionHttpOutput {
@@ -304,44 +275,10 @@ func (o ActionHttpOutput) ToActionHttpOutputWithContext(ctx context.Context) Act
 	return o
 }
 
-func (o ActionHttpOutput) ToActionHttpPtrOutput() ActionHttpPtrOutput {
-	return o.ToActionHttpPtrOutputWithContext(context.Background())
-}
-
-func (o ActionHttpOutput) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionHttp) *ActionHttp {
-		return &v
-	}).(ActionHttpPtrOutput)
-}
-
-type ActionHttpPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionHttpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionHttp)(nil))
-}
-
-func (o ActionHttpPtrOutput) ToActionHttpPtrOutput() ActionHttpPtrOutput {
-	return o
-}
-
-func (o ActionHttpPtrOutput) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
-	return o
-}
-
-func (o ActionHttpPtrOutput) Elem() ActionHttpOutput {
-	return o.ApplyT(func(v *ActionHttp) ActionHttp {
-		if v != nil {
-			return *v
-		}
-		var ret ActionHttp
-		return ret
-	}).(ActionHttpOutput)
-}
-
 type ActionHttpArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionHttp)(nil))
+	return reflect.TypeOf((*[]*ActionHttp)(nil)).Elem()
 }
 
 func (o ActionHttpArrayOutput) ToActionHttpArrayOutput() ActionHttpArrayOutput {
@@ -353,15 +290,15 @@ func (o ActionHttpArrayOutput) ToActionHttpArrayOutputWithContext(ctx context.Co
 }
 
 func (o ActionHttpArrayOutput) Index(i pulumi.IntInput) ActionHttpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionHttp {
-		return vs[0].([]ActionHttp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionHttp {
+		return vs[0].([]*ActionHttp)[vs[1].(int)]
 	}).(ActionHttpOutput)
 }
 
 type ActionHttpMapOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionHttp)(nil))
+	return reflect.TypeOf((*map[string]*ActionHttp)(nil)).Elem()
 }
 
 func (o ActionHttpMapOutput) ToActionHttpMapOutput() ActionHttpMapOutput {
@@ -373,18 +310,16 @@ func (o ActionHttpMapOutput) ToActionHttpMapOutputWithContext(ctx context.Contex
 }
 
 func (o ActionHttpMapOutput) MapIndex(k pulumi.StringInput) ActionHttpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionHttp {
-		return vs[0].(map[string]ActionHttp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionHttp {
+		return vs[0].(map[string]*ActionHttp)[vs[1].(string)]
 	}).(ActionHttpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpInput)(nil)).Elem(), &ActionHttp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpPtrInput)(nil)).Elem(), &ActionHttp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpArrayInput)(nil)).Elem(), ActionHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpMapInput)(nil)).Elem(), ActionHttpMap{})
 	pulumi.RegisterOutputType(ActionHttpOutput{})
-	pulumi.RegisterOutputType(ActionHttpPtrOutput{})
 	pulumi.RegisterOutputType(ActionHttpArrayOutput{})
 	pulumi.RegisterOutputType(ActionHttpMapOutput{})
 }

@@ -109,17 +109,17 @@ export class Asset extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssetArgs | AssetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssetState | undefined;
-            inputs["alternateId"] = state ? state.alternateId : undefined;
-            inputs["container"] = state ? state.container : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["alternateId"] = state ? state.alternateId : undefined;
+            resourceInputs["container"] = state ? state.container : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as AssetArgs | undefined;
             if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
@@ -128,18 +128,16 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["alternateId"] = args ? args.alternateId : undefined;
-            inputs["container"] = args ? args.container : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["alternateId"] = args ? args.alternateId : undefined;
+            resourceInputs["container"] = args ? args.container : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Asset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Asset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -53,22 +53,22 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if args.Environment == nil {
+	if isZero(args.Environment) {
 		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string))
 	}
-	if args.MetadataHost == nil {
+	if isZero(args.MetadataHost) {
 		args.MetadataHost = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string))
 	}
-	if args.MetadataUrl == nil {
+	if isZero(args.MetadataUrl) {
 		args.MetadataUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_URL").(string))
 	}
-	if args.SkipProviderRegistration == nil {
+	if isZero(args.SkipProviderRegistration) {
 		args.SkipProviderRegistration = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool))
 	}
-	if args.StorageUseAzuread == nil {
+	if isZero(args.StorageUseAzuread) {
 		args.StorageUseAzuread = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD").(bool))
 	}
-	if args.SubscriptionId == nil {
+	if isZero(args.SubscriptionId) {
 		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
 	}
 	var resource Provider
@@ -190,7 +190,7 @@ type ProviderInput interface {
 }
 
 func (*Provider) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil))
+	return reflect.TypeOf((**Provider)(nil)).Elem()
 }
 
 func (i *Provider) ToProviderOutput() ProviderOutput {
@@ -201,39 +201,10 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderOutput)
 }
 
-func (i *Provider) ToProviderPtrOutput() ProviderPtrOutput {
-	return i.ToProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *Provider) ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderPtrOutput)
-}
-
-type ProviderPtrInput interface {
-	pulumi.Input
-
-	ToProviderPtrOutput() ProviderPtrOutput
-	ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput
-}
-
-type providerPtrType ProviderArgs
-
-func (*providerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Provider)(nil))
-}
-
-func (i *providerPtrType) ToProviderPtrOutput() ProviderPtrOutput {
-	return i.ToProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *providerPtrType) ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderPtrOutput)
-}
-
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provider)(nil))
+	return reflect.TypeOf((**Provider)(nil)).Elem()
 }
 
 func (o ProviderOutput) ToProviderOutput() ProviderOutput {
@@ -244,43 +215,7 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
-func (o ProviderOutput) ToProviderPtrOutput() ProviderPtrOutput {
-	return o.ToProviderPtrOutputWithContext(context.Background())
-}
-
-func (o ProviderOutput) ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Provider) *Provider {
-		return &v
-	}).(ProviderPtrOutput)
-}
-
-type ProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (ProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Provider)(nil))
-}
-
-func (o ProviderPtrOutput) ToProviderPtrOutput() ProviderPtrOutput {
-	return o
-}
-
-func (o ProviderPtrOutput) ToProviderPtrOutputWithContext(ctx context.Context) ProviderPtrOutput {
-	return o
-}
-
-func (o ProviderPtrOutput) Elem() ProviderOutput {
-	return o.ApplyT(func(v *Provider) Provider {
-		if v != nil {
-			return *v
-		}
-		var ret Provider
-		return ret
-	}).(ProviderOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderPtrInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})
-	pulumi.RegisterOutputType(ProviderPtrOutput{})
 }

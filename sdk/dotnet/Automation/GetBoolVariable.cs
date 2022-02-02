@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Automation
 {
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBoolVariableResult> InvokeAsync(GetBoolVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Bool Variable.
@@ -80,7 +79,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBoolVariableResult> Invoke(GetBoolVariableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableInvokeArgs(), options.WithDefaults());
     }
 
 

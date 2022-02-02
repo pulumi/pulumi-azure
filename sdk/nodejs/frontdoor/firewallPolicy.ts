@@ -100,44 +100,42 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallPolicyArgs | FirewallPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
-            inputs["customBlockResponseBody"] = state ? state.customBlockResponseBody : undefined;
-            inputs["customBlockResponseStatusCode"] = state ? state.customBlockResponseStatusCode : undefined;
-            inputs["customRules"] = state ? state.customRules : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frontendEndpointIds"] = state ? state.frontendEndpointIds : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedRules"] = state ? state.managedRules : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redirectUrl"] = state ? state.redirectUrl : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customBlockResponseBody"] = state ? state.customBlockResponseBody : undefined;
+            resourceInputs["customBlockResponseStatusCode"] = state ? state.customBlockResponseStatusCode : undefined;
+            resourceInputs["customRules"] = state ? state.customRules : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frontendEndpointIds"] = state ? state.frontendEndpointIds : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedRules"] = state ? state.managedRules : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customBlockResponseBody"] = args ? args.customBlockResponseBody : undefined;
-            inputs["customBlockResponseStatusCode"] = args ? args.customBlockResponseStatusCode : undefined;
-            inputs["customRules"] = args ? args.customRules : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["managedRules"] = args ? args.managedRules : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["frontendEndpointIds"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
+            resourceInputs["customBlockResponseBody"] = args ? args.customBlockResponseBody : undefined;
+            resourceInputs["customBlockResponseStatusCode"] = args ? args.customBlockResponseStatusCode : undefined;
+            resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["frontendEndpointIds"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FirewallPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

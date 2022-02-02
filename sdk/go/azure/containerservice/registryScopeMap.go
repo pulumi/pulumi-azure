@@ -182,7 +182,7 @@ type RegistryScopeMapInput interface {
 }
 
 func (*RegistryScopeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryScopeMap)(nil))
+	return reflect.TypeOf((**RegistryScopeMap)(nil)).Elem()
 }
 
 func (i *RegistryScopeMap) ToRegistryScopeMapOutput() RegistryScopeMapOutput {
@@ -191,35 +191,6 @@ func (i *RegistryScopeMap) ToRegistryScopeMapOutput() RegistryScopeMapOutput {
 
 func (i *RegistryScopeMap) ToRegistryScopeMapOutputWithContext(ctx context.Context) RegistryScopeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapOutput)
-}
-
-func (i *RegistryScopeMap) ToRegistryScopeMapPtrOutput() RegistryScopeMapPtrOutput {
-	return i.ToRegistryScopeMapPtrOutputWithContext(context.Background())
-}
-
-func (i *RegistryScopeMap) ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapPtrOutput)
-}
-
-type RegistryScopeMapPtrInput interface {
-	pulumi.Input
-
-	ToRegistryScopeMapPtrOutput() RegistryScopeMapPtrOutput
-	ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput
-}
-
-type registryScopeMapPtrType RegistryScopeMapArgs
-
-func (*registryScopeMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryScopeMap)(nil))
-}
-
-func (i *registryScopeMapPtrType) ToRegistryScopeMapPtrOutput() RegistryScopeMapPtrOutput {
-	return i.ToRegistryScopeMapPtrOutputWithContext(context.Background())
-}
-
-func (i *registryScopeMapPtrType) ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapPtrOutput)
 }
 
 // RegistryScopeMapArrayInput is an input type that accepts RegistryScopeMapArray and RegistryScopeMapArrayOutput values.
@@ -275,7 +246,7 @@ func (i RegistryScopeMapMap) ToRegistryScopeMapMapOutputWithContext(ctx context.
 type RegistryScopeMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryScopeMap)(nil))
+	return reflect.TypeOf((**RegistryScopeMap)(nil)).Elem()
 }
 
 func (o RegistryScopeMapOutput) ToRegistryScopeMapOutput() RegistryScopeMapOutput {
@@ -286,44 +257,10 @@ func (o RegistryScopeMapOutput) ToRegistryScopeMapOutputWithContext(ctx context.
 	return o
 }
 
-func (o RegistryScopeMapOutput) ToRegistryScopeMapPtrOutput() RegistryScopeMapPtrOutput {
-	return o.ToRegistryScopeMapPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryScopeMapOutput) ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryScopeMap) *RegistryScopeMap {
-		return &v
-	}).(RegistryScopeMapPtrOutput)
-}
-
-type RegistryScopeMapPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryScopeMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryScopeMap)(nil))
-}
-
-func (o RegistryScopeMapPtrOutput) ToRegistryScopeMapPtrOutput() RegistryScopeMapPtrOutput {
-	return o
-}
-
-func (o RegistryScopeMapPtrOutput) ToRegistryScopeMapPtrOutputWithContext(ctx context.Context) RegistryScopeMapPtrOutput {
-	return o
-}
-
-func (o RegistryScopeMapPtrOutput) Elem() RegistryScopeMapOutput {
-	return o.ApplyT(func(v *RegistryScopeMap) RegistryScopeMap {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryScopeMap
-		return ret
-	}).(RegistryScopeMapOutput)
-}
-
 type RegistryScopeMapArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryScopeMapArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryScopeMap)(nil))
+	return reflect.TypeOf((*[]*RegistryScopeMap)(nil)).Elem()
 }
 
 func (o RegistryScopeMapArrayOutput) ToRegistryScopeMapArrayOutput() RegistryScopeMapArrayOutput {
@@ -335,15 +272,15 @@ func (o RegistryScopeMapArrayOutput) ToRegistryScopeMapArrayOutputWithContext(ct
 }
 
 func (o RegistryScopeMapArrayOutput) Index(i pulumi.IntInput) RegistryScopeMapOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryScopeMap {
-		return vs[0].([]RegistryScopeMap)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryScopeMap {
+		return vs[0].([]*RegistryScopeMap)[vs[1].(int)]
 	}).(RegistryScopeMapOutput)
 }
 
 type RegistryScopeMapMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryScopeMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RegistryScopeMap)(nil))
+	return reflect.TypeOf((*map[string]*RegistryScopeMap)(nil)).Elem()
 }
 
 func (o RegistryScopeMapMapOutput) ToRegistryScopeMapMapOutput() RegistryScopeMapMapOutput {
@@ -355,18 +292,16 @@ func (o RegistryScopeMapMapOutput) ToRegistryScopeMapMapOutputWithContext(ctx co
 }
 
 func (o RegistryScopeMapMapOutput) MapIndex(k pulumi.StringInput) RegistryScopeMapOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegistryScopeMap {
-		return vs[0].(map[string]RegistryScopeMap)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RegistryScopeMap {
+		return vs[0].(map[string]*RegistryScopeMap)[vs[1].(string)]
 	}).(RegistryScopeMapOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapInput)(nil)).Elem(), &RegistryScopeMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapPtrInput)(nil)).Elem(), &RegistryScopeMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapArrayInput)(nil)).Elem(), RegistryScopeMapArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapMapInput)(nil)).Elem(), RegistryScopeMapMap{})
 	pulumi.RegisterOutputType(RegistryScopeMapOutput{})
-	pulumi.RegisterOutputType(RegistryScopeMapPtrOutput{})
 	pulumi.RegisterOutputType(RegistryScopeMapArrayOutput{})
 	pulumi.RegisterOutputType(RegistryScopeMapMapOutput{})
 }

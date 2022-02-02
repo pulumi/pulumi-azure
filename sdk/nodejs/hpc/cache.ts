@@ -150,26 +150,26 @@ export class Cache extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
-            inputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
-            inputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
-            inputs["directoryActiveDirectory"] = state ? state.directoryActiveDirectory : undefined;
-            inputs["directoryFlatFile"] = state ? state.directoryFlatFile : undefined;
-            inputs["directoryLdap"] = state ? state.directoryLdap : undefined;
-            inputs["dns"] = state ? state.dns : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mountAddresses"] = state ? state.mountAddresses : undefined;
-            inputs["mtu"] = state ? state.mtu : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ntpServer"] = state ? state.ntpServer : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rootSquashEnabled"] = state ? state.rootSquashEnabled : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
+            resourceInputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
+            resourceInputs["directoryActiveDirectory"] = state ? state.directoryActiveDirectory : undefined;
+            resourceInputs["directoryFlatFile"] = state ? state.directoryFlatFile : undefined;
+            resourceInputs["directoryLdap"] = state ? state.directoryLdap : undefined;
+            resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mountAddresses"] = state ? state.mountAddresses : undefined;
+            resourceInputs["mtu"] = state ? state.mtu : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ntpServer"] = state ? state.ntpServer : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rootSquashEnabled"] = state ? state.rootSquashEnabled : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
             if ((!args || args.cacheSizeInGb === undefined) && !opts.urn) {
@@ -184,27 +184,25 @@ export class Cache extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
-            inputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
-            inputs["directoryActiveDirectory"] = args ? args.directoryActiveDirectory : undefined;
-            inputs["directoryFlatFile"] = args ? args.directoryFlatFile : undefined;
-            inputs["directoryLdap"] = args ? args.directoryLdap : undefined;
-            inputs["dns"] = args ? args.dns : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mtu"] = args ? args.mtu : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ntpServer"] = args ? args.ntpServer : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rootSquashEnabled"] = args ? args.rootSquashEnabled : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["mountAddresses"] = undefined /*out*/;
+            resourceInputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
+            resourceInputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
+            resourceInputs["directoryActiveDirectory"] = args ? args.directoryActiveDirectory : undefined;
+            resourceInputs["directoryFlatFile"] = args ? args.directoryFlatFile : undefined;
+            resourceInputs["directoryLdap"] = args ? args.directoryLdap : undefined;
+            resourceInputs["dns"] = args ? args.dns : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mtu"] = args ? args.mtu : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ntpServer"] = args ? args.ntpServer : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rootSquashEnabled"] = args ? args.rootSquashEnabled : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["mountAddresses"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cache.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cache.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -299,7 +299,7 @@ type LinkedServiceAzureSqlDatabaseInput interface {
 }
 
 func (*LinkedServiceAzureSqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureSqlDatabase)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureSqlDatabase)(nil)).Elem()
 }
 
 func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutput() LinkedServiceAzureSqlDatabaseOutput {
@@ -308,35 +308,6 @@ func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutput() 
 
 func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseOutput)
-}
-
-func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabasePtrOutput() LinkedServiceAzureSqlDatabasePtrOutput {
-	return i.ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabasePtrOutput)
-}
-
-type LinkedServiceAzureSqlDatabasePtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureSqlDatabasePtrOutput() LinkedServiceAzureSqlDatabasePtrOutput
-	ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabasePtrOutput
-}
-
-type linkedServiceAzureSqlDatabasePtrType LinkedServiceAzureSqlDatabaseArgs
-
-func (*linkedServiceAzureSqlDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureSqlDatabase)(nil))
-}
-
-func (i *linkedServiceAzureSqlDatabasePtrType) ToLinkedServiceAzureSqlDatabasePtrOutput() LinkedServiceAzureSqlDatabasePtrOutput {
-	return i.ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureSqlDatabasePtrType) ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabasePtrOutput)
 }
 
 // LinkedServiceAzureSqlDatabaseArrayInput is an input type that accepts LinkedServiceAzureSqlDatabaseArray and LinkedServiceAzureSqlDatabaseArrayOutput values.
@@ -392,7 +363,7 @@ func (i LinkedServiceAzureSqlDatabaseMap) ToLinkedServiceAzureSqlDatabaseMapOutp
 type LinkedServiceAzureSqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureSqlDatabase)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureSqlDatabase)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabaseOutput() LinkedServiceAzureSqlDatabaseOutput {
@@ -403,44 +374,10 @@ func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabaseOutp
 	return o
 }
 
-func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabasePtrOutput() LinkedServiceAzureSqlDatabasePtrOutput {
-	return o.ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureSqlDatabase) *LinkedServiceAzureSqlDatabase {
-		return &v
-	}).(LinkedServiceAzureSqlDatabasePtrOutput)
-}
-
-type LinkedServiceAzureSqlDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureSqlDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureSqlDatabase)(nil))
-}
-
-func (o LinkedServiceAzureSqlDatabasePtrOutput) ToLinkedServiceAzureSqlDatabasePtrOutput() LinkedServiceAzureSqlDatabasePtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureSqlDatabasePtrOutput) ToLinkedServiceAzureSqlDatabasePtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabasePtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureSqlDatabasePtrOutput) Elem() LinkedServiceAzureSqlDatabaseOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabase) LinkedServiceAzureSqlDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureSqlDatabase
-		return ret
-	}).(LinkedServiceAzureSqlDatabaseOutput)
-}
-
 type LinkedServiceAzureSqlDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSqlDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceAzureSqlDatabase)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceAzureSqlDatabase)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureSqlDatabaseArrayOutput) ToLinkedServiceAzureSqlDatabaseArrayOutput() LinkedServiceAzureSqlDatabaseArrayOutput {
@@ -452,15 +389,15 @@ func (o LinkedServiceAzureSqlDatabaseArrayOutput) ToLinkedServiceAzureSqlDatabas
 }
 
 func (o LinkedServiceAzureSqlDatabaseArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureSqlDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceAzureSqlDatabase {
-		return vs[0].([]LinkedServiceAzureSqlDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureSqlDatabase {
+		return vs[0].([]*LinkedServiceAzureSqlDatabase)[vs[1].(int)]
 	}).(LinkedServiceAzureSqlDatabaseOutput)
 }
 
 type LinkedServiceAzureSqlDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSqlDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceAzureSqlDatabase)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceAzureSqlDatabase)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureSqlDatabaseMapOutput) ToLinkedServiceAzureSqlDatabaseMapOutput() LinkedServiceAzureSqlDatabaseMapOutput {
@@ -472,18 +409,16 @@ func (o LinkedServiceAzureSqlDatabaseMapOutput) ToLinkedServiceAzureSqlDatabaseM
 }
 
 func (o LinkedServiceAzureSqlDatabaseMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureSqlDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceAzureSqlDatabase {
-		return vs[0].(map[string]LinkedServiceAzureSqlDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceAzureSqlDatabase {
+		return vs[0].(map[string]*LinkedServiceAzureSqlDatabase)[vs[1].(string)]
 	}).(LinkedServiceAzureSqlDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseInput)(nil)).Elem(), &LinkedServiceAzureSqlDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabasePtrInput)(nil)).Elem(), &LinkedServiceAzureSqlDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseArrayInput)(nil)).Elem(), LinkedServiceAzureSqlDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseMapInput)(nil)).Elem(), LinkedServiceAzureSqlDatabaseMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabasePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseMapOutput{})
 }

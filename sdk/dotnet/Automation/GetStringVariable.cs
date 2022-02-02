@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Automation
 {
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStringVariableResult> InvokeAsync(GetStringVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation String Variable.
@@ -80,7 +79,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStringVariableResult> Invoke(GetStringVariableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableInvokeArgs(), options.WithDefaults());
     }
 
 

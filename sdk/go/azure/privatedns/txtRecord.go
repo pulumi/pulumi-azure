@@ -198,7 +198,7 @@ type TxtRecordInput interface {
 }
 
 func (*TxtRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*TxtRecord)(nil))
+	return reflect.TypeOf((**TxtRecord)(nil)).Elem()
 }
 
 func (i *TxtRecord) ToTxtRecordOutput() TxtRecordOutput {
@@ -207,35 +207,6 @@ func (i *TxtRecord) ToTxtRecordOutput() TxtRecordOutput {
 
 func (i *TxtRecord) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordOutput)
-}
-
-func (i *TxtRecord) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
-	return i.ToTxtRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *TxtRecord) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordPtrOutput)
-}
-
-type TxtRecordPtrInput interface {
-	pulumi.Input
-
-	ToTxtRecordPtrOutput() TxtRecordPtrOutput
-	ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput
-}
-
-type txtRecordPtrType TxtRecordArgs
-
-func (*txtRecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TxtRecord)(nil))
-}
-
-func (i *txtRecordPtrType) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
-	return i.ToTxtRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *txtRecordPtrType) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordPtrOutput)
 }
 
 // TxtRecordArrayInput is an input type that accepts TxtRecordArray and TxtRecordArrayOutput values.
@@ -291,7 +262,7 @@ func (i TxtRecordMap) ToTxtRecordMapOutputWithContext(ctx context.Context) TxtRe
 type TxtRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TxtRecord)(nil))
+	return reflect.TypeOf((**TxtRecord)(nil)).Elem()
 }
 
 func (o TxtRecordOutput) ToTxtRecordOutput() TxtRecordOutput {
@@ -302,44 +273,10 @@ func (o TxtRecordOutput) ToTxtRecordOutputWithContext(ctx context.Context) TxtRe
 	return o
 }
 
-func (o TxtRecordOutput) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
-	return o.ToTxtRecordPtrOutputWithContext(context.Background())
-}
-
-func (o TxtRecordOutput) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TxtRecord) *TxtRecord {
-		return &v
-	}).(TxtRecordPtrOutput)
-}
-
-type TxtRecordPtrOutput struct{ *pulumi.OutputState }
-
-func (TxtRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TxtRecord)(nil))
-}
-
-func (o TxtRecordPtrOutput) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
-	return o
-}
-
-func (o TxtRecordPtrOutput) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
-	return o
-}
-
-func (o TxtRecordPtrOutput) Elem() TxtRecordOutput {
-	return o.ApplyT(func(v *TxtRecord) TxtRecord {
-		if v != nil {
-			return *v
-		}
-		var ret TxtRecord
-		return ret
-	}).(TxtRecordOutput)
-}
-
 type TxtRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TxtRecord)(nil))
+	return reflect.TypeOf((*[]*TxtRecord)(nil)).Elem()
 }
 
 func (o TxtRecordArrayOutput) ToTxtRecordArrayOutput() TxtRecordArrayOutput {
@@ -351,15 +288,15 @@ func (o TxtRecordArrayOutput) ToTxtRecordArrayOutputWithContext(ctx context.Cont
 }
 
 func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TxtRecord {
-		return vs[0].([]TxtRecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TxtRecord {
+		return vs[0].([]*TxtRecord)[vs[1].(int)]
 	}).(TxtRecordOutput)
 }
 
 type TxtRecordMapOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TxtRecord)(nil))
+	return reflect.TypeOf((*map[string]*TxtRecord)(nil)).Elem()
 }
 
 func (o TxtRecordMapOutput) ToTxtRecordMapOutput() TxtRecordMapOutput {
@@ -371,18 +308,16 @@ func (o TxtRecordMapOutput) ToTxtRecordMapOutputWithContext(ctx context.Context)
 }
 
 func (o TxtRecordMapOutput) MapIndex(k pulumi.StringInput) TxtRecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TxtRecord {
-		return vs[0].(map[string]TxtRecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TxtRecord {
+		return vs[0].(map[string]*TxtRecord)[vs[1].(string)]
 	}).(TxtRecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordInput)(nil)).Elem(), &TxtRecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordPtrInput)(nil)).Elem(), &TxtRecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordArrayInput)(nil)).Elem(), TxtRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordMapInput)(nil)).Elem(), TxtRecordMap{})
 	pulumi.RegisterOutputType(TxtRecordOutput{})
-	pulumi.RegisterOutputType(TxtRecordPtrOutput{})
 	pulumi.RegisterOutputType(TxtRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordMapOutput{})
 }

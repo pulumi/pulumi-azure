@@ -26,9 +26,7 @@ export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getVpnGateway:getVpnGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

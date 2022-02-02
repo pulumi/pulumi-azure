@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  *     localFilePath: "./example/myfile.txt",
  *     remoteFilePath: "/example/myfile.txt",
  * });
- * const exampleServicePrincipal = exampleAccount.name.apply(name => azuread.getServicePrincipal({
- *     displayName: name,
- * }));
+ * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
+ *     displayName: exampleAccount.name,
+ * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleStore.id,
  *     roleDefinitionName: "Owner",
@@ -124,16 +124,16 @@ export class DatasetDataLakeGen1 extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetDataLakeGen1Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetDataLakeGen1Args | DatasetDataLakeGen1State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetDataLakeGen1State | undefined;
-            inputs["dataLakeStoreId"] = state ? state.dataLakeStoreId : undefined;
-            inputs["dataShareId"] = state ? state.dataShareId : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["fileName"] = state ? state.fileName : undefined;
-            inputs["folderPath"] = state ? state.folderPath : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["dataLakeStoreId"] = state ? state.dataLakeStoreId : undefined;
+            resourceInputs["dataShareId"] = state ? state.dataShareId : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["fileName"] = state ? state.fileName : undefined;
+            resourceInputs["folderPath"] = state ? state.folderPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DatasetDataLakeGen1Args | undefined;
             if ((!args || args.dataLakeStoreId === undefined) && !opts.urn) {
@@ -145,17 +145,15 @@ export class DatasetDataLakeGen1 extends pulumi.CustomResource {
             if ((!args || args.folderPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'folderPath'");
             }
-            inputs["dataLakeStoreId"] = args ? args.dataLakeStoreId : undefined;
-            inputs["dataShareId"] = args ? args.dataShareId : undefined;
-            inputs["fileName"] = args ? args.fileName : undefined;
-            inputs["folderPath"] = args ? args.folderPath : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["displayName"] = undefined /*out*/;
+            resourceInputs["dataLakeStoreId"] = args ? args.dataLakeStoreId : undefined;
+            resourceInputs["dataShareId"] = args ? args.dataShareId : undefined;
+            resourceInputs["fileName"] = args ? args.fileName : undefined;
+            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DatasetDataLakeGen1.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DatasetDataLakeGen1.__pulumiType, name, resourceInputs, opts);
     }
 }
 

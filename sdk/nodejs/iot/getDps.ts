@@ -24,9 +24,7 @@ export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:iot/getDps:getDps", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

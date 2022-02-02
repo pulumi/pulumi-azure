@@ -251,7 +251,7 @@ type SqlPoolWorkloadClassifierInput interface {
 }
 
 func (*SqlPoolWorkloadClassifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadClassifier)(nil)).Elem()
 }
 
 func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
@@ -260,35 +260,6 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutput() SqlPoolW
 
 func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
-}
-
-func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierPtrOutput() SqlPoolWorkloadClassifierPtrOutput {
-	return i.ToSqlPoolWorkloadClassifierPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierPtrOutput)
-}
-
-type SqlPoolWorkloadClassifierPtrInput interface {
-	pulumi.Input
-
-	ToSqlPoolWorkloadClassifierPtrOutput() SqlPoolWorkloadClassifierPtrOutput
-	ToSqlPoolWorkloadClassifierPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierPtrOutput
-}
-
-type sqlPoolWorkloadClassifierPtrType SqlPoolWorkloadClassifierArgs
-
-func (*sqlPoolWorkloadClassifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPoolWorkloadClassifier)(nil))
-}
-
-func (i *sqlPoolWorkloadClassifierPtrType) ToSqlPoolWorkloadClassifierPtrOutput() SqlPoolWorkloadClassifierPtrOutput {
-	return i.ToSqlPoolWorkloadClassifierPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlPoolWorkloadClassifierPtrType) ToSqlPoolWorkloadClassifierPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierPtrOutput)
 }
 
 // SqlPoolWorkloadClassifierArrayInput is an input type that accepts SqlPoolWorkloadClassifierArray and SqlPoolWorkloadClassifierArrayOutput values.
@@ -344,7 +315,7 @@ func (i SqlPoolWorkloadClassifierMap) ToSqlPoolWorkloadClassifierMapOutputWithCo
 type SqlPoolWorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadClassifier)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
@@ -355,44 +326,10 @@ func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutputWithCo
 	return o
 }
 
-func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierPtrOutput() SqlPoolWorkloadClassifierPtrOutput {
-	return o.ToSqlPoolWorkloadClassifierPtrOutputWithContext(context.Background())
-}
-
-func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolWorkloadClassifier) *SqlPoolWorkloadClassifier {
-		return &v
-	}).(SqlPoolWorkloadClassifierPtrOutput)
-}
-
-type SqlPoolWorkloadClassifierPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlPoolWorkloadClassifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPoolWorkloadClassifier)(nil))
-}
-
-func (o SqlPoolWorkloadClassifierPtrOutput) ToSqlPoolWorkloadClassifierPtrOutput() SqlPoolWorkloadClassifierPtrOutput {
-	return o
-}
-
-func (o SqlPoolWorkloadClassifierPtrOutput) ToSqlPoolWorkloadClassifierPtrOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierPtrOutput {
-	return o
-}
-
-func (o SqlPoolWorkloadClassifierPtrOutput) Elem() SqlPoolWorkloadClassifierOutput {
-	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) SqlPoolWorkloadClassifier {
-		if v != nil {
-			return *v
-		}
-		var ret SqlPoolWorkloadClassifier
-		return ret
-	}).(SqlPoolWorkloadClassifierOutput)
-}
-
 type SqlPoolWorkloadClassifierArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlPoolWorkloadClassifier)(nil))
+	return reflect.TypeOf((*[]*SqlPoolWorkloadClassifier)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadClassifierArrayOutput) ToSqlPoolWorkloadClassifierArrayOutput() SqlPoolWorkloadClassifierArrayOutput {
@@ -404,15 +341,15 @@ func (o SqlPoolWorkloadClassifierArrayOutput) ToSqlPoolWorkloadClassifierArrayOu
 }
 
 func (o SqlPoolWorkloadClassifierArrayOutput) Index(i pulumi.IntInput) SqlPoolWorkloadClassifierOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolWorkloadClassifier {
-		return vs[0].([]SqlPoolWorkloadClassifier)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolWorkloadClassifier {
+		return vs[0].([]*SqlPoolWorkloadClassifier)[vs[1].(int)]
 	}).(SqlPoolWorkloadClassifierOutput)
 }
 
 type SqlPoolWorkloadClassifierMapOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlPoolWorkloadClassifier)(nil))
+	return reflect.TypeOf((*map[string]*SqlPoolWorkloadClassifier)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadClassifierMapOutput) ToSqlPoolWorkloadClassifierMapOutput() SqlPoolWorkloadClassifierMapOutput {
@@ -424,18 +361,16 @@ func (o SqlPoolWorkloadClassifierMapOutput) ToSqlPoolWorkloadClassifierMapOutput
 }
 
 func (o SqlPoolWorkloadClassifierMapOutput) MapIndex(k pulumi.StringInput) SqlPoolWorkloadClassifierOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlPoolWorkloadClassifier {
-		return vs[0].(map[string]SqlPoolWorkloadClassifier)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlPoolWorkloadClassifier {
+		return vs[0].(map[string]*SqlPoolWorkloadClassifier)[vs[1].(string)]
 	}).(SqlPoolWorkloadClassifierOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadClassifierInput)(nil)).Elem(), &SqlPoolWorkloadClassifier{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadClassifierPtrInput)(nil)).Elem(), &SqlPoolWorkloadClassifier{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadClassifierArrayInput)(nil)).Elem(), SqlPoolWorkloadClassifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolWorkloadClassifierMapInput)(nil)).Elem(), SqlPoolWorkloadClassifierMap{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierOutput{})
-	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierMapOutput{})
 }

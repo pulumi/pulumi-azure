@@ -311,7 +311,7 @@ type MLServicesClusterInput interface {
 }
 
 func (*MLServicesCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLServicesCluster)(nil))
+	return reflect.TypeOf((**MLServicesCluster)(nil)).Elem()
 }
 
 func (i *MLServicesCluster) ToMLServicesClusterOutput() MLServicesClusterOutput {
@@ -320,35 +320,6 @@ func (i *MLServicesCluster) ToMLServicesClusterOutput() MLServicesClusterOutput 
 
 func (i *MLServicesCluster) ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterOutput)
-}
-
-func (i *MLServicesCluster) ToMLServicesClusterPtrOutput() MLServicesClusterPtrOutput {
-	return i.ToMLServicesClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *MLServicesCluster) ToMLServicesClusterPtrOutputWithContext(ctx context.Context) MLServicesClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterPtrOutput)
-}
-
-type MLServicesClusterPtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterPtrOutput() MLServicesClusterPtrOutput
-	ToMLServicesClusterPtrOutputWithContext(ctx context.Context) MLServicesClusterPtrOutput
-}
-
-type mlservicesClusterPtrType MLServicesClusterArgs
-
-func (*mlservicesClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesCluster)(nil))
-}
-
-func (i *mlservicesClusterPtrType) ToMLServicesClusterPtrOutput() MLServicesClusterPtrOutput {
-	return i.ToMLServicesClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterPtrType) ToMLServicesClusterPtrOutputWithContext(ctx context.Context) MLServicesClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterPtrOutput)
 }
 
 // MLServicesClusterArrayInput is an input type that accepts MLServicesClusterArray and MLServicesClusterArrayOutput values.
@@ -404,7 +375,7 @@ func (i MLServicesClusterMap) ToMLServicesClusterMapOutputWithContext(ctx contex
 type MLServicesClusterOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLServicesCluster)(nil))
+	return reflect.TypeOf((**MLServicesCluster)(nil)).Elem()
 }
 
 func (o MLServicesClusterOutput) ToMLServicesClusterOutput() MLServicesClusterOutput {
@@ -415,44 +386,10 @@ func (o MLServicesClusterOutput) ToMLServicesClusterOutputWithContext(ctx contex
 	return o
 }
 
-func (o MLServicesClusterOutput) ToMLServicesClusterPtrOutput() MLServicesClusterPtrOutput {
-	return o.ToMLServicesClusterPtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterOutput) ToMLServicesClusterPtrOutputWithContext(ctx context.Context) MLServicesClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesCluster) *MLServicesCluster {
-		return &v
-	}).(MLServicesClusterPtrOutput)
-}
-
-type MLServicesClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesCluster)(nil))
-}
-
-func (o MLServicesClusterPtrOutput) ToMLServicesClusterPtrOutput() MLServicesClusterPtrOutput {
-	return o
-}
-
-func (o MLServicesClusterPtrOutput) ToMLServicesClusterPtrOutputWithContext(ctx context.Context) MLServicesClusterPtrOutput {
-	return o
-}
-
-func (o MLServicesClusterPtrOutput) Elem() MLServicesClusterOutput {
-	return o.ApplyT(func(v *MLServicesCluster) MLServicesCluster {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesCluster
-		return ret
-	}).(MLServicesClusterOutput)
-}
-
 type MLServicesClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MLServicesCluster)(nil))
+	return reflect.TypeOf((*[]*MLServicesCluster)(nil)).Elem()
 }
 
 func (o MLServicesClusterArrayOutput) ToMLServicesClusterArrayOutput() MLServicesClusterArrayOutput {
@@ -464,15 +401,15 @@ func (o MLServicesClusterArrayOutput) ToMLServicesClusterArrayOutputWithContext(
 }
 
 func (o MLServicesClusterArrayOutput) Index(i pulumi.IntInput) MLServicesClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLServicesCluster {
-		return vs[0].([]MLServicesCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MLServicesCluster {
+		return vs[0].([]*MLServicesCluster)[vs[1].(int)]
 	}).(MLServicesClusterOutput)
 }
 
 type MLServicesClusterMapOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MLServicesCluster)(nil))
+	return reflect.TypeOf((*map[string]*MLServicesCluster)(nil)).Elem()
 }
 
 func (o MLServicesClusterMapOutput) ToMLServicesClusterMapOutput() MLServicesClusterMapOutput {
@@ -484,18 +421,16 @@ func (o MLServicesClusterMapOutput) ToMLServicesClusterMapOutputWithContext(ctx 
 }
 
 func (o MLServicesClusterMapOutput) MapIndex(k pulumi.StringInput) MLServicesClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MLServicesCluster {
-		return vs[0].(map[string]MLServicesCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MLServicesCluster {
+		return vs[0].(map[string]*MLServicesCluster)[vs[1].(string)]
 	}).(MLServicesClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterInput)(nil)).Elem(), &MLServicesCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterPtrInput)(nil)).Elem(), &MLServicesCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterArrayInput)(nil)).Elem(), MLServicesClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterMapInput)(nil)).Elem(), MLServicesClusterMap{})
 	pulumi.RegisterOutputType(MLServicesClusterOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterPtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterArrayOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterMapOutput{})
 }

@@ -184,70 +184,68 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
-            inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
-            inputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
-            inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
-            inputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
-            inputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
-            inputs["deliveryProperties"] = state ? state.deliveryProperties : undefined;
-            inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
-            inputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
-            inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
-            inputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
-            inputs["hybridConnectionEndpoint"] = state ? state.hybridConnectionEndpoint : undefined;
-            inputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
-            inputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retryPolicy"] = state ? state.retryPolicy : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["serviceBusQueueEndpointId"] = state ? state.serviceBusQueueEndpointId : undefined;
-            inputs["serviceBusTopicEndpointId"] = state ? state.serviceBusTopicEndpointId : undefined;
-            inputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
-            inputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
-            inputs["subjectFilter"] = state ? state.subjectFilter : undefined;
-            inputs["topicName"] = state ? state.topicName : undefined;
-            inputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
+            resourceInputs["advancedFilter"] = state ? state.advancedFilter : undefined;
+            resourceInputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
+            resourceInputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
+            resourceInputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
+            resourceInputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
+            resourceInputs["deliveryProperties"] = state ? state.deliveryProperties : undefined;
+            resourceInputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
+            resourceInputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
+            resourceInputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
+            resourceInputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
+            resourceInputs["hybridConnectionEndpoint"] = state ? state.hybridConnectionEndpoint : undefined;
+            resourceInputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
+            resourceInputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retryPolicy"] = state ? state.retryPolicy : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["serviceBusQueueEndpointId"] = state ? state.serviceBusQueueEndpointId : undefined;
+            resourceInputs["serviceBusTopicEndpointId"] = state ? state.serviceBusTopicEndpointId : undefined;
+            resourceInputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
+            resourceInputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
+            resourceInputs["subjectFilter"] = state ? state.subjectFilter : undefined;
+            resourceInputs["topicName"] = state ? state.topicName : undefined;
+            resourceInputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
-            inputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
-            inputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
-            inputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
-            inputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
-            inputs["deliveryProperties"] = args ? args.deliveryProperties : undefined;
-            inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
-            inputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
-            inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
-            inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
-            inputs["hybridConnectionEndpoint"] = args ? args.hybridConnectionEndpoint : undefined;
-            inputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
-            inputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["serviceBusQueueEndpointId"] = args ? args.serviceBusQueueEndpointId : undefined;
-            inputs["serviceBusTopicEndpointId"] = args ? args.serviceBusTopicEndpointId : undefined;
-            inputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
-            inputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
-            inputs["subjectFilter"] = args ? args.subjectFilter : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
+            resourceInputs["advancedFilter"] = args ? args.advancedFilter : undefined;
+            resourceInputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
+            resourceInputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
+            resourceInputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
+            resourceInputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
+            resourceInputs["deliveryProperties"] = args ? args.deliveryProperties : undefined;
+            resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
+            resourceInputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
+            resourceInputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
+            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
+            resourceInputs["hybridConnectionEndpoint"] = args ? args.hybridConnectionEndpoint : undefined;
+            resourceInputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
+            resourceInputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["serviceBusQueueEndpointId"] = args ? args.serviceBusQueueEndpointId : undefined;
+            resourceInputs["serviceBusTopicEndpointId"] = args ? args.serviceBusTopicEndpointId : undefined;
+            resourceInputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
+            resourceInputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
+            resourceInputs["subjectFilter"] = args ? args.subjectFilter : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/eventSubscription:EventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventSubscription.__pulumiType, name, inputs, opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

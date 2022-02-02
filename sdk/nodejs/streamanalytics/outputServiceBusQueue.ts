@@ -122,18 +122,18 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
      */
     constructor(name: string, args: OutputServiceBusQueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputServiceBusQueueArgs | OutputServiceBusQueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputServiceBusQueueState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["queueName"] = state ? state.queueName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serialization"] = state ? state.serialization : undefined;
-            inputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
-            inputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
-            inputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queueName"] = state ? state.queueName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serialization"] = state ? state.serialization : undefined;
+            resourceInputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as OutputServiceBusQueueArgs | undefined;
             if ((!args || args.queueName === undefined) && !opts.urn) {
@@ -157,19 +157,17 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queueName"] = args ? args.queueName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serialization"] = args ? args.serialization : undefined;
-            inputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
-            inputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
-            inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queueName"] = args ? args.queueName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OutputServiceBusQueue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OutputServiceBusQueue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

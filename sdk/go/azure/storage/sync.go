@@ -169,7 +169,7 @@ type SyncInput interface {
 }
 
 func (*Sync) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sync)(nil))
+	return reflect.TypeOf((**Sync)(nil)).Elem()
 }
 
 func (i *Sync) ToSyncOutput() SyncOutput {
@@ -178,35 +178,6 @@ func (i *Sync) ToSyncOutput() SyncOutput {
 
 func (i *Sync) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncOutput)
-}
-
-func (i *Sync) ToSyncPtrOutput() SyncPtrOutput {
-	return i.ToSyncPtrOutputWithContext(context.Background())
-}
-
-func (i *Sync) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncPtrOutput)
-}
-
-type SyncPtrInput interface {
-	pulumi.Input
-
-	ToSyncPtrOutput() SyncPtrOutput
-	ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput
-}
-
-type syncPtrType SyncArgs
-
-func (*syncPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sync)(nil))
-}
-
-func (i *syncPtrType) ToSyncPtrOutput() SyncPtrOutput {
-	return i.ToSyncPtrOutputWithContext(context.Background())
-}
-
-func (i *syncPtrType) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncPtrOutput)
 }
 
 // SyncArrayInput is an input type that accepts SyncArray and SyncArrayOutput values.
@@ -262,7 +233,7 @@ func (i SyncMap) ToSyncMapOutputWithContext(ctx context.Context) SyncMapOutput {
 type SyncOutput struct{ *pulumi.OutputState }
 
 func (SyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sync)(nil))
+	return reflect.TypeOf((**Sync)(nil)).Elem()
 }
 
 func (o SyncOutput) ToSyncOutput() SyncOutput {
@@ -273,44 +244,10 @@ func (o SyncOutput) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return o
 }
 
-func (o SyncOutput) ToSyncPtrOutput() SyncPtrOutput {
-	return o.ToSyncPtrOutputWithContext(context.Background())
-}
-
-func (o SyncOutput) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sync) *Sync {
-		return &v
-	}).(SyncPtrOutput)
-}
-
-type SyncPtrOutput struct{ *pulumi.OutputState }
-
-func (SyncPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sync)(nil))
-}
-
-func (o SyncPtrOutput) ToSyncPtrOutput() SyncPtrOutput {
-	return o
-}
-
-func (o SyncPtrOutput) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
-	return o
-}
-
-func (o SyncPtrOutput) Elem() SyncOutput {
-	return o.ApplyT(func(v *Sync) Sync {
-		if v != nil {
-			return *v
-		}
-		var ret Sync
-		return ret
-	}).(SyncOutput)
-}
-
 type SyncArrayOutput struct{ *pulumi.OutputState }
 
 func (SyncArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Sync)(nil))
+	return reflect.TypeOf((*[]*Sync)(nil)).Elem()
 }
 
 func (o SyncArrayOutput) ToSyncArrayOutput() SyncArrayOutput {
@@ -322,15 +259,15 @@ func (o SyncArrayOutput) ToSyncArrayOutputWithContext(ctx context.Context) SyncA
 }
 
 func (o SyncArrayOutput) Index(i pulumi.IntInput) SyncOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Sync {
-		return vs[0].([]Sync)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Sync {
+		return vs[0].([]*Sync)[vs[1].(int)]
 	}).(SyncOutput)
 }
 
 type SyncMapOutput struct{ *pulumi.OutputState }
 
 func (SyncMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Sync)(nil))
+	return reflect.TypeOf((*map[string]*Sync)(nil)).Elem()
 }
 
 func (o SyncMapOutput) ToSyncMapOutput() SyncMapOutput {
@@ -342,18 +279,16 @@ func (o SyncMapOutput) ToSyncMapOutputWithContext(ctx context.Context) SyncMapOu
 }
 
 func (o SyncMapOutput) MapIndex(k pulumi.StringInput) SyncOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Sync {
-		return vs[0].(map[string]Sync)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Sync {
+		return vs[0].(map[string]*Sync)[vs[1].(string)]
 	}).(SyncOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyncInput)(nil)).Elem(), &Sync{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SyncPtrInput)(nil)).Elem(), &Sync{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyncArrayInput)(nil)).Elem(), SyncArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyncMapInput)(nil)).Elem(), SyncMap{})
 	pulumi.RegisterOutputType(SyncOutput{})
-	pulumi.RegisterOutputType(SyncPtrOutput{})
 	pulumi.RegisterOutputType(SyncArrayOutput{})
 	pulumi.RegisterOutputType(SyncMapOutput{})
 }

@@ -132,14 +132,14 @@ export class Assessment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentArgs | AssessmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentState | undefined;
-            inputs["additionalData"] = state ? state.additionalData : undefined;
-            inputs["assessmentPolicyId"] = state ? state.assessmentPolicyId : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["additionalData"] = state ? state.additionalData : undefined;
+            resourceInputs["assessmentPolicyId"] = state ? state.assessmentPolicyId : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as AssessmentArgs | undefined;
             if ((!args || args.assessmentPolicyId === undefined) && !opts.urn) {
@@ -151,15 +151,13 @@ export class Assessment extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["additionalData"] = args ? args.additionalData : undefined;
-            inputs["assessmentPolicyId"] = args ? args.assessmentPolicyId : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
+            resourceInputs["assessmentPolicyId"] = args ? args.assessmentPolicyId : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Assessment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Assessment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

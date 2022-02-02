@@ -158,7 +158,7 @@ type NatGatewayPublicIpPrefixAssociationInput interface {
 }
 
 func (*NatGatewayPublicIpPrefixAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatGatewayPublicIpPrefixAssociation)(nil))
+	return reflect.TypeOf((**NatGatewayPublicIpPrefixAssociation)(nil)).Elem()
 }
 
 func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociationOutput() NatGatewayPublicIpPrefixAssociationOutput {
@@ -167,35 +167,6 @@ func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociat
 
 func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociationOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpPrefixAssociationOutput)
-}
-
-func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociationPtrOutput() NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return i.ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpPrefixAssociationPtrOutput)
-}
-
-type NatGatewayPublicIpPrefixAssociationPtrInput interface {
-	pulumi.Input
-
-	ToNatGatewayPublicIpPrefixAssociationPtrOutput() NatGatewayPublicIpPrefixAssociationPtrOutput
-	ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationPtrOutput
-}
-
-type natGatewayPublicIpPrefixAssociationPtrType NatGatewayPublicIpPrefixAssociationArgs
-
-func (*natGatewayPublicIpPrefixAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NatGatewayPublicIpPrefixAssociation)(nil))
-}
-
-func (i *natGatewayPublicIpPrefixAssociationPtrType) ToNatGatewayPublicIpPrefixAssociationPtrOutput() NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return i.ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *natGatewayPublicIpPrefixAssociationPtrType) ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpPrefixAssociationPtrOutput)
 }
 
 // NatGatewayPublicIpPrefixAssociationArrayInput is an input type that accepts NatGatewayPublicIpPrefixAssociationArray and NatGatewayPublicIpPrefixAssociationArrayOutput values.
@@ -251,7 +222,7 @@ func (i NatGatewayPublicIpPrefixAssociationMap) ToNatGatewayPublicIpPrefixAssoci
 type NatGatewayPublicIpPrefixAssociationOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayPublicIpPrefixAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatGatewayPublicIpPrefixAssociation)(nil))
+	return reflect.TypeOf((**NatGatewayPublicIpPrefixAssociation)(nil)).Elem()
 }
 
 func (o NatGatewayPublicIpPrefixAssociationOutput) ToNatGatewayPublicIpPrefixAssociationOutput() NatGatewayPublicIpPrefixAssociationOutput {
@@ -262,44 +233,10 @@ func (o NatGatewayPublicIpPrefixAssociationOutput) ToNatGatewayPublicIpPrefixAss
 	return o
 }
 
-func (o NatGatewayPublicIpPrefixAssociationOutput) ToNatGatewayPublicIpPrefixAssociationPtrOutput() NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return o.ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o NatGatewayPublicIpPrefixAssociationOutput) ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NatGatewayPublicIpPrefixAssociation) *NatGatewayPublicIpPrefixAssociation {
-		return &v
-	}).(NatGatewayPublicIpPrefixAssociationPtrOutput)
-}
-
-type NatGatewayPublicIpPrefixAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (NatGatewayPublicIpPrefixAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NatGatewayPublicIpPrefixAssociation)(nil))
-}
-
-func (o NatGatewayPublicIpPrefixAssociationPtrOutput) ToNatGatewayPublicIpPrefixAssociationPtrOutput() NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return o
-}
-
-func (o NatGatewayPublicIpPrefixAssociationPtrOutput) ToNatGatewayPublicIpPrefixAssociationPtrOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationPtrOutput {
-	return o
-}
-
-func (o NatGatewayPublicIpPrefixAssociationPtrOutput) Elem() NatGatewayPublicIpPrefixAssociationOutput {
-	return o.ApplyT(func(v *NatGatewayPublicIpPrefixAssociation) NatGatewayPublicIpPrefixAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret NatGatewayPublicIpPrefixAssociation
-		return ret
-	}).(NatGatewayPublicIpPrefixAssociationOutput)
-}
-
 type NatGatewayPublicIpPrefixAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayPublicIpPrefixAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NatGatewayPublicIpPrefixAssociation)(nil))
+	return reflect.TypeOf((*[]*NatGatewayPublicIpPrefixAssociation)(nil)).Elem()
 }
 
 func (o NatGatewayPublicIpPrefixAssociationArrayOutput) ToNatGatewayPublicIpPrefixAssociationArrayOutput() NatGatewayPublicIpPrefixAssociationArrayOutput {
@@ -311,15 +248,15 @@ func (o NatGatewayPublicIpPrefixAssociationArrayOutput) ToNatGatewayPublicIpPref
 }
 
 func (o NatGatewayPublicIpPrefixAssociationArrayOutput) Index(i pulumi.IntInput) NatGatewayPublicIpPrefixAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGatewayPublicIpPrefixAssociation {
-		return vs[0].([]NatGatewayPublicIpPrefixAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatGatewayPublicIpPrefixAssociation {
+		return vs[0].([]*NatGatewayPublicIpPrefixAssociation)[vs[1].(int)]
 	}).(NatGatewayPublicIpPrefixAssociationOutput)
 }
 
 type NatGatewayPublicIpPrefixAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayPublicIpPrefixAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NatGatewayPublicIpPrefixAssociation)(nil))
+	return reflect.TypeOf((*map[string]*NatGatewayPublicIpPrefixAssociation)(nil)).Elem()
 }
 
 func (o NatGatewayPublicIpPrefixAssociationMapOutput) ToNatGatewayPublicIpPrefixAssociationMapOutput() NatGatewayPublicIpPrefixAssociationMapOutput {
@@ -331,18 +268,16 @@ func (o NatGatewayPublicIpPrefixAssociationMapOutput) ToNatGatewayPublicIpPrefix
 }
 
 func (o NatGatewayPublicIpPrefixAssociationMapOutput) MapIndex(k pulumi.StringInput) NatGatewayPublicIpPrefixAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NatGatewayPublicIpPrefixAssociation {
-		return vs[0].(map[string]NatGatewayPublicIpPrefixAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NatGatewayPublicIpPrefixAssociation {
+		return vs[0].(map[string]*NatGatewayPublicIpPrefixAssociation)[vs[1].(string)]
 	}).(NatGatewayPublicIpPrefixAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationInput)(nil)).Elem(), &NatGatewayPublicIpPrefixAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationPtrInput)(nil)).Elem(), &NatGatewayPublicIpPrefixAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationArrayInput)(nil)).Elem(), NatGatewayPublicIpPrefixAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationMapInput)(nil)).Elem(), NatGatewayPublicIpPrefixAssociationMap{})
 	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationOutput{})
-	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationMapOutput{})
 }

@@ -126,7 +126,7 @@ type PortalTenantConfigurationInput interface {
 }
 
 func (*PortalTenantConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalTenantConfiguration)(nil))
+	return reflect.TypeOf((**PortalTenantConfiguration)(nil)).Elem()
 }
 
 func (i *PortalTenantConfiguration) ToPortalTenantConfigurationOutput() PortalTenantConfigurationOutput {
@@ -135,35 +135,6 @@ func (i *PortalTenantConfiguration) ToPortalTenantConfigurationOutput() PortalTe
 
 func (i *PortalTenantConfiguration) ToPortalTenantConfigurationOutputWithContext(ctx context.Context) PortalTenantConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTenantConfigurationOutput)
-}
-
-func (i *PortalTenantConfiguration) ToPortalTenantConfigurationPtrOutput() PortalTenantConfigurationPtrOutput {
-	return i.ToPortalTenantConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *PortalTenantConfiguration) ToPortalTenantConfigurationPtrOutputWithContext(ctx context.Context) PortalTenantConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalTenantConfigurationPtrOutput)
-}
-
-type PortalTenantConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToPortalTenantConfigurationPtrOutput() PortalTenantConfigurationPtrOutput
-	ToPortalTenantConfigurationPtrOutputWithContext(ctx context.Context) PortalTenantConfigurationPtrOutput
-}
-
-type portalTenantConfigurationPtrType PortalTenantConfigurationArgs
-
-func (*portalTenantConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortalTenantConfiguration)(nil))
-}
-
-func (i *portalTenantConfigurationPtrType) ToPortalTenantConfigurationPtrOutput() PortalTenantConfigurationPtrOutput {
-	return i.ToPortalTenantConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *portalTenantConfigurationPtrType) ToPortalTenantConfigurationPtrOutputWithContext(ctx context.Context) PortalTenantConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortalTenantConfigurationPtrOutput)
 }
 
 // PortalTenantConfigurationArrayInput is an input type that accepts PortalTenantConfigurationArray and PortalTenantConfigurationArrayOutput values.
@@ -219,7 +190,7 @@ func (i PortalTenantConfigurationMap) ToPortalTenantConfigurationMapOutputWithCo
 type PortalTenantConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PortalTenantConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortalTenantConfiguration)(nil))
+	return reflect.TypeOf((**PortalTenantConfiguration)(nil)).Elem()
 }
 
 func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationOutput() PortalTenantConfigurationOutput {
@@ -230,44 +201,10 @@ func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationOutputWithCo
 	return o
 }
 
-func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationPtrOutput() PortalTenantConfigurationPtrOutput {
-	return o.ToPortalTenantConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationPtrOutputWithContext(ctx context.Context) PortalTenantConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalTenantConfiguration) *PortalTenantConfiguration {
-		return &v
-	}).(PortalTenantConfigurationPtrOutput)
-}
-
-type PortalTenantConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (PortalTenantConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PortalTenantConfiguration)(nil))
-}
-
-func (o PortalTenantConfigurationPtrOutput) ToPortalTenantConfigurationPtrOutput() PortalTenantConfigurationPtrOutput {
-	return o
-}
-
-func (o PortalTenantConfigurationPtrOutput) ToPortalTenantConfigurationPtrOutputWithContext(ctx context.Context) PortalTenantConfigurationPtrOutput {
-	return o
-}
-
-func (o PortalTenantConfigurationPtrOutput) Elem() PortalTenantConfigurationOutput {
-	return o.ApplyT(func(v *PortalTenantConfiguration) PortalTenantConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret PortalTenantConfiguration
-		return ret
-	}).(PortalTenantConfigurationOutput)
-}
-
 type PortalTenantConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (PortalTenantConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PortalTenantConfiguration)(nil))
+	return reflect.TypeOf((*[]*PortalTenantConfiguration)(nil)).Elem()
 }
 
 func (o PortalTenantConfigurationArrayOutput) ToPortalTenantConfigurationArrayOutput() PortalTenantConfigurationArrayOutput {
@@ -279,15 +216,15 @@ func (o PortalTenantConfigurationArrayOutput) ToPortalTenantConfigurationArrayOu
 }
 
 func (o PortalTenantConfigurationArrayOutput) Index(i pulumi.IntInput) PortalTenantConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PortalTenantConfiguration {
-		return vs[0].([]PortalTenantConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PortalTenantConfiguration {
+		return vs[0].([]*PortalTenantConfiguration)[vs[1].(int)]
 	}).(PortalTenantConfigurationOutput)
 }
 
 type PortalTenantConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (PortalTenantConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PortalTenantConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*PortalTenantConfiguration)(nil)).Elem()
 }
 
 func (o PortalTenantConfigurationMapOutput) ToPortalTenantConfigurationMapOutput() PortalTenantConfigurationMapOutput {
@@ -299,18 +236,16 @@ func (o PortalTenantConfigurationMapOutput) ToPortalTenantConfigurationMapOutput
 }
 
 func (o PortalTenantConfigurationMapOutput) MapIndex(k pulumi.StringInput) PortalTenantConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PortalTenantConfiguration {
-		return vs[0].(map[string]PortalTenantConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PortalTenantConfiguration {
+		return vs[0].(map[string]*PortalTenantConfiguration)[vs[1].(string)]
 	}).(PortalTenantConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationInput)(nil)).Elem(), &PortalTenantConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationPtrInput)(nil)).Elem(), &PortalTenantConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationArrayInput)(nil)).Elem(), PortalTenantConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationMapInput)(nil)).Elem(), PortalTenantConfigurationMap{})
 	pulumi.RegisterOutputType(PortalTenantConfigurationOutput{})
-	pulumi.RegisterOutputType(PortalTenantConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PortalTenantConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PortalTenantConfigurationMapOutput{})
 }

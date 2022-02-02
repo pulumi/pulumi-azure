@@ -118,16 +118,16 @@ export class SpringCloudAppMysqlAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudAppMysqlAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudAppMysqlAssociationArgs | SpringCloudAppMysqlAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppMysqlAssociationState | undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["mysqlServerId"] = state ? state.mysqlServerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["mysqlServerId"] = state ? state.mysqlServerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as SpringCloudAppMysqlAssociationArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -145,17 +145,15 @@ export class SpringCloudAppMysqlAssociation extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["mysqlServerId"] = args ? args.mysqlServerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["mysqlServerId"] = args ? args.mysqlServerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpringCloudAppMysqlAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpringCloudAppMysqlAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

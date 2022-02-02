@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Sql
 {
@@ -88,7 +87,7 @@ namespace Pulumi.Azure.Sql
         /// * `tenant_id` - The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing SQL Managed Instance.
@@ -166,7 +165,7 @@ namespace Pulumi.Azure.Sql
         /// * `tenant_id` - The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

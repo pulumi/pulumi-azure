@@ -108,19 +108,19 @@ export class DscConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: DscConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DscConfigurationArgs | DscConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DscConfigurationState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logVerbose"] = state ? state.logVerbose : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logVerbose"] = state ? state.logVerbose : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DscConfigurationArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -132,20 +132,18 @@ export class DscConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["contentEmbedded"] = args ? args.contentEmbedded : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logVerbose"] = args ? args.logVerbose : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["contentEmbedded"] = args ? args.contentEmbedded : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["state"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DscConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DscConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

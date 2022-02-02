@@ -242,7 +242,7 @@ type MongoCollectionInput interface {
 }
 
 func (*MongoCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollection)(nil))
+	return reflect.TypeOf((**MongoCollection)(nil)).Elem()
 }
 
 func (i *MongoCollection) ToMongoCollectionOutput() MongoCollectionOutput {
@@ -251,35 +251,6 @@ func (i *MongoCollection) ToMongoCollectionOutput() MongoCollectionOutput {
 
 func (i *MongoCollection) ToMongoCollectionOutputWithContext(ctx context.Context) MongoCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionOutput)
-}
-
-func (i *MongoCollection) ToMongoCollectionPtrOutput() MongoCollectionPtrOutput {
-	return i.ToMongoCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i *MongoCollection) ToMongoCollectionPtrOutputWithContext(ctx context.Context) MongoCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionPtrOutput)
-}
-
-type MongoCollectionPtrInput interface {
-	pulumi.Input
-
-	ToMongoCollectionPtrOutput() MongoCollectionPtrOutput
-	ToMongoCollectionPtrOutputWithContext(ctx context.Context) MongoCollectionPtrOutput
-}
-
-type mongoCollectionPtrType MongoCollectionArgs
-
-func (*mongoCollectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MongoCollection)(nil))
-}
-
-func (i *mongoCollectionPtrType) ToMongoCollectionPtrOutput() MongoCollectionPtrOutput {
-	return i.ToMongoCollectionPtrOutputWithContext(context.Background())
-}
-
-func (i *mongoCollectionPtrType) ToMongoCollectionPtrOutputWithContext(ctx context.Context) MongoCollectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionPtrOutput)
 }
 
 // MongoCollectionArrayInput is an input type that accepts MongoCollectionArray and MongoCollectionArrayOutput values.
@@ -335,7 +306,7 @@ func (i MongoCollectionMap) ToMongoCollectionMapOutputWithContext(ctx context.Co
 type MongoCollectionOutput struct{ *pulumi.OutputState }
 
 func (MongoCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollection)(nil))
+	return reflect.TypeOf((**MongoCollection)(nil)).Elem()
 }
 
 func (o MongoCollectionOutput) ToMongoCollectionOutput() MongoCollectionOutput {
@@ -346,44 +317,10 @@ func (o MongoCollectionOutput) ToMongoCollectionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o MongoCollectionOutput) ToMongoCollectionPtrOutput() MongoCollectionPtrOutput {
-	return o.ToMongoCollectionPtrOutputWithContext(context.Background())
-}
-
-func (o MongoCollectionOutput) ToMongoCollectionPtrOutputWithContext(ctx context.Context) MongoCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoCollection) *MongoCollection {
-		return &v
-	}).(MongoCollectionPtrOutput)
-}
-
-type MongoCollectionPtrOutput struct{ *pulumi.OutputState }
-
-func (MongoCollectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MongoCollection)(nil))
-}
-
-func (o MongoCollectionPtrOutput) ToMongoCollectionPtrOutput() MongoCollectionPtrOutput {
-	return o
-}
-
-func (o MongoCollectionPtrOutput) ToMongoCollectionPtrOutputWithContext(ctx context.Context) MongoCollectionPtrOutput {
-	return o
-}
-
-func (o MongoCollectionPtrOutput) Elem() MongoCollectionOutput {
-	return o.ApplyT(func(v *MongoCollection) MongoCollection {
-		if v != nil {
-			return *v
-		}
-		var ret MongoCollection
-		return ret
-	}).(MongoCollectionOutput)
-}
-
 type MongoCollectionArrayOutput struct{ *pulumi.OutputState }
 
 func (MongoCollectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MongoCollection)(nil))
+	return reflect.TypeOf((*[]*MongoCollection)(nil)).Elem()
 }
 
 func (o MongoCollectionArrayOutput) ToMongoCollectionArrayOutput() MongoCollectionArrayOutput {
@@ -395,15 +332,15 @@ func (o MongoCollectionArrayOutput) ToMongoCollectionArrayOutputWithContext(ctx 
 }
 
 func (o MongoCollectionArrayOutput) Index(i pulumi.IntInput) MongoCollectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoCollection {
-		return vs[0].([]MongoCollection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MongoCollection {
+		return vs[0].([]*MongoCollection)[vs[1].(int)]
 	}).(MongoCollectionOutput)
 }
 
 type MongoCollectionMapOutput struct{ *pulumi.OutputState }
 
 func (MongoCollectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MongoCollection)(nil))
+	return reflect.TypeOf((*map[string]*MongoCollection)(nil)).Elem()
 }
 
 func (o MongoCollectionMapOutput) ToMongoCollectionMapOutput() MongoCollectionMapOutput {
@@ -415,18 +352,16 @@ func (o MongoCollectionMapOutput) ToMongoCollectionMapOutputWithContext(ctx cont
 }
 
 func (o MongoCollectionMapOutput) MapIndex(k pulumi.StringInput) MongoCollectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MongoCollection {
-		return vs[0].(map[string]MongoCollection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MongoCollection {
+		return vs[0].(map[string]*MongoCollection)[vs[1].(string)]
 	}).(MongoCollectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionInput)(nil)).Elem(), &MongoCollection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionPtrInput)(nil)).Elem(), &MongoCollection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionArrayInput)(nil)).Elem(), MongoCollectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionMapInput)(nil)).Elem(), MongoCollectionMap{})
 	pulumi.RegisterOutputType(MongoCollectionOutput{})
-	pulumi.RegisterOutputType(MongoCollectionPtrOutput{})
 	pulumi.RegisterOutputType(MongoCollectionArrayOutput{})
 	pulumi.RegisterOutputType(MongoCollectionMapOutput{})
 }

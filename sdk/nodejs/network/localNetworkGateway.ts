@@ -106,36 +106,34 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocalNetworkGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocalNetworkGatewayArgs | LocalNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalNetworkGatewayState | undefined;
-            inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
-            inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
-            inputs["gatewayAddress"] = state ? state.gatewayAddress : undefined;
-            inputs["gatewayFqdn"] = state ? state.gatewayFqdn : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["addressSpaces"] = state ? state.addressSpaces : undefined;
+            resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
+            resourceInputs["gatewayAddress"] = state ? state.gatewayAddress : undefined;
+            resourceInputs["gatewayFqdn"] = state ? state.gatewayFqdn : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LocalNetworkGatewayArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addressSpaces"] = args ? args.addressSpaces : undefined;
-            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            inputs["gatewayAddress"] = args ? args.gatewayAddress : undefined;
-            inputs["gatewayFqdn"] = args ? args.gatewayFqdn : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressSpaces"] = args ? args.addressSpaces : undefined;
+            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            resourceInputs["gatewayAddress"] = args ? args.gatewayAddress : undefined;
+            resourceInputs["gatewayFqdn"] = args ? args.gatewayFqdn : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocalNetworkGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocalNetworkGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

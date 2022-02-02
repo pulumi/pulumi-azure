@@ -125,17 +125,17 @@ export class CassandraTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: CassandraTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CassandraTableArgs | CassandraTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraTableState | undefined;
-            inputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            inputs["cassandraKeyspaceId"] = state ? state.cassandraKeyspaceId : undefined;
-            inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
+            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
+            resourceInputs["cassandraKeyspaceId"] = state ? state.cassandraKeyspaceId : undefined;
+            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as CassandraTableArgs | undefined;
             if ((!args || args.cassandraKeyspaceId === undefined) && !opts.urn) {
@@ -144,18 +144,16 @@ export class CassandraTable extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            inputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            inputs["cassandraKeyspaceId"] = args ? args.cassandraKeyspaceId : undefined;
-            inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
+            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
+            resourceInputs["cassandraKeyspaceId"] = args ? args.cassandraKeyspaceId : undefined;
+            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CassandraTable.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CassandraTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
- *     connectionString: primaryConnectionString,
+ * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     resourceTypes: {
  *         service: true,
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *         update: false,
  *         process: false,
  *     },
- * }));
+ * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -93,8 +93,8 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
- *     connectionString: primaryConnectionString,
+ * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     resourceTypes: {
  *         service: true,
@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  *         update: false,
  *         process: false,
  *     },
- * }));
+ * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -232,17 +232,17 @@ export class ManagedStorageAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedStorageAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedStorageAccountArgs | ManagedStorageAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedStorageAccountState | undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["regenerateKeyAutomatically"] = state ? state.regenerateKeyAutomatically : undefined;
-            inputs["regenerationPeriod"] = state ? state.regenerationPeriod : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["regenerateKeyAutomatically"] = state ? state.regenerateKeyAutomatically : undefined;
+            resourceInputs["regenerationPeriod"] = state ? state.regenerationPeriod : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ManagedStorageAccountArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
@@ -254,18 +254,16 @@ export class ManagedStorageAccount extends pulumi.CustomResource {
             if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["regenerateKeyAutomatically"] = args ? args.regenerateKeyAutomatically : undefined;
-            inputs["regenerationPeriod"] = args ? args.regenerationPeriod : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["regenerateKeyAutomatically"] = args ? args.regenerateKeyAutomatically : undefined;
+            resourceInputs["regenerationPeriod"] = args ? args.regenerationPeriod : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedStorageAccount.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedStorageAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -232,7 +232,7 @@ type DiskPoolInput interface {
 }
 
 func (*DiskPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPool)(nil))
+	return reflect.TypeOf((**DiskPool)(nil)).Elem()
 }
 
 func (i *DiskPool) ToDiskPoolOutput() DiskPoolOutput {
@@ -241,35 +241,6 @@ func (i *DiskPool) ToDiskPoolOutput() DiskPoolOutput {
 
 func (i *DiskPool) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolOutput)
-}
-
-func (i *DiskPool) ToDiskPoolPtrOutput() DiskPoolPtrOutput {
-	return i.ToDiskPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *DiskPool) ToDiskPoolPtrOutputWithContext(ctx context.Context) DiskPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolPtrOutput)
-}
-
-type DiskPoolPtrInput interface {
-	pulumi.Input
-
-	ToDiskPoolPtrOutput() DiskPoolPtrOutput
-	ToDiskPoolPtrOutputWithContext(ctx context.Context) DiskPoolPtrOutput
-}
-
-type diskPoolPtrType DiskPoolArgs
-
-func (*diskPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskPool)(nil))
-}
-
-func (i *diskPoolPtrType) ToDiskPoolPtrOutput() DiskPoolPtrOutput {
-	return i.ToDiskPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *diskPoolPtrType) ToDiskPoolPtrOutputWithContext(ctx context.Context) DiskPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolPtrOutput)
 }
 
 // DiskPoolArrayInput is an input type that accepts DiskPoolArray and DiskPoolArrayOutput values.
@@ -325,7 +296,7 @@ func (i DiskPoolMap) ToDiskPoolMapOutputWithContext(ctx context.Context) DiskPoo
 type DiskPoolOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPool)(nil))
+	return reflect.TypeOf((**DiskPool)(nil)).Elem()
 }
 
 func (o DiskPoolOutput) ToDiskPoolOutput() DiskPoolOutput {
@@ -336,44 +307,10 @@ func (o DiskPoolOutput) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoo
 	return o
 }
 
-func (o DiskPoolOutput) ToDiskPoolPtrOutput() DiskPoolPtrOutput {
-	return o.ToDiskPoolPtrOutputWithContext(context.Background())
-}
-
-func (o DiskPoolOutput) ToDiskPoolPtrOutputWithContext(ctx context.Context) DiskPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskPool) *DiskPool {
-		return &v
-	}).(DiskPoolPtrOutput)
-}
-
-type DiskPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskPool)(nil))
-}
-
-func (o DiskPoolPtrOutput) ToDiskPoolPtrOutput() DiskPoolPtrOutput {
-	return o
-}
-
-func (o DiskPoolPtrOutput) ToDiskPoolPtrOutputWithContext(ctx context.Context) DiskPoolPtrOutput {
-	return o
-}
-
-func (o DiskPoolPtrOutput) Elem() DiskPoolOutput {
-	return o.ApplyT(func(v *DiskPool) DiskPool {
-		if v != nil {
-			return *v
-		}
-		var ret DiskPool
-		return ret
-	}).(DiskPoolOutput)
-}
-
 type DiskPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskPool)(nil))
+	return reflect.TypeOf((*[]*DiskPool)(nil)).Elem()
 }
 
 func (o DiskPoolArrayOutput) ToDiskPoolArrayOutput() DiskPoolArrayOutput {
@@ -385,15 +322,15 @@ func (o DiskPoolArrayOutput) ToDiskPoolArrayOutputWithContext(ctx context.Contex
 }
 
 func (o DiskPoolArrayOutput) Index(i pulumi.IntInput) DiskPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskPool {
-		return vs[0].([]DiskPool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskPool {
+		return vs[0].([]*DiskPool)[vs[1].(int)]
 	}).(DiskPoolOutput)
 }
 
 type DiskPoolMapOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DiskPool)(nil))
+	return reflect.TypeOf((*map[string]*DiskPool)(nil)).Elem()
 }
 
 func (o DiskPoolMapOutput) ToDiskPoolMapOutput() DiskPoolMapOutput {
@@ -405,18 +342,16 @@ func (o DiskPoolMapOutput) ToDiskPoolMapOutputWithContext(ctx context.Context) D
 }
 
 func (o DiskPoolMapOutput) MapIndex(k pulumi.StringInput) DiskPoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DiskPool {
-		return vs[0].(map[string]DiskPool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DiskPool {
+		return vs[0].(map[string]*DiskPool)[vs[1].(string)]
 	}).(DiskPoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolInput)(nil)).Elem(), &DiskPool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolPtrInput)(nil)).Elem(), &DiskPool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolArrayInput)(nil)).Elem(), DiskPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskPoolMapInput)(nil)).Elem(), DiskPoolMap{})
 	pulumi.RegisterOutputType(DiskPoolOutput{})
-	pulumi.RegisterOutputType(DiskPoolPtrOutput{})
 	pulumi.RegisterOutputType(DiskPoolArrayOutput{})
 	pulumi.RegisterOutputType(DiskPoolMapOutput{})
 }

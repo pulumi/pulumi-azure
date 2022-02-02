@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ContainerService
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryScopeMapResult> InvokeAsync(GetRegistryScopeMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container Registry scope map.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRegistryScopeMapResult> Invoke(GetRegistryScopeMapInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapInvokeArgs(), options.WithDefaults());
     }
 
 

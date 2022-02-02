@@ -207,7 +207,7 @@ type ApiSchemaInput interface {
 }
 
 func (*ApiSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchema)(nil))
+	return reflect.TypeOf((**ApiSchema)(nil)).Elem()
 }
 
 func (i *ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
@@ -216,35 +216,6 @@ func (i *ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
 
 func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
-}
-
-func (i *ApiSchema) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
-	return i.ToApiSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiSchema) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaPtrOutput)
-}
-
-type ApiSchemaPtrInput interface {
-	pulumi.Input
-
-	ToApiSchemaPtrOutput() ApiSchemaPtrOutput
-	ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput
-}
-
-type apiSchemaPtrType ApiSchemaArgs
-
-func (*apiSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiSchema)(nil))
-}
-
-func (i *apiSchemaPtrType) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
-	return i.ToApiSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *apiSchemaPtrType) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaPtrOutput)
 }
 
 // ApiSchemaArrayInput is an input type that accepts ApiSchemaArray and ApiSchemaArrayOutput values.
@@ -300,7 +271,7 @@ func (i ApiSchemaMap) ToApiSchemaMapOutputWithContext(ctx context.Context) ApiSc
 type ApiSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchema)(nil))
+	return reflect.TypeOf((**ApiSchema)(nil)).Elem()
 }
 
 func (o ApiSchemaOutput) ToApiSchemaOutput() ApiSchemaOutput {
@@ -311,44 +282,10 @@ func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSc
 	return o
 }
 
-func (o ApiSchemaOutput) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
-	return o.ToApiSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o ApiSchemaOutput) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiSchema) *ApiSchema {
-		return &v
-	}).(ApiSchemaPtrOutput)
-}
-
-type ApiSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiSchema)(nil))
-}
-
-func (o ApiSchemaPtrOutput) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
-	return o
-}
-
-func (o ApiSchemaPtrOutput) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
-	return o
-}
-
-func (o ApiSchemaPtrOutput) Elem() ApiSchemaOutput {
-	return o.ApplyT(func(v *ApiSchema) ApiSchema {
-		if v != nil {
-			return *v
-		}
-		var ret ApiSchema
-		return ret
-	}).(ApiSchemaOutput)
-}
-
 type ApiSchemaArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiSchema)(nil))
+	return reflect.TypeOf((*[]*ApiSchema)(nil)).Elem()
 }
 
 func (o ApiSchemaArrayOutput) ToApiSchemaArrayOutput() ApiSchemaArrayOutput {
@@ -360,15 +297,15 @@ func (o ApiSchemaArrayOutput) ToApiSchemaArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ApiSchemaArrayOutput) Index(i pulumi.IntInput) ApiSchemaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiSchema {
-		return vs[0].([]ApiSchema)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiSchema {
+		return vs[0].([]*ApiSchema)[vs[1].(int)]
 	}).(ApiSchemaOutput)
 }
 
 type ApiSchemaMapOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiSchema)(nil))
+	return reflect.TypeOf((*map[string]*ApiSchema)(nil)).Elem()
 }
 
 func (o ApiSchemaMapOutput) ToApiSchemaMapOutput() ApiSchemaMapOutput {
@@ -380,18 +317,16 @@ func (o ApiSchemaMapOutput) ToApiSchemaMapOutputWithContext(ctx context.Context)
 }
 
 func (o ApiSchemaMapOutput) MapIndex(k pulumi.StringInput) ApiSchemaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiSchema {
-		return vs[0].(map[string]ApiSchema)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiSchema {
+		return vs[0].(map[string]*ApiSchema)[vs[1].(string)]
 	}).(ApiSchemaOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiSchemaInput)(nil)).Elem(), &ApiSchema{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiSchemaPtrInput)(nil)).Elem(), &ApiSchema{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiSchemaArrayInput)(nil)).Elem(), ApiSchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiSchemaMapInput)(nil)).Elem(), ApiSchemaMap{})
 	pulumi.RegisterOutputType(ApiSchemaOutput{})
-	pulumi.RegisterOutputType(ApiSchemaPtrOutput{})
 	pulumi.RegisterOutputType(ApiSchemaArrayOutput{})
 	pulumi.RegisterOutputType(ApiSchemaMapOutput{})
 }

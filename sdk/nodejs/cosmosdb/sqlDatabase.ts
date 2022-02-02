@@ -88,15 +88,15 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlDatabaseArgs | SqlDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlDatabaseState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as SqlDatabaseArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -105,16 +105,14 @@ export class SqlDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlDatabase.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -96,29 +96,27 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["groupId"] = state ? state.groupId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentManagementGroupId"] = state ? state.parentManagementGroupId : undefined;
-            inputs["subscriptionIds"] = state ? state.subscriptionIds : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentManagementGroupId"] = state ? state.parentManagementGroupId : undefined;
+            resourceInputs["subscriptionIds"] = state ? state.subscriptionIds : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
-            inputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
+            resourceInputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:managementgroups/managementGroup:ManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Group.__pulumiType, name, inputs, opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

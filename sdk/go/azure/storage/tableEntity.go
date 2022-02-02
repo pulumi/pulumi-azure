@@ -208,7 +208,7 @@ type TableEntityInput interface {
 }
 
 func (*TableEntity) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableEntity)(nil))
+	return reflect.TypeOf((**TableEntity)(nil)).Elem()
 }
 
 func (i *TableEntity) ToTableEntityOutput() TableEntityOutput {
@@ -217,35 +217,6 @@ func (i *TableEntity) ToTableEntityOutput() TableEntityOutput {
 
 func (i *TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityOutput)
-}
-
-func (i *TableEntity) ToTableEntityPtrOutput() TableEntityPtrOutput {
-	return i.ToTableEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *TableEntity) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableEntityPtrOutput)
-}
-
-type TableEntityPtrInput interface {
-	pulumi.Input
-
-	ToTableEntityPtrOutput() TableEntityPtrOutput
-	ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput
-}
-
-type tableEntityPtrType TableEntityArgs
-
-func (*tableEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableEntity)(nil))
-}
-
-func (i *tableEntityPtrType) ToTableEntityPtrOutput() TableEntityPtrOutput {
-	return i.ToTableEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *tableEntityPtrType) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableEntityPtrOutput)
 }
 
 // TableEntityArrayInput is an input type that accepts TableEntityArray and TableEntityArrayOutput values.
@@ -301,7 +272,7 @@ func (i TableEntityMap) ToTableEntityMapOutputWithContext(ctx context.Context) T
 type TableEntityOutput struct{ *pulumi.OutputState }
 
 func (TableEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableEntity)(nil))
+	return reflect.TypeOf((**TableEntity)(nil)).Elem()
 }
 
 func (o TableEntityOutput) ToTableEntityOutput() TableEntityOutput {
@@ -312,44 +283,10 @@ func (o TableEntityOutput) ToTableEntityOutputWithContext(ctx context.Context) T
 	return o
 }
 
-func (o TableEntityOutput) ToTableEntityPtrOutput() TableEntityPtrOutput {
-	return o.ToTableEntityPtrOutputWithContext(context.Background())
-}
-
-func (o TableEntityOutput) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableEntity) *TableEntity {
-		return &v
-	}).(TableEntityPtrOutput)
-}
-
-type TableEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (TableEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableEntity)(nil))
-}
-
-func (o TableEntityPtrOutput) ToTableEntityPtrOutput() TableEntityPtrOutput {
-	return o
-}
-
-func (o TableEntityPtrOutput) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
-	return o
-}
-
-func (o TableEntityPtrOutput) Elem() TableEntityOutput {
-	return o.ApplyT(func(v *TableEntity) TableEntity {
-		if v != nil {
-			return *v
-		}
-		var ret TableEntity
-		return ret
-	}).(TableEntityOutput)
-}
-
 type TableEntityArrayOutput struct{ *pulumi.OutputState }
 
 func (TableEntityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TableEntity)(nil))
+	return reflect.TypeOf((*[]*TableEntity)(nil)).Elem()
 }
 
 func (o TableEntityArrayOutput) ToTableEntityArrayOutput() TableEntityArrayOutput {
@@ -361,15 +298,15 @@ func (o TableEntityArrayOutput) ToTableEntityArrayOutputWithContext(ctx context.
 }
 
 func (o TableEntityArrayOutput) Index(i pulumi.IntInput) TableEntityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableEntity {
-		return vs[0].([]TableEntity)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableEntity {
+		return vs[0].([]*TableEntity)[vs[1].(int)]
 	}).(TableEntityOutput)
 }
 
 type TableEntityMapOutput struct{ *pulumi.OutputState }
 
 func (TableEntityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TableEntity)(nil))
+	return reflect.TypeOf((*map[string]*TableEntity)(nil)).Elem()
 }
 
 func (o TableEntityMapOutput) ToTableEntityMapOutput() TableEntityMapOutput {
@@ -381,18 +318,16 @@ func (o TableEntityMapOutput) ToTableEntityMapOutputWithContext(ctx context.Cont
 }
 
 func (o TableEntityMapOutput) MapIndex(k pulumi.StringInput) TableEntityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableEntity {
-		return vs[0].(map[string]TableEntity)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TableEntity {
+		return vs[0].(map[string]*TableEntity)[vs[1].(string)]
 	}).(TableEntityOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityInput)(nil)).Elem(), &TableEntity{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityPtrInput)(nil)).Elem(), &TableEntity{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityArrayInput)(nil)).Elem(), TableEntityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityMapInput)(nil)).Elem(), TableEntityMap{})
 	pulumi.RegisterOutputType(TableEntityOutput{})
-	pulumi.RegisterOutputType(TableEntityPtrOutput{})
 	pulumi.RegisterOutputType(TableEntityArrayOutput{})
 	pulumi.RegisterOutputType(TableEntityMapOutput{})
 }

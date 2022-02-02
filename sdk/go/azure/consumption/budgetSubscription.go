@@ -268,7 +268,7 @@ type BudgetSubscriptionInput interface {
 }
 
 func (*BudgetSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetSubscription)(nil))
+	return reflect.TypeOf((**BudgetSubscription)(nil)).Elem()
 }
 
 func (i *BudgetSubscription) ToBudgetSubscriptionOutput() BudgetSubscriptionOutput {
@@ -277,35 +277,6 @@ func (i *BudgetSubscription) ToBudgetSubscriptionOutput() BudgetSubscriptionOutp
 
 func (i *BudgetSubscription) ToBudgetSubscriptionOutputWithContext(ctx context.Context) BudgetSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionOutput)
-}
-
-func (i *BudgetSubscription) ToBudgetSubscriptionPtrOutput() BudgetSubscriptionPtrOutput {
-	return i.ToBudgetSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *BudgetSubscription) ToBudgetSubscriptionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionPtrOutput)
-}
-
-type BudgetSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToBudgetSubscriptionPtrOutput() BudgetSubscriptionPtrOutput
-	ToBudgetSubscriptionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionPtrOutput
-}
-
-type budgetSubscriptionPtrType BudgetSubscriptionArgs
-
-func (*budgetSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetSubscription)(nil))
-}
-
-func (i *budgetSubscriptionPtrType) ToBudgetSubscriptionPtrOutput() BudgetSubscriptionPtrOutput {
-	return i.ToBudgetSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetSubscriptionPtrType) ToBudgetSubscriptionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionPtrOutput)
 }
 
 // BudgetSubscriptionArrayInput is an input type that accepts BudgetSubscriptionArray and BudgetSubscriptionArrayOutput values.
@@ -361,7 +332,7 @@ func (i BudgetSubscriptionMap) ToBudgetSubscriptionMapOutputWithContext(ctx cont
 type BudgetSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetSubscription)(nil))
+	return reflect.TypeOf((**BudgetSubscription)(nil)).Elem()
 }
 
 func (o BudgetSubscriptionOutput) ToBudgetSubscriptionOutput() BudgetSubscriptionOutput {
@@ -372,44 +343,10 @@ func (o BudgetSubscriptionOutput) ToBudgetSubscriptionOutputWithContext(ctx cont
 	return o
 }
 
-func (o BudgetSubscriptionOutput) ToBudgetSubscriptionPtrOutput() BudgetSubscriptionPtrOutput {
-	return o.ToBudgetSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetSubscriptionOutput) ToBudgetSubscriptionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscription) *BudgetSubscription {
-		return &v
-	}).(BudgetSubscriptionPtrOutput)
-}
-
-type BudgetSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetSubscription)(nil))
-}
-
-func (o BudgetSubscriptionPtrOutput) ToBudgetSubscriptionPtrOutput() BudgetSubscriptionPtrOutput {
-	return o
-}
-
-func (o BudgetSubscriptionPtrOutput) ToBudgetSubscriptionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionPtrOutput {
-	return o
-}
-
-func (o BudgetSubscriptionPtrOutput) Elem() BudgetSubscriptionOutput {
-	return o.ApplyT(func(v *BudgetSubscription) BudgetSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetSubscription
-		return ret
-	}).(BudgetSubscriptionOutput)
-}
-
 type BudgetSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BudgetSubscription)(nil))
+	return reflect.TypeOf((*[]*BudgetSubscription)(nil)).Elem()
 }
 
 func (o BudgetSubscriptionArrayOutput) ToBudgetSubscriptionArrayOutput() BudgetSubscriptionArrayOutput {
@@ -421,15 +358,15 @@ func (o BudgetSubscriptionArrayOutput) ToBudgetSubscriptionArrayOutputWithContex
 }
 
 func (o BudgetSubscriptionArrayOutput) Index(i pulumi.IntInput) BudgetSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetSubscription {
-		return vs[0].([]BudgetSubscription)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetSubscription {
+		return vs[0].([]*BudgetSubscription)[vs[1].(int)]
 	}).(BudgetSubscriptionOutput)
 }
 
 type BudgetSubscriptionMapOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BudgetSubscription)(nil))
+	return reflect.TypeOf((*map[string]*BudgetSubscription)(nil)).Elem()
 }
 
 func (o BudgetSubscriptionMapOutput) ToBudgetSubscriptionMapOutput() BudgetSubscriptionMapOutput {
@@ -441,18 +378,16 @@ func (o BudgetSubscriptionMapOutput) ToBudgetSubscriptionMapOutputWithContext(ct
 }
 
 func (o BudgetSubscriptionMapOutput) MapIndex(k pulumi.StringInput) BudgetSubscriptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BudgetSubscription {
-		return vs[0].(map[string]BudgetSubscription)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BudgetSubscription {
+		return vs[0].(map[string]*BudgetSubscription)[vs[1].(string)]
 	}).(BudgetSubscriptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionInput)(nil)).Elem(), &BudgetSubscription{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionPtrInput)(nil)).Elem(), &BudgetSubscription{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionArrayInput)(nil)).Elem(), BudgetSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionMapInput)(nil)).Elem(), BudgetSubscriptionMap{})
 	pulumi.RegisterOutputType(BudgetSubscriptionOutput{})
-	pulumi.RegisterOutputType(BudgetSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionMapOutput{})
 }

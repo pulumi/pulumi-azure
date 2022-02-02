@@ -244,7 +244,7 @@ type OutputMssqlInput interface {
 }
 
 func (*OutputMssql) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputMssql)(nil))
+	return reflect.TypeOf((**OutputMssql)(nil)).Elem()
 }
 
 func (i *OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
@@ -253,35 +253,6 @@ func (i *OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
 
 func (i *OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlOutput)
-}
-
-func (i *OutputMssql) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
-	return i.ToOutputMssqlPtrOutputWithContext(context.Background())
-}
-
-func (i *OutputMssql) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlPtrOutput)
-}
-
-type OutputMssqlPtrInput interface {
-	pulumi.Input
-
-	ToOutputMssqlPtrOutput() OutputMssqlPtrOutput
-	ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput
-}
-
-type outputMssqlPtrType OutputMssqlArgs
-
-func (*outputMssqlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputMssql)(nil))
-}
-
-func (i *outputMssqlPtrType) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
-	return i.ToOutputMssqlPtrOutputWithContext(context.Background())
-}
-
-func (i *outputMssqlPtrType) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlPtrOutput)
 }
 
 // OutputMssqlArrayInput is an input type that accepts OutputMssqlArray and OutputMssqlArrayOutput values.
@@ -337,7 +308,7 @@ func (i OutputMssqlMap) ToOutputMssqlMapOutputWithContext(ctx context.Context) O
 type OutputMssqlOutput struct{ *pulumi.OutputState }
 
 func (OutputMssqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputMssql)(nil))
+	return reflect.TypeOf((**OutputMssql)(nil)).Elem()
 }
 
 func (o OutputMssqlOutput) ToOutputMssqlOutput() OutputMssqlOutput {
@@ -348,44 +319,10 @@ func (o OutputMssqlOutput) ToOutputMssqlOutputWithContext(ctx context.Context) O
 	return o
 }
 
-func (o OutputMssqlOutput) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
-	return o.ToOutputMssqlPtrOutputWithContext(context.Background())
-}
-
-func (o OutputMssqlOutput) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputMssql) *OutputMssql {
-		return &v
-	}).(OutputMssqlPtrOutput)
-}
-
-type OutputMssqlPtrOutput struct{ *pulumi.OutputState }
-
-func (OutputMssqlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputMssql)(nil))
-}
-
-func (o OutputMssqlPtrOutput) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
-	return o
-}
-
-func (o OutputMssqlPtrOutput) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
-	return o
-}
-
-func (o OutputMssqlPtrOutput) Elem() OutputMssqlOutput {
-	return o.ApplyT(func(v *OutputMssql) OutputMssql {
-		if v != nil {
-			return *v
-		}
-		var ret OutputMssql
-		return ret
-	}).(OutputMssqlOutput)
-}
-
 type OutputMssqlArrayOutput struct{ *pulumi.OutputState }
 
 func (OutputMssqlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OutputMssql)(nil))
+	return reflect.TypeOf((*[]*OutputMssql)(nil)).Elem()
 }
 
 func (o OutputMssqlArrayOutput) ToOutputMssqlArrayOutput() OutputMssqlArrayOutput {
@@ -397,15 +334,15 @@ func (o OutputMssqlArrayOutput) ToOutputMssqlArrayOutputWithContext(ctx context.
 }
 
 func (o OutputMssqlArrayOutput) Index(i pulumi.IntInput) OutputMssqlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputMssql {
-		return vs[0].([]OutputMssql)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputMssql {
+		return vs[0].([]*OutputMssql)[vs[1].(int)]
 	}).(OutputMssqlOutput)
 }
 
 type OutputMssqlMapOutput struct{ *pulumi.OutputState }
 
 func (OutputMssqlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OutputMssql)(nil))
+	return reflect.TypeOf((*map[string]*OutputMssql)(nil)).Elem()
 }
 
 func (o OutputMssqlMapOutput) ToOutputMssqlMapOutput() OutputMssqlMapOutput {
@@ -417,18 +354,16 @@ func (o OutputMssqlMapOutput) ToOutputMssqlMapOutputWithContext(ctx context.Cont
 }
 
 func (o OutputMssqlMapOutput) MapIndex(k pulumi.StringInput) OutputMssqlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputMssql {
-		return vs[0].(map[string]OutputMssql)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OutputMssql {
+		return vs[0].(map[string]*OutputMssql)[vs[1].(string)]
 	}).(OutputMssqlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputMssqlInput)(nil)).Elem(), &OutputMssql{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputMssqlPtrInput)(nil)).Elem(), &OutputMssql{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputMssqlArrayInput)(nil)).Elem(), OutputMssqlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputMssqlMapInput)(nil)).Elem(), OutputMssqlMap{})
 	pulumi.RegisterOutputType(OutputMssqlOutput{})
-	pulumi.RegisterOutputType(OutputMssqlPtrOutput{})
 	pulumi.RegisterOutputType(OutputMssqlArrayOutput{})
 	pulumi.RegisterOutputType(OutputMssqlMapOutput{})
 }

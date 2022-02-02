@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageGalleryResult> InvokeAsync(GetSharedImageGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Shared Image Gallery.
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSharedImageGalleryResult> Invoke(GetSharedImageGalleryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryInvokeArgs(), options.WithDefaults());
     }
 
 

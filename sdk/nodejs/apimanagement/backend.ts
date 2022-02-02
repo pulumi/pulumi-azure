@@ -102,22 +102,22 @@ export class Backend extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackendArgs | BackendState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["proxy"] = state ? state.proxy : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["serviceFabricCluster"] = state ? state.serviceFabricCluster : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["tls"] = state ? state.tls : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["proxy"] = state ? state.proxy : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["serviceFabricCluster"] = state ? state.serviceFabricCluster : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["tls"] = state ? state.tls : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as BackendArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -132,23 +132,21 @@ export class Backend extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["proxy"] = args ? args.proxy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["serviceFabricCluster"] = args ? args.serviceFabricCluster : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["tls"] = args ? args.tls : undefined;
-            inputs["url"] = args ? args.url : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["proxy"] = args ? args.proxy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["serviceFabricCluster"] = args ? args.serviceFabricCluster : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["tls"] = args ? args.tls : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Backend.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Backend.__pulumiType, name, resourceInputs, opts);
     }
 }
 

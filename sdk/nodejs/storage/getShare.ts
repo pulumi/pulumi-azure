@@ -26,9 +26,7 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:storage/getShare:getShare", {
         "acls": args.acls,
         "metadata": args.metadata,

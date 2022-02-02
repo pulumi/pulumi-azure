@@ -219,39 +219,39 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedDiskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedDiskArgs | ManagedDiskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedDiskState | undefined;
-            inputs["createOption"] = state ? state.createOption : undefined;
-            inputs["diskAccessId"] = state ? state.diskAccessId : undefined;
-            inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
-            inputs["diskIopsReadOnly"] = state ? state.diskIopsReadOnly : undefined;
-            inputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
-            inputs["diskMbpsReadOnly"] = state ? state.diskMbpsReadOnly : undefined;
-            inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
-            inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
-            inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
-            inputs["galleryImageReferenceId"] = state ? state.galleryImageReferenceId : undefined;
-            inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
-            inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logicalSectorSize"] = state ? state.logicalSectorSize : undefined;
-            inputs["maxShares"] = state ? state.maxShares : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
-            inputs["onDemandBurstingEnabled"] = state ? state.onDemandBurstingEnabled : undefined;
-            inputs["osType"] = state ? state.osType : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
-            inputs["sourceUri"] = state ? state.sourceUri : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
-            inputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["createOption"] = state ? state.createOption : undefined;
+            resourceInputs["diskAccessId"] = state ? state.diskAccessId : undefined;
+            resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
+            resourceInputs["diskIopsReadOnly"] = state ? state.diskIopsReadOnly : undefined;
+            resourceInputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
+            resourceInputs["diskMbpsReadOnly"] = state ? state.diskMbpsReadOnly : undefined;
+            resourceInputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
+            resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
+            resourceInputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
+            resourceInputs["galleryImageReferenceId"] = state ? state.galleryImageReferenceId : undefined;
+            resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
+            resourceInputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logicalSectorSize"] = state ? state.logicalSectorSize : undefined;
+            resourceInputs["maxShares"] = state ? state.maxShares : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
+            resourceInputs["onDemandBurstingEnabled"] = state ? state.onDemandBurstingEnabled : undefined;
+            resourceInputs["osType"] = state ? state.osType : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
+            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageAccountType"] = state ? state.storageAccountType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
             if ((!args || args.createOption === undefined) && !opts.urn) {
@@ -263,40 +263,38 @@ export class ManagedDisk extends pulumi.CustomResource {
             if ((!args || args.storageAccountType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountType'");
             }
-            inputs["createOption"] = args ? args.createOption : undefined;
-            inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
-            inputs["diskIopsReadOnly"] = args ? args.diskIopsReadOnly : undefined;
-            inputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
-            inputs["diskMbpsReadOnly"] = args ? args.diskMbpsReadOnly : undefined;
-            inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
-            inputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
-            inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            inputs["galleryImageReferenceId"] = args ? args.galleryImageReferenceId : undefined;
-            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logicalSectorSize"] = args ? args.logicalSectorSize : undefined;
-            inputs["maxShares"] = args ? args.maxShares : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            inputs["onDemandBurstingEnabled"] = args ? args.onDemandBurstingEnabled : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            inputs["sourceUri"] = args ? args.sourceUri : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["createOption"] = args ? args.createOption : undefined;
+            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
+            resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
+            resourceInputs["diskIopsReadOnly"] = args ? args.diskIopsReadOnly : undefined;
+            resourceInputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
+            resourceInputs["diskMbpsReadOnly"] = args ? args.diskMbpsReadOnly : undefined;
+            resourceInputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
+            resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
+            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
+            resourceInputs["galleryImageReferenceId"] = args ? args.galleryImageReferenceId : undefined;
+            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            resourceInputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logicalSectorSize"] = args ? args.logicalSectorSize : undefined;
+            resourceInputs["maxShares"] = args ? args.maxShares : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
+            resourceInputs["onDemandBurstingEnabled"] = args ? args.onDemandBurstingEnabled : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
+            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedDisk.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedDisk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

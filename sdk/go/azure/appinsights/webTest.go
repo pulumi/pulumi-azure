@@ -288,7 +288,7 @@ type WebTestInput interface {
 }
 
 func (*WebTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTest)(nil))
+	return reflect.TypeOf((**WebTest)(nil)).Elem()
 }
 
 func (i *WebTest) ToWebTestOutput() WebTestOutput {
@@ -297,35 +297,6 @@ func (i *WebTest) ToWebTestOutput() WebTestOutput {
 
 func (i *WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestOutput)
-}
-
-func (i *WebTest) ToWebTestPtrOutput() WebTestPtrOutput {
-	return i.ToWebTestPtrOutputWithContext(context.Background())
-}
-
-func (i *WebTest) ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPtrOutput)
-}
-
-type WebTestPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPtrOutput() WebTestPtrOutput
-	ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput
-}
-
-type webTestPtrType WebTestArgs
-
-func (*webTestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTest)(nil))
-}
-
-func (i *webTestPtrType) ToWebTestPtrOutput() WebTestPtrOutput {
-	return i.ToWebTestPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPtrType) ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPtrOutput)
 }
 
 // WebTestArrayInput is an input type that accepts WebTestArray and WebTestArrayOutput values.
@@ -381,7 +352,7 @@ func (i WebTestMap) ToWebTestMapOutputWithContext(ctx context.Context) WebTestMa
 type WebTestOutput struct{ *pulumi.OutputState }
 
 func (WebTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTest)(nil))
+	return reflect.TypeOf((**WebTest)(nil)).Elem()
 }
 
 func (o WebTestOutput) ToWebTestOutput() WebTestOutput {
@@ -392,44 +363,10 @@ func (o WebTestOutput) ToWebTestOutputWithContext(ctx context.Context) WebTestOu
 	return o
 }
 
-func (o WebTestOutput) ToWebTestPtrOutput() WebTestPtrOutput {
-	return o.ToWebTestPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestOutput) ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTest) *WebTest {
-		return &v
-	}).(WebTestPtrOutput)
-}
-
-type WebTestPtrOutput struct{ *pulumi.OutputState }
-
-func (WebTestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTest)(nil))
-}
-
-func (o WebTestPtrOutput) ToWebTestPtrOutput() WebTestPtrOutput {
-	return o
-}
-
-func (o WebTestPtrOutput) ToWebTestPtrOutputWithContext(ctx context.Context) WebTestPtrOutput {
-	return o
-}
-
-func (o WebTestPtrOutput) Elem() WebTestOutput {
-	return o.ApplyT(func(v *WebTest) WebTest {
-		if v != nil {
-			return *v
-		}
-		var ret WebTest
-		return ret
-	}).(WebTestOutput)
-}
-
 type WebTestArrayOutput struct{ *pulumi.OutputState }
 
 func (WebTestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebTest)(nil))
+	return reflect.TypeOf((*[]*WebTest)(nil)).Elem()
 }
 
 func (o WebTestArrayOutput) ToWebTestArrayOutput() WebTestArrayOutput {
@@ -441,15 +378,15 @@ func (o WebTestArrayOutput) ToWebTestArrayOutputWithContext(ctx context.Context)
 }
 
 func (o WebTestArrayOutput) Index(i pulumi.IntInput) WebTestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebTest {
-		return vs[0].([]WebTest)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebTest {
+		return vs[0].([]*WebTest)[vs[1].(int)]
 	}).(WebTestOutput)
 }
 
 type WebTestMapOutput struct{ *pulumi.OutputState }
 
 func (WebTestMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WebTest)(nil))
+	return reflect.TypeOf((*map[string]*WebTest)(nil)).Elem()
 }
 
 func (o WebTestMapOutput) ToWebTestMapOutput() WebTestMapOutput {
@@ -461,18 +398,16 @@ func (o WebTestMapOutput) ToWebTestMapOutputWithContext(ctx context.Context) Web
 }
 
 func (o WebTestMapOutput) MapIndex(k pulumi.StringInput) WebTestOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebTest {
-		return vs[0].(map[string]WebTest)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WebTest {
+		return vs[0].(map[string]*WebTest)[vs[1].(string)]
 	}).(WebTestOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebTestInput)(nil)).Elem(), &WebTest{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebTestPtrInput)(nil)).Elem(), &WebTest{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebTestArrayInput)(nil)).Elem(), WebTestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebTestMapInput)(nil)).Elem(), WebTestMap{})
 	pulumi.RegisterOutputType(WebTestOutput{})
-	pulumi.RegisterOutputType(WebTestPtrOutput{})
 	pulumi.RegisterOutputType(WebTestArrayOutput{})
 	pulumi.RegisterOutputType(WebTestMapOutput{})
 }

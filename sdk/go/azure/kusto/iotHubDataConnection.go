@@ -313,7 +313,7 @@ type IotHubDataConnectionInput interface {
 }
 
 func (*IotHubDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubDataConnection)(nil))
+	return reflect.TypeOf((**IotHubDataConnection)(nil)).Elem()
 }
 
 func (i *IotHubDataConnection) ToIotHubDataConnectionOutput() IotHubDataConnectionOutput {
@@ -322,35 +322,6 @@ func (i *IotHubDataConnection) ToIotHubDataConnectionOutput() IotHubDataConnecti
 
 func (i *IotHubDataConnection) ToIotHubDataConnectionOutputWithContext(ctx context.Context) IotHubDataConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionOutput)
-}
-
-func (i *IotHubDataConnection) ToIotHubDataConnectionPtrOutput() IotHubDataConnectionPtrOutput {
-	return i.ToIotHubDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *IotHubDataConnection) ToIotHubDataConnectionPtrOutputWithContext(ctx context.Context) IotHubDataConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionPtrOutput)
-}
-
-type IotHubDataConnectionPtrInput interface {
-	pulumi.Input
-
-	ToIotHubDataConnectionPtrOutput() IotHubDataConnectionPtrOutput
-	ToIotHubDataConnectionPtrOutputWithContext(ctx context.Context) IotHubDataConnectionPtrOutput
-}
-
-type iotHubDataConnectionPtrType IotHubDataConnectionArgs
-
-func (*iotHubDataConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IotHubDataConnection)(nil))
-}
-
-func (i *iotHubDataConnectionPtrType) ToIotHubDataConnectionPtrOutput() IotHubDataConnectionPtrOutput {
-	return i.ToIotHubDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *iotHubDataConnectionPtrType) ToIotHubDataConnectionPtrOutputWithContext(ctx context.Context) IotHubDataConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionPtrOutput)
 }
 
 // IotHubDataConnectionArrayInput is an input type that accepts IotHubDataConnectionArray and IotHubDataConnectionArrayOutput values.
@@ -406,7 +377,7 @@ func (i IotHubDataConnectionMap) ToIotHubDataConnectionMapOutputWithContext(ctx 
 type IotHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (IotHubDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubDataConnection)(nil))
+	return reflect.TypeOf((**IotHubDataConnection)(nil)).Elem()
 }
 
 func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutput() IotHubDataConnectionOutput {
@@ -417,44 +388,10 @@ func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutputWithContext(ctx 
 	return o
 }
 
-func (o IotHubDataConnectionOutput) ToIotHubDataConnectionPtrOutput() IotHubDataConnectionPtrOutput {
-	return o.ToIotHubDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o IotHubDataConnectionOutput) ToIotHubDataConnectionPtrOutputWithContext(ctx context.Context) IotHubDataConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDataConnection) *IotHubDataConnection {
-		return &v
-	}).(IotHubDataConnectionPtrOutput)
-}
-
-type IotHubDataConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (IotHubDataConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IotHubDataConnection)(nil))
-}
-
-func (o IotHubDataConnectionPtrOutput) ToIotHubDataConnectionPtrOutput() IotHubDataConnectionPtrOutput {
-	return o
-}
-
-func (o IotHubDataConnectionPtrOutput) ToIotHubDataConnectionPtrOutputWithContext(ctx context.Context) IotHubDataConnectionPtrOutput {
-	return o
-}
-
-func (o IotHubDataConnectionPtrOutput) Elem() IotHubDataConnectionOutput {
-	return o.ApplyT(func(v *IotHubDataConnection) IotHubDataConnection {
-		if v != nil {
-			return *v
-		}
-		var ret IotHubDataConnection
-		return ret
-	}).(IotHubDataConnectionOutput)
-}
-
 type IotHubDataConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (IotHubDataConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IotHubDataConnection)(nil))
+	return reflect.TypeOf((*[]*IotHubDataConnection)(nil)).Elem()
 }
 
 func (o IotHubDataConnectionArrayOutput) ToIotHubDataConnectionArrayOutput() IotHubDataConnectionArrayOutput {
@@ -466,15 +403,15 @@ func (o IotHubDataConnectionArrayOutput) ToIotHubDataConnectionArrayOutputWithCo
 }
 
 func (o IotHubDataConnectionArrayOutput) Index(i pulumi.IntInput) IotHubDataConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubDataConnection {
-		return vs[0].([]IotHubDataConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IotHubDataConnection {
+		return vs[0].([]*IotHubDataConnection)[vs[1].(int)]
 	}).(IotHubDataConnectionOutput)
 }
 
 type IotHubDataConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (IotHubDataConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IotHubDataConnection)(nil))
+	return reflect.TypeOf((*map[string]*IotHubDataConnection)(nil)).Elem()
 }
 
 func (o IotHubDataConnectionMapOutput) ToIotHubDataConnectionMapOutput() IotHubDataConnectionMapOutput {
@@ -486,18 +423,16 @@ func (o IotHubDataConnectionMapOutput) ToIotHubDataConnectionMapOutputWithContex
 }
 
 func (o IotHubDataConnectionMapOutput) MapIndex(k pulumi.StringInput) IotHubDataConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IotHubDataConnection {
-		return vs[0].(map[string]IotHubDataConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IotHubDataConnection {
+		return vs[0].(map[string]*IotHubDataConnection)[vs[1].(string)]
 	}).(IotHubDataConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionInput)(nil)).Elem(), &IotHubDataConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionPtrInput)(nil)).Elem(), &IotHubDataConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionArrayInput)(nil)).Elem(), IotHubDataConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionMapInput)(nil)).Elem(), IotHubDataConnectionMap{})
 	pulumi.RegisterOutputType(IotHubDataConnectionOutput{})
-	pulumi.RegisterOutputType(IotHubDataConnectionPtrOutput{})
 	pulumi.RegisterOutputType(IotHubDataConnectionArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDataConnectionMapOutput{})
 }

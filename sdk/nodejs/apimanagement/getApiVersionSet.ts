@@ -26,9 +26,7 @@ export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
         "apiManagementName": args.apiManagementName,
         "name": args.name,

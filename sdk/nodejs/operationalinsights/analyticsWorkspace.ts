@@ -125,50 +125,48 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: AnalyticsWorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsWorkspaceArgs | AnalyticsWorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
-            inputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
-            inputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
-            inputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["portalUrl"] = state ? state.portalUrl : undefined;
-            inputs["primarySharedKey"] = state ? state.primarySharedKey : undefined;
-            inputs["reservationCapacityInGbPerDay"] = state ? state.reservationCapacityInGbPerDay : undefined;
-            inputs["reservationCapcityInGbPerDay"] = state ? state.reservationCapcityInGbPerDay : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            inputs["secondarySharedKey"] = state ? state.secondarySharedKey : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
+            resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
+            resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
+            resourceInputs["primarySharedKey"] = state ? state.primarySharedKey : undefined;
+            resourceInputs["reservationCapacityInGbPerDay"] = state ? state.reservationCapacityInGbPerDay : undefined;
+            resourceInputs["reservationCapcityInGbPerDay"] = state ? state.reservationCapcityInGbPerDay : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
+            resourceInputs["secondarySharedKey"] = state ? state.secondarySharedKey : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as AnalyticsWorkspaceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
-            inputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
-            inputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["reservationCapacityInGbPerDay"] = args ? args.reservationCapacityInGbPerDay : undefined;
-            inputs["reservationCapcityInGbPerDay"] = args ? args.reservationCapcityInGbPerDay : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["primarySharedKey"] = undefined /*out*/;
-            inputs["secondarySharedKey"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
+            resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
+            resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reservationCapacityInGbPerDay"] = args ? args.reservationCapacityInGbPerDay : undefined;
+            resourceInputs["reservationCapcityInGbPerDay"] = args ? args.reservationCapcityInGbPerDay : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["primarySharedKey"] = undefined /*out*/;
+            resourceInputs["secondarySharedKey"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AnalyticsWorkspace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AnalyticsWorkspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

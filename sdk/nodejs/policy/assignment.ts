@@ -153,21 +153,21 @@ export class Assignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["enforcementMode"] = state ? state.enforcementMode : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notScopes"] = state ? state.notScopes : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enforcementMode"] = state ? state.enforcementMode : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notScopes"] = state ? state.notScopes : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
             if ((!args || args.policyDefinitionId === undefined) && !opts.urn) {
@@ -176,22 +176,20 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notScopes"] = args ? args.notScopes : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notScopes"] = args ? args.notScopes : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Assignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

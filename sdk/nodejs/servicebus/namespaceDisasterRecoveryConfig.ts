@@ -108,17 +108,17 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamespaceDisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceDisasterRecoveryConfigArgs | NamespaceDisasterRecoveryConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceDisasterRecoveryConfigState | undefined;
-            inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
-            inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
-            inputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
-            inputs["primaryNamespaceId"] = state ? state.primaryNamespaceId : undefined;
-            inputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
+            resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
+            resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
+            resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
+            resourceInputs["primaryNamespaceId"] = state ? state.primaryNamespaceId : undefined;
+            resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
         } else {
             const args = argsOrState as NamespaceDisasterRecoveryConfigArgs | undefined;
             if ((!args || args.partnerNamespaceId === undefined) && !opts.urn) {
@@ -127,18 +127,16 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
             if ((!args || args.primaryNamespaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryNamespaceId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
-            inputs["primaryNamespaceId"] = args ? args.primaryNamespaceId : undefined;
-            inputs["defaultPrimaryKey"] = undefined /*out*/;
-            inputs["defaultSecondaryKey"] = undefined /*out*/;
-            inputs["primaryConnectionStringAlias"] = undefined /*out*/;
-            inputs["secondaryConnectionStringAlias"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
+            resourceInputs["primaryNamespaceId"] = args ? args.primaryNamespaceId : undefined;
+            resourceInputs["defaultPrimaryKey"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryKey"] = undefined /*out*/;
+            resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionStringAlias"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NamespaceDisasterRecoveryConfig.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NamespaceDisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

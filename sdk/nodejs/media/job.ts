@@ -144,18 +144,18 @@ export class Job extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["inputAsset"] = state ? state.inputAsset : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputAssets"] = state ? state.outputAssets : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["transformName"] = state ? state.transformName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["inputAsset"] = state ? state.inputAsset : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputAssets"] = state ? state.outputAssets : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["transformName"] = state ? state.transformName : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
             if ((!args || args.inputAsset === undefined) && !opts.urn) {
@@ -173,19 +173,17 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.transformName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["inputAsset"] = args ? args.inputAsset : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputAssets"] = args ? args.outputAssets : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["transformName"] = args ? args.transformName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["inputAsset"] = args ? args.inputAsset : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputAssets"] = args ? args.outputAssets : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["transformName"] = args ? args.transformName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Job.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -114,20 +114,20 @@ export class SpringCloudApp extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudAppArgs | SpringCloudAppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["isPublic"] = state ? state.isPublic : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["persistentDisk"] = state ? state.persistentDisk : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["isPublic"] = state ? state.isPublic : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["persistentDisk"] = state ? state.persistentDisk : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as SpringCloudAppArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -136,21 +136,19 @@ export class SpringCloudApp extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["isPublic"] = args ? args.isPublic : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["persistentDisk"] = args ? args.persistentDisk : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["isPublic"] = args ? args.isPublic : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["persistentDisk"] = args ? args.persistentDisk : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpringCloudApp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpringCloudApp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

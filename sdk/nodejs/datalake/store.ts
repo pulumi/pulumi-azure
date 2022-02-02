@@ -115,42 +115,40 @@ export class Store extends pulumi.CustomResource {
      */
     constructor(name: string, args: StoreArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StoreArgs | StoreState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StoreState | undefined;
-            inputs["encryptionState"] = state ? state.encryptionState : undefined;
-            inputs["encryptionType"] = state ? state.encryptionType : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["firewallAllowAzureIps"] = state ? state.firewallAllowAzureIps : undefined;
-            inputs["firewallState"] = state ? state.firewallState : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["encryptionState"] = state ? state.encryptionState : undefined;
+            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["firewallAllowAzureIps"] = state ? state.firewallAllowAzureIps : undefined;
+            resourceInputs["firewallState"] = state ? state.firewallState : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as StoreArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["encryptionState"] = args ? args.encryptionState : undefined;
-            inputs["encryptionType"] = args ? args.encryptionType : undefined;
-            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
-            inputs["firewallState"] = args ? args.firewallState : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["endpoint"] = undefined /*out*/;
+            resourceInputs["encryptionState"] = args ? args.encryptionState : undefined;
+            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
+            resourceInputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            resourceInputs["firewallState"] = args ? args.firewallState : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Store.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Store.__pulumiType, name, resourceInputs, opts);
     }
 }
 

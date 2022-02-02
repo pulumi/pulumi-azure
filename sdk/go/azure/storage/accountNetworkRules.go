@@ -268,7 +268,7 @@ type AccountNetworkRulesInput interface {
 }
 
 func (*AccountNetworkRules) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountNetworkRules)(nil))
+	return reflect.TypeOf((**AccountNetworkRules)(nil)).Elem()
 }
 
 func (i *AccountNetworkRules) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
@@ -277,35 +277,6 @@ func (i *AccountNetworkRules) ToAccountNetworkRulesOutput() AccountNetworkRulesO
 
 func (i *AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesOutput)
-}
-
-func (i *AccountNetworkRules) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return i.ToAccountNetworkRulesPtrOutputWithContext(context.Background())
-}
-
-func (i *AccountNetworkRules) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPtrOutput)
-}
-
-type AccountNetworkRulesPtrInput interface {
-	pulumi.Input
-
-	ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput
-	ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput
-}
-
-type accountNetworkRulesPtrType AccountNetworkRulesArgs
-
-func (*accountNetworkRulesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountNetworkRules)(nil))
-}
-
-func (i *accountNetworkRulesPtrType) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return i.ToAccountNetworkRulesPtrOutputWithContext(context.Background())
-}
-
-func (i *accountNetworkRulesPtrType) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPtrOutput)
 }
 
 // AccountNetworkRulesArrayInput is an input type that accepts AccountNetworkRulesArray and AccountNetworkRulesArrayOutput values.
@@ -361,7 +332,7 @@ func (i AccountNetworkRulesMap) ToAccountNetworkRulesMapOutputWithContext(ctx co
 type AccountNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountNetworkRules)(nil))
+	return reflect.TypeOf((**AccountNetworkRules)(nil)).Elem()
 }
 
 func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
@@ -372,44 +343,10 @@ func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx co
 	return o
 }
 
-func (o AccountNetworkRulesOutput) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return o.ToAccountNetworkRulesPtrOutputWithContext(context.Background())
-}
-
-func (o AccountNetworkRulesOutput) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkRules) *AccountNetworkRules {
-		return &v
-	}).(AccountNetworkRulesPtrOutput)
-}
-
-type AccountNetworkRulesPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountNetworkRulesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountNetworkRules)(nil))
-}
-
-func (o AccountNetworkRulesPtrOutput) ToAccountNetworkRulesPtrOutput() AccountNetworkRulesPtrOutput {
-	return o
-}
-
-func (o AccountNetworkRulesPtrOutput) ToAccountNetworkRulesPtrOutputWithContext(ctx context.Context) AccountNetworkRulesPtrOutput {
-	return o
-}
-
-func (o AccountNetworkRulesPtrOutput) Elem() AccountNetworkRulesOutput {
-	return o.ApplyT(func(v *AccountNetworkRules) AccountNetworkRules {
-		if v != nil {
-			return *v
-		}
-		var ret AccountNetworkRules
-		return ret
-	}).(AccountNetworkRulesOutput)
-}
-
 type AccountNetworkRulesArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountNetworkRules)(nil))
+	return reflect.TypeOf((*[]*AccountNetworkRules)(nil)).Elem()
 }
 
 func (o AccountNetworkRulesArrayOutput) ToAccountNetworkRulesArrayOutput() AccountNetworkRulesArrayOutput {
@@ -421,15 +358,15 @@ func (o AccountNetworkRulesArrayOutput) ToAccountNetworkRulesArrayOutputWithCont
 }
 
 func (o AccountNetworkRulesArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkRules {
-		return vs[0].([]AccountNetworkRules)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountNetworkRules {
+		return vs[0].([]*AccountNetworkRules)[vs[1].(int)]
 	}).(AccountNetworkRulesOutput)
 }
 
 type AccountNetworkRulesMapOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccountNetworkRules)(nil))
+	return reflect.TypeOf((*map[string]*AccountNetworkRules)(nil)).Elem()
 }
 
 func (o AccountNetworkRulesMapOutput) ToAccountNetworkRulesMapOutput() AccountNetworkRulesMapOutput {
@@ -441,18 +378,16 @@ func (o AccountNetworkRulesMapOutput) ToAccountNetworkRulesMapOutputWithContext(
 }
 
 func (o AccountNetworkRulesMapOutput) MapIndex(k pulumi.StringInput) AccountNetworkRulesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountNetworkRules {
-		return vs[0].(map[string]AccountNetworkRules)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AccountNetworkRules {
+		return vs[0].(map[string]*AccountNetworkRules)[vs[1].(string)]
 	}).(AccountNetworkRulesOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesInput)(nil)).Elem(), &AccountNetworkRules{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesPtrInput)(nil)).Elem(), &AccountNetworkRules{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesArrayInput)(nil)).Elem(), AccountNetworkRulesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesMapInput)(nil)).Elem(), AccountNetworkRulesMap{})
 	pulumi.RegisterOutputType(AccountNetworkRulesOutput{})
-	pulumi.RegisterOutputType(AccountNetworkRulesPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesArrayOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesMapOutput{})
 }

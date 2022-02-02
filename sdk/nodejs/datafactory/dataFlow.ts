@@ -166,19 +166,19 @@ export class DataFlow extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataFlowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataFlowArgs | DataFlowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataFlowState | undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["folder"] = state ? state.folder : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["script"] = state ? state.script : undefined;
-            inputs["sinks"] = state ? state.sinks : undefined;
-            inputs["sources"] = state ? state.sources : undefined;
-            inputs["transformations"] = state ? state.transformations : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["folder"] = state ? state.folder : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["script"] = state ? state.script : undefined;
+            resourceInputs["sinks"] = state ? state.sinks : undefined;
+            resourceInputs["sources"] = state ? state.sources : undefined;
+            resourceInputs["transformations"] = state ? state.transformations : undefined;
         } else {
             const args = argsOrState as DataFlowArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -193,20 +193,18 @@ export class DataFlow extends pulumi.CustomResource {
             if ((!args || args.sources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["script"] = args ? args.script : undefined;
-            inputs["sinks"] = args ? args.sinks : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["transformations"] = args ? args.transformations : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["script"] = args ? args.script : undefined;
+            resourceInputs["sinks"] = args ? args.sinks : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["transformations"] = args ? args.transformations : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataFlow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataFlow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

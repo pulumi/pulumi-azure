@@ -207,7 +207,7 @@ type EdgeModuleInput interface {
 }
 
 func (*EdgeModule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeModule)(nil))
+	return reflect.TypeOf((**EdgeModule)(nil)).Elem()
 }
 
 func (i *EdgeModule) ToEdgeModuleOutput() EdgeModuleOutput {
@@ -216,35 +216,6 @@ func (i *EdgeModule) ToEdgeModuleOutput() EdgeModuleOutput {
 
 func (i *EdgeModule) ToEdgeModuleOutputWithContext(ctx context.Context) EdgeModuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleOutput)
-}
-
-func (i *EdgeModule) ToEdgeModulePtrOutput() EdgeModulePtrOutput {
-	return i.ToEdgeModulePtrOutputWithContext(context.Background())
-}
-
-func (i *EdgeModule) ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EdgeModulePtrOutput)
-}
-
-type EdgeModulePtrInput interface {
-	pulumi.Input
-
-	ToEdgeModulePtrOutput() EdgeModulePtrOutput
-	ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput
-}
-
-type edgeModulePtrType EdgeModuleArgs
-
-func (*edgeModulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EdgeModule)(nil))
-}
-
-func (i *edgeModulePtrType) ToEdgeModulePtrOutput() EdgeModulePtrOutput {
-	return i.ToEdgeModulePtrOutputWithContext(context.Background())
-}
-
-func (i *edgeModulePtrType) ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EdgeModulePtrOutput)
 }
 
 // EdgeModuleArrayInput is an input type that accepts EdgeModuleArray and EdgeModuleArrayOutput values.
@@ -300,7 +271,7 @@ func (i EdgeModuleMap) ToEdgeModuleMapOutputWithContext(ctx context.Context) Edg
 type EdgeModuleOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeModule)(nil))
+	return reflect.TypeOf((**EdgeModule)(nil)).Elem()
 }
 
 func (o EdgeModuleOutput) ToEdgeModuleOutput() EdgeModuleOutput {
@@ -311,44 +282,10 @@ func (o EdgeModuleOutput) ToEdgeModuleOutputWithContext(ctx context.Context) Edg
 	return o
 }
 
-func (o EdgeModuleOutput) ToEdgeModulePtrOutput() EdgeModulePtrOutput {
-	return o.ToEdgeModulePtrOutputWithContext(context.Background())
-}
-
-func (o EdgeModuleOutput) ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdgeModule) *EdgeModule {
-		return &v
-	}).(EdgeModulePtrOutput)
-}
-
-type EdgeModulePtrOutput struct{ *pulumi.OutputState }
-
-func (EdgeModulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EdgeModule)(nil))
-}
-
-func (o EdgeModulePtrOutput) ToEdgeModulePtrOutput() EdgeModulePtrOutput {
-	return o
-}
-
-func (o EdgeModulePtrOutput) ToEdgeModulePtrOutputWithContext(ctx context.Context) EdgeModulePtrOutput {
-	return o
-}
-
-func (o EdgeModulePtrOutput) Elem() EdgeModuleOutput {
-	return o.ApplyT(func(v *EdgeModule) EdgeModule {
-		if v != nil {
-			return *v
-		}
-		var ret EdgeModule
-		return ret
-	}).(EdgeModuleOutput)
-}
-
 type EdgeModuleArrayOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EdgeModule)(nil))
+	return reflect.TypeOf((*[]*EdgeModule)(nil)).Elem()
 }
 
 func (o EdgeModuleArrayOutput) ToEdgeModuleArrayOutput() EdgeModuleArrayOutput {
@@ -360,15 +297,15 @@ func (o EdgeModuleArrayOutput) ToEdgeModuleArrayOutputWithContext(ctx context.Co
 }
 
 func (o EdgeModuleArrayOutput) Index(i pulumi.IntInput) EdgeModuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdgeModule {
-		return vs[0].([]EdgeModule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EdgeModule {
+		return vs[0].([]*EdgeModule)[vs[1].(int)]
 	}).(EdgeModuleOutput)
 }
 
 type EdgeModuleMapOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EdgeModule)(nil))
+	return reflect.TypeOf((*map[string]*EdgeModule)(nil)).Elem()
 }
 
 func (o EdgeModuleMapOutput) ToEdgeModuleMapOutput() EdgeModuleMapOutput {
@@ -380,18 +317,16 @@ func (o EdgeModuleMapOutput) ToEdgeModuleMapOutputWithContext(ctx context.Contex
 }
 
 func (o EdgeModuleMapOutput) MapIndex(k pulumi.StringInput) EdgeModuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EdgeModule {
-		return vs[0].(map[string]EdgeModule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EdgeModule {
+		return vs[0].(map[string]*EdgeModule)[vs[1].(string)]
 	}).(EdgeModuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleInput)(nil)).Elem(), &EdgeModule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModulePtrInput)(nil)).Elem(), &EdgeModule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleArrayInput)(nil)).Elem(), EdgeModuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleMapInput)(nil)).Elem(), EdgeModuleMap{})
 	pulumi.RegisterOutputType(EdgeModuleOutput{})
-	pulumi.RegisterOutputType(EdgeModulePtrOutput{})
 	pulumi.RegisterOutputType(EdgeModuleArrayOutput{})
 	pulumi.RegisterOutputType(EdgeModuleMapOutput{})
 }

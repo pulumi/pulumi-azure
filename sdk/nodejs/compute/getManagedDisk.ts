@@ -25,9 +25,7 @@ export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

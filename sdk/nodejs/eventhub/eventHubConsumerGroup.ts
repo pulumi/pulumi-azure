@@ -109,15 +109,15 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     /** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup */
     constructor(name: string, argsOrState?: EventHubConsumerGroupArgs | EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHubConsumerGroupState | undefined;
-            inputs["eventhubName"] = state ? state.eventhubName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["userMetadata"] = state ? state.userMetadata : undefined;
+            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as EventHubConsumerGroupArgs | undefined;
             if ((!args || args.eventhubName === undefined) && !opts.urn) {
@@ -129,16 +129,14 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eventhubName"] = args ? args.eventhubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventHubConsumerGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventHubConsumerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

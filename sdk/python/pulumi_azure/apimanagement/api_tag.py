@@ -107,8 +107,8 @@ class ApiTag(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = example_resource_group.name.apply(lambda name: azure.apimanagement.get_service(name="example-apim",
-            resource_group_name=name))
+        example_service = azure.apimanagement.get_service_output(name="example-apim",
+            resource_group_name=example_resource_group.name)
         example_api = azure.apimanagement.Api("exampleApi",
             resource_group_name=example_resource_group.name,
             api_management_name=azurerm_api_management["example"]["name"],
@@ -146,8 +146,8 @@ class ApiTag(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = example_resource_group.name.apply(lambda name: azure.apimanagement.get_service(name="example-apim",
-            resource_group_name=name))
+        example_service = azure.apimanagement.get_service_output(name="example-apim",
+            resource_group_name=example_resource_group.name)
         example_api = azure.apimanagement.Api("exampleApi",
             resource_group_name=example_resource_group.name,
             api_management_name=azurerm_api_management["example"]["name"],

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Sync Group.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
     }
 
 

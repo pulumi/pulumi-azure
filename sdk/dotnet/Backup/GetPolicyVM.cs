@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Backup
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Azure.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyVMResult> InvokeAsync(GetPolicyVMArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
@@ -72,7 +71,7 @@ namespace Pulumi.Azure.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyVMResult> Invoke(GetPolicyVMInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithDefaults());
     }
 
 

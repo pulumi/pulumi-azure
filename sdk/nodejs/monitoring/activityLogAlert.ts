@@ -125,18 +125,18 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActivityLogAlertArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActivityLogAlertArgs | ActivityLogAlertState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActivityLogAlertState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["criteria"] = state ? state.criteria : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["criteria"] = state ? state.criteria : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActivityLogAlertArgs | undefined;
             if ((!args || args.criteria === undefined) && !opts.urn) {
@@ -148,19 +148,17 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["criteria"] = args ? args.criteria : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["criteria"] = args ? args.criteria : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ActivityLogAlert.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ActivityLogAlert.__pulumiType, name, resourceInputs, opts);
     }
 }
 
