@@ -228,7 +228,7 @@ type ShareFileInput interface {
 }
 
 func (*ShareFile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareFile)(nil))
+	return reflect.TypeOf((**ShareFile)(nil)).Elem()
 }
 
 func (i *ShareFile) ToShareFileOutput() ShareFileOutput {
@@ -237,35 +237,6 @@ func (i *ShareFile) ToShareFileOutput() ShareFileOutput {
 
 func (i *ShareFile) ToShareFileOutputWithContext(ctx context.Context) ShareFileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareFileOutput)
-}
-
-func (i *ShareFile) ToShareFilePtrOutput() ShareFilePtrOutput {
-	return i.ToShareFilePtrOutputWithContext(context.Background())
-}
-
-func (i *ShareFile) ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareFilePtrOutput)
-}
-
-type ShareFilePtrInput interface {
-	pulumi.Input
-
-	ToShareFilePtrOutput() ShareFilePtrOutput
-	ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput
-}
-
-type shareFilePtrType ShareFileArgs
-
-func (*shareFilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShareFile)(nil))
-}
-
-func (i *shareFilePtrType) ToShareFilePtrOutput() ShareFilePtrOutput {
-	return i.ToShareFilePtrOutputWithContext(context.Background())
-}
-
-func (i *shareFilePtrType) ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareFilePtrOutput)
 }
 
 // ShareFileArrayInput is an input type that accepts ShareFileArray and ShareFileArrayOutput values.
@@ -321,7 +292,7 @@ func (i ShareFileMap) ToShareFileMapOutputWithContext(ctx context.Context) Share
 type ShareFileOutput struct{ *pulumi.OutputState }
 
 func (ShareFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareFile)(nil))
+	return reflect.TypeOf((**ShareFile)(nil)).Elem()
 }
 
 func (o ShareFileOutput) ToShareFileOutput() ShareFileOutput {
@@ -332,44 +303,10 @@ func (o ShareFileOutput) ToShareFileOutputWithContext(ctx context.Context) Share
 	return o
 }
 
-func (o ShareFileOutput) ToShareFilePtrOutput() ShareFilePtrOutput {
-	return o.ToShareFilePtrOutputWithContext(context.Background())
-}
-
-func (o ShareFileOutput) ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShareFile) *ShareFile {
-		return &v
-	}).(ShareFilePtrOutput)
-}
-
-type ShareFilePtrOutput struct{ *pulumi.OutputState }
-
-func (ShareFilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShareFile)(nil))
-}
-
-func (o ShareFilePtrOutput) ToShareFilePtrOutput() ShareFilePtrOutput {
-	return o
-}
-
-func (o ShareFilePtrOutput) ToShareFilePtrOutputWithContext(ctx context.Context) ShareFilePtrOutput {
-	return o
-}
-
-func (o ShareFilePtrOutput) Elem() ShareFileOutput {
-	return o.ApplyT(func(v *ShareFile) ShareFile {
-		if v != nil {
-			return *v
-		}
-		var ret ShareFile
-		return ret
-	}).(ShareFileOutput)
-}
-
 type ShareFileArrayOutput struct{ *pulumi.OutputState }
 
 func (ShareFileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareFile)(nil))
+	return reflect.TypeOf((*[]*ShareFile)(nil)).Elem()
 }
 
 func (o ShareFileArrayOutput) ToShareFileArrayOutput() ShareFileArrayOutput {
@@ -381,15 +318,15 @@ func (o ShareFileArrayOutput) ToShareFileArrayOutputWithContext(ctx context.Cont
 }
 
 func (o ShareFileArrayOutput) Index(i pulumi.IntInput) ShareFileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareFile {
-		return vs[0].([]ShareFile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ShareFile {
+		return vs[0].([]*ShareFile)[vs[1].(int)]
 	}).(ShareFileOutput)
 }
 
 type ShareFileMapOutput struct{ *pulumi.OutputState }
 
 func (ShareFileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ShareFile)(nil))
+	return reflect.TypeOf((*map[string]*ShareFile)(nil)).Elem()
 }
 
 func (o ShareFileMapOutput) ToShareFileMapOutput() ShareFileMapOutput {
@@ -401,18 +338,16 @@ func (o ShareFileMapOutput) ToShareFileMapOutputWithContext(ctx context.Context)
 }
 
 func (o ShareFileMapOutput) MapIndex(k pulumi.StringInput) ShareFileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ShareFile {
-		return vs[0].(map[string]ShareFile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ShareFile {
+		return vs[0].(map[string]*ShareFile)[vs[1].(string)]
 	}).(ShareFileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareFileInput)(nil)).Elem(), &ShareFile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareFilePtrInput)(nil)).Elem(), &ShareFile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareFileArrayInput)(nil)).Elem(), ShareFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareFileMapInput)(nil)).Elem(), ShareFileMap{})
 	pulumi.RegisterOutputType(ShareFileOutput{})
-	pulumi.RegisterOutputType(ShareFilePtrOutput{})
 	pulumi.RegisterOutputType(ShareFileArrayOutput{})
 	pulumi.RegisterOutputType(ShareFileMapOutput{})
 }

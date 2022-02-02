@@ -237,7 +237,7 @@ type StreamingPolicyInput interface {
 }
 
 func (*StreamingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPolicy)(nil))
+	return reflect.TypeOf((**StreamingPolicy)(nil)).Elem()
 }
 
 func (i *StreamingPolicy) ToStreamingPolicyOutput() StreamingPolicyOutput {
@@ -246,35 +246,6 @@ func (i *StreamingPolicy) ToStreamingPolicyOutput() StreamingPolicyOutput {
 
 func (i *StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyOutput)
-}
-
-func (i *StreamingPolicy) ToStreamingPolicyPtrOutput() StreamingPolicyPtrOutput {
-	return i.ToStreamingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *StreamingPolicy) ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPtrOutput)
-}
-
-type StreamingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToStreamingPolicyPtrOutput() StreamingPolicyPtrOutput
-	ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput
-}
-
-type streamingPolicyPtrType StreamingPolicyArgs
-
-func (*streamingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingPolicy)(nil))
-}
-
-func (i *streamingPolicyPtrType) ToStreamingPolicyPtrOutput() StreamingPolicyPtrOutput {
-	return i.ToStreamingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *streamingPolicyPtrType) ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPtrOutput)
 }
 
 // StreamingPolicyArrayInput is an input type that accepts StreamingPolicyArray and StreamingPolicyArrayOutput values.
@@ -330,7 +301,7 @@ func (i StreamingPolicyMap) ToStreamingPolicyMapOutputWithContext(ctx context.Co
 type StreamingPolicyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPolicy)(nil))
+	return reflect.TypeOf((**StreamingPolicy)(nil)).Elem()
 }
 
 func (o StreamingPolicyOutput) ToStreamingPolicyOutput() StreamingPolicyOutput {
@@ -341,44 +312,10 @@ func (o StreamingPolicyOutput) ToStreamingPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o StreamingPolicyOutput) ToStreamingPolicyPtrOutput() StreamingPolicyPtrOutput {
-	return o.ToStreamingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o StreamingPolicyOutput) ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicy) *StreamingPolicy {
-		return &v
-	}).(StreamingPolicyPtrOutput)
-}
-
-type StreamingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingPolicy)(nil))
-}
-
-func (o StreamingPolicyPtrOutput) ToStreamingPolicyPtrOutput() StreamingPolicyPtrOutput {
-	return o
-}
-
-func (o StreamingPolicyPtrOutput) ToStreamingPolicyPtrOutputWithContext(ctx context.Context) StreamingPolicyPtrOutput {
-	return o
-}
-
-func (o StreamingPolicyPtrOutput) Elem() StreamingPolicyOutput {
-	return o.ApplyT(func(v *StreamingPolicy) StreamingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret StreamingPolicy
-		return ret
-	}).(StreamingPolicyOutput)
-}
-
 type StreamingPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamingPolicy)(nil))
+	return reflect.TypeOf((*[]*StreamingPolicy)(nil)).Elem()
 }
 
 func (o StreamingPolicyArrayOutput) ToStreamingPolicyArrayOutput() StreamingPolicyArrayOutput {
@@ -390,15 +327,15 @@ func (o StreamingPolicyArrayOutput) ToStreamingPolicyArrayOutputWithContext(ctx 
 }
 
 func (o StreamingPolicyArrayOutput) Index(i pulumi.IntInput) StreamingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPolicy {
-		return vs[0].([]StreamingPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamingPolicy {
+		return vs[0].([]*StreamingPolicy)[vs[1].(int)]
 	}).(StreamingPolicyOutput)
 }
 
 type StreamingPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StreamingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*StreamingPolicy)(nil)).Elem()
 }
 
 func (o StreamingPolicyMapOutput) ToStreamingPolicyMapOutput() StreamingPolicyMapOutput {
@@ -410,18 +347,16 @@ func (o StreamingPolicyMapOutput) ToStreamingPolicyMapOutputWithContext(ctx cont
 }
 
 func (o StreamingPolicyMapOutput) MapIndex(k pulumi.StringInput) StreamingPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StreamingPolicy {
-		return vs[0].(map[string]StreamingPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StreamingPolicy {
+		return vs[0].(map[string]*StreamingPolicy)[vs[1].(string)]
 	}).(StreamingPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyInput)(nil)).Elem(), &StreamingPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyPtrInput)(nil)).Elem(), &StreamingPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyArrayInput)(nil)).Elem(), StreamingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyMapInput)(nil)).Elem(), StreamingPolicyMap{})
 	pulumi.RegisterOutputType(StreamingPolicyOutput{})
-	pulumi.RegisterOutputType(StreamingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyMapOutput{})
 }

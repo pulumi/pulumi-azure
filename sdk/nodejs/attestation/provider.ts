@@ -49,34 +49,32 @@ export class Provider extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProviderArgs | ProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProviderState | undefined;
-            inputs["attestationUri"] = state ? state.attestationUri : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policySigningCertificateData"] = state ? state.policySigningCertificateData : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trustModel"] = state ? state.trustModel : undefined;
+            resourceInputs["attestationUri"] = state ? state.attestationUri : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policySigningCertificateData"] = state ? state.policySigningCertificateData : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trustModel"] = state ? state.trustModel : undefined;
         } else {
             const args = argsOrState as ProviderArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policySigningCertificateData"] = args ? args.policySigningCertificateData : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["attestationUri"] = undefined /*out*/;
-            inputs["trustModel"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policySigningCertificateData"] = args ? args.policySigningCertificateData : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attestationUri"] = undefined /*out*/;
+            resourceInputs["trustModel"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

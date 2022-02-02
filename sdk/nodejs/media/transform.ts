@@ -160,15 +160,15 @@ export class Transform extends pulumi.CustomResource {
      */
     constructor(name: string, args: TransformArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TransformArgs | TransformState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransformState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as TransformArgs | undefined;
             if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
@@ -177,16 +177,14 @@ export class Transform extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputs"] = args ? args.outputs : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Transform.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Transform.__pulumiType, name, resourceInputs, opts);
     }
 }
 

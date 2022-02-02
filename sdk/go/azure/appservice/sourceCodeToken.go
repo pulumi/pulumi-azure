@@ -144,7 +144,7 @@ type SourceCodeTokenInput interface {
 }
 
 func (*SourceCodeToken) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCodeToken)(nil))
+	return reflect.TypeOf((**SourceCodeToken)(nil)).Elem()
 }
 
 func (i *SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
@@ -153,35 +153,6 @@ func (i *SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
 
 func (i *SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenOutput)
-}
-
-func (i *SourceCodeToken) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
-	return i.ToSourceCodeTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *SourceCodeToken) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenPtrOutput)
-}
-
-type SourceCodeTokenPtrInput interface {
-	pulumi.Input
-
-	ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput
-	ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput
-}
-
-type sourceCodeTokenPtrType SourceCodeTokenArgs
-
-func (*sourceCodeTokenPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SourceCodeToken)(nil))
-}
-
-func (i *sourceCodeTokenPtrType) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
-	return i.ToSourceCodeTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *sourceCodeTokenPtrType) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenPtrOutput)
 }
 
 // SourceCodeTokenArrayInput is an input type that accepts SourceCodeTokenArray and SourceCodeTokenArrayOutput values.
@@ -237,7 +208,7 @@ func (i SourceCodeTokenMap) ToSourceCodeTokenMapOutputWithContext(ctx context.Co
 type SourceCodeTokenOutput struct{ *pulumi.OutputState }
 
 func (SourceCodeTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCodeToken)(nil))
+	return reflect.TypeOf((**SourceCodeToken)(nil)).Elem()
 }
 
 func (o SourceCodeTokenOutput) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
@@ -248,44 +219,10 @@ func (o SourceCodeTokenOutput) ToSourceCodeTokenOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SourceCodeTokenOutput) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
-	return o.ToSourceCodeTokenPtrOutputWithContext(context.Background())
-}
-
-func (o SourceCodeTokenOutput) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceCodeToken) *SourceCodeToken {
-		return &v
-	}).(SourceCodeTokenPtrOutput)
-}
-
-type SourceCodeTokenPtrOutput struct{ *pulumi.OutputState }
-
-func (SourceCodeTokenPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SourceCodeToken)(nil))
-}
-
-func (o SourceCodeTokenPtrOutput) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
-	return o
-}
-
-func (o SourceCodeTokenPtrOutput) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
-	return o
-}
-
-func (o SourceCodeTokenPtrOutput) Elem() SourceCodeTokenOutput {
-	return o.ApplyT(func(v *SourceCodeToken) SourceCodeToken {
-		if v != nil {
-			return *v
-		}
-		var ret SourceCodeToken
-		return ret
-	}).(SourceCodeTokenOutput)
-}
-
 type SourceCodeTokenArrayOutput struct{ *pulumi.OutputState }
 
 func (SourceCodeTokenArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SourceCodeToken)(nil))
+	return reflect.TypeOf((*[]*SourceCodeToken)(nil)).Elem()
 }
 
 func (o SourceCodeTokenArrayOutput) ToSourceCodeTokenArrayOutput() SourceCodeTokenArrayOutput {
@@ -297,15 +234,15 @@ func (o SourceCodeTokenArrayOutput) ToSourceCodeTokenArrayOutputWithContext(ctx 
 }
 
 func (o SourceCodeTokenArrayOutput) Index(i pulumi.IntInput) SourceCodeTokenOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceCodeToken {
-		return vs[0].([]SourceCodeToken)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceCodeToken {
+		return vs[0].([]*SourceCodeToken)[vs[1].(int)]
 	}).(SourceCodeTokenOutput)
 }
 
 type SourceCodeTokenMapOutput struct{ *pulumi.OutputState }
 
 func (SourceCodeTokenMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SourceCodeToken)(nil))
+	return reflect.TypeOf((*map[string]*SourceCodeToken)(nil)).Elem()
 }
 
 func (o SourceCodeTokenMapOutput) ToSourceCodeTokenMapOutput() SourceCodeTokenMapOutput {
@@ -317,18 +254,16 @@ func (o SourceCodeTokenMapOutput) ToSourceCodeTokenMapOutputWithContext(ctx cont
 }
 
 func (o SourceCodeTokenMapOutput) MapIndex(k pulumi.StringInput) SourceCodeTokenOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SourceCodeToken {
-		return vs[0].(map[string]SourceCodeToken)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SourceCodeToken {
+		return vs[0].(map[string]*SourceCodeToken)[vs[1].(string)]
 	}).(SourceCodeTokenOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenInput)(nil)).Elem(), &SourceCodeToken{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenPtrInput)(nil)).Elem(), &SourceCodeToken{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenArrayInput)(nil)).Elem(), SourceCodeTokenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenMapInput)(nil)).Elem(), SourceCodeTokenMap{})
 	pulumi.RegisterOutputType(SourceCodeTokenOutput{})
-	pulumi.RegisterOutputType(SourceCodeTokenPtrOutput{})
 	pulumi.RegisterOutputType(SourceCodeTokenArrayOutput{})
 	pulumi.RegisterOutputType(SourceCodeTokenMapOutput{})
 }

@@ -193,7 +193,7 @@ type HciClusterInput interface {
 }
 
 func (*HciCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*HciCluster)(nil))
+	return reflect.TypeOf((**HciCluster)(nil)).Elem()
 }
 
 func (i *HciCluster) ToHciClusterOutput() HciClusterOutput {
@@ -202,35 +202,6 @@ func (i *HciCluster) ToHciClusterOutput() HciClusterOutput {
 
 func (i *HciCluster) ToHciClusterOutputWithContext(ctx context.Context) HciClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HciClusterOutput)
-}
-
-func (i *HciCluster) ToHciClusterPtrOutput() HciClusterPtrOutput {
-	return i.ToHciClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *HciCluster) ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HciClusterPtrOutput)
-}
-
-type HciClusterPtrInput interface {
-	pulumi.Input
-
-	ToHciClusterPtrOutput() HciClusterPtrOutput
-	ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput
-}
-
-type hciClusterPtrType HciClusterArgs
-
-func (*hciClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HciCluster)(nil))
-}
-
-func (i *hciClusterPtrType) ToHciClusterPtrOutput() HciClusterPtrOutput {
-	return i.ToHciClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *hciClusterPtrType) ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HciClusterPtrOutput)
 }
 
 // HciClusterArrayInput is an input type that accepts HciClusterArray and HciClusterArrayOutput values.
@@ -286,7 +257,7 @@ func (i HciClusterMap) ToHciClusterMapOutputWithContext(ctx context.Context) Hci
 type HciClusterOutput struct{ *pulumi.OutputState }
 
 func (HciClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HciCluster)(nil))
+	return reflect.TypeOf((**HciCluster)(nil)).Elem()
 }
 
 func (o HciClusterOutput) ToHciClusterOutput() HciClusterOutput {
@@ -297,44 +268,10 @@ func (o HciClusterOutput) ToHciClusterOutputWithContext(ctx context.Context) Hci
 	return o
 }
 
-func (o HciClusterOutput) ToHciClusterPtrOutput() HciClusterPtrOutput {
-	return o.ToHciClusterPtrOutputWithContext(context.Background())
-}
-
-func (o HciClusterOutput) ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciCluster) *HciCluster {
-		return &v
-	}).(HciClusterPtrOutput)
-}
-
-type HciClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (HciClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HciCluster)(nil))
-}
-
-func (o HciClusterPtrOutput) ToHciClusterPtrOutput() HciClusterPtrOutput {
-	return o
-}
-
-func (o HciClusterPtrOutput) ToHciClusterPtrOutputWithContext(ctx context.Context) HciClusterPtrOutput {
-	return o
-}
-
-func (o HciClusterPtrOutput) Elem() HciClusterOutput {
-	return o.ApplyT(func(v *HciCluster) HciCluster {
-		if v != nil {
-			return *v
-		}
-		var ret HciCluster
-		return ret
-	}).(HciClusterOutput)
-}
-
 type HciClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (HciClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HciCluster)(nil))
+	return reflect.TypeOf((*[]*HciCluster)(nil)).Elem()
 }
 
 func (o HciClusterArrayOutput) ToHciClusterArrayOutput() HciClusterArrayOutput {
@@ -346,15 +283,15 @@ func (o HciClusterArrayOutput) ToHciClusterArrayOutputWithContext(ctx context.Co
 }
 
 func (o HciClusterArrayOutput) Index(i pulumi.IntInput) HciClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciCluster {
-		return vs[0].([]HciCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HciCluster {
+		return vs[0].([]*HciCluster)[vs[1].(int)]
 	}).(HciClusterOutput)
 }
 
 type HciClusterMapOutput struct{ *pulumi.OutputState }
 
 func (HciClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HciCluster)(nil))
+	return reflect.TypeOf((*map[string]*HciCluster)(nil)).Elem()
 }
 
 func (o HciClusterMapOutput) ToHciClusterMapOutput() HciClusterMapOutput {
@@ -366,18 +303,16 @@ func (o HciClusterMapOutput) ToHciClusterMapOutputWithContext(ctx context.Contex
 }
 
 func (o HciClusterMapOutput) MapIndex(k pulumi.StringInput) HciClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HciCluster {
-		return vs[0].(map[string]HciCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HciCluster {
+		return vs[0].(map[string]*HciCluster)[vs[1].(string)]
 	}).(HciClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterInput)(nil)).Elem(), &HciCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterPtrInput)(nil)).Elem(), &HciCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterArrayInput)(nil)).Elem(), HciClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterMapInput)(nil)).Elem(), HciClusterMap{})
 	pulumi.RegisterOutputType(HciClusterOutput{})
-	pulumi.RegisterOutputType(HciClusterPtrOutput{})
 	pulumi.RegisterOutputType(HciClusterArrayOutput{})
 	pulumi.RegisterOutputType(HciClusterMapOutput{})
 }

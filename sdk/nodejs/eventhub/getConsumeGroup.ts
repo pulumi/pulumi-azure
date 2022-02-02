@@ -26,9 +26,7 @@ export function getConsumeGroup(args: GetConsumeGroupArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:eventhub/getConsumeGroup:getConsumeGroup", {
         "eventhubName": args.eventhubName,
         "name": args.name,

@@ -618,7 +618,7 @@ type LinuxVirtualMachineInput interface {
 }
 
 func (*LinuxVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachine)(nil))
+	return reflect.TypeOf((**LinuxVirtualMachine)(nil)).Elem()
 }
 
 func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
@@ -627,35 +627,6 @@ func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineO
 
 func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOutput)
-}
-
-func (i *LinuxVirtualMachine) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
-	return i.ToLinuxVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *LinuxVirtualMachine) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePtrOutput)
-}
-
-type LinuxVirtualMachinePtrInput interface {
-	pulumi.Input
-
-	ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput
-	ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput
-}
-
-type linuxVirtualMachinePtrType LinuxVirtualMachineArgs
-
-func (*linuxVirtualMachinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachine)(nil))
-}
-
-func (i *linuxVirtualMachinePtrType) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
-	return i.ToLinuxVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *linuxVirtualMachinePtrType) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePtrOutput)
 }
 
 // LinuxVirtualMachineArrayInput is an input type that accepts LinuxVirtualMachineArray and LinuxVirtualMachineArrayOutput values.
@@ -711,7 +682,7 @@ func (i LinuxVirtualMachineMap) ToLinuxVirtualMachineMapOutputWithContext(ctx co
 type LinuxVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachine)(nil))
+	return reflect.TypeOf((**LinuxVirtualMachine)(nil)).Elem()
 }
 
 func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
@@ -722,44 +693,10 @@ func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutputWithContext(ctx co
 	return o
 }
 
-func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
-	return o.ToLinuxVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachine) *LinuxVirtualMachine {
-		return &v
-	}).(LinuxVirtualMachinePtrOutput)
-}
-
-type LinuxVirtualMachinePtrOutput struct{ *pulumi.OutputState }
-
-func (LinuxVirtualMachinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachine)(nil))
-}
-
-func (o LinuxVirtualMachinePtrOutput) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachinePtrOutput) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachinePtrOutput) Elem() LinuxVirtualMachineOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachine {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxVirtualMachine
-		return ret
-	}).(LinuxVirtualMachineOutput)
-}
-
 type LinuxVirtualMachineArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinuxVirtualMachine)(nil))
+	return reflect.TypeOf((*[]*LinuxVirtualMachine)(nil)).Elem()
 }
 
 func (o LinuxVirtualMachineArrayOutput) ToLinuxVirtualMachineArrayOutput() LinuxVirtualMachineArrayOutput {
@@ -771,15 +708,15 @@ func (o LinuxVirtualMachineArrayOutput) ToLinuxVirtualMachineArrayOutputWithCont
 }
 
 func (o LinuxVirtualMachineArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachine {
-		return vs[0].([]LinuxVirtualMachine)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxVirtualMachine {
+		return vs[0].([]*LinuxVirtualMachine)[vs[1].(int)]
 	}).(LinuxVirtualMachineOutput)
 }
 
 type LinuxVirtualMachineMapOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinuxVirtualMachine)(nil))
+	return reflect.TypeOf((*map[string]*LinuxVirtualMachine)(nil)).Elem()
 }
 
 func (o LinuxVirtualMachineMapOutput) ToLinuxVirtualMachineMapOutput() LinuxVirtualMachineMapOutput {
@@ -791,18 +728,16 @@ func (o LinuxVirtualMachineMapOutput) ToLinuxVirtualMachineMapOutputWithContext(
 }
 
 func (o LinuxVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) LinuxVirtualMachineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinuxVirtualMachine {
-		return vs[0].(map[string]LinuxVirtualMachine)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinuxVirtualMachine {
+		return vs[0].(map[string]*LinuxVirtualMachine)[vs[1].(string)]
 	}).(LinuxVirtualMachineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineInput)(nil)).Elem(), &LinuxVirtualMachine{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachinePtrInput)(nil)).Elem(), &LinuxVirtualMachine{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineArrayInput)(nil)).Elem(), LinuxVirtualMachineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineMapInput)(nil)).Elem(), LinuxVirtualMachineMap{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOutput{})
-	pulumi.RegisterOutputType(LinuxVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineMapOutput{})
 }

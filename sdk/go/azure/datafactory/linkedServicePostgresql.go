@@ -242,7 +242,7 @@ type LinkedServicePostgresqlInput interface {
 }
 
 func (*LinkedServicePostgresql) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServicePostgresql)(nil))
+	return reflect.TypeOf((**LinkedServicePostgresql)(nil)).Elem()
 }
 
 func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlOutput() LinkedServicePostgresqlOutput {
@@ -251,35 +251,6 @@ func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlOutput() LinkedServic
 
 func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlOutputWithContext(ctx context.Context) LinkedServicePostgresqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlOutput)
-}
-
-func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlPtrOutput() LinkedServicePostgresqlPtrOutput {
-	return i.ToLinkedServicePostgresqlPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlPtrOutputWithContext(ctx context.Context) LinkedServicePostgresqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlPtrOutput)
-}
-
-type LinkedServicePostgresqlPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServicePostgresqlPtrOutput() LinkedServicePostgresqlPtrOutput
-	ToLinkedServicePostgresqlPtrOutputWithContext(ctx context.Context) LinkedServicePostgresqlPtrOutput
-}
-
-type linkedServicePostgresqlPtrType LinkedServicePostgresqlArgs
-
-func (*linkedServicePostgresqlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServicePostgresql)(nil))
-}
-
-func (i *linkedServicePostgresqlPtrType) ToLinkedServicePostgresqlPtrOutput() LinkedServicePostgresqlPtrOutput {
-	return i.ToLinkedServicePostgresqlPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServicePostgresqlPtrType) ToLinkedServicePostgresqlPtrOutputWithContext(ctx context.Context) LinkedServicePostgresqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlPtrOutput)
 }
 
 // LinkedServicePostgresqlArrayInput is an input type that accepts LinkedServicePostgresqlArray and LinkedServicePostgresqlArrayOutput values.
@@ -335,7 +306,7 @@ func (i LinkedServicePostgresqlMap) ToLinkedServicePostgresqlMapOutputWithContex
 type LinkedServicePostgresqlOutput struct{ *pulumi.OutputState }
 
 func (LinkedServicePostgresqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServicePostgresql)(nil))
+	return reflect.TypeOf((**LinkedServicePostgresql)(nil)).Elem()
 }
 
 func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlOutput() LinkedServicePostgresqlOutput {
@@ -346,44 +317,10 @@ func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlOutputWithContex
 	return o
 }
 
-func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlPtrOutput() LinkedServicePostgresqlPtrOutput {
-	return o.ToLinkedServicePostgresqlPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlPtrOutputWithContext(ctx context.Context) LinkedServicePostgresqlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServicePostgresql) *LinkedServicePostgresql {
-		return &v
-	}).(LinkedServicePostgresqlPtrOutput)
-}
-
-type LinkedServicePostgresqlPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServicePostgresqlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServicePostgresql)(nil))
-}
-
-func (o LinkedServicePostgresqlPtrOutput) ToLinkedServicePostgresqlPtrOutput() LinkedServicePostgresqlPtrOutput {
-	return o
-}
-
-func (o LinkedServicePostgresqlPtrOutput) ToLinkedServicePostgresqlPtrOutputWithContext(ctx context.Context) LinkedServicePostgresqlPtrOutput {
-	return o
-}
-
-func (o LinkedServicePostgresqlPtrOutput) Elem() LinkedServicePostgresqlOutput {
-	return o.ApplyT(func(v *LinkedServicePostgresql) LinkedServicePostgresql {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServicePostgresql
-		return ret
-	}).(LinkedServicePostgresqlOutput)
-}
-
 type LinkedServicePostgresqlArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServicePostgresqlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServicePostgresql)(nil))
+	return reflect.TypeOf((*[]*LinkedServicePostgresql)(nil)).Elem()
 }
 
 func (o LinkedServicePostgresqlArrayOutput) ToLinkedServicePostgresqlArrayOutput() LinkedServicePostgresqlArrayOutput {
@@ -395,15 +332,15 @@ func (o LinkedServicePostgresqlArrayOutput) ToLinkedServicePostgresqlArrayOutput
 }
 
 func (o LinkedServicePostgresqlArrayOutput) Index(i pulumi.IntInput) LinkedServicePostgresqlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServicePostgresql {
-		return vs[0].([]LinkedServicePostgresql)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServicePostgresql {
+		return vs[0].([]*LinkedServicePostgresql)[vs[1].(int)]
 	}).(LinkedServicePostgresqlOutput)
 }
 
 type LinkedServicePostgresqlMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServicePostgresqlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServicePostgresql)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServicePostgresql)(nil)).Elem()
 }
 
 func (o LinkedServicePostgresqlMapOutput) ToLinkedServicePostgresqlMapOutput() LinkedServicePostgresqlMapOutput {
@@ -415,18 +352,16 @@ func (o LinkedServicePostgresqlMapOutput) ToLinkedServicePostgresqlMapOutputWith
 }
 
 func (o LinkedServicePostgresqlMapOutput) MapIndex(k pulumi.StringInput) LinkedServicePostgresqlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServicePostgresql {
-		return vs[0].(map[string]LinkedServicePostgresql)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServicePostgresql {
+		return vs[0].(map[string]*LinkedServicePostgresql)[vs[1].(string)]
 	}).(LinkedServicePostgresqlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlInput)(nil)).Elem(), &LinkedServicePostgresql{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlPtrInput)(nil)).Elem(), &LinkedServicePostgresql{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlArrayInput)(nil)).Elem(), LinkedServicePostgresqlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlMapInput)(nil)).Elem(), LinkedServicePostgresqlMap{})
 	pulumi.RegisterOutputType(LinkedServicePostgresqlOutput{})
-	pulumi.RegisterOutputType(LinkedServicePostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServicePostgresqlArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServicePostgresqlMapOutput{})
 }

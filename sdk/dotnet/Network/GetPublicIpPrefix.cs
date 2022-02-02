@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

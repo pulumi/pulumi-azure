@@ -122,25 +122,25 @@ export class HostPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostPoolArgs | HostPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostPoolState | undefined;
-            inputs["customRdpProperties"] = state ? state.customRdpProperties : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maximumSessionsAllowed"] = state ? state.maximumSessionsAllowed : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["personalDesktopAssignmentType"] = state ? state.personalDesktopAssignmentType : undefined;
-            inputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
-            inputs["registrationInfo"] = state ? state.registrationInfo : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
+            resourceInputs["customRdpProperties"] = state ? state.customRdpProperties : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maximumSessionsAllowed"] = state ? state.maximumSessionsAllowed : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["personalDesktopAssignmentType"] = state ? state.personalDesktopAssignmentType : undefined;
+            resourceInputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
+            resourceInputs["registrationInfo"] = state ? state.registrationInfo : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
         } else {
             const args = argsOrState as HostPoolArgs | undefined;
             if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
@@ -152,26 +152,24 @@ export class HostPool extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["customRdpProperties"] = args ? args.customRdpProperties : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maximumSessionsAllowed"] = args ? args.maximumSessionsAllowed : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
-            inputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            inputs["registrationInfo"] = args ? args.registrationInfo : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["validateEnvironment"] = args ? args.validateEnvironment : undefined;
+            resourceInputs["customRdpProperties"] = args ? args.customRdpProperties : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maximumSessionsAllowed"] = args ? args.maximumSessionsAllowed : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
+            resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
+            resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validateEnvironment"] = args ? args.validateEnvironment : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(HostPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(HostPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -336,7 +336,7 @@ type AuthorizationServerInput interface {
 }
 
 func (*AuthorizationServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationServer)(nil))
+	return reflect.TypeOf((**AuthorizationServer)(nil)).Elem()
 }
 
 func (i *AuthorizationServer) ToAuthorizationServerOutput() AuthorizationServerOutput {
@@ -345,35 +345,6 @@ func (i *AuthorizationServer) ToAuthorizationServerOutput() AuthorizationServerO
 
 func (i *AuthorizationServer) ToAuthorizationServerOutputWithContext(ctx context.Context) AuthorizationServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerOutput)
-}
-
-func (i *AuthorizationServer) ToAuthorizationServerPtrOutput() AuthorizationServerPtrOutput {
-	return i.ToAuthorizationServerPtrOutputWithContext(context.Background())
-}
-
-func (i *AuthorizationServer) ToAuthorizationServerPtrOutputWithContext(ctx context.Context) AuthorizationServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerPtrOutput)
-}
-
-type AuthorizationServerPtrInput interface {
-	pulumi.Input
-
-	ToAuthorizationServerPtrOutput() AuthorizationServerPtrOutput
-	ToAuthorizationServerPtrOutputWithContext(ctx context.Context) AuthorizationServerPtrOutput
-}
-
-type authorizationServerPtrType AuthorizationServerArgs
-
-func (*authorizationServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizationServer)(nil))
-}
-
-func (i *authorizationServerPtrType) ToAuthorizationServerPtrOutput() AuthorizationServerPtrOutput {
-	return i.ToAuthorizationServerPtrOutputWithContext(context.Background())
-}
-
-func (i *authorizationServerPtrType) ToAuthorizationServerPtrOutputWithContext(ctx context.Context) AuthorizationServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerPtrOutput)
 }
 
 // AuthorizationServerArrayInput is an input type that accepts AuthorizationServerArray and AuthorizationServerArrayOutput values.
@@ -429,7 +400,7 @@ func (i AuthorizationServerMap) ToAuthorizationServerMapOutputWithContext(ctx co
 type AuthorizationServerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationServer)(nil))
+	return reflect.TypeOf((**AuthorizationServer)(nil)).Elem()
 }
 
 func (o AuthorizationServerOutput) ToAuthorizationServerOutput() AuthorizationServerOutput {
@@ -440,44 +411,10 @@ func (o AuthorizationServerOutput) ToAuthorizationServerOutputWithContext(ctx co
 	return o
 }
 
-func (o AuthorizationServerOutput) ToAuthorizationServerPtrOutput() AuthorizationServerPtrOutput {
-	return o.ToAuthorizationServerPtrOutputWithContext(context.Background())
-}
-
-func (o AuthorizationServerOutput) ToAuthorizationServerPtrOutputWithContext(ctx context.Context) AuthorizationServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationServer) *AuthorizationServer {
-		return &v
-	}).(AuthorizationServerPtrOutput)
-}
-
-type AuthorizationServerPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthorizationServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizationServer)(nil))
-}
-
-func (o AuthorizationServerPtrOutput) ToAuthorizationServerPtrOutput() AuthorizationServerPtrOutput {
-	return o
-}
-
-func (o AuthorizationServerPtrOutput) ToAuthorizationServerPtrOutputWithContext(ctx context.Context) AuthorizationServerPtrOutput {
-	return o
-}
-
-func (o AuthorizationServerPtrOutput) Elem() AuthorizationServerOutput {
-	return o.ApplyT(func(v *AuthorizationServer) AuthorizationServer {
-		if v != nil {
-			return *v
-		}
-		var ret AuthorizationServer
-		return ret
-	}).(AuthorizationServerOutput)
-}
-
 type AuthorizationServerArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AuthorizationServer)(nil))
+	return reflect.TypeOf((*[]*AuthorizationServer)(nil)).Elem()
 }
 
 func (o AuthorizationServerArrayOutput) ToAuthorizationServerArrayOutput() AuthorizationServerArrayOutput {
@@ -489,15 +426,15 @@ func (o AuthorizationServerArrayOutput) ToAuthorizationServerArrayOutputWithCont
 }
 
 func (o AuthorizationServerArrayOutput) Index(i pulumi.IntInput) AuthorizationServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizationServer {
-		return vs[0].([]AuthorizationServer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthorizationServer {
+		return vs[0].([]*AuthorizationServer)[vs[1].(int)]
 	}).(AuthorizationServerOutput)
 }
 
 type AuthorizationServerMapOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AuthorizationServer)(nil))
+	return reflect.TypeOf((*map[string]*AuthorizationServer)(nil)).Elem()
 }
 
 func (o AuthorizationServerMapOutput) ToAuthorizationServerMapOutput() AuthorizationServerMapOutput {
@@ -509,18 +446,16 @@ func (o AuthorizationServerMapOutput) ToAuthorizationServerMapOutputWithContext(
 }
 
 func (o AuthorizationServerMapOutput) MapIndex(k pulumi.StringInput) AuthorizationServerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AuthorizationServer {
-		return vs[0].(map[string]AuthorizationServer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AuthorizationServer {
+		return vs[0].(map[string]*AuthorizationServer)[vs[1].(string)]
 	}).(AuthorizationServerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationServerInput)(nil)).Elem(), &AuthorizationServer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationServerPtrInput)(nil)).Elem(), &AuthorizationServer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationServerArrayInput)(nil)).Elem(), AuthorizationServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationServerMapInput)(nil)).Elem(), AuthorizationServerMap{})
 	pulumi.RegisterOutputType(AuthorizationServerOutput{})
-	pulumi.RegisterOutputType(AuthorizationServerPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerArrayOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerMapOutput{})
 }

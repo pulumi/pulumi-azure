@@ -183,7 +183,7 @@ type EncryptionScopeInput interface {
 }
 
 func (*EncryptionScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionScope)(nil))
+	return reflect.TypeOf((**EncryptionScope)(nil)).Elem()
 }
 
 func (i *EncryptionScope) ToEncryptionScopeOutput() EncryptionScopeOutput {
@@ -192,35 +192,6 @@ func (i *EncryptionScope) ToEncryptionScopeOutput() EncryptionScopeOutput {
 
 func (i *EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context) EncryptionScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeOutput)
-}
-
-func (i *EncryptionScope) ToEncryptionScopePtrOutput() EncryptionScopePtrOutput {
-	return i.ToEncryptionScopePtrOutputWithContext(context.Background())
-}
-
-func (i *EncryptionScope) ToEncryptionScopePtrOutputWithContext(ctx context.Context) EncryptionScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopePtrOutput)
-}
-
-type EncryptionScopePtrInput interface {
-	pulumi.Input
-
-	ToEncryptionScopePtrOutput() EncryptionScopePtrOutput
-	ToEncryptionScopePtrOutputWithContext(ctx context.Context) EncryptionScopePtrOutput
-}
-
-type encryptionScopePtrType EncryptionScopeArgs
-
-func (*encryptionScopePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionScope)(nil))
-}
-
-func (i *encryptionScopePtrType) ToEncryptionScopePtrOutput() EncryptionScopePtrOutput {
-	return i.ToEncryptionScopePtrOutputWithContext(context.Background())
-}
-
-func (i *encryptionScopePtrType) ToEncryptionScopePtrOutputWithContext(ctx context.Context) EncryptionScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopePtrOutput)
 }
 
 // EncryptionScopeArrayInput is an input type that accepts EncryptionScopeArray and EncryptionScopeArrayOutput values.
@@ -276,7 +247,7 @@ func (i EncryptionScopeMap) ToEncryptionScopeMapOutputWithContext(ctx context.Co
 type EncryptionScopeOutput struct{ *pulumi.OutputState }
 
 func (EncryptionScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionScope)(nil))
+	return reflect.TypeOf((**EncryptionScope)(nil)).Elem()
 }
 
 func (o EncryptionScopeOutput) ToEncryptionScopeOutput() EncryptionScopeOutput {
@@ -287,44 +258,10 @@ func (o EncryptionScopeOutput) ToEncryptionScopeOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o EncryptionScopeOutput) ToEncryptionScopePtrOutput() EncryptionScopePtrOutput {
-	return o.ToEncryptionScopePtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionScopeOutput) ToEncryptionScopePtrOutputWithContext(ctx context.Context) EncryptionScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionScope) *EncryptionScope {
-		return &v
-	}).(EncryptionScopePtrOutput)
-}
-
-type EncryptionScopePtrOutput struct{ *pulumi.OutputState }
-
-func (EncryptionScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionScope)(nil))
-}
-
-func (o EncryptionScopePtrOutput) ToEncryptionScopePtrOutput() EncryptionScopePtrOutput {
-	return o
-}
-
-func (o EncryptionScopePtrOutput) ToEncryptionScopePtrOutputWithContext(ctx context.Context) EncryptionScopePtrOutput {
-	return o
-}
-
-func (o EncryptionScopePtrOutput) Elem() EncryptionScopeOutput {
-	return o.ApplyT(func(v *EncryptionScope) EncryptionScope {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionScope
-		return ret
-	}).(EncryptionScopeOutput)
-}
-
 type EncryptionScopeArrayOutput struct{ *pulumi.OutputState }
 
 func (EncryptionScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EncryptionScope)(nil))
+	return reflect.TypeOf((*[]*EncryptionScope)(nil)).Elem()
 }
 
 func (o EncryptionScopeArrayOutput) ToEncryptionScopeArrayOutput() EncryptionScopeArrayOutput {
@@ -336,15 +273,15 @@ func (o EncryptionScopeArrayOutput) ToEncryptionScopeArrayOutputWithContext(ctx 
 }
 
 func (o EncryptionScopeArrayOutput) Index(i pulumi.IntInput) EncryptionScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EncryptionScope {
-		return vs[0].([]EncryptionScope)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EncryptionScope {
+		return vs[0].([]*EncryptionScope)[vs[1].(int)]
 	}).(EncryptionScopeOutput)
 }
 
 type EncryptionScopeMapOutput struct{ *pulumi.OutputState }
 
 func (EncryptionScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EncryptionScope)(nil))
+	return reflect.TypeOf((*map[string]*EncryptionScope)(nil)).Elem()
 }
 
 func (o EncryptionScopeMapOutput) ToEncryptionScopeMapOutput() EncryptionScopeMapOutput {
@@ -356,18 +293,16 @@ func (o EncryptionScopeMapOutput) ToEncryptionScopeMapOutputWithContext(ctx cont
 }
 
 func (o EncryptionScopeMapOutput) MapIndex(k pulumi.StringInput) EncryptionScopeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EncryptionScope {
-		return vs[0].(map[string]EncryptionScope)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EncryptionScope {
+		return vs[0].(map[string]*EncryptionScope)[vs[1].(string)]
 	}).(EncryptionScopeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeInput)(nil)).Elem(), &EncryptionScope{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopePtrInput)(nil)).Elem(), &EncryptionScope{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeArrayInput)(nil)).Elem(), EncryptionScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeMapInput)(nil)).Elem(), EncryptionScopeMap{})
 	pulumi.RegisterOutputType(EncryptionScopeOutput{})
-	pulumi.RegisterOutputType(EncryptionScopePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionScopeArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionScopeMapOutput{})
 }

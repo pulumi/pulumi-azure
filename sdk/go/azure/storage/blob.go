@@ -296,7 +296,7 @@ type BlobInput interface {
 }
 
 func (*Blob) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blob)(nil))
+	return reflect.TypeOf((**Blob)(nil)).Elem()
 }
 
 func (i *Blob) ToBlobOutput() BlobOutput {
@@ -305,35 +305,6 @@ func (i *Blob) ToBlobOutput() BlobOutput {
 
 func (i *Blob) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobOutput)
-}
-
-func (i *Blob) ToBlobPtrOutput() BlobPtrOutput {
-	return i.ToBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *Blob) ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobPtrOutput)
-}
-
-type BlobPtrInput interface {
-	pulumi.Input
-
-	ToBlobPtrOutput() BlobPtrOutput
-	ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput
-}
-
-type blobPtrType BlobArgs
-
-func (*blobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Blob)(nil))
-}
-
-func (i *blobPtrType) ToBlobPtrOutput() BlobPtrOutput {
-	return i.ToBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *blobPtrType) ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobPtrOutput)
 }
 
 // BlobArrayInput is an input type that accepts BlobArray and BlobArrayOutput values.
@@ -389,7 +360,7 @@ func (i BlobMap) ToBlobMapOutputWithContext(ctx context.Context) BlobMapOutput {
 type BlobOutput struct{ *pulumi.OutputState }
 
 func (BlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Blob)(nil))
+	return reflect.TypeOf((**Blob)(nil)).Elem()
 }
 
 func (o BlobOutput) ToBlobOutput() BlobOutput {
@@ -400,44 +371,10 @@ func (o BlobOutput) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 	return o
 }
 
-func (o BlobOutput) ToBlobPtrOutput() BlobPtrOutput {
-	return o.ToBlobPtrOutputWithContext(context.Background())
-}
-
-func (o BlobOutput) ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Blob) *Blob {
-		return &v
-	}).(BlobPtrOutput)
-}
-
-type BlobPtrOutput struct{ *pulumi.OutputState }
-
-func (BlobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Blob)(nil))
-}
-
-func (o BlobPtrOutput) ToBlobPtrOutput() BlobPtrOutput {
-	return o
-}
-
-func (o BlobPtrOutput) ToBlobPtrOutputWithContext(ctx context.Context) BlobPtrOutput {
-	return o
-}
-
-func (o BlobPtrOutput) Elem() BlobOutput {
-	return o.ApplyT(func(v *Blob) Blob {
-		if v != nil {
-			return *v
-		}
-		var ret Blob
-		return ret
-	}).(BlobOutput)
-}
-
 type BlobArrayOutput struct{ *pulumi.OutputState }
 
 func (BlobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Blob)(nil))
+	return reflect.TypeOf((*[]*Blob)(nil)).Elem()
 }
 
 func (o BlobArrayOutput) ToBlobArrayOutput() BlobArrayOutput {
@@ -449,15 +386,15 @@ func (o BlobArrayOutput) ToBlobArrayOutputWithContext(ctx context.Context) BlobA
 }
 
 func (o BlobArrayOutput) Index(i pulumi.IntInput) BlobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Blob {
-		return vs[0].([]Blob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Blob {
+		return vs[0].([]*Blob)[vs[1].(int)]
 	}).(BlobOutput)
 }
 
 type BlobMapOutput struct{ *pulumi.OutputState }
 
 func (BlobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Blob)(nil))
+	return reflect.TypeOf((*map[string]*Blob)(nil)).Elem()
 }
 
 func (o BlobMapOutput) ToBlobMapOutput() BlobMapOutput {
@@ -469,18 +406,16 @@ func (o BlobMapOutput) ToBlobMapOutputWithContext(ctx context.Context) BlobMapOu
 }
 
 func (o BlobMapOutput) MapIndex(k pulumi.StringInput) BlobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Blob {
-		return vs[0].(map[string]Blob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Blob {
+		return vs[0].(map[string]*Blob)[vs[1].(string)]
 	}).(BlobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInput)(nil)).Elem(), &Blob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BlobPtrInput)(nil)).Elem(), &Blob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobArrayInput)(nil)).Elem(), BlobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobMapInput)(nil)).Elem(), BlobMap{})
 	pulumi.RegisterOutputType(BlobOutput{})
-	pulumi.RegisterOutputType(BlobPtrOutput{})
 	pulumi.RegisterOutputType(BlobArrayOutput{})
 	pulumi.RegisterOutputType(BlobMapOutput{})
 }

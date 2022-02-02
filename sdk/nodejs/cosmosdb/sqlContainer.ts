@@ -142,23 +142,23 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlContainerArgs | SqlContainerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlContainerState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            inputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            inputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
-            inputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["throughput"] = state ? state.throughput : undefined;
-            inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
+            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
+            resourceInputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
+            resourceInputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
+            resourceInputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
         } else {
             const args = argsOrState as SqlContainerArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -173,24 +173,22 @@ export class SqlContainer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            inputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            inputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
-            inputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["throughput"] = args ? args.throughput : undefined;
-            inputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
+            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
+            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
+            resourceInputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
+            resourceInputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlContainer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlContainer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

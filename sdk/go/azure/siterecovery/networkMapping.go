@@ -86,7 +86,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewNetworkMapping(ctx, "recovery_mapping", &siterecovery.NetworkMappingArgs{
+// 		_, err = siterecovery.NewNetworkMapping(ctx, "recovery-mapping", &siterecovery.NetworkMappingArgs{
 // 			ResourceGroupName:        secondaryResourceGroup.Name,
 // 			RecoveryVaultName:        vault.Name,
 // 			SourceRecoveryFabricName: pulumi.String("primary-fabric"),
@@ -259,7 +259,7 @@ type NetworkMappingInput interface {
 }
 
 func (*NetworkMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkMapping)(nil))
+	return reflect.TypeOf((**NetworkMapping)(nil)).Elem()
 }
 
 func (i *NetworkMapping) ToNetworkMappingOutput() NetworkMappingOutput {
@@ -268,35 +268,6 @@ func (i *NetworkMapping) ToNetworkMappingOutput() NetworkMappingOutput {
 
 func (i *NetworkMapping) ToNetworkMappingOutputWithContext(ctx context.Context) NetworkMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingOutput)
-}
-
-func (i *NetworkMapping) ToNetworkMappingPtrOutput() NetworkMappingPtrOutput {
-	return i.ToNetworkMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *NetworkMapping) ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPtrOutput)
-}
-
-type NetworkMappingPtrInput interface {
-	pulumi.Input
-
-	ToNetworkMappingPtrOutput() NetworkMappingPtrOutput
-	ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput
-}
-
-type networkMappingPtrType NetworkMappingArgs
-
-func (*networkMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkMapping)(nil))
-}
-
-func (i *networkMappingPtrType) ToNetworkMappingPtrOutput() NetworkMappingPtrOutput {
-	return i.ToNetworkMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *networkMappingPtrType) ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPtrOutput)
 }
 
 // NetworkMappingArrayInput is an input type that accepts NetworkMappingArray and NetworkMappingArrayOutput values.
@@ -352,7 +323,7 @@ func (i NetworkMappingMap) ToNetworkMappingMapOutputWithContext(ctx context.Cont
 type NetworkMappingOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkMapping)(nil))
+	return reflect.TypeOf((**NetworkMapping)(nil)).Elem()
 }
 
 func (o NetworkMappingOutput) ToNetworkMappingOutput() NetworkMappingOutput {
@@ -363,44 +334,10 @@ func (o NetworkMappingOutput) ToNetworkMappingOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o NetworkMappingOutput) ToNetworkMappingPtrOutput() NetworkMappingPtrOutput {
-	return o.ToNetworkMappingPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkMappingOutput) ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkMapping) *NetworkMapping {
-		return &v
-	}).(NetworkMappingPtrOutput)
-}
-
-type NetworkMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkMapping)(nil))
-}
-
-func (o NetworkMappingPtrOutput) ToNetworkMappingPtrOutput() NetworkMappingPtrOutput {
-	return o
-}
-
-func (o NetworkMappingPtrOutput) ToNetworkMappingPtrOutputWithContext(ctx context.Context) NetworkMappingPtrOutput {
-	return o
-}
-
-func (o NetworkMappingPtrOutput) Elem() NetworkMappingOutput {
-	return o.ApplyT(func(v *NetworkMapping) NetworkMapping {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkMapping
-		return ret
-	}).(NetworkMappingOutput)
-}
-
 type NetworkMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkMapping)(nil))
+	return reflect.TypeOf((*[]*NetworkMapping)(nil)).Elem()
 }
 
 func (o NetworkMappingArrayOutput) ToNetworkMappingArrayOutput() NetworkMappingArrayOutput {
@@ -412,15 +349,15 @@ func (o NetworkMappingArrayOutput) ToNetworkMappingArrayOutputWithContext(ctx co
 }
 
 func (o NetworkMappingArrayOutput) Index(i pulumi.IntInput) NetworkMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkMapping {
-		return vs[0].([]NetworkMapping)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkMapping {
+		return vs[0].([]*NetworkMapping)[vs[1].(int)]
 	}).(NetworkMappingOutput)
 }
 
 type NetworkMappingMapOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetworkMapping)(nil))
+	return reflect.TypeOf((*map[string]*NetworkMapping)(nil)).Elem()
 }
 
 func (o NetworkMappingMapOutput) ToNetworkMappingMapOutput() NetworkMappingMapOutput {
@@ -432,18 +369,16 @@ func (o NetworkMappingMapOutput) ToNetworkMappingMapOutputWithContext(ctx contex
 }
 
 func (o NetworkMappingMapOutput) MapIndex(k pulumi.StringInput) NetworkMappingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkMapping {
-		return vs[0].(map[string]NetworkMapping)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NetworkMapping {
+		return vs[0].(map[string]*NetworkMapping)[vs[1].(string)]
 	}).(NetworkMappingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMappingInput)(nil)).Elem(), &NetworkMapping{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMappingPtrInput)(nil)).Elem(), &NetworkMapping{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMappingArrayInput)(nil)).Elem(), NetworkMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMappingMapInput)(nil)).Elem(), NetworkMappingMap{})
 	pulumi.RegisterOutputType(NetworkMappingOutput{})
-	pulumi.RegisterOutputType(NetworkMappingPtrOutput{})
 	pulumi.RegisterOutputType(NetworkMappingArrayOutput{})
 	pulumi.RegisterOutputType(NetworkMappingMapOutput{})
 }

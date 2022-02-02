@@ -25,9 +25,7 @@ export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:compute/getSnapshot:getSnapshot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

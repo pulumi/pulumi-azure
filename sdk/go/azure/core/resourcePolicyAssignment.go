@@ -253,7 +253,7 @@ type ResourcePolicyAssignmentInput interface {
 }
 
 func (*ResourcePolicyAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourcePolicyAssignment)(nil))
+	return reflect.TypeOf((**ResourcePolicyAssignment)(nil)).Elem()
 }
 
 func (i *ResourcePolicyAssignment) ToResourcePolicyAssignmentOutput() ResourcePolicyAssignmentOutput {
@@ -262,35 +262,6 @@ func (i *ResourcePolicyAssignment) ToResourcePolicyAssignmentOutput() ResourcePo
 
 func (i *ResourcePolicyAssignment) ToResourcePolicyAssignmentOutputWithContext(ctx context.Context) ResourcePolicyAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentOutput)
-}
-
-func (i *ResourcePolicyAssignment) ToResourcePolicyAssignmentPtrOutput() ResourcePolicyAssignmentPtrOutput {
-	return i.ToResourcePolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourcePolicyAssignment) ToResourcePolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentPtrOutput)
-}
-
-type ResourcePolicyAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToResourcePolicyAssignmentPtrOutput() ResourcePolicyAssignmentPtrOutput
-	ToResourcePolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentPtrOutput
-}
-
-type resourcePolicyAssignmentPtrType ResourcePolicyAssignmentArgs
-
-func (*resourcePolicyAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourcePolicyAssignment)(nil))
-}
-
-func (i *resourcePolicyAssignmentPtrType) ToResourcePolicyAssignmentPtrOutput() ResourcePolicyAssignmentPtrOutput {
-	return i.ToResourcePolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *resourcePolicyAssignmentPtrType) ToResourcePolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentPtrOutput)
 }
 
 // ResourcePolicyAssignmentArrayInput is an input type that accepts ResourcePolicyAssignmentArray and ResourcePolicyAssignmentArrayOutput values.
@@ -346,7 +317,7 @@ func (i ResourcePolicyAssignmentMap) ToResourcePolicyAssignmentMapOutputWithCont
 type ResourcePolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourcePolicyAssignment)(nil))
+	return reflect.TypeOf((**ResourcePolicyAssignment)(nil)).Elem()
 }
 
 func (o ResourcePolicyAssignmentOutput) ToResourcePolicyAssignmentOutput() ResourcePolicyAssignmentOutput {
@@ -357,44 +328,10 @@ func (o ResourcePolicyAssignmentOutput) ToResourcePolicyAssignmentOutputWithCont
 	return o
 }
 
-func (o ResourcePolicyAssignmentOutput) ToResourcePolicyAssignmentPtrOutput() ResourcePolicyAssignmentPtrOutput {
-	return o.ToResourcePolicyAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o ResourcePolicyAssignmentOutput) ToResourcePolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePolicyAssignment) *ResourcePolicyAssignment {
-		return &v
-	}).(ResourcePolicyAssignmentPtrOutput)
-}
-
-type ResourcePolicyAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourcePolicyAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourcePolicyAssignment)(nil))
-}
-
-func (o ResourcePolicyAssignmentPtrOutput) ToResourcePolicyAssignmentPtrOutput() ResourcePolicyAssignmentPtrOutput {
-	return o
-}
-
-func (o ResourcePolicyAssignmentPtrOutput) ToResourcePolicyAssignmentPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentPtrOutput {
-	return o
-}
-
-func (o ResourcePolicyAssignmentPtrOutput) Elem() ResourcePolicyAssignmentOutput {
-	return o.ApplyT(func(v *ResourcePolicyAssignment) ResourcePolicyAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret ResourcePolicyAssignment
-		return ret
-	}).(ResourcePolicyAssignmentOutput)
-}
-
 type ResourcePolicyAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourcePolicyAssignment)(nil))
+	return reflect.TypeOf((*[]*ResourcePolicyAssignment)(nil)).Elem()
 }
 
 func (o ResourcePolicyAssignmentArrayOutput) ToResourcePolicyAssignmentArrayOutput() ResourcePolicyAssignmentArrayOutput {
@@ -406,15 +343,15 @@ func (o ResourcePolicyAssignmentArrayOutput) ToResourcePolicyAssignmentArrayOutp
 }
 
 func (o ResourcePolicyAssignmentArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourcePolicyAssignment {
-		return vs[0].([]ResourcePolicyAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourcePolicyAssignment {
+		return vs[0].([]*ResourcePolicyAssignment)[vs[1].(int)]
 	}).(ResourcePolicyAssignmentOutput)
 }
 
 type ResourcePolicyAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourcePolicyAssignment)(nil))
+	return reflect.TypeOf((*map[string]*ResourcePolicyAssignment)(nil)).Elem()
 }
 
 func (o ResourcePolicyAssignmentMapOutput) ToResourcePolicyAssignmentMapOutput() ResourcePolicyAssignmentMapOutput {
@@ -426,18 +363,16 @@ func (o ResourcePolicyAssignmentMapOutput) ToResourcePolicyAssignmentMapOutputWi
 }
 
 func (o ResourcePolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) ResourcePolicyAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourcePolicyAssignment {
-		return vs[0].(map[string]ResourcePolicyAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourcePolicyAssignment {
+		return vs[0].(map[string]*ResourcePolicyAssignment)[vs[1].(string)]
 	}).(ResourcePolicyAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentInput)(nil)).Elem(), &ResourcePolicyAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentPtrInput)(nil)).Elem(), &ResourcePolicyAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentArrayInput)(nil)).Elem(), ResourcePolicyAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentMapInput)(nil)).Elem(), ResourcePolicyAssignmentMap{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentOutput{})
-	pulumi.RegisterOutputType(ResourcePolicyAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentMapOutput{})
 }

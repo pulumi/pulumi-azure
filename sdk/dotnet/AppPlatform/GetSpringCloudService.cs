@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppPlatform
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppPlatform
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSpringCloudServiceResult> InvokeAsync(GetSpringCloudServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSpringCloudServiceResult>("azure:appplatform/getSpringCloudService:getSpringCloudService", args ?? new GetSpringCloudServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSpringCloudServiceResult>("azure:appplatform/getSpringCloudService:getSpringCloudService", args ?? new GetSpringCloudServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Service.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppPlatform
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSpringCloudServiceResult> Invoke(GetSpringCloudServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSpringCloudServiceResult>("azure:appplatform/getSpringCloudService:getSpringCloudService", args ?? new GetSpringCloudServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSpringCloudServiceResult>("azure:appplatform/getSpringCloudService:getSpringCloudService", args ?? new GetSpringCloudServiceInvokeArgs(), options.WithDefaults());
     }
 
 

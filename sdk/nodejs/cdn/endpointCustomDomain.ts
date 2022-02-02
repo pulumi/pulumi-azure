@@ -117,15 +117,15 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointCustomDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointCustomDomainArgs | EndpointCustomDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointCustomDomainState | undefined;
-            inputs["cdnEndpointId"] = state ? state.cdnEndpointId : undefined;
-            inputs["cdnManagedHttps"] = state ? state.cdnManagedHttps : undefined;
-            inputs["hostName"] = state ? state.hostName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["userManagedHttps"] = state ? state.userManagedHttps : undefined;
+            resourceInputs["cdnEndpointId"] = state ? state.cdnEndpointId : undefined;
+            resourceInputs["cdnManagedHttps"] = state ? state.cdnManagedHttps : undefined;
+            resourceInputs["hostName"] = state ? state.hostName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["userManagedHttps"] = state ? state.userManagedHttps : undefined;
         } else {
             const args = argsOrState as EndpointCustomDomainArgs | undefined;
             if ((!args || args.cdnEndpointId === undefined) && !opts.urn) {
@@ -134,16 +134,14 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
             if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            inputs["cdnEndpointId"] = args ? args.cdnEndpointId : undefined;
-            inputs["cdnManagedHttps"] = args ? args.cdnManagedHttps : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["userManagedHttps"] = args ? args.userManagedHttps : undefined;
+            resourceInputs["cdnEndpointId"] = args ? args.cdnEndpointId : undefined;
+            resourceInputs["cdnManagedHttps"] = args ? args.cdnManagedHttps : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["userManagedHttps"] = args ? args.userManagedHttps : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EndpointCustomDomain.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EndpointCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

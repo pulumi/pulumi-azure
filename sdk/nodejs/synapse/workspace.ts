@@ -262,32 +262,32 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            inputs["aadAdmin"] = state ? state.aadAdmin : undefined;
-            inputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
-            inputs["computeSubnetId"] = state ? state.computeSubnetId : undefined;
-            inputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
-            inputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            inputs["dataExfiltrationProtectionEnabled"] = state ? state.dataExfiltrationProtectionEnabled : undefined;
-            inputs["githubRepo"] = state ? state.githubRepo : undefined;
-            inputs["identities"] = state ? state.identities : undefined;
-            inputs["linkingAllowedForAadTenantIds"] = state ? state.linkingAllowedForAadTenantIds : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            inputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["purviewId"] = state ? state.purviewId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sqlAadAdmin"] = state ? state.sqlAadAdmin : undefined;
-            inputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
-            inputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
-            inputs["sqlIdentityControlEnabled"] = state ? state.sqlIdentityControlEnabled : undefined;
-            inputs["storageDataLakeGen2FilesystemId"] = state ? state.storageDataLakeGen2FilesystemId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["aadAdmin"] = state ? state.aadAdmin : undefined;
+            resourceInputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
+            resourceInputs["computeSubnetId"] = state ? state.computeSubnetId : undefined;
+            resourceInputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["dataExfiltrationProtectionEnabled"] = state ? state.dataExfiltrationProtectionEnabled : undefined;
+            resourceInputs["githubRepo"] = state ? state.githubRepo : undefined;
+            resourceInputs["identities"] = state ? state.identities : undefined;
+            resourceInputs["linkingAllowedForAadTenantIds"] = state ? state.linkingAllowedForAadTenantIds : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
+            resourceInputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["purviewId"] = state ? state.purviewId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sqlAadAdmin"] = state ? state.sqlAadAdmin : undefined;
+            resourceInputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
+            resourceInputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
+            resourceInputs["sqlIdentityControlEnabled"] = state ? state.sqlIdentityControlEnabled : undefined;
+            resourceInputs["storageDataLakeGen2FilesystemId"] = state ? state.storageDataLakeGen2FilesystemId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -302,33 +302,31 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
             }
-            inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
-            inputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
-            inputs["computeSubnetId"] = args ? args.computeSubnetId : undefined;
-            inputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            inputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
-            inputs["githubRepo"] = args ? args.githubRepo : undefined;
-            inputs["linkingAllowedForAadTenantIds"] = args ? args.linkingAllowedForAadTenantIds : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            inputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["purviewId"] = args ? args.purviewId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlAadAdmin"] = args ? args.sqlAadAdmin : undefined;
-            inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
-            inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
-            inputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
-            inputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["connectivityEndpoints"] = undefined /*out*/;
-            inputs["identities"] = undefined /*out*/;
+            resourceInputs["aadAdmin"] = args ? args.aadAdmin : undefined;
+            resourceInputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
+            resourceInputs["computeSubnetId"] = args ? args.computeSubnetId : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
+            resourceInputs["githubRepo"] = args ? args.githubRepo : undefined;
+            resourceInputs["linkingAllowedForAadTenantIds"] = args ? args.linkingAllowedForAadTenantIds : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["purviewId"] = args ? args.purviewId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlAadAdmin"] = args ? args.sqlAadAdmin : undefined;
+            resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
+            resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
+            resourceInputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
+            resourceInputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectivityEndpoints"] = undefined /*out*/;
+            resourceInputs["identities"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workspace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

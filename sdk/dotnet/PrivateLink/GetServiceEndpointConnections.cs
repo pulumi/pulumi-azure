@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.PrivateLink
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> InvokeAsync(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access endpoint connection information about an existing Private Link Service.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceEndpointConnectionsResult> Invoke(GetServiceEndpointConnectionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

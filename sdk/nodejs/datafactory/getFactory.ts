@@ -26,9 +26,7 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:datafactory/getFactory:getFactory", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

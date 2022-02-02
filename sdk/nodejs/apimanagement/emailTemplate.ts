@@ -81,17 +81,17 @@ export class EmailTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmailTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmailTemplateArgs | EmailTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailTemplateState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subject"] = state ? state.subject : undefined;
-            inputs["templateName"] = state ? state.templateName : undefined;
-            inputs["title"] = state ? state.title : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subject"] = state ? state.subject : undefined;
+            resourceInputs["templateName"] = state ? state.templateName : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as EmailTemplateArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -109,18 +109,16 @@ export class EmailTemplate extends pulumi.CustomResource {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subject"] = args ? args.subject : undefined;
-            inputs["templateName"] = args ? args.templateName : undefined;
-            inputs["description"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EmailTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EmailTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

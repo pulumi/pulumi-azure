@@ -184,7 +184,7 @@ type TriggerHttpRequestInput interface {
 }
 
 func (*TriggerHttpRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerHttpRequest)(nil))
+	return reflect.TypeOf((**TriggerHttpRequest)(nil)).Elem()
 }
 
 func (i *TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
@@ -193,35 +193,6 @@ func (i *TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutp
 
 func (i *TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestOutput)
-}
-
-func (i *TriggerHttpRequest) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
-	return i.ToTriggerHttpRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *TriggerHttpRequest) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestPtrOutput)
-}
-
-type TriggerHttpRequestPtrInput interface {
-	pulumi.Input
-
-	ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput
-	ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput
-}
-
-type triggerHttpRequestPtrType TriggerHttpRequestArgs
-
-func (*triggerHttpRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TriggerHttpRequest)(nil))
-}
-
-func (i *triggerHttpRequestPtrType) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
-	return i.ToTriggerHttpRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *triggerHttpRequestPtrType) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestPtrOutput)
 }
 
 // TriggerHttpRequestArrayInput is an input type that accepts TriggerHttpRequestArray and TriggerHttpRequestArrayOutput values.
@@ -277,7 +248,7 @@ func (i TriggerHttpRequestMap) ToTriggerHttpRequestMapOutputWithContext(ctx cont
 type TriggerHttpRequestOutput struct{ *pulumi.OutputState }
 
 func (TriggerHttpRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerHttpRequest)(nil))
+	return reflect.TypeOf((**TriggerHttpRequest)(nil)).Elem()
 }
 
 func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
@@ -288,44 +259,10 @@ func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutputWithContext(ctx cont
 	return o
 }
 
-func (o TriggerHttpRequestOutput) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
-	return o.ToTriggerHttpRequestPtrOutputWithContext(context.Background())
-}
-
-func (o TriggerHttpRequestOutput) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerHttpRequest) *TriggerHttpRequest {
-		return &v
-	}).(TriggerHttpRequestPtrOutput)
-}
-
-type TriggerHttpRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (TriggerHttpRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TriggerHttpRequest)(nil))
-}
-
-func (o TriggerHttpRequestPtrOutput) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
-	return o
-}
-
-func (o TriggerHttpRequestPtrOutput) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
-	return o
-}
-
-func (o TriggerHttpRequestPtrOutput) Elem() TriggerHttpRequestOutput {
-	return o.ApplyT(func(v *TriggerHttpRequest) TriggerHttpRequest {
-		if v != nil {
-			return *v
-		}
-		var ret TriggerHttpRequest
-		return ret
-	}).(TriggerHttpRequestOutput)
-}
-
 type TriggerHttpRequestArrayOutput struct{ *pulumi.OutputState }
 
 func (TriggerHttpRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TriggerHttpRequest)(nil))
+	return reflect.TypeOf((*[]*TriggerHttpRequest)(nil)).Elem()
 }
 
 func (o TriggerHttpRequestArrayOutput) ToTriggerHttpRequestArrayOutput() TriggerHttpRequestArrayOutput {
@@ -337,15 +274,15 @@ func (o TriggerHttpRequestArrayOutput) ToTriggerHttpRequestArrayOutputWithContex
 }
 
 func (o TriggerHttpRequestArrayOutput) Index(i pulumi.IntInput) TriggerHttpRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerHttpRequest {
-		return vs[0].([]TriggerHttpRequest)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerHttpRequest {
+		return vs[0].([]*TriggerHttpRequest)[vs[1].(int)]
 	}).(TriggerHttpRequestOutput)
 }
 
 type TriggerHttpRequestMapOutput struct{ *pulumi.OutputState }
 
 func (TriggerHttpRequestMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TriggerHttpRequest)(nil))
+	return reflect.TypeOf((*map[string]*TriggerHttpRequest)(nil)).Elem()
 }
 
 func (o TriggerHttpRequestMapOutput) ToTriggerHttpRequestMapOutput() TriggerHttpRequestMapOutput {
@@ -357,18 +294,16 @@ func (o TriggerHttpRequestMapOutput) ToTriggerHttpRequestMapOutputWithContext(ct
 }
 
 func (o TriggerHttpRequestMapOutput) MapIndex(k pulumi.StringInput) TriggerHttpRequestOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TriggerHttpRequest {
-		return vs[0].(map[string]TriggerHttpRequest)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TriggerHttpRequest {
+		return vs[0].(map[string]*TriggerHttpRequest)[vs[1].(string)]
 	}).(TriggerHttpRequestOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestInput)(nil)).Elem(), &TriggerHttpRequest{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestPtrInput)(nil)).Elem(), &TriggerHttpRequest{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestArrayInput)(nil)).Elem(), TriggerHttpRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestMapInput)(nil)).Elem(), TriggerHttpRequestMap{})
 	pulumi.RegisterOutputType(TriggerHttpRequestOutput{})
-	pulumi.RegisterOutputType(TriggerHttpRequestPtrOutput{})
 	pulumi.RegisterOutputType(TriggerHttpRequestArrayOutput{})
 	pulumi.RegisterOutputType(TriggerHttpRequestMapOutput{})
 }

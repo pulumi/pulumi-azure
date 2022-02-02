@@ -64,10 +64,10 @@ import * as utilities from "../utilities";
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * // ...
- * const examplePublicIP = pulumi.all([examplePublicIp.name, exampleVirtualMachine.resourceGroupName]).apply(([name, resourceGroupName]) => azure.network.getPublicIP({
- *     name: name,
- *     resourceGroupName: resourceGroupName,
- * }));
+ * const examplePublicIP = azure.network.getPublicIPOutput({
+ *     name: examplePublicIp.name,
+ *     resourceGroupName: exampleVirtualMachine.resourceGroupName,
+ * });
  * export const publicIpAddress = examplePublicIp.ipAddress;
  * ```
  */
@@ -76,9 +76,7 @@ export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

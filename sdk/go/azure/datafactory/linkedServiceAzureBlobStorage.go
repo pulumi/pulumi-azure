@@ -33,6 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+// 			Name:              pulumi.String("storageaccountname"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -371,7 +375,7 @@ type LinkedServiceAzureBlobStorageInput interface {
 }
 
 func (*LinkedServiceAzureBlobStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureBlobStorage)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureBlobStorage)(nil)).Elem()
 }
 
 func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutput() LinkedServiceAzureBlobStorageOutput {
@@ -380,35 +384,6 @@ func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutput() 
 
 func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageOutput)
-}
-
-func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStoragePtrOutput() LinkedServiceAzureBlobStoragePtrOutput {
-	return i.ToLinkedServiceAzureBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStoragePtrOutput)
-}
-
-type LinkedServiceAzureBlobStoragePtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureBlobStoragePtrOutput() LinkedServiceAzureBlobStoragePtrOutput
-	ToLinkedServiceAzureBlobStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStoragePtrOutput
-}
-
-type linkedServiceAzureBlobStoragePtrType LinkedServiceAzureBlobStorageArgs
-
-func (*linkedServiceAzureBlobStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureBlobStorage)(nil))
-}
-
-func (i *linkedServiceAzureBlobStoragePtrType) ToLinkedServiceAzureBlobStoragePtrOutput() LinkedServiceAzureBlobStoragePtrOutput {
-	return i.ToLinkedServiceAzureBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureBlobStoragePtrType) ToLinkedServiceAzureBlobStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStoragePtrOutput)
 }
 
 // LinkedServiceAzureBlobStorageArrayInput is an input type that accepts LinkedServiceAzureBlobStorageArray and LinkedServiceAzureBlobStorageArrayOutput values.
@@ -464,7 +439,7 @@ func (i LinkedServiceAzureBlobStorageMap) ToLinkedServiceAzureBlobStorageMapOutp
 type LinkedServiceAzureBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureBlobStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureBlobStorage)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureBlobStorage)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStorageOutput() LinkedServiceAzureBlobStorageOutput {
@@ -475,44 +450,10 @@ func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStorageOutp
 	return o
 }
 
-func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStoragePtrOutput() LinkedServiceAzureBlobStoragePtrOutput {
-	return o.ToLinkedServiceAzureBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureBlobStorage) *LinkedServiceAzureBlobStorage {
-		return &v
-	}).(LinkedServiceAzureBlobStoragePtrOutput)
-}
-
-type LinkedServiceAzureBlobStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureBlobStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureBlobStorage)(nil))
-}
-
-func (o LinkedServiceAzureBlobStoragePtrOutput) ToLinkedServiceAzureBlobStoragePtrOutput() LinkedServiceAzureBlobStoragePtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureBlobStoragePtrOutput) ToLinkedServiceAzureBlobStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStoragePtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureBlobStoragePtrOutput) Elem() LinkedServiceAzureBlobStorageOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureBlobStorage) LinkedServiceAzureBlobStorage {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureBlobStorage
-		return ret
-	}).(LinkedServiceAzureBlobStorageOutput)
-}
-
 type LinkedServiceAzureBlobStorageArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureBlobStorageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceAzureBlobStorage)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceAzureBlobStorage)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureBlobStorageArrayOutput) ToLinkedServiceAzureBlobStorageArrayOutput() LinkedServiceAzureBlobStorageArrayOutput {
@@ -524,15 +465,15 @@ func (o LinkedServiceAzureBlobStorageArrayOutput) ToLinkedServiceAzureBlobStorag
 }
 
 func (o LinkedServiceAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureBlobStorageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceAzureBlobStorage {
-		return vs[0].([]LinkedServiceAzureBlobStorage)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureBlobStorage {
+		return vs[0].([]*LinkedServiceAzureBlobStorage)[vs[1].(int)]
 	}).(LinkedServiceAzureBlobStorageOutput)
 }
 
 type LinkedServiceAzureBlobStorageMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureBlobStorageMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceAzureBlobStorage)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceAzureBlobStorage)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureBlobStorageMapOutput) ToLinkedServiceAzureBlobStorageMapOutput() LinkedServiceAzureBlobStorageMapOutput {
@@ -544,18 +485,16 @@ func (o LinkedServiceAzureBlobStorageMapOutput) ToLinkedServiceAzureBlobStorageM
 }
 
 func (o LinkedServiceAzureBlobStorageMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureBlobStorageOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceAzureBlobStorage {
-		return vs[0].(map[string]LinkedServiceAzureBlobStorage)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceAzureBlobStorage {
+		return vs[0].(map[string]*LinkedServiceAzureBlobStorage)[vs[1].(string)]
 	}).(LinkedServiceAzureBlobStorageOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageInput)(nil)).Elem(), &LinkedServiceAzureBlobStorage{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStoragePtrInput)(nil)).Elem(), &LinkedServiceAzureBlobStorage{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageArrayInput)(nil)).Elem(), LinkedServiceAzureBlobStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageMapInput)(nil)).Elem(), LinkedServiceAzureBlobStorageMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageMapOutput{})
 }

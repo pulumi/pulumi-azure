@@ -101,38 +101,36 @@ export class StaticSite extends pulumi.CustomResource {
      */
     constructor(name: string, args: StaticSiteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StaticSiteArgs | StaticSiteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticSiteState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["defaultHostName"] = state ? state.defaultHostName : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuSize"] = state ? state.skuSize : undefined;
-            inputs["skuTier"] = state ? state.skuTier : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["defaultHostName"] = state ? state.defaultHostName : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuSize"] = state ? state.skuSize : undefined;
+            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StaticSiteArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuSize"] = args ? args.skuSize : undefined;
-            inputs["skuTier"] = args ? args.skuTier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["apiKey"] = undefined /*out*/;
-            inputs["defaultHostName"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuSize"] = args ? args.skuSize : undefined;
+            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiKey"] = undefined /*out*/;
+            resourceInputs["defaultHostName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StaticSite.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StaticSite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

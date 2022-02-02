@@ -113,42 +113,40 @@ export class Lab extends pulumi.CustomResource {
      */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LabArgs | LabState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LabState | undefined;
-            inputs["artifactsStorageAccountId"] = state ? state.artifactsStorageAccountId : undefined;
-            inputs["defaultPremiumStorageAccountId"] = state ? state.defaultPremiumStorageAccountId : undefined;
-            inputs["defaultStorageAccountId"] = state ? state.defaultStorageAccountId : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["premiumDataDiskStorageAccountId"] = state ? state.premiumDataDiskStorageAccountId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
+            resourceInputs["artifactsStorageAccountId"] = state ? state.artifactsStorageAccountId : undefined;
+            resourceInputs["defaultPremiumStorageAccountId"] = state ? state.defaultPremiumStorageAccountId : undefined;
+            resourceInputs["defaultStorageAccountId"] = state ? state.defaultStorageAccountId : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["premiumDataDiskStorageAccountId"] = state ? state.premiumDataDiskStorageAccountId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
         } else {
             const args = argsOrState as LabArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["artifactsStorageAccountId"] = undefined /*out*/;
-            inputs["defaultPremiumStorageAccountId"] = undefined /*out*/;
-            inputs["defaultStorageAccountId"] = undefined /*out*/;
-            inputs["keyVaultId"] = undefined /*out*/;
-            inputs["premiumDataDiskStorageAccountId"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["artifactsStorageAccountId"] = undefined /*out*/;
+            resourceInputs["defaultPremiumStorageAccountId"] = undefined /*out*/;
+            resourceInputs["defaultStorageAccountId"] = undefined /*out*/;
+            resourceInputs["keyVaultId"] = undefined /*out*/;
+            resourceInputs["premiumDataDiskStorageAccountId"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Lab.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Lab.__pulumiType, name, resourceInputs, opts);
     }
 }
 

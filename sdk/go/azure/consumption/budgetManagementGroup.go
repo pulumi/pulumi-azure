@@ -257,7 +257,7 @@ type BudgetManagementGroupInput interface {
 }
 
 func (*BudgetManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetManagementGroup)(nil))
+	return reflect.TypeOf((**BudgetManagementGroup)(nil)).Elem()
 }
 
 func (i *BudgetManagementGroup) ToBudgetManagementGroupOutput() BudgetManagementGroupOutput {
@@ -266,35 +266,6 @@ func (i *BudgetManagementGroup) ToBudgetManagementGroupOutput() BudgetManagement
 
 func (i *BudgetManagementGroup) ToBudgetManagementGroupOutputWithContext(ctx context.Context) BudgetManagementGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupOutput)
-}
-
-func (i *BudgetManagementGroup) ToBudgetManagementGroupPtrOutput() BudgetManagementGroupPtrOutput {
-	return i.ToBudgetManagementGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *BudgetManagementGroup) ToBudgetManagementGroupPtrOutputWithContext(ctx context.Context) BudgetManagementGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupPtrOutput)
-}
-
-type BudgetManagementGroupPtrInput interface {
-	pulumi.Input
-
-	ToBudgetManagementGroupPtrOutput() BudgetManagementGroupPtrOutput
-	ToBudgetManagementGroupPtrOutputWithContext(ctx context.Context) BudgetManagementGroupPtrOutput
-}
-
-type budgetManagementGroupPtrType BudgetManagementGroupArgs
-
-func (*budgetManagementGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetManagementGroup)(nil))
-}
-
-func (i *budgetManagementGroupPtrType) ToBudgetManagementGroupPtrOutput() BudgetManagementGroupPtrOutput {
-	return i.ToBudgetManagementGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetManagementGroupPtrType) ToBudgetManagementGroupPtrOutputWithContext(ctx context.Context) BudgetManagementGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupPtrOutput)
 }
 
 // BudgetManagementGroupArrayInput is an input type that accepts BudgetManagementGroupArray and BudgetManagementGroupArrayOutput values.
@@ -350,7 +321,7 @@ func (i BudgetManagementGroupMap) ToBudgetManagementGroupMapOutputWithContext(ct
 type BudgetManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetManagementGroup)(nil))
+	return reflect.TypeOf((**BudgetManagementGroup)(nil)).Elem()
 }
 
 func (o BudgetManagementGroupOutput) ToBudgetManagementGroupOutput() BudgetManagementGroupOutput {
@@ -361,44 +332,10 @@ func (o BudgetManagementGroupOutput) ToBudgetManagementGroupOutputWithContext(ct
 	return o
 }
 
-func (o BudgetManagementGroupOutput) ToBudgetManagementGroupPtrOutput() BudgetManagementGroupPtrOutput {
-	return o.ToBudgetManagementGroupPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetManagementGroupOutput) ToBudgetManagementGroupPtrOutputWithContext(ctx context.Context) BudgetManagementGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroup) *BudgetManagementGroup {
-		return &v
-	}).(BudgetManagementGroupPtrOutput)
-}
-
-type BudgetManagementGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetManagementGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetManagementGroup)(nil))
-}
-
-func (o BudgetManagementGroupPtrOutput) ToBudgetManagementGroupPtrOutput() BudgetManagementGroupPtrOutput {
-	return o
-}
-
-func (o BudgetManagementGroupPtrOutput) ToBudgetManagementGroupPtrOutputWithContext(ctx context.Context) BudgetManagementGroupPtrOutput {
-	return o
-}
-
-func (o BudgetManagementGroupPtrOutput) Elem() BudgetManagementGroupOutput {
-	return o.ApplyT(func(v *BudgetManagementGroup) BudgetManagementGroup {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetManagementGroup
-		return ret
-	}).(BudgetManagementGroupOutput)
-}
-
 type BudgetManagementGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BudgetManagementGroup)(nil))
+	return reflect.TypeOf((*[]*BudgetManagementGroup)(nil)).Elem()
 }
 
 func (o BudgetManagementGroupArrayOutput) ToBudgetManagementGroupArrayOutput() BudgetManagementGroupArrayOutput {
@@ -410,15 +347,15 @@ func (o BudgetManagementGroupArrayOutput) ToBudgetManagementGroupArrayOutputWith
 }
 
 func (o BudgetManagementGroupArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetManagementGroup {
-		return vs[0].([]BudgetManagementGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetManagementGroup {
+		return vs[0].([]*BudgetManagementGroup)[vs[1].(int)]
 	}).(BudgetManagementGroupOutput)
 }
 
 type BudgetManagementGroupMapOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BudgetManagementGroup)(nil))
+	return reflect.TypeOf((*map[string]*BudgetManagementGroup)(nil)).Elem()
 }
 
 func (o BudgetManagementGroupMapOutput) ToBudgetManagementGroupMapOutput() BudgetManagementGroupMapOutput {
@@ -430,18 +367,16 @@ func (o BudgetManagementGroupMapOutput) ToBudgetManagementGroupMapOutputWithCont
 }
 
 func (o BudgetManagementGroupMapOutput) MapIndex(k pulumi.StringInput) BudgetManagementGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BudgetManagementGroup {
-		return vs[0].(map[string]BudgetManagementGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BudgetManagementGroup {
+		return vs[0].(map[string]*BudgetManagementGroup)[vs[1].(string)]
 	}).(BudgetManagementGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupInput)(nil)).Elem(), &BudgetManagementGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupPtrInput)(nil)).Elem(), &BudgetManagementGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupArrayInput)(nil)).Elem(), BudgetManagementGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupMapInput)(nil)).Elem(), BudgetManagementGroupMap{})
 	pulumi.RegisterOutputType(BudgetManagementGroupOutput{})
-	pulumi.RegisterOutputType(BudgetManagementGroupPtrOutput{})
 	pulumi.RegisterOutputType(BudgetManagementGroupArrayOutput{})
 	pulumi.RegisterOutputType(BudgetManagementGroupMapOutput{})
 }

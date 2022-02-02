@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedDiskResult> InvokeAsync(GetManagedDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedDiskResult> Invoke(GetManagedDiskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithDefaults());
     }
 
 

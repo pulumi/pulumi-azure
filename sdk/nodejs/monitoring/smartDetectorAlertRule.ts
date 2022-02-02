@@ -126,21 +126,21 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: SmartDetectorAlertRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SmartDetectorAlertRuleArgs | SmartDetectorAlertRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmartDetectorAlertRuleState | undefined;
-            inputs["actionGroup"] = state ? state.actionGroup : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["detectorType"] = state ? state.detectorType : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopeResourceIds"] = state ? state.scopeResourceIds : undefined;
-            inputs["severity"] = state ? state.severity : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["throttlingDuration"] = state ? state.throttlingDuration : undefined;
+            resourceInputs["actionGroup"] = state ? state.actionGroup : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["detectorType"] = state ? state.detectorType : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopeResourceIds"] = state ? state.scopeResourceIds : undefined;
+            resourceInputs["severity"] = state ? state.severity : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["throttlingDuration"] = state ? state.throttlingDuration : undefined;
         } else {
             const args = argsOrState as SmartDetectorAlertRuleArgs | undefined;
             if ((!args || args.actionGroup === undefined) && !opts.urn) {
@@ -161,22 +161,20 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            inputs["actionGroup"] = args ? args.actionGroup : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detectorType"] = args ? args.detectorType : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopeResourceIds"] = args ? args.scopeResourceIds : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throttlingDuration"] = args ? args.throttlingDuration : undefined;
+            resourceInputs["actionGroup"] = args ? args.actionGroup : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detectorType"] = args ? args.detectorType : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopeResourceIds"] = args ? args.scopeResourceIds : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throttlingDuration"] = args ? args.throttlingDuration : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SmartDetectorAlertRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -25,9 +25,7 @@ export function getEnrollmentAccountScope(args: GetEnrollmentAccountScopeArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", {
         "billingAccountName": args.billingAccountName,
         "enrollmentAccountName": args.enrollmentAccountName,

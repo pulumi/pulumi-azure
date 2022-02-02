@@ -105,18 +105,18 @@ export class Pool extends pulumi.CustomResource {
      */
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["qosType"] = state ? state.qosType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
-            inputs["sizeInTb"] = state ? state.sizeInTb : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["qosType"] = state ? state.qosType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceLevel"] = state ? state.serviceLevel : undefined;
+            resourceInputs["sizeInTb"] = state ? state.sizeInTb : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -131,19 +131,17 @@ export class Pool extends pulumi.CustomResource {
             if ((!args || args.sizeInTb === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizeInTb'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["qosType"] = args ? args.qosType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            inputs["sizeInTb"] = args ? args.sizeInTb : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["qosType"] = args ? args.qosType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            resourceInputs["sizeInTb"] = args ? args.sizeInTb : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

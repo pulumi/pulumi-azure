@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataFactory
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DataFactory
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFactoryResult> InvokeAsync(GetFactoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? new GetFactoryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? new GetFactoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Data Factory (Version 2).
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DataFactory
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithDefaults());
     }
 
 

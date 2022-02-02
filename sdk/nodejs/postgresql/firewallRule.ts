@@ -108,15 +108,15 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallRuleState | undefined;
-            inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["startIpAddress"] = state ? state.startIpAddress : undefined;
+            resourceInputs["endIpAddress"] = state ? state.endIpAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["startIpAddress"] = state ? state.startIpAddress : undefined;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
             if ((!args || args.endIpAddress === undefined) && !opts.urn) {
@@ -131,16 +131,14 @@ export class FirewallRule extends pulumi.CustomResource {
             if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FirewallRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

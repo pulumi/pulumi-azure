@@ -214,37 +214,37 @@ export class Cache extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
-            inputs["capacity"] = state ? state.capacity : undefined;
-            inputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
-            inputs["family"] = state ? state.family : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["patchSchedules"] = state ? state.patchSchedules : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
-            inputs["redisVersion"] = state ? state.redisVersion : undefined;
-            inputs["replicasPerMaster"] = state ? state.replicasPerMaster : undefined;
-            inputs["replicasPerPrimary"] = state ? state.replicasPerPrimary : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["shardCount"] = state ? state.shardCount : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["sslPort"] = state ? state.sslPort : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantSettings"] = state ? state.tenantSettings : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
+            resourceInputs["family"] = state ? state.family : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["patchSchedules"] = state ? state.patchSchedules : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
+            resourceInputs["redisVersion"] = state ? state.redisVersion : undefined;
+            resourceInputs["replicasPerMaster"] = state ? state.replicasPerMaster : undefined;
+            resourceInputs["replicasPerPrimary"] = state ? state.replicasPerPrimary : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["shardCount"] = state ? state.shardCount : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["sslPort"] = state ? state.sslPort : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantSettings"] = state ? state.tenantSettings : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
             if ((!args || args.capacity === undefined) && !opts.urn) {
@@ -259,38 +259,36 @@ export class Cache extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
-            inputs["family"] = args ? args.family : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["patchSchedules"] = args ? args.patchSchedules : undefined;
-            inputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            inputs["redisVersion"] = args ? args.redisVersion : undefined;
-            inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
-            inputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shardCount"] = args ? args.shardCount : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantSettings"] = args ? args.tenantSettings : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["sslPort"] = undefined /*out*/;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
+            resourceInputs["family"] = args ? args.family : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["patchSchedules"] = args ? args.patchSchedules : undefined;
+            resourceInputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
+            resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
+            resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
+            resourceInputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["sslPort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cache.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cache.__pulumiType, name, resourceInputs, opts);
     }
 }
 

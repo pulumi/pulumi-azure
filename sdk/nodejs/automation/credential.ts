@@ -98,16 +98,16 @@ export class Credential extends pulumi.CustomResource {
      */
     constructor(name: string, args: CredentialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CredentialArgs | CredentialState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CredentialState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as CredentialArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -122,17 +122,15 @@ export class Credential extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Credential.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Credential.__pulumiType, name, resourceInputs, opts);
     }
 }
 

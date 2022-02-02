@@ -26,9 +26,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getTopic:getTopic", {
         "name": args.name,
         "namespaceName": args.namespaceName,

@@ -134,17 +134,17 @@ export class StreamingPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamingPolicyArgs | StreamingPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamingPolicyState | undefined;
-            inputs["commonEncryptionCbcs"] = state ? state.commonEncryptionCbcs : undefined;
-            inputs["commonEncryptionCenc"] = state ? state.commonEncryptionCenc : undefined;
-            inputs["defaultContentKeyPolicyName"] = state ? state.defaultContentKeyPolicyName : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["noEncryptionEnabledProtocols"] = state ? state.noEncryptionEnabledProtocols : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["commonEncryptionCbcs"] = state ? state.commonEncryptionCbcs : undefined;
+            resourceInputs["commonEncryptionCenc"] = state ? state.commonEncryptionCenc : undefined;
+            resourceInputs["defaultContentKeyPolicyName"] = state ? state.defaultContentKeyPolicyName : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["noEncryptionEnabledProtocols"] = state ? state.noEncryptionEnabledProtocols : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as StreamingPolicyArgs | undefined;
             if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
@@ -153,18 +153,16 @@ export class StreamingPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
-            inputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
-            inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["noEncryptionEnabledProtocols"] = args ? args.noEncryptionEnabledProtocols : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
+            resourceInputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
+            resourceInputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["noEncryptionEnabledProtocols"] = args ? args.noEncryptionEnabledProtocols : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamingPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

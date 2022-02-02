@@ -132,18 +132,18 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkPeeringArgs | VirtualNetworkPeeringState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkPeeringState | undefined;
-            inputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
-            inputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
-            inputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["useRemoteGateways"] = state ? state.useRemoteGateways : undefined;
-            inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
+            resourceInputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
+            resourceInputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
+            resourceInputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["useRemoteGateways"] = state ? state.useRemoteGateways : undefined;
+            resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as VirtualNetworkPeeringArgs | undefined;
             if ((!args || args.remoteVirtualNetworkId === undefined) && !opts.urn) {
@@ -155,19 +155,17 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            inputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            inputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
+            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
+            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
+            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualNetworkPeering.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualNetworkPeering.__pulumiType, name, resourceInputs, opts);
     }
 }
 

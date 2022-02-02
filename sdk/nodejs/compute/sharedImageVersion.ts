@@ -123,20 +123,20 @@ export class SharedImageVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: SharedImageVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedImageVersionArgs | SharedImageVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageVersionState | undefined;
-            inputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
-            inputs["galleryName"] = state ? state.galleryName : undefined;
-            inputs["imageName"] = state ? state.imageName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedImageId"] = state ? state.managedImageId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["osDiskSnapshotId"] = state ? state.osDiskSnapshotId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetRegions"] = state ? state.targetRegions : undefined;
+            resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
+            resourceInputs["galleryName"] = state ? state.galleryName : undefined;
+            resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedImageId"] = state ? state.managedImageId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["osDiskSnapshotId"] = state ? state.osDiskSnapshotId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetRegions"] = state ? state.targetRegions : undefined;
         } else {
             const args = argsOrState as SharedImageVersionArgs | undefined;
             if ((!args || args.galleryName === undefined) && !opts.urn) {
@@ -151,21 +151,19 @@ export class SharedImageVersion extends pulumi.CustomResource {
             if ((!args || args.targetRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
-            inputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
-            inputs["galleryName"] = args ? args.galleryName : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedImageId"] = args ? args.managedImageId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["osDiskSnapshotId"] = args ? args.osDiskSnapshotId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetRegions"] = args ? args.targetRegions : undefined;
+            resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
+            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedImageId"] = args ? args.managedImageId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["osDiskSnapshotId"] = args ? args.osDiskSnapshotId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SharedImageVersion.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SharedImageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

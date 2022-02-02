@@ -219,23 +219,23 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkConnectionMonitorArgs | NetworkConnectionMonitorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkConnectionMonitorState | undefined;
-            inputs["autoStart"] = state ? state.autoStart : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["endpoints"] = state ? state.endpoints : undefined;
-            inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkWatcherId"] = state ? state.networkWatcherId : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["outputWorkspaceResourceIds"] = state ? state.outputWorkspaceResourceIds : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["testConfigurations"] = state ? state.testConfigurations : undefined;
-            inputs["testGroups"] = state ? state.testGroups : undefined;
+            resourceInputs["autoStart"] = state ? state.autoStart : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkWatcherId"] = state ? state.networkWatcherId : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["outputWorkspaceResourceIds"] = state ? state.outputWorkspaceResourceIds : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["testConfigurations"] = state ? state.testConfigurations : undefined;
+            resourceInputs["testGroups"] = state ? state.testGroups : undefined;
         } else {
             const args = argsOrState as NetworkConnectionMonitorArgs | undefined;
             if ((!args || args.endpoints === undefined) && !opts.urn) {
@@ -250,24 +250,22 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             if ((!args || args.testGroups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'testGroups'");
             }
-            inputs["autoStart"] = args ? args.autoStart : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["endpoints"] = args ? args.endpoints : undefined;
-            inputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkWatcherId"] = args ? args.networkWatcherId : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["outputWorkspaceResourceIds"] = args ? args.outputWorkspaceResourceIds : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["testConfigurations"] = args ? args.testConfigurations : undefined;
-            inputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["autoStart"] = args ? args.autoStart : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
+            resourceInputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkWatcherId"] = args ? args.networkWatcherId : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["outputWorkspaceResourceIds"] = args ? args.outputWorkspaceResourceIds : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
+            resourceInputs["testGroups"] = args ? args.testGroups : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkConnectionMonitor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkConnectionMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

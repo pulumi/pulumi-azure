@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MachineLearning
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.MachineLearning
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Machine Learning Workspace.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.MachineLearning
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

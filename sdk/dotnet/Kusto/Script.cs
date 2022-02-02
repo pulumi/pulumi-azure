@@ -61,27 +61,22 @@ namespace Pulumi.Azure.Kusto
     ///             Type = "Block",
     ///             SourceContent = ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
     ///         });
-    ///         var exampleAccountBlobContainerSAS = Output.Tuple(exampleAccount.PrimaryConnectionString, exampleContainer.Name).Apply(values =&gt;
+    ///         var exampleAccountBlobContainerSAS = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new Azure.Storage.GetAccountBlobContainerSASInvokeArgs
     ///         {
-    ///             var primaryConnectionString = values.Item1;
-    ///             var name = values.Item2;
-    ///             return Azure.Storage.GetAccountBlobContainerSAS.InvokeAsync(new Azure.Storage.GetAccountBlobContainerSASArgs
+    ///             ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///             ContainerName = exampleContainer.Name,
+    ///             HttpsOnly = true,
+    ///             Start = "2017-03-21",
+    ///             Expiry = "2022-03-21",
+    ///             Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
     ///             {
-    ///                 ConnectionString = primaryConnectionString,
-    ///                 ContainerName = name,
-    ///                 HttpsOnly = true,
-    ///                 Start = "2017-03-21",
-    ///                 Expiry = "2022-03-21",
-    ///                 Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsArgs
-    ///                 {
-    ///                     Read = true,
-    ///                     Add = false,
-    ///                     Create = false,
-    ///                     Write = true,
-    ///                     Delete = false,
-    ///                     List = true,
-    ///                 },
-    ///             });
+    ///                 Read = true,
+    ///                 Add = false,
+    ///                 Create = false,
+    ///                 Write = true,
+    ///                 Delete = false,
+    ///                 List = true,
+    ///             },
     ///         });
     ///         var exampleScript = new Azure.Kusto.Script("exampleScript", new Azure.Kusto.ScriptArgs
     ///         {

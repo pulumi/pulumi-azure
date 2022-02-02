@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBlobResult> InvokeAsync(GetBlobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Blob.
@@ -72,7 +71,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBlobResult> Invoke(GetBlobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -132,18 +132,18 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolWorkloadClassifierArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlPoolWorkloadClassifierArgs | SqlPoolWorkloadClassifierState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlPoolWorkloadClassifierState | undefined;
-            inputs["context"] = state ? state.context : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["importance"] = state ? state.importance : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["memberName"] = state ? state.memberName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["workloadGroupId"] = state ? state.workloadGroupId : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["importance"] = state ? state.importance : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["memberName"] = state ? state.memberName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["workloadGroupId"] = state ? state.workloadGroupId : undefined;
         } else {
             const args = argsOrState as SqlPoolWorkloadClassifierArgs | undefined;
             if ((!args || args.memberName === undefined) && !opts.urn) {
@@ -152,19 +152,17 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
             if ((!args || args.workloadGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workloadGroupId'");
             }
-            inputs["context"] = args ? args.context : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["importance"] = args ? args.importance : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["memberName"] = args ? args.memberName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["workloadGroupId"] = args ? args.workloadGroupId : undefined;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["importance"] = args ? args.importance : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["memberName"] = args ? args.memberName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["workloadGroupId"] = args ? args.workloadGroupId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlPoolWorkloadClassifier.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlPoolWorkloadClassifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -118,21 +118,21 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineScaleSetExtensionArgs | VirtualMachineScaleSetExtensionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineScaleSetExtensionState | undefined;
-            inputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
-            inputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
-            inputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["protectedSettings"] = state ? state.protectedSettings : undefined;
-            inputs["provisionAfterExtensions"] = state ? state.provisionAfterExtensions : undefined;
-            inputs["publisher"] = state ? state.publisher : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
-            inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
+            resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
+            resourceInputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
+            resourceInputs["provisionAfterExtensions"] = state ? state.provisionAfterExtensions : undefined;
+            resourceInputs["publisher"] = state ? state.publisher : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
+            resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
         } else {
             const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
             if ((!args || args.publisher === undefined) && !opts.urn) {
@@ -147,22 +147,20 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             if ((!args || args.virtualMachineScaleSetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineScaleSetId'");
             }
-            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            inputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
-            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            inputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
-            inputs["publisher"] = args ? args.publisher : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
+            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
+            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualMachineScaleSetExtension.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualMachineScaleSetExtension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

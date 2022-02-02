@@ -143,25 +143,25 @@ export class SharedImage extends pulumi.CustomResource {
      */
     constructor(name: string, args: SharedImageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedImageArgs | SharedImageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["eula"] = state ? state.eula : undefined;
-            inputs["galleryName"] = state ? state.galleryName : undefined;
-            inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["osType"] = state ? state.osType : undefined;
-            inputs["privacyStatementUri"] = state ? state.privacyStatementUri : undefined;
-            inputs["purchasePlan"] = state ? state.purchasePlan : undefined;
-            inputs["releaseNoteUri"] = state ? state.releaseNoteUri : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["specialized"] = state ? state.specialized : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eula"] = state ? state.eula : undefined;
+            resourceInputs["galleryName"] = state ? state.galleryName : undefined;
+            resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["osType"] = state ? state.osType : undefined;
+            resourceInputs["privacyStatementUri"] = state ? state.privacyStatementUri : undefined;
+            resourceInputs["purchasePlan"] = state ? state.purchasePlan : undefined;
+            resourceInputs["releaseNoteUri"] = state ? state.releaseNoteUri : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["specialized"] = state ? state.specialized : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
         } else {
             const args = argsOrState as SharedImageArgs | undefined;
             if ((!args || args.galleryName === undefined) && !opts.urn) {
@@ -176,26 +176,24 @@ export class SharedImage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eula"] = args ? args.eula : undefined;
-            inputs["galleryName"] = args ? args.galleryName : undefined;
-            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["specialized"] = args ? args.specialized : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eula"] = args ? args.eula : undefined;
+            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
+            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
+            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["specialized"] = args ? args.specialized : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SharedImage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SharedImage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

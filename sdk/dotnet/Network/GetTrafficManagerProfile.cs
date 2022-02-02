@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrafficManagerProfileResult> InvokeAsync(GetTrafficManagerProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Traffic Manager Profile.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrafficManagerProfileResult> Invoke(GetTrafficManagerProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileInvokeArgs(), options.WithDefaults());
     }
 
 

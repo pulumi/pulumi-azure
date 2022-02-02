@@ -142,46 +142,44 @@ export class BastionHost extends pulumi.CustomResource {
      */
     constructor(name: string, args: BastionHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BastionHostArgs | BastionHostState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BastionHostState | undefined;
-            inputs["copyPasteEnabled"] = state ? state.copyPasteEnabled : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["fileCopyEnabled"] = state ? state.fileCopyEnabled : undefined;
-            inputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
-            inputs["ipConnectEnabled"] = state ? state.ipConnectEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scaleUnits"] = state ? state.scaleUnits : undefined;
-            inputs["shareableLinkEnabled"] = state ? state.shareableLinkEnabled : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tunnelingEnabled"] = state ? state.tunnelingEnabled : undefined;
+            resourceInputs["copyPasteEnabled"] = state ? state.copyPasteEnabled : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["fileCopyEnabled"] = state ? state.fileCopyEnabled : undefined;
+            resourceInputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
+            resourceInputs["ipConnectEnabled"] = state ? state.ipConnectEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scaleUnits"] = state ? state.scaleUnits : undefined;
+            resourceInputs["shareableLinkEnabled"] = state ? state.shareableLinkEnabled : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tunnelingEnabled"] = state ? state.tunnelingEnabled : undefined;
         } else {
             const args = argsOrState as BastionHostArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["copyPasteEnabled"] = args ? args.copyPasteEnabled : undefined;
-            inputs["fileCopyEnabled"] = args ? args.fileCopyEnabled : undefined;
-            inputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
-            inputs["ipConnectEnabled"] = args ? args.ipConnectEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            inputs["shareableLinkEnabled"] = args ? args.shareableLinkEnabled : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tunnelingEnabled"] = args ? args.tunnelingEnabled : undefined;
-            inputs["dnsName"] = undefined /*out*/;
+            resourceInputs["copyPasteEnabled"] = args ? args.copyPasteEnabled : undefined;
+            resourceInputs["fileCopyEnabled"] = args ? args.fileCopyEnabled : undefined;
+            resourceInputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
+            resourceInputs["ipConnectEnabled"] = args ? args.ipConnectEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["shareableLinkEnabled"] = args ? args.shareableLinkEnabled : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tunnelingEnabled"] = args ? args.tunnelingEnabled : undefined;
+            resourceInputs["dnsName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BastionHost.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BastionHost.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -111,36 +111,34 @@ export class BackendAddressPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackendAddressPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackendAddressPoolArgs | BackendAddressPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolState | undefined;
-            inputs["backendAddresses"] = state ? state.backendAddresses : undefined;
-            inputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
-            inputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
-            inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outboundRules"] = state ? state.outboundRules : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
+            resourceInputs["backendAddresses"] = state ? state.backendAddresses : undefined;
+            resourceInputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
+            resourceInputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
+            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outboundRules"] = state ? state.outboundRules : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
         } else {
             const args = argsOrState as BackendAddressPoolArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            inputs["backendAddresses"] = args ? args.backendAddresses : undefined;
-            inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
-            inputs["backendIpConfigurations"] = undefined /*out*/;
-            inputs["loadBalancingRules"] = undefined /*out*/;
-            inputs["outboundRules"] = undefined /*out*/;
+            resourceInputs["backendAddresses"] = args ? args.backendAddresses : undefined;
+            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
+            resourceInputs["backendIpConfigurations"] = undefined /*out*/;
+            resourceInputs["loadBalancingRules"] = undefined /*out*/;
+            resourceInputs["outboundRules"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackendAddressPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackendAddressPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

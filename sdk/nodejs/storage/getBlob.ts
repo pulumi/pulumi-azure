@@ -25,9 +25,7 @@ export function getBlob(args: GetBlobArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:storage/getBlob:getBlob", {
         "metadata": args.metadata,
         "name": args.name,

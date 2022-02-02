@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.StreamAnalytics
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Stream Analytics Job.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

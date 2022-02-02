@@ -29,9 +29,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:apimanagement/getGateway:getGateway", {
         "apiManagementId": args.apiManagementId,
         "name": args.name,

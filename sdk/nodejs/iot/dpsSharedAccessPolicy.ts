@@ -124,22 +124,22 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: DpsSharedAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DpsSharedAccessPolicyArgs | DpsSharedAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DpsSharedAccessPolicyState | undefined;
-            inputs["enrollmentRead"] = state ? state.enrollmentRead : undefined;
-            inputs["enrollmentWrite"] = state ? state.enrollmentWrite : undefined;
-            inputs["iothubDpsName"] = state ? state.iothubDpsName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["primaryKey"] = state ? state.primaryKey : undefined;
-            inputs["registrationRead"] = state ? state.registrationRead : undefined;
-            inputs["registrationWrite"] = state ? state.registrationWrite : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            inputs["serviceConfig"] = state ? state.serviceConfig : undefined;
+            resourceInputs["enrollmentRead"] = state ? state.enrollmentRead : undefined;
+            resourceInputs["enrollmentWrite"] = state ? state.enrollmentWrite : undefined;
+            resourceInputs["iothubDpsName"] = state ? state.iothubDpsName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["registrationRead"] = state ? state.registrationRead : undefined;
+            resourceInputs["registrationWrite"] = state ? state.registrationWrite : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["serviceConfig"] = state ? state.serviceConfig : undefined;
         } else {
             const args = argsOrState as DpsSharedAccessPolicyArgs | undefined;
             if ((!args || args.iothubDpsName === undefined) && !opts.urn) {
@@ -148,23 +148,21 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["enrollmentRead"] = args ? args.enrollmentRead : undefined;
-            inputs["enrollmentWrite"] = args ? args.enrollmentWrite : undefined;
-            inputs["iothubDpsName"] = args ? args.iothubDpsName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["registrationRead"] = args ? args.registrationRead : undefined;
-            inputs["registrationWrite"] = args ? args.registrationWrite : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceConfig"] = args ? args.serviceConfig : undefined;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["enrollmentRead"] = args ? args.enrollmentRead : undefined;
+            resourceInputs["enrollmentWrite"] = args ? args.enrollmentWrite : undefined;
+            resourceInputs["iothubDpsName"] = args ? args.iothubDpsName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["registrationRead"] = args ? args.registrationRead : undefined;
+            resourceInputs["registrationWrite"] = args ? args.registrationWrite : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceConfig"] = args ? args.serviceConfig : undefined;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DpsSharedAccessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DpsSharedAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

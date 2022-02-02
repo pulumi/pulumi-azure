@@ -27,9 +27,7 @@ export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

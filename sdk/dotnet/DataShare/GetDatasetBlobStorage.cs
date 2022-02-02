@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataShare
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetBlobStorageResult> InvokeAsync(GetDatasetBlobStorageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Blob Storage Dataset.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetBlobStorageResult> Invoke(GetDatasetBlobStorageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageInvokeArgs(), options.WithDefaults());
     }
 
 

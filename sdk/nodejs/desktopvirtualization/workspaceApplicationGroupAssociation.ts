@@ -90,12 +90,12 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
      */
     constructor(name: string, args: WorkspaceApplicationGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceApplicationGroupAssociationArgs | WorkspaceApplicationGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceApplicationGroupAssociationState | undefined;
-            inputs["applicationGroupId"] = state ? state.applicationGroupId : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["applicationGroupId"] = state ? state.applicationGroupId : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceApplicationGroupAssociationArgs | undefined;
             if ((!args || args.applicationGroupId === undefined) && !opts.urn) {
@@ -104,13 +104,11 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WorkspaceApplicationGroupAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WorkspaceApplicationGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -70,22 +70,20 @@ export class AutoProvisioning extends pulumi.CustomResource {
      */
     constructor(name: string, args: AutoProvisioningArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutoProvisioningArgs | AutoProvisioningState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutoProvisioningState | undefined;
-            inputs["autoProvision"] = state ? state.autoProvision : undefined;
+            resourceInputs["autoProvision"] = state ? state.autoProvision : undefined;
         } else {
             const args = argsOrState as AutoProvisioningArgs | undefined;
             if ((!args || args.autoProvision === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoProvision'");
             }
-            inputs["autoProvision"] = args ? args.autoProvision : undefined;
+            resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AutoProvisioning.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AutoProvisioning.__pulumiType, name, resourceInputs, opts);
     }
 }
 

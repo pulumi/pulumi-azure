@@ -203,42 +203,42 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["additionalLocations"] = state ? state.additionalLocations : undefined;
-            inputs["certificates"] = state ? state.certificates : undefined;
-            inputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
-            inputs["developerPortalUrl"] = state ? state.developerPortalUrl : undefined;
-            inputs["gatewayDisabled"] = state ? state.gatewayDisabled : undefined;
-            inputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
-            inputs["gatewayUrl"] = state ? state.gatewayUrl : undefined;
-            inputs["hostnameConfiguration"] = state ? state.hostnameConfiguration : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managementApiUrl"] = state ? state.managementApiUrl : undefined;
-            inputs["minApiVersion"] = state ? state.minApiVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["portalUrl"] = state ? state.portalUrl : undefined;
-            inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            inputs["protocols"] = state ? state.protocols : undefined;
-            inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
-            inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
-            inputs["publisherName"] = state ? state.publisherName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scmUrl"] = state ? state.scmUrl : undefined;
-            inputs["security"] = state ? state.security : undefined;
-            inputs["signIn"] = state ? state.signIn : undefined;
-            inputs["signUp"] = state ? state.signUp : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantAccess"] = state ? state.tenantAccess : undefined;
-            inputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
-            inputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["additionalLocations"] = state ? state.additionalLocations : undefined;
+            resourceInputs["certificates"] = state ? state.certificates : undefined;
+            resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
+            resourceInputs["developerPortalUrl"] = state ? state.developerPortalUrl : undefined;
+            resourceInputs["gatewayDisabled"] = state ? state.gatewayDisabled : undefined;
+            resourceInputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
+            resourceInputs["gatewayUrl"] = state ? state.gatewayUrl : undefined;
+            resourceInputs["hostnameConfiguration"] = state ? state.hostnameConfiguration : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managementApiUrl"] = state ? state.managementApiUrl : undefined;
+            resourceInputs["minApiVersion"] = state ? state.minApiVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
+            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
+            resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
+            resourceInputs["publisherEmail"] = state ? state.publisherEmail : undefined;
+            resourceInputs["publisherName"] = state ? state.publisherName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scmUrl"] = state ? state.scmUrl : undefined;
+            resourceInputs["security"] = state ? state.security : undefined;
+            resourceInputs["signIn"] = state ? state.signIn : undefined;
+            resourceInputs["signUp"] = state ? state.signUp : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantAccess"] = state ? state.tenantAccess : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
+            resourceInputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.publisherEmail === undefined) && !opts.urn) {
@@ -253,43 +253,41 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
-            inputs["gatewayDisabled"] = args ? args.gatewayDisabled : undefined;
-            inputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minApiVersion"] = args ? args.minApiVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["protocols"] = args ? args.protocols : undefined;
-            inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
-            inputs["publisherName"] = args ? args.publisherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["security"] = args ? args.security : undefined;
-            inputs["signIn"] = args ? args.signIn : undefined;
-            inputs["signUp"] = args ? args.signUp : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantAccess"] = args ? args.tenantAccess : undefined;
-            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["developerPortalUrl"] = undefined /*out*/;
-            inputs["gatewayRegionalUrl"] = undefined /*out*/;
-            inputs["gatewayUrl"] = undefined /*out*/;
-            inputs["managementApiUrl"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["privateIpAddresses"] = undefined /*out*/;
-            inputs["publicIpAddresses"] = undefined /*out*/;
-            inputs["scmUrl"] = undefined /*out*/;
+            resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
+            resourceInputs["gatewayDisabled"] = args ? args.gatewayDisabled : undefined;
+            resourceInputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minApiVersion"] = args ? args.minApiVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
+            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["security"] = args ? args.security : undefined;
+            resourceInputs["signIn"] = args ? args.signIn : undefined;
+            resourceInputs["signUp"] = args ? args.signUp : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantAccess"] = args ? args.tenantAccess : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["developerPortalUrl"] = undefined /*out*/;
+            resourceInputs["gatewayRegionalUrl"] = undefined /*out*/;
+            resourceInputs["gatewayUrl"] = undefined /*out*/;
+            resourceInputs["managementApiUrl"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["privateIpAddresses"] = undefined /*out*/;
+            resourceInputs["publicIpAddresses"] = undefined /*out*/;
+            resourceInputs["scmUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

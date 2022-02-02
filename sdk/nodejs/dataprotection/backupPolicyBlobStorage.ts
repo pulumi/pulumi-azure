@@ -84,13 +84,13 @@ export class BackupPolicyBlobStorage extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupPolicyBlobStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupPolicyBlobStorageArgs | BackupPolicyBlobStorageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyBlobStorageState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionDuration"] = state ? state.retentionDuration : undefined;
-            inputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retentionDuration"] = state ? state.retentionDuration : undefined;
+            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupPolicyBlobStorageArgs | undefined;
             if ((!args || args.retentionDuration === undefined) && !opts.urn) {
@@ -99,14 +99,12 @@ export class BackupPolicyBlobStorage extends pulumi.CustomResource {
             if ((!args || args.vaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionDuration"] = args ? args.retentionDuration : undefined;
-            inputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionDuration"] = args ? args.retentionDuration : undefined;
+            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackupPolicyBlobStorage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackupPolicyBlobStorage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

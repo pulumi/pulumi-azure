@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Template Spec Version.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
     }
 
 

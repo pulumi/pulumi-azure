@@ -177,13 +177,13 @@ export class AccountCustomerManagedKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountCustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountCustomerManagedKeyArgs | AccountCustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountCustomerManagedKeyState | undefined;
-            inputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
-            inputs["identityClientId"] = state ? state.identityClientId : undefined;
-            inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
+            resourceInputs["identityClientId"] = state ? state.identityClientId : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
         } else {
             const args = argsOrState as AccountCustomerManagedKeyArgs | undefined;
             if ((!args || args.cognitiveAccountId === undefined) && !opts.urn) {
@@ -192,14 +192,12 @@ export class AccountCustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            inputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
-            inputs["identityClientId"] = args ? args.identityClientId : undefined;
-            inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
+            resourceInputs["identityClientId"] = args ? args.identityClientId : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccountCustomerManagedKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccountCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

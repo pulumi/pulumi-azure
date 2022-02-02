@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -41,7 +40,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageResult> InvokeAsync(GetSharedImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
@@ -72,7 +71,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSharedImageResult> Invoke(GetSharedImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageInvokeArgs(), options.WithDefaults());
     }
 
 

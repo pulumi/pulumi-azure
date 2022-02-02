@@ -28,9 +28,7 @@ export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:blueprint/getPublishedVersion:getPublishedVersion", {
         "blueprintName": args.blueprintName,
         "scopeId": args.scopeId,

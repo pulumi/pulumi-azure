@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataShare
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetKustoDatabaseResult> InvokeAsync(GetDatasetKustoDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Kusto Database Dataset.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetKustoDatabaseResult> Invoke(GetDatasetKustoDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

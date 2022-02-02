@@ -222,7 +222,7 @@ type RemediationInput interface {
 }
 
 func (*Remediation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Remediation)(nil))
+	return reflect.TypeOf((**Remediation)(nil)).Elem()
 }
 
 func (i *Remediation) ToRemediationOutput() RemediationOutput {
@@ -231,35 +231,6 @@ func (i *Remediation) ToRemediationOutput() RemediationOutput {
 
 func (i *Remediation) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationOutput)
-}
-
-func (i *Remediation) ToRemediationPtrOutput() RemediationPtrOutput {
-	return i.ToRemediationPtrOutputWithContext(context.Background())
-}
-
-func (i *Remediation) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationPtrOutput)
-}
-
-type RemediationPtrInput interface {
-	pulumi.Input
-
-	ToRemediationPtrOutput() RemediationPtrOutput
-	ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput
-}
-
-type remediationPtrType RemediationArgs
-
-func (*remediationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Remediation)(nil))
-}
-
-func (i *remediationPtrType) ToRemediationPtrOutput() RemediationPtrOutput {
-	return i.ToRemediationPtrOutputWithContext(context.Background())
-}
-
-func (i *remediationPtrType) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationPtrOutput)
 }
 
 // RemediationArrayInput is an input type that accepts RemediationArray and RemediationArrayOutput values.
@@ -315,7 +286,7 @@ func (i RemediationMap) ToRemediationMapOutputWithContext(ctx context.Context) R
 type RemediationOutput struct{ *pulumi.OutputState }
 
 func (RemediationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Remediation)(nil))
+	return reflect.TypeOf((**Remediation)(nil)).Elem()
 }
 
 func (o RemediationOutput) ToRemediationOutput() RemediationOutput {
@@ -326,44 +297,10 @@ func (o RemediationOutput) ToRemediationOutputWithContext(ctx context.Context) R
 	return o
 }
 
-func (o RemediationOutput) ToRemediationPtrOutput() RemediationPtrOutput {
-	return o.ToRemediationPtrOutputWithContext(context.Background())
-}
-
-func (o RemediationOutput) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Remediation) *Remediation {
-		return &v
-	}).(RemediationPtrOutput)
-}
-
-type RemediationPtrOutput struct{ *pulumi.OutputState }
-
-func (RemediationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Remediation)(nil))
-}
-
-func (o RemediationPtrOutput) ToRemediationPtrOutput() RemediationPtrOutput {
-	return o
-}
-
-func (o RemediationPtrOutput) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
-	return o
-}
-
-func (o RemediationPtrOutput) Elem() RemediationOutput {
-	return o.ApplyT(func(v *Remediation) Remediation {
-		if v != nil {
-			return *v
-		}
-		var ret Remediation
-		return ret
-	}).(RemediationOutput)
-}
-
 type RemediationArrayOutput struct{ *pulumi.OutputState }
 
 func (RemediationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Remediation)(nil))
+	return reflect.TypeOf((*[]*Remediation)(nil)).Elem()
 }
 
 func (o RemediationArrayOutput) ToRemediationArrayOutput() RemediationArrayOutput {
@@ -375,15 +312,15 @@ func (o RemediationArrayOutput) ToRemediationArrayOutputWithContext(ctx context.
 }
 
 func (o RemediationArrayOutput) Index(i pulumi.IntInput) RemediationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Remediation {
-		return vs[0].([]Remediation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Remediation {
+		return vs[0].([]*Remediation)[vs[1].(int)]
 	}).(RemediationOutput)
 }
 
 type RemediationMapOutput struct{ *pulumi.OutputState }
 
 func (RemediationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Remediation)(nil))
+	return reflect.TypeOf((*map[string]*Remediation)(nil)).Elem()
 }
 
 func (o RemediationMapOutput) ToRemediationMapOutput() RemediationMapOutput {
@@ -395,18 +332,16 @@ func (o RemediationMapOutput) ToRemediationMapOutputWithContext(ctx context.Cont
 }
 
 func (o RemediationMapOutput) MapIndex(k pulumi.StringInput) RemediationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Remediation {
-		return vs[0].(map[string]Remediation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Remediation {
+		return vs[0].(map[string]*Remediation)[vs[1].(string)]
 	}).(RemediationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationInput)(nil)).Elem(), &Remediation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationPtrInput)(nil)).Elem(), &Remediation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationArrayInput)(nil)).Elem(), RemediationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationMapInput)(nil)).Elem(), RemediationMap{})
 	pulumi.RegisterOutputType(RemediationOutput{})
-	pulumi.RegisterOutputType(RemediationPtrOutput{})
 	pulumi.RegisterOutputType(RemediationArrayOutput{})
 	pulumi.RegisterOutputType(RemediationMapOutput{})
 }

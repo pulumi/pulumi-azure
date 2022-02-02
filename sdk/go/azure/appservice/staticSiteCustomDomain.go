@@ -125,7 +125,7 @@ type StaticSiteCustomDomainInput interface {
 }
 
 func (*StaticSiteCustomDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteCustomDomain)(nil))
+	return reflect.TypeOf((**StaticSiteCustomDomain)(nil)).Elem()
 }
 
 func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutput() StaticSiteCustomDomainOutput {
@@ -134,35 +134,6 @@ func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutput() StaticSiteCust
 
 func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutputWithContext(ctx context.Context) StaticSiteCustomDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainOutput)
-}
-
-func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainPtrOutput() StaticSiteCustomDomainPtrOutput {
-	return i.ToStaticSiteCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainPtrOutputWithContext(ctx context.Context) StaticSiteCustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainPtrOutput)
-}
-
-type StaticSiteCustomDomainPtrInput interface {
-	pulumi.Input
-
-	ToStaticSiteCustomDomainPtrOutput() StaticSiteCustomDomainPtrOutput
-	ToStaticSiteCustomDomainPtrOutputWithContext(ctx context.Context) StaticSiteCustomDomainPtrOutput
-}
-
-type staticSiteCustomDomainPtrType StaticSiteCustomDomainArgs
-
-func (*staticSiteCustomDomainPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StaticSiteCustomDomain)(nil))
-}
-
-func (i *staticSiteCustomDomainPtrType) ToStaticSiteCustomDomainPtrOutput() StaticSiteCustomDomainPtrOutput {
-	return i.ToStaticSiteCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *staticSiteCustomDomainPtrType) ToStaticSiteCustomDomainPtrOutputWithContext(ctx context.Context) StaticSiteCustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainPtrOutput)
 }
 
 // StaticSiteCustomDomainArrayInput is an input type that accepts StaticSiteCustomDomainArray and StaticSiteCustomDomainArrayOutput values.
@@ -218,7 +189,7 @@ func (i StaticSiteCustomDomainMap) ToStaticSiteCustomDomainMapOutputWithContext(
 type StaticSiteCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteCustomDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteCustomDomain)(nil))
+	return reflect.TypeOf((**StaticSiteCustomDomain)(nil)).Elem()
 }
 
 func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutput() StaticSiteCustomDomainOutput {
@@ -229,44 +200,10 @@ func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutputWithContext(
 	return o
 }
 
-func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainPtrOutput() StaticSiteCustomDomainPtrOutput {
-	return o.ToStaticSiteCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainPtrOutputWithContext(ctx context.Context) StaticSiteCustomDomainPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteCustomDomain) *StaticSiteCustomDomain {
-		return &v
-	}).(StaticSiteCustomDomainPtrOutput)
-}
-
-type StaticSiteCustomDomainPtrOutput struct{ *pulumi.OutputState }
-
-func (StaticSiteCustomDomainPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StaticSiteCustomDomain)(nil))
-}
-
-func (o StaticSiteCustomDomainPtrOutput) ToStaticSiteCustomDomainPtrOutput() StaticSiteCustomDomainPtrOutput {
-	return o
-}
-
-func (o StaticSiteCustomDomainPtrOutput) ToStaticSiteCustomDomainPtrOutputWithContext(ctx context.Context) StaticSiteCustomDomainPtrOutput {
-	return o
-}
-
-func (o StaticSiteCustomDomainPtrOutput) Elem() StaticSiteCustomDomainOutput {
-	return o.ApplyT(func(v *StaticSiteCustomDomain) StaticSiteCustomDomain {
-		if v != nil {
-			return *v
-		}
-		var ret StaticSiteCustomDomain
-		return ret
-	}).(StaticSiteCustomDomainOutput)
-}
-
 type StaticSiteCustomDomainArrayOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteCustomDomainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StaticSiteCustomDomain)(nil))
+	return reflect.TypeOf((*[]*StaticSiteCustomDomain)(nil)).Elem()
 }
 
 func (o StaticSiteCustomDomainArrayOutput) ToStaticSiteCustomDomainArrayOutput() StaticSiteCustomDomainArrayOutput {
@@ -278,15 +215,15 @@ func (o StaticSiteCustomDomainArrayOutput) ToStaticSiteCustomDomainArrayOutputWi
 }
 
 func (o StaticSiteCustomDomainArrayOutput) Index(i pulumi.IntInput) StaticSiteCustomDomainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticSiteCustomDomain {
-		return vs[0].([]StaticSiteCustomDomain)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticSiteCustomDomain {
+		return vs[0].([]*StaticSiteCustomDomain)[vs[1].(int)]
 	}).(StaticSiteCustomDomainOutput)
 }
 
 type StaticSiteCustomDomainMapOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteCustomDomainMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StaticSiteCustomDomain)(nil))
+	return reflect.TypeOf((*map[string]*StaticSiteCustomDomain)(nil)).Elem()
 }
 
 func (o StaticSiteCustomDomainMapOutput) ToStaticSiteCustomDomainMapOutput() StaticSiteCustomDomainMapOutput {
@@ -298,18 +235,16 @@ func (o StaticSiteCustomDomainMapOutput) ToStaticSiteCustomDomainMapOutputWithCo
 }
 
 func (o StaticSiteCustomDomainMapOutput) MapIndex(k pulumi.StringInput) StaticSiteCustomDomainOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StaticSiteCustomDomain {
-		return vs[0].(map[string]StaticSiteCustomDomain)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StaticSiteCustomDomain {
+		return vs[0].(map[string]*StaticSiteCustomDomain)[vs[1].(string)]
 	}).(StaticSiteCustomDomainOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteCustomDomainInput)(nil)).Elem(), &StaticSiteCustomDomain{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteCustomDomainPtrInput)(nil)).Elem(), &StaticSiteCustomDomain{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteCustomDomainArrayInput)(nil)).Elem(), StaticSiteCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteCustomDomainMapInput)(nil)).Elem(), StaticSiteCustomDomainMap{})
 	pulumi.RegisterOutputType(StaticSiteCustomDomainOutput{})
-	pulumi.RegisterOutputType(StaticSiteCustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(StaticSiteCustomDomainMapOutput{})
 }

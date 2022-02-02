@@ -130,22 +130,22 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineArgs | VirtualMachineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
-            inputs["autoBackup"] = state ? state.autoBackup : undefined;
-            inputs["autoPatching"] = state ? state.autoPatching : undefined;
-            inputs["keyVaultCredential"] = state ? state.keyVaultCredential : undefined;
-            inputs["rServicesEnabled"] = state ? state.rServicesEnabled : undefined;
-            inputs["sqlConnectivityPort"] = state ? state.sqlConnectivityPort : undefined;
-            inputs["sqlConnectivityType"] = state ? state.sqlConnectivityType : undefined;
-            inputs["sqlConnectivityUpdatePassword"] = state ? state.sqlConnectivityUpdatePassword : undefined;
-            inputs["sqlConnectivityUpdateUsername"] = state ? state.sqlConnectivityUpdateUsername : undefined;
-            inputs["sqlLicenseType"] = state ? state.sqlLicenseType : undefined;
-            inputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["autoBackup"] = state ? state.autoBackup : undefined;
+            resourceInputs["autoPatching"] = state ? state.autoPatching : undefined;
+            resourceInputs["keyVaultCredential"] = state ? state.keyVaultCredential : undefined;
+            resourceInputs["rServicesEnabled"] = state ? state.rServicesEnabled : undefined;
+            resourceInputs["sqlConnectivityPort"] = state ? state.sqlConnectivityPort : undefined;
+            resourceInputs["sqlConnectivityType"] = state ? state.sqlConnectivityType : undefined;
+            resourceInputs["sqlConnectivityUpdatePassword"] = state ? state.sqlConnectivityUpdatePassword : undefined;
+            resourceInputs["sqlConnectivityUpdateUsername"] = state ? state.sqlConnectivityUpdateUsername : undefined;
+            resourceInputs["sqlLicenseType"] = state ? state.sqlLicenseType : undefined;
+            resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
             if ((!args || args.sqlLicenseType === undefined) && !opts.urn) {
@@ -154,23 +154,21 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            inputs["autoBackup"] = args ? args.autoBackup : undefined;
-            inputs["autoPatching"] = args ? args.autoPatching : undefined;
-            inputs["keyVaultCredential"] = args ? args.keyVaultCredential : undefined;
-            inputs["rServicesEnabled"] = args ? args.rServicesEnabled : undefined;
-            inputs["sqlConnectivityPort"] = args ? args.sqlConnectivityPort : undefined;
-            inputs["sqlConnectivityType"] = args ? args.sqlConnectivityType : undefined;
-            inputs["sqlConnectivityUpdatePassword"] = args ? args.sqlConnectivityUpdatePassword : undefined;
-            inputs["sqlConnectivityUpdateUsername"] = args ? args.sqlConnectivityUpdateUsername : undefined;
-            inputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
-            inputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["autoBackup"] = args ? args.autoBackup : undefined;
+            resourceInputs["autoPatching"] = args ? args.autoPatching : undefined;
+            resourceInputs["keyVaultCredential"] = args ? args.keyVaultCredential : undefined;
+            resourceInputs["rServicesEnabled"] = args ? args.rServicesEnabled : undefined;
+            resourceInputs["sqlConnectivityPort"] = args ? args.sqlConnectivityPort : undefined;
+            resourceInputs["sqlConnectivityType"] = args ? args.sqlConnectivityType : undefined;
+            resourceInputs["sqlConnectivityUpdatePassword"] = args ? args.sqlConnectivityUpdatePassword : undefined;
+            resourceInputs["sqlConnectivityUpdateUsername"] = args ? args.sqlConnectivityUpdateUsername : undefined;
+            resourceInputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
+            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualMachine.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

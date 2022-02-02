@@ -261,8 +261,8 @@ class Script(pulumi.CustomResource):
             storage_container_name=example_container.name,
             type="Block",
             source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example_account_blob_container_sas = pulumi.Output.all(example_account.primary_connection_string, example_container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,
-            container_name=name,
+        example_account_blob_container_sas = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
+            container_name=example_container.name,
             https_only=True,
             start="2017-03-21",
             expiry="2022-03-21",
@@ -273,7 +273,7 @@ class Script(pulumi.CustomResource):
                 write=True,
                 delete=False,
                 list=True,
-            )))
+            ))
         example_script = azure.kusto.Script("exampleScript",
             database_id=example_database.id,
             url=example_blob.id,
@@ -339,8 +339,8 @@ class Script(pulumi.CustomResource):
             storage_container_name=example_container.name,
             type="Block",
             source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example_account_blob_container_sas = pulumi.Output.all(example_account.primary_connection_string, example_container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,
-            container_name=name,
+        example_account_blob_container_sas = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
+            container_name=example_container.name,
             https_only=True,
             start="2017-03-21",
             expiry="2022-03-21",
@@ -351,7 +351,7 @@ class Script(pulumi.CustomResource):
                 write=True,
                 delete=False,
                 list=True,
-            )))
+            ))
         example_script = azure.kusto.Script("exampleScript",
             database_id=example_database.id,
             url=example_blob.id,

@@ -25,9 +25,7 @@ export function getDatasetKustoDatabase(args: GetDatasetKustoDatabaseArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", {
         "name": args.name,
         "shareId": args.shareId,

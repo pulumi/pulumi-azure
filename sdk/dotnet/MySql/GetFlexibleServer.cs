@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MySql
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.MySql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFlexibleServerResult> InvokeAsync(GetFlexibleServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing MySQL Flexible Server.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.MySql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Disk Access.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDiskAccessResult> Invoke(GetDiskAccessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
     }
 
 

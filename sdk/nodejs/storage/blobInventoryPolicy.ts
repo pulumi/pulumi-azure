@@ -101,13 +101,13 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: BlobInventoryPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BlobInventoryPolicyArgs | BlobInventoryPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BlobInventoryPolicyState | undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["storageContainerName"] = state ? state.storageContainerName : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
         } else {
             const args = argsOrState as BlobInventoryPolicyArgs | undefined;
             if ((!args || args.rules === undefined) && !opts.urn) {
@@ -119,14 +119,12 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             if ((!args || args.storageContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["storageContainerName"] = args ? args.storageContainerName : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BlobInventoryPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BlobInventoryPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

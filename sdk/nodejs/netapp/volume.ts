@@ -193,29 +193,29 @@ export class Volume extends pulumi.CustomResource {
      */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
-            inputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
-            inputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
-            inputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["poolName"] = state ? state.poolName : undefined;
-            inputs["protocols"] = state ? state.protocols : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["securityStyle"] = state ? state.securityStyle : undefined;
-            inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
-            inputs["snapshotDirectoryVisible"] = state ? state.snapshotDirectoryVisible : undefined;
-            inputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["throughputInMibps"] = state ? state.throughputInMibps : undefined;
-            inputs["volumePath"] = state ? state.volumePath : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
+            resourceInputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
+            resourceInputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
+            resourceInputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
+            resourceInputs["serviceLevel"] = state ? state.serviceLevel : undefined;
+            resourceInputs["snapshotDirectoryVisible"] = state ? state.snapshotDirectoryVisible : undefined;
+            resourceInputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["throughputInMibps"] = state ? state.throughputInMibps : undefined;
+            resourceInputs["volumePath"] = state ? state.volumePath : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -239,30 +239,28 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.volumePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumePath'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
-            inputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
-            inputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
-            inputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["protocols"] = args ? args.protocols : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityStyle"] = args ? args.securityStyle : undefined;
-            inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            inputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
-            inputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputInMibps"] = args ? args.throughputInMibps : undefined;
-            inputs["volumePath"] = args ? args.volumePath : undefined;
-            inputs["mountIpAddresses"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
+            resourceInputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
+            resourceInputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
+            resourceInputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
+            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            resourceInputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
+            resourceInputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputInMibps"] = args ? args.throughputInMibps : undefined;
+            resourceInputs["volumePath"] = args ? args.volumePath : undefined;
+            resourceInputs["mountIpAddresses"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Volume.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

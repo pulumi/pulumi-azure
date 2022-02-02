@@ -25,9 +25,7 @@ export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getIpGroup:getIpGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

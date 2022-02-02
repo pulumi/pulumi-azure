@@ -191,7 +191,7 @@ type JobScheduleInput interface {
 }
 
 func (*JobSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobSchedule)(nil))
+	return reflect.TypeOf((**JobSchedule)(nil)).Elem()
 }
 
 func (i *JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
@@ -200,35 +200,6 @@ func (i *JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
 
 func (i *JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
-}
-
-func (i *JobSchedule) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
-	return i.ToJobSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *JobSchedule) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulePtrOutput)
-}
-
-type JobSchedulePtrInput interface {
-	pulumi.Input
-
-	ToJobSchedulePtrOutput() JobSchedulePtrOutput
-	ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput
-}
-
-type jobSchedulePtrType JobScheduleArgs
-
-func (*jobSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobSchedule)(nil))
-}
-
-func (i *jobSchedulePtrType) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
-	return i.ToJobSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *jobSchedulePtrType) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulePtrOutput)
 }
 
 // JobScheduleArrayInput is an input type that accepts JobScheduleArray and JobScheduleArrayOutput values.
@@ -284,7 +255,7 @@ func (i JobScheduleMap) ToJobScheduleMapOutputWithContext(ctx context.Context) J
 type JobScheduleOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobSchedule)(nil))
+	return reflect.TypeOf((**JobSchedule)(nil)).Elem()
 }
 
 func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {
@@ -295,44 +266,10 @@ func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) J
 	return o
 }
 
-func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
-	return o.ToJobSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedule) *JobSchedule {
-		return &v
-	}).(JobSchedulePtrOutput)
-}
-
-type JobSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (JobSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobSchedule)(nil))
-}
-
-func (o JobSchedulePtrOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
-	return o
-}
-
-func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return o
-}
-
-func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
-	return o.ApplyT(func(v *JobSchedule) JobSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret JobSchedule
-		return ret
-	}).(JobScheduleOutput)
-}
-
 type JobScheduleArrayOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobSchedule)(nil))
+	return reflect.TypeOf((*[]*JobSchedule)(nil)).Elem()
 }
 
 func (o JobScheduleArrayOutput) ToJobScheduleArrayOutput() JobScheduleArrayOutput {
@@ -344,15 +281,15 @@ func (o JobScheduleArrayOutput) ToJobScheduleArrayOutputWithContext(ctx context.
 }
 
 func (o JobScheduleArrayOutput) Index(i pulumi.IntInput) JobScheduleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobSchedule {
-		return vs[0].([]JobSchedule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobSchedule {
+		return vs[0].([]*JobSchedule)[vs[1].(int)]
 	}).(JobScheduleOutput)
 }
 
 type JobScheduleMapOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]JobSchedule)(nil))
+	return reflect.TypeOf((*map[string]*JobSchedule)(nil)).Elem()
 }
 
 func (o JobScheduleMapOutput) ToJobScheduleMapOutput() JobScheduleMapOutput {
@@ -364,18 +301,16 @@ func (o JobScheduleMapOutput) ToJobScheduleMapOutputWithContext(ctx context.Cont
 }
 
 func (o JobScheduleMapOutput) MapIndex(k pulumi.StringInput) JobScheduleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobSchedule {
-		return vs[0].(map[string]JobSchedule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *JobSchedule {
+		return vs[0].(map[string]*JobSchedule)[vs[1].(string)]
 	}).(JobScheduleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleInput)(nil)).Elem(), &JobSchedule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobSchedulePtrInput)(nil)).Elem(), &JobSchedule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleArrayInput)(nil)).Elem(), JobScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleMapInput)(nil)).Elem(), JobScheduleMap{})
 	pulumi.RegisterOutputType(JobScheduleOutput{})
-	pulumi.RegisterOutputType(JobSchedulePtrOutput{})
 	pulumi.RegisterOutputType(JobScheduleArrayOutput{})
 	pulumi.RegisterOutputType(JobScheduleMapOutput{})
 }

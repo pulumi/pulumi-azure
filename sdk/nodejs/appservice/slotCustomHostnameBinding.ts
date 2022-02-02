@@ -105,15 +105,15 @@ export class SlotCustomHostnameBinding extends pulumi.CustomResource {
      */
     constructor(name: string, args: SlotCustomHostnameBindingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SlotCustomHostnameBindingArgs | SlotCustomHostnameBindingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotCustomHostnameBindingState | undefined;
-            inputs["appServiceSlotId"] = state ? state.appServiceSlotId : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["sslState"] = state ? state.sslState : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
-            inputs["virtualIp"] = state ? state.virtualIp : undefined;
+            resourceInputs["appServiceSlotId"] = state ? state.appServiceSlotId : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["sslState"] = state ? state.sslState : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["virtualIp"] = state ? state.virtualIp : undefined;
         } else {
             const args = argsOrState as SlotCustomHostnameBindingArgs | undefined;
             if ((!args || args.appServiceSlotId === undefined) && !opts.urn) {
@@ -122,16 +122,14 @@ export class SlotCustomHostnameBinding extends pulumi.CustomResource {
             if ((!args || args.hostname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostname'");
             }
-            inputs["appServiceSlotId"] = args ? args.appServiceSlotId : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["sslState"] = args ? args.sslState : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["virtualIp"] = undefined /*out*/;
+            resourceInputs["appServiceSlotId"] = args ? args.appServiceSlotId : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["sslState"] = args ? args.sslState : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["virtualIp"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SlotCustomHostnameBinding.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SlotCustomHostnameBinding.__pulumiType, name, resourceInputs, opts);
     }
 }
 

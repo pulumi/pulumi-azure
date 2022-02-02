@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Machine.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -294,7 +294,7 @@ type SharedImageInput interface {
 }
 
 func (*SharedImage) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImage)(nil))
+	return reflect.TypeOf((**SharedImage)(nil)).Elem()
 }
 
 func (i *SharedImage) ToSharedImageOutput() SharedImageOutput {
@@ -303,35 +303,6 @@ func (i *SharedImage) ToSharedImageOutput() SharedImageOutput {
 
 func (i *SharedImage) ToSharedImageOutputWithContext(ctx context.Context) SharedImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageOutput)
-}
-
-func (i *SharedImage) ToSharedImagePtrOutput() SharedImagePtrOutput {
-	return i.ToSharedImagePtrOutputWithContext(context.Background())
-}
-
-func (i *SharedImage) ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedImagePtrOutput)
-}
-
-type SharedImagePtrInput interface {
-	pulumi.Input
-
-	ToSharedImagePtrOutput() SharedImagePtrOutput
-	ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput
-}
-
-type sharedImagePtrType SharedImageArgs
-
-func (*sharedImagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedImage)(nil))
-}
-
-func (i *sharedImagePtrType) ToSharedImagePtrOutput() SharedImagePtrOutput {
-	return i.ToSharedImagePtrOutputWithContext(context.Background())
-}
-
-func (i *sharedImagePtrType) ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedImagePtrOutput)
 }
 
 // SharedImageArrayInput is an input type that accepts SharedImageArray and SharedImageArrayOutput values.
@@ -387,7 +358,7 @@ func (i SharedImageMap) ToSharedImageMapOutputWithContext(ctx context.Context) S
 type SharedImageOutput struct{ *pulumi.OutputState }
 
 func (SharedImageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImage)(nil))
+	return reflect.TypeOf((**SharedImage)(nil)).Elem()
 }
 
 func (o SharedImageOutput) ToSharedImageOutput() SharedImageOutput {
@@ -398,44 +369,10 @@ func (o SharedImageOutput) ToSharedImageOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SharedImageOutput) ToSharedImagePtrOutput() SharedImagePtrOutput {
-	return o.ToSharedImagePtrOutputWithContext(context.Background())
-}
-
-func (o SharedImageOutput) ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImage) *SharedImage {
-		return &v
-	}).(SharedImagePtrOutput)
-}
-
-type SharedImagePtrOutput struct{ *pulumi.OutputState }
-
-func (SharedImagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedImage)(nil))
-}
-
-func (o SharedImagePtrOutput) ToSharedImagePtrOutput() SharedImagePtrOutput {
-	return o
-}
-
-func (o SharedImagePtrOutput) ToSharedImagePtrOutputWithContext(ctx context.Context) SharedImagePtrOutput {
-	return o
-}
-
-func (o SharedImagePtrOutput) Elem() SharedImageOutput {
-	return o.ApplyT(func(v *SharedImage) SharedImage {
-		if v != nil {
-			return *v
-		}
-		var ret SharedImage
-		return ret
-	}).(SharedImageOutput)
-}
-
 type SharedImageArrayOutput struct{ *pulumi.OutputState }
 
 func (SharedImageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedImage)(nil))
+	return reflect.TypeOf((*[]*SharedImage)(nil)).Elem()
 }
 
 func (o SharedImageArrayOutput) ToSharedImageArrayOutput() SharedImageArrayOutput {
@@ -447,15 +384,15 @@ func (o SharedImageArrayOutput) ToSharedImageArrayOutputWithContext(ctx context.
 }
 
 func (o SharedImageArrayOutput) Index(i pulumi.IntInput) SharedImageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImage {
-		return vs[0].([]SharedImage)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedImage {
+		return vs[0].([]*SharedImage)[vs[1].(int)]
 	}).(SharedImageOutput)
 }
 
 type SharedImageMapOutput struct{ *pulumi.OutputState }
 
 func (SharedImageMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SharedImage)(nil))
+	return reflect.TypeOf((*map[string]*SharedImage)(nil)).Elem()
 }
 
 func (o SharedImageMapOutput) ToSharedImageMapOutput() SharedImageMapOutput {
@@ -467,18 +404,16 @@ func (o SharedImageMapOutput) ToSharedImageMapOutputWithContext(ctx context.Cont
 }
 
 func (o SharedImageMapOutput) MapIndex(k pulumi.StringInput) SharedImageOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SharedImage {
-		return vs[0].(map[string]SharedImage)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SharedImage {
+		return vs[0].(map[string]*SharedImage)[vs[1].(string)]
 	}).(SharedImageOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageInput)(nil)).Elem(), &SharedImage{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SharedImagePtrInput)(nil)).Elem(), &SharedImage{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageArrayInput)(nil)).Elem(), SharedImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageMapInput)(nil)).Elem(), SharedImageMap{})
 	pulumi.RegisterOutputType(SharedImageOutput{})
-	pulumi.RegisterOutputType(SharedImagePtrOutput{})
 	pulumi.RegisterOutputType(SharedImageArrayOutput{})
 	pulumi.RegisterOutputType(SharedImageMapOutput{})
 }

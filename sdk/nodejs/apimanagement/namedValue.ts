@@ -108,18 +108,18 @@ export class NamedValue extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamedValueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamedValueArgs | NamedValueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamedValueState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secret"] = state ? state.secret : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["valueFromKeyVault"] = state ? state.valueFromKeyVault : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["valueFromKeyVault"] = state ? state.valueFromKeyVault : undefined;
         } else {
             const args = argsOrState as NamedValueArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -131,19 +131,17 @@ export class NamedValue extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["secret"] = args ? args.secret : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["valueFromKeyVault"] = args ? args.valueFromKeyVault : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secret"] = args ? args.secret : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["valueFromKeyVault"] = args ? args.valueFromKeyVault : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NamedValue.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NamedValue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

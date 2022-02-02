@@ -164,24 +164,24 @@ export class LiveEvent extends pulumi.CustomResource {
      */
     constructor(name: string, args: LiveEventArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LiveEventArgs | LiveEventState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LiveEventState | undefined;
-            inputs["autoStartEnabled"] = state ? state.autoStartEnabled : undefined;
-            inputs["crossSiteAccessPolicy"] = state ? state.crossSiteAccessPolicy : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encoding"] = state ? state.encoding : undefined;
-            inputs["hostnamePrefix"] = state ? state.hostnamePrefix : undefined;
-            inputs["input"] = state ? state.input : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["preview"] = state ? state.preview : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["transcriptionLanguages"] = state ? state.transcriptionLanguages : undefined;
-            inputs["useStaticHostname"] = state ? state.useStaticHostname : undefined;
+            resourceInputs["autoStartEnabled"] = state ? state.autoStartEnabled : undefined;
+            resourceInputs["crossSiteAccessPolicy"] = state ? state.crossSiteAccessPolicy : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encoding"] = state ? state.encoding : undefined;
+            resourceInputs["hostnamePrefix"] = state ? state.hostnamePrefix : undefined;
+            resourceInputs["input"] = state ? state.input : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["preview"] = state ? state.preview : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["transcriptionLanguages"] = state ? state.transcriptionLanguages : undefined;
+            resourceInputs["useStaticHostname"] = state ? state.useStaticHostname : undefined;
         } else {
             const args = argsOrState as LiveEventArgs | undefined;
             if ((!args || args.input === undefined) && !opts.urn) {
@@ -193,25 +193,23 @@ export class LiveEvent extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoStartEnabled"] = args ? args.autoStartEnabled : undefined;
-            inputs["crossSiteAccessPolicy"] = args ? args.crossSiteAccessPolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encoding"] = args ? args.encoding : undefined;
-            inputs["hostnamePrefix"] = args ? args.hostnamePrefix : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["preview"] = args ? args.preview : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transcriptionLanguages"] = args ? args.transcriptionLanguages : undefined;
-            inputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
+            resourceInputs["autoStartEnabled"] = args ? args.autoStartEnabled : undefined;
+            resourceInputs["crossSiteAccessPolicy"] = args ? args.crossSiteAccessPolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encoding"] = args ? args.encoding : undefined;
+            resourceInputs["hostnamePrefix"] = args ? args.hostnamePrefix : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["preview"] = args ? args.preview : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transcriptionLanguages"] = args ? args.transcriptionLanguages : undefined;
+            resourceInputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LiveEvent.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LiveEvent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

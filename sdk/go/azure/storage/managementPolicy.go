@@ -206,7 +206,7 @@ type ManagementPolicyInput interface {
 }
 
 func (*ManagementPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicy)(nil))
+	return reflect.TypeOf((**ManagementPolicy)(nil)).Elem()
 }
 
 func (i *ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
@@ -215,35 +215,6 @@ func (i *ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
 
 func (i *ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
-}
-
-func (i *ManagementPolicy) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
-	return i.ToManagementPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagementPolicy) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPtrOutput)
-}
-
-type ManagementPolicyPtrInput interface {
-	pulumi.Input
-
-	ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput
-	ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput
-}
-
-type managementPolicyPtrType ManagementPolicyArgs
-
-func (*managementPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementPolicy)(nil))
-}
-
-func (i *managementPolicyPtrType) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
-	return i.ToManagementPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *managementPolicyPtrType) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPtrOutput)
 }
 
 // ManagementPolicyArrayInput is an input type that accepts ManagementPolicyArray and ManagementPolicyArrayOutput values.
@@ -299,7 +270,7 @@ func (i ManagementPolicyMap) ToManagementPolicyMapOutputWithContext(ctx context.
 type ManagementPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicy)(nil))
+	return reflect.TypeOf((**ManagementPolicy)(nil)).Elem()
 }
 
 func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutput {
@@ -310,44 +281,10 @@ func (o ManagementPolicyOutput) ToManagementPolicyOutputWithContext(ctx context.
 	return o
 }
 
-func (o ManagementPolicyOutput) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
-	return o.ToManagementPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ManagementPolicyOutput) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicy) *ManagementPolicy {
-		return &v
-	}).(ManagementPolicyPtrOutput)
-}
-
-type ManagementPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagementPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementPolicy)(nil))
-}
-
-func (o ManagementPolicyPtrOutput) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
-	return o
-}
-
-func (o ManagementPolicyPtrOutput) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
-	return o
-}
-
-func (o ManagementPolicyPtrOutput) Elem() ManagementPolicyOutput {
-	return o.ApplyT(func(v *ManagementPolicy) ManagementPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementPolicy
-		return ret
-	}).(ManagementPolicyOutput)
-}
-
 type ManagementPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementPolicy)(nil))
+	return reflect.TypeOf((*[]*ManagementPolicy)(nil)).Elem()
 }
 
 func (o ManagementPolicyArrayOutput) ToManagementPolicyArrayOutput() ManagementPolicyArrayOutput {
@@ -359,15 +296,15 @@ func (o ManagementPolicyArrayOutput) ToManagementPolicyArrayOutputWithContext(ct
 }
 
 func (o ManagementPolicyArrayOutput) Index(i pulumi.IntInput) ManagementPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementPolicy {
-		return vs[0].([]ManagementPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagementPolicy {
+		return vs[0].([]*ManagementPolicy)[vs[1].(int)]
 	}).(ManagementPolicyOutput)
 }
 
 type ManagementPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagementPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ManagementPolicy)(nil)).Elem()
 }
 
 func (o ManagementPolicyMapOutput) ToManagementPolicyMapOutput() ManagementPolicyMapOutput {
@@ -379,18 +316,16 @@ func (o ManagementPolicyMapOutput) ToManagementPolicyMapOutputWithContext(ctx co
 }
 
 func (o ManagementPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagementPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagementPolicy {
-		return vs[0].(map[string]ManagementPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagementPolicy {
+		return vs[0].(map[string]*ManagementPolicy)[vs[1].(string)]
 	}).(ManagementPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyInput)(nil)).Elem(), &ManagementPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyPtrInput)(nil)).Elem(), &ManagementPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyArrayInput)(nil)).Elem(), ManagementPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyMapInput)(nil)).Elem(), ManagementPolicyMap{})
 	pulumi.RegisterOutputType(ManagementPolicyOutput{})
-	pulumi.RegisterOutputType(ManagementPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyMapOutput{})
 }

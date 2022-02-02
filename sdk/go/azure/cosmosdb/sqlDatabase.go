@@ -165,7 +165,7 @@ type SqlDatabaseInput interface {
 }
 
 func (*SqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabase)(nil))
+	return reflect.TypeOf((**SqlDatabase)(nil)).Elem()
 }
 
 func (i *SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
@@ -174,35 +174,6 @@ func (i *SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
 
 func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
-}
-
-func (i *SqlDatabase) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
-	return i.ToSqlDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *SqlDatabase) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabasePtrOutput)
-}
-
-type SqlDatabasePtrInput interface {
-	pulumi.Input
-
-	ToSqlDatabasePtrOutput() SqlDatabasePtrOutput
-	ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput
-}
-
-type sqlDatabasePtrType SqlDatabaseArgs
-
-func (*sqlDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlDatabase)(nil))
-}
-
-func (i *sqlDatabasePtrType) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
-	return i.ToSqlDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlDatabasePtrType) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabasePtrOutput)
 }
 
 // SqlDatabaseArrayInput is an input type that accepts SqlDatabaseArray and SqlDatabaseArrayOutput values.
@@ -258,7 +229,7 @@ func (i SqlDatabaseMap) ToSqlDatabaseMapOutputWithContext(ctx context.Context) S
 type SqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabase)(nil))
+	return reflect.TypeOf((**SqlDatabase)(nil)).Elem()
 }
 
 func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {
@@ -269,44 +240,10 @@ func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SqlDatabaseOutput) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
-	return o.ToSqlDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o SqlDatabaseOutput) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabase) *SqlDatabase {
-		return &v
-	}).(SqlDatabasePtrOutput)
-}
-
-type SqlDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (SqlDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlDatabase)(nil))
-}
-
-func (o SqlDatabasePtrOutput) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
-	return o
-}
-
-func (o SqlDatabasePtrOutput) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
-	return o
-}
-
-func (o SqlDatabasePtrOutput) Elem() SqlDatabaseOutput {
-	return o.ApplyT(func(v *SqlDatabase) SqlDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret SqlDatabase
-		return ret
-	}).(SqlDatabaseOutput)
-}
-
 type SqlDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlDatabase)(nil))
+	return reflect.TypeOf((*[]*SqlDatabase)(nil)).Elem()
 }
 
 func (o SqlDatabaseArrayOutput) ToSqlDatabaseArrayOutput() SqlDatabaseArrayOutput {
@@ -318,15 +255,15 @@ func (o SqlDatabaseArrayOutput) ToSqlDatabaseArrayOutputWithContext(ctx context.
 }
 
 func (o SqlDatabaseArrayOutput) Index(i pulumi.IntInput) SqlDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlDatabase {
-		return vs[0].([]SqlDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlDatabase {
+		return vs[0].([]*SqlDatabase)[vs[1].(int)]
 	}).(SqlDatabaseOutput)
 }
 
 type SqlDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlDatabase)(nil))
+	return reflect.TypeOf((*map[string]*SqlDatabase)(nil)).Elem()
 }
 
 func (o SqlDatabaseMapOutput) ToSqlDatabaseMapOutput() SqlDatabaseMapOutput {
@@ -338,18 +275,16 @@ func (o SqlDatabaseMapOutput) ToSqlDatabaseMapOutputWithContext(ctx context.Cont
 }
 
 func (o SqlDatabaseMapOutput) MapIndex(k pulumi.StringInput) SqlDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlDatabase {
-		return vs[0].(map[string]SqlDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlDatabase {
+		return vs[0].(map[string]*SqlDatabase)[vs[1].(string)]
 	}).(SqlDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlDatabaseInput)(nil)).Elem(), &SqlDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlDatabasePtrInput)(nil)).Elem(), &SqlDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlDatabaseArrayInput)(nil)).Elem(), SqlDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlDatabaseMapInput)(nil)).Elem(), SqlDatabaseMap{})
 	pulumi.RegisterOutputType(SqlDatabaseOutput{})
-	pulumi.RegisterOutputType(SqlDatabasePtrOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseMapOutput{})
 }

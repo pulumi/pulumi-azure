@@ -127,19 +127,19 @@ export class OutboundRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: OutboundRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutboundRuleArgs | OutboundRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutboundRuleState | undefined;
-            inputs["allocatedOutboundPorts"] = state ? state.allocatedOutboundPorts : undefined;
-            inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
-            inputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
-            inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
-            inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["allocatedOutboundPorts"] = state ? state.allocatedOutboundPorts : undefined;
+            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
+            resourceInputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
+            resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
+            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as OutboundRuleArgs | undefined;
             if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
@@ -154,20 +154,18 @@ export class OutboundRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allocatedOutboundPorts"] = args ? args.allocatedOutboundPorts : undefined;
-            inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
-            inputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["allocatedOutboundPorts"] = args ? args.allocatedOutboundPorts : undefined;
+            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
+            resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
+            resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OutboundRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OutboundRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

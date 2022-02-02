@@ -122,23 +122,23 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRoutePortArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRoutePortArgs | ExpressRoutePortState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRoutePortState | undefined;
-            inputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
-            inputs["encapsulation"] = state ? state.encapsulation : undefined;
-            inputs["ethertype"] = state ? state.ethertype : undefined;
-            inputs["guid"] = state ? state.guid : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["link1"] = state ? state.link1 : undefined;
-            inputs["link2"] = state ? state.link2 : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mtu"] = state ? state.mtu : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["peeringLocation"] = state ? state.peeringLocation : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
+            resourceInputs["encapsulation"] = state ? state.encapsulation : undefined;
+            resourceInputs["ethertype"] = state ? state.ethertype : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["link1"] = state ? state.link1 : undefined;
+            resourceInputs["link2"] = state ? state.link2 : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mtu"] = state ? state.mtu : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["peeringLocation"] = state ? state.peeringLocation : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExpressRoutePortArgs | undefined;
             if ((!args || args.bandwidthInGbps === undefined) && !opts.urn) {
@@ -153,24 +153,22 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            inputs["encapsulation"] = args ? args.encapsulation : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["link1"] = args ? args.link1 : undefined;
-            inputs["link2"] = args ? args.link2 : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ethertype"] = undefined /*out*/;
-            inputs["guid"] = undefined /*out*/;
-            inputs["mtu"] = undefined /*out*/;
+            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["link1"] = args ? args.link1 : undefined;
+            resourceInputs["link2"] = args ? args.link2 : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ethertype"] = undefined /*out*/;
+            resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["mtu"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExpressRoutePort.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExpressRoutePort.__pulumiType, name, resourceInputs, opts);
     }
 }
 

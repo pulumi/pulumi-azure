@@ -170,7 +170,7 @@ type GremlinDatabaseInput interface {
 }
 
 func (*GremlinDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinDatabase)(nil))
+	return reflect.TypeOf((**GremlinDatabase)(nil)).Elem()
 }
 
 func (i *GremlinDatabase) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
@@ -179,35 +179,6 @@ func (i *GremlinDatabase) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
 
 func (i *GremlinDatabase) ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseOutput)
-}
-
-func (i *GremlinDatabase) ToGremlinDatabasePtrOutput() GremlinDatabasePtrOutput {
-	return i.ToGremlinDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *GremlinDatabase) ToGremlinDatabasePtrOutputWithContext(ctx context.Context) GremlinDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabasePtrOutput)
-}
-
-type GremlinDatabasePtrInput interface {
-	pulumi.Input
-
-	ToGremlinDatabasePtrOutput() GremlinDatabasePtrOutput
-	ToGremlinDatabasePtrOutputWithContext(ctx context.Context) GremlinDatabasePtrOutput
-}
-
-type gremlinDatabasePtrType GremlinDatabaseArgs
-
-func (*gremlinDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GremlinDatabase)(nil))
-}
-
-func (i *gremlinDatabasePtrType) ToGremlinDatabasePtrOutput() GremlinDatabasePtrOutput {
-	return i.ToGremlinDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *gremlinDatabasePtrType) ToGremlinDatabasePtrOutputWithContext(ctx context.Context) GremlinDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabasePtrOutput)
 }
 
 // GremlinDatabaseArrayInput is an input type that accepts GremlinDatabaseArray and GremlinDatabaseArrayOutput values.
@@ -263,7 +234,7 @@ func (i GremlinDatabaseMap) ToGremlinDatabaseMapOutputWithContext(ctx context.Co
 type GremlinDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GremlinDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinDatabase)(nil))
+	return reflect.TypeOf((**GremlinDatabase)(nil)).Elem()
 }
 
 func (o GremlinDatabaseOutput) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
@@ -274,44 +245,10 @@ func (o GremlinDatabaseOutput) ToGremlinDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GremlinDatabaseOutput) ToGremlinDatabasePtrOutput() GremlinDatabasePtrOutput {
-	return o.ToGremlinDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o GremlinDatabaseOutput) ToGremlinDatabasePtrOutputWithContext(ctx context.Context) GremlinDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinDatabase) *GremlinDatabase {
-		return &v
-	}).(GremlinDatabasePtrOutput)
-}
-
-type GremlinDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (GremlinDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GremlinDatabase)(nil))
-}
-
-func (o GremlinDatabasePtrOutput) ToGremlinDatabasePtrOutput() GremlinDatabasePtrOutput {
-	return o
-}
-
-func (o GremlinDatabasePtrOutput) ToGremlinDatabasePtrOutputWithContext(ctx context.Context) GremlinDatabasePtrOutput {
-	return o
-}
-
-func (o GremlinDatabasePtrOutput) Elem() GremlinDatabaseOutput {
-	return o.ApplyT(func(v *GremlinDatabase) GremlinDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret GremlinDatabase
-		return ret
-	}).(GremlinDatabaseOutput)
-}
-
 type GremlinDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (GremlinDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GremlinDatabase)(nil))
+	return reflect.TypeOf((*[]*GremlinDatabase)(nil)).Elem()
 }
 
 func (o GremlinDatabaseArrayOutput) ToGremlinDatabaseArrayOutput() GremlinDatabaseArrayOutput {
@@ -323,15 +260,15 @@ func (o GremlinDatabaseArrayOutput) ToGremlinDatabaseArrayOutputWithContext(ctx 
 }
 
 func (o GremlinDatabaseArrayOutput) Index(i pulumi.IntInput) GremlinDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinDatabase {
-		return vs[0].([]GremlinDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GremlinDatabase {
+		return vs[0].([]*GremlinDatabase)[vs[1].(int)]
 	}).(GremlinDatabaseOutput)
 }
 
 type GremlinDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (GremlinDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GremlinDatabase)(nil))
+	return reflect.TypeOf((*map[string]*GremlinDatabase)(nil)).Elem()
 }
 
 func (o GremlinDatabaseMapOutput) ToGremlinDatabaseMapOutput() GremlinDatabaseMapOutput {
@@ -343,18 +280,16 @@ func (o GremlinDatabaseMapOutput) ToGremlinDatabaseMapOutputWithContext(ctx cont
 }
 
 func (o GremlinDatabaseMapOutput) MapIndex(k pulumi.StringInput) GremlinDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GremlinDatabase {
-		return vs[0].(map[string]GremlinDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GremlinDatabase {
+		return vs[0].(map[string]*GremlinDatabase)[vs[1].(string)]
 	}).(GremlinDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabaseInput)(nil)).Elem(), &GremlinDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabasePtrInput)(nil)).Elem(), &GremlinDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabaseArrayInput)(nil)).Elem(), GremlinDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabaseMapInput)(nil)).Elem(), GremlinDatabaseMap{})
 	pulumi.RegisterOutputType(GremlinDatabaseOutput{})
-	pulumi.RegisterOutputType(GremlinDatabasePtrOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseMapOutput{})
 }

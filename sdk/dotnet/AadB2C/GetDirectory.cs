@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AadB2C
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AadB2C
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("azure:aadb2c/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("azure:aadb2c/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing AAD B2C Directory.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AadB2C
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("azure:aadb2c/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("azure:aadb2c/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
     }
 
 

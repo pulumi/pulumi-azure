@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ExpressRoute circuit.
@@ -82,7 +81,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithDefaults());
     }
 
 

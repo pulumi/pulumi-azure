@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

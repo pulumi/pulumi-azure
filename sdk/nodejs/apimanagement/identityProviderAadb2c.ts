@@ -135,21 +135,21 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityProviderAadb2cArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderAadb2cArgs | IdentityProviderAadb2cState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderAadb2cState | undefined;
-            inputs["allowedTenant"] = state ? state.allowedTenant : undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["authority"] = state ? state.authority : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["passwordResetPolicy"] = state ? state.passwordResetPolicy : undefined;
-            inputs["profileEditingPolicy"] = state ? state.profileEditingPolicy : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["signinPolicy"] = state ? state.signinPolicy : undefined;
-            inputs["signinTenant"] = state ? state.signinTenant : undefined;
-            inputs["signupPolicy"] = state ? state.signupPolicy : undefined;
+            resourceInputs["allowedTenant"] = state ? state.allowedTenant : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["authority"] = state ? state.authority : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["passwordResetPolicy"] = state ? state.passwordResetPolicy : undefined;
+            resourceInputs["profileEditingPolicy"] = state ? state.profileEditingPolicy : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["signinPolicy"] = state ? state.signinPolicy : undefined;
+            resourceInputs["signinTenant"] = state ? state.signinTenant : undefined;
+            resourceInputs["signupPolicy"] = state ? state.signupPolicy : undefined;
         } else {
             const args = argsOrState as IdentityProviderAadb2cArgs | undefined;
             if ((!args || args.allowedTenant === undefined) && !opts.urn) {
@@ -179,22 +179,20 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             if ((!args || args.signupPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signupPolicy'");
             }
-            inputs["allowedTenant"] = args ? args.allowedTenant : undefined;
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["authority"] = args ? args.authority : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["passwordResetPolicy"] = args ? args.passwordResetPolicy : undefined;
-            inputs["profileEditingPolicy"] = args ? args.profileEditingPolicy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["signinPolicy"] = args ? args.signinPolicy : undefined;
-            inputs["signinTenant"] = args ? args.signinTenant : undefined;
-            inputs["signupPolicy"] = args ? args.signupPolicy : undefined;
+            resourceInputs["allowedTenant"] = args ? args.allowedTenant : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["authority"] = args ? args.authority : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["passwordResetPolicy"] = args ? args.passwordResetPolicy : undefined;
+            resourceInputs["profileEditingPolicy"] = args ? args.profileEditingPolicy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["signinPolicy"] = args ? args.signinPolicy : undefined;
+            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
+            resourceInputs["signupPolicy"] = args ? args.signupPolicy : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IdentityProviderAadb2c.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IdentityProviderAadb2c.__pulumiType, name, resourceInputs, opts);
     }
 }
 

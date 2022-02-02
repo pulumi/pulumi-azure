@@ -28,9 +28,7 @@ export function getConfigurationKey(args: GetConfigurationKeyArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:appconfiguration/getConfigurationKey:getConfigurationKey", {
         "configurationStoreId": args.configurationStoreId,
         "key": args.key,

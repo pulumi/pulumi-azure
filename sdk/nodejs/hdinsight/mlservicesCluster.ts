@@ -168,24 +168,24 @@ export class MLServicesCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: MLServicesClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MLServicesClusterArgs | MLServicesClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MLServicesClusterState | undefined;
-            inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
-            inputs["edgeSshEndpoint"] = state ? state.edgeSshEndpoint : undefined;
-            inputs["gateway"] = state ? state.gateway : undefined;
-            inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["rstudio"] = state ? state.rstudio : undefined;
-            inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
-            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
-            inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
+            resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
+            resourceInputs["edgeSshEndpoint"] = state ? state.edgeSshEndpoint : undefined;
+            resourceInputs["gateway"] = state ? state.gateway : undefined;
+            resourceInputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["rstudio"] = state ? state.rstudio : undefined;
+            resourceInputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
+            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as MLServicesClusterArgs | undefined;
             if ((!args || args.clusterVersion === undefined) && !opts.urn) {
@@ -206,25 +206,23 @@ export class MLServicesCluster extends pulumi.CustomResource {
             if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            inputs["gateway"] = args ? args.gateway : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["rstudio"] = args ? args.rstudio : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
-            inputs["edgeSshEndpoint"] = undefined /*out*/;
-            inputs["httpsEndpoint"] = undefined /*out*/;
-            inputs["sshEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
+            resourceInputs["gateway"] = args ? args.gateway : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["rstudio"] = args ? args.rstudio : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
+            resourceInputs["edgeSshEndpoint"] = undefined /*out*/;
+            resourceInputs["httpsEndpoint"] = undefined /*out*/;
+            resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MLServicesCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MLServicesCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

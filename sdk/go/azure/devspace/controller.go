@@ -180,7 +180,7 @@ type ControllerInput interface {
 }
 
 func (*Controller) ElementType() reflect.Type {
-	return reflect.TypeOf((*Controller)(nil))
+	return reflect.TypeOf((**Controller)(nil)).Elem()
 }
 
 func (i *Controller) ToControllerOutput() ControllerOutput {
@@ -189,35 +189,6 @@ func (i *Controller) ToControllerOutput() ControllerOutput {
 
 func (i *Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
-}
-
-func (i *Controller) ToControllerPtrOutput() ControllerPtrOutput {
-	return i.ToControllerPtrOutputWithContext(context.Background())
-}
-
-func (i *Controller) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerPtrOutput)
-}
-
-type ControllerPtrInput interface {
-	pulumi.Input
-
-	ToControllerPtrOutput() ControllerPtrOutput
-	ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput
-}
-
-type controllerPtrType ControllerArgs
-
-func (*controllerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Controller)(nil))
-}
-
-func (i *controllerPtrType) ToControllerPtrOutput() ControllerPtrOutput {
-	return i.ToControllerPtrOutputWithContext(context.Background())
-}
-
-func (i *controllerPtrType) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerPtrOutput)
 }
 
 // ControllerArrayInput is an input type that accepts ControllerArray and ControllerArrayOutput values.
@@ -273,7 +244,7 @@ func (i ControllerMap) ToControllerMapOutputWithContext(ctx context.Context) Con
 type ControllerOutput struct{ *pulumi.OutputState }
 
 func (ControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Controller)(nil))
+	return reflect.TypeOf((**Controller)(nil)).Elem()
 }
 
 func (o ControllerOutput) ToControllerOutput() ControllerOutput {
@@ -284,44 +255,10 @@ func (o ControllerOutput) ToControllerOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-func (o ControllerOutput) ToControllerPtrOutput() ControllerPtrOutput {
-	return o.ToControllerPtrOutputWithContext(context.Background())
-}
-
-func (o ControllerOutput) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Controller) *Controller {
-		return &v
-	}).(ControllerPtrOutput)
-}
-
-type ControllerPtrOutput struct{ *pulumi.OutputState }
-
-func (ControllerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Controller)(nil))
-}
-
-func (o ControllerPtrOutput) ToControllerPtrOutput() ControllerPtrOutput {
-	return o
-}
-
-func (o ControllerPtrOutput) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
-	return o
-}
-
-func (o ControllerPtrOutput) Elem() ControllerOutput {
-	return o.ApplyT(func(v *Controller) Controller {
-		if v != nil {
-			return *v
-		}
-		var ret Controller
-		return ret
-	}).(ControllerOutput)
-}
-
 type ControllerArrayOutput struct{ *pulumi.OutputState }
 
 func (ControllerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Controller)(nil))
+	return reflect.TypeOf((*[]*Controller)(nil)).Elem()
 }
 
 func (o ControllerArrayOutput) ToControllerArrayOutput() ControllerArrayOutput {
@@ -333,15 +270,15 @@ func (o ControllerArrayOutput) ToControllerArrayOutputWithContext(ctx context.Co
 }
 
 func (o ControllerArrayOutput) Index(i pulumi.IntInput) ControllerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Controller {
-		return vs[0].([]Controller)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Controller {
+		return vs[0].([]*Controller)[vs[1].(int)]
 	}).(ControllerOutput)
 }
 
 type ControllerMapOutput struct{ *pulumi.OutputState }
 
 func (ControllerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Controller)(nil))
+	return reflect.TypeOf((*map[string]*Controller)(nil)).Elem()
 }
 
 func (o ControllerMapOutput) ToControllerMapOutput() ControllerMapOutput {
@@ -353,18 +290,16 @@ func (o ControllerMapOutput) ToControllerMapOutputWithContext(ctx context.Contex
 }
 
 func (o ControllerMapOutput) MapIndex(k pulumi.StringInput) ControllerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Controller {
-		return vs[0].(map[string]Controller)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Controller {
+		return vs[0].(map[string]*Controller)[vs[1].(string)]
 	}).(ControllerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ControllerInput)(nil)).Elem(), &Controller{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ControllerPtrInput)(nil)).Elem(), &Controller{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControllerArrayInput)(nil)).Elem(), ControllerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControllerMapInput)(nil)).Elem(), ControllerMap{})
 	pulumi.RegisterOutputType(ControllerOutput{})
-	pulumi.RegisterOutputType(ControllerPtrOutput{})
 	pulumi.RegisterOutputType(ControllerArrayOutput{})
 	pulumi.RegisterOutputType(ControllerMapOutput{})
 }

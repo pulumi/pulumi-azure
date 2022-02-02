@@ -167,7 +167,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewProtectionContainerMapping(ctx, "container_mapping", &siterecovery.ProtectionContainerMappingArgs{
+// 		_, err = siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
 // 			ResourceGroupName:                     secondaryResourceGroup.Name,
 // 			RecoveryVaultName:                     vault.Name,
 // 			RecoveryFabricName:                    primaryFabric.Name,
@@ -216,7 +216,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewReplicatedVM(ctx, "vm_replication", &siterecovery.ReplicatedVMArgs{
+// 		_, err = siterecovery.NewReplicatedVM(ctx, "vm-replication", &siterecovery.ReplicatedVMArgs{
 // 			ResourceGroupName:                     secondaryResourceGroup.Name,
 // 			RecoveryVaultName:                     vault.Name,
 // 			SourceRecoveryFabricName:              primaryFabric.Name,
@@ -484,7 +484,7 @@ type ReplicatedVMInput interface {
 }
 
 func (*ReplicatedVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicatedVM)(nil))
+	return reflect.TypeOf((**ReplicatedVM)(nil)).Elem()
 }
 
 func (i *ReplicatedVM) ToReplicatedVMOutput() ReplicatedVMOutput {
@@ -493,35 +493,6 @@ func (i *ReplicatedVM) ToReplicatedVMOutput() ReplicatedVMOutput {
 
 func (i *ReplicatedVM) ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMOutput)
-}
-
-func (i *ReplicatedVM) ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput {
-	return i.ToReplicatedVMPtrOutputWithContext(context.Background())
-}
-
-func (i *ReplicatedVM) ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMPtrOutput)
-}
-
-type ReplicatedVMPtrInput interface {
-	pulumi.Input
-
-	ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput
-	ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput
-}
-
-type replicatedVMPtrType ReplicatedVMArgs
-
-func (*replicatedVMPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicatedVM)(nil))
-}
-
-func (i *replicatedVMPtrType) ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput {
-	return i.ToReplicatedVMPtrOutputWithContext(context.Background())
-}
-
-func (i *replicatedVMPtrType) ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMPtrOutput)
 }
 
 // ReplicatedVMArrayInput is an input type that accepts ReplicatedVMArray and ReplicatedVMArrayOutput values.
@@ -577,7 +548,7 @@ func (i ReplicatedVMMap) ToReplicatedVMMapOutputWithContext(ctx context.Context)
 type ReplicatedVMOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicatedVM)(nil))
+	return reflect.TypeOf((**ReplicatedVM)(nil)).Elem()
 }
 
 func (o ReplicatedVMOutput) ToReplicatedVMOutput() ReplicatedVMOutput {
@@ -588,44 +559,10 @@ func (o ReplicatedVMOutput) ToReplicatedVMOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ReplicatedVMOutput) ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput {
-	return o.ToReplicatedVMPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicatedVMOutput) ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatedVM) *ReplicatedVM {
-		return &v
-	}).(ReplicatedVMPtrOutput)
-}
-
-type ReplicatedVMPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicatedVMPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicatedVM)(nil))
-}
-
-func (o ReplicatedVMPtrOutput) ToReplicatedVMPtrOutput() ReplicatedVMPtrOutput {
-	return o
-}
-
-func (o ReplicatedVMPtrOutput) ToReplicatedVMPtrOutputWithContext(ctx context.Context) ReplicatedVMPtrOutput {
-	return o
-}
-
-func (o ReplicatedVMPtrOutput) Elem() ReplicatedVMOutput {
-	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVM {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicatedVM
-		return ret
-	}).(ReplicatedVMOutput)
-}
-
 type ReplicatedVMArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicatedVM)(nil))
+	return reflect.TypeOf((*[]*ReplicatedVM)(nil)).Elem()
 }
 
 func (o ReplicatedVMArrayOutput) ToReplicatedVMArrayOutput() ReplicatedVMArrayOutput {
@@ -637,15 +574,15 @@ func (o ReplicatedVMArrayOutput) ToReplicatedVMArrayOutputWithContext(ctx contex
 }
 
 func (o ReplicatedVMArrayOutput) Index(i pulumi.IntInput) ReplicatedVMOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVM {
-		return vs[0].([]ReplicatedVM)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicatedVM {
+		return vs[0].([]*ReplicatedVM)[vs[1].(int)]
 	}).(ReplicatedVMOutput)
 }
 
 type ReplicatedVMMapOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReplicatedVM)(nil))
+	return reflect.TypeOf((*map[string]*ReplicatedVM)(nil)).Elem()
 }
 
 func (o ReplicatedVMMapOutput) ToReplicatedVMMapOutput() ReplicatedVMMapOutput {
@@ -657,18 +594,16 @@ func (o ReplicatedVMMapOutput) ToReplicatedVMMapOutputWithContext(ctx context.Co
 }
 
 func (o ReplicatedVMMapOutput) MapIndex(k pulumi.StringInput) ReplicatedVMOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicatedVM {
-		return vs[0].(map[string]ReplicatedVM)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReplicatedVM {
+		return vs[0].(map[string]*ReplicatedVM)[vs[1].(string)]
 	}).(ReplicatedVMOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMInput)(nil)).Elem(), &ReplicatedVM{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMPtrInput)(nil)).Elem(), &ReplicatedVM{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMArrayInput)(nil)).Elem(), ReplicatedVMArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMMapInput)(nil)).Elem(), ReplicatedVMMap{})
 	pulumi.RegisterOutputType(ReplicatedVMOutput{})
-	pulumi.RegisterOutputType(ReplicatedVMPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMMapOutput{})
 }

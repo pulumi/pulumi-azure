@@ -193,7 +193,7 @@ type NamespaceDisasterRecoveryConfigInput interface {
 }
 
 func (*NamespaceDisasterRecoveryConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceDisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((**NamespaceDisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigOutput() NamespaceDisasterRecoveryConfigOutput {
@@ -202,35 +202,6 @@ func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigOutpu
 
 func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigOutput)
-}
-
-func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigPtrOutput() NamespaceDisasterRecoveryConfigPtrOutput {
-	return i.ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigPtrOutput)
-}
-
-type NamespaceDisasterRecoveryConfigPtrInput interface {
-	pulumi.Input
-
-	ToNamespaceDisasterRecoveryConfigPtrOutput() NamespaceDisasterRecoveryConfigPtrOutput
-	ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigPtrOutput
-}
-
-type namespaceDisasterRecoveryConfigPtrType NamespaceDisasterRecoveryConfigArgs
-
-func (*namespaceDisasterRecoveryConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceDisasterRecoveryConfig)(nil))
-}
-
-func (i *namespaceDisasterRecoveryConfigPtrType) ToNamespaceDisasterRecoveryConfigPtrOutput() NamespaceDisasterRecoveryConfigPtrOutput {
-	return i.ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *namespaceDisasterRecoveryConfigPtrType) ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigPtrOutput)
 }
 
 // NamespaceDisasterRecoveryConfigArrayInput is an input type that accepts NamespaceDisasterRecoveryConfigArray and NamespaceDisasterRecoveryConfigArrayOutput values.
@@ -286,7 +257,7 @@ func (i NamespaceDisasterRecoveryConfigMap) ToNamespaceDisasterRecoveryConfigMap
 type NamespaceDisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (NamespaceDisasterRecoveryConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceDisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((**NamespaceDisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfigOutput() NamespaceDisasterRecoveryConfigOutput {
@@ -297,44 +268,10 @@ func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfig
 	return o
 }
 
-func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfigPtrOutput() NamespaceDisasterRecoveryConfigPtrOutput {
-	return o.ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(context.Background())
-}
-
-func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceDisasterRecoveryConfig) *NamespaceDisasterRecoveryConfig {
-		return &v
-	}).(NamespaceDisasterRecoveryConfigPtrOutput)
-}
-
-type NamespaceDisasterRecoveryConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (NamespaceDisasterRecoveryConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceDisasterRecoveryConfig)(nil))
-}
-
-func (o NamespaceDisasterRecoveryConfigPtrOutput) ToNamespaceDisasterRecoveryConfigPtrOutput() NamespaceDisasterRecoveryConfigPtrOutput {
-	return o
-}
-
-func (o NamespaceDisasterRecoveryConfigPtrOutput) ToNamespaceDisasterRecoveryConfigPtrOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigPtrOutput {
-	return o
-}
-
-func (o NamespaceDisasterRecoveryConfigPtrOutput) Elem() NamespaceDisasterRecoveryConfigOutput {
-	return o.ApplyT(func(v *NamespaceDisasterRecoveryConfig) NamespaceDisasterRecoveryConfig {
-		if v != nil {
-			return *v
-		}
-		var ret NamespaceDisasterRecoveryConfig
-		return ret
-	}).(NamespaceDisasterRecoveryConfigOutput)
-}
-
 type NamespaceDisasterRecoveryConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (NamespaceDisasterRecoveryConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NamespaceDisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((*[]*NamespaceDisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (o NamespaceDisasterRecoveryConfigArrayOutput) ToNamespaceDisasterRecoveryConfigArrayOutput() NamespaceDisasterRecoveryConfigArrayOutput {
@@ -346,15 +283,15 @@ func (o NamespaceDisasterRecoveryConfigArrayOutput) ToNamespaceDisasterRecoveryC
 }
 
 func (o NamespaceDisasterRecoveryConfigArrayOutput) Index(i pulumi.IntInput) NamespaceDisasterRecoveryConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceDisasterRecoveryConfig {
-		return vs[0].([]NamespaceDisasterRecoveryConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamespaceDisasterRecoveryConfig {
+		return vs[0].([]*NamespaceDisasterRecoveryConfig)[vs[1].(int)]
 	}).(NamespaceDisasterRecoveryConfigOutput)
 }
 
 type NamespaceDisasterRecoveryConfigMapOutput struct{ *pulumi.OutputState }
 
 func (NamespaceDisasterRecoveryConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NamespaceDisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((*map[string]*NamespaceDisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (o NamespaceDisasterRecoveryConfigMapOutput) ToNamespaceDisasterRecoveryConfigMapOutput() NamespaceDisasterRecoveryConfigMapOutput {
@@ -366,18 +303,16 @@ func (o NamespaceDisasterRecoveryConfigMapOutput) ToNamespaceDisasterRecoveryCon
 }
 
 func (o NamespaceDisasterRecoveryConfigMapOutput) MapIndex(k pulumi.StringInput) NamespaceDisasterRecoveryConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NamespaceDisasterRecoveryConfig {
-		return vs[0].(map[string]NamespaceDisasterRecoveryConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NamespaceDisasterRecoveryConfig {
+		return vs[0].(map[string]*NamespaceDisasterRecoveryConfig)[vs[1].(string)]
 	}).(NamespaceDisasterRecoveryConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceDisasterRecoveryConfigInput)(nil)).Elem(), &NamespaceDisasterRecoveryConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceDisasterRecoveryConfigPtrInput)(nil)).Elem(), &NamespaceDisasterRecoveryConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceDisasterRecoveryConfigArrayInput)(nil)).Elem(), NamespaceDisasterRecoveryConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceDisasterRecoveryConfigMapInput)(nil)).Elem(), NamespaceDisasterRecoveryConfigMap{})
 	pulumi.RegisterOutputType(NamespaceDisasterRecoveryConfigOutput{})
-	pulumi.RegisterOutputType(NamespaceDisasterRecoveryConfigPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceDisasterRecoveryConfigArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceDisasterRecoveryConfigMapOutput{})
 }

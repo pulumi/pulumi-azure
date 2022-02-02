@@ -126,19 +126,19 @@ export class StreamInputIotHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamInputIotHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamInputIotHubArgs | StreamInputIotHubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamInputIotHubState | undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
-            inputs["iothubNamespace"] = state ? state.iothubNamespace : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serialization"] = state ? state.serialization : undefined;
-            inputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
-            inputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
+            resourceInputs["iothubNamespace"] = state ? state.iothubNamespace : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serialization"] = state ? state.serialization : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as StreamInputIotHubArgs | undefined;
             if ((!args || args.endpoint === undefined) && !opts.urn) {
@@ -165,20 +165,18 @@ export class StreamInputIotHub extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
-            inputs["iothubNamespace"] = args ? args.iothubNamespace : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serialization"] = args ? args.serialization : undefined;
-            inputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
-            inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
+            resourceInputs["iothubNamespace"] = args ? args.iothubNamespace : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamInputIotHub.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamInputIotHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

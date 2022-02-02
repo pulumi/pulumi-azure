@@ -129,20 +129,20 @@ export class SpringCloudAppCosmosDBAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudAppCosmosDBAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudAppCosmosDBAssociationArgs | SpringCloudAppCosmosDBAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppCosmosDBAssociationState | undefined;
-            inputs["apiType"] = state ? state.apiType : undefined;
-            inputs["cosmosdbAccessKey"] = state ? state.cosmosdbAccessKey : undefined;
-            inputs["cosmosdbAccountId"] = state ? state.cosmosdbAccountId : undefined;
-            inputs["cosmosdbCassandraKeyspaceName"] = state ? state.cosmosdbCassandraKeyspaceName : undefined;
-            inputs["cosmosdbGremlinDatabaseName"] = state ? state.cosmosdbGremlinDatabaseName : undefined;
-            inputs["cosmosdbGremlinGraphName"] = state ? state.cosmosdbGremlinGraphName : undefined;
-            inputs["cosmosdbMongoDatabaseName"] = state ? state.cosmosdbMongoDatabaseName : undefined;
-            inputs["cosmosdbSqlDatabaseName"] = state ? state.cosmosdbSqlDatabaseName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["apiType"] = state ? state.apiType : undefined;
+            resourceInputs["cosmosdbAccessKey"] = state ? state.cosmosdbAccessKey : undefined;
+            resourceInputs["cosmosdbAccountId"] = state ? state.cosmosdbAccountId : undefined;
+            resourceInputs["cosmosdbCassandraKeyspaceName"] = state ? state.cosmosdbCassandraKeyspaceName : undefined;
+            resourceInputs["cosmosdbGremlinDatabaseName"] = state ? state.cosmosdbGremlinDatabaseName : undefined;
+            resourceInputs["cosmosdbGremlinGraphName"] = state ? state.cosmosdbGremlinGraphName : undefined;
+            resourceInputs["cosmosdbMongoDatabaseName"] = state ? state.cosmosdbMongoDatabaseName : undefined;
+            resourceInputs["cosmosdbSqlDatabaseName"] = state ? state.cosmosdbSqlDatabaseName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
         } else {
             const args = argsOrState as SpringCloudAppCosmosDBAssociationArgs | undefined;
             if ((!args || args.apiType === undefined) && !opts.urn) {
@@ -157,21 +157,19 @@ export class SpringCloudAppCosmosDBAssociation extends pulumi.CustomResource {
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            inputs["apiType"] = args ? args.apiType : undefined;
-            inputs["cosmosdbAccessKey"] = args ? args.cosmosdbAccessKey : undefined;
-            inputs["cosmosdbAccountId"] = args ? args.cosmosdbAccountId : undefined;
-            inputs["cosmosdbCassandraKeyspaceName"] = args ? args.cosmosdbCassandraKeyspaceName : undefined;
-            inputs["cosmosdbGremlinDatabaseName"] = args ? args.cosmosdbGremlinDatabaseName : undefined;
-            inputs["cosmosdbGremlinGraphName"] = args ? args.cosmosdbGremlinGraphName : undefined;
-            inputs["cosmosdbMongoDatabaseName"] = args ? args.cosmosdbMongoDatabaseName : undefined;
-            inputs["cosmosdbSqlDatabaseName"] = args ? args.cosmosdbSqlDatabaseName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["apiType"] = args ? args.apiType : undefined;
+            resourceInputs["cosmosdbAccessKey"] = args ? args.cosmosdbAccessKey : undefined;
+            resourceInputs["cosmosdbAccountId"] = args ? args.cosmosdbAccountId : undefined;
+            resourceInputs["cosmosdbCassandraKeyspaceName"] = args ? args.cosmosdbCassandraKeyspaceName : undefined;
+            resourceInputs["cosmosdbGremlinDatabaseName"] = args ? args.cosmosdbGremlinDatabaseName : undefined;
+            resourceInputs["cosmosdbGremlinGraphName"] = args ? args.cosmosdbGremlinGraphName : undefined;
+            resourceInputs["cosmosdbMongoDatabaseName"] = args ? args.cosmosdbMongoDatabaseName : undefined;
+            resourceInputs["cosmosdbSqlDatabaseName"] = args ? args.cosmosdbSqlDatabaseName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpringCloudAppCosmosDBAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpringCloudAppCosmosDBAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

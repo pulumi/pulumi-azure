@@ -259,7 +259,7 @@ type SqlServerInput interface {
 }
 
 func (*SqlServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServer)(nil))
+	return reflect.TypeOf((**SqlServer)(nil)).Elem()
 }
 
 func (i *SqlServer) ToSqlServerOutput() SqlServerOutput {
@@ -268,35 +268,6 @@ func (i *SqlServer) ToSqlServerOutput() SqlServerOutput {
 
 func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
-}
-
-func (i *SqlServer) ToSqlServerPtrOutput() SqlServerPtrOutput {
-	return i.ToSqlServerPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlServer) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerPtrOutput)
-}
-
-type SqlServerPtrInput interface {
-	pulumi.Input
-
-	ToSqlServerPtrOutput() SqlServerPtrOutput
-	ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput
-}
-
-type sqlServerPtrType SqlServerArgs
-
-func (*sqlServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlServer)(nil))
-}
-
-func (i *sqlServerPtrType) ToSqlServerPtrOutput() SqlServerPtrOutput {
-	return i.ToSqlServerPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlServerPtrType) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerPtrOutput)
 }
 
 // SqlServerArrayInput is an input type that accepts SqlServerArray and SqlServerArrayOutput values.
@@ -352,7 +323,7 @@ func (i SqlServerMap) ToSqlServerMapOutputWithContext(ctx context.Context) SqlSe
 type SqlServerOutput struct{ *pulumi.OutputState }
 
 func (SqlServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServer)(nil))
+	return reflect.TypeOf((**SqlServer)(nil)).Elem()
 }
 
 func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {
@@ -363,44 +334,10 @@ func (o SqlServerOutput) ToSqlServerOutputWithContext(ctx context.Context) SqlSe
 	return o
 }
 
-func (o SqlServerOutput) ToSqlServerPtrOutput() SqlServerPtrOutput {
-	return o.ToSqlServerPtrOutputWithContext(context.Background())
-}
-
-func (o SqlServerOutput) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServer) *SqlServer {
-		return &v
-	}).(SqlServerPtrOutput)
-}
-
-type SqlServerPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlServer)(nil))
-}
-
-func (o SqlServerPtrOutput) ToSqlServerPtrOutput() SqlServerPtrOutput {
-	return o
-}
-
-func (o SqlServerPtrOutput) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
-	return o
-}
-
-func (o SqlServerPtrOutput) Elem() SqlServerOutput {
-	return o.ApplyT(func(v *SqlServer) SqlServer {
-		if v != nil {
-			return *v
-		}
-		var ret SqlServer
-		return ret
-	}).(SqlServerOutput)
-}
-
 type SqlServerArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlServer)(nil))
+	return reflect.TypeOf((*[]*SqlServer)(nil)).Elem()
 }
 
 func (o SqlServerArrayOutput) ToSqlServerArrayOutput() SqlServerArrayOutput {
@@ -412,15 +349,15 @@ func (o SqlServerArrayOutput) ToSqlServerArrayOutputWithContext(ctx context.Cont
 }
 
 func (o SqlServerArrayOutput) Index(i pulumi.IntInput) SqlServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlServer {
-		return vs[0].([]SqlServer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlServer {
+		return vs[0].([]*SqlServer)[vs[1].(int)]
 	}).(SqlServerOutput)
 }
 
 type SqlServerMapOutput struct{ *pulumi.OutputState }
 
 func (SqlServerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlServer)(nil))
+	return reflect.TypeOf((*map[string]*SqlServer)(nil)).Elem()
 }
 
 func (o SqlServerMapOutput) ToSqlServerMapOutput() SqlServerMapOutput {
@@ -432,18 +369,16 @@ func (o SqlServerMapOutput) ToSqlServerMapOutputWithContext(ctx context.Context)
 }
 
 func (o SqlServerMapOutput) MapIndex(k pulumi.StringInput) SqlServerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlServer {
-		return vs[0].(map[string]SqlServer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlServer {
+		return vs[0].(map[string]*SqlServer)[vs[1].(string)]
 	}).(SqlServerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerInput)(nil)).Elem(), &SqlServer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerPtrInput)(nil)).Elem(), &SqlServer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerArrayInput)(nil)).Elem(), SqlServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerMapInput)(nil)).Elem(), SqlServerMap{})
 	pulumi.RegisterOutputType(SqlServerOutput{})
-	pulumi.RegisterOutputType(SqlServerPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerArrayOutput{})
 	pulumi.RegisterOutputType(SqlServerMapOutput{})
 }

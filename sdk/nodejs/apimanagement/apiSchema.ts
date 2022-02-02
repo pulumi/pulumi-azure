@@ -100,16 +100,16 @@ export class ApiSchema extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiSchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiSchemaArgs | ApiSchemaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiSchemaState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["apiName"] = state ? state.apiName : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["schemaId"] = state ? state.schemaId : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["apiName"] = state ? state.apiName : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["schemaId"] = state ? state.schemaId : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ApiSchemaArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -130,17 +130,15 @@ export class ApiSchema extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["apiName"] = args ? args.apiName : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaId"] = args ? args.schemaId : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiName"] = args ? args.apiName : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaId"] = args ? args.schemaId : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiSchema.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiSchema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

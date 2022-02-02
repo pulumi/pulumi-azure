@@ -31,6 +31,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = search.LookupServiceOutput(ctx, search.GetServiceOutputArgs{
+// 			Name:              pulumi.String("example-search-service"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		return nil
 // 	})
 // }

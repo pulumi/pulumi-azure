@@ -218,34 +218,34 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineArgs | VirtualMachineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
-            inputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
-            inputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
-            inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            inputs["deleteDataDisksOnTermination"] = state ? state.deleteDataDisksOnTermination : undefined;
-            inputs["deleteOsDiskOnTermination"] = state ? state.deleteOsDiskOnTermination : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["osProfile"] = state ? state.osProfile : undefined;
-            inputs["osProfileLinuxConfig"] = state ? state.osProfileLinuxConfig : undefined;
-            inputs["osProfileSecrets"] = state ? state.osProfileSecrets : undefined;
-            inputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
-            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageDataDisks"] = state ? state.storageDataDisks : undefined;
-            inputs["storageImageReference"] = state ? state.storageImageReference : undefined;
-            inputs["storageOsDisk"] = state ? state.storageOsDisk : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vmSize"] = state ? state.vmSize : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
+            resourceInputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
+            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["deleteDataDisksOnTermination"] = state ? state.deleteDataDisksOnTermination : undefined;
+            resourceInputs["deleteOsDiskOnTermination"] = state ? state.deleteOsDiskOnTermination : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["osProfile"] = state ? state.osProfile : undefined;
+            resourceInputs["osProfileLinuxConfig"] = state ? state.osProfileLinuxConfig : undefined;
+            resourceInputs["osProfileSecrets"] = state ? state.osProfileSecrets : undefined;
+            resourceInputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
+            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageDataDisks"] = state ? state.storageDataDisks : undefined;
+            resourceInputs["storageImageReference"] = state ? state.storageImageReference : undefined;
+            resourceInputs["storageOsDisk"] = state ? state.storageOsDisk : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["vmSize"] = state ? state.vmSize : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
             if ((!args || args.networkInterfaceIds === undefined) && !opts.urn) {
@@ -260,35 +260,33 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            inputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
-            inputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            inputs["deleteDataDisksOnTermination"] = args ? args.deleteDataDisksOnTermination : undefined;
-            inputs["deleteOsDiskOnTermination"] = args ? args.deleteOsDiskOnTermination : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
-            inputs["osProfileLinuxConfig"] = args ? args.osProfileLinuxConfig : undefined;
-            inputs["osProfileSecrets"] = args ? args.osProfileSecrets : undefined;
-            inputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["primaryNetworkInterfaceId"] = args ? args.primaryNetworkInterfaceId : undefined;
-            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageDataDisks"] = args ? args.storageDataDisks : undefined;
-            inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
-            inputs["storageOsDisk"] = args ? args.storageOsDisk : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
+            resourceInputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
+            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["deleteDataDisksOnTermination"] = args ? args.deleteDataDisksOnTermination : undefined;
+            resourceInputs["deleteOsDiskOnTermination"] = args ? args.deleteOsDiskOnTermination : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["osProfileLinuxConfig"] = args ? args.osProfileLinuxConfig : undefined;
+            resourceInputs["osProfileSecrets"] = args ? args.osProfileSecrets : undefined;
+            resourceInputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["primaryNetworkInterfaceId"] = args ? args.primaryNetworkInterfaceId : undefined;
+            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageDataDisks"] = args ? args.storageDataDisks : undefined;
+            resourceInputs["storageImageReference"] = args ? args.storageImageReference : undefined;
+            resourceInputs["storageOsDisk"] = args ? args.storageOsDisk : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualMachine.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

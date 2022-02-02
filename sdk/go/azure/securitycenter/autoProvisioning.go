@@ -120,7 +120,7 @@ type AutoProvisioningInput interface {
 }
 
 func (*AutoProvisioning) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoProvisioning)(nil))
+	return reflect.TypeOf((**AutoProvisioning)(nil)).Elem()
 }
 
 func (i *AutoProvisioning) ToAutoProvisioningOutput() AutoProvisioningOutput {
@@ -129,35 +129,6 @@ func (i *AutoProvisioning) ToAutoProvisioningOutput() AutoProvisioningOutput {
 
 func (i *AutoProvisioning) ToAutoProvisioningOutputWithContext(ctx context.Context) AutoProvisioningOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningOutput)
-}
-
-func (i *AutoProvisioning) ToAutoProvisioningPtrOutput() AutoProvisioningPtrOutput {
-	return i.ToAutoProvisioningPtrOutputWithContext(context.Background())
-}
-
-func (i *AutoProvisioning) ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningPtrOutput)
-}
-
-type AutoProvisioningPtrInput interface {
-	pulumi.Input
-
-	ToAutoProvisioningPtrOutput() AutoProvisioningPtrOutput
-	ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput
-}
-
-type autoProvisioningPtrType AutoProvisioningArgs
-
-func (*autoProvisioningPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoProvisioning)(nil))
-}
-
-func (i *autoProvisioningPtrType) ToAutoProvisioningPtrOutput() AutoProvisioningPtrOutput {
-	return i.ToAutoProvisioningPtrOutputWithContext(context.Background())
-}
-
-func (i *autoProvisioningPtrType) ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningPtrOutput)
 }
 
 // AutoProvisioningArrayInput is an input type that accepts AutoProvisioningArray and AutoProvisioningArrayOutput values.
@@ -213,7 +184,7 @@ func (i AutoProvisioningMap) ToAutoProvisioningMapOutputWithContext(ctx context.
 type AutoProvisioningOutput struct{ *pulumi.OutputState }
 
 func (AutoProvisioningOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoProvisioning)(nil))
+	return reflect.TypeOf((**AutoProvisioning)(nil)).Elem()
 }
 
 func (o AutoProvisioningOutput) ToAutoProvisioningOutput() AutoProvisioningOutput {
@@ -224,44 +195,10 @@ func (o AutoProvisioningOutput) ToAutoProvisioningOutputWithContext(ctx context.
 	return o
 }
 
-func (o AutoProvisioningOutput) ToAutoProvisioningPtrOutput() AutoProvisioningPtrOutput {
-	return o.ToAutoProvisioningPtrOutputWithContext(context.Background())
-}
-
-func (o AutoProvisioningOutput) ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoProvisioning) *AutoProvisioning {
-		return &v
-	}).(AutoProvisioningPtrOutput)
-}
-
-type AutoProvisioningPtrOutput struct{ *pulumi.OutputState }
-
-func (AutoProvisioningPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoProvisioning)(nil))
-}
-
-func (o AutoProvisioningPtrOutput) ToAutoProvisioningPtrOutput() AutoProvisioningPtrOutput {
-	return o
-}
-
-func (o AutoProvisioningPtrOutput) ToAutoProvisioningPtrOutputWithContext(ctx context.Context) AutoProvisioningPtrOutput {
-	return o
-}
-
-func (o AutoProvisioningPtrOutput) Elem() AutoProvisioningOutput {
-	return o.ApplyT(func(v *AutoProvisioning) AutoProvisioning {
-		if v != nil {
-			return *v
-		}
-		var ret AutoProvisioning
-		return ret
-	}).(AutoProvisioningOutput)
-}
-
 type AutoProvisioningArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoProvisioningArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoProvisioning)(nil))
+	return reflect.TypeOf((*[]*AutoProvisioning)(nil)).Elem()
 }
 
 func (o AutoProvisioningArrayOutput) ToAutoProvisioningArrayOutput() AutoProvisioningArrayOutput {
@@ -273,15 +210,15 @@ func (o AutoProvisioningArrayOutput) ToAutoProvisioningArrayOutputWithContext(ct
 }
 
 func (o AutoProvisioningArrayOutput) Index(i pulumi.IntInput) AutoProvisioningOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoProvisioning {
-		return vs[0].([]AutoProvisioning)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoProvisioning {
+		return vs[0].([]*AutoProvisioning)[vs[1].(int)]
 	}).(AutoProvisioningOutput)
 }
 
 type AutoProvisioningMapOutput struct{ *pulumi.OutputState }
 
 func (AutoProvisioningMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AutoProvisioning)(nil))
+	return reflect.TypeOf((*map[string]*AutoProvisioning)(nil)).Elem()
 }
 
 func (o AutoProvisioningMapOutput) ToAutoProvisioningMapOutput() AutoProvisioningMapOutput {
@@ -293,18 +230,16 @@ func (o AutoProvisioningMapOutput) ToAutoProvisioningMapOutputWithContext(ctx co
 }
 
 func (o AutoProvisioningMapOutput) MapIndex(k pulumi.StringInput) AutoProvisioningOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AutoProvisioning {
-		return vs[0].(map[string]AutoProvisioning)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AutoProvisioning {
+		return vs[0].(map[string]*AutoProvisioning)[vs[1].(string)]
 	}).(AutoProvisioningOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningInput)(nil)).Elem(), &AutoProvisioning{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningPtrInput)(nil)).Elem(), &AutoProvisioning{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningArrayInput)(nil)).Elem(), AutoProvisioningArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningMapInput)(nil)).Elem(), AutoProvisioningMap{})
 	pulumi.RegisterOutputType(AutoProvisioningOutput{})
-	pulumi.RegisterOutputType(AutoProvisioningPtrOutput{})
 	pulumi.RegisterOutputType(AutoProvisioningArrayOutput{})
 	pulumi.RegisterOutputType(AutoProvisioningMapOutput{})
 }

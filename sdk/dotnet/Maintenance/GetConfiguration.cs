@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Maintenance
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Maintenance
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure:maintenance/getConfiguration:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure:maintenance/getConfiguration:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Maintenance Configuration.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Maintenance
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure:maintenance/getConfiguration:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure:maintenance/getConfiguration:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -726,7 +726,7 @@ type ScaleSetInput interface {
 }
 
 func (*ScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleSet)(nil))
+	return reflect.TypeOf((**ScaleSet)(nil)).Elem()
 }
 
 func (i *ScaleSet) ToScaleSetOutput() ScaleSetOutput {
@@ -735,35 +735,6 @@ func (i *ScaleSet) ToScaleSetOutput() ScaleSetOutput {
 
 func (i *ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOutput)
-}
-
-func (i *ScaleSet) ToScaleSetPtrOutput() ScaleSetPtrOutput {
-	return i.ToScaleSetPtrOutputWithContext(context.Background())
-}
-
-func (i *ScaleSet) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPtrOutput)
-}
-
-type ScaleSetPtrInput interface {
-	pulumi.Input
-
-	ToScaleSetPtrOutput() ScaleSetPtrOutput
-	ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput
-}
-
-type scaleSetPtrType ScaleSetArgs
-
-func (*scaleSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSet)(nil))
-}
-
-func (i *scaleSetPtrType) ToScaleSetPtrOutput() ScaleSetPtrOutput {
-	return i.ToScaleSetPtrOutputWithContext(context.Background())
-}
-
-func (i *scaleSetPtrType) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPtrOutput)
 }
 
 // ScaleSetArrayInput is an input type that accepts ScaleSetArray and ScaleSetArrayOutput values.
@@ -819,7 +790,7 @@ func (i ScaleSetMap) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSe
 type ScaleSetOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleSet)(nil))
+	return reflect.TypeOf((**ScaleSet)(nil)).Elem()
 }
 
 func (o ScaleSetOutput) ToScaleSetOutput() ScaleSetOutput {
@@ -830,44 +801,10 @@ func (o ScaleSetOutput) ToScaleSetOutputWithContext(ctx context.Context) ScaleSe
 	return o
 }
 
-func (o ScaleSetOutput) ToScaleSetPtrOutput() ScaleSetPtrOutput {
-	return o.ToScaleSetPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleSetOutput) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSet) *ScaleSet {
-		return &v
-	}).(ScaleSetPtrOutput)
-}
-
-type ScaleSetPtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSet)(nil))
-}
-
-func (o ScaleSetPtrOutput) ToScaleSetPtrOutput() ScaleSetPtrOutput {
-	return o
-}
-
-func (o ScaleSetPtrOutput) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
-	return o
-}
-
-func (o ScaleSetPtrOutput) Elem() ScaleSetOutput {
-	return o.ApplyT(func(v *ScaleSet) ScaleSet {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSet
-		return ret
-	}).(ScaleSetOutput)
-}
-
 type ScaleSetArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleSet)(nil))
+	return reflect.TypeOf((*[]*ScaleSet)(nil)).Elem()
 }
 
 func (o ScaleSetArrayOutput) ToScaleSetArrayOutput() ScaleSetArrayOutput {
@@ -879,15 +816,15 @@ func (o ScaleSetArrayOutput) ToScaleSetArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ScaleSetArrayOutput) Index(i pulumi.IntInput) ScaleSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSet {
-		return vs[0].([]ScaleSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScaleSet {
+		return vs[0].([]*ScaleSet)[vs[1].(int)]
 	}).(ScaleSetOutput)
 }
 
 type ScaleSetMapOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ScaleSet)(nil))
+	return reflect.TypeOf((*map[string]*ScaleSet)(nil)).Elem()
 }
 
 func (o ScaleSetMapOutput) ToScaleSetMapOutput() ScaleSetMapOutput {
@@ -899,18 +836,16 @@ func (o ScaleSetMapOutput) ToScaleSetMapOutputWithContext(ctx context.Context) S
 }
 
 func (o ScaleSetMapOutput) MapIndex(k pulumi.StringInput) ScaleSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScaleSet {
-		return vs[0].(map[string]ScaleSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ScaleSet {
+		return vs[0].(map[string]*ScaleSet)[vs[1].(string)]
 	}).(ScaleSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetInput)(nil)).Elem(), &ScaleSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetPtrInput)(nil)).Elem(), &ScaleSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetArrayInput)(nil)).Elem(), ScaleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetMapInput)(nil)).Elem(), ScaleSetMap{})
 	pulumi.RegisterOutputType(ScaleSetOutput{})
-	pulumi.RegisterOutputType(ScaleSetPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetArrayOutput{})
 	pulumi.RegisterOutputType(ScaleSetMapOutput{})
 }

@@ -326,7 +326,7 @@ type ComputeInstanceInput interface {
 }
 
 func (*ComputeInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeInstance)(nil))
+	return reflect.TypeOf((**ComputeInstance)(nil)).Elem()
 }
 
 func (i *ComputeInstance) ToComputeInstanceOutput() ComputeInstanceOutput {
@@ -335,35 +335,6 @@ func (i *ComputeInstance) ToComputeInstanceOutput() ComputeInstanceOutput {
 
 func (i *ComputeInstance) ToComputeInstanceOutputWithContext(ctx context.Context) ComputeInstanceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceOutput)
-}
-
-func (i *ComputeInstance) ToComputeInstancePtrOutput() ComputeInstancePtrOutput {
-	return i.ToComputeInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *ComputeInstance) ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstancePtrOutput)
-}
-
-type ComputeInstancePtrInput interface {
-	pulumi.Input
-
-	ToComputeInstancePtrOutput() ComputeInstancePtrOutput
-	ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput
-}
-
-type computeInstancePtrType ComputeInstanceArgs
-
-func (*computeInstancePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeInstance)(nil))
-}
-
-func (i *computeInstancePtrType) ToComputeInstancePtrOutput() ComputeInstancePtrOutput {
-	return i.ToComputeInstancePtrOutputWithContext(context.Background())
-}
-
-func (i *computeInstancePtrType) ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstancePtrOutput)
 }
 
 // ComputeInstanceArrayInput is an input type that accepts ComputeInstanceArray and ComputeInstanceArrayOutput values.
@@ -419,7 +390,7 @@ func (i ComputeInstanceMap) ToComputeInstanceMapOutputWithContext(ctx context.Co
 type ComputeInstanceOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeInstance)(nil))
+	return reflect.TypeOf((**ComputeInstance)(nil)).Elem()
 }
 
 func (o ComputeInstanceOutput) ToComputeInstanceOutput() ComputeInstanceOutput {
@@ -430,44 +401,10 @@ func (o ComputeInstanceOutput) ToComputeInstanceOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ComputeInstanceOutput) ToComputeInstancePtrOutput() ComputeInstancePtrOutput {
-	return o.ToComputeInstancePtrOutputWithContext(context.Background())
-}
-
-func (o ComputeInstanceOutput) ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstance) *ComputeInstance {
-		return &v
-	}).(ComputeInstancePtrOutput)
-}
-
-type ComputeInstancePtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeInstancePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeInstance)(nil))
-}
-
-func (o ComputeInstancePtrOutput) ToComputeInstancePtrOutput() ComputeInstancePtrOutput {
-	return o
-}
-
-func (o ComputeInstancePtrOutput) ToComputeInstancePtrOutputWithContext(ctx context.Context) ComputeInstancePtrOutput {
-	return o
-}
-
-func (o ComputeInstancePtrOutput) Elem() ComputeInstanceOutput {
-	return o.ApplyT(func(v *ComputeInstance) ComputeInstance {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstance
-		return ret
-	}).(ComputeInstanceOutput)
-}
-
 type ComputeInstanceArrayOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputeInstance)(nil))
+	return reflect.TypeOf((*[]*ComputeInstance)(nil)).Elem()
 }
 
 func (o ComputeInstanceArrayOutput) ToComputeInstanceArrayOutput() ComputeInstanceArrayOutput {
@@ -479,15 +416,15 @@ func (o ComputeInstanceArrayOutput) ToComputeInstanceArrayOutputWithContext(ctx 
 }
 
 func (o ComputeInstanceArrayOutput) Index(i pulumi.IntInput) ComputeInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeInstance {
-		return vs[0].([]ComputeInstance)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ComputeInstance {
+		return vs[0].([]*ComputeInstance)[vs[1].(int)]
 	}).(ComputeInstanceOutput)
 }
 
 type ComputeInstanceMapOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ComputeInstance)(nil))
+	return reflect.TypeOf((*map[string]*ComputeInstance)(nil)).Elem()
 }
 
 func (o ComputeInstanceMapOutput) ToComputeInstanceMapOutput() ComputeInstanceMapOutput {
@@ -499,18 +436,16 @@ func (o ComputeInstanceMapOutput) ToComputeInstanceMapOutputWithContext(ctx cont
 }
 
 func (o ComputeInstanceMapOutput) MapIndex(k pulumi.StringInput) ComputeInstanceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComputeInstance {
-		return vs[0].(map[string]ComputeInstance)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ComputeInstance {
+		return vs[0].(map[string]*ComputeInstance)[vs[1].(string)]
 	}).(ComputeInstanceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeInstanceInput)(nil)).Elem(), &ComputeInstance{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeInstancePtrInput)(nil)).Elem(), &ComputeInstance{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeInstanceArrayInput)(nil)).Elem(), ComputeInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeInstanceMapInput)(nil)).Elem(), ComputeInstanceMap{})
 	pulumi.RegisterOutputType(ComputeInstanceOutput{})
-	pulumi.RegisterOutputType(ComputeInstancePtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceArrayOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceMapOutput{})
 }

@@ -26,9 +26,7 @@ export function getTableEntity(args: GetTableEntityArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:storage/getTableEntity:getTableEntity", {
         "partitionKey": args.partitionKey,
         "rowKey": args.rowKey,

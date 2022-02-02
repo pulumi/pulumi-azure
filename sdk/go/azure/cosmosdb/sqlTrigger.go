@@ -194,7 +194,7 @@ type SqlTriggerInput interface {
 }
 
 func (*SqlTrigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlTrigger)(nil))
+	return reflect.TypeOf((**SqlTrigger)(nil)).Elem()
 }
 
 func (i *SqlTrigger) ToSqlTriggerOutput() SqlTriggerOutput {
@@ -203,35 +203,6 @@ func (i *SqlTrigger) ToSqlTriggerOutput() SqlTriggerOutput {
 
 func (i *SqlTrigger) ToSqlTriggerOutputWithContext(ctx context.Context) SqlTriggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerOutput)
-}
-
-func (i *SqlTrigger) ToSqlTriggerPtrOutput() SqlTriggerPtrOutput {
-	return i.ToSqlTriggerPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlTrigger) ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerPtrOutput)
-}
-
-type SqlTriggerPtrInput interface {
-	pulumi.Input
-
-	ToSqlTriggerPtrOutput() SqlTriggerPtrOutput
-	ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput
-}
-
-type sqlTriggerPtrType SqlTriggerArgs
-
-func (*sqlTriggerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlTrigger)(nil))
-}
-
-func (i *sqlTriggerPtrType) ToSqlTriggerPtrOutput() SqlTriggerPtrOutput {
-	return i.ToSqlTriggerPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlTriggerPtrType) ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerPtrOutput)
 }
 
 // SqlTriggerArrayInput is an input type that accepts SqlTriggerArray and SqlTriggerArrayOutput values.
@@ -287,7 +258,7 @@ func (i SqlTriggerMap) ToSqlTriggerMapOutputWithContext(ctx context.Context) Sql
 type SqlTriggerOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlTrigger)(nil))
+	return reflect.TypeOf((**SqlTrigger)(nil)).Elem()
 }
 
 func (o SqlTriggerOutput) ToSqlTriggerOutput() SqlTriggerOutput {
@@ -298,44 +269,10 @@ func (o SqlTriggerOutput) ToSqlTriggerOutputWithContext(ctx context.Context) Sql
 	return o
 }
 
-func (o SqlTriggerOutput) ToSqlTriggerPtrOutput() SqlTriggerPtrOutput {
-	return o.ToSqlTriggerPtrOutputWithContext(context.Background())
-}
-
-func (o SqlTriggerOutput) ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlTrigger) *SqlTrigger {
-		return &v
-	}).(SqlTriggerPtrOutput)
-}
-
-type SqlTriggerPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlTriggerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlTrigger)(nil))
-}
-
-func (o SqlTriggerPtrOutput) ToSqlTriggerPtrOutput() SqlTriggerPtrOutput {
-	return o
-}
-
-func (o SqlTriggerPtrOutput) ToSqlTriggerPtrOutputWithContext(ctx context.Context) SqlTriggerPtrOutput {
-	return o
-}
-
-func (o SqlTriggerPtrOutput) Elem() SqlTriggerOutput {
-	return o.ApplyT(func(v *SqlTrigger) SqlTrigger {
-		if v != nil {
-			return *v
-		}
-		var ret SqlTrigger
-		return ret
-	}).(SqlTriggerOutput)
-}
-
 type SqlTriggerArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlTrigger)(nil))
+	return reflect.TypeOf((*[]*SqlTrigger)(nil)).Elem()
 }
 
 func (o SqlTriggerArrayOutput) ToSqlTriggerArrayOutput() SqlTriggerArrayOutput {
@@ -347,15 +284,15 @@ func (o SqlTriggerArrayOutput) ToSqlTriggerArrayOutputWithContext(ctx context.Co
 }
 
 func (o SqlTriggerArrayOutput) Index(i pulumi.IntInput) SqlTriggerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlTrigger {
-		return vs[0].([]SqlTrigger)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlTrigger {
+		return vs[0].([]*SqlTrigger)[vs[1].(int)]
 	}).(SqlTriggerOutput)
 }
 
 type SqlTriggerMapOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlTrigger)(nil))
+	return reflect.TypeOf((*map[string]*SqlTrigger)(nil)).Elem()
 }
 
 func (o SqlTriggerMapOutput) ToSqlTriggerMapOutput() SqlTriggerMapOutput {
@@ -367,18 +304,16 @@ func (o SqlTriggerMapOutput) ToSqlTriggerMapOutputWithContext(ctx context.Contex
 }
 
 func (o SqlTriggerMapOutput) MapIndex(k pulumi.StringInput) SqlTriggerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlTrigger {
-		return vs[0].(map[string]SqlTrigger)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlTrigger {
+		return vs[0].(map[string]*SqlTrigger)[vs[1].(string)]
 	}).(SqlTriggerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerInput)(nil)).Elem(), &SqlTrigger{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerPtrInput)(nil)).Elem(), &SqlTrigger{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerArrayInput)(nil)).Elem(), SqlTriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerMapInput)(nil)).Elem(), SqlTriggerMap{})
 	pulumi.RegisterOutputType(SqlTriggerOutput{})
-	pulumi.RegisterOutputType(SqlTriggerPtrOutput{})
 	pulumi.RegisterOutputType(SqlTriggerArrayOutput{})
 	pulumi.RegisterOutputType(SqlTriggerMapOutput{})
 }

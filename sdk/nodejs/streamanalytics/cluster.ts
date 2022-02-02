@@ -87,15 +87,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["streamingCapacity"] = state ? state.streamingCapacity : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["streamingCapacity"] = state ? state.streamingCapacity : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -104,16 +104,14 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.streamingCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamingCapacity'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["streamingCapacity"] = args ? args.streamingCapacity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamingCapacity"] = args ? args.streamingCapacity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

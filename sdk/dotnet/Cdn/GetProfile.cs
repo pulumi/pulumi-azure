@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Cdn
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing CDN Profile.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

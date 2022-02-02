@@ -117,30 +117,28 @@ export class LogzTagRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogzTagRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogzTagRuleArgs | LogzTagRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogzTagRuleState | undefined;
-            inputs["logzMonitorId"] = state ? state.logzMonitorId : undefined;
-            inputs["sendAadLogs"] = state ? state.sendAadLogs : undefined;
-            inputs["sendActivityLogs"] = state ? state.sendActivityLogs : undefined;
-            inputs["sendSubscriptionLogs"] = state ? state.sendSubscriptionLogs : undefined;
-            inputs["tagFilters"] = state ? state.tagFilters : undefined;
+            resourceInputs["logzMonitorId"] = state ? state.logzMonitorId : undefined;
+            resourceInputs["sendAadLogs"] = state ? state.sendAadLogs : undefined;
+            resourceInputs["sendActivityLogs"] = state ? state.sendActivityLogs : undefined;
+            resourceInputs["sendSubscriptionLogs"] = state ? state.sendSubscriptionLogs : undefined;
+            resourceInputs["tagFilters"] = state ? state.tagFilters : undefined;
         } else {
             const args = argsOrState as LogzTagRuleArgs | undefined;
             if ((!args || args.logzMonitorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logzMonitorId'");
             }
-            inputs["logzMonitorId"] = args ? args.logzMonitorId : undefined;
-            inputs["sendAadLogs"] = args ? args.sendAadLogs : undefined;
-            inputs["sendActivityLogs"] = args ? args.sendActivityLogs : undefined;
-            inputs["sendSubscriptionLogs"] = args ? args.sendSubscriptionLogs : undefined;
-            inputs["tagFilters"] = args ? args.tagFilters : undefined;
+            resourceInputs["logzMonitorId"] = args ? args.logzMonitorId : undefined;
+            resourceInputs["sendAadLogs"] = args ? args.sendAadLogs : undefined;
+            resourceInputs["sendActivityLogs"] = args ? args.sendActivityLogs : undefined;
+            resourceInputs["sendSubscriptionLogs"] = args ? args.sendSubscriptionLogs : undefined;
+            resourceInputs["tagFilters"] = args ? args.tagFilters : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LogzTagRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LogzTagRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

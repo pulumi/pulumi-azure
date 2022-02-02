@@ -254,24 +254,24 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicatedVMArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicatedVMArgs | ReplicatedVMState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicatedVMState | undefined;
-            inputs["managedDisks"] = state ? state.managedDisks : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceRecoveryFabricName"] = state ? state.sourceRecoveryFabricName : undefined;
-            inputs["sourceRecoveryProtectionContainerName"] = state ? state.sourceRecoveryProtectionContainerName : undefined;
-            inputs["sourceVmId"] = state ? state.sourceVmId : undefined;
-            inputs["targetAvailabilitySetId"] = state ? state.targetAvailabilitySetId : undefined;
-            inputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
-            inputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
-            inputs["targetRecoveryProtectionContainerId"] = state ? state.targetRecoveryProtectionContainerId : undefined;
-            inputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
+            resourceInputs["managedDisks"] = state ? state.managedDisks : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            resourceInputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceRecoveryFabricName"] = state ? state.sourceRecoveryFabricName : undefined;
+            resourceInputs["sourceRecoveryProtectionContainerName"] = state ? state.sourceRecoveryProtectionContainerName : undefined;
+            resourceInputs["sourceVmId"] = state ? state.sourceVmId : undefined;
+            resourceInputs["targetAvailabilitySetId"] = state ? state.targetAvailabilitySetId : undefined;
+            resourceInputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
+            resourceInputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
+            resourceInputs["targetRecoveryProtectionContainerId"] = state ? state.targetRecoveryProtectionContainerId : undefined;
+            resourceInputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
         } else {
             const args = argsOrState as ReplicatedVMArgs | undefined;
             if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
@@ -301,25 +301,23 @@ export class ReplicatedVM extends pulumi.CustomResource {
             if ((!args || args.targetResourceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceGroupId'");
             }
-            inputs["managedDisks"] = args ? args.managedDisks : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            inputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceRecoveryFabricName"] = args ? args.sourceRecoveryFabricName : undefined;
-            inputs["sourceRecoveryProtectionContainerName"] = args ? args.sourceRecoveryProtectionContainerName : undefined;
-            inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
-            inputs["targetAvailabilitySetId"] = args ? args.targetAvailabilitySetId : undefined;
-            inputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
-            inputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
-            inputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
-            inputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
+            resourceInputs["managedDisks"] = args ? args.managedDisks : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
+            resourceInputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceRecoveryFabricName"] = args ? args.sourceRecoveryFabricName : undefined;
+            resourceInputs["sourceRecoveryProtectionContainerName"] = args ? args.sourceRecoveryProtectionContainerName : undefined;
+            resourceInputs["sourceVmId"] = args ? args.sourceVmId : undefined;
+            resourceInputs["targetAvailabilitySetId"] = args ? args.targetAvailabilitySetId : undefined;
+            resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
+            resourceInputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
+            resourceInputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
+            resourceInputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ReplicatedVM.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ReplicatedVM.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -106,7 +106,7 @@ type WorkspaceCustomerManagedKeyInput interface {
 }
 
 func (*WorkspaceCustomerManagedKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceCustomerManagedKey)(nil))
+	return reflect.TypeOf((**WorkspaceCustomerManagedKey)(nil)).Elem()
 }
 
 func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyOutput() WorkspaceCustomerManagedKeyOutput {
@@ -115,35 +115,6 @@ func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyOutput() Work
 
 func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyOutput)
-}
-
-func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
-	return i.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyPtrOutput)
-}
-
-type WorkspaceCustomerManagedKeyPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput
-	ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput
-}
-
-type workspaceCustomerManagedKeyPtrType WorkspaceCustomerManagedKeyArgs
-
-func (*workspaceCustomerManagedKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceCustomerManagedKey)(nil))
-}
-
-func (i *workspaceCustomerManagedKeyPtrType) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
-	return i.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceCustomerManagedKeyPtrType) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyPtrOutput)
 }
 
 // WorkspaceCustomerManagedKeyArrayInput is an input type that accepts WorkspaceCustomerManagedKeyArray and WorkspaceCustomerManagedKeyArrayOutput values.
@@ -199,7 +170,7 @@ func (i WorkspaceCustomerManagedKeyMap) ToWorkspaceCustomerManagedKeyMapOutputWi
 type WorkspaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomerManagedKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceCustomerManagedKey)(nil))
+	return reflect.TypeOf((**WorkspaceCustomerManagedKey)(nil)).Elem()
 }
 
 func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyOutput() WorkspaceCustomerManagedKeyOutput {
@@ -210,44 +181,10 @@ func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyOutputWi
 	return o
 }
 
-func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
-	return o.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomerManagedKey) *WorkspaceCustomerManagedKey {
-		return &v
-	}).(WorkspaceCustomerManagedKeyPtrOutput)
-}
-
-type WorkspaceCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceCustomerManagedKey)(nil))
-}
-
-func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
-	return o
-}
-
-func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
-	return o
-}
-
-func (o WorkspaceCustomerManagedKeyPtrOutput) Elem() WorkspaceCustomerManagedKeyOutput {
-	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) WorkspaceCustomerManagedKey {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceCustomerManagedKey
-		return ret
-	}).(WorkspaceCustomerManagedKeyOutput)
-}
-
 type WorkspaceCustomerManagedKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomerManagedKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceCustomerManagedKey)(nil))
+	return reflect.TypeOf((*[]*WorkspaceCustomerManagedKey)(nil)).Elem()
 }
 
 func (o WorkspaceCustomerManagedKeyArrayOutput) ToWorkspaceCustomerManagedKeyArrayOutput() WorkspaceCustomerManagedKeyArrayOutput {
@@ -259,15 +196,15 @@ func (o WorkspaceCustomerManagedKeyArrayOutput) ToWorkspaceCustomerManagedKeyArr
 }
 
 func (o WorkspaceCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) WorkspaceCustomerManagedKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceCustomerManagedKey {
-		return vs[0].([]WorkspaceCustomerManagedKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceCustomerManagedKey {
+		return vs[0].([]*WorkspaceCustomerManagedKey)[vs[1].(int)]
 	}).(WorkspaceCustomerManagedKeyOutput)
 }
 
 type WorkspaceCustomerManagedKeyMapOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomerManagedKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkspaceCustomerManagedKey)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceCustomerManagedKey)(nil)).Elem()
 }
 
 func (o WorkspaceCustomerManagedKeyMapOutput) ToWorkspaceCustomerManagedKeyMapOutput() WorkspaceCustomerManagedKeyMapOutput {
@@ -279,18 +216,16 @@ func (o WorkspaceCustomerManagedKeyMapOutput) ToWorkspaceCustomerManagedKeyMapOu
 }
 
 func (o WorkspaceCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceCustomerManagedKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceCustomerManagedKey {
-		return vs[0].(map[string]WorkspaceCustomerManagedKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkspaceCustomerManagedKey {
+		return vs[0].(map[string]*WorkspaceCustomerManagedKey)[vs[1].(string)]
 	}).(WorkspaceCustomerManagedKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyInput)(nil)).Elem(), &WorkspaceCustomerManagedKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyPtrInput)(nil)).Elem(), &WorkspaceCustomerManagedKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyArrayInput)(nil)).Elem(), WorkspaceCustomerManagedKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyMapInput)(nil)).Elem(), WorkspaceCustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyOutput{})
-	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyMapOutput{})
 }

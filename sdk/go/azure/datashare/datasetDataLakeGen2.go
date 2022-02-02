@@ -52,7 +52,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = storage.NewAccount(ctx, "exampleStorage_accountAccount", &storage.AccountArgs{
+// 		_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountKind:            pulumi.String("BlobStorage"),
@@ -68,6 +68,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, GetServicePrincipalOutputArgs{
+// 			DisplayName: exampleAccount.Name,
+// 		}, nil)
 // 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Scope:              exampleStorage / accountAccount.Id,
 // 			RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
@@ -238,7 +241,7 @@ type DatasetDataLakeGen2Input interface {
 }
 
 func (*DatasetDataLakeGen2) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDataLakeGen2)(nil))
+	return reflect.TypeOf((**DatasetDataLakeGen2)(nil)).Elem()
 }
 
 func (i *DatasetDataLakeGen2) ToDatasetDataLakeGen2Output() DatasetDataLakeGen2Output {
@@ -247,35 +250,6 @@ func (i *DatasetDataLakeGen2) ToDatasetDataLakeGen2Output() DatasetDataLakeGen2O
 
 func (i *DatasetDataLakeGen2) ToDatasetDataLakeGen2OutputWithContext(ctx context.Context) DatasetDataLakeGen2Output {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2Output)
-}
-
-func (i *DatasetDataLakeGen2) ToDatasetDataLakeGen2PtrOutput() DatasetDataLakeGen2PtrOutput {
-	return i.ToDatasetDataLakeGen2PtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetDataLakeGen2) ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2PtrOutput)
-}
-
-type DatasetDataLakeGen2PtrInput interface {
-	pulumi.Input
-
-	ToDatasetDataLakeGen2PtrOutput() DatasetDataLakeGen2PtrOutput
-	ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput
-}
-
-type datasetDataLakeGen2PtrType DatasetDataLakeGen2Args
-
-func (*datasetDataLakeGen2PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetDataLakeGen2)(nil))
-}
-
-func (i *datasetDataLakeGen2PtrType) ToDatasetDataLakeGen2PtrOutput() DatasetDataLakeGen2PtrOutput {
-	return i.ToDatasetDataLakeGen2PtrOutputWithContext(context.Background())
-}
-
-func (i *datasetDataLakeGen2PtrType) ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2PtrOutput)
 }
 
 // DatasetDataLakeGen2ArrayInput is an input type that accepts DatasetDataLakeGen2Array and DatasetDataLakeGen2ArrayOutput values.
@@ -331,7 +305,7 @@ func (i DatasetDataLakeGen2Map) ToDatasetDataLakeGen2MapOutputWithContext(ctx co
 type DatasetDataLakeGen2Output struct{ *pulumi.OutputState }
 
 func (DatasetDataLakeGen2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDataLakeGen2)(nil))
+	return reflect.TypeOf((**DatasetDataLakeGen2)(nil)).Elem()
 }
 
 func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2Output() DatasetDataLakeGen2Output {
@@ -342,44 +316,10 @@ func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2OutputWithContext(ctx co
 	return o
 }
 
-func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2PtrOutput() DatasetDataLakeGen2PtrOutput {
-	return o.ToDatasetDataLakeGen2PtrOutputWithContext(context.Background())
-}
-
-func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDataLakeGen2) *DatasetDataLakeGen2 {
-		return &v
-	}).(DatasetDataLakeGen2PtrOutput)
-}
-
-type DatasetDataLakeGen2PtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetDataLakeGen2PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetDataLakeGen2)(nil))
-}
-
-func (o DatasetDataLakeGen2PtrOutput) ToDatasetDataLakeGen2PtrOutput() DatasetDataLakeGen2PtrOutput {
-	return o
-}
-
-func (o DatasetDataLakeGen2PtrOutput) ToDatasetDataLakeGen2PtrOutputWithContext(ctx context.Context) DatasetDataLakeGen2PtrOutput {
-	return o
-}
-
-func (o DatasetDataLakeGen2PtrOutput) Elem() DatasetDataLakeGen2Output {
-	return o.ApplyT(func(v *DatasetDataLakeGen2) DatasetDataLakeGen2 {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetDataLakeGen2
-		return ret
-	}).(DatasetDataLakeGen2Output)
-}
-
 type DatasetDataLakeGen2ArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetDataLakeGen2ArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetDataLakeGen2)(nil))
+	return reflect.TypeOf((*[]*DatasetDataLakeGen2)(nil)).Elem()
 }
 
 func (o DatasetDataLakeGen2ArrayOutput) ToDatasetDataLakeGen2ArrayOutput() DatasetDataLakeGen2ArrayOutput {
@@ -391,15 +331,15 @@ func (o DatasetDataLakeGen2ArrayOutput) ToDatasetDataLakeGen2ArrayOutputWithCont
 }
 
 func (o DatasetDataLakeGen2ArrayOutput) Index(i pulumi.IntInput) DatasetDataLakeGen2Output {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetDataLakeGen2 {
-		return vs[0].([]DatasetDataLakeGen2)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetDataLakeGen2 {
+		return vs[0].([]*DatasetDataLakeGen2)[vs[1].(int)]
 	}).(DatasetDataLakeGen2Output)
 }
 
 type DatasetDataLakeGen2MapOutput struct{ *pulumi.OutputState }
 
 func (DatasetDataLakeGen2MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetDataLakeGen2)(nil))
+	return reflect.TypeOf((*map[string]*DatasetDataLakeGen2)(nil)).Elem()
 }
 
 func (o DatasetDataLakeGen2MapOutput) ToDatasetDataLakeGen2MapOutput() DatasetDataLakeGen2MapOutput {
@@ -411,18 +351,16 @@ func (o DatasetDataLakeGen2MapOutput) ToDatasetDataLakeGen2MapOutputWithContext(
 }
 
 func (o DatasetDataLakeGen2MapOutput) MapIndex(k pulumi.StringInput) DatasetDataLakeGen2Output {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetDataLakeGen2 {
-		return vs[0].(map[string]DatasetDataLakeGen2)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetDataLakeGen2 {
+		return vs[0].(map[string]*DatasetDataLakeGen2)[vs[1].(string)]
 	}).(DatasetDataLakeGen2Output)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen2Input)(nil)).Elem(), &DatasetDataLakeGen2{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen2PtrInput)(nil)).Elem(), &DatasetDataLakeGen2{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen2ArrayInput)(nil)).Elem(), DatasetDataLakeGen2Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen2MapInput)(nil)).Elem(), DatasetDataLakeGen2Map{})
 	pulumi.RegisterOutputType(DatasetDataLakeGen2Output{})
-	pulumi.RegisterOutputType(DatasetDataLakeGen2PtrOutput{})
 	pulumi.RegisterOutputType(DatasetDataLakeGen2ArrayOutput{})
 	pulumi.RegisterOutputType(DatasetDataLakeGen2MapOutput{})
 }

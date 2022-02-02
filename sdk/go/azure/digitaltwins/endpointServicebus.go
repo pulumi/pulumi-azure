@@ -207,7 +207,7 @@ type EndpointServicebusInput interface {
 }
 
 func (*EndpointServicebus) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointServicebus)(nil))
+	return reflect.TypeOf((**EndpointServicebus)(nil)).Elem()
 }
 
 func (i *EndpointServicebus) ToEndpointServicebusOutput() EndpointServicebusOutput {
@@ -216,35 +216,6 @@ func (i *EndpointServicebus) ToEndpointServicebusOutput() EndpointServicebusOutp
 
 func (i *EndpointServicebus) ToEndpointServicebusOutputWithContext(ctx context.Context) EndpointServicebusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusOutput)
-}
-
-func (i *EndpointServicebus) ToEndpointServicebusPtrOutput() EndpointServicebusPtrOutput {
-	return i.ToEndpointServicebusPtrOutputWithContext(context.Background())
-}
-
-func (i *EndpointServicebus) ToEndpointServicebusPtrOutputWithContext(ctx context.Context) EndpointServicebusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusPtrOutput)
-}
-
-type EndpointServicebusPtrInput interface {
-	pulumi.Input
-
-	ToEndpointServicebusPtrOutput() EndpointServicebusPtrOutput
-	ToEndpointServicebusPtrOutputWithContext(ctx context.Context) EndpointServicebusPtrOutput
-}
-
-type endpointServicebusPtrType EndpointServicebusArgs
-
-func (*endpointServicebusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointServicebus)(nil))
-}
-
-func (i *endpointServicebusPtrType) ToEndpointServicebusPtrOutput() EndpointServicebusPtrOutput {
-	return i.ToEndpointServicebusPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointServicebusPtrType) ToEndpointServicebusPtrOutputWithContext(ctx context.Context) EndpointServicebusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusPtrOutput)
 }
 
 // EndpointServicebusArrayInput is an input type that accepts EndpointServicebusArray and EndpointServicebusArrayOutput values.
@@ -300,7 +271,7 @@ func (i EndpointServicebusMap) ToEndpointServicebusMapOutputWithContext(ctx cont
 type EndpointServicebusOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointServicebus)(nil))
+	return reflect.TypeOf((**EndpointServicebus)(nil)).Elem()
 }
 
 func (o EndpointServicebusOutput) ToEndpointServicebusOutput() EndpointServicebusOutput {
@@ -311,44 +282,10 @@ func (o EndpointServicebusOutput) ToEndpointServicebusOutputWithContext(ctx cont
 	return o
 }
 
-func (o EndpointServicebusOutput) ToEndpointServicebusPtrOutput() EndpointServicebusPtrOutput {
-	return o.ToEndpointServicebusPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointServicebusOutput) ToEndpointServicebusPtrOutputWithContext(ctx context.Context) EndpointServicebusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointServicebus) *EndpointServicebus {
-		return &v
-	}).(EndpointServicebusPtrOutput)
-}
-
-type EndpointServicebusPtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointServicebusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointServicebus)(nil))
-}
-
-func (o EndpointServicebusPtrOutput) ToEndpointServicebusPtrOutput() EndpointServicebusPtrOutput {
-	return o
-}
-
-func (o EndpointServicebusPtrOutput) ToEndpointServicebusPtrOutputWithContext(ctx context.Context) EndpointServicebusPtrOutput {
-	return o
-}
-
-func (o EndpointServicebusPtrOutput) Elem() EndpointServicebusOutput {
-	return o.ApplyT(func(v *EndpointServicebus) EndpointServicebus {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointServicebus
-		return ret
-	}).(EndpointServicebusOutput)
-}
-
 type EndpointServicebusArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointServicebus)(nil))
+	return reflect.TypeOf((*[]*EndpointServicebus)(nil)).Elem()
 }
 
 func (o EndpointServicebusArrayOutput) ToEndpointServicebusArrayOutput() EndpointServicebusArrayOutput {
@@ -360,15 +297,15 @@ func (o EndpointServicebusArrayOutput) ToEndpointServicebusArrayOutputWithContex
 }
 
 func (o EndpointServicebusArrayOutput) Index(i pulumi.IntInput) EndpointServicebusOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointServicebus {
-		return vs[0].([]EndpointServicebus)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointServicebus {
+		return vs[0].([]*EndpointServicebus)[vs[1].(int)]
 	}).(EndpointServicebusOutput)
 }
 
 type EndpointServicebusMapOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EndpointServicebus)(nil))
+	return reflect.TypeOf((*map[string]*EndpointServicebus)(nil)).Elem()
 }
 
 func (o EndpointServicebusMapOutput) ToEndpointServicebusMapOutput() EndpointServicebusMapOutput {
@@ -380,18 +317,16 @@ func (o EndpointServicebusMapOutput) ToEndpointServicebusMapOutputWithContext(ct
 }
 
 func (o EndpointServicebusMapOutput) MapIndex(k pulumi.StringInput) EndpointServicebusOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EndpointServicebus {
-		return vs[0].(map[string]EndpointServicebus)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EndpointServicebus {
+		return vs[0].(map[string]*EndpointServicebus)[vs[1].(string)]
 	}).(EndpointServicebusOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusInput)(nil)).Elem(), &EndpointServicebus{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusPtrInput)(nil)).Elem(), &EndpointServicebus{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusArrayInput)(nil)).Elem(), EndpointServicebusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusMapInput)(nil)).Elem(), EndpointServicebusMap{})
 	pulumi.RegisterOutputType(EndpointServicebusOutput{})
-	pulumi.RegisterOutputType(EndpointServicebusPtrOutput{})
 	pulumi.RegisterOutputType(EndpointServicebusArrayOutput{})
 	pulumi.RegisterOutputType(EndpointServicebusMapOutput{})
 }

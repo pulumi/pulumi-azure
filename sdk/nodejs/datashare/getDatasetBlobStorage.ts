@@ -26,9 +26,7 @@ export function getDatasetBlobStorage(args: GetDatasetBlobStorageArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", {
         "dataShareId": args.dataShareId,
         "name": args.name,

@@ -120,15 +120,15 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DscNodeConfigurationArgs | DscNodeConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DscNodeConfigurationState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["configurationName"] = state ? state.configurationName : undefined;
-            inputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["configurationName"] = state ? state.configurationName : undefined;
+            resourceInputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as DscNodeConfigurationArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -140,16 +140,14 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["contentEmbedded"] = args ? args.contentEmbedded : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["configurationName"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["contentEmbedded"] = args ? args.contentEmbedded : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["configurationName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DscNodeConfiguration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DscNodeConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

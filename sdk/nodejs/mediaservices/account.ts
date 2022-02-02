@@ -116,18 +116,18 @@ export class Account extends pulumi.CustomResource {
     /** @deprecated azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount */
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["keyDeliveryAccessControl"] = state ? state.keyDeliveryAccessControl : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            inputs["storageAuthenticationType"] = state ? state.storageAuthenticationType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["keyDeliveryAccessControl"] = state ? state.keyDeliveryAccessControl : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
+            resourceInputs["storageAuthenticationType"] = state ? state.storageAuthenticationType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -136,19 +136,17 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.storageAccounts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccounts'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyDeliveryAccessControl"] = args ? args.keyDeliveryAccessControl : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            inputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyDeliveryAccessControl"] = args ? args.keyDeliveryAccessControl : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            resourceInputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Account.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

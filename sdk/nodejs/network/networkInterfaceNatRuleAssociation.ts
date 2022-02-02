@@ -119,13 +119,13 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkInterfaceNatRuleAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceNatRuleAssociationArgs | NetworkInterfaceNatRuleAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceNatRuleAssociationState | undefined;
-            inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
-            inputs["natRuleId"] = state ? state.natRuleId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
+            resourceInputs["natRuleId"] = state ? state.natRuleId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceNatRuleAssociationArgs | undefined;
             if ((!args || args.ipConfigurationName === undefined) && !opts.urn) {
@@ -137,14 +137,12 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
-            inputs["natRuleId"] = args ? args.natRuleId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
+            resourceInputs["natRuleId"] = args ? args.natRuleId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInterfaceNatRuleAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInterfaceNatRuleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -115,13 +115,13 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
      */
     constructor(name: string, args: NetworkInterfaceBackendAddressPoolAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceBackendAddressPoolAssociationArgs | NetworkInterfaceBackendAddressPoolAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceBackendAddressPoolAssociationState | undefined;
-            inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
-            inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
+            resourceInputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceBackendAddressPoolAssociationArgs | undefined;
             if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
@@ -133,14 +133,12 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
-            inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
+            resourceInputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInterfaceBackendAddressPoolAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInterfaceBackendAddressPoolAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

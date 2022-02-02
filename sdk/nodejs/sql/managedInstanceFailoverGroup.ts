@@ -88,19 +88,19 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedInstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedInstanceFailoverGroupArgs | ManagedInstanceFailoverGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceFailoverGroupState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedInstanceName"] = state ? state.managedInstanceName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partnerManagedInstanceId"] = state ? state.partnerManagedInstanceId : undefined;
-            inputs["partnerRegions"] = state ? state.partnerRegions : undefined;
-            inputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
-            inputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["role"] = state ? state.role : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedInstanceName"] = state ? state.managedInstanceName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partnerManagedInstanceId"] = state ? state.partnerManagedInstanceId : undefined;
+            resourceInputs["partnerRegions"] = state ? state.partnerRegions : undefined;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
         } else {
             const args = argsOrState as ManagedInstanceFailoverGroupArgs | undefined;
             if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
@@ -115,20 +115,18 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partnerManagedInstanceId"] = args ? args.partnerManagedInstanceId : undefined;
-            inputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
-            inputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["partnerRegions"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partnerManagedInstanceId"] = args ? args.partnerManagedInstanceId : undefined;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["partnerRegions"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedInstanceFailoverGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedInstanceFailoverGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -77,26 +77,24 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedDatabaseArgs | ManagedDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedDatabaseState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sqlManagedInstanceId"] = state ? state.sqlManagedInstanceId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sqlManagedInstanceId"] = state ? state.sqlManagedInstanceId : undefined;
         } else {
             const args = argsOrState as ManagedDatabaseArgs | undefined;
             if ((!args || args.sqlManagedInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlManagedInstanceId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sqlManagedInstanceId"] = args ? args.sqlManagedInstanceId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sqlManagedInstanceId"] = args ? args.sqlManagedInstanceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedDatabase.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

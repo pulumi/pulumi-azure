@@ -267,43 +267,43 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationGatewayArgs | ApplicationGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationGatewayState | undefined;
-            inputs["authenticationCertificates"] = state ? state.authenticationCertificates : undefined;
-            inputs["autoscaleConfiguration"] = state ? state.autoscaleConfiguration : undefined;
-            inputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
-            inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
-            inputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
-            inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
-            inputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
-            inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
-            inputs["forceFirewallPolicyAssociation"] = state ? state.forceFirewallPolicyAssociation : undefined;
-            inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
-            inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
-            inputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
-            inputs["httpListeners"] = state ? state.httpListeners : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateEndpointConnections"] = state ? state.privateEndpointConnections : undefined;
-            inputs["privateLinkConfigurations"] = state ? state.privateLinkConfigurations : undefined;
-            inputs["probes"] = state ? state.probes : undefined;
-            inputs["redirectConfigurations"] = state ? state.redirectConfigurations : undefined;
-            inputs["requestRoutingRules"] = state ? state.requestRoutingRules : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rewriteRuleSets"] = state ? state.rewriteRuleSets : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["sslCertificates"] = state ? state.sslCertificates : undefined;
-            inputs["sslPolicies"] = state ? state.sslPolicies : undefined;
-            inputs["sslProfiles"] = state ? state.sslProfiles : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trustedClientCertificates"] = state ? state.trustedClientCertificates : undefined;
-            inputs["trustedRootCertificates"] = state ? state.trustedRootCertificates : undefined;
-            inputs["urlPathMaps"] = state ? state.urlPathMaps : undefined;
-            inputs["wafConfiguration"] = state ? state.wafConfiguration : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["authenticationCertificates"] = state ? state.authenticationCertificates : undefined;
+            resourceInputs["autoscaleConfiguration"] = state ? state.autoscaleConfiguration : undefined;
+            resourceInputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
+            resourceInputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
+            resourceInputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
+            resourceInputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
+            resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
+            resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
+            resourceInputs["forceFirewallPolicyAssociation"] = state ? state.forceFirewallPolicyAssociation : undefined;
+            resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
+            resourceInputs["frontendPorts"] = state ? state.frontendPorts : undefined;
+            resourceInputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
+            resourceInputs["httpListeners"] = state ? state.httpListeners : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateEndpointConnections"] = state ? state.privateEndpointConnections : undefined;
+            resourceInputs["privateLinkConfigurations"] = state ? state.privateLinkConfigurations : undefined;
+            resourceInputs["probes"] = state ? state.probes : undefined;
+            resourceInputs["redirectConfigurations"] = state ? state.redirectConfigurations : undefined;
+            resourceInputs["requestRoutingRules"] = state ? state.requestRoutingRules : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rewriteRuleSets"] = state ? state.rewriteRuleSets : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["sslCertificates"] = state ? state.sslCertificates : undefined;
+            resourceInputs["sslPolicies"] = state ? state.sslPolicies : undefined;
+            resourceInputs["sslProfiles"] = state ? state.sslProfiles : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trustedClientCertificates"] = state ? state.trustedClientCertificates : undefined;
+            resourceInputs["trustedRootCertificates"] = state ? state.trustedRootCertificates : undefined;
+            resourceInputs["urlPathMaps"] = state ? state.urlPathMaps : undefined;
+            resourceInputs["wafConfiguration"] = state ? state.wafConfiguration : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ApplicationGatewayArgs | undefined;
             if ((!args || args.backendAddressPools === undefined) && !opts.urn) {
@@ -333,44 +333,42 @@ export class ApplicationGateway extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;
-            inputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
-            inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
-            inputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
-            inputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
-            inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            inputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
-            inputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
-            inputs["forceFirewallPolicyAssociation"] = args ? args.forceFirewallPolicyAssociation : undefined;
-            inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
-            inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
-            inputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
-            inputs["httpListeners"] = args ? args.httpListeners : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateLinkConfigurations"] = args ? args.privateLinkConfigurations : undefined;
-            inputs["probes"] = args ? args.probes : undefined;
-            inputs["redirectConfigurations"] = args ? args.redirectConfigurations : undefined;
-            inputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rewriteRuleSets"] = args ? args.rewriteRuleSets : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sslCertificates"] = args ? args.sslCertificates : undefined;
-            inputs["sslPolicies"] = args ? args.sslPolicies : undefined;
-            inputs["sslProfiles"] = args ? args.sslProfiles : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trustedClientCertificates"] = args ? args.trustedClientCertificates : undefined;
-            inputs["trustedRootCertificates"] = args ? args.trustedRootCertificates : undefined;
-            inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
-            inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;
+            resourceInputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
+            resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
+            resourceInputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
+            resourceInputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
+            resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
+            resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
+            resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
+            resourceInputs["forceFirewallPolicyAssociation"] = args ? args.forceFirewallPolicyAssociation : undefined;
+            resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
+            resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
+            resourceInputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
+            resourceInputs["httpListeners"] = args ? args.httpListeners : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateLinkConfigurations"] = args ? args.privateLinkConfigurations : undefined;
+            resourceInputs["probes"] = args ? args.probes : undefined;
+            resourceInputs["redirectConfigurations"] = args ? args.redirectConfigurations : undefined;
+            resourceInputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rewriteRuleSets"] = args ? args.rewriteRuleSets : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sslCertificates"] = args ? args.sslCertificates : undefined;
+            resourceInputs["sslPolicies"] = args ? args.sslPolicies : undefined;
+            resourceInputs["sslProfiles"] = args ? args.sslProfiles : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedClientCertificates"] = args ? args.trustedClientCertificates : undefined;
+            resourceInputs["trustedRootCertificates"] = args ? args.trustedRootCertificates : undefined;
+            resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
+            resourceInputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationGateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -183,7 +183,7 @@ type CreatorInput interface {
 }
 
 func (*Creator) ElementType() reflect.Type {
-	return reflect.TypeOf((*Creator)(nil))
+	return reflect.TypeOf((**Creator)(nil)).Elem()
 }
 
 func (i *Creator) ToCreatorOutput() CreatorOutput {
@@ -192,35 +192,6 @@ func (i *Creator) ToCreatorOutput() CreatorOutput {
 
 func (i *Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
-}
-
-func (i *Creator) ToCreatorPtrOutput() CreatorPtrOutput {
-	return i.ToCreatorPtrOutputWithContext(context.Background())
-}
-
-func (i *Creator) ToCreatorPtrOutputWithContext(ctx context.Context) CreatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatorPtrOutput)
-}
-
-type CreatorPtrInput interface {
-	pulumi.Input
-
-	ToCreatorPtrOutput() CreatorPtrOutput
-	ToCreatorPtrOutputWithContext(ctx context.Context) CreatorPtrOutput
-}
-
-type creatorPtrType CreatorArgs
-
-func (*creatorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Creator)(nil))
-}
-
-func (i *creatorPtrType) ToCreatorPtrOutput() CreatorPtrOutput {
-	return i.ToCreatorPtrOutputWithContext(context.Background())
-}
-
-func (i *creatorPtrType) ToCreatorPtrOutputWithContext(ctx context.Context) CreatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatorPtrOutput)
 }
 
 // CreatorArrayInput is an input type that accepts CreatorArray and CreatorArrayOutput values.
@@ -276,7 +247,7 @@ func (i CreatorMap) ToCreatorMapOutputWithContext(ctx context.Context) CreatorMa
 type CreatorOutput struct{ *pulumi.OutputState }
 
 func (CreatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Creator)(nil))
+	return reflect.TypeOf((**Creator)(nil)).Elem()
 }
 
 func (o CreatorOutput) ToCreatorOutput() CreatorOutput {
@@ -287,44 +258,10 @@ func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOu
 	return o
 }
 
-func (o CreatorOutput) ToCreatorPtrOutput() CreatorPtrOutput {
-	return o.ToCreatorPtrOutputWithContext(context.Background())
-}
-
-func (o CreatorOutput) ToCreatorPtrOutputWithContext(ctx context.Context) CreatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Creator) *Creator {
-		return &v
-	}).(CreatorPtrOutput)
-}
-
-type CreatorPtrOutput struct{ *pulumi.OutputState }
-
-func (CreatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Creator)(nil))
-}
-
-func (o CreatorPtrOutput) ToCreatorPtrOutput() CreatorPtrOutput {
-	return o
-}
-
-func (o CreatorPtrOutput) ToCreatorPtrOutputWithContext(ctx context.Context) CreatorPtrOutput {
-	return o
-}
-
-func (o CreatorPtrOutput) Elem() CreatorOutput {
-	return o.ApplyT(func(v *Creator) Creator {
-		if v != nil {
-			return *v
-		}
-		var ret Creator
-		return ret
-	}).(CreatorOutput)
-}
-
 type CreatorArrayOutput struct{ *pulumi.OutputState }
 
 func (CreatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Creator)(nil))
+	return reflect.TypeOf((*[]*Creator)(nil)).Elem()
 }
 
 func (o CreatorArrayOutput) ToCreatorArrayOutput() CreatorArrayOutput {
@@ -336,15 +273,15 @@ func (o CreatorArrayOutput) ToCreatorArrayOutputWithContext(ctx context.Context)
 }
 
 func (o CreatorArrayOutput) Index(i pulumi.IntInput) CreatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Creator {
-		return vs[0].([]Creator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Creator {
+		return vs[0].([]*Creator)[vs[1].(int)]
 	}).(CreatorOutput)
 }
 
 type CreatorMapOutput struct{ *pulumi.OutputState }
 
 func (CreatorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Creator)(nil))
+	return reflect.TypeOf((*map[string]*Creator)(nil)).Elem()
 }
 
 func (o CreatorMapOutput) ToCreatorMapOutput() CreatorMapOutput {
@@ -356,18 +293,16 @@ func (o CreatorMapOutput) ToCreatorMapOutputWithContext(ctx context.Context) Cre
 }
 
 func (o CreatorMapOutput) MapIndex(k pulumi.StringInput) CreatorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Creator {
-		return vs[0].(map[string]Creator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Creator {
+		return vs[0].(map[string]*Creator)[vs[1].(string)]
 	}).(CreatorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CreatorInput)(nil)).Elem(), &Creator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CreatorPtrInput)(nil)).Elem(), &Creator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CreatorArrayInput)(nil)).Elem(), CreatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CreatorMapInput)(nil)).Elem(), CreatorMap{})
 	pulumi.RegisterOutputType(CreatorOutput{})
-	pulumi.RegisterOutputType(CreatorPtrOutput{})
 	pulumi.RegisterOutputType(CreatorArrayOutput{})
 	pulumi.RegisterOutputType(CreatorMapOutput{})
 }

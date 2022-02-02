@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
  *     storageAccountName: storage.name,
  *     containerAccessType: "private",
  * });
- * const example = pulumi.all([storage.primaryConnectionString, container.name]).apply(([primaryConnectionString, name]) => azure.storage.getAccountBlobContainerSAS({
- *     connectionString: primaryConnectionString,
- *     containerName: name,
+ * const example = azure.storage.getAccountBlobContainerSASOutput({
+ *     connectionString: storage.primaryConnectionString,
+ *     containerName: container.name,
  *     httpsOnly: true,
  *     ipAddress: "168.1.5.65",
  *     start: "2018-03-21",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     contentEncoding: "deflate",
  *     contentLanguage: "en-US",
  *     contentType: "application/json",
- * }));
+ * });
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
  */
@@ -56,9 +56,7 @@ export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", {
         "cacheControl": args.cacheControl,
         "connectionString": args.connectionString,

@@ -127,17 +127,17 @@ export class NetworkMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkMappingArgs | NetworkMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkMappingState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceNetworkId"] = state ? state.sourceNetworkId : undefined;
-            inputs["sourceRecoveryFabricName"] = state ? state.sourceRecoveryFabricName : undefined;
-            inputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
-            inputs["targetRecoveryFabricName"] = state ? state.targetRecoveryFabricName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceNetworkId"] = state ? state.sourceNetworkId : undefined;
+            resourceInputs["sourceRecoveryFabricName"] = state ? state.sourceRecoveryFabricName : undefined;
+            resourceInputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
+            resourceInputs["targetRecoveryFabricName"] = state ? state.targetRecoveryFabricName : undefined;
         } else {
             const args = argsOrState as NetworkMappingArgs | undefined;
             if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
@@ -158,18 +158,16 @@ export class NetworkMapping extends pulumi.CustomResource {
             if ((!args || args.targetRecoveryFabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryFabricName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceNetworkId"] = args ? args.sourceNetworkId : undefined;
-            inputs["sourceRecoveryFabricName"] = args ? args.sourceRecoveryFabricName : undefined;
-            inputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
-            inputs["targetRecoveryFabricName"] = args ? args.targetRecoveryFabricName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceNetworkId"] = args ? args.sourceNetworkId : undefined;
+            resourceInputs["sourceRecoveryFabricName"] = args ? args.sourceRecoveryFabricName : undefined;
+            resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
+            resourceInputs["targetRecoveryFabricName"] = args ? args.targetRecoveryFabricName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkMapping.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -238,7 +238,7 @@ type ConfigurationFeatureInput interface {
 }
 
 func (*ConfigurationFeature) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationFeature)(nil))
+	return reflect.TypeOf((**ConfigurationFeature)(nil)).Elem()
 }
 
 func (i *ConfigurationFeature) ToConfigurationFeatureOutput() ConfigurationFeatureOutput {
@@ -247,35 +247,6 @@ func (i *ConfigurationFeature) ToConfigurationFeatureOutput() ConfigurationFeatu
 
 func (i *ConfigurationFeature) ToConfigurationFeatureOutputWithContext(ctx context.Context) ConfigurationFeatureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureOutput)
-}
-
-func (i *ConfigurationFeature) ToConfigurationFeaturePtrOutput() ConfigurationFeaturePtrOutput {
-	return i.ToConfigurationFeaturePtrOutputWithContext(context.Background())
-}
-
-func (i *ConfigurationFeature) ToConfigurationFeaturePtrOutputWithContext(ctx context.Context) ConfigurationFeaturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeaturePtrOutput)
-}
-
-type ConfigurationFeaturePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationFeaturePtrOutput() ConfigurationFeaturePtrOutput
-	ToConfigurationFeaturePtrOutputWithContext(ctx context.Context) ConfigurationFeaturePtrOutput
-}
-
-type configurationFeaturePtrType ConfigurationFeatureArgs
-
-func (*configurationFeaturePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationFeature)(nil))
-}
-
-func (i *configurationFeaturePtrType) ToConfigurationFeaturePtrOutput() ConfigurationFeaturePtrOutput {
-	return i.ToConfigurationFeaturePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationFeaturePtrType) ToConfigurationFeaturePtrOutputWithContext(ctx context.Context) ConfigurationFeaturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeaturePtrOutput)
 }
 
 // ConfigurationFeatureArrayInput is an input type that accepts ConfigurationFeatureArray and ConfigurationFeatureArrayOutput values.
@@ -331,7 +302,7 @@ func (i ConfigurationFeatureMap) ToConfigurationFeatureMapOutputWithContext(ctx 
 type ConfigurationFeatureOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationFeature)(nil))
+	return reflect.TypeOf((**ConfigurationFeature)(nil)).Elem()
 }
 
 func (o ConfigurationFeatureOutput) ToConfigurationFeatureOutput() ConfigurationFeatureOutput {
@@ -342,44 +313,10 @@ func (o ConfigurationFeatureOutput) ToConfigurationFeatureOutputWithContext(ctx 
 	return o
 }
 
-func (o ConfigurationFeatureOutput) ToConfigurationFeaturePtrOutput() ConfigurationFeaturePtrOutput {
-	return o.ToConfigurationFeaturePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationFeatureOutput) ToConfigurationFeaturePtrOutputWithContext(ctx context.Context) ConfigurationFeaturePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationFeature) *ConfigurationFeature {
-		return &v
-	}).(ConfigurationFeaturePtrOutput)
-}
-
-type ConfigurationFeaturePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationFeaturePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationFeature)(nil))
-}
-
-func (o ConfigurationFeaturePtrOutput) ToConfigurationFeaturePtrOutput() ConfigurationFeaturePtrOutput {
-	return o
-}
-
-func (o ConfigurationFeaturePtrOutput) ToConfigurationFeaturePtrOutputWithContext(ctx context.Context) ConfigurationFeaturePtrOutput {
-	return o
-}
-
-func (o ConfigurationFeaturePtrOutput) Elem() ConfigurationFeatureOutput {
-	return o.ApplyT(func(v *ConfigurationFeature) ConfigurationFeature {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationFeature
-		return ret
-	}).(ConfigurationFeatureOutput)
-}
-
 type ConfigurationFeatureArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationFeature)(nil))
+	return reflect.TypeOf((*[]*ConfigurationFeature)(nil)).Elem()
 }
 
 func (o ConfigurationFeatureArrayOutput) ToConfigurationFeatureArrayOutput() ConfigurationFeatureArrayOutput {
@@ -391,15 +328,15 @@ func (o ConfigurationFeatureArrayOutput) ToConfigurationFeatureArrayOutputWithCo
 }
 
 func (o ConfigurationFeatureArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFeature {
-		return vs[0].([]ConfigurationFeature)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationFeature {
+		return vs[0].([]*ConfigurationFeature)[vs[1].(int)]
 	}).(ConfigurationFeatureOutput)
 }
 
 type ConfigurationFeatureMapOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConfigurationFeature)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationFeature)(nil)).Elem()
 }
 
 func (o ConfigurationFeatureMapOutput) ToConfigurationFeatureMapOutput() ConfigurationFeatureMapOutput {
@@ -411,18 +348,16 @@ func (o ConfigurationFeatureMapOutput) ToConfigurationFeatureMapOutputWithContex
 }
 
 func (o ConfigurationFeatureMapOutput) MapIndex(k pulumi.StringInput) ConfigurationFeatureOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationFeature {
-		return vs[0].(map[string]ConfigurationFeature)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConfigurationFeature {
+		return vs[0].(map[string]*ConfigurationFeature)[vs[1].(string)]
 	}).(ConfigurationFeatureOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureInput)(nil)).Elem(), &ConfigurationFeature{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeaturePtrInput)(nil)).Elem(), &ConfigurationFeature{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureArrayInput)(nil)).Elem(), ConfigurationFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureMapInput)(nil)).Elem(), ConfigurationFeatureMap{})
 	pulumi.RegisterOutputType(ConfigurationFeatureOutput{})
-	pulumi.RegisterOutputType(ConfigurationFeaturePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataShare
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetDataLakeGen1Result> InvokeAsync(GetDatasetDataLakeGen1Args args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetDataLakeGen1Result>("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", args ?? new GetDatasetDataLakeGen1Args(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetDataLakeGen1Result>("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", args ?? new GetDatasetDataLakeGen1Args(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing DataShareDataLakeGen1Dataset.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetDataLakeGen1Result> Invoke(GetDatasetDataLakeGen1InvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatasetDataLakeGen1Result>("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", args ?? new GetDatasetDataLakeGen1InvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetDataLakeGen1Result>("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", args ?? new GetDatasetDataLakeGen1InvokeArgs(), options.WithDefaults());
     }
 
 

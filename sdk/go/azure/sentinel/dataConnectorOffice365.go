@@ -198,7 +198,7 @@ type DataConnectorOffice365Input interface {
 }
 
 func (*DataConnectorOffice365) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorOffice365)(nil))
+	return reflect.TypeOf((**DataConnectorOffice365)(nil)).Elem()
 }
 
 func (i *DataConnectorOffice365) ToDataConnectorOffice365Output() DataConnectorOffice365Output {
@@ -207,35 +207,6 @@ func (i *DataConnectorOffice365) ToDataConnectorOffice365Output() DataConnectorO
 
 func (i *DataConnectorOffice365) ToDataConnectorOffice365OutputWithContext(ctx context.Context) DataConnectorOffice365Output {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365Output)
-}
-
-func (i *DataConnectorOffice365) ToDataConnectorOffice365PtrOutput() DataConnectorOffice365PtrOutput {
-	return i.ToDataConnectorOffice365PtrOutputWithContext(context.Background())
-}
-
-func (i *DataConnectorOffice365) ToDataConnectorOffice365PtrOutputWithContext(ctx context.Context) DataConnectorOffice365PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365PtrOutput)
-}
-
-type DataConnectorOffice365PtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorOffice365PtrOutput() DataConnectorOffice365PtrOutput
-	ToDataConnectorOffice365PtrOutputWithContext(ctx context.Context) DataConnectorOffice365PtrOutput
-}
-
-type dataConnectorOffice365PtrType DataConnectorOffice365Args
-
-func (*dataConnectorOffice365PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorOffice365)(nil))
-}
-
-func (i *dataConnectorOffice365PtrType) ToDataConnectorOffice365PtrOutput() DataConnectorOffice365PtrOutput {
-	return i.ToDataConnectorOffice365PtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorOffice365PtrType) ToDataConnectorOffice365PtrOutputWithContext(ctx context.Context) DataConnectorOffice365PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365PtrOutput)
 }
 
 // DataConnectorOffice365ArrayInput is an input type that accepts DataConnectorOffice365Array and DataConnectorOffice365ArrayOutput values.
@@ -291,7 +262,7 @@ func (i DataConnectorOffice365Map) ToDataConnectorOffice365MapOutputWithContext(
 type DataConnectorOffice365Output struct{ *pulumi.OutputState }
 
 func (DataConnectorOffice365Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorOffice365)(nil))
+	return reflect.TypeOf((**DataConnectorOffice365)(nil)).Elem()
 }
 
 func (o DataConnectorOffice365Output) ToDataConnectorOffice365Output() DataConnectorOffice365Output {
@@ -302,44 +273,10 @@ func (o DataConnectorOffice365Output) ToDataConnectorOffice365OutputWithContext(
 	return o
 }
 
-func (o DataConnectorOffice365Output) ToDataConnectorOffice365PtrOutput() DataConnectorOffice365PtrOutput {
-	return o.ToDataConnectorOffice365PtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorOffice365Output) ToDataConnectorOffice365PtrOutputWithContext(ctx context.Context) DataConnectorOffice365PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorOffice365) *DataConnectorOffice365 {
-		return &v
-	}).(DataConnectorOffice365PtrOutput)
-}
-
-type DataConnectorOffice365PtrOutput struct{ *pulumi.OutputState }
-
-func (DataConnectorOffice365PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorOffice365)(nil))
-}
-
-func (o DataConnectorOffice365PtrOutput) ToDataConnectorOffice365PtrOutput() DataConnectorOffice365PtrOutput {
-	return o
-}
-
-func (o DataConnectorOffice365PtrOutput) ToDataConnectorOffice365PtrOutputWithContext(ctx context.Context) DataConnectorOffice365PtrOutput {
-	return o
-}
-
-func (o DataConnectorOffice365PtrOutput) Elem() DataConnectorOffice365Output {
-	return o.ApplyT(func(v *DataConnectorOffice365) DataConnectorOffice365 {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorOffice365
-		return ret
-	}).(DataConnectorOffice365Output)
-}
-
 type DataConnectorOffice365ArrayOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOffice365ArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataConnectorOffice365)(nil))
+	return reflect.TypeOf((*[]*DataConnectorOffice365)(nil)).Elem()
 }
 
 func (o DataConnectorOffice365ArrayOutput) ToDataConnectorOffice365ArrayOutput() DataConnectorOffice365ArrayOutput {
@@ -351,15 +288,15 @@ func (o DataConnectorOffice365ArrayOutput) ToDataConnectorOffice365ArrayOutputWi
 }
 
 func (o DataConnectorOffice365ArrayOutput) Index(i pulumi.IntInput) DataConnectorOffice365Output {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataConnectorOffice365 {
-		return vs[0].([]DataConnectorOffice365)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorOffice365 {
+		return vs[0].([]*DataConnectorOffice365)[vs[1].(int)]
 	}).(DataConnectorOffice365Output)
 }
 
 type DataConnectorOffice365MapOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOffice365MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataConnectorOffice365)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorOffice365)(nil)).Elem()
 }
 
 func (o DataConnectorOffice365MapOutput) ToDataConnectorOffice365MapOutput() DataConnectorOffice365MapOutput {
@@ -371,18 +308,16 @@ func (o DataConnectorOffice365MapOutput) ToDataConnectorOffice365MapOutputWithCo
 }
 
 func (o DataConnectorOffice365MapOutput) MapIndex(k pulumi.StringInput) DataConnectorOffice365Output {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataConnectorOffice365 {
-		return vs[0].(map[string]DataConnectorOffice365)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataConnectorOffice365 {
+		return vs[0].(map[string]*DataConnectorOffice365)[vs[1].(string)]
 	}).(DataConnectorOffice365Output)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365Input)(nil)).Elem(), &DataConnectorOffice365{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365PtrInput)(nil)).Elem(), &DataConnectorOffice365{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365ArrayInput)(nil)).Elem(), DataConnectorOffice365Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365MapInput)(nil)).Elem(), DataConnectorOffice365Map{})
 	pulumi.RegisterOutputType(DataConnectorOffice365Output{})
-	pulumi.RegisterOutputType(DataConnectorOffice365PtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorOffice365ArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorOffice365MapOutput{})
 }

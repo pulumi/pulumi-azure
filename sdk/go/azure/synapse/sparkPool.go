@@ -261,7 +261,7 @@ type SparkPoolInput interface {
 }
 
 func (*SparkPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkPool)(nil))
+	return reflect.TypeOf((**SparkPool)(nil)).Elem()
 }
 
 func (i *SparkPool) ToSparkPoolOutput() SparkPoolOutput {
@@ -270,35 +270,6 @@ func (i *SparkPool) ToSparkPoolOutput() SparkPoolOutput {
 
 func (i *SparkPool) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolOutput)
-}
-
-func (i *SparkPool) ToSparkPoolPtrOutput() SparkPoolPtrOutput {
-	return i.ToSparkPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *SparkPool) ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolPtrOutput)
-}
-
-type SparkPoolPtrInput interface {
-	pulumi.Input
-
-	ToSparkPoolPtrOutput() SparkPoolPtrOutput
-	ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput
-}
-
-type sparkPoolPtrType SparkPoolArgs
-
-func (*sparkPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkPool)(nil))
-}
-
-func (i *sparkPoolPtrType) ToSparkPoolPtrOutput() SparkPoolPtrOutput {
-	return i.ToSparkPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *sparkPoolPtrType) ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolPtrOutput)
 }
 
 // SparkPoolArrayInput is an input type that accepts SparkPoolArray and SparkPoolArrayOutput values.
@@ -354,7 +325,7 @@ func (i SparkPoolMap) ToSparkPoolMapOutputWithContext(ctx context.Context) Spark
 type SparkPoolOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkPool)(nil))
+	return reflect.TypeOf((**SparkPool)(nil)).Elem()
 }
 
 func (o SparkPoolOutput) ToSparkPoolOutput() SparkPoolOutput {
@@ -365,44 +336,10 @@ func (o SparkPoolOutput) ToSparkPoolOutputWithContext(ctx context.Context) Spark
 	return o
 }
 
-func (o SparkPoolOutput) ToSparkPoolPtrOutput() SparkPoolPtrOutput {
-	return o.ToSparkPoolPtrOutputWithContext(context.Background())
-}
-
-func (o SparkPoolOutput) ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkPool) *SparkPool {
-		return &v
-	}).(SparkPoolPtrOutput)
-}
-
-type SparkPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (SparkPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkPool)(nil))
-}
-
-func (o SparkPoolPtrOutput) ToSparkPoolPtrOutput() SparkPoolPtrOutput {
-	return o
-}
-
-func (o SparkPoolPtrOutput) ToSparkPoolPtrOutputWithContext(ctx context.Context) SparkPoolPtrOutput {
-	return o
-}
-
-func (o SparkPoolPtrOutput) Elem() SparkPoolOutput {
-	return o.ApplyT(func(v *SparkPool) SparkPool {
-		if v != nil {
-			return *v
-		}
-		var ret SparkPool
-		return ret
-	}).(SparkPoolOutput)
-}
-
 type SparkPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SparkPool)(nil))
+	return reflect.TypeOf((*[]*SparkPool)(nil)).Elem()
 }
 
 func (o SparkPoolArrayOutput) ToSparkPoolArrayOutput() SparkPoolArrayOutput {
@@ -414,15 +351,15 @@ func (o SparkPoolArrayOutput) ToSparkPoolArrayOutputWithContext(ctx context.Cont
 }
 
 func (o SparkPoolArrayOutput) Index(i pulumi.IntInput) SparkPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkPool {
-		return vs[0].([]SparkPool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SparkPool {
+		return vs[0].([]*SparkPool)[vs[1].(int)]
 	}).(SparkPoolOutput)
 }
 
 type SparkPoolMapOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SparkPool)(nil))
+	return reflect.TypeOf((*map[string]*SparkPool)(nil)).Elem()
 }
 
 func (o SparkPoolMapOutput) ToSparkPoolMapOutput() SparkPoolMapOutput {
@@ -434,18 +371,16 @@ func (o SparkPoolMapOutput) ToSparkPoolMapOutputWithContext(ctx context.Context)
 }
 
 func (o SparkPoolMapOutput) MapIndex(k pulumi.StringInput) SparkPoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SparkPool {
-		return vs[0].(map[string]SparkPool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SparkPool {
+		return vs[0].(map[string]*SparkPool)[vs[1].(string)]
 	}).(SparkPoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolInput)(nil)).Elem(), &SparkPool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolPtrInput)(nil)).Elem(), &SparkPool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolArrayInput)(nil)).Elem(), SparkPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolMapInput)(nil)).Elem(), SparkPoolMap{})
 	pulumi.RegisterOutputType(SparkPoolOutput{})
-	pulumi.RegisterOutputType(SparkPoolPtrOutput{})
 	pulumi.RegisterOutputType(SparkPoolArrayOutput{})
 	pulumi.RegisterOutputType(SparkPoolMapOutput{})
 }

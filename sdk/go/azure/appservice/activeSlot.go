@@ -162,7 +162,7 @@ type ActiveSlotInput interface {
 }
 
 func (*ActiveSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveSlot)(nil))
+	return reflect.TypeOf((**ActiveSlot)(nil)).Elem()
 }
 
 func (i *ActiveSlot) ToActiveSlotOutput() ActiveSlotOutput {
@@ -171,35 +171,6 @@ func (i *ActiveSlot) ToActiveSlotOutput() ActiveSlotOutput {
 
 func (i *ActiveSlot) ToActiveSlotOutputWithContext(ctx context.Context) ActiveSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotOutput)
-}
-
-func (i *ActiveSlot) ToActiveSlotPtrOutput() ActiveSlotPtrOutput {
-	return i.ToActiveSlotPtrOutputWithContext(context.Background())
-}
-
-func (i *ActiveSlot) ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotPtrOutput)
-}
-
-type ActiveSlotPtrInput interface {
-	pulumi.Input
-
-	ToActiveSlotPtrOutput() ActiveSlotPtrOutput
-	ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput
-}
-
-type activeSlotPtrType ActiveSlotArgs
-
-func (*activeSlotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveSlot)(nil))
-}
-
-func (i *activeSlotPtrType) ToActiveSlotPtrOutput() ActiveSlotPtrOutput {
-	return i.ToActiveSlotPtrOutputWithContext(context.Background())
-}
-
-func (i *activeSlotPtrType) ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotPtrOutput)
 }
 
 // ActiveSlotArrayInput is an input type that accepts ActiveSlotArray and ActiveSlotArrayOutput values.
@@ -255,7 +226,7 @@ func (i ActiveSlotMap) ToActiveSlotMapOutputWithContext(ctx context.Context) Act
 type ActiveSlotOutput struct{ *pulumi.OutputState }
 
 func (ActiveSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveSlot)(nil))
+	return reflect.TypeOf((**ActiveSlot)(nil)).Elem()
 }
 
 func (o ActiveSlotOutput) ToActiveSlotOutput() ActiveSlotOutput {
@@ -266,44 +237,10 @@ func (o ActiveSlotOutput) ToActiveSlotOutputWithContext(ctx context.Context) Act
 	return o
 }
 
-func (o ActiveSlotOutput) ToActiveSlotPtrOutput() ActiveSlotPtrOutput {
-	return o.ToActiveSlotPtrOutputWithContext(context.Background())
-}
-
-func (o ActiveSlotOutput) ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveSlot) *ActiveSlot {
-		return &v
-	}).(ActiveSlotPtrOutput)
-}
-
-type ActiveSlotPtrOutput struct{ *pulumi.OutputState }
-
-func (ActiveSlotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActiveSlot)(nil))
-}
-
-func (o ActiveSlotPtrOutput) ToActiveSlotPtrOutput() ActiveSlotPtrOutput {
-	return o
-}
-
-func (o ActiveSlotPtrOutput) ToActiveSlotPtrOutputWithContext(ctx context.Context) ActiveSlotPtrOutput {
-	return o
-}
-
-func (o ActiveSlotPtrOutput) Elem() ActiveSlotOutput {
-	return o.ApplyT(func(v *ActiveSlot) ActiveSlot {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveSlot
-		return ret
-	}).(ActiveSlotOutput)
-}
-
 type ActiveSlotArrayOutput struct{ *pulumi.OutputState }
 
 func (ActiveSlotArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveSlot)(nil))
+	return reflect.TypeOf((*[]*ActiveSlot)(nil)).Elem()
 }
 
 func (o ActiveSlotArrayOutput) ToActiveSlotArrayOutput() ActiveSlotArrayOutput {
@@ -315,15 +252,15 @@ func (o ActiveSlotArrayOutput) ToActiveSlotArrayOutputWithContext(ctx context.Co
 }
 
 func (o ActiveSlotArrayOutput) Index(i pulumi.IntInput) ActiveSlotOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveSlot {
-		return vs[0].([]ActiveSlot)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActiveSlot {
+		return vs[0].([]*ActiveSlot)[vs[1].(int)]
 	}).(ActiveSlotOutput)
 }
 
 type ActiveSlotMapOutput struct{ *pulumi.OutputState }
 
 func (ActiveSlotMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActiveSlot)(nil))
+	return reflect.TypeOf((*map[string]*ActiveSlot)(nil)).Elem()
 }
 
 func (o ActiveSlotMapOutput) ToActiveSlotMapOutput() ActiveSlotMapOutput {
@@ -335,18 +272,16 @@ func (o ActiveSlotMapOutput) ToActiveSlotMapOutputWithContext(ctx context.Contex
 }
 
 func (o ActiveSlotMapOutput) MapIndex(k pulumi.StringInput) ActiveSlotOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActiveSlot {
-		return vs[0].(map[string]ActiveSlot)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActiveSlot {
+		return vs[0].(map[string]*ActiveSlot)[vs[1].(string)]
 	}).(ActiveSlotOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveSlotInput)(nil)).Elem(), &ActiveSlot{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActiveSlotPtrInput)(nil)).Elem(), &ActiveSlot{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveSlotArrayInput)(nil)).Elem(), ActiveSlotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveSlotMapInput)(nil)).Elem(), ActiveSlotMap{})
 	pulumi.RegisterOutputType(ActiveSlotOutput{})
-	pulumi.RegisterOutputType(ActiveSlotPtrOutput{})
 	pulumi.RegisterOutputType(ActiveSlotArrayOutput{})
 	pulumi.RegisterOutputType(ActiveSlotMapOutput{})
 }

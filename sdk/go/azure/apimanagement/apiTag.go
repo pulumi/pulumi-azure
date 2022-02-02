@@ -32,6 +32,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleService := apimanagement.LookupServiceOutput(ctx, apimanagement.GetServiceOutputArgs{
+// 			Name:              pulumi.String("example-apim"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ApiManagementName: pulumi.Any(azurerm_api_management.Example.Name),
@@ -151,7 +155,7 @@ type ApiTagInput interface {
 }
 
 func (*ApiTag) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiTag)(nil))
+	return reflect.TypeOf((**ApiTag)(nil)).Elem()
 }
 
 func (i *ApiTag) ToApiTagOutput() ApiTagOutput {
@@ -160,35 +164,6 @@ func (i *ApiTag) ToApiTagOutput() ApiTagOutput {
 
 func (i *ApiTag) ToApiTagOutputWithContext(ctx context.Context) ApiTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagOutput)
-}
-
-func (i *ApiTag) ToApiTagPtrOutput() ApiTagPtrOutput {
-	return i.ToApiTagPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiTag) ToApiTagPtrOutputWithContext(ctx context.Context) ApiTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiTagPtrOutput)
-}
-
-type ApiTagPtrInput interface {
-	pulumi.Input
-
-	ToApiTagPtrOutput() ApiTagPtrOutput
-	ToApiTagPtrOutputWithContext(ctx context.Context) ApiTagPtrOutput
-}
-
-type apiTagPtrType ApiTagArgs
-
-func (*apiTagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiTag)(nil))
-}
-
-func (i *apiTagPtrType) ToApiTagPtrOutput() ApiTagPtrOutput {
-	return i.ToApiTagPtrOutputWithContext(context.Background())
-}
-
-func (i *apiTagPtrType) ToApiTagPtrOutputWithContext(ctx context.Context) ApiTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiTagPtrOutput)
 }
 
 // ApiTagArrayInput is an input type that accepts ApiTagArray and ApiTagArrayOutput values.
@@ -244,7 +219,7 @@ func (i ApiTagMap) ToApiTagMapOutputWithContext(ctx context.Context) ApiTagMapOu
 type ApiTagOutput struct{ *pulumi.OutputState }
 
 func (ApiTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiTag)(nil))
+	return reflect.TypeOf((**ApiTag)(nil)).Elem()
 }
 
 func (o ApiTagOutput) ToApiTagOutput() ApiTagOutput {
@@ -255,44 +230,10 @@ func (o ApiTagOutput) ToApiTagOutputWithContext(ctx context.Context) ApiTagOutpu
 	return o
 }
 
-func (o ApiTagOutput) ToApiTagPtrOutput() ApiTagPtrOutput {
-	return o.ToApiTagPtrOutputWithContext(context.Background())
-}
-
-func (o ApiTagOutput) ToApiTagPtrOutputWithContext(ctx context.Context) ApiTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiTag) *ApiTag {
-		return &v
-	}).(ApiTagPtrOutput)
-}
-
-type ApiTagPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiTagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiTag)(nil))
-}
-
-func (o ApiTagPtrOutput) ToApiTagPtrOutput() ApiTagPtrOutput {
-	return o
-}
-
-func (o ApiTagPtrOutput) ToApiTagPtrOutputWithContext(ctx context.Context) ApiTagPtrOutput {
-	return o
-}
-
-func (o ApiTagPtrOutput) Elem() ApiTagOutput {
-	return o.ApplyT(func(v *ApiTag) ApiTag {
-		if v != nil {
-			return *v
-		}
-		var ret ApiTag
-		return ret
-	}).(ApiTagOutput)
-}
-
 type ApiTagArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiTag)(nil))
+	return reflect.TypeOf((*[]*ApiTag)(nil)).Elem()
 }
 
 func (o ApiTagArrayOutput) ToApiTagArrayOutput() ApiTagArrayOutput {
@@ -304,15 +245,15 @@ func (o ApiTagArrayOutput) ToApiTagArrayOutputWithContext(ctx context.Context) A
 }
 
 func (o ApiTagArrayOutput) Index(i pulumi.IntInput) ApiTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiTag {
-		return vs[0].([]ApiTag)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiTag {
+		return vs[0].([]*ApiTag)[vs[1].(int)]
 	}).(ApiTagOutput)
 }
 
 type ApiTagMapOutput struct{ *pulumi.OutputState }
 
 func (ApiTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiTag)(nil))
+	return reflect.TypeOf((*map[string]*ApiTag)(nil)).Elem()
 }
 
 func (o ApiTagMapOutput) ToApiTagMapOutput() ApiTagMapOutput {
@@ -324,18 +265,16 @@ func (o ApiTagMapOutput) ToApiTagMapOutputWithContext(ctx context.Context) ApiTa
 }
 
 func (o ApiTagMapOutput) MapIndex(k pulumi.StringInput) ApiTagOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiTag {
-		return vs[0].(map[string]ApiTag)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiTag {
+		return vs[0].(map[string]*ApiTag)[vs[1].(string)]
 	}).(ApiTagOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiTagInput)(nil)).Elem(), &ApiTag{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiTagPtrInput)(nil)).Elem(), &ApiTag{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiTagArrayInput)(nil)).Elem(), ApiTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiTagMapInput)(nil)).Elem(), ApiTagMap{})
 	pulumi.RegisterOutputType(ApiTagOutput{})
-	pulumi.RegisterOutputType(ApiTagPtrOutput{})
 	pulumi.RegisterOutputType(ApiTagArrayOutput{})
 	pulumi.RegisterOutputType(ApiTagMapOutput{})
 }

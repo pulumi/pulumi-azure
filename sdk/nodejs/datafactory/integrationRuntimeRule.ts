@@ -117,42 +117,40 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationRuntimeRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeRuleArgs | IntegrationRuntimeRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeRuleState | undefined;
-            inputs["cleanupEnabled"] = state ? state.cleanupEnabled : undefined;
-            inputs["computeType"] = state ? state.computeType : undefined;
-            inputs["coreCount"] = state ? state.coreCount : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
-            inputs["virtualNetworkEnabled"] = state ? state.virtualNetworkEnabled : undefined;
+            resourceInputs["cleanupEnabled"] = state ? state.cleanupEnabled : undefined;
+            resourceInputs["computeType"] = state ? state.computeType : undefined;
+            resourceInputs["coreCount"] = state ? state.coreCount : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
+            resourceInputs["virtualNetworkEnabled"] = state ? state.virtualNetworkEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeRuleArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cleanupEnabled"] = args ? args.cleanupEnabled : undefined;
-            inputs["computeType"] = args ? args.computeType : undefined;
-            inputs["coreCount"] = args ? args.coreCount : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
-            inputs["virtualNetworkEnabled"] = args ? args.virtualNetworkEnabled : undefined;
+            resourceInputs["cleanupEnabled"] = args ? args.cleanupEnabled : undefined;
+            resourceInputs["computeType"] = args ? args.computeType : undefined;
+            resourceInputs["coreCount"] = args ? args.coreCount : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
+            resourceInputs["virtualNetworkEnabled"] = args ? args.virtualNetworkEnabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationRuntimeRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationRuntimeRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

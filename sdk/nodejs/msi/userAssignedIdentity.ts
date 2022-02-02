@@ -56,34 +56,32 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     /** @deprecated azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity */
     constructor(name: string, argsOrState?: UserAssignedIdentityArgs | UserAssignedIdentityState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserAssignedIdentity is deprecated: azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserAssignedIdentityState | undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["principalId"] = state ? state.principalId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as UserAssignedIdentityArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserAssignedIdentity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

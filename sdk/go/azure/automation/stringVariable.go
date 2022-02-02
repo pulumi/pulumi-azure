@@ -148,7 +148,7 @@ type StringVariableInput interface {
 }
 
 func (*StringVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*StringVariable)(nil))
+	return reflect.TypeOf((**StringVariable)(nil)).Elem()
 }
 
 func (i *StringVariable) ToStringVariableOutput() StringVariableOutput {
@@ -157,35 +157,6 @@ func (i *StringVariable) ToStringVariableOutput() StringVariableOutput {
 
 func (i *StringVariable) ToStringVariableOutputWithContext(ctx context.Context) StringVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StringVariableOutput)
-}
-
-func (i *StringVariable) ToStringVariablePtrOutput() StringVariablePtrOutput {
-	return i.ToStringVariablePtrOutputWithContext(context.Background())
-}
-
-func (i *StringVariable) ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StringVariablePtrOutput)
-}
-
-type StringVariablePtrInput interface {
-	pulumi.Input
-
-	ToStringVariablePtrOutput() StringVariablePtrOutput
-	ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput
-}
-
-type stringVariablePtrType StringVariableArgs
-
-func (*stringVariablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StringVariable)(nil))
-}
-
-func (i *stringVariablePtrType) ToStringVariablePtrOutput() StringVariablePtrOutput {
-	return i.ToStringVariablePtrOutputWithContext(context.Background())
-}
-
-func (i *stringVariablePtrType) ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StringVariablePtrOutput)
 }
 
 // StringVariableArrayInput is an input type that accepts StringVariableArray and StringVariableArrayOutput values.
@@ -241,7 +212,7 @@ func (i StringVariableMap) ToStringVariableMapOutputWithContext(ctx context.Cont
 type StringVariableOutput struct{ *pulumi.OutputState }
 
 func (StringVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StringVariable)(nil))
+	return reflect.TypeOf((**StringVariable)(nil)).Elem()
 }
 
 func (o StringVariableOutput) ToStringVariableOutput() StringVariableOutput {
@@ -252,44 +223,10 @@ func (o StringVariableOutput) ToStringVariableOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o StringVariableOutput) ToStringVariablePtrOutput() StringVariablePtrOutput {
-	return o.ToStringVariablePtrOutputWithContext(context.Background())
-}
-
-func (o StringVariableOutput) ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StringVariable) *StringVariable {
-		return &v
-	}).(StringVariablePtrOutput)
-}
-
-type StringVariablePtrOutput struct{ *pulumi.OutputState }
-
-func (StringVariablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StringVariable)(nil))
-}
-
-func (o StringVariablePtrOutput) ToStringVariablePtrOutput() StringVariablePtrOutput {
-	return o
-}
-
-func (o StringVariablePtrOutput) ToStringVariablePtrOutputWithContext(ctx context.Context) StringVariablePtrOutput {
-	return o
-}
-
-func (o StringVariablePtrOutput) Elem() StringVariableOutput {
-	return o.ApplyT(func(v *StringVariable) StringVariable {
-		if v != nil {
-			return *v
-		}
-		var ret StringVariable
-		return ret
-	}).(StringVariableOutput)
-}
-
 type StringVariableArrayOutput struct{ *pulumi.OutputState }
 
 func (StringVariableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StringVariable)(nil))
+	return reflect.TypeOf((*[]*StringVariable)(nil)).Elem()
 }
 
 func (o StringVariableArrayOutput) ToStringVariableArrayOutput() StringVariableArrayOutput {
@@ -301,15 +238,15 @@ func (o StringVariableArrayOutput) ToStringVariableArrayOutputWithContext(ctx co
 }
 
 func (o StringVariableArrayOutput) Index(i pulumi.IntInput) StringVariableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StringVariable {
-		return vs[0].([]StringVariable)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StringVariable {
+		return vs[0].([]*StringVariable)[vs[1].(int)]
 	}).(StringVariableOutput)
 }
 
 type StringVariableMapOutput struct{ *pulumi.OutputState }
 
 func (StringVariableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StringVariable)(nil))
+	return reflect.TypeOf((*map[string]*StringVariable)(nil)).Elem()
 }
 
 func (o StringVariableMapOutput) ToStringVariableMapOutput() StringVariableMapOutput {
@@ -321,18 +258,16 @@ func (o StringVariableMapOutput) ToStringVariableMapOutputWithContext(ctx contex
 }
 
 func (o StringVariableMapOutput) MapIndex(k pulumi.StringInput) StringVariableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StringVariable {
-		return vs[0].(map[string]StringVariable)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StringVariable {
+		return vs[0].(map[string]*StringVariable)[vs[1].(string)]
 	}).(StringVariableOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StringVariableInput)(nil)).Elem(), &StringVariable{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StringVariablePtrInput)(nil)).Elem(), &StringVariable{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StringVariableArrayInput)(nil)).Elem(), StringVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StringVariableMapInput)(nil)).Elem(), StringVariableMap{})
 	pulumi.RegisterOutputType(StringVariableOutput{})
-	pulumi.RegisterOutputType(StringVariablePtrOutput{})
 	pulumi.RegisterOutputType(StringVariableArrayOutput{})
 	pulumi.RegisterOutputType(StringVariableMapOutput{})
 }

@@ -124,20 +124,20 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabasePrincipalAssignmentArgs | DatabasePrincipalAssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabasePrincipalAssignmentState | undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["principalId"] = state ? state.principalId : undefined;
-            inputs["principalName"] = state ? state.principalName : undefined;
-            inputs["principalType"] = state ? state.principalType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
-            inputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["principalName"] = state ? state.principalName : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as DatabasePrincipalAssignmentArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -161,21 +161,19 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["principalName"] = undefined /*out*/;
-            inputs["tenantName"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["principalName"] = undefined /*out*/;
+            resourceInputs["tenantName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DatabasePrincipalAssignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

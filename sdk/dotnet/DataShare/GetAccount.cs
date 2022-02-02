@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataShare
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:datashare/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:datashare/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Account.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:datashare/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:datashare/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

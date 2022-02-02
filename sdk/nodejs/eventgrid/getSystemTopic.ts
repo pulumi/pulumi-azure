@@ -25,9 +25,7 @@ export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:eventgrid/getSystemTopic:getSystemTopic", {
         "identity": args.identity,
         "name": args.name,

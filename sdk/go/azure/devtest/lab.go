@@ -205,7 +205,7 @@ type LabInput interface {
 }
 
 func (*Lab) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lab)(nil))
+	return reflect.TypeOf((**Lab)(nil)).Elem()
 }
 
 func (i *Lab) ToLabOutput() LabOutput {
@@ -214,35 +214,6 @@ func (i *Lab) ToLabOutput() LabOutput {
 
 func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
-}
-
-func (i *Lab) ToLabPtrOutput() LabPtrOutput {
-	return i.ToLabPtrOutputWithContext(context.Background())
-}
-
-func (i *Lab) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabPtrOutput)
-}
-
-type LabPtrInput interface {
-	pulumi.Input
-
-	ToLabPtrOutput() LabPtrOutput
-	ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput
-}
-
-type labPtrType LabArgs
-
-func (*labPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Lab)(nil))
-}
-
-func (i *labPtrType) ToLabPtrOutput() LabPtrOutput {
-	return i.ToLabPtrOutputWithContext(context.Background())
-}
-
-func (i *labPtrType) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabPtrOutput)
 }
 
 // LabArrayInput is an input type that accepts LabArray and LabArrayOutput values.
@@ -298,7 +269,7 @@ func (i LabMap) ToLabMapOutputWithContext(ctx context.Context) LabMapOutput {
 type LabOutput struct{ *pulumi.OutputState }
 
 func (LabOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lab)(nil))
+	return reflect.TypeOf((**Lab)(nil)).Elem()
 }
 
 func (o LabOutput) ToLabOutput() LabOutput {
@@ -309,44 +280,10 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
-func (o LabOutput) ToLabPtrOutput() LabPtrOutput {
-	return o.ToLabPtrOutputWithContext(context.Background())
-}
-
-func (o LabOutput) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Lab) *Lab {
-		return &v
-	}).(LabPtrOutput)
-}
-
-type LabPtrOutput struct{ *pulumi.OutputState }
-
-func (LabPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Lab)(nil))
-}
-
-func (o LabPtrOutput) ToLabPtrOutput() LabPtrOutput {
-	return o
-}
-
-func (o LabPtrOutput) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
-	return o
-}
-
-func (o LabPtrOutput) Elem() LabOutput {
-	return o.ApplyT(func(v *Lab) Lab {
-		if v != nil {
-			return *v
-		}
-		var ret Lab
-		return ret
-	}).(LabOutput)
-}
-
 type LabArrayOutput struct{ *pulumi.OutputState }
 
 func (LabArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Lab)(nil))
+	return reflect.TypeOf((*[]*Lab)(nil)).Elem()
 }
 
 func (o LabArrayOutput) ToLabArrayOutput() LabArrayOutput {
@@ -358,15 +295,15 @@ func (o LabArrayOutput) ToLabArrayOutputWithContext(ctx context.Context) LabArra
 }
 
 func (o LabArrayOutput) Index(i pulumi.IntInput) LabOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Lab {
-		return vs[0].([]Lab)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Lab {
+		return vs[0].([]*Lab)[vs[1].(int)]
 	}).(LabOutput)
 }
 
 type LabMapOutput struct{ *pulumi.OutputState }
 
 func (LabMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Lab)(nil))
+	return reflect.TypeOf((*map[string]*Lab)(nil)).Elem()
 }
 
 func (o LabMapOutput) ToLabMapOutput() LabMapOutput {
@@ -378,18 +315,16 @@ func (o LabMapOutput) ToLabMapOutputWithContext(ctx context.Context) LabMapOutpu
 }
 
 func (o LabMapOutput) MapIndex(k pulumi.StringInput) LabOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Lab {
-		return vs[0].(map[string]Lab)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Lab {
+		return vs[0].(map[string]*Lab)[vs[1].(string)]
 	}).(LabOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LabInput)(nil)).Elem(), &Lab{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LabPtrInput)(nil)).Elem(), &Lab{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabArrayInput)(nil)).Elem(), LabArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabMapInput)(nil)).Elem(), LabMap{})
 	pulumi.RegisterOutputType(LabOutput{})
-	pulumi.RegisterOutputType(LabPtrOutput{})
 	pulumi.RegisterOutputType(LabArrayOutput{})
 	pulumi.RegisterOutputType(LabMapOutput{})
 }

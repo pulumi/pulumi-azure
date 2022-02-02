@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
- *     connectionString: primaryConnectionString,
+ * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     signedVersion: "2017-07-29",
  *     resourceTypes: {
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *         update: false,
  *         process: false,
  *     },
- * }));
+ * });
  * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
  * ```
  */
@@ -65,9 +65,7 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
         "connectionString": args.connectionString,
         "expiry": args.expiry,

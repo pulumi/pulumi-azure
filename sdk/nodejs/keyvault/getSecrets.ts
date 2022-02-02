@@ -12,9 +12,7 @@ export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:keyvault/getSecrets:getSecrets", {
         "keyVaultId": args.keyVaultId,
     }, opts);

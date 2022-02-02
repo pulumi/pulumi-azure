@@ -129,22 +129,22 @@ export class SqlServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlServerArgs | SqlServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlServerState | undefined;
-            inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            inputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
-            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
-            inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
+            resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
+            resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SqlServerArgs | undefined;
             if ((!args || args.administratorLogin === undefined) && !opts.urn) {
@@ -159,23 +159,21 @@ export class SqlServer extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
-            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
+            resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlServer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

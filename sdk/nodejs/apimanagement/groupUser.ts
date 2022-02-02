@@ -88,14 +88,14 @@ export class GroupUser extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupUserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupUserArgs | GroupUserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupUserState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["groupName"] = state ? state.groupName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as GroupUserArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -110,15 +110,13 @@ export class GroupUser extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GroupUser.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GroupUser.__pulumiType, name, resourceInputs, opts);
     }
 }
 

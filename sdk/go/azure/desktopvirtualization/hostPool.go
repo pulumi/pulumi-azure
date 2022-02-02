@@ -289,7 +289,7 @@ type HostPoolInput interface {
 }
 
 func (*HostPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPool)(nil))
+	return reflect.TypeOf((**HostPool)(nil)).Elem()
 }
 
 func (i *HostPool) ToHostPoolOutput() HostPoolOutput {
@@ -298,35 +298,6 @@ func (i *HostPool) ToHostPoolOutput() HostPoolOutput {
 
 func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
-}
-
-func (i *HostPool) ToHostPoolPtrOutput() HostPoolPtrOutput {
-	return i.ToHostPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *HostPool) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostPoolPtrOutput)
-}
-
-type HostPoolPtrInput interface {
-	pulumi.Input
-
-	ToHostPoolPtrOutput() HostPoolPtrOutput
-	ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput
-}
-
-type hostPoolPtrType HostPoolArgs
-
-func (*hostPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostPool)(nil))
-}
-
-func (i *hostPoolPtrType) ToHostPoolPtrOutput() HostPoolPtrOutput {
-	return i.ToHostPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *hostPoolPtrType) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostPoolPtrOutput)
 }
 
 // HostPoolArrayInput is an input type that accepts HostPoolArray and HostPoolArrayOutput values.
@@ -382,7 +353,7 @@ func (i HostPoolMap) ToHostPoolMapOutputWithContext(ctx context.Context) HostPoo
 type HostPoolOutput struct{ *pulumi.OutputState }
 
 func (HostPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPool)(nil))
+	return reflect.TypeOf((**HostPool)(nil)).Elem()
 }
 
 func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {
@@ -393,44 +364,10 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 	return o
 }
 
-func (o HostPoolOutput) ToHostPoolPtrOutput() HostPoolPtrOutput {
-	return o.ToHostPoolPtrOutputWithContext(context.Background())
-}
-
-func (o HostPoolOutput) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostPool) *HostPool {
-		return &v
-	}).(HostPoolPtrOutput)
-}
-
-type HostPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (HostPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostPool)(nil))
-}
-
-func (o HostPoolPtrOutput) ToHostPoolPtrOutput() HostPoolPtrOutput {
-	return o
-}
-
-func (o HostPoolPtrOutput) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
-	return o
-}
-
-func (o HostPoolPtrOutput) Elem() HostPoolOutput {
-	return o.ApplyT(func(v *HostPool) HostPool {
-		if v != nil {
-			return *v
-		}
-		var ret HostPool
-		return ret
-	}).(HostPoolOutput)
-}
-
 type HostPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (HostPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostPool)(nil))
+	return reflect.TypeOf((*[]*HostPool)(nil)).Elem()
 }
 
 func (o HostPoolArrayOutput) ToHostPoolArrayOutput() HostPoolArrayOutput {
@@ -442,15 +379,15 @@ func (o HostPoolArrayOutput) ToHostPoolArrayOutputWithContext(ctx context.Contex
 }
 
 func (o HostPoolArrayOutput) Index(i pulumi.IntInput) HostPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostPool {
-		return vs[0].([]HostPool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostPool {
+		return vs[0].([]*HostPool)[vs[1].(int)]
 	}).(HostPoolOutput)
 }
 
 type HostPoolMapOutput struct{ *pulumi.OutputState }
 
 func (HostPoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HostPool)(nil))
+	return reflect.TypeOf((*map[string]*HostPool)(nil)).Elem()
 }
 
 func (o HostPoolMapOutput) ToHostPoolMapOutput() HostPoolMapOutput {
@@ -462,18 +399,16 @@ func (o HostPoolMapOutput) ToHostPoolMapOutputWithContext(ctx context.Context) H
 }
 
 func (o HostPoolMapOutput) MapIndex(k pulumi.StringInput) HostPoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HostPool {
-		return vs[0].(map[string]HostPool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HostPool {
+		return vs[0].(map[string]*HostPool)[vs[1].(string)]
 	}).(HostPoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolInput)(nil)).Elem(), &HostPool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolPtrInput)(nil)).Elem(), &HostPool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolArrayInput)(nil)).Elem(), HostPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolMapInput)(nil)).Elem(), HostPoolMap{})
 	pulumi.RegisterOutputType(HostPoolOutput{})
-	pulumi.RegisterOutputType(HostPoolPtrOutput{})
 	pulumi.RegisterOutputType(HostPoolArrayOutput{})
 	pulumi.RegisterOutputType(HostPoolMapOutput{})
 }

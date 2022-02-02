@@ -196,7 +196,7 @@ type CredentialInput interface {
 }
 
 func (*Credential) ElementType() reflect.Type {
-	return reflect.TypeOf((*Credential)(nil))
+	return reflect.TypeOf((**Credential)(nil)).Elem()
 }
 
 func (i *Credential) ToCredentialOutput() CredentialOutput {
@@ -205,35 +205,6 @@ func (i *Credential) ToCredentialOutput() CredentialOutput {
 
 func (i *Credential) ToCredentialOutputWithContext(ctx context.Context) CredentialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialOutput)
-}
-
-func (i *Credential) ToCredentialPtrOutput() CredentialPtrOutput {
-	return i.ToCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *Credential) ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialPtrOutput)
-}
-
-type CredentialPtrInput interface {
-	pulumi.Input
-
-	ToCredentialPtrOutput() CredentialPtrOutput
-	ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput
-}
-
-type credentialPtrType CredentialArgs
-
-func (*credentialPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Credential)(nil))
-}
-
-func (i *credentialPtrType) ToCredentialPtrOutput() CredentialPtrOutput {
-	return i.ToCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *credentialPtrType) ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialPtrOutput)
 }
 
 // CredentialArrayInput is an input type that accepts CredentialArray and CredentialArrayOutput values.
@@ -289,7 +260,7 @@ func (i CredentialMap) ToCredentialMapOutputWithContext(ctx context.Context) Cre
 type CredentialOutput struct{ *pulumi.OutputState }
 
 func (CredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Credential)(nil))
+	return reflect.TypeOf((**Credential)(nil)).Elem()
 }
 
 func (o CredentialOutput) ToCredentialOutput() CredentialOutput {
@@ -300,44 +271,10 @@ func (o CredentialOutput) ToCredentialOutputWithContext(ctx context.Context) Cre
 	return o
 }
 
-func (o CredentialOutput) ToCredentialPtrOutput() CredentialPtrOutput {
-	return o.ToCredentialPtrOutputWithContext(context.Background())
-}
-
-func (o CredentialOutput) ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Credential) *Credential {
-		return &v
-	}).(CredentialPtrOutput)
-}
-
-type CredentialPtrOutput struct{ *pulumi.OutputState }
-
-func (CredentialPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Credential)(nil))
-}
-
-func (o CredentialPtrOutput) ToCredentialPtrOutput() CredentialPtrOutput {
-	return o
-}
-
-func (o CredentialPtrOutput) ToCredentialPtrOutputWithContext(ctx context.Context) CredentialPtrOutput {
-	return o
-}
-
-func (o CredentialPtrOutput) Elem() CredentialOutput {
-	return o.ApplyT(func(v *Credential) Credential {
-		if v != nil {
-			return *v
-		}
-		var ret Credential
-		return ret
-	}).(CredentialOutput)
-}
-
 type CredentialArrayOutput struct{ *pulumi.OutputState }
 
 func (CredentialArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Credential)(nil))
+	return reflect.TypeOf((*[]*Credential)(nil)).Elem()
 }
 
 func (o CredentialArrayOutput) ToCredentialArrayOutput() CredentialArrayOutput {
@@ -349,15 +286,15 @@ func (o CredentialArrayOutput) ToCredentialArrayOutputWithContext(ctx context.Co
 }
 
 func (o CredentialArrayOutput) Index(i pulumi.IntInput) CredentialOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Credential {
-		return vs[0].([]Credential)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Credential {
+		return vs[0].([]*Credential)[vs[1].(int)]
 	}).(CredentialOutput)
 }
 
 type CredentialMapOutput struct{ *pulumi.OutputState }
 
 func (CredentialMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Credential)(nil))
+	return reflect.TypeOf((*map[string]*Credential)(nil)).Elem()
 }
 
 func (o CredentialMapOutput) ToCredentialMapOutput() CredentialMapOutput {
@@ -369,18 +306,16 @@ func (o CredentialMapOutput) ToCredentialMapOutputWithContext(ctx context.Contex
 }
 
 func (o CredentialMapOutput) MapIndex(k pulumi.StringInput) CredentialOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Credential {
-		return vs[0].(map[string]Credential)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Credential {
+		return vs[0].(map[string]*Credential)[vs[1].(string)]
 	}).(CredentialOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CredentialInput)(nil)).Elem(), &Credential{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CredentialPtrInput)(nil)).Elem(), &Credential{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CredentialArrayInput)(nil)).Elem(), CredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CredentialMapInput)(nil)).Elem(), CredentialMap{})
 	pulumi.RegisterOutputType(CredentialOutput{})
-	pulumi.RegisterOutputType(CredentialPtrOutput{})
 	pulumi.RegisterOutputType(CredentialArrayOutput{})
 	pulumi.RegisterOutputType(CredentialMapOutput{})
 }

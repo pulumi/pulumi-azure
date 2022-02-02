@@ -14,9 +14,7 @@ export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOption
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:core/getResources:getResources", {
         "name": args.name,
         "requiredTags": args.requiredTags,

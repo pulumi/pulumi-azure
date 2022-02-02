@@ -199,7 +199,7 @@ type LogzTagRuleInput interface {
 }
 
 func (*LogzTagRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogzTagRule)(nil))
+	return reflect.TypeOf((**LogzTagRule)(nil)).Elem()
 }
 
 func (i *LogzTagRule) ToLogzTagRuleOutput() LogzTagRuleOutput {
@@ -208,35 +208,6 @@ func (i *LogzTagRule) ToLogzTagRuleOutput() LogzTagRuleOutput {
 
 func (i *LogzTagRule) ToLogzTagRuleOutputWithContext(ctx context.Context) LogzTagRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleOutput)
-}
-
-func (i *LogzTagRule) ToLogzTagRulePtrOutput() LogzTagRulePtrOutput {
-	return i.ToLogzTagRulePtrOutputWithContext(context.Background())
-}
-
-func (i *LogzTagRule) ToLogzTagRulePtrOutputWithContext(ctx context.Context) LogzTagRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRulePtrOutput)
-}
-
-type LogzTagRulePtrInput interface {
-	pulumi.Input
-
-	ToLogzTagRulePtrOutput() LogzTagRulePtrOutput
-	ToLogzTagRulePtrOutputWithContext(ctx context.Context) LogzTagRulePtrOutput
-}
-
-type logzTagRulePtrType LogzTagRuleArgs
-
-func (*logzTagRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzTagRule)(nil))
-}
-
-func (i *logzTagRulePtrType) ToLogzTagRulePtrOutput() LogzTagRulePtrOutput {
-	return i.ToLogzTagRulePtrOutputWithContext(context.Background())
-}
-
-func (i *logzTagRulePtrType) ToLogzTagRulePtrOutputWithContext(ctx context.Context) LogzTagRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRulePtrOutput)
 }
 
 // LogzTagRuleArrayInput is an input type that accepts LogzTagRuleArray and LogzTagRuleArrayOutput values.
@@ -292,7 +263,7 @@ func (i LogzTagRuleMap) ToLogzTagRuleMapOutputWithContext(ctx context.Context) L
 type LogzTagRuleOutput struct{ *pulumi.OutputState }
 
 func (LogzTagRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogzTagRule)(nil))
+	return reflect.TypeOf((**LogzTagRule)(nil)).Elem()
 }
 
 func (o LogzTagRuleOutput) ToLogzTagRuleOutput() LogzTagRuleOutput {
@@ -303,44 +274,10 @@ func (o LogzTagRuleOutput) ToLogzTagRuleOutputWithContext(ctx context.Context) L
 	return o
 }
 
-func (o LogzTagRuleOutput) ToLogzTagRulePtrOutput() LogzTagRulePtrOutput {
-	return o.ToLogzTagRulePtrOutputWithContext(context.Background())
-}
-
-func (o LogzTagRuleOutput) ToLogzTagRulePtrOutputWithContext(ctx context.Context) LogzTagRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzTagRule) *LogzTagRule {
-		return &v
-	}).(LogzTagRulePtrOutput)
-}
-
-type LogzTagRulePtrOutput struct{ *pulumi.OutputState }
-
-func (LogzTagRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzTagRule)(nil))
-}
-
-func (o LogzTagRulePtrOutput) ToLogzTagRulePtrOutput() LogzTagRulePtrOutput {
-	return o
-}
-
-func (o LogzTagRulePtrOutput) ToLogzTagRulePtrOutputWithContext(ctx context.Context) LogzTagRulePtrOutput {
-	return o
-}
-
-func (o LogzTagRulePtrOutput) Elem() LogzTagRuleOutput {
-	return o.ApplyT(func(v *LogzTagRule) LogzTagRule {
-		if v != nil {
-			return *v
-		}
-		var ret LogzTagRule
-		return ret
-	}).(LogzTagRuleOutput)
-}
-
 type LogzTagRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (LogzTagRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogzTagRule)(nil))
+	return reflect.TypeOf((*[]*LogzTagRule)(nil)).Elem()
 }
 
 func (o LogzTagRuleArrayOutput) ToLogzTagRuleArrayOutput() LogzTagRuleArrayOutput {
@@ -352,15 +289,15 @@ func (o LogzTagRuleArrayOutput) ToLogzTagRuleArrayOutputWithContext(ctx context.
 }
 
 func (o LogzTagRuleArrayOutput) Index(i pulumi.IntInput) LogzTagRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogzTagRule {
-		return vs[0].([]LogzTagRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogzTagRule {
+		return vs[0].([]*LogzTagRule)[vs[1].(int)]
 	}).(LogzTagRuleOutput)
 }
 
 type LogzTagRuleMapOutput struct{ *pulumi.OutputState }
 
 func (LogzTagRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogzTagRule)(nil))
+	return reflect.TypeOf((*map[string]*LogzTagRule)(nil)).Elem()
 }
 
 func (o LogzTagRuleMapOutput) ToLogzTagRuleMapOutput() LogzTagRuleMapOutput {
@@ -372,18 +309,16 @@ func (o LogzTagRuleMapOutput) ToLogzTagRuleMapOutputWithContext(ctx context.Cont
 }
 
 func (o LogzTagRuleMapOutput) MapIndex(k pulumi.StringInput) LogzTagRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogzTagRule {
-		return vs[0].(map[string]LogzTagRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogzTagRule {
+		return vs[0].(map[string]*LogzTagRule)[vs[1].(string)]
 	}).(LogzTagRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleInput)(nil)).Elem(), &LogzTagRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRulePtrInput)(nil)).Elem(), &LogzTagRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleArrayInput)(nil)).Elem(), LogzTagRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleMapInput)(nil)).Elem(), LogzTagRuleMap{})
 	pulumi.RegisterOutputType(LogzTagRuleOutput{})
-	pulumi.RegisterOutputType(LogzTagRulePtrOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleArrayOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleMapOutput{})
 }

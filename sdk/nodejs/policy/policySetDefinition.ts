@@ -140,21 +140,21 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicySetDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicySetDefinitionArgs | PolicySetDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicySetDefinitionState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            inputs["managementGroupName"] = state ? state.managementGroupName : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policyDefinitionGroups"] = state ? state.policyDefinitionGroups : undefined;
-            inputs["policyDefinitionReferences"] = state ? state.policyDefinitionReferences : undefined;
-            inputs["policyDefinitions"] = state ? state.policyDefinitions : undefined;
-            inputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
+            resourceInputs["managementGroupName"] = state ? state.managementGroupName : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policyDefinitionGroups"] = state ? state.policyDefinitionGroups : undefined;
+            resourceInputs["policyDefinitionReferences"] = state ? state.policyDefinitionReferences : undefined;
+            resourceInputs["policyDefinitions"] = state ? state.policyDefinitions : undefined;
+            resourceInputs["policyType"] = state ? state.policyType : undefined;
         } else {
             const args = argsOrState as PolicySetDefinitionArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -163,22 +163,20 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            inputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
-            inputs["policyDefinitionReferences"] = args ? args.policyDefinitionReferences : undefined;
-            inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
+            resourceInputs["policyDefinitionReferences"] = args ? args.policyDefinitionReferences : undefined;
+            resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PolicySetDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PolicySetDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

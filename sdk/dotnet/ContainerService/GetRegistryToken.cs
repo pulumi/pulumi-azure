@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ContainerService
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryTokenResult> InvokeAsync(GetRegistryTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container Registry token.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRegistryTokenResult> Invoke(GetRegistryTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenInvokeArgs(), options.WithDefaults());
     }
 
 

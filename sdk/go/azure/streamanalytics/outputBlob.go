@@ -295,7 +295,7 @@ type OutputBlobInput interface {
 }
 
 func (*OutputBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputBlob)(nil))
+	return reflect.TypeOf((**OutputBlob)(nil)).Elem()
 }
 
 func (i *OutputBlob) ToOutputBlobOutput() OutputBlobOutput {
@@ -304,35 +304,6 @@ func (i *OutputBlob) ToOutputBlobOutput() OutputBlobOutput {
 
 func (i *OutputBlob) ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobOutput)
-}
-
-func (i *OutputBlob) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
-	return i.ToOutputBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *OutputBlob) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobPtrOutput)
-}
-
-type OutputBlobPtrInput interface {
-	pulumi.Input
-
-	ToOutputBlobPtrOutput() OutputBlobPtrOutput
-	ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput
-}
-
-type outputBlobPtrType OutputBlobArgs
-
-func (*outputBlobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputBlob)(nil))
-}
-
-func (i *outputBlobPtrType) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
-	return i.ToOutputBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *outputBlobPtrType) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobPtrOutput)
 }
 
 // OutputBlobArrayInput is an input type that accepts OutputBlobArray and OutputBlobArrayOutput values.
@@ -388,7 +359,7 @@ func (i OutputBlobMap) ToOutputBlobMapOutputWithContext(ctx context.Context) Out
 type OutputBlobOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputBlob)(nil))
+	return reflect.TypeOf((**OutputBlob)(nil)).Elem()
 }
 
 func (o OutputBlobOutput) ToOutputBlobOutput() OutputBlobOutput {
@@ -399,44 +370,10 @@ func (o OutputBlobOutput) ToOutputBlobOutputWithContext(ctx context.Context) Out
 	return o
 }
 
-func (o OutputBlobOutput) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
-	return o.ToOutputBlobPtrOutputWithContext(context.Background())
-}
-
-func (o OutputBlobOutput) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputBlob) *OutputBlob {
-		return &v
-	}).(OutputBlobPtrOutput)
-}
-
-type OutputBlobPtrOutput struct{ *pulumi.OutputState }
-
-func (OutputBlobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputBlob)(nil))
-}
-
-func (o OutputBlobPtrOutput) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
-	return o
-}
-
-func (o OutputBlobPtrOutput) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
-	return o
-}
-
-func (o OutputBlobPtrOutput) Elem() OutputBlobOutput {
-	return o.ApplyT(func(v *OutputBlob) OutputBlob {
-		if v != nil {
-			return *v
-		}
-		var ret OutputBlob
-		return ret
-	}).(OutputBlobOutput)
-}
-
 type OutputBlobArrayOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OutputBlob)(nil))
+	return reflect.TypeOf((*[]*OutputBlob)(nil)).Elem()
 }
 
 func (o OutputBlobArrayOutput) ToOutputBlobArrayOutput() OutputBlobArrayOutput {
@@ -448,15 +385,15 @@ func (o OutputBlobArrayOutput) ToOutputBlobArrayOutputWithContext(ctx context.Co
 }
 
 func (o OutputBlobArrayOutput) Index(i pulumi.IntInput) OutputBlobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputBlob {
-		return vs[0].([]OutputBlob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputBlob {
+		return vs[0].([]*OutputBlob)[vs[1].(int)]
 	}).(OutputBlobOutput)
 }
 
 type OutputBlobMapOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OutputBlob)(nil))
+	return reflect.TypeOf((*map[string]*OutputBlob)(nil)).Elem()
 }
 
 func (o OutputBlobMapOutput) ToOutputBlobMapOutput() OutputBlobMapOutput {
@@ -468,18 +405,16 @@ func (o OutputBlobMapOutput) ToOutputBlobMapOutputWithContext(ctx context.Contex
 }
 
 func (o OutputBlobMapOutput) MapIndex(k pulumi.StringInput) OutputBlobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputBlob {
-		return vs[0].(map[string]OutputBlob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OutputBlob {
+		return vs[0].(map[string]*OutputBlob)[vs[1].(string)]
 	}).(OutputBlobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobInput)(nil)).Elem(), &OutputBlob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobPtrInput)(nil)).Elem(), &OutputBlob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobArrayInput)(nil)).Elem(), OutputBlobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobMapInput)(nil)).Elem(), OutputBlobMap{})
 	pulumi.RegisterOutputType(OutputBlobOutput{})
-	pulumi.RegisterOutputType(OutputBlobPtrOutput{})
 	pulumi.RegisterOutputType(OutputBlobArrayOutput{})
 	pulumi.RegisterOutputType(OutputBlobMapOutput{})
 }

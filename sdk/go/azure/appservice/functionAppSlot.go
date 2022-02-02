@@ -404,7 +404,7 @@ type FunctionAppSlotInput interface {
 }
 
 func (*FunctionAppSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionAppSlot)(nil))
+	return reflect.TypeOf((**FunctionAppSlot)(nil)).Elem()
 }
 
 func (i *FunctionAppSlot) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
@@ -413,35 +413,6 @@ func (i *FunctionAppSlot) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
 
 func (i *FunctionAppSlot) ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotOutput)
-}
-
-func (i *FunctionAppSlot) ToFunctionAppSlotPtrOutput() FunctionAppSlotPtrOutput {
-	return i.ToFunctionAppSlotPtrOutputWithContext(context.Background())
-}
-
-func (i *FunctionAppSlot) ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotPtrOutput)
-}
-
-type FunctionAppSlotPtrInput interface {
-	pulumi.Input
-
-	ToFunctionAppSlotPtrOutput() FunctionAppSlotPtrOutput
-	ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput
-}
-
-type functionAppSlotPtrType FunctionAppSlotArgs
-
-func (*functionAppSlotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionAppSlot)(nil))
-}
-
-func (i *functionAppSlotPtrType) ToFunctionAppSlotPtrOutput() FunctionAppSlotPtrOutput {
-	return i.ToFunctionAppSlotPtrOutputWithContext(context.Background())
-}
-
-func (i *functionAppSlotPtrType) ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotPtrOutput)
 }
 
 // FunctionAppSlotArrayInput is an input type that accepts FunctionAppSlotArray and FunctionAppSlotArrayOutput values.
@@ -497,7 +468,7 @@ func (i FunctionAppSlotMap) ToFunctionAppSlotMapOutputWithContext(ctx context.Co
 type FunctionAppSlotOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionAppSlot)(nil))
+	return reflect.TypeOf((**FunctionAppSlot)(nil)).Elem()
 }
 
 func (o FunctionAppSlotOutput) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
@@ -508,44 +479,10 @@ func (o FunctionAppSlotOutput) ToFunctionAppSlotOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o FunctionAppSlotOutput) ToFunctionAppSlotPtrOutput() FunctionAppSlotPtrOutput {
-	return o.ToFunctionAppSlotPtrOutputWithContext(context.Background())
-}
-
-func (o FunctionAppSlotOutput) ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAppSlot) *FunctionAppSlot {
-		return &v
-	}).(FunctionAppSlotPtrOutput)
-}
-
-type FunctionAppSlotPtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionAppSlotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionAppSlot)(nil))
-}
-
-func (o FunctionAppSlotPtrOutput) ToFunctionAppSlotPtrOutput() FunctionAppSlotPtrOutput {
-	return o
-}
-
-func (o FunctionAppSlotPtrOutput) ToFunctionAppSlotPtrOutputWithContext(ctx context.Context) FunctionAppSlotPtrOutput {
-	return o
-}
-
-func (o FunctionAppSlotPtrOutput) Elem() FunctionAppSlotOutput {
-	return o.ApplyT(func(v *FunctionAppSlot) FunctionAppSlot {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionAppSlot
-		return ret
-	}).(FunctionAppSlotOutput)
-}
-
 type FunctionAppSlotArrayOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppSlotArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionAppSlot)(nil))
+	return reflect.TypeOf((*[]*FunctionAppSlot)(nil)).Elem()
 }
 
 func (o FunctionAppSlotArrayOutput) ToFunctionAppSlotArrayOutput() FunctionAppSlotArrayOutput {
@@ -557,15 +494,15 @@ func (o FunctionAppSlotArrayOutput) ToFunctionAppSlotArrayOutputWithContext(ctx 
 }
 
 func (o FunctionAppSlotArrayOutput) Index(i pulumi.IntInput) FunctionAppSlotOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlot {
-		return vs[0].([]FunctionAppSlot)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionAppSlot {
+		return vs[0].([]*FunctionAppSlot)[vs[1].(int)]
 	}).(FunctionAppSlotOutput)
 }
 
 type FunctionAppSlotMapOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppSlotMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FunctionAppSlot)(nil))
+	return reflect.TypeOf((*map[string]*FunctionAppSlot)(nil)).Elem()
 }
 
 func (o FunctionAppSlotMapOutput) ToFunctionAppSlotMapOutput() FunctionAppSlotMapOutput {
@@ -577,18 +514,16 @@ func (o FunctionAppSlotMapOutput) ToFunctionAppSlotMapOutputWithContext(ctx cont
 }
 
 func (o FunctionAppSlotMapOutput) MapIndex(k pulumi.StringInput) FunctionAppSlotOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FunctionAppSlot {
-		return vs[0].(map[string]FunctionAppSlot)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FunctionAppSlot {
+		return vs[0].(map[string]*FunctionAppSlot)[vs[1].(string)]
 	}).(FunctionAppSlotOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppSlotInput)(nil)).Elem(), &FunctionAppSlot{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppSlotPtrInput)(nil)).Elem(), &FunctionAppSlot{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppSlotArrayInput)(nil)).Elem(), FunctionAppSlotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppSlotMapInput)(nil)).Elem(), FunctionAppSlotMap{})
 	pulumi.RegisterOutputType(FunctionAppSlotOutput{})
-	pulumi.RegisterOutputType(FunctionAppSlotPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotMapOutput{})
 }

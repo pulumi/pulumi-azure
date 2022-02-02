@@ -136,24 +136,24 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerScheduleArgs | TriggerScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerScheduleState | undefined;
-            inputs["activated"] = state ? state.activated : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["interval"] = state ? state.interval : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pipelineName"] = state ? state.pipelineName : undefined;
-            inputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["activated"] = state ? state.activated : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["interval"] = state ? state.interval : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
+            resourceInputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
             if ((!args || args.pipelineName === undefined) && !opts.urn) {
@@ -162,25 +162,23 @@ export class TriggerSchedule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["activated"] = args ? args.activated : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pipelineName"] = args ? args.pipelineName : undefined;
-            inputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["activated"] = args ? args.activated : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TriggerSchedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TriggerSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

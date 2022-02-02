@@ -27,9 +27,7 @@ export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getServiceTags:getServiceTags", {
         "location": args.location,
         "locationFilter": args.locationFilter,

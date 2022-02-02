@@ -177,7 +177,7 @@ type IdentityProviderFacebookInput interface {
 }
 
 func (*IdentityProviderFacebook) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderFacebook)(nil))
+	return reflect.TypeOf((**IdentityProviderFacebook)(nil)).Elem()
 }
 
 func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutput() IdentityProviderFacebookOutput {
@@ -186,35 +186,6 @@ func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutput() IdentityPr
 
 func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutputWithContext(ctx context.Context) IdentityProviderFacebookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookOutput)
-}
-
-func (i *IdentityProviderFacebook) ToIdentityProviderFacebookPtrOutput() IdentityProviderFacebookPtrOutput {
-	return i.ToIdentityProviderFacebookPtrOutputWithContext(context.Background())
-}
-
-func (i *IdentityProviderFacebook) ToIdentityProviderFacebookPtrOutputWithContext(ctx context.Context) IdentityProviderFacebookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookPtrOutput)
-}
-
-type IdentityProviderFacebookPtrInput interface {
-	pulumi.Input
-
-	ToIdentityProviderFacebookPtrOutput() IdentityProviderFacebookPtrOutput
-	ToIdentityProviderFacebookPtrOutputWithContext(ctx context.Context) IdentityProviderFacebookPtrOutput
-}
-
-type identityProviderFacebookPtrType IdentityProviderFacebookArgs
-
-func (*identityProviderFacebookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityProviderFacebook)(nil))
-}
-
-func (i *identityProviderFacebookPtrType) ToIdentityProviderFacebookPtrOutput() IdentityProviderFacebookPtrOutput {
-	return i.ToIdentityProviderFacebookPtrOutputWithContext(context.Background())
-}
-
-func (i *identityProviderFacebookPtrType) ToIdentityProviderFacebookPtrOutputWithContext(ctx context.Context) IdentityProviderFacebookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookPtrOutput)
 }
 
 // IdentityProviderFacebookArrayInput is an input type that accepts IdentityProviderFacebookArray and IdentityProviderFacebookArrayOutput values.
@@ -270,7 +241,7 @@ func (i IdentityProviderFacebookMap) ToIdentityProviderFacebookMapOutputWithCont
 type IdentityProviderFacebookOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderFacebookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderFacebook)(nil))
+	return reflect.TypeOf((**IdentityProviderFacebook)(nil)).Elem()
 }
 
 func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookOutput() IdentityProviderFacebookOutput {
@@ -281,44 +252,10 @@ func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookOutputWithCont
 	return o
 }
 
-func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookPtrOutput() IdentityProviderFacebookPtrOutput {
-	return o.ToIdentityProviderFacebookPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookPtrOutputWithContext(ctx context.Context) IdentityProviderFacebookPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderFacebook) *IdentityProviderFacebook {
-		return &v
-	}).(IdentityProviderFacebookPtrOutput)
-}
-
-type IdentityProviderFacebookPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityProviderFacebookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityProviderFacebook)(nil))
-}
-
-func (o IdentityProviderFacebookPtrOutput) ToIdentityProviderFacebookPtrOutput() IdentityProviderFacebookPtrOutput {
-	return o
-}
-
-func (o IdentityProviderFacebookPtrOutput) ToIdentityProviderFacebookPtrOutputWithContext(ctx context.Context) IdentityProviderFacebookPtrOutput {
-	return o
-}
-
-func (o IdentityProviderFacebookPtrOutput) Elem() IdentityProviderFacebookOutput {
-	return o.ApplyT(func(v *IdentityProviderFacebook) IdentityProviderFacebook {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityProviderFacebook
-		return ret
-	}).(IdentityProviderFacebookOutput)
-}
-
 type IdentityProviderFacebookArrayOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderFacebookArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityProviderFacebook)(nil))
+	return reflect.TypeOf((*[]*IdentityProviderFacebook)(nil)).Elem()
 }
 
 func (o IdentityProviderFacebookArrayOutput) ToIdentityProviderFacebookArrayOutput() IdentityProviderFacebookArrayOutput {
@@ -330,15 +267,15 @@ func (o IdentityProviderFacebookArrayOutput) ToIdentityProviderFacebookArrayOutp
 }
 
 func (o IdentityProviderFacebookArrayOutput) Index(i pulumi.IntInput) IdentityProviderFacebookOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProviderFacebook {
-		return vs[0].([]IdentityProviderFacebook)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderFacebook {
+		return vs[0].([]*IdentityProviderFacebook)[vs[1].(int)]
 	}).(IdentityProviderFacebookOutput)
 }
 
 type IdentityProviderFacebookMapOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderFacebookMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProviderFacebook)(nil))
+	return reflect.TypeOf((*map[string]*IdentityProviderFacebook)(nil)).Elem()
 }
 
 func (o IdentityProviderFacebookMapOutput) ToIdentityProviderFacebookMapOutput() IdentityProviderFacebookMapOutput {
@@ -350,18 +287,16 @@ func (o IdentityProviderFacebookMapOutput) ToIdentityProviderFacebookMapOutputWi
 }
 
 func (o IdentityProviderFacebookMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderFacebookOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProviderFacebook {
-		return vs[0].(map[string]IdentityProviderFacebook)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IdentityProviderFacebook {
+		return vs[0].(map[string]*IdentityProviderFacebook)[vs[1].(string)]
 	}).(IdentityProviderFacebookOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookInput)(nil)).Elem(), &IdentityProviderFacebook{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookPtrInput)(nil)).Elem(), &IdentityProviderFacebook{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookArrayInput)(nil)).Elem(), IdentityProviderFacebookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookMapInput)(nil)).Elem(), IdentityProviderFacebookMap{})
 	pulumi.RegisterOutputType(IdentityProviderFacebookOutput{})
-	pulumi.RegisterOutputType(IdentityProviderFacebookPtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderFacebookArrayOutput{})
 	pulumi.RegisterOutputType(IdentityProviderFacebookMapOutput{})
 }

@@ -30,9 +30,7 @@ export function getRecommendations(args?: GetRecommendationsArgs, opts?: pulumi.
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:advisor/getRecommendations:getRecommendations", {
         "filterByCategories": args.filterByCategories,
         "filterByResourceGroups": args.filterByResourceGroups,

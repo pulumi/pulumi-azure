@@ -322,7 +322,7 @@ type AlertRuleScheduledInput interface {
 }
 
 func (*AlertRuleScheduled) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleScheduled)(nil))
+	return reflect.TypeOf((**AlertRuleScheduled)(nil)).Elem()
 }
 
 func (i *AlertRuleScheduled) ToAlertRuleScheduledOutput() AlertRuleScheduledOutput {
@@ -331,35 +331,6 @@ func (i *AlertRuleScheduled) ToAlertRuleScheduledOutput() AlertRuleScheduledOutp
 
 func (i *AlertRuleScheduled) ToAlertRuleScheduledOutputWithContext(ctx context.Context) AlertRuleScheduledOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledOutput)
-}
-
-func (i *AlertRuleScheduled) ToAlertRuleScheduledPtrOutput() AlertRuleScheduledPtrOutput {
-	return i.ToAlertRuleScheduledPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertRuleScheduled) ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledPtrOutput)
-}
-
-type AlertRuleScheduledPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleScheduledPtrOutput() AlertRuleScheduledPtrOutput
-	ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput
-}
-
-type alertRuleScheduledPtrType AlertRuleScheduledArgs
-
-func (*alertRuleScheduledPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleScheduled)(nil))
-}
-
-func (i *alertRuleScheduledPtrType) ToAlertRuleScheduledPtrOutput() AlertRuleScheduledPtrOutput {
-	return i.ToAlertRuleScheduledPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleScheduledPtrType) ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledPtrOutput)
 }
 
 // AlertRuleScheduledArrayInput is an input type that accepts AlertRuleScheduledArray and AlertRuleScheduledArrayOutput values.
@@ -415,7 +386,7 @@ func (i AlertRuleScheduledMap) ToAlertRuleScheduledMapOutputWithContext(ctx cont
 type AlertRuleScheduledOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleScheduled)(nil))
+	return reflect.TypeOf((**AlertRuleScheduled)(nil)).Elem()
 }
 
 func (o AlertRuleScheduledOutput) ToAlertRuleScheduledOutput() AlertRuleScheduledOutput {
@@ -426,44 +397,10 @@ func (o AlertRuleScheduledOutput) ToAlertRuleScheduledOutputWithContext(ctx cont
 	return o
 }
 
-func (o AlertRuleScheduledOutput) ToAlertRuleScheduledPtrOutput() AlertRuleScheduledPtrOutput {
-	return o.ToAlertRuleScheduledPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleScheduledOutput) ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduled) *AlertRuleScheduled {
-		return &v
-	}).(AlertRuleScheduledPtrOutput)
-}
-
-type AlertRuleScheduledPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleScheduledPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleScheduled)(nil))
-}
-
-func (o AlertRuleScheduledPtrOutput) ToAlertRuleScheduledPtrOutput() AlertRuleScheduledPtrOutput {
-	return o
-}
-
-func (o AlertRuleScheduledPtrOutput) ToAlertRuleScheduledPtrOutputWithContext(ctx context.Context) AlertRuleScheduledPtrOutput {
-	return o
-}
-
-func (o AlertRuleScheduledPtrOutput) Elem() AlertRuleScheduledOutput {
-	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduled {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleScheduled
-		return ret
-	}).(AlertRuleScheduledOutput)
-}
-
 type AlertRuleScheduledArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertRuleScheduled)(nil))
+	return reflect.TypeOf((*[]*AlertRuleScheduled)(nil)).Elem()
 }
 
 func (o AlertRuleScheduledArrayOutput) ToAlertRuleScheduledArrayOutput() AlertRuleScheduledArrayOutput {
@@ -475,15 +412,15 @@ func (o AlertRuleScheduledArrayOutput) ToAlertRuleScheduledArrayOutputWithContex
 }
 
 func (o AlertRuleScheduledArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduled {
-		return vs[0].([]AlertRuleScheduled)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleScheduled {
+		return vs[0].([]*AlertRuleScheduled)[vs[1].(int)]
 	}).(AlertRuleScheduledOutput)
 }
 
 type AlertRuleScheduledMapOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertRuleScheduled)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleScheduled)(nil)).Elem()
 }
 
 func (o AlertRuleScheduledMapOutput) ToAlertRuleScheduledMapOutput() AlertRuleScheduledMapOutput {
@@ -495,18 +432,16 @@ func (o AlertRuleScheduledMapOutput) ToAlertRuleScheduledMapOutputWithContext(ct
 }
 
 func (o AlertRuleScheduledMapOutput) MapIndex(k pulumi.StringInput) AlertRuleScheduledOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertRuleScheduled {
-		return vs[0].(map[string]AlertRuleScheduled)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertRuleScheduled {
+		return vs[0].(map[string]*AlertRuleScheduled)[vs[1].(string)]
 	}).(AlertRuleScheduledOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledInput)(nil)).Elem(), &AlertRuleScheduled{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledPtrInput)(nil)).Elem(), &AlertRuleScheduled{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledArrayInput)(nil)).Elem(), AlertRuleScheduledArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledMapInput)(nil)).Elem(), AlertRuleScheduledMap{})
 	pulumi.RegisterOutputType(AlertRuleScheduledOutput{})
-	pulumi.RegisterOutputType(AlertRuleScheduledPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledMapOutput{})
 }

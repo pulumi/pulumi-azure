@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageVersionResult> InvokeAsync(GetSharedImageVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
@@ -74,7 +73,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSharedImageVersionResult> Invoke(GetSharedImageVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionInvokeArgs(), options.WithDefaults());
     }
 
 

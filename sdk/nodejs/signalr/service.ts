@@ -168,30 +168,30 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
-            inputs["cors"] = state ? state.cors : undefined;
-            inputs["features"] = state ? state.features : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["publicPort"] = state ? state.publicPort : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["serverPort"] = state ? state.serverPort : undefined;
-            inputs["serviceMode"] = state ? state.serviceMode : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["upstreamEndpoints"] = state ? state.upstreamEndpoints : undefined;
+            resourceInputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
+            resourceInputs["cors"] = state ? state.cors : undefined;
+            resourceInputs["features"] = state ? state.features : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["publicPort"] = state ? state.publicPort : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["serverPort"] = state ? state.serverPort : undefined;
+            resourceInputs["serviceMode"] = state ? state.serviceMode : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["upstreamEndpoints"] = state ? state.upstreamEndpoints : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -200,31 +200,29 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
-            inputs["cors"] = args ? args.cors : undefined;
-            inputs["features"] = args ? args.features : undefined;
-            inputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceMode"] = args ? args.serviceMode : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upstreamEndpoints"] = args ? args.upstreamEndpoints : undefined;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["publicPort"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
+            resourceInputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
+            resourceInputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceMode"] = args ? args.serviceMode : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upstreamEndpoints"] = args ? args.upstreamEndpoints : undefined;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

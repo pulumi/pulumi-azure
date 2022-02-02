@@ -155,7 +155,7 @@ type ResourceProviderRegistrationInput interface {
 }
 
 func (*ResourceProviderRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceProviderRegistration)(nil))
+	return reflect.TypeOf((**ResourceProviderRegistration)(nil)).Elem()
 }
 
 func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutput() ResourceProviderRegistrationOutput {
@@ -164,35 +164,6 @@ func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutput() Re
 
 func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutputWithContext(ctx context.Context) ResourceProviderRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationOutput)
-}
-
-func (i *ResourceProviderRegistration) ToResourceProviderRegistrationPtrOutput() ResourceProviderRegistrationPtrOutput {
-	return i.ToResourceProviderRegistrationPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceProviderRegistration) ToResourceProviderRegistrationPtrOutputWithContext(ctx context.Context) ResourceProviderRegistrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationPtrOutput)
-}
-
-type ResourceProviderRegistrationPtrInput interface {
-	pulumi.Input
-
-	ToResourceProviderRegistrationPtrOutput() ResourceProviderRegistrationPtrOutput
-	ToResourceProviderRegistrationPtrOutputWithContext(ctx context.Context) ResourceProviderRegistrationPtrOutput
-}
-
-type resourceProviderRegistrationPtrType ResourceProviderRegistrationArgs
-
-func (*resourceProviderRegistrationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceProviderRegistration)(nil))
-}
-
-func (i *resourceProviderRegistrationPtrType) ToResourceProviderRegistrationPtrOutput() ResourceProviderRegistrationPtrOutput {
-	return i.ToResourceProviderRegistrationPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceProviderRegistrationPtrType) ToResourceProviderRegistrationPtrOutputWithContext(ctx context.Context) ResourceProviderRegistrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationPtrOutput)
 }
 
 // ResourceProviderRegistrationArrayInput is an input type that accepts ResourceProviderRegistrationArray and ResourceProviderRegistrationArrayOutput values.
@@ -248,7 +219,7 @@ func (i ResourceProviderRegistrationMap) ToResourceProviderRegistrationMapOutput
 type ResourceProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ResourceProviderRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceProviderRegistration)(nil))
+	return reflect.TypeOf((**ResourceProviderRegistration)(nil)).Elem()
 }
 
 func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutput() ResourceProviderRegistrationOutput {
@@ -259,44 +230,10 @@ func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutput
 	return o
 }
 
-func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationPtrOutput() ResourceProviderRegistrationPtrOutput {
-	return o.ToResourceProviderRegistrationPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationPtrOutputWithContext(ctx context.Context) ResourceProviderRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderRegistration) *ResourceProviderRegistration {
-		return &v
-	}).(ResourceProviderRegistrationPtrOutput)
-}
-
-type ResourceProviderRegistrationPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceProviderRegistrationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceProviderRegistration)(nil))
-}
-
-func (o ResourceProviderRegistrationPtrOutput) ToResourceProviderRegistrationPtrOutput() ResourceProviderRegistrationPtrOutput {
-	return o
-}
-
-func (o ResourceProviderRegistrationPtrOutput) ToResourceProviderRegistrationPtrOutputWithContext(ctx context.Context) ResourceProviderRegistrationPtrOutput {
-	return o
-}
-
-func (o ResourceProviderRegistrationPtrOutput) Elem() ResourceProviderRegistrationOutput {
-	return o.ApplyT(func(v *ResourceProviderRegistration) ResourceProviderRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderRegistration
-		return ret
-	}).(ResourceProviderRegistrationOutput)
-}
-
 type ResourceProviderRegistrationArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceProviderRegistrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceProviderRegistration)(nil))
+	return reflect.TypeOf((*[]*ResourceProviderRegistration)(nil)).Elem()
 }
 
 func (o ResourceProviderRegistrationArrayOutput) ToResourceProviderRegistrationArrayOutput() ResourceProviderRegistrationArrayOutput {
@@ -308,15 +245,15 @@ func (o ResourceProviderRegistrationArrayOutput) ToResourceProviderRegistrationA
 }
 
 func (o ResourceProviderRegistrationArrayOutput) Index(i pulumi.IntInput) ResourceProviderRegistrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceProviderRegistration {
-		return vs[0].([]ResourceProviderRegistration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceProviderRegistration {
+		return vs[0].([]*ResourceProviderRegistration)[vs[1].(int)]
 	}).(ResourceProviderRegistrationOutput)
 }
 
 type ResourceProviderRegistrationMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceProviderRegistrationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceProviderRegistration)(nil))
+	return reflect.TypeOf((*map[string]*ResourceProviderRegistration)(nil)).Elem()
 }
 
 func (o ResourceProviderRegistrationMapOutput) ToResourceProviderRegistrationMapOutput() ResourceProviderRegistrationMapOutput {
@@ -328,18 +265,16 @@ func (o ResourceProviderRegistrationMapOutput) ToResourceProviderRegistrationMap
 }
 
 func (o ResourceProviderRegistrationMapOutput) MapIndex(k pulumi.StringInput) ResourceProviderRegistrationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceProviderRegistration {
-		return vs[0].(map[string]ResourceProviderRegistration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceProviderRegistration {
+		return vs[0].(map[string]*ResourceProviderRegistration)[vs[1].(string)]
 	}).(ResourceProviderRegistrationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationInput)(nil)).Elem(), &ResourceProviderRegistration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationPtrInput)(nil)).Elem(), &ResourceProviderRegistration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationArrayInput)(nil)).Elem(), ResourceProviderRegistrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationMapInput)(nil)).Elem(), ResourceProviderRegistrationMap{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationOutput{})
-	pulumi.RegisterOutputType(ResourceProviderRegistrationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationArrayOutput{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationMapOutput{})
 }

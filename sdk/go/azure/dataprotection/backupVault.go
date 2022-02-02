@@ -194,7 +194,7 @@ type BackupVaultInput interface {
 }
 
 func (*BackupVault) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupVault)(nil))
+	return reflect.TypeOf((**BackupVault)(nil)).Elem()
 }
 
 func (i *BackupVault) ToBackupVaultOutput() BackupVaultOutput {
@@ -203,35 +203,6 @@ func (i *BackupVault) ToBackupVaultOutput() BackupVaultOutput {
 
 func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultOutput)
-}
-
-func (i *BackupVault) ToBackupVaultPtrOutput() BackupVaultPtrOutput {
-	return i.ToBackupVaultPtrOutputWithContext(context.Background())
-}
-
-func (i *BackupVault) ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultPtrOutput)
-}
-
-type BackupVaultPtrInput interface {
-	pulumi.Input
-
-	ToBackupVaultPtrOutput() BackupVaultPtrOutput
-	ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput
-}
-
-type backupVaultPtrType BackupVaultArgs
-
-func (*backupVaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupVault)(nil))
-}
-
-func (i *backupVaultPtrType) ToBackupVaultPtrOutput() BackupVaultPtrOutput {
-	return i.ToBackupVaultPtrOutputWithContext(context.Background())
-}
-
-func (i *backupVaultPtrType) ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultPtrOutput)
 }
 
 // BackupVaultArrayInput is an input type that accepts BackupVaultArray and BackupVaultArrayOutput values.
@@ -287,7 +258,7 @@ func (i BackupVaultMap) ToBackupVaultMapOutputWithContext(ctx context.Context) B
 type BackupVaultOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupVault)(nil))
+	return reflect.TypeOf((**BackupVault)(nil)).Elem()
 }
 
 func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {
@@ -298,44 +269,10 @@ func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) B
 	return o
 }
 
-func (o BackupVaultOutput) ToBackupVaultPtrOutput() BackupVaultPtrOutput {
-	return o.ToBackupVaultPtrOutputWithContext(context.Background())
-}
-
-func (o BackupVaultOutput) ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVault) *BackupVault {
-		return &v
-	}).(BackupVaultPtrOutput)
-}
-
-type BackupVaultPtrOutput struct{ *pulumi.OutputState }
-
-func (BackupVaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupVault)(nil))
-}
-
-func (o BackupVaultPtrOutput) ToBackupVaultPtrOutput() BackupVaultPtrOutput {
-	return o
-}
-
-func (o BackupVaultPtrOutput) ToBackupVaultPtrOutputWithContext(ctx context.Context) BackupVaultPtrOutput {
-	return o
-}
-
-func (o BackupVaultPtrOutput) Elem() BackupVaultOutput {
-	return o.ApplyT(func(v *BackupVault) BackupVault {
-		if v != nil {
-			return *v
-		}
-		var ret BackupVault
-		return ret
-	}).(BackupVaultOutput)
-}
-
 type BackupVaultArrayOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackupVault)(nil))
+	return reflect.TypeOf((*[]*BackupVault)(nil)).Elem()
 }
 
 func (o BackupVaultArrayOutput) ToBackupVaultArrayOutput() BackupVaultArrayOutput {
@@ -347,15 +284,15 @@ func (o BackupVaultArrayOutput) ToBackupVaultArrayOutputWithContext(ctx context.
 }
 
 func (o BackupVaultArrayOutput) Index(i pulumi.IntInput) BackupVaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupVault {
-		return vs[0].([]BackupVault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupVault {
+		return vs[0].([]*BackupVault)[vs[1].(int)]
 	}).(BackupVaultOutput)
 }
 
 type BackupVaultMapOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BackupVault)(nil))
+	return reflect.TypeOf((*map[string]*BackupVault)(nil)).Elem()
 }
 
 func (o BackupVaultMapOutput) ToBackupVaultMapOutput() BackupVaultMapOutput {
@@ -367,18 +304,16 @@ func (o BackupVaultMapOutput) ToBackupVaultMapOutputWithContext(ctx context.Cont
 }
 
 func (o BackupVaultMapOutput) MapIndex(k pulumi.StringInput) BackupVaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BackupVault {
-		return vs[0].(map[string]BackupVault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BackupVault {
+		return vs[0].(map[string]*BackupVault)[vs[1].(string)]
 	}).(BackupVaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultInput)(nil)).Elem(), &BackupVault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultPtrInput)(nil)).Elem(), &BackupVault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultArrayInput)(nil)).Elem(), BackupVaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultMapInput)(nil)).Elem(), BackupVaultMap{})
 	pulumi.RegisterOutputType(BackupVaultOutput{})
-	pulumi.RegisterOutputType(BackupVaultPtrOutput{})
 	pulumi.RegisterOutputType(BackupVaultArrayOutput{})
 	pulumi.RegisterOutputType(BackupVaultMapOutput{})
 }

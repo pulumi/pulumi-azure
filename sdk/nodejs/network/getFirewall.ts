@@ -26,9 +26,7 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

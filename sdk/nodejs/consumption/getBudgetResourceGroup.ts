@@ -26,9 +26,7 @@ export function getBudgetResourceGroup(args: GetBudgetResourceGroupArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", {
         "name": args.name,
         "resourceGroupId": args.resourceGroupId,

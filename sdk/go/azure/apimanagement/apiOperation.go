@@ -257,7 +257,7 @@ type ApiOperationInput interface {
 }
 
 func (*ApiOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperation)(nil))
+	return reflect.TypeOf((**ApiOperation)(nil)).Elem()
 }
 
 func (i *ApiOperation) ToApiOperationOutput() ApiOperationOutput {
@@ -266,35 +266,6 @@ func (i *ApiOperation) ToApiOperationOutput() ApiOperationOutput {
 
 func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
-}
-
-func (i *ApiOperation) ToApiOperationPtrOutput() ApiOperationPtrOutput {
-	return i.ToApiOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiOperation) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPtrOutput)
-}
-
-type ApiOperationPtrInput interface {
-	pulumi.Input
-
-	ToApiOperationPtrOutput() ApiOperationPtrOutput
-	ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput
-}
-
-type apiOperationPtrType ApiOperationArgs
-
-func (*apiOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiOperation)(nil))
-}
-
-func (i *apiOperationPtrType) ToApiOperationPtrOutput() ApiOperationPtrOutput {
-	return i.ToApiOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *apiOperationPtrType) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPtrOutput)
 }
 
 // ApiOperationArrayInput is an input type that accepts ApiOperationArray and ApiOperationArrayOutput values.
@@ -350,7 +321,7 @@ func (i ApiOperationMap) ToApiOperationMapOutputWithContext(ctx context.Context)
 type ApiOperationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperation)(nil))
+	return reflect.TypeOf((**ApiOperation)(nil)).Elem()
 }
 
 func (o ApiOperationOutput) ToApiOperationOutput() ApiOperationOutput {
@@ -361,44 +332,10 @@ func (o ApiOperationOutput) ToApiOperationOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ApiOperationOutput) ToApiOperationPtrOutput() ApiOperationPtrOutput {
-	return o.ToApiOperationPtrOutputWithContext(context.Background())
-}
-
-func (o ApiOperationOutput) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOperation) *ApiOperation {
-		return &v
-	}).(ApiOperationPtrOutput)
-}
-
-type ApiOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiOperation)(nil))
-}
-
-func (o ApiOperationPtrOutput) ToApiOperationPtrOutput() ApiOperationPtrOutput {
-	return o
-}
-
-func (o ApiOperationPtrOutput) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
-	return o
-}
-
-func (o ApiOperationPtrOutput) Elem() ApiOperationOutput {
-	return o.ApplyT(func(v *ApiOperation) ApiOperation {
-		if v != nil {
-			return *v
-		}
-		var ret ApiOperation
-		return ret
-	}).(ApiOperationOutput)
-}
-
 type ApiOperationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiOperation)(nil))
+	return reflect.TypeOf((*[]*ApiOperation)(nil)).Elem()
 }
 
 func (o ApiOperationArrayOutput) ToApiOperationArrayOutput() ApiOperationArrayOutput {
@@ -410,15 +347,15 @@ func (o ApiOperationArrayOutput) ToApiOperationArrayOutputWithContext(ctx contex
 }
 
 func (o ApiOperationArrayOutput) Index(i pulumi.IntInput) ApiOperationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperation {
-		return vs[0].([]ApiOperation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiOperation {
+		return vs[0].([]*ApiOperation)[vs[1].(int)]
 	}).(ApiOperationOutput)
 }
 
 type ApiOperationMapOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiOperation)(nil))
+	return reflect.TypeOf((*map[string]*ApiOperation)(nil)).Elem()
 }
 
 func (o ApiOperationMapOutput) ToApiOperationMapOutput() ApiOperationMapOutput {
@@ -430,18 +367,16 @@ func (o ApiOperationMapOutput) ToApiOperationMapOutputWithContext(ctx context.Co
 }
 
 func (o ApiOperationMapOutput) MapIndex(k pulumi.StringInput) ApiOperationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiOperation {
-		return vs[0].(map[string]ApiOperation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiOperation {
+		return vs[0].(map[string]*ApiOperation)[vs[1].(string)]
 	}).(ApiOperationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationInput)(nil)).Elem(), &ApiOperation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationPtrInput)(nil)).Elem(), &ApiOperation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationArrayInput)(nil)).Elem(), ApiOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationMapInput)(nil)).Elem(), ApiOperationMap{})
 	pulumi.RegisterOutputType(ApiOperationOutput{})
-	pulumi.RegisterOutputType(ApiOperationPtrOutput{})
 	pulumi.RegisterOutputType(ApiOperationArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationMapOutput{})
 }

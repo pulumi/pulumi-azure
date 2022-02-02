@@ -132,21 +132,21 @@ export class StreamingLocator extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamingLocatorArgs | StreamingLocatorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamingLocatorState | undefined;
-            inputs["alternativeMediaId"] = state ? state.alternativeMediaId : undefined;
-            inputs["assetName"] = state ? state.assetName : undefined;
-            inputs["contentKeys"] = state ? state.contentKeys : undefined;
-            inputs["defaultContentKeyPolicyName"] = state ? state.defaultContentKeyPolicyName : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["streamingLocatorId"] = state ? state.streamingLocatorId : undefined;
-            inputs["streamingPolicyName"] = state ? state.streamingPolicyName : undefined;
+            resourceInputs["alternativeMediaId"] = state ? state.alternativeMediaId : undefined;
+            resourceInputs["assetName"] = state ? state.assetName : undefined;
+            resourceInputs["contentKeys"] = state ? state.contentKeys : undefined;
+            resourceInputs["defaultContentKeyPolicyName"] = state ? state.defaultContentKeyPolicyName : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["streamingLocatorId"] = state ? state.streamingLocatorId : undefined;
+            resourceInputs["streamingPolicyName"] = state ? state.streamingPolicyName : undefined;
         } else {
             const args = argsOrState as StreamingLocatorArgs | undefined;
             if ((!args || args.assetName === undefined) && !opts.urn) {
@@ -161,22 +161,20 @@ export class StreamingLocator extends pulumi.CustomResource {
             if ((!args || args.streamingPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamingPolicyName'");
             }
-            inputs["alternativeMediaId"] = args ? args.alternativeMediaId : undefined;
-            inputs["assetName"] = args ? args.assetName : undefined;
-            inputs["contentKeys"] = args ? args.contentKeys : undefined;
-            inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
-            inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
+            resourceInputs["alternativeMediaId"] = args ? args.alternativeMediaId : undefined;
+            resourceInputs["assetName"] = args ? args.assetName : undefined;
+            resourceInputs["contentKeys"] = args ? args.contentKeys : undefined;
+            resourceInputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
+            resourceInputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamingLocator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamingLocator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

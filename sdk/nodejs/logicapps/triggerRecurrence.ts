@@ -100,17 +100,17 @@ export class TriggerRecurrence extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerRecurrenceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerRecurrenceArgs | TriggerRecurrenceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerRecurrenceState | undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["interval"] = state ? state.interval : undefined;
-            inputs["logicAppId"] = state ? state.logicAppId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["interval"] = state ? state.interval : undefined;
+            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as TriggerRecurrenceArgs | undefined;
             if ((!args || args.frequency === undefined) && !opts.urn) {
@@ -122,18 +122,16 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             if ((!args || args.logicAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["logicAppId"] = args ? args.logicAppId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TriggerRecurrence.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TriggerRecurrence.__pulumiType, name, resourceInputs, opts);
     }
 }
 

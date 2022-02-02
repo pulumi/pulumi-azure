@@ -26,9 +26,7 @@ export function getRegistryToken(args: GetRegistryTokenArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:containerservice/getRegistryToken:getRegistryToken", {
         "containerRegistryName": args.containerRegistryName,
         "name": args.name,

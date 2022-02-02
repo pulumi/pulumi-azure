@@ -46,6 +46,33 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+// 			ConnectionString: exampleAccount.PrimaryConnectionString,
+// 			HttpsOnly:        pulumi.Bool(true),
+// 			ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
+// 				Service:   pulumi.Bool(true),
+// 				Container: pulumi.Bool(false),
+// 				Object:    pulumi.Bool(false),
+// 			},
+// 			Services: &storage.GetAccountSASServicesArgs{
+// 				Blob:  pulumi.Bool(true),
+// 				Queue: pulumi.Bool(false),
+// 				Table: pulumi.Bool(false),
+// 				File:  pulumi.Bool(false),
+// 			},
+// 			Start:  pulumi.String("2021-04-30T00:00:00Z"),
+// 			Expiry: pulumi.String("2023-04-30T00:00:00Z"),
+// 			Permissions: &storage.GetAccountSASPermissionsArgs{
+// 				Read:    pulumi.Bool(true),
+// 				Write:   pulumi.Bool(true),
+// 				Delete:  pulumi.Bool(false),
+// 				List:    pulumi.Bool(false),
+// 				Add:     pulumi.Bool(true),
+// 				Create:  pulumi.Bool(true),
+// 				Update:  pulumi.Bool(false),
+// 				Process: pulumi.Bool(false),
+// 			},
+// 		}, nil)
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -248,7 +275,7 @@ type ManagedStorageAccountSasTokenDefinitionInput interface {
 }
 
 func (*ManagedStorageAccountSasTokenDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedStorageAccountSasTokenDefinition)(nil))
+	return reflect.TypeOf((**ManagedStorageAccountSasTokenDefinition)(nil)).Elem()
 }
 
 func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasTokenDefinitionOutput() ManagedStorageAccountSasTokenDefinitionOutput {
@@ -257,35 +284,6 @@ func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasToke
 
 func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasTokenDefinitionOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountSasTokenDefinitionOutput)
-}
-
-func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasTokenDefinitionPtrOutput() ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return i.ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountSasTokenDefinitionPtrOutput)
-}
-
-type ManagedStorageAccountSasTokenDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToManagedStorageAccountSasTokenDefinitionPtrOutput() ManagedStorageAccountSasTokenDefinitionPtrOutput
-	ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionPtrOutput
-}
-
-type managedStorageAccountSasTokenDefinitionPtrType ManagedStorageAccountSasTokenDefinitionArgs
-
-func (*managedStorageAccountSasTokenDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedStorageAccountSasTokenDefinition)(nil))
-}
-
-func (i *managedStorageAccountSasTokenDefinitionPtrType) ToManagedStorageAccountSasTokenDefinitionPtrOutput() ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return i.ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *managedStorageAccountSasTokenDefinitionPtrType) ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountSasTokenDefinitionPtrOutput)
 }
 
 // ManagedStorageAccountSasTokenDefinitionArrayInput is an input type that accepts ManagedStorageAccountSasTokenDefinitionArray and ManagedStorageAccountSasTokenDefinitionArrayOutput values.
@@ -341,7 +339,7 @@ func (i ManagedStorageAccountSasTokenDefinitionMap) ToManagedStorageAccountSasTo
 type ManagedStorageAccountSasTokenDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountSasTokenDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedStorageAccountSasTokenDefinition)(nil))
+	return reflect.TypeOf((**ManagedStorageAccountSasTokenDefinition)(nil)).Elem()
 }
 
 func (o ManagedStorageAccountSasTokenDefinitionOutput) ToManagedStorageAccountSasTokenDefinitionOutput() ManagedStorageAccountSasTokenDefinitionOutput {
@@ -352,44 +350,10 @@ func (o ManagedStorageAccountSasTokenDefinitionOutput) ToManagedStorageAccountSa
 	return o
 }
 
-func (o ManagedStorageAccountSasTokenDefinitionOutput) ToManagedStorageAccountSasTokenDefinitionPtrOutput() ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return o.ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedStorageAccountSasTokenDefinitionOutput) ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedStorageAccountSasTokenDefinition) *ManagedStorageAccountSasTokenDefinition {
-		return &v
-	}).(ManagedStorageAccountSasTokenDefinitionPtrOutput)
-}
-
-type ManagedStorageAccountSasTokenDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedStorageAccountSasTokenDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedStorageAccountSasTokenDefinition)(nil))
-}
-
-func (o ManagedStorageAccountSasTokenDefinitionPtrOutput) ToManagedStorageAccountSasTokenDefinitionPtrOutput() ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return o
-}
-
-func (o ManagedStorageAccountSasTokenDefinitionPtrOutput) ToManagedStorageAccountSasTokenDefinitionPtrOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionPtrOutput {
-	return o
-}
-
-func (o ManagedStorageAccountSasTokenDefinitionPtrOutput) Elem() ManagedStorageAccountSasTokenDefinitionOutput {
-	return o.ApplyT(func(v *ManagedStorageAccountSasTokenDefinition) ManagedStorageAccountSasTokenDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedStorageAccountSasTokenDefinition
-		return ret
-	}).(ManagedStorageAccountSasTokenDefinitionOutput)
-}
-
 type ManagedStorageAccountSasTokenDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountSasTokenDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedStorageAccountSasTokenDefinition)(nil))
+	return reflect.TypeOf((*[]*ManagedStorageAccountSasTokenDefinition)(nil)).Elem()
 }
 
 func (o ManagedStorageAccountSasTokenDefinitionArrayOutput) ToManagedStorageAccountSasTokenDefinitionArrayOutput() ManagedStorageAccountSasTokenDefinitionArrayOutput {
@@ -401,15 +365,15 @@ func (o ManagedStorageAccountSasTokenDefinitionArrayOutput) ToManagedStorageAcco
 }
 
 func (o ManagedStorageAccountSasTokenDefinitionArrayOutput) Index(i pulumi.IntInput) ManagedStorageAccountSasTokenDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedStorageAccountSasTokenDefinition {
-		return vs[0].([]ManagedStorageAccountSasTokenDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedStorageAccountSasTokenDefinition {
+		return vs[0].([]*ManagedStorageAccountSasTokenDefinition)[vs[1].(int)]
 	}).(ManagedStorageAccountSasTokenDefinitionOutput)
 }
 
 type ManagedStorageAccountSasTokenDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountSasTokenDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedStorageAccountSasTokenDefinition)(nil))
+	return reflect.TypeOf((*map[string]*ManagedStorageAccountSasTokenDefinition)(nil)).Elem()
 }
 
 func (o ManagedStorageAccountSasTokenDefinitionMapOutput) ToManagedStorageAccountSasTokenDefinitionMapOutput() ManagedStorageAccountSasTokenDefinitionMapOutput {
@@ -421,18 +385,16 @@ func (o ManagedStorageAccountSasTokenDefinitionMapOutput) ToManagedStorageAccoun
 }
 
 func (o ManagedStorageAccountSasTokenDefinitionMapOutput) MapIndex(k pulumi.StringInput) ManagedStorageAccountSasTokenDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedStorageAccountSasTokenDefinition {
-		return vs[0].(map[string]ManagedStorageAccountSasTokenDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedStorageAccountSasTokenDefinition {
+		return vs[0].(map[string]*ManagedStorageAccountSasTokenDefinition)[vs[1].(string)]
 	}).(ManagedStorageAccountSasTokenDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionInput)(nil)).Elem(), &ManagedStorageAccountSasTokenDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionPtrInput)(nil)).Elem(), &ManagedStorageAccountSasTokenDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionArrayInput)(nil)).Elem(), ManagedStorageAccountSasTokenDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionMapInput)(nil)).Elem(), ManagedStorageAccountSasTokenDefinitionMap{})
 	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionOutput{})
-	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionMapOutput{})
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -48,7 +47,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Encryption Scope.
@@ -86,7 +85,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
     }
 
 

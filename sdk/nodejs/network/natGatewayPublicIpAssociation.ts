@@ -85,12 +85,12 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: NatGatewayPublicIpAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatGatewayPublicIpAssociationArgs | NatGatewayPublicIpAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayPublicIpAssociationState | undefined;
-            inputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            inputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
+            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
+            resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
         } else {
             const args = argsOrState as NatGatewayPublicIpAssociationArgs | undefined;
             if ((!args || args.natGatewayId === undefined) && !opts.urn) {
@@ -99,13 +99,11 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
             if ((!args || args.publicIpAddressId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicIpAddressId'");
             }
-            inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            inputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
+            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
+            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NatGatewayPublicIpAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NatGatewayPublicIpAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

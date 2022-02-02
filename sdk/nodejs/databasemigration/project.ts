@@ -115,17 +115,17 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["sourcePlatform"] = state ? state.sourcePlatform : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetPlatform"] = state ? state.targetPlatform : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["sourcePlatform"] = state ? state.sourcePlatform : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetPlatform"] = state ? state.targetPlatform : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -140,18 +140,16 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.targetPlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetPlatform"] = args ? args.targetPlatform : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetPlatform"] = args ? args.targetPlatform : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Project.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

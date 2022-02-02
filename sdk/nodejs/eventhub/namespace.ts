@@ -124,21 +124,21 @@ export class Namespace extends pulumi.CustomResource {
     /** @deprecated azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace */
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            inputs["capacity"] = state ? state.capacity : undefined;
-            inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
-            inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
-            inputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
-            inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
+            resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
+            resourceInputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
+            resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -147,22 +147,20 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["defaultPrimaryConnectionString"] = undefined /*out*/;
-            inputs["defaultPrimaryKey"] = undefined /*out*/;
-            inputs["defaultSecondaryConnectionString"] = undefined /*out*/;
-            inputs["defaultSecondaryKey"] = undefined /*out*/;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["defaultPrimaryConnectionString"] = undefined /*out*/;
+            resourceInputs["defaultPrimaryKey"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Namespace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

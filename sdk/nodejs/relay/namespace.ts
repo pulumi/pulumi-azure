@@ -110,20 +110,20 @@ export class Namespace extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metricId"] = state ? state.metricId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["primaryKey"] = state ? state.primaryKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["metricId"] = state ? state.metricId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -132,21 +132,19 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["metricId"] = undefined /*out*/;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["metricId"] = undefined /*out*/;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Namespace.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

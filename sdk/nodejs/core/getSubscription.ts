@@ -23,9 +23,7 @@ export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.Invoke
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:core/getSubscription:getSubscription", {
         "subscriptionId": args.subscriptionId,
     }, opts);

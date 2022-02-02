@@ -26,9 +26,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:apimanagement/getProduct:getProduct", {
         "apiManagementName": args.apiManagementName,
         "productId": args.productId,

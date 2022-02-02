@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Billing
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Billing
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnrollmentAccountScopeResult> InvokeAsync(GetEnrollmentAccountScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Enrollment Account Billing Scope.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Billing
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnrollmentAccountScopeResult> Invoke(GetEnrollmentAccountScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeInvokeArgs(), options.WithDefaults());
     }
 
 

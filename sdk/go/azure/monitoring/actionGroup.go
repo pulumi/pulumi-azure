@@ -368,7 +368,7 @@ type ActionGroupInput interface {
 }
 
 func (*ActionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroup)(nil))
+	return reflect.TypeOf((**ActionGroup)(nil)).Elem()
 }
 
 func (i *ActionGroup) ToActionGroupOutput() ActionGroupOutput {
@@ -377,35 +377,6 @@ func (i *ActionGroup) ToActionGroupOutput() ActionGroupOutput {
 
 func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupOutput)
-}
-
-func (i *ActionGroup) ToActionGroupPtrOutput() ActionGroupPtrOutput {
-	return i.ToActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionGroup) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupPtrOutput)
-}
-
-type ActionGroupPtrInput interface {
-	pulumi.Input
-
-	ToActionGroupPtrOutput() ActionGroupPtrOutput
-	ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput
-}
-
-type actionGroupPtrType ActionGroupArgs
-
-func (*actionGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionGroup)(nil))
-}
-
-func (i *actionGroupPtrType) ToActionGroupPtrOutput() ActionGroupPtrOutput {
-	return i.ToActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *actionGroupPtrType) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupPtrOutput)
 }
 
 // ActionGroupArrayInput is an input type that accepts ActionGroupArray and ActionGroupArrayOutput values.
@@ -461,7 +432,7 @@ func (i ActionGroupMap) ToActionGroupMapOutputWithContext(ctx context.Context) A
 type ActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroup)(nil))
+	return reflect.TypeOf((**ActionGroup)(nil)).Elem()
 }
 
 func (o ActionGroupOutput) ToActionGroupOutput() ActionGroupOutput {
@@ -472,44 +443,10 @@ func (o ActionGroupOutput) ToActionGroupOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o ActionGroupOutput) ToActionGroupPtrOutput() ActionGroupPtrOutput {
-	return o.ToActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ActionGroupOutput) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroup) *ActionGroup {
-		return &v
-	}).(ActionGroupPtrOutput)
-}
-
-type ActionGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionGroup)(nil))
-}
-
-func (o ActionGroupPtrOutput) ToActionGroupPtrOutput() ActionGroupPtrOutput {
-	return o
-}
-
-func (o ActionGroupPtrOutput) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
-	return o
-}
-
-func (o ActionGroupPtrOutput) Elem() ActionGroupOutput {
-	return o.ApplyT(func(v *ActionGroup) ActionGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ActionGroup
-		return ret
-	}).(ActionGroupOutput)
-}
-
 type ActionGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionGroup)(nil))
+	return reflect.TypeOf((*[]*ActionGroup)(nil)).Elem()
 }
 
 func (o ActionGroupArrayOutput) ToActionGroupArrayOutput() ActionGroupArrayOutput {
@@ -521,15 +458,15 @@ func (o ActionGroupArrayOutput) ToActionGroupArrayOutputWithContext(ctx context.
 }
 
 func (o ActionGroupArrayOutput) Index(i pulumi.IntInput) ActionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroup {
-		return vs[0].([]ActionGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionGroup {
+		return vs[0].([]*ActionGroup)[vs[1].(int)]
 	}).(ActionGroupOutput)
 }
 
 type ActionGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionGroup)(nil))
+	return reflect.TypeOf((*map[string]*ActionGroup)(nil)).Elem()
 }
 
 func (o ActionGroupMapOutput) ToActionGroupMapOutput() ActionGroupMapOutput {
@@ -541,18 +478,16 @@ func (o ActionGroupMapOutput) ToActionGroupMapOutputWithContext(ctx context.Cont
 }
 
 func (o ActionGroupMapOutput) MapIndex(k pulumi.StringInput) ActionGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionGroup {
-		return vs[0].(map[string]ActionGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionGroup {
+		return vs[0].(map[string]*ActionGroup)[vs[1].(string)]
 	}).(ActionGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupInput)(nil)).Elem(), &ActionGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupPtrInput)(nil)).Elem(), &ActionGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupArrayInput)(nil)).Elem(), ActionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupMapInput)(nil)).Elem(), ActionGroupMap{})
 	pulumi.RegisterOutputType(ActionGroupOutput{})
-	pulumi.RegisterOutputType(ActionGroupPtrOutput{})
 	pulumi.RegisterOutputType(ActionGroupArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupMapOutput{})
 }

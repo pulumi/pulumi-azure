@@ -270,7 +270,7 @@ type VirtualNetworkInput interface {
 }
 
 func (*VirtualNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetwork)(nil))
+	return reflect.TypeOf((**VirtualNetwork)(nil)).Elem()
 }
 
 func (i *VirtualNetwork) ToVirtualNetworkOutput() VirtualNetworkOutput {
@@ -279,35 +279,6 @@ func (i *VirtualNetwork) ToVirtualNetworkOutput() VirtualNetworkOutput {
 
 func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
-}
-
-func (i *VirtualNetwork) ToVirtualNetworkPtrOutput() VirtualNetworkPtrOutput {
-	return i.ToVirtualNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualNetwork) ToVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPtrOutput)
-}
-
-type VirtualNetworkPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPtrOutput() VirtualNetworkPtrOutput
-	ToVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPtrOutput
-}
-
-type virtualNetworkPtrType VirtualNetworkArgs
-
-func (*virtualNetworkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetwork)(nil))
-}
-
-func (i *virtualNetworkPtrType) ToVirtualNetworkPtrOutput() VirtualNetworkPtrOutput {
-	return i.ToVirtualNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNetworkPtrType) ToVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPtrOutput)
 }
 
 // VirtualNetworkArrayInput is an input type that accepts VirtualNetworkArray and VirtualNetworkArrayOutput values.
@@ -363,7 +334,7 @@ func (i VirtualNetworkMap) ToVirtualNetworkMapOutputWithContext(ctx context.Cont
 type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetwork)(nil))
+	return reflect.TypeOf((**VirtualNetwork)(nil)).Elem()
 }
 
 func (o VirtualNetworkOutput) ToVirtualNetworkOutput() VirtualNetworkOutput {
@@ -374,44 +345,10 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o VirtualNetworkOutput) ToVirtualNetworkPtrOutput() VirtualNetworkPtrOutput {
-	return o.ToVirtualNetworkPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNetworkOutput) ToVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetwork) *VirtualNetwork {
-		return &v
-	}).(VirtualNetworkPtrOutput)
-}
-
-type VirtualNetworkPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetwork)(nil))
-}
-
-func (o VirtualNetworkPtrOutput) ToVirtualNetworkPtrOutput() VirtualNetworkPtrOutput {
-	return o
-}
-
-func (o VirtualNetworkPtrOutput) ToVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPtrOutput {
-	return o
-}
-
-func (o VirtualNetworkPtrOutput) Elem() VirtualNetworkOutput {
-	return o.ApplyT(func(v *VirtualNetwork) VirtualNetwork {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetwork
-		return ret
-	}).(VirtualNetworkOutput)
-}
-
 type VirtualNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualNetwork)(nil))
+	return reflect.TypeOf((*[]*VirtualNetwork)(nil)).Elem()
 }
 
 func (o VirtualNetworkArrayOutput) ToVirtualNetworkArrayOutput() VirtualNetworkArrayOutput {
@@ -423,15 +360,15 @@ func (o VirtualNetworkArrayOutput) ToVirtualNetworkArrayOutputWithContext(ctx co
 }
 
 func (o VirtualNetworkArrayOutput) Index(i pulumi.IntInput) VirtualNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetwork {
-		return vs[0].([]VirtualNetwork)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetwork {
+		return vs[0].([]*VirtualNetwork)[vs[1].(int)]
 	}).(VirtualNetworkOutput)
 }
 
 type VirtualNetworkMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualNetwork)(nil))
+	return reflect.TypeOf((*map[string]*VirtualNetwork)(nil)).Elem()
 }
 
 func (o VirtualNetworkMapOutput) ToVirtualNetworkMapOutput() VirtualNetworkMapOutput {
@@ -443,18 +380,16 @@ func (o VirtualNetworkMapOutput) ToVirtualNetworkMapOutputWithContext(ctx contex
 }
 
 func (o VirtualNetworkMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualNetwork {
-		return vs[0].(map[string]VirtualNetwork)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualNetwork {
+		return vs[0].(map[string]*VirtualNetwork)[vs[1].(string)]
 	}).(VirtualNetworkOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkInput)(nil)).Elem(), &VirtualNetwork{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkPtrInput)(nil)).Elem(), &VirtualNetwork{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkArrayInput)(nil)).Elem(), VirtualNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkMapInput)(nil)).Elem(), VirtualNetworkMap{})
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkMapOutput{})
 }

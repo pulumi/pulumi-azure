@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Network Interface.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

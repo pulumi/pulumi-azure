@@ -212,7 +212,7 @@ type ChannelFacebookInput interface {
 }
 
 func (*ChannelFacebook) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelFacebook)(nil))
+	return reflect.TypeOf((**ChannelFacebook)(nil)).Elem()
 }
 
 func (i *ChannelFacebook) ToChannelFacebookOutput() ChannelFacebookOutput {
@@ -221,35 +221,6 @@ func (i *ChannelFacebook) ToChannelFacebookOutput() ChannelFacebookOutput {
 
 func (i *ChannelFacebook) ToChannelFacebookOutputWithContext(ctx context.Context) ChannelFacebookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookOutput)
-}
-
-func (i *ChannelFacebook) ToChannelFacebookPtrOutput() ChannelFacebookPtrOutput {
-	return i.ToChannelFacebookPtrOutputWithContext(context.Background())
-}
-
-func (i *ChannelFacebook) ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookPtrOutput)
-}
-
-type ChannelFacebookPtrInput interface {
-	pulumi.Input
-
-	ToChannelFacebookPtrOutput() ChannelFacebookPtrOutput
-	ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput
-}
-
-type channelFacebookPtrType ChannelFacebookArgs
-
-func (*channelFacebookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelFacebook)(nil))
-}
-
-func (i *channelFacebookPtrType) ToChannelFacebookPtrOutput() ChannelFacebookPtrOutput {
-	return i.ToChannelFacebookPtrOutputWithContext(context.Background())
-}
-
-func (i *channelFacebookPtrType) ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookPtrOutput)
 }
 
 // ChannelFacebookArrayInput is an input type that accepts ChannelFacebookArray and ChannelFacebookArrayOutput values.
@@ -305,7 +276,7 @@ func (i ChannelFacebookMap) ToChannelFacebookMapOutputWithContext(ctx context.Co
 type ChannelFacebookOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelFacebook)(nil))
+	return reflect.TypeOf((**ChannelFacebook)(nil)).Elem()
 }
 
 func (o ChannelFacebookOutput) ToChannelFacebookOutput() ChannelFacebookOutput {
@@ -316,44 +287,10 @@ func (o ChannelFacebookOutput) ToChannelFacebookOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ChannelFacebookOutput) ToChannelFacebookPtrOutput() ChannelFacebookPtrOutput {
-	return o.ToChannelFacebookPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelFacebookOutput) ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelFacebook) *ChannelFacebook {
-		return &v
-	}).(ChannelFacebookPtrOutput)
-}
-
-type ChannelFacebookPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelFacebookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelFacebook)(nil))
-}
-
-func (o ChannelFacebookPtrOutput) ToChannelFacebookPtrOutput() ChannelFacebookPtrOutput {
-	return o
-}
-
-func (o ChannelFacebookPtrOutput) ToChannelFacebookPtrOutputWithContext(ctx context.Context) ChannelFacebookPtrOutput {
-	return o
-}
-
-func (o ChannelFacebookPtrOutput) Elem() ChannelFacebookOutput {
-	return o.ApplyT(func(v *ChannelFacebook) ChannelFacebook {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelFacebook
-		return ret
-	}).(ChannelFacebookOutput)
-}
-
 type ChannelFacebookArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelFacebook)(nil))
+	return reflect.TypeOf((*[]*ChannelFacebook)(nil)).Elem()
 }
 
 func (o ChannelFacebookArrayOutput) ToChannelFacebookArrayOutput() ChannelFacebookArrayOutput {
@@ -365,15 +302,15 @@ func (o ChannelFacebookArrayOutput) ToChannelFacebookArrayOutputWithContext(ctx 
 }
 
 func (o ChannelFacebookArrayOutput) Index(i pulumi.IntInput) ChannelFacebookOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelFacebook {
-		return vs[0].([]ChannelFacebook)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelFacebook {
+		return vs[0].([]*ChannelFacebook)[vs[1].(int)]
 	}).(ChannelFacebookOutput)
 }
 
 type ChannelFacebookMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChannelFacebook)(nil))
+	return reflect.TypeOf((*map[string]*ChannelFacebook)(nil)).Elem()
 }
 
 func (o ChannelFacebookMapOutput) ToChannelFacebookMapOutput() ChannelFacebookMapOutput {
@@ -385,18 +322,16 @@ func (o ChannelFacebookMapOutput) ToChannelFacebookMapOutputWithContext(ctx cont
 }
 
 func (o ChannelFacebookMapOutput) MapIndex(k pulumi.StringInput) ChannelFacebookOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelFacebook {
-		return vs[0].(map[string]ChannelFacebook)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChannelFacebook {
+		return vs[0].(map[string]*ChannelFacebook)[vs[1].(string)]
 	}).(ChannelFacebookOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookInput)(nil)).Elem(), &ChannelFacebook{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookPtrInput)(nil)).Elem(), &ChannelFacebook{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookArrayInput)(nil)).Elem(), ChannelFacebookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookMapInput)(nil)).Elem(), ChannelFacebookMap{})
 	pulumi.RegisterOutputType(ChannelFacebookOutput{})
-	pulumi.RegisterOutputType(ChannelFacebookPtrOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookArrayOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookMapOutput{})
 }

@@ -305,7 +305,7 @@ type LinkedServiceKustoInput interface {
 }
 
 func (*LinkedServiceKusto) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceKusto)(nil))
+	return reflect.TypeOf((**LinkedServiceKusto)(nil)).Elem()
 }
 
 func (i *LinkedServiceKusto) ToLinkedServiceKustoOutput() LinkedServiceKustoOutput {
@@ -314,35 +314,6 @@ func (i *LinkedServiceKusto) ToLinkedServiceKustoOutput() LinkedServiceKustoOutp
 
 func (i *LinkedServiceKusto) ToLinkedServiceKustoOutputWithContext(ctx context.Context) LinkedServiceKustoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKustoOutput)
-}
-
-func (i *LinkedServiceKusto) ToLinkedServiceKustoPtrOutput() LinkedServiceKustoPtrOutput {
-	return i.ToLinkedServiceKustoPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceKusto) ToLinkedServiceKustoPtrOutputWithContext(ctx context.Context) LinkedServiceKustoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKustoPtrOutput)
-}
-
-type LinkedServiceKustoPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceKustoPtrOutput() LinkedServiceKustoPtrOutput
-	ToLinkedServiceKustoPtrOutputWithContext(ctx context.Context) LinkedServiceKustoPtrOutput
-}
-
-type linkedServiceKustoPtrType LinkedServiceKustoArgs
-
-func (*linkedServiceKustoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceKusto)(nil))
-}
-
-func (i *linkedServiceKustoPtrType) ToLinkedServiceKustoPtrOutput() LinkedServiceKustoPtrOutput {
-	return i.ToLinkedServiceKustoPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceKustoPtrType) ToLinkedServiceKustoPtrOutputWithContext(ctx context.Context) LinkedServiceKustoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKustoPtrOutput)
 }
 
 // LinkedServiceKustoArrayInput is an input type that accepts LinkedServiceKustoArray and LinkedServiceKustoArrayOutput values.
@@ -398,7 +369,7 @@ func (i LinkedServiceKustoMap) ToLinkedServiceKustoMapOutputWithContext(ctx cont
 type LinkedServiceKustoOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKustoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceKusto)(nil))
+	return reflect.TypeOf((**LinkedServiceKusto)(nil)).Elem()
 }
 
 func (o LinkedServiceKustoOutput) ToLinkedServiceKustoOutput() LinkedServiceKustoOutput {
@@ -409,44 +380,10 @@ func (o LinkedServiceKustoOutput) ToLinkedServiceKustoOutputWithContext(ctx cont
 	return o
 }
 
-func (o LinkedServiceKustoOutput) ToLinkedServiceKustoPtrOutput() LinkedServiceKustoPtrOutput {
-	return o.ToLinkedServiceKustoPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceKustoOutput) ToLinkedServiceKustoPtrOutputWithContext(ctx context.Context) LinkedServiceKustoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceKusto) *LinkedServiceKusto {
-		return &v
-	}).(LinkedServiceKustoPtrOutput)
-}
-
-type LinkedServiceKustoPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceKustoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceKusto)(nil))
-}
-
-func (o LinkedServiceKustoPtrOutput) ToLinkedServiceKustoPtrOutput() LinkedServiceKustoPtrOutput {
-	return o
-}
-
-func (o LinkedServiceKustoPtrOutput) ToLinkedServiceKustoPtrOutputWithContext(ctx context.Context) LinkedServiceKustoPtrOutput {
-	return o
-}
-
-func (o LinkedServiceKustoPtrOutput) Elem() LinkedServiceKustoOutput {
-	return o.ApplyT(func(v *LinkedServiceKusto) LinkedServiceKusto {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceKusto
-		return ret
-	}).(LinkedServiceKustoOutput)
-}
-
 type LinkedServiceKustoArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKustoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceKusto)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceKusto)(nil)).Elem()
 }
 
 func (o LinkedServiceKustoArrayOutput) ToLinkedServiceKustoArrayOutput() LinkedServiceKustoArrayOutput {
@@ -458,15 +395,15 @@ func (o LinkedServiceKustoArrayOutput) ToLinkedServiceKustoArrayOutputWithContex
 }
 
 func (o LinkedServiceKustoArrayOutput) Index(i pulumi.IntInput) LinkedServiceKustoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceKusto {
-		return vs[0].([]LinkedServiceKusto)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceKusto {
+		return vs[0].([]*LinkedServiceKusto)[vs[1].(int)]
 	}).(LinkedServiceKustoOutput)
 }
 
 type LinkedServiceKustoMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKustoMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceKusto)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceKusto)(nil)).Elem()
 }
 
 func (o LinkedServiceKustoMapOutput) ToLinkedServiceKustoMapOutput() LinkedServiceKustoMapOutput {
@@ -478,18 +415,16 @@ func (o LinkedServiceKustoMapOutput) ToLinkedServiceKustoMapOutputWithContext(ct
 }
 
 func (o LinkedServiceKustoMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceKustoOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceKusto {
-		return vs[0].(map[string]LinkedServiceKusto)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceKusto {
+		return vs[0].(map[string]*LinkedServiceKusto)[vs[1].(string)]
 	}).(LinkedServiceKustoOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoInput)(nil)).Elem(), &LinkedServiceKusto{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoPtrInput)(nil)).Elem(), &LinkedServiceKusto{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoArrayInput)(nil)).Elem(), LinkedServiceKustoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoMapInput)(nil)).Elem(), LinkedServiceKustoMap{})
 	pulumi.RegisterOutputType(LinkedServiceKustoOutput{})
-	pulumi.RegisterOutputType(LinkedServiceKustoPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceKustoArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceKustoMapOutput{})
 }

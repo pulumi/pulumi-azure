@@ -230,7 +230,7 @@ type ProbeInput interface {
 }
 
 func (*Probe) ElementType() reflect.Type {
-	return reflect.TypeOf((*Probe)(nil))
+	return reflect.TypeOf((**Probe)(nil)).Elem()
 }
 
 func (i *Probe) ToProbeOutput() ProbeOutput {
@@ -239,35 +239,6 @@ func (i *Probe) ToProbeOutput() ProbeOutput {
 
 func (i *Probe) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeOutput)
-}
-
-func (i *Probe) ToProbePtrOutput() ProbePtrOutput {
-	return i.ToProbePtrOutputWithContext(context.Background())
-}
-
-func (i *Probe) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProbePtrOutput)
-}
-
-type ProbePtrInput interface {
-	pulumi.Input
-
-	ToProbePtrOutput() ProbePtrOutput
-	ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput
-}
-
-type probePtrType ProbeArgs
-
-func (*probePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Probe)(nil))
-}
-
-func (i *probePtrType) ToProbePtrOutput() ProbePtrOutput {
-	return i.ToProbePtrOutputWithContext(context.Background())
-}
-
-func (i *probePtrType) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProbePtrOutput)
 }
 
 // ProbeArrayInput is an input type that accepts ProbeArray and ProbeArrayOutput values.
@@ -323,7 +294,7 @@ func (i ProbeMap) ToProbeMapOutputWithContext(ctx context.Context) ProbeMapOutpu
 type ProbeOutput struct{ *pulumi.OutputState }
 
 func (ProbeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Probe)(nil))
+	return reflect.TypeOf((**Probe)(nil)).Elem()
 }
 
 func (o ProbeOutput) ToProbeOutput() ProbeOutput {
@@ -334,44 +305,10 @@ func (o ProbeOutput) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return o
 }
 
-func (o ProbeOutput) ToProbePtrOutput() ProbePtrOutput {
-	return o.ToProbePtrOutputWithContext(context.Background())
-}
-
-func (o ProbeOutput) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Probe) *Probe {
-		return &v
-	}).(ProbePtrOutput)
-}
-
-type ProbePtrOutput struct{ *pulumi.OutputState }
-
-func (ProbePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Probe)(nil))
-}
-
-func (o ProbePtrOutput) ToProbePtrOutput() ProbePtrOutput {
-	return o
-}
-
-func (o ProbePtrOutput) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
-	return o
-}
-
-func (o ProbePtrOutput) Elem() ProbeOutput {
-	return o.ApplyT(func(v *Probe) Probe {
-		if v != nil {
-			return *v
-		}
-		var ret Probe
-		return ret
-	}).(ProbeOutput)
-}
-
 type ProbeArrayOutput struct{ *pulumi.OutputState }
 
 func (ProbeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Probe)(nil))
+	return reflect.TypeOf((*[]*Probe)(nil)).Elem()
 }
 
 func (o ProbeArrayOutput) ToProbeArrayOutput() ProbeArrayOutput {
@@ -383,15 +320,15 @@ func (o ProbeArrayOutput) ToProbeArrayOutputWithContext(ctx context.Context) Pro
 }
 
 func (o ProbeArrayOutput) Index(i pulumi.IntInput) ProbeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Probe {
-		return vs[0].([]Probe)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Probe {
+		return vs[0].([]*Probe)[vs[1].(int)]
 	}).(ProbeOutput)
 }
 
 type ProbeMapOutput struct{ *pulumi.OutputState }
 
 func (ProbeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Probe)(nil))
+	return reflect.TypeOf((*map[string]*Probe)(nil)).Elem()
 }
 
 func (o ProbeMapOutput) ToProbeMapOutput() ProbeMapOutput {
@@ -403,18 +340,16 @@ func (o ProbeMapOutput) ToProbeMapOutputWithContext(ctx context.Context) ProbeMa
 }
 
 func (o ProbeMapOutput) MapIndex(k pulumi.StringInput) ProbeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Probe {
-		return vs[0].(map[string]Probe)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Probe {
+		return vs[0].(map[string]*Probe)[vs[1].(string)]
 	}).(ProbeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProbeInput)(nil)).Elem(), &Probe{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProbePtrInput)(nil)).Elem(), &Probe{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProbeArrayInput)(nil)).Elem(), ProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProbeMapInput)(nil)).Elem(), ProbeMap{})
 	pulumi.RegisterOutputType(ProbeOutput{})
-	pulumi.RegisterOutputType(ProbePtrOutput{})
 	pulumi.RegisterOutputType(ProbeArrayOutput{})
 	pulumi.RegisterOutputType(ProbeMapOutput{})
 }

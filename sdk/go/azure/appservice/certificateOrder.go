@@ -272,7 +272,7 @@ type CertificateOrderInput interface {
 }
 
 func (*CertificateOrder) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrder)(nil))
+	return reflect.TypeOf((**CertificateOrder)(nil)).Elem()
 }
 
 func (i *CertificateOrder) ToCertificateOrderOutput() CertificateOrderOutput {
@@ -281,35 +281,6 @@ func (i *CertificateOrder) ToCertificateOrderOutput() CertificateOrderOutput {
 
 func (i *CertificateOrder) ToCertificateOrderOutputWithContext(ctx context.Context) CertificateOrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderOutput)
-}
-
-func (i *CertificateOrder) ToCertificateOrderPtrOutput() CertificateOrderPtrOutput {
-	return i.ToCertificateOrderPtrOutputWithContext(context.Background())
-}
-
-func (i *CertificateOrder) ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderPtrOutput)
-}
-
-type CertificateOrderPtrInput interface {
-	pulumi.Input
-
-	ToCertificateOrderPtrOutput() CertificateOrderPtrOutput
-	ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput
-}
-
-type certificateOrderPtrType CertificateOrderArgs
-
-func (*certificateOrderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateOrder)(nil))
-}
-
-func (i *certificateOrderPtrType) ToCertificateOrderPtrOutput() CertificateOrderPtrOutput {
-	return i.ToCertificateOrderPtrOutputWithContext(context.Background())
-}
-
-func (i *certificateOrderPtrType) ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderPtrOutput)
 }
 
 // CertificateOrderArrayInput is an input type that accepts CertificateOrderArray and CertificateOrderArrayOutput values.
@@ -365,7 +336,7 @@ func (i CertificateOrderMap) ToCertificateOrderMapOutputWithContext(ctx context.
 type CertificateOrderOutput struct{ *pulumi.OutputState }
 
 func (CertificateOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrder)(nil))
+	return reflect.TypeOf((**CertificateOrder)(nil)).Elem()
 }
 
 func (o CertificateOrderOutput) ToCertificateOrderOutput() CertificateOrderOutput {
@@ -376,44 +347,10 @@ func (o CertificateOrderOutput) ToCertificateOrderOutputWithContext(ctx context.
 	return o
 }
 
-func (o CertificateOrderOutput) ToCertificateOrderPtrOutput() CertificateOrderPtrOutput {
-	return o.ToCertificateOrderPtrOutputWithContext(context.Background())
-}
-
-func (o CertificateOrderOutput) ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateOrder) *CertificateOrder {
-		return &v
-	}).(CertificateOrderPtrOutput)
-}
-
-type CertificateOrderPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateOrder)(nil))
-}
-
-func (o CertificateOrderPtrOutput) ToCertificateOrderPtrOutput() CertificateOrderPtrOutput {
-	return o
-}
-
-func (o CertificateOrderPtrOutput) ToCertificateOrderPtrOutputWithContext(ctx context.Context) CertificateOrderPtrOutput {
-	return o
-}
-
-func (o CertificateOrderPtrOutput) Elem() CertificateOrderOutput {
-	return o.ApplyT(func(v *CertificateOrder) CertificateOrder {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateOrder
-		return ret
-	}).(CertificateOrderOutput)
-}
-
 type CertificateOrderArrayOutput struct{ *pulumi.OutputState }
 
 func (CertificateOrderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateOrder)(nil))
+	return reflect.TypeOf((*[]*CertificateOrder)(nil)).Elem()
 }
 
 func (o CertificateOrderArrayOutput) ToCertificateOrderArrayOutput() CertificateOrderArrayOutput {
@@ -425,15 +362,15 @@ func (o CertificateOrderArrayOutput) ToCertificateOrderArrayOutputWithContext(ct
 }
 
 func (o CertificateOrderArrayOutput) Index(i pulumi.IntInput) CertificateOrderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateOrder {
-		return vs[0].([]CertificateOrder)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateOrder {
+		return vs[0].([]*CertificateOrder)[vs[1].(int)]
 	}).(CertificateOrderOutput)
 }
 
 type CertificateOrderMapOutput struct{ *pulumi.OutputState }
 
 func (CertificateOrderMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CertificateOrder)(nil))
+	return reflect.TypeOf((*map[string]*CertificateOrder)(nil)).Elem()
 }
 
 func (o CertificateOrderMapOutput) ToCertificateOrderMapOutput() CertificateOrderMapOutput {
@@ -445,18 +382,16 @@ func (o CertificateOrderMapOutput) ToCertificateOrderMapOutputWithContext(ctx co
 }
 
 func (o CertificateOrderMapOutput) MapIndex(k pulumi.StringInput) CertificateOrderOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateOrder {
-		return vs[0].(map[string]CertificateOrder)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CertificateOrder {
+		return vs[0].(map[string]*CertificateOrder)[vs[1].(string)]
 	}).(CertificateOrderOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOrderInput)(nil)).Elem(), &CertificateOrder{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOrderPtrInput)(nil)).Elem(), &CertificateOrder{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOrderArrayInput)(nil)).Elem(), CertificateOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOrderMapInput)(nil)).Elem(), CertificateOrderMap{})
 	pulumi.RegisterOutputType(CertificateOrderOutput{})
-	pulumi.RegisterOutputType(CertificateOrderPtrOutput{})
 	pulumi.RegisterOutputType(CertificateOrderArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOrderMapOutput{})
 }

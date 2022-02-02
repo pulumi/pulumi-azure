@@ -145,7 +145,7 @@ type PrivateLinkScopeInput interface {
 }
 
 func (*PrivateLinkScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScope)(nil))
+	return reflect.TypeOf((**PrivateLinkScope)(nil)).Elem()
 }
 
 func (i *PrivateLinkScope) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {
@@ -154,35 +154,6 @@ func (i *PrivateLinkScope) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {
 
 func (i *PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Context) PrivateLinkScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeOutput)
-}
-
-func (i *PrivateLinkScope) ToPrivateLinkScopePtrOutput() PrivateLinkScopePtrOutput {
-	return i.ToPrivateLinkScopePtrOutputWithContext(context.Background())
-}
-
-func (i *PrivateLinkScope) ToPrivateLinkScopePtrOutputWithContext(ctx context.Context) PrivateLinkScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopePtrOutput)
-}
-
-type PrivateLinkScopePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopePtrOutput() PrivateLinkScopePtrOutput
-	ToPrivateLinkScopePtrOutputWithContext(ctx context.Context) PrivateLinkScopePtrOutput
-}
-
-type privateLinkScopePtrType PrivateLinkScopeArgs
-
-func (*privateLinkScopePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkScope)(nil))
-}
-
-func (i *privateLinkScopePtrType) ToPrivateLinkScopePtrOutput() PrivateLinkScopePtrOutput {
-	return i.ToPrivateLinkScopePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkScopePtrType) ToPrivateLinkScopePtrOutputWithContext(ctx context.Context) PrivateLinkScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopePtrOutput)
 }
 
 // PrivateLinkScopeArrayInput is an input type that accepts PrivateLinkScopeArray and PrivateLinkScopeArrayOutput values.
@@ -238,7 +209,7 @@ func (i PrivateLinkScopeMap) ToPrivateLinkScopeMapOutputWithContext(ctx context.
 type PrivateLinkScopeOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScope)(nil))
+	return reflect.TypeOf((**PrivateLinkScope)(nil)).Elem()
 }
 
 func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutput() PrivateLinkScopeOutput {
@@ -249,44 +220,10 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.
 	return o
 }
 
-func (o PrivateLinkScopeOutput) ToPrivateLinkScopePtrOutput() PrivateLinkScopePtrOutput {
-	return o.ToPrivateLinkScopePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkScopeOutput) ToPrivateLinkScopePtrOutputWithContext(ctx context.Context) PrivateLinkScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkScope) *PrivateLinkScope {
-		return &v
-	}).(PrivateLinkScopePtrOutput)
-}
-
-type PrivateLinkScopePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkScope)(nil))
-}
-
-func (o PrivateLinkScopePtrOutput) ToPrivateLinkScopePtrOutput() PrivateLinkScopePtrOutput {
-	return o
-}
-
-func (o PrivateLinkScopePtrOutput) ToPrivateLinkScopePtrOutputWithContext(ctx context.Context) PrivateLinkScopePtrOutput {
-	return o
-}
-
-func (o PrivateLinkScopePtrOutput) Elem() PrivateLinkScopeOutput {
-	return o.ApplyT(func(v *PrivateLinkScope) PrivateLinkScope {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkScope
-		return ret
-	}).(PrivateLinkScopeOutput)
-}
-
 type PrivateLinkScopeArrayOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateLinkScope)(nil))
+	return reflect.TypeOf((*[]*PrivateLinkScope)(nil)).Elem()
 }
 
 func (o PrivateLinkScopeArrayOutput) ToPrivateLinkScopeArrayOutput() PrivateLinkScopeArrayOutput {
@@ -298,15 +235,15 @@ func (o PrivateLinkScopeArrayOutput) ToPrivateLinkScopeArrayOutputWithContext(ct
 }
 
 func (o PrivateLinkScopeArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkScope {
-		return vs[0].([]PrivateLinkScope)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkScope {
+		return vs[0].([]*PrivateLinkScope)[vs[1].(int)]
 	}).(PrivateLinkScopeOutput)
 }
 
 type PrivateLinkScopeMapOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PrivateLinkScope)(nil))
+	return reflect.TypeOf((*map[string]*PrivateLinkScope)(nil)).Elem()
 }
 
 func (o PrivateLinkScopeMapOutput) ToPrivateLinkScopeMapOutput() PrivateLinkScopeMapOutput {
@@ -318,18 +255,16 @@ func (o PrivateLinkScopeMapOutput) ToPrivateLinkScopeMapOutputWithContext(ctx co
 }
 
 func (o PrivateLinkScopeMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkScopeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrivateLinkScope {
-		return vs[0].(map[string]PrivateLinkScope)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PrivateLinkScope {
+		return vs[0].(map[string]*PrivateLinkScope)[vs[1].(string)]
 	}).(PrivateLinkScopeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeInput)(nil)).Elem(), &PrivateLinkScope{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopePtrInput)(nil)).Elem(), &PrivateLinkScope{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeArrayInput)(nil)).Elem(), PrivateLinkScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeMapInput)(nil)).Elem(), PrivateLinkScopeMap{})
 	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
-	pulumi.RegisterOutputType(PrivateLinkScopePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopeMapOutput{})
 }

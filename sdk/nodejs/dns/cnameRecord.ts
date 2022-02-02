@@ -119,18 +119,18 @@ export class CNameRecord extends pulumi.CustomResource {
      */
     constructor(name: string, args: CNameRecordArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CNameRecordArgs | CNameRecordState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CNameRecordState | undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["record"] = state ? state.record : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["zoneName"] = state ? state.zoneName : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["record"] = state ? state.record : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as CNameRecordArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -142,19 +142,17 @@ export class CNameRecord extends pulumi.CustomResource {
             if ((!args || args.zoneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["record"] = args ? args.record : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["zoneName"] = args ? args.zoneName : undefined;
-            inputs["fqdn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["record"] = args ? args.record : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CNameRecord.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CNameRecord.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DevTest
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.DevTest
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Dev Test Lab.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.DevTest
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

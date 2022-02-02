@@ -238,7 +238,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
             account_name=example_store.name,
             local_file_path="./example/myfile.txt",
             remote_file_path="/example/myfile.txt")
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
+        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_store.id,
             role_definition_name="Owner",
@@ -301,7 +301,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
             account_name=example_store.name,
             local_file_path="./example/myfile.txt",
             remote_file_path="/example/myfile.txt")
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
+        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_store.id,
             role_definition_name="Owner",

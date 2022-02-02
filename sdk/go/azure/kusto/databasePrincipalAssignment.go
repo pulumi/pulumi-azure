@@ -251,7 +251,7 @@ type DatabasePrincipalAssignmentInput interface {
 }
 
 func (*DatabasePrincipalAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((**DatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
@@ -260,35 +260,6 @@ func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutput() Data
 
 func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentOutput)
-}
-
-func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentPtrOutput() DatabasePrincipalAssignmentPtrOutput {
-	return i.ToDatabasePrincipalAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentPtrOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentPtrOutput)
-}
-
-type DatabasePrincipalAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToDatabasePrincipalAssignmentPtrOutput() DatabasePrincipalAssignmentPtrOutput
-	ToDatabasePrincipalAssignmentPtrOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentPtrOutput
-}
-
-type databasePrincipalAssignmentPtrType DatabasePrincipalAssignmentArgs
-
-func (*databasePrincipalAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasePrincipalAssignment)(nil))
-}
-
-func (i *databasePrincipalAssignmentPtrType) ToDatabasePrincipalAssignmentPtrOutput() DatabasePrincipalAssignmentPtrOutput {
-	return i.ToDatabasePrincipalAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *databasePrincipalAssignmentPtrType) ToDatabasePrincipalAssignmentPtrOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentPtrOutput)
 }
 
 // DatabasePrincipalAssignmentArrayInput is an input type that accepts DatabasePrincipalAssignmentArray and DatabasePrincipalAssignmentArrayOutput values.
@@ -344,7 +315,7 @@ func (i DatabasePrincipalAssignmentMap) ToDatabasePrincipalAssignmentMapOutputWi
 type DatabasePrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((**DatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
@@ -355,44 +326,10 @@ func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutputWi
 	return o
 }
 
-func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentPtrOutput() DatabasePrincipalAssignmentPtrOutput {
-	return o.ToDatabasePrincipalAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentPtrOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabasePrincipalAssignment) *DatabasePrincipalAssignment {
-		return &v
-	}).(DatabasePrincipalAssignmentPtrOutput)
-}
-
-type DatabasePrincipalAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (DatabasePrincipalAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasePrincipalAssignment)(nil))
-}
-
-func (o DatabasePrincipalAssignmentPtrOutput) ToDatabasePrincipalAssignmentPtrOutput() DatabasePrincipalAssignmentPtrOutput {
-	return o
-}
-
-func (o DatabasePrincipalAssignmentPtrOutput) ToDatabasePrincipalAssignmentPtrOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentPtrOutput {
-	return o
-}
-
-func (o DatabasePrincipalAssignmentPtrOutput) Elem() DatabasePrincipalAssignmentOutput {
-	return o.ApplyT(func(v *DatabasePrincipalAssignment) DatabasePrincipalAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret DatabasePrincipalAssignment
-		return ret
-	}).(DatabasePrincipalAssignmentOutput)
-}
-
 type DatabasePrincipalAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((*[]*DatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (o DatabasePrincipalAssignmentArrayOutput) ToDatabasePrincipalAssignmentArrayOutput() DatabasePrincipalAssignmentArrayOutput {
@@ -404,15 +341,15 @@ func (o DatabasePrincipalAssignmentArrayOutput) ToDatabasePrincipalAssignmentArr
 }
 
 func (o DatabasePrincipalAssignmentArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalAssignment {
-		return vs[0].([]DatabasePrincipalAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabasePrincipalAssignment {
+		return vs[0].([]*DatabasePrincipalAssignment)[vs[1].(int)]
 	}).(DatabasePrincipalAssignmentOutput)
 }
 
 type DatabasePrincipalAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((*map[string]*DatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (o DatabasePrincipalAssignmentMapOutput) ToDatabasePrincipalAssignmentMapOutput() DatabasePrincipalAssignmentMapOutput {
@@ -424,18 +361,16 @@ func (o DatabasePrincipalAssignmentMapOutput) ToDatabasePrincipalAssignmentMapOu
 }
 
 func (o DatabasePrincipalAssignmentMapOutput) MapIndex(k pulumi.StringInput) DatabasePrincipalAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabasePrincipalAssignment {
-		return vs[0].(map[string]DatabasePrincipalAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatabasePrincipalAssignment {
+		return vs[0].(map[string]*DatabasePrincipalAssignment)[vs[1].(string)]
 	}).(DatabasePrincipalAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentInput)(nil)).Elem(), &DatabasePrincipalAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentPtrInput)(nil)).Elem(), &DatabasePrincipalAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentArrayInput)(nil)).Elem(), DatabasePrincipalAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentMapInput)(nil)).Elem(), DatabasePrincipalAssignmentMap{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentOutput{})
-	pulumi.RegisterOutputType(DatabasePrincipalAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentMapOutput{})
 }

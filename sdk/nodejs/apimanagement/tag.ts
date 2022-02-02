@@ -82,26 +82,24 @@ export class Tag extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagArgs | TagState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
             if ((!args || args.apiManagementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Tag.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Tag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

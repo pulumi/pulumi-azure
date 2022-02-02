@@ -149,7 +149,7 @@ type DiskAccessInput interface {
 }
 
 func (*DiskAccess) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccess)(nil))
+	return reflect.TypeOf((**DiskAccess)(nil)).Elem()
 }
 
 func (i *DiskAccess) ToDiskAccessOutput() DiskAccessOutput {
@@ -158,35 +158,6 @@ func (i *DiskAccess) ToDiskAccessOutput() DiskAccessOutput {
 
 func (i *DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAccessOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessOutput)
-}
-
-func (i *DiskAccess) ToDiskAccessPtrOutput() DiskAccessPtrOutput {
-	return i.ToDiskAccessPtrOutputWithContext(context.Background())
-}
-
-func (i *DiskAccess) ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessPtrOutput)
-}
-
-type DiskAccessPtrInput interface {
-	pulumi.Input
-
-	ToDiskAccessPtrOutput() DiskAccessPtrOutput
-	ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput
-}
-
-type diskAccessPtrType DiskAccessArgs
-
-func (*diskAccessPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskAccess)(nil))
-}
-
-func (i *diskAccessPtrType) ToDiskAccessPtrOutput() DiskAccessPtrOutput {
-	return i.ToDiskAccessPtrOutputWithContext(context.Background())
-}
-
-func (i *diskAccessPtrType) ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessPtrOutput)
 }
 
 // DiskAccessArrayInput is an input type that accepts DiskAccessArray and DiskAccessArrayOutput values.
@@ -242,7 +213,7 @@ func (i DiskAccessMap) ToDiskAccessMapOutputWithContext(ctx context.Context) Dis
 type DiskAccessOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccess)(nil))
+	return reflect.TypeOf((**DiskAccess)(nil)).Elem()
 }
 
 func (o DiskAccessOutput) ToDiskAccessOutput() DiskAccessOutput {
@@ -253,44 +224,10 @@ func (o DiskAccessOutput) ToDiskAccessOutputWithContext(ctx context.Context) Dis
 	return o
 }
 
-func (o DiskAccessOutput) ToDiskAccessPtrOutput() DiskAccessPtrOutput {
-	return o.ToDiskAccessPtrOutputWithContext(context.Background())
-}
-
-func (o DiskAccessOutput) ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskAccess) *DiskAccess {
-		return &v
-	}).(DiskAccessPtrOutput)
-}
-
-type DiskAccessPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskAccessPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskAccess)(nil))
-}
-
-func (o DiskAccessPtrOutput) ToDiskAccessPtrOutput() DiskAccessPtrOutput {
-	return o
-}
-
-func (o DiskAccessPtrOutput) ToDiskAccessPtrOutputWithContext(ctx context.Context) DiskAccessPtrOutput {
-	return o
-}
-
-func (o DiskAccessPtrOutput) Elem() DiskAccessOutput {
-	return o.ApplyT(func(v *DiskAccess) DiskAccess {
-		if v != nil {
-			return *v
-		}
-		var ret DiskAccess
-		return ret
-	}).(DiskAccessOutput)
-}
-
 type DiskAccessArrayOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskAccess)(nil))
+	return reflect.TypeOf((*[]*DiskAccess)(nil)).Elem()
 }
 
 func (o DiskAccessArrayOutput) ToDiskAccessArrayOutput() DiskAccessArrayOutput {
@@ -302,15 +239,15 @@ func (o DiskAccessArrayOutput) ToDiskAccessArrayOutputWithContext(ctx context.Co
 }
 
 func (o DiskAccessArrayOutput) Index(i pulumi.IntInput) DiskAccessOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskAccess {
-		return vs[0].([]DiskAccess)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskAccess {
+		return vs[0].([]*DiskAccess)[vs[1].(int)]
 	}).(DiskAccessOutput)
 }
 
 type DiskAccessMapOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DiskAccess)(nil))
+	return reflect.TypeOf((*map[string]*DiskAccess)(nil)).Elem()
 }
 
 func (o DiskAccessMapOutput) ToDiskAccessMapOutput() DiskAccessMapOutput {
@@ -322,18 +259,16 @@ func (o DiskAccessMapOutput) ToDiskAccessMapOutputWithContext(ctx context.Contex
 }
 
 func (o DiskAccessMapOutput) MapIndex(k pulumi.StringInput) DiskAccessOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DiskAccess {
-		return vs[0].(map[string]DiskAccess)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DiskAccess {
+		return vs[0].(map[string]*DiskAccess)[vs[1].(string)]
 	}).(DiskAccessOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessInput)(nil)).Elem(), &DiskAccess{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessPtrInput)(nil)).Elem(), &DiskAccess{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessArrayInput)(nil)).Elem(), DiskAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessMapInput)(nil)).Elem(), DiskAccessMap{})
 	pulumi.RegisterOutputType(DiskAccessOutput{})
-	pulumi.RegisterOutputType(DiskAccessPtrOutput{})
 	pulumi.RegisterOutputType(DiskAccessArrayOutput{})
 	pulumi.RegisterOutputType(DiskAccessMapOutput{})
 }

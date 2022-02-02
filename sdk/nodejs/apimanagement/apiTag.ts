@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = exampleResourceGroup.name.apply(name => azure.apimanagement.getService({
+ * const exampleService = azure.apimanagement.getServiceOutput({
  *     name: "example-apim",
- *     resourceGroupName: name,
- * }));
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleApi = new azure.apimanagement.Api("exampleApi", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     apiManagementName: azurerm_api_management.example.name,
@@ -81,24 +81,22 @@ export class ApiTag extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiTagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiTagArgs | ApiTagState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiTagState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApiTagArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiTag.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiTag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

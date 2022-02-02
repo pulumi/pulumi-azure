@@ -123,20 +123,20 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceOdbcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceOdbcArgs | LinkedServiceOdbcState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceOdbcState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["basicAuthentication"] = state ? state.basicAuthentication : undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["basicAuthentication"] = state ? state.basicAuthentication : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceOdbcArgs | undefined;
             if ((!args || args.connectionString === undefined) && !opts.urn) {
@@ -148,21 +148,19 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["basicAuthentication"] = args ? args.basicAuthentication : undefined;
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["basicAuthentication"] = args ? args.basicAuthentication : undefined;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LinkedServiceOdbc.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LinkedServiceOdbc.__pulumiType, name, resourceInputs, opts);
     }
 }
 

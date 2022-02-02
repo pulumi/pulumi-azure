@@ -226,7 +226,7 @@ type LogProfileInput interface {
 }
 
 func (*LogProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfile)(nil))
+	return reflect.TypeOf((**LogProfile)(nil)).Elem()
 }
 
 func (i *LogProfile) ToLogProfileOutput() LogProfileOutput {
@@ -235,35 +235,6 @@ func (i *LogProfile) ToLogProfileOutput() LogProfileOutput {
 
 func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
-}
-
-func (i *LogProfile) ToLogProfilePtrOutput() LogProfilePtrOutput {
-	return i.ToLogProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *LogProfile) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogProfilePtrOutput)
-}
-
-type LogProfilePtrInput interface {
-	pulumi.Input
-
-	ToLogProfilePtrOutput() LogProfilePtrOutput
-	ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput
-}
-
-type logProfilePtrType LogProfileArgs
-
-func (*logProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogProfile)(nil))
-}
-
-func (i *logProfilePtrType) ToLogProfilePtrOutput() LogProfilePtrOutput {
-	return i.ToLogProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *logProfilePtrType) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogProfilePtrOutput)
 }
 
 // LogProfileArrayInput is an input type that accepts LogProfileArray and LogProfileArrayOutput values.
@@ -319,7 +290,7 @@ func (i LogProfileMap) ToLogProfileMapOutputWithContext(ctx context.Context) Log
 type LogProfileOutput struct{ *pulumi.OutputState }
 
 func (LogProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfile)(nil))
+	return reflect.TypeOf((**LogProfile)(nil)).Elem()
 }
 
 func (o LogProfileOutput) ToLogProfileOutput() LogProfileOutput {
@@ -330,44 +301,10 @@ func (o LogProfileOutput) ToLogProfileOutputWithContext(ctx context.Context) Log
 	return o
 }
 
-func (o LogProfileOutput) ToLogProfilePtrOutput() LogProfilePtrOutput {
-	return o.ToLogProfilePtrOutputWithContext(context.Background())
-}
-
-func (o LogProfileOutput) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogProfile) *LogProfile {
-		return &v
-	}).(LogProfilePtrOutput)
-}
-
-type LogProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (LogProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogProfile)(nil))
-}
-
-func (o LogProfilePtrOutput) ToLogProfilePtrOutput() LogProfilePtrOutput {
-	return o
-}
-
-func (o LogProfilePtrOutput) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
-	return o
-}
-
-func (o LogProfilePtrOutput) Elem() LogProfileOutput {
-	return o.ApplyT(func(v *LogProfile) LogProfile {
-		if v != nil {
-			return *v
-		}
-		var ret LogProfile
-		return ret
-	}).(LogProfileOutput)
-}
-
 type LogProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (LogProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogProfile)(nil))
+	return reflect.TypeOf((*[]*LogProfile)(nil)).Elem()
 }
 
 func (o LogProfileArrayOutput) ToLogProfileArrayOutput() LogProfileArrayOutput {
@@ -379,15 +316,15 @@ func (o LogProfileArrayOutput) ToLogProfileArrayOutputWithContext(ctx context.Co
 }
 
 func (o LogProfileArrayOutput) Index(i pulumi.IntInput) LogProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogProfile {
-		return vs[0].([]LogProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogProfile {
+		return vs[0].([]*LogProfile)[vs[1].(int)]
 	}).(LogProfileOutput)
 }
 
 type LogProfileMapOutput struct{ *pulumi.OutputState }
 
 func (LogProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogProfile)(nil))
+	return reflect.TypeOf((*map[string]*LogProfile)(nil)).Elem()
 }
 
 func (o LogProfileMapOutput) ToLogProfileMapOutput() LogProfileMapOutput {
@@ -399,18 +336,16 @@ func (o LogProfileMapOutput) ToLogProfileMapOutputWithContext(ctx context.Contex
 }
 
 func (o LogProfileMapOutput) MapIndex(k pulumi.StringInput) LogProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogProfile {
-		return vs[0].(map[string]LogProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogProfile {
+		return vs[0].(map[string]*LogProfile)[vs[1].(string)]
 	}).(LogProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileInput)(nil)).Elem(), &LogProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogProfilePtrInput)(nil)).Elem(), &LogProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileArrayInput)(nil)).Elem(), LogProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileMapInput)(nil)).Elem(), LogProfileMap{})
 	pulumi.RegisterOutputType(LogProfileOutput{})
-	pulumi.RegisterOutputType(LogProfilePtrOutput{})
 	pulumi.RegisterOutputType(LogProfileArrayOutput{})
 	pulumi.RegisterOutputType(LogProfileMapOutput{})
 }

@@ -133,12 +133,12 @@ export class DiskPoolManagedDiskAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiskPoolManagedDiskAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiskPoolManagedDiskAttachmentArgs | DiskPoolManagedDiskAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiskPoolManagedDiskAttachmentState | undefined;
-            inputs["diskPoolId"] = state ? state.diskPoolId : undefined;
-            inputs["managedDiskId"] = state ? state.managedDiskId : undefined;
+            resourceInputs["diskPoolId"] = state ? state.diskPoolId : undefined;
+            resourceInputs["managedDiskId"] = state ? state.managedDiskId : undefined;
         } else {
             const args = argsOrState as DiskPoolManagedDiskAttachmentArgs | undefined;
             if ((!args || args.diskPoolId === undefined) && !opts.urn) {
@@ -147,13 +147,11 @@ export class DiskPoolManagedDiskAttachment extends pulumi.CustomResource {
             if ((!args || args.managedDiskId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedDiskId'");
             }
-            inputs["diskPoolId"] = args ? args.diskPoolId : undefined;
-            inputs["managedDiskId"] = args ? args.managedDiskId : undefined;
+            resourceInputs["diskPoolId"] = args ? args.diskPoolId : undefined;
+            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DiskPoolManagedDiskAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DiskPoolManagedDiskAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

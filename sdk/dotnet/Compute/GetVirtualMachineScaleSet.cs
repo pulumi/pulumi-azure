@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Machine Scale Set.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualMachineScaleSetResult> Invoke(GetVirtualMachineScaleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetResult>("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetInvokeArgs(), options.WithDefaults());
     }
 
 

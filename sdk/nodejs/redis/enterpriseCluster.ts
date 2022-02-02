@@ -105,19 +105,19 @@ export class EnterpriseCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnterpriseClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnterpriseClusterArgs | EnterpriseClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseClusterState | undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as EnterpriseClusterArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -126,20 +126,18 @@ export class EnterpriseCluster extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EnterpriseCluster.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EnterpriseCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

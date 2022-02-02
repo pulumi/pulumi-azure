@@ -26,9 +26,7 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
         "namespaceName": args.namespaceName,

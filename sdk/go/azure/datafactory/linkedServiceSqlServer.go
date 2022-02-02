@@ -323,7 +323,7 @@ type LinkedServiceSqlServerInput interface {
 }
 
 func (*LinkedServiceSqlServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSqlServer)(nil))
+	return reflect.TypeOf((**LinkedServiceSqlServer)(nil)).Elem()
 }
 
 func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {
@@ -332,35 +332,6 @@ func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerOutput() LinkedServiceS
 
 func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerOutput)
-}
-
-func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerPtrOutput() LinkedServiceSqlServerPtrOutput {
-	return i.ToLinkedServiceSqlServerPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerPtrOutput)
-}
-
-type LinkedServiceSqlServerPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceSqlServerPtrOutput() LinkedServiceSqlServerPtrOutput
-	ToLinkedServiceSqlServerPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerPtrOutput
-}
-
-type linkedServiceSqlServerPtrType LinkedServiceSqlServerArgs
-
-func (*linkedServiceSqlServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceSqlServer)(nil))
-}
-
-func (i *linkedServiceSqlServerPtrType) ToLinkedServiceSqlServerPtrOutput() LinkedServiceSqlServerPtrOutput {
-	return i.ToLinkedServiceSqlServerPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceSqlServerPtrType) ToLinkedServiceSqlServerPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerPtrOutput)
 }
 
 // LinkedServiceSqlServerArrayInput is an input type that accepts LinkedServiceSqlServerArray and LinkedServiceSqlServerArrayOutput values.
@@ -416,7 +387,7 @@ func (i LinkedServiceSqlServerMap) ToLinkedServiceSqlServerMapOutputWithContext(
 type LinkedServiceSqlServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSqlServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSqlServer)(nil))
+	return reflect.TypeOf((**LinkedServiceSqlServer)(nil)).Elem()
 }
 
 func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {
@@ -427,44 +398,10 @@ func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutputWithContext(
 	return o
 }
 
-func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerPtrOutput() LinkedServiceSqlServerPtrOutput {
-	return o.ToLinkedServiceSqlServerPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSqlServer) *LinkedServiceSqlServer {
-		return &v
-	}).(LinkedServiceSqlServerPtrOutput)
-}
-
-type LinkedServiceSqlServerPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceSqlServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceSqlServer)(nil))
-}
-
-func (o LinkedServiceSqlServerPtrOutput) ToLinkedServiceSqlServerPtrOutput() LinkedServiceSqlServerPtrOutput {
-	return o
-}
-
-func (o LinkedServiceSqlServerPtrOutput) ToLinkedServiceSqlServerPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerPtrOutput {
-	return o
-}
-
-func (o LinkedServiceSqlServerPtrOutput) Elem() LinkedServiceSqlServerOutput {
-	return o.ApplyT(func(v *LinkedServiceSqlServer) LinkedServiceSqlServer {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceSqlServer
-		return ret
-	}).(LinkedServiceSqlServerOutput)
-}
-
 type LinkedServiceSqlServerArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSqlServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceSqlServer)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceSqlServer)(nil)).Elem()
 }
 
 func (o LinkedServiceSqlServerArrayOutput) ToLinkedServiceSqlServerArrayOutput() LinkedServiceSqlServerArrayOutput {
@@ -476,15 +413,15 @@ func (o LinkedServiceSqlServerArrayOutput) ToLinkedServiceSqlServerArrayOutputWi
 }
 
 func (o LinkedServiceSqlServerArrayOutput) Index(i pulumi.IntInput) LinkedServiceSqlServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceSqlServer {
-		return vs[0].([]LinkedServiceSqlServer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceSqlServer {
+		return vs[0].([]*LinkedServiceSqlServer)[vs[1].(int)]
 	}).(LinkedServiceSqlServerOutput)
 }
 
 type LinkedServiceSqlServerMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSqlServerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceSqlServer)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceSqlServer)(nil)).Elem()
 }
 
 func (o LinkedServiceSqlServerMapOutput) ToLinkedServiceSqlServerMapOutput() LinkedServiceSqlServerMapOutput {
@@ -496,18 +433,16 @@ func (o LinkedServiceSqlServerMapOutput) ToLinkedServiceSqlServerMapOutputWithCo
 }
 
 func (o LinkedServiceSqlServerMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceSqlServerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceSqlServer {
-		return vs[0].(map[string]LinkedServiceSqlServer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceSqlServer {
+		return vs[0].(map[string]*LinkedServiceSqlServer)[vs[1].(string)]
 	}).(LinkedServiceSqlServerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerInput)(nil)).Elem(), &LinkedServiceSqlServer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerPtrInput)(nil)).Elem(), &LinkedServiceSqlServer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerArrayInput)(nil)).Elem(), LinkedServiceSqlServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerMapInput)(nil)).Elem(), LinkedServiceSqlServerMap{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerOutput{})
-	pulumi.RegisterOutputType(LinkedServiceSqlServerPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerMapOutput{})
 }

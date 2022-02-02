@@ -114,17 +114,17 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      */
     constructor(name: string, args: AnalyticsSolutionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsSolutionArgs | AnalyticsSolutionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsSolutionState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["solutionName"] = state ? state.solutionName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workspaceName"] = state ? state.workspaceName : undefined;
-            inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["solutionName"] = state ? state.solutionName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
+            resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as AnalyticsSolutionArgs | undefined;
             if ((!args || args.plan === undefined) && !opts.urn) {
@@ -142,18 +142,16 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["solutionName"] = args ? args.solutionName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["solutionName"] = args ? args.solutionName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AnalyticsSolution.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AnalyticsSolution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

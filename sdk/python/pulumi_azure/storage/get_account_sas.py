@@ -171,7 +171,7 @@ def get_account_sas(connection_string: Optional[str] = None,
         tags={
             "environment": "staging",
         })
-    example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+    example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
         signed_version="2017-07-29",
         resource_types=azure.storage.GetAccountSASResourceTypesArgs(
@@ -196,7 +196,7 @@ def get_account_sas(connection_string: Optional[str] = None,
             create=True,
             update=False,
             process=False,
-        )))
+        ))
     pulumi.export("sasUrlQueryString", example_account_sas.sas)
     ```
 
@@ -275,7 +275,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
         tags={
             "environment": "staging",
         })
-    example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+    example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
         signed_version="2017-07-29",
         resource_types=azure.storage.GetAccountSASResourceTypesArgs(
@@ -300,7 +300,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
             create=True,
             update=False,
             process=False,
-        )))
+        ))
     pulumi.export("sasUrlQueryString", example_account_sas.sas)
     ```
 

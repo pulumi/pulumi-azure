@@ -100,18 +100,18 @@ export class TimeSeriesInsightsStandardEnvironment extends pulumi.CustomResource
      */
     constructor(name: string, args: TimeSeriesInsightsStandardEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeSeriesInsightsStandardEnvironmentArgs | TimeSeriesInsightsStandardEnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TimeSeriesInsightsStandardEnvironmentState | undefined;
-            inputs["dataRetentionTime"] = state ? state.dataRetentionTime : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partitionKey"] = state ? state.partitionKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["storageLimitExceededBehavior"] = state ? state.storageLimitExceededBehavior : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dataRetentionTime"] = state ? state.dataRetentionTime : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["storageLimitExceededBehavior"] = state ? state.storageLimitExceededBehavior : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsStandardEnvironmentArgs | undefined;
             if ((!args || args.dataRetentionTime === undefined) && !opts.urn) {
@@ -123,19 +123,17 @@ export class TimeSeriesInsightsStandardEnvironment extends pulumi.CustomResource
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partitionKey"] = args ? args.partitionKey : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TimeSeriesInsightsStandardEnvironment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TimeSeriesInsightsStandardEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -100,36 +100,34 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleDefinitionArgs | RoleDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleDefinitionState | undefined;
-            inputs["assignableScopes"] = state ? state.assignableScopes : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            inputs["roleDefinitionResourceId"] = state ? state.roleDefinitionResourceId : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["assignableScopes"] = state ? state.assignableScopes : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
+            resourceInputs["roleDefinitionResourceId"] = state ? state.roleDefinitionResourceId : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RoleDefinitionArgs | undefined;
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["roleDefinitionResourceId"] = undefined /*out*/;
+            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["roleDefinitionResourceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:role/definition:Definition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RoleDefinition.__pulumiType, name, inputs, opts);
+        super(RoleDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -135,42 +135,40 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["accessPolicyObjectIds"] = state ? state.accessPolicyObjectIds : undefined;
-            inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
-            inputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
-            inputs["cosmosdbKeyVaultKeyVersionlessId"] = state ? state.cosmosdbKeyVaultKeyVersionlessId : undefined;
-            inputs["cosmosdbThroughput"] = state ? state.cosmosdbThroughput : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accessPolicyObjectIds"] = state ? state.accessPolicyObjectIds : undefined;
+            resourceInputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
+            resourceInputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
+            resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = state ? state.cosmosdbKeyVaultKeyVersionlessId : undefined;
+            resourceInputs["cosmosdbThroughput"] = state ? state.cosmosdbThroughput : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessPolicyObjectIds"] = args ? args.accessPolicyObjectIds : undefined;
-            inputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            inputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            inputs["cosmosdbKeyVaultKeyVersionlessId"] = args ? args.cosmosdbKeyVaultKeyVersionlessId : undefined;
-            inputs["cosmosdbThroughput"] = args ? args.cosmosdbThroughput : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessPolicyObjectIds"] = args ? args.accessPolicyObjectIds : undefined;
+            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
+            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
+            resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = args ? args.cosmosdbKeyVaultKeyVersionlessId : undefined;
+            resourceInputs["cosmosdbThroughput"] = args ? args.cosmosdbThroughput : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

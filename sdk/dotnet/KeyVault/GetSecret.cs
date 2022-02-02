@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Secret.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

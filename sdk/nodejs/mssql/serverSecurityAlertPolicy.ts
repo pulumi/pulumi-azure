@@ -125,19 +125,19 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerSecurityAlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerSecurityAlertPolicyArgs | ServerSecurityAlertPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerSecurityAlertPolicyState | undefined;
-            inputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
-            inputs["emailAccountAdmins"] = state ? state.emailAccountAdmins : undefined;
-            inputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retentionDays"] = state ? state.retentionDays : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdmins"] = state ? state.emailAccountAdmins : undefined;
+            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as ServerSecurityAlertPolicyArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -149,20 +149,18 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            inputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
-            inputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
+            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServerSecurityAlertPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServerSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

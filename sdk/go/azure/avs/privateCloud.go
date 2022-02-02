@@ -256,7 +256,7 @@ type PrivateCloudInput interface {
 }
 
 func (*PrivateCloud) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloud)(nil))
+	return reflect.TypeOf((**PrivateCloud)(nil)).Elem()
 }
 
 func (i *PrivateCloud) ToPrivateCloudOutput() PrivateCloudOutput {
@@ -265,35 +265,6 @@ func (i *PrivateCloud) ToPrivateCloudOutput() PrivateCloudOutput {
 
 func (i *PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) PrivateCloudOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudOutput)
-}
-
-func (i *PrivateCloud) ToPrivateCloudPtrOutput() PrivateCloudPtrOutput {
-	return i.ToPrivateCloudPtrOutputWithContext(context.Background())
-}
-
-func (i *PrivateCloud) ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudPtrOutput)
-}
-
-type PrivateCloudPtrInput interface {
-	pulumi.Input
-
-	ToPrivateCloudPtrOutput() PrivateCloudPtrOutput
-	ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput
-}
-
-type privateCloudPtrType PrivateCloudArgs
-
-func (*privateCloudPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateCloud)(nil))
-}
-
-func (i *privateCloudPtrType) ToPrivateCloudPtrOutput() PrivateCloudPtrOutput {
-	return i.ToPrivateCloudPtrOutputWithContext(context.Background())
-}
-
-func (i *privateCloudPtrType) ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudPtrOutput)
 }
 
 // PrivateCloudArrayInput is an input type that accepts PrivateCloudArray and PrivateCloudArrayOutput values.
@@ -349,7 +320,7 @@ func (i PrivateCloudMap) ToPrivateCloudMapOutputWithContext(ctx context.Context)
 type PrivateCloudOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloud)(nil))
+	return reflect.TypeOf((**PrivateCloud)(nil)).Elem()
 }
 
 func (o PrivateCloudOutput) ToPrivateCloudOutput() PrivateCloudOutput {
@@ -360,44 +331,10 @@ func (o PrivateCloudOutput) ToPrivateCloudOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o PrivateCloudOutput) ToPrivateCloudPtrOutput() PrivateCloudPtrOutput {
-	return o.ToPrivateCloudPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateCloudOutput) ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateCloud) *PrivateCloud {
-		return &v
-	}).(PrivateCloudPtrOutput)
-}
-
-type PrivateCloudPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateCloudPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateCloud)(nil))
-}
-
-func (o PrivateCloudPtrOutput) ToPrivateCloudPtrOutput() PrivateCloudPtrOutput {
-	return o
-}
-
-func (o PrivateCloudPtrOutput) ToPrivateCloudPtrOutputWithContext(ctx context.Context) PrivateCloudPtrOutput {
-	return o
-}
-
-func (o PrivateCloudPtrOutput) Elem() PrivateCloudOutput {
-	return o.ApplyT(func(v *PrivateCloud) PrivateCloud {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateCloud
-		return ret
-	}).(PrivateCloudOutput)
-}
-
 type PrivateCloudArrayOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateCloud)(nil))
+	return reflect.TypeOf((*[]*PrivateCloud)(nil)).Elem()
 }
 
 func (o PrivateCloudArrayOutput) ToPrivateCloudArrayOutput() PrivateCloudArrayOutput {
@@ -409,15 +346,15 @@ func (o PrivateCloudArrayOutput) ToPrivateCloudArrayOutputWithContext(ctx contex
 }
 
 func (o PrivateCloudArrayOutput) Index(i pulumi.IntInput) PrivateCloudOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateCloud {
-		return vs[0].([]PrivateCloud)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateCloud {
+		return vs[0].([]*PrivateCloud)[vs[1].(int)]
 	}).(PrivateCloudOutput)
 }
 
 type PrivateCloudMapOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PrivateCloud)(nil))
+	return reflect.TypeOf((*map[string]*PrivateCloud)(nil)).Elem()
 }
 
 func (o PrivateCloudMapOutput) ToPrivateCloudMapOutput() PrivateCloudMapOutput {
@@ -429,18 +366,16 @@ func (o PrivateCloudMapOutput) ToPrivateCloudMapOutputWithContext(ctx context.Co
 }
 
 func (o PrivateCloudMapOutput) MapIndex(k pulumi.StringInput) PrivateCloudOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrivateCloud {
-		return vs[0].(map[string]PrivateCloud)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PrivateCloud {
+		return vs[0].(map[string]*PrivateCloud)[vs[1].(string)]
 	}).(PrivateCloudOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudInput)(nil)).Elem(), &PrivateCloud{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudPtrInput)(nil)).Elem(), &PrivateCloud{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudArrayInput)(nil)).Elem(), PrivateCloudArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudMapInput)(nil)).Elem(), PrivateCloudMap{})
 	pulumi.RegisterOutputType(PrivateCloudOutput{})
-	pulumi.RegisterOutputType(PrivateCloudPtrOutput{})
 	pulumi.RegisterOutputType(PrivateCloudArrayOutput{})
 	pulumi.RegisterOutputType(PrivateCloudMapOutput{})
 }

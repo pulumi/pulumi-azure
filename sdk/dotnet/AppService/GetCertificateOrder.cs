@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateOrderResult> InvokeAsync(GetCertificateOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing App Service Certificate Order.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateOrderResult> Invoke(GetCertificateOrderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderInvokeArgs(), options.WithDefaults());
     }
 
 

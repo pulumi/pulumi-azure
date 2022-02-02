@@ -141,20 +141,20 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountAgreementArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationAccountAgreementArgs | IntegrationAccountAgreementState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountAgreementState | undefined;
-            inputs["agreementType"] = state ? state.agreementType : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["guestIdentity"] = state ? state.guestIdentity : undefined;
-            inputs["guestPartnerName"] = state ? state.guestPartnerName : undefined;
-            inputs["hostIdentity"] = state ? state.hostIdentity : undefined;
-            inputs["hostPartnerName"] = state ? state.hostPartnerName : undefined;
-            inputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["agreementType"] = state ? state.agreementType : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["guestIdentity"] = state ? state.guestIdentity : undefined;
+            resourceInputs["guestPartnerName"] = state ? state.guestPartnerName : undefined;
+            resourceInputs["hostIdentity"] = state ? state.hostIdentity : undefined;
+            resourceInputs["hostPartnerName"] = state ? state.hostPartnerName : undefined;
+            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationAccountAgreementArgs | undefined;
             if ((!args || args.agreementType === undefined) && !opts.urn) {
@@ -181,21 +181,19 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["agreementType"] = args ? args.agreementType : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["guestIdentity"] = args ? args.guestIdentity : undefined;
-            inputs["guestPartnerName"] = args ? args.guestPartnerName : undefined;
-            inputs["hostIdentity"] = args ? args.hostIdentity : undefined;
-            inputs["hostPartnerName"] = args ? args.hostPartnerName : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["agreementType"] = args ? args.agreementType : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["guestIdentity"] = args ? args.guestIdentity : undefined;
+            resourceInputs["guestPartnerName"] = args ? args.guestPartnerName : undefined;
+            resourceInputs["hostIdentity"] = args ? args.hostIdentity : undefined;
+            resourceInputs["hostPartnerName"] = args ? args.hostPartnerName : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationAccountAgreement.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationAccountAgreement.__pulumiType, name, resourceInputs, opts);
     }
 }
 

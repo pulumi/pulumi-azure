@@ -31,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = management.NewLock(ctx, "subscription_level", &management.LockArgs{
+// 		_, err = management.NewLock(ctx, "subscription-level", &management.LockArgs{
 // 			Scope:     pulumi.String(current.Id),
 // 			LockLevel: pulumi.String("CanNotDelete"),
 // 			Notes:     pulumi.String("Items can't be deleted in this subscription!"),
@@ -63,7 +63,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = management.NewLock(ctx, "resource_group_level", &management.LockArgs{
+// 		_, err = management.NewLock(ctx, "resource-group-level", &management.LockArgs{
 // 			Scope:     example.ID(),
 // 			LockLevel: pulumi.String("ReadOnly"),
 // 			Notes:     pulumi.String("This Resource Group is Read-Only"),
@@ -104,7 +104,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = management.NewLock(ctx, "public_ip", &management.LockArgs{
+// 		_, err = management.NewLock(ctx, "public-ip", &management.LockArgs{
 // 			Scope:     examplePublicIp.ID(),
 // 			LockLevel: pulumi.String("CanNotDelete"),
 // 			Notes:     pulumi.String("Locked because it's needed by a third-party"),
@@ -234,7 +234,7 @@ type ManangementLockInput interface {
 }
 
 func (*ManangementLock) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManangementLock)(nil))
+	return reflect.TypeOf((**ManangementLock)(nil)).Elem()
 }
 
 func (i *ManangementLock) ToManangementLockOutput() ManangementLockOutput {
@@ -243,35 +243,6 @@ func (i *ManangementLock) ToManangementLockOutput() ManangementLockOutput {
 
 func (i *ManangementLock) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockOutput)
-}
-
-func (i *ManangementLock) ToManangementLockPtrOutput() ManangementLockPtrOutput {
-	return i.ToManangementLockPtrOutputWithContext(context.Background())
-}
-
-func (i *ManangementLock) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockPtrOutput)
-}
-
-type ManangementLockPtrInput interface {
-	pulumi.Input
-
-	ToManangementLockPtrOutput() ManangementLockPtrOutput
-	ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput
-}
-
-type manangementLockPtrType ManangementLockArgs
-
-func (*manangementLockPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManangementLock)(nil))
-}
-
-func (i *manangementLockPtrType) ToManangementLockPtrOutput() ManangementLockPtrOutput {
-	return i.ToManangementLockPtrOutputWithContext(context.Background())
-}
-
-func (i *manangementLockPtrType) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockPtrOutput)
 }
 
 // ManangementLockArrayInput is an input type that accepts ManangementLockArray and ManangementLockArrayOutput values.
@@ -327,7 +298,7 @@ func (i ManangementLockMap) ToManangementLockMapOutputWithContext(ctx context.Co
 type ManangementLockOutput struct{ *pulumi.OutputState }
 
 func (ManangementLockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManangementLock)(nil))
+	return reflect.TypeOf((**ManangementLock)(nil)).Elem()
 }
 
 func (o ManangementLockOutput) ToManangementLockOutput() ManangementLockOutput {
@@ -338,44 +309,10 @@ func (o ManangementLockOutput) ToManangementLockOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ManangementLockOutput) ToManangementLockPtrOutput() ManangementLockPtrOutput {
-	return o.ToManangementLockPtrOutputWithContext(context.Background())
-}
-
-func (o ManangementLockOutput) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManangementLock) *ManangementLock {
-		return &v
-	}).(ManangementLockPtrOutput)
-}
-
-type ManangementLockPtrOutput struct{ *pulumi.OutputState }
-
-func (ManangementLockPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManangementLock)(nil))
-}
-
-func (o ManangementLockPtrOutput) ToManangementLockPtrOutput() ManangementLockPtrOutput {
-	return o
-}
-
-func (o ManangementLockPtrOutput) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
-	return o
-}
-
-func (o ManangementLockPtrOutput) Elem() ManangementLockOutput {
-	return o.ApplyT(func(v *ManangementLock) ManangementLock {
-		if v != nil {
-			return *v
-		}
-		var ret ManangementLock
-		return ret
-	}).(ManangementLockOutput)
-}
-
 type ManangementLockArrayOutput struct{ *pulumi.OutputState }
 
 func (ManangementLockArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManangementLock)(nil))
+	return reflect.TypeOf((*[]*ManangementLock)(nil)).Elem()
 }
 
 func (o ManangementLockArrayOutput) ToManangementLockArrayOutput() ManangementLockArrayOutput {
@@ -387,15 +324,15 @@ func (o ManangementLockArrayOutput) ToManangementLockArrayOutputWithContext(ctx 
 }
 
 func (o ManangementLockArrayOutput) Index(i pulumi.IntInput) ManangementLockOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManangementLock {
-		return vs[0].([]ManangementLock)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManangementLock {
+		return vs[0].([]*ManangementLock)[vs[1].(int)]
 	}).(ManangementLockOutput)
 }
 
 type ManangementLockMapOutput struct{ *pulumi.OutputState }
 
 func (ManangementLockMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManangementLock)(nil))
+	return reflect.TypeOf((*map[string]*ManangementLock)(nil)).Elem()
 }
 
 func (o ManangementLockMapOutput) ToManangementLockMapOutput() ManangementLockMapOutput {
@@ -407,18 +344,16 @@ func (o ManangementLockMapOutput) ToManangementLockMapOutputWithContext(ctx cont
 }
 
 func (o ManangementLockMapOutput) MapIndex(k pulumi.StringInput) ManangementLockOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManangementLock {
-		return vs[0].(map[string]ManangementLock)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManangementLock {
+		return vs[0].(map[string]*ManangementLock)[vs[1].(string)]
 	}).(ManangementLockOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockInput)(nil)).Elem(), &ManangementLock{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockPtrInput)(nil)).Elem(), &ManangementLock{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockArrayInput)(nil)).Elem(), ManangementLockArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockMapInput)(nil)).Elem(), ManangementLockMap{})
 	pulumi.RegisterOutputType(ManangementLockOutput{})
-	pulumi.RegisterOutputType(ManangementLockPtrOutput{})
 	pulumi.RegisterOutputType(ManangementLockArrayOutput{})
 	pulumi.RegisterOutputType(ManangementLockMapOutput{})
 }

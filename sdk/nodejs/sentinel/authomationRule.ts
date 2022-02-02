@@ -130,19 +130,19 @@ export class AuthomationRule extends pulumi.CustomResource {
     /** @deprecated azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule */
     constructor(name: string, argsOrState?: AuthomationRuleArgs | AuthomationRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AuthomationRule is deprecated: azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthomationRuleState | undefined;
-            inputs["actionIncidents"] = state ? state.actionIncidents : undefined;
-            inputs["actionPlaybooks"] = state ? state.actionPlaybooks : undefined;
-            inputs["conditions"] = state ? state.conditions : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["expiration"] = state ? state.expiration : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["order"] = state ? state.order : undefined;
+            resourceInputs["actionIncidents"] = state ? state.actionIncidents : undefined;
+            resourceInputs["actionPlaybooks"] = state ? state.actionPlaybooks : undefined;
+            resourceInputs["conditions"] = state ? state.conditions : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["expiration"] = state ? state.expiration : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["order"] = state ? state.order : undefined;
         } else {
             const args = argsOrState as AuthomationRuleArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -154,20 +154,18 @@ export class AuthomationRule extends pulumi.CustomResource {
             if ((!args || args.order === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            inputs["actionIncidents"] = args ? args.actionIncidents : undefined;
-            inputs["actionPlaybooks"] = args ? args.actionPlaybooks : undefined;
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["expiration"] = args ? args.expiration : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["order"] = args ? args.order : undefined;
+            resourceInputs["actionIncidents"] = args ? args.actionIncidents : undefined;
+            resourceInputs["actionPlaybooks"] = args ? args.actionPlaybooks : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["expiration"] = args ? args.expiration : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["order"] = args ? args.order : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AuthomationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AuthomationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

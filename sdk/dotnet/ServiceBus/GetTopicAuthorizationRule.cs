@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
@@ -80,7 +79,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTopicAuthorizationRuleResult> Invoke(GetTopicAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

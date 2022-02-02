@@ -145,34 +145,34 @@ export class Database extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            inputs["collation"] = state ? state.collation : undefined;
-            inputs["createMode"] = state ? state.createMode : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["defaultSecondaryLocation"] = state ? state.defaultSecondaryLocation : undefined;
-            inputs["edition"] = state ? state.edition : undefined;
-            inputs["elasticPoolName"] = state ? state.elasticPoolName : undefined;
-            inputs["encryption"] = state ? state.encryption : undefined;
-            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
-            inputs["import"] = state ? state.import : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
-            inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["readScale"] = state ? state.readScale : undefined;
-            inputs["requestedServiceObjectiveId"] = state ? state.requestedServiceObjectiveId : undefined;
-            inputs["requestedServiceObjectiveName"] = state ? state.requestedServiceObjectiveName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["sourceDatabaseDeletionDate"] = state ? state.sourceDatabaseDeletionDate : undefined;
-            inputs["sourceDatabaseId"] = state ? state.sourceDatabaseId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
-            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["createMode"] = state ? state.createMode : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["defaultSecondaryLocation"] = state ? state.defaultSecondaryLocation : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["elasticPoolName"] = state ? state.elasticPoolName : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
+            resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
+            resourceInputs["import"] = state ? state.import : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
+            resourceInputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["readScale"] = state ? state.readScale : undefined;
+            resourceInputs["requestedServiceObjectiveId"] = state ? state.requestedServiceObjectiveId : undefined;
+            resourceInputs["requestedServiceObjectiveName"] = state ? state.requestedServiceObjectiveName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["sourceDatabaseDeletionDate"] = state ? state.sourceDatabaseDeletionDate : undefined;
+            resourceInputs["sourceDatabaseId"] = state ? state.sourceDatabaseId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -181,35 +181,33 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
-            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
-            inputs["import"] = args ? args.import : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["readScale"] = args ? args.readScale : undefined;
-            inputs["requestedServiceObjectiveId"] = args ? args.requestedServiceObjectiveId : undefined;
-            inputs["requestedServiceObjectiveName"] = args ? args.requestedServiceObjectiveName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
-            inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["defaultSecondaryLocation"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
+            resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
+            resourceInputs["import"] = args ? args.import : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            resourceInputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["readScale"] = args ? args.readScale : undefined;
+            resourceInputs["requestedServiceObjectiveId"] = args ? args.requestedServiceObjectiveId : undefined;
+            resourceInputs["requestedServiceObjectiveName"] = args ? args.requestedServiceObjectiveName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
+            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Database.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

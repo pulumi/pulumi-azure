@@ -111,42 +111,40 @@ export class Factory extends pulumi.CustomResource {
      */
     constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FactoryArgs | FactoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FactoryState | undefined;
-            inputs["customerManagedKeyId"] = state ? state.customerManagedKeyId : undefined;
-            inputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
-            inputs["globalParameters"] = state ? state.globalParameters : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vstsConfiguration"] = state ? state.vstsConfiguration : undefined;
+            resourceInputs["customerManagedKeyId"] = state ? state.customerManagedKeyId : undefined;
+            resourceInputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
+            resourceInputs["globalParameters"] = state ? state.globalParameters : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["vstsConfiguration"] = state ? state.vstsConfiguration : undefined;
         } else {
             const args = argsOrState as FactoryArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customerManagedKeyId"] = args ? args.customerManagedKeyId : undefined;
-            inputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;
-            inputs["globalParameters"] = args ? args.globalParameters : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
+            resourceInputs["customerManagedKeyId"] = args ? args.customerManagedKeyId : undefined;
+            resourceInputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;
+            resourceInputs["globalParameters"] = args ? args.globalParameters : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Factory.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Factory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

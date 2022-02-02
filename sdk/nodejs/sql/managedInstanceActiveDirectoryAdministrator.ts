@@ -109,16 +109,16 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
      */
     constructor(name: string, args: ManagedInstanceActiveDirectoryAdministratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedInstanceActiveDirectoryAdministratorArgs | ManagedInstanceActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceActiveDirectoryAdministratorState | undefined;
-            inputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
-            inputs["login"] = state ? state.login : undefined;
-            inputs["managedInstanceName"] = state ? state.managedInstanceName : undefined;
-            inputs["objectId"] = state ? state.objectId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
+            resourceInputs["login"] = state ? state.login : undefined;
+            resourceInputs["managedInstanceName"] = state ? state.managedInstanceName : undefined;
+            resourceInputs["objectId"] = state ? state.objectId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ManagedInstanceActiveDirectoryAdministratorArgs | undefined;
             if ((!args || args.login === undefined) && !opts.urn) {
@@ -136,17 +136,15 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
-            inputs["login"] = args ? args.login : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["objectId"] = args ? args.objectId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["objectId"] = args ? args.objectId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedInstanceActiveDirectoryAdministrator.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedInstanceActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

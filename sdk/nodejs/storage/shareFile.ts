@@ -116,40 +116,38 @@ export class ShareFile extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareFileArgs | ShareFileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareFileState | undefined;
-            inputs["contentDisposition"] = state ? state.contentDisposition : undefined;
-            inputs["contentEncoding"] = state ? state.contentEncoding : undefined;
-            inputs["contentLength"] = state ? state.contentLength : undefined;
-            inputs["contentMd5"] = state ? state.contentMd5 : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["storageShareId"] = state ? state.storageShareId : undefined;
+            resourceInputs["contentDisposition"] = state ? state.contentDisposition : undefined;
+            resourceInputs["contentEncoding"] = state ? state.contentEncoding : undefined;
+            resourceInputs["contentLength"] = state ? state.contentLength : undefined;
+            resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["storageShareId"] = state ? state.storageShareId : undefined;
         } else {
             const args = argsOrState as ShareFileArgs | undefined;
             if ((!args || args.storageShareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageShareId'");
             }
-            inputs["contentDisposition"] = args ? args.contentDisposition : undefined;
-            inputs["contentEncoding"] = args ? args.contentEncoding : undefined;
-            inputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["storageShareId"] = args ? args.storageShareId : undefined;
-            inputs["contentLength"] = undefined /*out*/;
+            resourceInputs["contentDisposition"] = args ? args.contentDisposition : undefined;
+            resourceInputs["contentEncoding"] = args ? args.contentEncoding : undefined;
+            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["storageShareId"] = args ? args.storageShareId : undefined;
+            resourceInputs["contentLength"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ShareFile.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ShareFile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGatewayConnectionResult> InvokeAsync(GetGatewayConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network Gateway Connection.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGatewayConnectionResult> Invoke(GetGatewayConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

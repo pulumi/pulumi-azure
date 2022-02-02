@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.LogicApps
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.LogicApps
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Logic App Workflow.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.LogicApps
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

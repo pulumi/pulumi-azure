@@ -25,9 +25,7 @@ export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:backup/getPolicyVM:getPolicyVM", {
         "name": args.name,
         "recoveryVaultName": args.recoveryVaultName,

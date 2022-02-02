@@ -112,7 +112,7 @@ type GetHostPoolRegistrationInfoInput interface {
 }
 
 func (*GetHostPoolRegistrationInfo) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetHostPoolRegistrationInfo)(nil))
+	return reflect.TypeOf((**GetHostPoolRegistrationInfo)(nil)).Elem()
 }
 
 func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoOutput() GetHostPoolRegistrationInfoOutput {
@@ -121,35 +121,6 @@ func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoOutput() GetH
 
 func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolRegistrationInfoOutput)
-}
-
-func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoPtrOutput() GetHostPoolRegistrationInfoPtrOutput {
-	return i.ToGetHostPoolRegistrationInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoPtrOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolRegistrationInfoPtrOutput)
-}
-
-type GetHostPoolRegistrationInfoPtrInput interface {
-	pulumi.Input
-
-	ToGetHostPoolRegistrationInfoPtrOutput() GetHostPoolRegistrationInfoPtrOutput
-	ToGetHostPoolRegistrationInfoPtrOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoPtrOutput
-}
-
-type getHostPoolRegistrationInfoPtrType GetHostPoolRegistrationInfoArgs
-
-func (*getHostPoolRegistrationInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetHostPoolRegistrationInfo)(nil))
-}
-
-func (i *getHostPoolRegistrationInfoPtrType) ToGetHostPoolRegistrationInfoPtrOutput() GetHostPoolRegistrationInfoPtrOutput {
-	return i.ToGetHostPoolRegistrationInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *getHostPoolRegistrationInfoPtrType) ToGetHostPoolRegistrationInfoPtrOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolRegistrationInfoPtrOutput)
 }
 
 // GetHostPoolRegistrationInfoArrayInput is an input type that accepts GetHostPoolRegistrationInfoArray and GetHostPoolRegistrationInfoArrayOutput values.
@@ -205,7 +176,7 @@ func (i GetHostPoolRegistrationInfoMap) ToGetHostPoolRegistrationInfoMapOutputWi
 type GetHostPoolRegistrationInfoOutput struct{ *pulumi.OutputState }
 
 func (GetHostPoolRegistrationInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetHostPoolRegistrationInfo)(nil))
+	return reflect.TypeOf((**GetHostPoolRegistrationInfo)(nil)).Elem()
 }
 
 func (o GetHostPoolRegistrationInfoOutput) ToGetHostPoolRegistrationInfoOutput() GetHostPoolRegistrationInfoOutput {
@@ -216,44 +187,10 @@ func (o GetHostPoolRegistrationInfoOutput) ToGetHostPoolRegistrationInfoOutputWi
 	return o
 }
 
-func (o GetHostPoolRegistrationInfoOutput) ToGetHostPoolRegistrationInfoPtrOutput() GetHostPoolRegistrationInfoPtrOutput {
-	return o.ToGetHostPoolRegistrationInfoPtrOutputWithContext(context.Background())
-}
-
-func (o GetHostPoolRegistrationInfoOutput) ToGetHostPoolRegistrationInfoPtrOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHostPoolRegistrationInfo) *GetHostPoolRegistrationInfo {
-		return &v
-	}).(GetHostPoolRegistrationInfoPtrOutput)
-}
-
-type GetHostPoolRegistrationInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (GetHostPoolRegistrationInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetHostPoolRegistrationInfo)(nil))
-}
-
-func (o GetHostPoolRegistrationInfoPtrOutput) ToGetHostPoolRegistrationInfoPtrOutput() GetHostPoolRegistrationInfoPtrOutput {
-	return o
-}
-
-func (o GetHostPoolRegistrationInfoPtrOutput) ToGetHostPoolRegistrationInfoPtrOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoPtrOutput {
-	return o
-}
-
-func (o GetHostPoolRegistrationInfoPtrOutput) Elem() GetHostPoolRegistrationInfoOutput {
-	return o.ApplyT(func(v *GetHostPoolRegistrationInfo) GetHostPoolRegistrationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret GetHostPoolRegistrationInfo
-		return ret
-	}).(GetHostPoolRegistrationInfoOutput)
-}
-
 type GetHostPoolRegistrationInfoArrayOutput struct{ *pulumi.OutputState }
 
 func (GetHostPoolRegistrationInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetHostPoolRegistrationInfo)(nil))
+	return reflect.TypeOf((*[]*GetHostPoolRegistrationInfo)(nil)).Elem()
 }
 
 func (o GetHostPoolRegistrationInfoArrayOutput) ToGetHostPoolRegistrationInfoArrayOutput() GetHostPoolRegistrationInfoArrayOutput {
@@ -265,15 +202,15 @@ func (o GetHostPoolRegistrationInfoArrayOutput) ToGetHostPoolRegistrationInfoArr
 }
 
 func (o GetHostPoolRegistrationInfoArrayOutput) Index(i pulumi.IntInput) GetHostPoolRegistrationInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHostPoolRegistrationInfo {
-		return vs[0].([]GetHostPoolRegistrationInfo)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GetHostPoolRegistrationInfo {
+		return vs[0].([]*GetHostPoolRegistrationInfo)[vs[1].(int)]
 	}).(GetHostPoolRegistrationInfoOutput)
 }
 
 type GetHostPoolRegistrationInfoMapOutput struct{ *pulumi.OutputState }
 
 func (GetHostPoolRegistrationInfoMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GetHostPoolRegistrationInfo)(nil))
+	return reflect.TypeOf((*map[string]*GetHostPoolRegistrationInfo)(nil)).Elem()
 }
 
 func (o GetHostPoolRegistrationInfoMapOutput) ToGetHostPoolRegistrationInfoMapOutput() GetHostPoolRegistrationInfoMapOutput {
@@ -285,18 +222,16 @@ func (o GetHostPoolRegistrationInfoMapOutput) ToGetHostPoolRegistrationInfoMapOu
 }
 
 func (o GetHostPoolRegistrationInfoMapOutput) MapIndex(k pulumi.StringInput) GetHostPoolRegistrationInfoOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GetHostPoolRegistrationInfo {
-		return vs[0].(map[string]GetHostPoolRegistrationInfo)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GetHostPoolRegistrationInfo {
+		return vs[0].(map[string]*GetHostPoolRegistrationInfo)[vs[1].(string)]
 	}).(GetHostPoolRegistrationInfoOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolRegistrationInfoInput)(nil)).Elem(), &GetHostPoolRegistrationInfo{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolRegistrationInfoPtrInput)(nil)).Elem(), &GetHostPoolRegistrationInfo{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolRegistrationInfoArrayInput)(nil)).Elem(), GetHostPoolRegistrationInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostPoolRegistrationInfoMapInput)(nil)).Elem(), GetHostPoolRegistrationInfoMap{})
 	pulumi.RegisterOutputType(GetHostPoolRegistrationInfoOutput{})
-	pulumi.RegisterOutputType(GetHostPoolRegistrationInfoPtrOutput{})
 	pulumi.RegisterOutputType(GetHostPoolRegistrationInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetHostPoolRegistrationInfoMapOutput{})
 }

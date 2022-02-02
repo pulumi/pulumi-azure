@@ -164,7 +164,7 @@ type ExpressRouteAuthorizationInput interface {
 }
 
 func (*ExpressRouteAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteAuthorization)(nil))
+	return reflect.TypeOf((**ExpressRouteAuthorization)(nil)).Elem()
 }
 
 func (i *ExpressRouteAuthorization) ToExpressRouteAuthorizationOutput() ExpressRouteAuthorizationOutput {
@@ -173,35 +173,6 @@ func (i *ExpressRouteAuthorization) ToExpressRouteAuthorizationOutput() ExpressR
 
 func (i *ExpressRouteAuthorization) ToExpressRouteAuthorizationOutputWithContext(ctx context.Context) ExpressRouteAuthorizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteAuthorizationOutput)
-}
-
-func (i *ExpressRouteAuthorization) ToExpressRouteAuthorizationPtrOutput() ExpressRouteAuthorizationPtrOutput {
-	return i.ToExpressRouteAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (i *ExpressRouteAuthorization) ToExpressRouteAuthorizationPtrOutputWithContext(ctx context.Context) ExpressRouteAuthorizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteAuthorizationPtrOutput)
-}
-
-type ExpressRouteAuthorizationPtrInput interface {
-	pulumi.Input
-
-	ToExpressRouteAuthorizationPtrOutput() ExpressRouteAuthorizationPtrOutput
-	ToExpressRouteAuthorizationPtrOutputWithContext(ctx context.Context) ExpressRouteAuthorizationPtrOutput
-}
-
-type expressRouteAuthorizationPtrType ExpressRouteAuthorizationArgs
-
-func (*expressRouteAuthorizationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteAuthorization)(nil))
-}
-
-func (i *expressRouteAuthorizationPtrType) ToExpressRouteAuthorizationPtrOutput() ExpressRouteAuthorizationPtrOutput {
-	return i.ToExpressRouteAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (i *expressRouteAuthorizationPtrType) ToExpressRouteAuthorizationPtrOutputWithContext(ctx context.Context) ExpressRouteAuthorizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteAuthorizationPtrOutput)
 }
 
 // ExpressRouteAuthorizationArrayInput is an input type that accepts ExpressRouteAuthorizationArray and ExpressRouteAuthorizationArrayOutput values.
@@ -257,7 +228,7 @@ func (i ExpressRouteAuthorizationMap) ToExpressRouteAuthorizationMapOutputWithCo
 type ExpressRouteAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteAuthorization)(nil))
+	return reflect.TypeOf((**ExpressRouteAuthorization)(nil)).Elem()
 }
 
 func (o ExpressRouteAuthorizationOutput) ToExpressRouteAuthorizationOutput() ExpressRouteAuthorizationOutput {
@@ -268,44 +239,10 @@ func (o ExpressRouteAuthorizationOutput) ToExpressRouteAuthorizationOutputWithCo
 	return o
 }
 
-func (o ExpressRouteAuthorizationOutput) ToExpressRouteAuthorizationPtrOutput() ExpressRouteAuthorizationPtrOutput {
-	return o.ToExpressRouteAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (o ExpressRouteAuthorizationOutput) ToExpressRouteAuthorizationPtrOutputWithContext(ctx context.Context) ExpressRouteAuthorizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteAuthorization) *ExpressRouteAuthorization {
-		return &v
-	}).(ExpressRouteAuthorizationPtrOutput)
-}
-
-type ExpressRouteAuthorizationPtrOutput struct{ *pulumi.OutputState }
-
-func (ExpressRouteAuthorizationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteAuthorization)(nil))
-}
-
-func (o ExpressRouteAuthorizationPtrOutput) ToExpressRouteAuthorizationPtrOutput() ExpressRouteAuthorizationPtrOutput {
-	return o
-}
-
-func (o ExpressRouteAuthorizationPtrOutput) ToExpressRouteAuthorizationPtrOutputWithContext(ctx context.Context) ExpressRouteAuthorizationPtrOutput {
-	return o
-}
-
-func (o ExpressRouteAuthorizationPtrOutput) Elem() ExpressRouteAuthorizationOutput {
-	return o.ApplyT(func(v *ExpressRouteAuthorization) ExpressRouteAuthorization {
-		if v != nil {
-			return *v
-		}
-		var ret ExpressRouteAuthorization
-		return ret
-	}).(ExpressRouteAuthorizationOutput)
-}
-
 type ExpressRouteAuthorizationArrayOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteAuthorizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressRouteAuthorization)(nil))
+	return reflect.TypeOf((*[]*ExpressRouteAuthorization)(nil)).Elem()
 }
 
 func (o ExpressRouteAuthorizationArrayOutput) ToExpressRouteAuthorizationArrayOutput() ExpressRouteAuthorizationArrayOutput {
@@ -317,15 +254,15 @@ func (o ExpressRouteAuthorizationArrayOutput) ToExpressRouteAuthorizationArrayOu
 }
 
 func (o ExpressRouteAuthorizationArrayOutput) Index(i pulumi.IntInput) ExpressRouteAuthorizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressRouteAuthorization {
-		return vs[0].([]ExpressRouteAuthorization)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteAuthorization {
+		return vs[0].([]*ExpressRouteAuthorization)[vs[1].(int)]
 	}).(ExpressRouteAuthorizationOutput)
 }
 
 type ExpressRouteAuthorizationMapOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteAuthorizationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExpressRouteAuthorization)(nil))
+	return reflect.TypeOf((*map[string]*ExpressRouteAuthorization)(nil)).Elem()
 }
 
 func (o ExpressRouteAuthorizationMapOutput) ToExpressRouteAuthorizationMapOutput() ExpressRouteAuthorizationMapOutput {
@@ -337,18 +274,16 @@ func (o ExpressRouteAuthorizationMapOutput) ToExpressRouteAuthorizationMapOutput
 }
 
 func (o ExpressRouteAuthorizationMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteAuthorizationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExpressRouteAuthorization {
-		return vs[0].(map[string]ExpressRouteAuthorization)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ExpressRouteAuthorization {
+		return vs[0].(map[string]*ExpressRouteAuthorization)[vs[1].(string)]
 	}).(ExpressRouteAuthorizationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationInput)(nil)).Elem(), &ExpressRouteAuthorization{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationPtrInput)(nil)).Elem(), &ExpressRouteAuthorization{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationArrayInput)(nil)).Elem(), ExpressRouteAuthorizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationMapInput)(nil)).Elem(), ExpressRouteAuthorizationMap{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationOutput{})
-	pulumi.RegisterOutputType(ExpressRouteAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationMapOutput{})
 }

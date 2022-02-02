@@ -247,7 +247,7 @@ type AnalyticsWorkspaceInput interface {
 }
 
 func (*AnalyticsWorkspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsWorkspace)(nil))
+	return reflect.TypeOf((**AnalyticsWorkspace)(nil)).Elem()
 }
 
 func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {
@@ -256,35 +256,6 @@ func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutp
 
 func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceOutput)
-}
-
-func (i *AnalyticsWorkspace) ToAnalyticsWorkspacePtrOutput() AnalyticsWorkspacePtrOutput {
-	return i.ToAnalyticsWorkspacePtrOutputWithContext(context.Background())
-}
-
-func (i *AnalyticsWorkspace) ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspacePtrOutput)
-}
-
-type AnalyticsWorkspacePtrInput interface {
-	pulumi.Input
-
-	ToAnalyticsWorkspacePtrOutput() AnalyticsWorkspacePtrOutput
-	ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput
-}
-
-type analyticsWorkspacePtrType AnalyticsWorkspaceArgs
-
-func (*analyticsWorkspacePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsWorkspace)(nil))
-}
-
-func (i *analyticsWorkspacePtrType) ToAnalyticsWorkspacePtrOutput() AnalyticsWorkspacePtrOutput {
-	return i.ToAnalyticsWorkspacePtrOutputWithContext(context.Background())
-}
-
-func (i *analyticsWorkspacePtrType) ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspacePtrOutput)
 }
 
 // AnalyticsWorkspaceArrayInput is an input type that accepts AnalyticsWorkspaceArray and AnalyticsWorkspaceArrayOutput values.
@@ -340,7 +311,7 @@ func (i AnalyticsWorkspaceMap) ToAnalyticsWorkspaceMapOutputWithContext(ctx cont
 type AnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsWorkspace)(nil))
+	return reflect.TypeOf((**AnalyticsWorkspace)(nil)).Elem()
 }
 
 func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {
@@ -351,44 +322,10 @@ func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutputWithContext(ctx cont
 	return o
 }
 
-func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspacePtrOutput() AnalyticsWorkspacePtrOutput {
-	return o.ToAnalyticsWorkspacePtrOutputWithContext(context.Background())
-}
-
-func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsWorkspace) *AnalyticsWorkspace {
-		return &v
-	}).(AnalyticsWorkspacePtrOutput)
-}
-
-type AnalyticsWorkspacePtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyticsWorkspacePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsWorkspace)(nil))
-}
-
-func (o AnalyticsWorkspacePtrOutput) ToAnalyticsWorkspacePtrOutput() AnalyticsWorkspacePtrOutput {
-	return o
-}
-
-func (o AnalyticsWorkspacePtrOutput) ToAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) AnalyticsWorkspacePtrOutput {
-	return o
-}
-
-func (o AnalyticsWorkspacePtrOutput) Elem() AnalyticsWorkspaceOutput {
-	return o.ApplyT(func(v *AnalyticsWorkspace) AnalyticsWorkspace {
-		if v != nil {
-			return *v
-		}
-		var ret AnalyticsWorkspace
-		return ret
-	}).(AnalyticsWorkspaceOutput)
-}
-
 type AnalyticsWorkspaceArrayOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsWorkspaceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalyticsWorkspace)(nil))
+	return reflect.TypeOf((*[]*AnalyticsWorkspace)(nil)).Elem()
 }
 
 func (o AnalyticsWorkspaceArrayOutput) ToAnalyticsWorkspaceArrayOutput() AnalyticsWorkspaceArrayOutput {
@@ -400,15 +337,15 @@ func (o AnalyticsWorkspaceArrayOutput) ToAnalyticsWorkspaceArrayOutputWithContex
 }
 
 func (o AnalyticsWorkspaceArrayOutput) Index(i pulumi.IntInput) AnalyticsWorkspaceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsWorkspace {
-		return vs[0].([]AnalyticsWorkspace)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsWorkspace {
+		return vs[0].([]*AnalyticsWorkspace)[vs[1].(int)]
 	}).(AnalyticsWorkspaceOutput)
 }
 
 type AnalyticsWorkspaceMapOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsWorkspaceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AnalyticsWorkspace)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsWorkspace)(nil)).Elem()
 }
 
 func (o AnalyticsWorkspaceMapOutput) ToAnalyticsWorkspaceMapOutput() AnalyticsWorkspaceMapOutput {
@@ -420,18 +357,16 @@ func (o AnalyticsWorkspaceMapOutput) ToAnalyticsWorkspaceMapOutputWithContext(ct
 }
 
 func (o AnalyticsWorkspaceMapOutput) MapIndex(k pulumi.StringInput) AnalyticsWorkspaceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsWorkspace {
-		return vs[0].(map[string]AnalyticsWorkspace)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AnalyticsWorkspace {
+		return vs[0].(map[string]*AnalyticsWorkspace)[vs[1].(string)]
 	}).(AnalyticsWorkspaceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsWorkspaceInput)(nil)).Elem(), &AnalyticsWorkspace{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsWorkspacePtrInput)(nil)).Elem(), &AnalyticsWorkspace{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsWorkspaceArrayInput)(nil)).Elem(), AnalyticsWorkspaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsWorkspaceMapInput)(nil)).Elem(), AnalyticsWorkspaceMap{})
 	pulumi.RegisterOutputType(AnalyticsWorkspaceOutput{})
-	pulumi.RegisterOutputType(AnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsWorkspaceArrayOutput{})
 	pulumi.RegisterOutputType(AnalyticsWorkspaceMapOutput{})
 }

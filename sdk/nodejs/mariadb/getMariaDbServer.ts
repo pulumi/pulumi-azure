@@ -26,9 +26,7 @@ export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:mariadb/getMariaDbServer:getMariaDbServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

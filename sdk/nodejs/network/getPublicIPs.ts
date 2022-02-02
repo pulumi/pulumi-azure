@@ -25,9 +25,7 @@ export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,
         "attached": args.attached,

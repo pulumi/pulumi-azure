@@ -9,9 +9,7 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
         "name": args.name,
         "namespaceName": args.namespaceName,

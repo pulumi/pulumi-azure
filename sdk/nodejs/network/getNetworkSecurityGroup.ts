@@ -26,9 +26,7 @@ export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

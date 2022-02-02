@@ -92,14 +92,14 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlexibleServerFirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlexibleServerFirewallRuleArgs | FlexibleServerFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerFirewallRuleState | undefined;
-            inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["startIpAddress"] = state ? state.startIpAddress : undefined;
+            resourceInputs["endIpAddress"] = state ? state.endIpAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["startIpAddress"] = state ? state.startIpAddress : undefined;
         } else {
             const args = argsOrState as FlexibleServerFirewallRuleArgs | undefined;
             if ((!args || args.endIpAddress === undefined) && !opts.urn) {
@@ -111,15 +111,13 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
             if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FlexibleServerFirewallRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FlexibleServerFirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -131,19 +131,19 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationGroupArgs | ApplicationGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationGroupState | undefined;
-            inputs["defaultDesktopDisplayName"] = state ? state.defaultDesktopDisplayName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["hostPoolId"] = state ? state.hostPoolId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["defaultDesktopDisplayName"] = state ? state.defaultDesktopDisplayName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["hostPoolId"] = state ? state.hostPoolId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ApplicationGroupArgs | undefined;
             if ((!args || args.hostPoolId === undefined) && !opts.urn) {
@@ -155,20 +155,18 @@ export class ApplicationGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["defaultDesktopDisplayName"] = args ? args.defaultDesktopDisplayName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hostPoolId"] = args ? args.hostPoolId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["defaultDesktopDisplayName"] = args ? args.defaultDesktopDisplayName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["hostPoolId"] = args ? args.hostPoolId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

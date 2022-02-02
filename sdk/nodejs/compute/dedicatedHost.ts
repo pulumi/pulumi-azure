@@ -105,18 +105,18 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedHostArgs | DedicatedHostState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
-            inputs["autoReplaceOnFailure"] = state ? state.autoReplaceOnFailure : undefined;
-            inputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoReplaceOnFailure"] = state ? state.autoReplaceOnFailure : undefined;
+            resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
             if ((!args || args.dedicatedHostGroupId === undefined) && !opts.urn) {
@@ -128,19 +128,17 @@ export class DedicatedHost extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
-            inputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
+            resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DedicatedHost.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DedicatedHost.__pulumiType, name, resourceInputs, opts);
     }
 }
 

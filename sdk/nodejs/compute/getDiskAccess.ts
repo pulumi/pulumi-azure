@@ -25,9 +25,7 @@ export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:compute/getDiskAccess:getDiskAccess", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

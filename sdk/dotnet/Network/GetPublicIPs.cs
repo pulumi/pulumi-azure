@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIPsResult> InvokeAsync(GetPublicIPsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a set of existing Public IP Addresses.
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIPsResult> Invoke(GetPublicIPsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsInvokeArgs(), options.WithDefaults());
     }
 
 

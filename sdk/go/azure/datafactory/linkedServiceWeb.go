@@ -266,7 +266,7 @@ type LinkedServiceWebInput interface {
 }
 
 func (*LinkedServiceWeb) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceWeb)(nil))
+	return reflect.TypeOf((**LinkedServiceWeb)(nil)).Elem()
 }
 
 func (i *LinkedServiceWeb) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
@@ -275,35 +275,6 @@ func (i *LinkedServiceWeb) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
 
 func (i *LinkedServiceWeb) ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebOutput)
-}
-
-func (i *LinkedServiceWeb) ToLinkedServiceWebPtrOutput() LinkedServiceWebPtrOutput {
-	return i.ToLinkedServiceWebPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceWeb) ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebPtrOutput)
-}
-
-type LinkedServiceWebPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceWebPtrOutput() LinkedServiceWebPtrOutput
-	ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput
-}
-
-type linkedServiceWebPtrType LinkedServiceWebArgs
-
-func (*linkedServiceWebPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceWeb)(nil))
-}
-
-func (i *linkedServiceWebPtrType) ToLinkedServiceWebPtrOutput() LinkedServiceWebPtrOutput {
-	return i.ToLinkedServiceWebPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceWebPtrType) ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebPtrOutput)
 }
 
 // LinkedServiceWebArrayInput is an input type that accepts LinkedServiceWebArray and LinkedServiceWebArrayOutput values.
@@ -359,7 +330,7 @@ func (i LinkedServiceWebMap) ToLinkedServiceWebMapOutputWithContext(ctx context.
 type LinkedServiceWebOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceWebOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceWeb)(nil))
+	return reflect.TypeOf((**LinkedServiceWeb)(nil)).Elem()
 }
 
 func (o LinkedServiceWebOutput) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
@@ -370,44 +341,10 @@ func (o LinkedServiceWebOutput) ToLinkedServiceWebOutputWithContext(ctx context.
 	return o
 }
 
-func (o LinkedServiceWebOutput) ToLinkedServiceWebPtrOutput() LinkedServiceWebPtrOutput {
-	return o.ToLinkedServiceWebPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceWebOutput) ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceWeb) *LinkedServiceWeb {
-		return &v
-	}).(LinkedServiceWebPtrOutput)
-}
-
-type LinkedServiceWebPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceWebPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceWeb)(nil))
-}
-
-func (o LinkedServiceWebPtrOutput) ToLinkedServiceWebPtrOutput() LinkedServiceWebPtrOutput {
-	return o
-}
-
-func (o LinkedServiceWebPtrOutput) ToLinkedServiceWebPtrOutputWithContext(ctx context.Context) LinkedServiceWebPtrOutput {
-	return o
-}
-
-func (o LinkedServiceWebPtrOutput) Elem() LinkedServiceWebOutput {
-	return o.ApplyT(func(v *LinkedServiceWeb) LinkedServiceWeb {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceWeb
-		return ret
-	}).(LinkedServiceWebOutput)
-}
-
 type LinkedServiceWebArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceWebArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceWeb)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceWeb)(nil)).Elem()
 }
 
 func (o LinkedServiceWebArrayOutput) ToLinkedServiceWebArrayOutput() LinkedServiceWebArrayOutput {
@@ -419,15 +356,15 @@ func (o LinkedServiceWebArrayOutput) ToLinkedServiceWebArrayOutputWithContext(ct
 }
 
 func (o LinkedServiceWebArrayOutput) Index(i pulumi.IntInput) LinkedServiceWebOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceWeb {
-		return vs[0].([]LinkedServiceWeb)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceWeb {
+		return vs[0].([]*LinkedServiceWeb)[vs[1].(int)]
 	}).(LinkedServiceWebOutput)
 }
 
 type LinkedServiceWebMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceWebMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceWeb)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceWeb)(nil)).Elem()
 }
 
 func (o LinkedServiceWebMapOutput) ToLinkedServiceWebMapOutput() LinkedServiceWebMapOutput {
@@ -439,18 +376,16 @@ func (o LinkedServiceWebMapOutput) ToLinkedServiceWebMapOutputWithContext(ctx co
 }
 
 func (o LinkedServiceWebMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceWebOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceWeb {
-		return vs[0].(map[string]LinkedServiceWeb)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceWeb {
+		return vs[0].(map[string]*LinkedServiceWeb)[vs[1].(string)]
 	}).(LinkedServiceWebOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebInput)(nil)).Elem(), &LinkedServiceWeb{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebPtrInput)(nil)).Elem(), &LinkedServiceWeb{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebArrayInput)(nil)).Elem(), LinkedServiceWebArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebMapInput)(nil)).Elem(), LinkedServiceWebMap{})
 	pulumi.RegisterOutputType(LinkedServiceWebOutput{})
-	pulumi.RegisterOutputType(LinkedServiceWebPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceWebArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceWebMapOutput{})
 }

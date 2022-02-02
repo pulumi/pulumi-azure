@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Resource Group.
@@ -74,7 +73,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

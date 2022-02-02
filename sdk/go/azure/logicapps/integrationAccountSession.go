@@ -131,7 +131,7 @@ type IntegrationAccountSessionInput interface {
 }
 
 func (*IntegrationAccountSession) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSession)(nil))
+	return reflect.TypeOf((**IntegrationAccountSession)(nil)).Elem()
 }
 
 func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {
@@ -140,35 +140,6 @@ func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutput() Integrat
 
 func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionOutput)
-}
-
-func (i *IntegrationAccountSession) ToIntegrationAccountSessionPtrOutput() IntegrationAccountSessionPtrOutput {
-	return i.ToIntegrationAccountSessionPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationAccountSession) ToIntegrationAccountSessionPtrOutputWithContext(ctx context.Context) IntegrationAccountSessionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionPtrOutput)
-}
-
-type IntegrationAccountSessionPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountSessionPtrOutput() IntegrationAccountSessionPtrOutput
-	ToIntegrationAccountSessionPtrOutputWithContext(ctx context.Context) IntegrationAccountSessionPtrOutput
-}
-
-type integrationAccountSessionPtrType IntegrationAccountSessionArgs
-
-func (*integrationAccountSessionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountSession)(nil))
-}
-
-func (i *integrationAccountSessionPtrType) ToIntegrationAccountSessionPtrOutput() IntegrationAccountSessionPtrOutput {
-	return i.ToIntegrationAccountSessionPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountSessionPtrType) ToIntegrationAccountSessionPtrOutputWithContext(ctx context.Context) IntegrationAccountSessionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionPtrOutput)
 }
 
 // IntegrationAccountSessionArrayInput is an input type that accepts IntegrationAccountSessionArray and IntegrationAccountSessionArrayOutput values.
@@ -224,7 +195,7 @@ func (i IntegrationAccountSessionMap) ToIntegrationAccountSessionMapOutputWithCo
 type IntegrationAccountSessionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSessionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSession)(nil))
+	return reflect.TypeOf((**IntegrationAccountSession)(nil)).Elem()
 }
 
 func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutput() IntegrationAccountSessionOutput {
@@ -235,44 +206,10 @@ func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutputWithCo
 	return o
 }
 
-func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionPtrOutput() IntegrationAccountSessionPtrOutput {
-	return o.ToIntegrationAccountSessionPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionPtrOutputWithContext(ctx context.Context) IntegrationAccountSessionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountSession) *IntegrationAccountSession {
-		return &v
-	}).(IntegrationAccountSessionPtrOutput)
-}
-
-type IntegrationAccountSessionPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountSessionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountSession)(nil))
-}
-
-func (o IntegrationAccountSessionPtrOutput) ToIntegrationAccountSessionPtrOutput() IntegrationAccountSessionPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountSessionPtrOutput) ToIntegrationAccountSessionPtrOutputWithContext(ctx context.Context) IntegrationAccountSessionPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountSessionPtrOutput) Elem() IntegrationAccountSessionOutput {
-	return o.ApplyT(func(v *IntegrationAccountSession) IntegrationAccountSession {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountSession
-		return ret
-	}).(IntegrationAccountSessionOutput)
-}
-
 type IntegrationAccountSessionArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSessionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationAccountSession)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountSession)(nil)).Elem()
 }
 
 func (o IntegrationAccountSessionArrayOutput) ToIntegrationAccountSessionArrayOutput() IntegrationAccountSessionArrayOutput {
@@ -284,15 +221,15 @@ func (o IntegrationAccountSessionArrayOutput) ToIntegrationAccountSessionArrayOu
 }
 
 func (o IntegrationAccountSessionArrayOutput) Index(i pulumi.IntInput) IntegrationAccountSessionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountSession {
-		return vs[0].([]IntegrationAccountSession)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountSession {
+		return vs[0].([]*IntegrationAccountSession)[vs[1].(int)]
 	}).(IntegrationAccountSessionOutput)
 }
 
 type IntegrationAccountSessionMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSessionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationAccountSession)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountSession)(nil)).Elem()
 }
 
 func (o IntegrationAccountSessionMapOutput) ToIntegrationAccountSessionMapOutput() IntegrationAccountSessionMapOutput {
@@ -304,18 +241,16 @@ func (o IntegrationAccountSessionMapOutput) ToIntegrationAccountSessionMapOutput
 }
 
 func (o IntegrationAccountSessionMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountSessionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationAccountSession {
-		return vs[0].(map[string]IntegrationAccountSession)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAccountSession {
+		return vs[0].(map[string]*IntegrationAccountSession)[vs[1].(string)]
 	}).(IntegrationAccountSessionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionInput)(nil)).Elem(), &IntegrationAccountSession{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionPtrInput)(nil)).Elem(), &IntegrationAccountSession{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionArrayInput)(nil)).Elem(), IntegrationAccountSessionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionMapInput)(nil)).Elem(), IntegrationAccountSessionMap{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountSessionPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionMapOutput{})
 }

@@ -13,9 +13,7 @@ export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.In
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,

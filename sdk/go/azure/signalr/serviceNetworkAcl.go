@@ -225,7 +225,7 @@ type ServiceNetworkAclInput interface {
 }
 
 func (*ServiceNetworkAcl) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNetworkAcl)(nil))
+	return reflect.TypeOf((**ServiceNetworkAcl)(nil)).Elem()
 }
 
 func (i *ServiceNetworkAcl) ToServiceNetworkAclOutput() ServiceNetworkAclOutput {
@@ -234,35 +234,6 @@ func (i *ServiceNetworkAcl) ToServiceNetworkAclOutput() ServiceNetworkAclOutput 
 
 func (i *ServiceNetworkAcl) ToServiceNetworkAclOutputWithContext(ctx context.Context) ServiceNetworkAclOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclOutput)
-}
-
-func (i *ServiceNetworkAcl) ToServiceNetworkAclPtrOutput() ServiceNetworkAclPtrOutput {
-	return i.ToServiceNetworkAclPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceNetworkAcl) ToServiceNetworkAclPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPtrOutput)
-}
-
-type ServiceNetworkAclPtrInput interface {
-	pulumi.Input
-
-	ToServiceNetworkAclPtrOutput() ServiceNetworkAclPtrOutput
-	ToServiceNetworkAclPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPtrOutput
-}
-
-type serviceNetworkAclPtrType ServiceNetworkAclArgs
-
-func (*serviceNetworkAclPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceNetworkAcl)(nil))
-}
-
-func (i *serviceNetworkAclPtrType) ToServiceNetworkAclPtrOutput() ServiceNetworkAclPtrOutput {
-	return i.ToServiceNetworkAclPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceNetworkAclPtrType) ToServiceNetworkAclPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPtrOutput)
 }
 
 // ServiceNetworkAclArrayInput is an input type that accepts ServiceNetworkAclArray and ServiceNetworkAclArrayOutput values.
@@ -318,7 +289,7 @@ func (i ServiceNetworkAclMap) ToServiceNetworkAclMapOutputWithContext(ctx contex
 type ServiceNetworkAclOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNetworkAcl)(nil))
+	return reflect.TypeOf((**ServiceNetworkAcl)(nil)).Elem()
 }
 
 func (o ServiceNetworkAclOutput) ToServiceNetworkAclOutput() ServiceNetworkAclOutput {
@@ -329,44 +300,10 @@ func (o ServiceNetworkAclOutput) ToServiceNetworkAclOutputWithContext(ctx contex
 	return o
 }
 
-func (o ServiceNetworkAclOutput) ToServiceNetworkAclPtrOutput() ServiceNetworkAclPtrOutput {
-	return o.ToServiceNetworkAclPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceNetworkAclOutput) ToServiceNetworkAclPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkAcl) *ServiceNetworkAcl {
-		return &v
-	}).(ServiceNetworkAclPtrOutput)
-}
-
-type ServiceNetworkAclPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceNetworkAclPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceNetworkAcl)(nil))
-}
-
-func (o ServiceNetworkAclPtrOutput) ToServiceNetworkAclPtrOutput() ServiceNetworkAclPtrOutput {
-	return o
-}
-
-func (o ServiceNetworkAclPtrOutput) ToServiceNetworkAclPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPtrOutput {
-	return o
-}
-
-func (o ServiceNetworkAclPtrOutput) Elem() ServiceNetworkAclOutput {
-	return o.ApplyT(func(v *ServiceNetworkAcl) ServiceNetworkAcl {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceNetworkAcl
-		return ret
-	}).(ServiceNetworkAclOutput)
-}
-
 type ServiceNetworkAclArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceNetworkAcl)(nil))
+	return reflect.TypeOf((*[]*ServiceNetworkAcl)(nil)).Elem()
 }
 
 func (o ServiceNetworkAclArrayOutput) ToServiceNetworkAclArrayOutput() ServiceNetworkAclArrayOutput {
@@ -378,15 +315,15 @@ func (o ServiceNetworkAclArrayOutput) ToServiceNetworkAclArrayOutputWithContext(
 }
 
 func (o ServiceNetworkAclArrayOutput) Index(i pulumi.IntInput) ServiceNetworkAclOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceNetworkAcl {
-		return vs[0].([]ServiceNetworkAcl)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceNetworkAcl {
+		return vs[0].([]*ServiceNetworkAcl)[vs[1].(int)]
 	}).(ServiceNetworkAclOutput)
 }
 
 type ServiceNetworkAclMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceNetworkAcl)(nil))
+	return reflect.TypeOf((*map[string]*ServiceNetworkAcl)(nil)).Elem()
 }
 
 func (o ServiceNetworkAclMapOutput) ToServiceNetworkAclMapOutput() ServiceNetworkAclMapOutput {
@@ -398,18 +335,16 @@ func (o ServiceNetworkAclMapOutput) ToServiceNetworkAclMapOutputWithContext(ctx 
 }
 
 func (o ServiceNetworkAclMapOutput) MapIndex(k pulumi.StringInput) ServiceNetworkAclOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceNetworkAcl {
-		return vs[0].(map[string]ServiceNetworkAcl)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceNetworkAcl {
+		return vs[0].(map[string]*ServiceNetworkAcl)[vs[1].(string)]
 	}).(ServiceNetworkAclOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclInput)(nil)).Elem(), &ServiceNetworkAcl{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPtrInput)(nil)).Elem(), &ServiceNetworkAcl{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclArrayInput)(nil)).Elem(), ServiceNetworkAclArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclMapInput)(nil)).Elem(), ServiceNetworkAclMap{})
 	pulumi.RegisterOutputType(ServiceNetworkAclOutput{})
-	pulumi.RegisterOutputType(ServiceNetworkAclPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclMapOutput{})
 }

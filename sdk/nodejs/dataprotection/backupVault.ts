@@ -97,17 +97,17 @@ export class BackupVault extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupVaultArgs | BackupVaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupVaultState | undefined;
-            inputs["datastoreType"] = state ? state.datastoreType : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redundancy"] = state ? state.redundancy : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["datastoreType"] = state ? state.datastoreType : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redundancy"] = state ? state.redundancy : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as BackupVaultArgs | undefined;
             if ((!args || args.datastoreType === undefined) && !opts.urn) {
@@ -119,18 +119,16 @@ export class BackupVault extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["datastoreType"] = args ? args.datastoreType : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redundancy"] = args ? args.redundancy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreType"] = args ? args.datastoreType : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redundancy"] = args ? args.redundancy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BackupVault.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BackupVault.__pulumiType, name, resourceInputs, opts);
     }
 }
 

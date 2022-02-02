@@ -171,7 +171,7 @@ type DataLakeGen2FilesystemInput interface {
 }
 
 func (*DataLakeGen2Filesystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeGen2Filesystem)(nil))
+	return reflect.TypeOf((**DataLakeGen2Filesystem)(nil)).Elem()
 }
 
 func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemOutput() DataLakeGen2FilesystemOutput {
@@ -180,35 +180,6 @@ func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemOutput() DataLakeGen2Fi
 
 func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemOutputWithContext(ctx context.Context) DataLakeGen2FilesystemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemOutput)
-}
-
-func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemPtrOutput() DataLakeGen2FilesystemPtrOutput {
-	return i.ToDataLakeGen2FilesystemPtrOutputWithContext(context.Background())
-}
-
-func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemPtrOutputWithContext(ctx context.Context) DataLakeGen2FilesystemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemPtrOutput)
-}
-
-type DataLakeGen2FilesystemPtrInput interface {
-	pulumi.Input
-
-	ToDataLakeGen2FilesystemPtrOutput() DataLakeGen2FilesystemPtrOutput
-	ToDataLakeGen2FilesystemPtrOutputWithContext(ctx context.Context) DataLakeGen2FilesystemPtrOutput
-}
-
-type dataLakeGen2FilesystemPtrType DataLakeGen2FilesystemArgs
-
-func (*dataLakeGen2FilesystemPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataLakeGen2Filesystem)(nil))
-}
-
-func (i *dataLakeGen2FilesystemPtrType) ToDataLakeGen2FilesystemPtrOutput() DataLakeGen2FilesystemPtrOutput {
-	return i.ToDataLakeGen2FilesystemPtrOutputWithContext(context.Background())
-}
-
-func (i *dataLakeGen2FilesystemPtrType) ToDataLakeGen2FilesystemPtrOutputWithContext(ctx context.Context) DataLakeGen2FilesystemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemPtrOutput)
 }
 
 // DataLakeGen2FilesystemArrayInput is an input type that accepts DataLakeGen2FilesystemArray and DataLakeGen2FilesystemArrayOutput values.
@@ -264,7 +235,7 @@ func (i DataLakeGen2FilesystemMap) ToDataLakeGen2FilesystemMapOutputWithContext(
 type DataLakeGen2FilesystemOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2FilesystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeGen2Filesystem)(nil))
+	return reflect.TypeOf((**DataLakeGen2Filesystem)(nil)).Elem()
 }
 
 func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemOutput() DataLakeGen2FilesystemOutput {
@@ -275,44 +246,10 @@ func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemOutputWithContext(
 	return o
 }
 
-func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemPtrOutput() DataLakeGen2FilesystemPtrOutput {
-	return o.ToDataLakeGen2FilesystemPtrOutputWithContext(context.Background())
-}
-
-func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemPtrOutputWithContext(ctx context.Context) DataLakeGen2FilesystemPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeGen2Filesystem) *DataLakeGen2Filesystem {
-		return &v
-	}).(DataLakeGen2FilesystemPtrOutput)
-}
-
-type DataLakeGen2FilesystemPtrOutput struct{ *pulumi.OutputState }
-
-func (DataLakeGen2FilesystemPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataLakeGen2Filesystem)(nil))
-}
-
-func (o DataLakeGen2FilesystemPtrOutput) ToDataLakeGen2FilesystemPtrOutput() DataLakeGen2FilesystemPtrOutput {
-	return o
-}
-
-func (o DataLakeGen2FilesystemPtrOutput) ToDataLakeGen2FilesystemPtrOutputWithContext(ctx context.Context) DataLakeGen2FilesystemPtrOutput {
-	return o
-}
-
-func (o DataLakeGen2FilesystemPtrOutput) Elem() DataLakeGen2FilesystemOutput {
-	return o.ApplyT(func(v *DataLakeGen2Filesystem) DataLakeGen2Filesystem {
-		if v != nil {
-			return *v
-		}
-		var ret DataLakeGen2Filesystem
-		return ret
-	}).(DataLakeGen2FilesystemOutput)
-}
-
 type DataLakeGen2FilesystemArrayOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2FilesystemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataLakeGen2Filesystem)(nil))
+	return reflect.TypeOf((*[]*DataLakeGen2Filesystem)(nil)).Elem()
 }
 
 func (o DataLakeGen2FilesystemArrayOutput) ToDataLakeGen2FilesystemArrayOutput() DataLakeGen2FilesystemArrayOutput {
@@ -324,15 +261,15 @@ func (o DataLakeGen2FilesystemArrayOutput) ToDataLakeGen2FilesystemArrayOutputWi
 }
 
 func (o DataLakeGen2FilesystemArrayOutput) Index(i pulumi.IntInput) DataLakeGen2FilesystemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeGen2Filesystem {
-		return vs[0].([]DataLakeGen2Filesystem)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataLakeGen2Filesystem {
+		return vs[0].([]*DataLakeGen2Filesystem)[vs[1].(int)]
 	}).(DataLakeGen2FilesystemOutput)
 }
 
 type DataLakeGen2FilesystemMapOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2FilesystemMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataLakeGen2Filesystem)(nil))
+	return reflect.TypeOf((*map[string]*DataLakeGen2Filesystem)(nil)).Elem()
 }
 
 func (o DataLakeGen2FilesystemMapOutput) ToDataLakeGen2FilesystemMapOutput() DataLakeGen2FilesystemMapOutput {
@@ -344,18 +281,16 @@ func (o DataLakeGen2FilesystemMapOutput) ToDataLakeGen2FilesystemMapOutputWithCo
 }
 
 func (o DataLakeGen2FilesystemMapOutput) MapIndex(k pulumi.StringInput) DataLakeGen2FilesystemOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataLakeGen2Filesystem {
-		return vs[0].(map[string]DataLakeGen2Filesystem)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataLakeGen2Filesystem {
+		return vs[0].(map[string]*DataLakeGen2Filesystem)[vs[1].(string)]
 	}).(DataLakeGen2FilesystemOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemInput)(nil)).Elem(), &DataLakeGen2Filesystem{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemPtrInput)(nil)).Elem(), &DataLakeGen2Filesystem{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemArrayInput)(nil)).Elem(), DataLakeGen2FilesystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemMapInput)(nil)).Elem(), DataLakeGen2FilesystemMap{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemOutput{})
-	pulumi.RegisterOutputType(DataLakeGen2FilesystemPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemMapOutput{})
 }

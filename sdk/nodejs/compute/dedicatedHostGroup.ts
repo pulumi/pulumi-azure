@@ -95,17 +95,17 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedHostGroupArgs | DedicatedHostGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostGroupState | undefined;
-            inputs["automaticPlacementEnabled"] = state ? state.automaticPlacementEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["automaticPlacementEnabled"] = state ? state.automaticPlacementEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as DedicatedHostGroupArgs | undefined;
             if ((!args || args.platformFaultDomainCount === undefined) && !opts.urn) {
@@ -114,18 +114,16 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automaticPlacementEnabled"] = args ? args.automaticPlacementEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["automaticPlacementEnabled"] = args ? args.automaticPlacementEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DedicatedHostGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DedicatedHostGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

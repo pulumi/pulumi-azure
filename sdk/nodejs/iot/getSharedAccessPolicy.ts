@@ -25,9 +25,7 @@ export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", {
         "iothubName": args.iothubName,
         "name": args.name,

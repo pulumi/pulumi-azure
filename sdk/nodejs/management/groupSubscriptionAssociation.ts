@@ -81,12 +81,12 @@ export class GroupSubscriptionAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupSubscriptionAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupSubscriptionAssociationArgs | GroupSubscriptionAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupSubscriptionAssociationState | undefined;
-            inputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
         } else {
             const args = argsOrState as GroupSubscriptionAssociationArgs | undefined;
             if ((!args || args.managementGroupId === undefined) && !opts.urn) {
@@ -95,13 +95,11 @@ export class GroupSubscriptionAssociation extends pulumi.CustomResource {
             if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GroupSubscriptionAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GroupSubscriptionAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

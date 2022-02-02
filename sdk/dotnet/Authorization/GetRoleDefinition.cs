@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Authorization
 {
@@ -16,13 +15,13 @@ namespace Pulumi.Azure.Authorization
         /// Use this data source to access information about an existing Role Definition.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -204,7 +204,7 @@ type TimeSeriesInsightsStandardEnvironmentInput interface {
 }
 
 func (*TimeSeriesInsightsStandardEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsStandardEnvironment)(nil))
+	return reflect.TypeOf((**TimeSeriesInsightsStandardEnvironment)(nil)).Elem()
 }
 
 func (i *TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvironmentOutput() TimeSeriesInsightsStandardEnvironmentOutput {
@@ -213,35 +213,6 @@ func (i *TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvi
 
 func (i *TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentOutput)
-}
-
-func (i *TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvironmentPtrOutput() TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return i.ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentPtrOutput)
-}
-
-type TimeSeriesInsightsStandardEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsStandardEnvironmentPtrOutput() TimeSeriesInsightsStandardEnvironmentPtrOutput
-	ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentPtrOutput
-}
-
-type timeSeriesInsightsStandardEnvironmentPtrType TimeSeriesInsightsStandardEnvironmentArgs
-
-func (*timeSeriesInsightsStandardEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsStandardEnvironment)(nil))
-}
-
-func (i *timeSeriesInsightsStandardEnvironmentPtrType) ToTimeSeriesInsightsStandardEnvironmentPtrOutput() TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return i.ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *timeSeriesInsightsStandardEnvironmentPtrType) ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentPtrOutput)
 }
 
 // TimeSeriesInsightsStandardEnvironmentArrayInput is an input type that accepts TimeSeriesInsightsStandardEnvironmentArray and TimeSeriesInsightsStandardEnvironmentArrayOutput values.
@@ -297,7 +268,7 @@ func (i TimeSeriesInsightsStandardEnvironmentMap) ToTimeSeriesInsightsStandardEn
 type TimeSeriesInsightsStandardEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsStandardEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsStandardEnvironment)(nil))
+	return reflect.TypeOf((**TimeSeriesInsightsStandardEnvironment)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandardEnvironmentOutput() TimeSeriesInsightsStandardEnvironmentOutput {
@@ -308,44 +279,10 @@ func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandar
 	return o
 }
 
-func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandardEnvironmentPtrOutput() TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return o.ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsStandardEnvironment) *TimeSeriesInsightsStandardEnvironment {
-		return &v
-	}).(TimeSeriesInsightsStandardEnvironmentPtrOutput)
-}
-
-type TimeSeriesInsightsStandardEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsStandardEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsStandardEnvironment)(nil))
-}
-
-func (o TimeSeriesInsightsStandardEnvironmentPtrOutput) ToTimeSeriesInsightsStandardEnvironmentPtrOutput() TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsStandardEnvironmentPtrOutput) ToTimeSeriesInsightsStandardEnvironmentPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentPtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsStandardEnvironmentPtrOutput) Elem() TimeSeriesInsightsStandardEnvironmentOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsStandardEnvironment) TimeSeriesInsightsStandardEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret TimeSeriesInsightsStandardEnvironment
-		return ret
-	}).(TimeSeriesInsightsStandardEnvironmentOutput)
-}
-
 type TimeSeriesInsightsStandardEnvironmentArrayOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsStandardEnvironmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeSeriesInsightsStandardEnvironment)(nil))
+	return reflect.TypeOf((*[]*TimeSeriesInsightsStandardEnvironment)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsStandardEnvironmentArrayOutput) ToTimeSeriesInsightsStandardEnvironmentArrayOutput() TimeSeriesInsightsStandardEnvironmentArrayOutput {
@@ -357,15 +294,15 @@ func (o TimeSeriesInsightsStandardEnvironmentArrayOutput) ToTimeSeriesInsightsSt
 }
 
 func (o TimeSeriesInsightsStandardEnvironmentArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsStandardEnvironmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesInsightsStandardEnvironment {
-		return vs[0].([]TimeSeriesInsightsStandardEnvironment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsStandardEnvironment {
+		return vs[0].([]*TimeSeriesInsightsStandardEnvironment)[vs[1].(int)]
 	}).(TimeSeriesInsightsStandardEnvironmentOutput)
 }
 
 type TimeSeriesInsightsStandardEnvironmentMapOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsStandardEnvironmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TimeSeriesInsightsStandardEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*TimeSeriesInsightsStandardEnvironment)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsStandardEnvironmentMapOutput) ToTimeSeriesInsightsStandardEnvironmentMapOutput() TimeSeriesInsightsStandardEnvironmentMapOutput {
@@ -377,18 +314,16 @@ func (o TimeSeriesInsightsStandardEnvironmentMapOutput) ToTimeSeriesInsightsStan
 }
 
 func (o TimeSeriesInsightsStandardEnvironmentMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsStandardEnvironmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TimeSeriesInsightsStandardEnvironment {
-		return vs[0].(map[string]TimeSeriesInsightsStandardEnvironment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TimeSeriesInsightsStandardEnvironment {
+		return vs[0].(map[string]*TimeSeriesInsightsStandardEnvironment)[vs[1].(string)]
 	}).(TimeSeriesInsightsStandardEnvironmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentInput)(nil)).Elem(), &TimeSeriesInsightsStandardEnvironment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentPtrInput)(nil)).Elem(), &TimeSeriesInsightsStandardEnvironment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentArrayInput)(nil)).Elem(), TimeSeriesInsightsStandardEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentMapInput)(nil)).Elem(), TimeSeriesInsightsStandardEnvironmentMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentMapOutput{})
 }

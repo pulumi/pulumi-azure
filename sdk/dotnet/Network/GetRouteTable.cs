@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -40,7 +39,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Route Table.
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

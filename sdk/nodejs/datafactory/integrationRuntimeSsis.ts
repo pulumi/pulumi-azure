@@ -143,27 +143,27 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationRuntimeSsisArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeSsisArgs | IntegrationRuntimeSsisState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSsisState | undefined;
-            inputs["catalogInfo"] = state ? state.catalogInfo : undefined;
-            inputs["customSetupScript"] = state ? state.customSetupScript : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["edition"] = state ? state.edition : undefined;
-            inputs["expressCustomSetup"] = state ? state.expressCustomSetup : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maxParallelExecutionsPerNode"] = state ? state.maxParallelExecutionsPerNode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nodeSize"] = state ? state.nodeSize : undefined;
-            inputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
-            inputs["packageStores"] = state ? state.packageStores : undefined;
-            inputs["proxy"] = state ? state.proxy : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
+            resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
+            resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["expressCustomSetup"] = state ? state.expressCustomSetup : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxParallelExecutionsPerNode"] = state ? state.maxParallelExecutionsPerNode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeSize"] = state ? state.nodeSize : undefined;
+            resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
+            resourceInputs["packageStores"] = state ? state.packageStores : undefined;
+            resourceInputs["proxy"] = state ? state.proxy : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSsisArgs | undefined;
             if ((!args || args.nodeSize === undefined) && !opts.urn) {
@@ -172,28 +172,26 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["catalogInfo"] = args ? args.catalogInfo : undefined;
-            inputs["customSetupScript"] = args ? args.customSetupScript : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["expressCustomSetup"] = args ? args.expressCustomSetup : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxParallelExecutionsPerNode"] = args ? args.maxParallelExecutionsPerNode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodeSize"] = args ? args.nodeSize : undefined;
-            inputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            inputs["packageStores"] = args ? args.packageStores : undefined;
-            inputs["proxy"] = args ? args.proxy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
+            resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
+            resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["expressCustomSetup"] = args ? args.expressCustomSetup : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxParallelExecutionsPerNode"] = args ? args.maxParallelExecutionsPerNode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
+            resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
+            resourceInputs["packageStores"] = args ? args.packageStores : undefined;
+            resourceInputs["proxy"] = args ? args.proxy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationRuntimeSsis.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationRuntimeSsis.__pulumiType, name, resourceInputs, opts);
     }
 }
 

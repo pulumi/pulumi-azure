@@ -89,13 +89,13 @@ export class TriggerCustom extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerCustomArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerCustomArgs | TriggerCustomState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerCustomState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["logicAppId"] = state ? state.logicAppId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as TriggerCustomArgs | undefined;
             if ((!args || args.body === undefined) && !opts.urn) {
@@ -104,14 +104,12 @@ export class TriggerCustom extends pulumi.CustomResource {
             if ((!args || args.logicAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["logicAppId"] = args ? args.logicAppId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TriggerCustom.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TriggerCustom.__pulumiType, name, resourceInputs, opts);
     }
 }
 

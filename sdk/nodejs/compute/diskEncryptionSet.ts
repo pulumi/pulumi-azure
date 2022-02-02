@@ -150,18 +150,18 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiskEncryptionSetArgs | DiskEncryptionSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiskEncryptionSetState | undefined;
-            inputs["autoKeyRotationEnabled"] = state ? state.autoKeyRotationEnabled : undefined;
-            inputs["encryptionType"] = state ? state.encryptionType : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoKeyRotationEnabled"] = state ? state.autoKeyRotationEnabled : undefined;
+            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DiskEncryptionSetArgs | undefined;
             if ((!args || args.identity === undefined) && !opts.urn) {
@@ -173,19 +173,17 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoKeyRotationEnabled"] = args ? args.autoKeyRotationEnabled : undefined;
-            inputs["encryptionType"] = args ? args.encryptionType : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoKeyRotationEnabled"] = args ? args.autoKeyRotationEnabled : undefined;
+            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DiskEncryptionSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

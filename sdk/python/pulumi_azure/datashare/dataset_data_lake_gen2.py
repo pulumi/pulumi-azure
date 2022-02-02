@@ -270,7 +270,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_storage / account_account["id"])
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
+        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_storage / account_account["id"],
             role_definition_name="Storage Blob Data Reader",
@@ -333,7 +333,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_storage / account_account["id"])
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
+        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_storage / account_account["id"],
             role_definition_name="Storage Blob Data Reader",

@@ -94,13 +94,13 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContainerStorageAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerStorageAccountArgs | ContainerStorageAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerStorageAccountState | undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as ContainerStorageAccountArgs | undefined;
             if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
@@ -112,14 +112,12 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ContainerStorageAccount.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ContainerStorageAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

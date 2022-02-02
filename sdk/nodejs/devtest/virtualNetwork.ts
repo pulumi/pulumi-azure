@@ -106,17 +106,17 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["labName"] = state ? state.labName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subnet"] = state ? state.subnet : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["labName"] = state ? state.labName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subnet"] = state ? state.subnet : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -125,18 +125,16 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnet"] = args ? args.subnet : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnet"] = args ? args.subnet : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualNetwork.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }
 }
 

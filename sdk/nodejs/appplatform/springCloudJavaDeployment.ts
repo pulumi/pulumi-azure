@@ -126,38 +126,36 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudJavaDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudJavaDeploymentArgs | SpringCloudJavaDeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudJavaDeploymentState | undefined;
-            inputs["cpu"] = state ? state.cpu : undefined;
-            inputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            inputs["instanceCount"] = state ? state.instanceCount : undefined;
-            inputs["jvmOptions"] = state ? state.jvmOptions : undefined;
-            inputs["memoryInGb"] = state ? state.memoryInGb : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["quota"] = state ? state.quota : undefined;
-            inputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
-            inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["cpu"] = state ? state.cpu : undefined;
+            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
+            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["jvmOptions"] = state ? state.jvmOptions : undefined;
+            resourceInputs["memoryInGb"] = state ? state.memoryInGb : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["quota"] = state ? state.quota : undefined;
+            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
+            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
         } else {
             const args = argsOrState as SpringCloudJavaDeploymentArgs | undefined;
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            inputs["cpu"] = args ? args.cpu : undefined;
-            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["jvmOptions"] = args ? args.jvmOptions : undefined;
-            inputs["memoryInGb"] = args ? args.memoryInGb : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["quota"] = args ? args.quota : undefined;
-            inputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["cpu"] = args ? args.cpu : undefined;
+            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["jvmOptions"] = args ? args.jvmOptions : undefined;
+            resourceInputs["memoryInGb"] = args ? args.memoryInGb : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["quota"] = args ? args.quota : undefined;
+            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
+            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SpringCloudJavaDeployment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SpringCloudJavaDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -26,9 +26,7 @@ export function getAlertRuleTemplate(args: GetAlertRuleTemplateArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", {
         "displayName": args.displayName,
         "logAnalyticsWorkspaceId": args.logAnalyticsWorkspaceId,

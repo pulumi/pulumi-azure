@@ -26,9 +26,7 @@ export function getBudgetSubscription(args: GetBudgetSubscriptionArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:consumption/getBudgetSubscription:getBudgetSubscription", {
         "name": args.name,
         "subscriptionId": args.subscriptionId,

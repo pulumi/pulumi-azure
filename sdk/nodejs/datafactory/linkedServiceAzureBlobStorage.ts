@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = exampleResourceGroup.name.apply(name => azure.storage.getAccount({
+ * const exampleAccount = azure.storage.getAccountOutput({
  *     name: "storageaccountname",
- *     resourceGroupName: name,
- * }));
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -179,54 +179,52 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceAzureBlobStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceAzureBlobStorageArgs | LinkedServiceAzureBlobStorageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureBlobStorageState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            inputs["keyVaultSasToken"] = state ? state.keyVaultSasToken : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sasUri"] = state ? state.sasUri : undefined;
-            inputs["serviceEndpoint"] = state ? state.serviceEndpoint : undefined;
-            inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
-            inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            resourceInputs["keyVaultSasToken"] = state ? state.keyVaultSasToken : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sasUri"] = state ? state.sasUri : undefined;
+            resourceInputs["serviceEndpoint"] = state ? state.serviceEndpoint : undefined;
+            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
+            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureBlobStorageArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            inputs["keyVaultSasToken"] = args ? args.keyVaultSasToken : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sasUri"] = args ? args.sasUri : undefined;
-            inputs["serviceEndpoint"] = args ? args.serviceEndpoint : undefined;
-            inputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            resourceInputs["keyVaultSasToken"] = args ? args.keyVaultSasToken : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sasUri"] = args ? args.sasUri : undefined;
+            resourceInputs["serviceEndpoint"] = args ? args.serviceEndpoint : undefined;
+            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
+            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LinkedServiceAzureBlobStorage.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LinkedServiceAzureBlobStorage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

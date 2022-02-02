@@ -26,9 +26,7 @@ export function getMongoDatabase(args: GetMongoDatabaseArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:cosmosdb/getMongoDatabase:getMongoDatabase", {
         "accountName": args.accountName,
         "name": args.name,

@@ -100,16 +100,16 @@ export class EndpointEventGrid extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointEventGridArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointEventGridArgs | EndpointEventGridState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointEventGridState | undefined;
-            inputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
-            inputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
-            inputs["eventgridTopicEndpoint"] = state ? state.eventgridTopicEndpoint : undefined;
-            inputs["eventgridTopicPrimaryAccessKey"] = state ? state.eventgridTopicPrimaryAccessKey : undefined;
-            inputs["eventgridTopicSecondaryAccessKey"] = state ? state.eventgridTopicSecondaryAccessKey : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
+            resourceInputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
+            resourceInputs["eventgridTopicEndpoint"] = state ? state.eventgridTopicEndpoint : undefined;
+            resourceInputs["eventgridTopicPrimaryAccessKey"] = state ? state.eventgridTopicPrimaryAccessKey : undefined;
+            resourceInputs["eventgridTopicSecondaryAccessKey"] = state ? state.eventgridTopicSecondaryAccessKey : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EndpointEventGridArgs | undefined;
             if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
@@ -124,17 +124,15 @@ export class EndpointEventGrid extends pulumi.CustomResource {
             if ((!args || args.eventgridTopicSecondaryAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicSecondaryAccessKey'");
             }
-            inputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
-            inputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
-            inputs["eventgridTopicEndpoint"] = args ? args.eventgridTopicEndpoint : undefined;
-            inputs["eventgridTopicPrimaryAccessKey"] = args ? args.eventgridTopicPrimaryAccessKey : undefined;
-            inputs["eventgridTopicSecondaryAccessKey"] = args ? args.eventgridTopicSecondaryAccessKey : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
+            resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
+            resourceInputs["eventgridTopicEndpoint"] = args ? args.eventgridTopicEndpoint : undefined;
+            resourceInputs["eventgridTopicPrimaryAccessKey"] = args ? args.eventgridTopicPrimaryAccessKey : undefined;
+            resourceInputs["eventgridTopicSecondaryAccessKey"] = args ? args.eventgridTopicSecondaryAccessKey : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EndpointEventGrid.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EndpointEventGrid.__pulumiType, name, resourceInputs, opts);
     }
 }
 

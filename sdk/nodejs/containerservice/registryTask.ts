@@ -152,56 +152,54 @@ export class RegistryTask extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryTaskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryTaskArgs | RegistryTaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryTaskState | undefined;
-            inputs["agentPoolName"] = state ? state.agentPoolName : undefined;
-            inputs["agentSetting"] = state ? state.agentSetting : undefined;
-            inputs["baseImageTrigger"] = state ? state.baseImageTrigger : undefined;
-            inputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            inputs["dockerStep"] = state ? state.dockerStep : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["encodedStep"] = state ? state.encodedStep : undefined;
-            inputs["fileStep"] = state ? state.fileStep : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["isSystemTask"] = state ? state.isSystemTask : undefined;
-            inputs["logTemplate"] = state ? state.logTemplate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["registryCredential"] = state ? state.registryCredential : undefined;
-            inputs["sourceTriggers"] = state ? state.sourceTriggers : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
-            inputs["timerTriggers"] = state ? state.timerTriggers : undefined;
+            resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
+            resourceInputs["agentSetting"] = state ? state.agentSetting : undefined;
+            resourceInputs["baseImageTrigger"] = state ? state.baseImageTrigger : undefined;
+            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
+            resourceInputs["dockerStep"] = state ? state.dockerStep : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["encodedStep"] = state ? state.encodedStep : undefined;
+            resourceInputs["fileStep"] = state ? state.fileStep : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["isSystemTask"] = state ? state.isSystemTask : undefined;
+            resourceInputs["logTemplate"] = state ? state.logTemplate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["registryCredential"] = state ? state.registryCredential : undefined;
+            resourceInputs["sourceTriggers"] = state ? state.sourceTriggers : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
+            resourceInputs["timerTriggers"] = state ? state.timerTriggers : undefined;
         } else {
             const args = argsOrState as RegistryTaskArgs | undefined;
             if ((!args || args.containerRegistryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryId'");
             }
-            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            inputs["agentSetting"] = args ? args.agentSetting : undefined;
-            inputs["baseImageTrigger"] = args ? args.baseImageTrigger : undefined;
-            inputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            inputs["dockerStep"] = args ? args.dockerStep : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["encodedStep"] = args ? args.encodedStep : undefined;
-            inputs["fileStep"] = args ? args.fileStep : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["isSystemTask"] = args ? args.isSystemTask : undefined;
-            inputs["logTemplate"] = args ? args.logTemplate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["registryCredential"] = args ? args.registryCredential : undefined;
-            inputs["sourceTriggers"] = args ? args.sourceTriggers : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            inputs["timerTriggers"] = args ? args.timerTriggers : undefined;
+            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
+            resourceInputs["agentSetting"] = args ? args.agentSetting : undefined;
+            resourceInputs["baseImageTrigger"] = args ? args.baseImageTrigger : undefined;
+            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
+            resourceInputs["dockerStep"] = args ? args.dockerStep : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["encodedStep"] = args ? args.encodedStep : undefined;
+            resourceInputs["fileStep"] = args ? args.fileStep : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["isSystemTask"] = args ? args.isSystemTask : undefined;
+            resourceInputs["logTemplate"] = args ? args.logTemplate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["registryCredential"] = args ? args.registryCredential : undefined;
+            resourceInputs["sourceTriggers"] = args ? args.sourceTriggers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["timerTriggers"] = args ? args.timerTriggers : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegistryTask.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegistryTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

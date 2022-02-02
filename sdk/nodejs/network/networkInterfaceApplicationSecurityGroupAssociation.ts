@@ -97,12 +97,12 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
      */
     constructor(name: string, args: NetworkInterfaceApplicationSecurityGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceApplicationSecurityGroupAssociationArgs | NetworkInterfaceApplicationSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationState | undefined;
-            inputs["applicationSecurityGroupId"] = state ? state.applicationSecurityGroupId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["applicationSecurityGroupId"] = state ? state.applicationSecurityGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationArgs | undefined;
             if ((!args || args.applicationSecurityGroupId === undefined) && !opts.urn) {
@@ -111,13 +111,11 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            inputs["applicationSecurityGroupId"] = args ? args.applicationSecurityGroupId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["applicationSecurityGroupId"] = args ? args.applicationSecurityGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

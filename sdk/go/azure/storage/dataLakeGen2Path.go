@@ -216,7 +216,7 @@ type DataLakeGen2PathInput interface {
 }
 
 func (*DataLakeGen2Path) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeGen2Path)(nil))
+	return reflect.TypeOf((**DataLakeGen2Path)(nil)).Elem()
 }
 
 func (i *DataLakeGen2Path) ToDataLakeGen2PathOutput() DataLakeGen2PathOutput {
@@ -225,35 +225,6 @@ func (i *DataLakeGen2Path) ToDataLakeGen2PathOutput() DataLakeGen2PathOutput {
 
 func (i *DataLakeGen2Path) ToDataLakeGen2PathOutputWithContext(ctx context.Context) DataLakeGen2PathOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathOutput)
-}
-
-func (i *DataLakeGen2Path) ToDataLakeGen2PathPtrOutput() DataLakeGen2PathPtrOutput {
-	return i.ToDataLakeGen2PathPtrOutputWithContext(context.Background())
-}
-
-func (i *DataLakeGen2Path) ToDataLakeGen2PathPtrOutputWithContext(ctx context.Context) DataLakeGen2PathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathPtrOutput)
-}
-
-type DataLakeGen2PathPtrInput interface {
-	pulumi.Input
-
-	ToDataLakeGen2PathPtrOutput() DataLakeGen2PathPtrOutput
-	ToDataLakeGen2PathPtrOutputWithContext(ctx context.Context) DataLakeGen2PathPtrOutput
-}
-
-type dataLakeGen2PathPtrType DataLakeGen2PathArgs
-
-func (*dataLakeGen2PathPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataLakeGen2Path)(nil))
-}
-
-func (i *dataLakeGen2PathPtrType) ToDataLakeGen2PathPtrOutput() DataLakeGen2PathPtrOutput {
-	return i.ToDataLakeGen2PathPtrOutputWithContext(context.Background())
-}
-
-func (i *dataLakeGen2PathPtrType) ToDataLakeGen2PathPtrOutputWithContext(ctx context.Context) DataLakeGen2PathPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathPtrOutput)
 }
 
 // DataLakeGen2PathArrayInput is an input type that accepts DataLakeGen2PathArray and DataLakeGen2PathArrayOutput values.
@@ -309,7 +280,7 @@ func (i DataLakeGen2PathMap) ToDataLakeGen2PathMapOutputWithContext(ctx context.
 type DataLakeGen2PathOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2PathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeGen2Path)(nil))
+	return reflect.TypeOf((**DataLakeGen2Path)(nil)).Elem()
 }
 
 func (o DataLakeGen2PathOutput) ToDataLakeGen2PathOutput() DataLakeGen2PathOutput {
@@ -320,44 +291,10 @@ func (o DataLakeGen2PathOutput) ToDataLakeGen2PathOutputWithContext(ctx context.
 	return o
 }
 
-func (o DataLakeGen2PathOutput) ToDataLakeGen2PathPtrOutput() DataLakeGen2PathPtrOutput {
-	return o.ToDataLakeGen2PathPtrOutputWithContext(context.Background())
-}
-
-func (o DataLakeGen2PathOutput) ToDataLakeGen2PathPtrOutputWithContext(ctx context.Context) DataLakeGen2PathPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeGen2Path) *DataLakeGen2Path {
-		return &v
-	}).(DataLakeGen2PathPtrOutput)
-}
-
-type DataLakeGen2PathPtrOutput struct{ *pulumi.OutputState }
-
-func (DataLakeGen2PathPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataLakeGen2Path)(nil))
-}
-
-func (o DataLakeGen2PathPtrOutput) ToDataLakeGen2PathPtrOutput() DataLakeGen2PathPtrOutput {
-	return o
-}
-
-func (o DataLakeGen2PathPtrOutput) ToDataLakeGen2PathPtrOutputWithContext(ctx context.Context) DataLakeGen2PathPtrOutput {
-	return o
-}
-
-func (o DataLakeGen2PathPtrOutput) Elem() DataLakeGen2PathOutput {
-	return o.ApplyT(func(v *DataLakeGen2Path) DataLakeGen2Path {
-		if v != nil {
-			return *v
-		}
-		var ret DataLakeGen2Path
-		return ret
-	}).(DataLakeGen2PathOutput)
-}
-
 type DataLakeGen2PathArrayOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2PathArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataLakeGen2Path)(nil))
+	return reflect.TypeOf((*[]*DataLakeGen2Path)(nil)).Elem()
 }
 
 func (o DataLakeGen2PathArrayOutput) ToDataLakeGen2PathArrayOutput() DataLakeGen2PathArrayOutput {
@@ -369,15 +306,15 @@ func (o DataLakeGen2PathArrayOutput) ToDataLakeGen2PathArrayOutputWithContext(ct
 }
 
 func (o DataLakeGen2PathArrayOutput) Index(i pulumi.IntInput) DataLakeGen2PathOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeGen2Path {
-		return vs[0].([]DataLakeGen2Path)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataLakeGen2Path {
+		return vs[0].([]*DataLakeGen2Path)[vs[1].(int)]
 	}).(DataLakeGen2PathOutput)
 }
 
 type DataLakeGen2PathMapOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2PathMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataLakeGen2Path)(nil))
+	return reflect.TypeOf((*map[string]*DataLakeGen2Path)(nil)).Elem()
 }
 
 func (o DataLakeGen2PathMapOutput) ToDataLakeGen2PathMapOutput() DataLakeGen2PathMapOutput {
@@ -389,18 +326,16 @@ func (o DataLakeGen2PathMapOutput) ToDataLakeGen2PathMapOutputWithContext(ctx co
 }
 
 func (o DataLakeGen2PathMapOutput) MapIndex(k pulumi.StringInput) DataLakeGen2PathOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataLakeGen2Path {
-		return vs[0].(map[string]DataLakeGen2Path)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataLakeGen2Path {
+		return vs[0].(map[string]*DataLakeGen2Path)[vs[1].(string)]
 	}).(DataLakeGen2PathOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathInput)(nil)).Elem(), &DataLakeGen2Path{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathPtrInput)(nil)).Elem(), &DataLakeGen2Path{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathArrayInput)(nil)).Elem(), DataLakeGen2PathArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathMapInput)(nil)).Elem(), DataLakeGen2PathMap{})
 	pulumi.RegisterOutputType(DataLakeGen2PathOutput{})
-	pulumi.RegisterOutputType(DataLakeGen2PathPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathMapOutput{})
 }

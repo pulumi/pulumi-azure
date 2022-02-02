@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Subscription.
@@ -80,7 +79,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -120,15 +120,15 @@ export class ObjectReplication extends pulumi.CustomResource {
      */
     constructor(name: string, args: ObjectReplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ObjectReplicationArgs | ObjectReplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObjectReplicationState | undefined;
-            inputs["destinationObjectReplicationId"] = state ? state.destinationObjectReplicationId : undefined;
-            inputs["destinationStorageAccountId"] = state ? state.destinationStorageAccountId : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["sourceObjectReplicationId"] = state ? state.sourceObjectReplicationId : undefined;
-            inputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
+            resourceInputs["destinationObjectReplicationId"] = state ? state.destinationObjectReplicationId : undefined;
+            resourceInputs["destinationStorageAccountId"] = state ? state.destinationStorageAccountId : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["sourceObjectReplicationId"] = state ? state.sourceObjectReplicationId : undefined;
+            resourceInputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
         } else {
             const args = argsOrState as ObjectReplicationArgs | undefined;
             if ((!args || args.destinationStorageAccountId === undefined) && !opts.urn) {
@@ -140,16 +140,14 @@ export class ObjectReplication extends pulumi.CustomResource {
             if ((!args || args.sourceStorageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceStorageAccountId'");
             }
-            inputs["destinationStorageAccountId"] = args ? args.destinationStorageAccountId : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
-            inputs["destinationObjectReplicationId"] = undefined /*out*/;
-            inputs["sourceObjectReplicationId"] = undefined /*out*/;
+            resourceInputs["destinationStorageAccountId"] = args ? args.destinationStorageAccountId : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
+            resourceInputs["destinationObjectReplicationId"] = undefined /*out*/;
+            resourceInputs["sourceObjectReplicationId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ObjectReplication.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ObjectReplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

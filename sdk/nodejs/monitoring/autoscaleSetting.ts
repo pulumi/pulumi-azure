@@ -313,18 +313,18 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: AutoscaleSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutoscaleSettingArgs | AutoscaleSettingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutoscaleSettingState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notification"] = state ? state.notification : undefined;
-            inputs["profiles"] = state ? state.profiles : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notification"] = state ? state.notification : undefined;
+            resourceInputs["profiles"] = state ? state.profiles : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as AutoscaleSettingArgs | undefined;
             if ((!args || args.profiles === undefined) && !opts.urn) {
@@ -336,19 +336,17 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notification"] = args ? args.notification : undefined;
-            inputs["profiles"] = args ? args.profiles : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notification"] = args ? args.notification : undefined;
+            resourceInputs["profiles"] = args ? args.profiles : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AutoscaleSetting.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AutoscaleSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

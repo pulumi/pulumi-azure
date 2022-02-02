@@ -108,18 +108,18 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OpenIdConnectProviderState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["metadataEndpoint"] = state ? state.metadataEndpoint : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["metadataEndpoint"] = state ? state.metadataEndpoint : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as OpenIdConnectProviderArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -140,19 +140,17 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -94,26 +94,24 @@ export class ApiRelease extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiReleaseArgs | ApiReleaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiReleaseState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
         } else {
             const args = argsOrState as ApiReleaseArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiRelease.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiRelease.__pulumiType, name, resourceInputs, opts);
     }
 }
 

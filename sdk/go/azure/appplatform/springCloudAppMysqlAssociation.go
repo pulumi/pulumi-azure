@@ -229,7 +229,7 @@ type SpringCloudAppMysqlAssociationInput interface {
 }
 
 func (*SpringCloudAppMysqlAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudAppMysqlAssociation)(nil))
+	return reflect.TypeOf((**SpringCloudAppMysqlAssociation)(nil)).Elem()
 }
 
 func (i *SpringCloudAppMysqlAssociation) ToSpringCloudAppMysqlAssociationOutput() SpringCloudAppMysqlAssociationOutput {
@@ -238,35 +238,6 @@ func (i *SpringCloudAppMysqlAssociation) ToSpringCloudAppMysqlAssociationOutput(
 
 func (i *SpringCloudAppMysqlAssociation) ToSpringCloudAppMysqlAssociationOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMysqlAssociationOutput)
-}
-
-func (i *SpringCloudAppMysqlAssociation) ToSpringCloudAppMysqlAssociationPtrOutput() SpringCloudAppMysqlAssociationPtrOutput {
-	return i.ToSpringCloudAppMysqlAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudAppMysqlAssociation) ToSpringCloudAppMysqlAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMysqlAssociationPtrOutput)
-}
-
-type SpringCloudAppMysqlAssociationPtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudAppMysqlAssociationPtrOutput() SpringCloudAppMysqlAssociationPtrOutput
-	ToSpringCloudAppMysqlAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationPtrOutput
-}
-
-type springCloudAppMysqlAssociationPtrType SpringCloudAppMysqlAssociationArgs
-
-func (*springCloudAppMysqlAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudAppMysqlAssociation)(nil))
-}
-
-func (i *springCloudAppMysqlAssociationPtrType) ToSpringCloudAppMysqlAssociationPtrOutput() SpringCloudAppMysqlAssociationPtrOutput {
-	return i.ToSpringCloudAppMysqlAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudAppMysqlAssociationPtrType) ToSpringCloudAppMysqlAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMysqlAssociationPtrOutput)
 }
 
 // SpringCloudAppMysqlAssociationArrayInput is an input type that accepts SpringCloudAppMysqlAssociationArray and SpringCloudAppMysqlAssociationArrayOutput values.
@@ -322,7 +293,7 @@ func (i SpringCloudAppMysqlAssociationMap) ToSpringCloudAppMysqlAssociationMapOu
 type SpringCloudAppMysqlAssociationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppMysqlAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudAppMysqlAssociation)(nil))
+	return reflect.TypeOf((**SpringCloudAppMysqlAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppMysqlAssociationOutput) ToSpringCloudAppMysqlAssociationOutput() SpringCloudAppMysqlAssociationOutput {
@@ -333,44 +304,10 @@ func (o SpringCloudAppMysqlAssociationOutput) ToSpringCloudAppMysqlAssociationOu
 	return o
 }
 
-func (o SpringCloudAppMysqlAssociationOutput) ToSpringCloudAppMysqlAssociationPtrOutput() SpringCloudAppMysqlAssociationPtrOutput {
-	return o.ToSpringCloudAppMysqlAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudAppMysqlAssociationOutput) ToSpringCloudAppMysqlAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppMysqlAssociation) *SpringCloudAppMysqlAssociation {
-		return &v
-	}).(SpringCloudAppMysqlAssociationPtrOutput)
-}
-
-type SpringCloudAppMysqlAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudAppMysqlAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudAppMysqlAssociation)(nil))
-}
-
-func (o SpringCloudAppMysqlAssociationPtrOutput) ToSpringCloudAppMysqlAssociationPtrOutput() SpringCloudAppMysqlAssociationPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppMysqlAssociationPtrOutput) ToSpringCloudAppMysqlAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppMysqlAssociationPtrOutput) Elem() SpringCloudAppMysqlAssociationOutput {
-	return o.ApplyT(func(v *SpringCloudAppMysqlAssociation) SpringCloudAppMysqlAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudAppMysqlAssociation
-		return ret
-	}).(SpringCloudAppMysqlAssociationOutput)
-}
-
 type SpringCloudAppMysqlAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppMysqlAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudAppMysqlAssociation)(nil))
+	return reflect.TypeOf((*[]*SpringCloudAppMysqlAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppMysqlAssociationArrayOutput) ToSpringCloudAppMysqlAssociationArrayOutput() SpringCloudAppMysqlAssociationArrayOutput {
@@ -382,15 +319,15 @@ func (o SpringCloudAppMysqlAssociationArrayOutput) ToSpringCloudAppMysqlAssociat
 }
 
 func (o SpringCloudAppMysqlAssociationArrayOutput) Index(i pulumi.IntInput) SpringCloudAppMysqlAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudAppMysqlAssociation {
-		return vs[0].([]SpringCloudAppMysqlAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAppMysqlAssociation {
+		return vs[0].([]*SpringCloudAppMysqlAssociation)[vs[1].(int)]
 	}).(SpringCloudAppMysqlAssociationOutput)
 }
 
 type SpringCloudAppMysqlAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppMysqlAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudAppMysqlAssociation)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudAppMysqlAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppMysqlAssociationMapOutput) ToSpringCloudAppMysqlAssociationMapOutput() SpringCloudAppMysqlAssociationMapOutput {
@@ -402,18 +339,16 @@ func (o SpringCloudAppMysqlAssociationMapOutput) ToSpringCloudAppMysqlAssociatio
 }
 
 func (o SpringCloudAppMysqlAssociationMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppMysqlAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudAppMysqlAssociation {
-		return vs[0].(map[string]SpringCloudAppMysqlAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudAppMysqlAssociation {
+		return vs[0].(map[string]*SpringCloudAppMysqlAssociation)[vs[1].(string)]
 	}).(SpringCloudAppMysqlAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationInput)(nil)).Elem(), &SpringCloudAppMysqlAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationPtrInput)(nil)).Elem(), &SpringCloudAppMysqlAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationArrayInput)(nil)).Elem(), SpringCloudAppMysqlAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationMapInput)(nil)).Elem(), SpringCloudAppMysqlAssociationMap{})
 	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationOutput{})
-	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationMapOutput{})
 }

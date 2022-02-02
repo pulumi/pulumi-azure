@@ -91,26 +91,24 @@ export class DataConnectorAzureSecurityCenter extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataConnectorAzureSecurityCenterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataConnectorAzureSecurityCenterArgs | DataConnectorAzureSecurityCenterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorAzureSecurityCenterState | undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
         } else {
             const args = argsOrState as DataConnectorAzureSecurityCenterArgs | undefined;
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataConnectorAzureSecurityCenter.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataConnectorAzureSecurityCenter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

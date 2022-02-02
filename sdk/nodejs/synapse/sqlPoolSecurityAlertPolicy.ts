@@ -140,18 +140,18 @@ export class SqlPoolSecurityAlertPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolSecurityAlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlPoolSecurityAlertPolicyArgs | SqlPoolSecurityAlertPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlPoolSecurityAlertPolicyState | undefined;
-            inputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
-            inputs["emailAccountAdminsEnabled"] = state ? state.emailAccountAdminsEnabled : undefined;
-            inputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            inputs["policyState"] = state ? state.policyState : undefined;
-            inputs["retentionDays"] = state ? state.retentionDays : undefined;
-            inputs["sqlPoolId"] = state ? state.sqlPoolId : undefined;
-            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdminsEnabled"] = state ? state.emailAccountAdminsEnabled : undefined;
+            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
+            resourceInputs["policyState"] = state ? state.policyState : undefined;
+            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["sqlPoolId"] = state ? state.sqlPoolId : undefined;
+            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as SqlPoolSecurityAlertPolicyArgs | undefined;
             if ((!args || args.policyState === undefined) && !opts.urn) {
@@ -160,19 +160,17 @@ export class SqlPoolSecurityAlertPolicy extends pulumi.CustomResource {
             if ((!args || args.sqlPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolId'");
             }
-            inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            inputs["emailAccountAdminsEnabled"] = args ? args.emailAccountAdminsEnabled : undefined;
-            inputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            inputs["policyState"] = args ? args.policyState : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdminsEnabled"] = args ? args.emailAccountAdminsEnabled : undefined;
+            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
+            resourceInputs["policyState"] = args ? args.policyState : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SqlPoolSecurityAlertPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SqlPoolSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

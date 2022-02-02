@@ -35,7 +35,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = mssql.NewVirtualMachine(ctx, "exampleMssql_virtualMachineVirtualMachine", &mssql.VirtualMachineArgs{
+// 		_, err = mssql.NewVirtualMachine(ctx, "exampleMssql/virtualMachineVirtualMachine", &mssql.VirtualMachineArgs{
 // 			VirtualMachineId:              pulumi.String(exampleVirtualMachine.Id),
 // 			SqlLicenseType:                pulumi.String("PAYG"),
 // 			RServicesEnabled:              pulumi.Bool(true),
@@ -252,7 +252,7 @@ type VirtualMachineInput interface {
 }
 
 func (*VirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachine)(nil)).Elem()
 }
 
 func (i *VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
@@ -261,35 +261,6 @@ func (i *VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
 
 func (i *VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOutput)
-}
-
-func (i *VirtualMachine) ToVirtualMachinePtrOutput() VirtualMachinePtrOutput {
-	return i.ToVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualMachine) ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePtrOutput)
-}
-
-type VirtualMachinePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachinePtrOutput() VirtualMachinePtrOutput
-	ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput
-}
-
-type virtualMachinePtrType VirtualMachineArgs
-
-func (*virtualMachinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachine)(nil))
-}
-
-func (i *virtualMachinePtrType) ToVirtualMachinePtrOutput() VirtualMachinePtrOutput {
-	return i.ToVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachinePtrType) ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePtrOutput)
 }
 
 // VirtualMachineArrayInput is an input type that accepts VirtualMachineArray and VirtualMachineArrayOutput values.
@@ -345,7 +316,7 @@ func (i VirtualMachineMap) ToVirtualMachineMapOutputWithContext(ctx context.Cont
 type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachine)(nil)).Elem()
 }
 
 func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {
@@ -356,44 +327,10 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o VirtualMachineOutput) ToVirtualMachinePtrOutput() VirtualMachinePtrOutput {
-	return o.ToVirtualMachinePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineOutput) ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachine) *VirtualMachine {
-		return &v
-	}).(VirtualMachinePtrOutput)
-}
-
-type VirtualMachinePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachine)(nil))
-}
-
-func (o VirtualMachinePtrOutput) ToVirtualMachinePtrOutput() VirtualMachinePtrOutput {
-	return o
-}
-
-func (o VirtualMachinePtrOutput) ToVirtualMachinePtrOutputWithContext(ctx context.Context) VirtualMachinePtrOutput {
-	return o
-}
-
-func (o VirtualMachinePtrOutput) Elem() VirtualMachineOutput {
-	return o.ApplyT(func(v *VirtualMachine) VirtualMachine {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachine
-		return ret
-	}).(VirtualMachineOutput)
-}
-
 type VirtualMachineArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMachine)(nil))
+	return reflect.TypeOf((*[]*VirtualMachine)(nil)).Elem()
 }
 
 func (o VirtualMachineArrayOutput) ToVirtualMachineArrayOutput() VirtualMachineArrayOutput {
@@ -405,15 +342,15 @@ func (o VirtualMachineArrayOutput) ToVirtualMachineArrayOutputWithContext(ctx co
 }
 
 func (o VirtualMachineArrayOutput) Index(i pulumi.IntInput) VirtualMachineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachine {
-		return vs[0].([]VirtualMachine)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachine {
+		return vs[0].([]*VirtualMachine)[vs[1].(int)]
 	}).(VirtualMachineOutput)
 }
 
 type VirtualMachineMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualMachine)(nil))
+	return reflect.TypeOf((*map[string]*VirtualMachine)(nil)).Elem()
 }
 
 func (o VirtualMachineMapOutput) ToVirtualMachineMapOutput() VirtualMachineMapOutput {
@@ -425,18 +362,16 @@ func (o VirtualMachineMapOutput) ToVirtualMachineMapOutputWithContext(ctx contex
 }
 
 func (o VirtualMachineMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachine {
-		return vs[0].(map[string]VirtualMachine)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualMachine {
+		return vs[0].(map[string]*VirtualMachine)[vs[1].(string)]
 	}).(VirtualMachineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineInput)(nil)).Elem(), &VirtualMachine{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachinePtrInput)(nil)).Elem(), &VirtualMachine{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineArrayInput)(nil)).Elem(), VirtualMachineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineMapInput)(nil)).Elem(), VirtualMachineMap{})
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
-	pulumi.RegisterOutputType(VirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineMapOutput{})
 }

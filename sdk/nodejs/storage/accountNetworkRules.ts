@@ -133,36 +133,34 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountNetworkRulesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountNetworkRulesArgs | AccountNetworkRulesState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountNetworkRulesState | undefined;
-            inputs["bypasses"] = state ? state.bypasses : undefined;
-            inputs["defaultAction"] = state ? state.defaultAction : undefined;
-            inputs["ipRules"] = state ? state.ipRules : undefined;
-            inputs["privateLinkAccessRules"] = state ? state.privateLinkAccessRules : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
+            resourceInputs["bypasses"] = state ? state.bypasses : undefined;
+            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
+            resourceInputs["ipRules"] = state ? state.ipRules : undefined;
+            resourceInputs["privateLinkAccessRules"] = state ? state.privateLinkAccessRules : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
         } else {
             const args = argsOrState as AccountNetworkRulesArgs | undefined;
             if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            inputs["bypasses"] = args ? args.bypasses : undefined;
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
-            inputs["ipRules"] = args ? args.ipRules : undefined;
-            inputs["privateLinkAccessRules"] = args ? args.privateLinkAccessRules : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
+            resourceInputs["bypasses"] = args ? args.bypasses : undefined;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
+            resourceInputs["privateLinkAccessRules"] = args ? args.privateLinkAccessRules : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccountNetworkRules.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccountNetworkRules.__pulumiType, name, resourceInputs, opts);
     }
 }
 

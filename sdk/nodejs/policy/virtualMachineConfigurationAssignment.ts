@@ -158,14 +158,14 @@ export class VirtualMachineConfigurationAssignment extends pulumi.CustomResource
      */
     constructor(name: string, args: VirtualMachineConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineConfigurationAssignmentArgs | VirtualMachineConfigurationAssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineConfigurationAssignmentState | undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as VirtualMachineConfigurationAssignmentArgs | undefined;
             if ((!args || args.configuration === undefined) && !opts.urn) {
@@ -174,15 +174,13 @@ export class VirtualMachineConfigurationAssignment extends pulumi.CustomResource
             if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualMachineConfigurationAssignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualMachineConfigurationAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

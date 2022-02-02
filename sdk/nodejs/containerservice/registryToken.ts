@@ -103,15 +103,15 @@ export class RegistryToken extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryTokenArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryTokenArgs | RegistryTokenState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryTokenState | undefined;
-            inputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopeMapId"] = state ? state.scopeMapId : undefined;
+            resourceInputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopeMapId"] = state ? state.scopeMapId : undefined;
         } else {
             const args = argsOrState as RegistryTokenArgs | undefined;
             if ((!args || args.containerRegistryName === undefined) && !opts.urn) {
@@ -123,16 +123,14 @@ export class RegistryToken extends pulumi.CustomResource {
             if ((!args || args.scopeMapId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeMapId'");
             }
-            inputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopeMapId"] = args ? args.scopeMapId : undefined;
+            resourceInputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopeMapId"] = args ? args.scopeMapId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RegistryToken.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RegistryToken.__pulumiType, name, resourceInputs, opts);
     }
 }
 

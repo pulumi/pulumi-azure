@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.TrafficManager
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.TrafficManager
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGeographicalLocationResult> InvokeAsync(GetGeographicalLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? new GetGeographicalLocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? new GetGeographicalLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
@@ -77,7 +76,7 @@ namespace Pulumi.Azure.TrafficManager
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGeographicalLocationResult> Invoke(GetGeographicalLocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? new GetGeographicalLocationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? new GetGeographicalLocationInvokeArgs(), options.WithDefaults());
     }
 
 

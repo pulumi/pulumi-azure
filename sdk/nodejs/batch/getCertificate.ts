@@ -26,9 +26,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:batch/getCertificate:getCertificate", {
         "accountName": args.accountName,
         "name": args.name,

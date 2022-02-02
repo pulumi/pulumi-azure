@@ -168,28 +168,28 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: WindowsVirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WindowsVirtualMachineArgs | WindowsVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WindowsVirtualMachineState | undefined;
-            inputs["allowClaim"] = state ? state.allowClaim : undefined;
-            inputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["galleryImageReference"] = state ? state.galleryImageReference : undefined;
-            inputs["inboundNatRules"] = state ? state.inboundNatRules : undefined;
-            inputs["labName"] = state ? state.labName : undefined;
-            inputs["labSubnetName"] = state ? state.labSubnetName : undefined;
-            inputs["labVirtualNetworkId"] = state ? state.labVirtualNetworkId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["size"] = state ? state.size : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["allowClaim"] = state ? state.allowClaim : undefined;
+            resourceInputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["galleryImageReference"] = state ? state.galleryImageReference : undefined;
+            resourceInputs["inboundNatRules"] = state ? state.inboundNatRules : undefined;
+            resourceInputs["labName"] = state ? state.labName : undefined;
+            resourceInputs["labSubnetName"] = state ? state.labSubnetName : undefined;
+            resourceInputs["labVirtualNetworkId"] = state ? state.labVirtualNetworkId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as WindowsVirtualMachineArgs | undefined;
             if ((!args || args.galleryImageReference === undefined) && !opts.urn) {
@@ -219,29 +219,27 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["allowClaim"] = args ? args.allowClaim : undefined;
-            inputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
-            inputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
-            inputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["labSubnetName"] = args ? args.labSubnetName : undefined;
-            inputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["allowClaim"] = args ? args.allowClaim : undefined;
+            resourceInputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
+            resourceInputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
+            resourceInputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["labSubnetName"] = args ? args.labSubnetName : undefined;
+            resourceInputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WindowsVirtualMachine.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WindowsVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

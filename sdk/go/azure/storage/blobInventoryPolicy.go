@@ -186,7 +186,7 @@ type BlobInventoryPolicyInput interface {
 }
 
 func (*BlobInventoryPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobInventoryPolicy)(nil))
+	return reflect.TypeOf((**BlobInventoryPolicy)(nil)).Elem()
 }
 
 func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {
@@ -195,35 +195,6 @@ func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutput() BlobInventoryPolicyO
 
 func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyOutput)
-}
-
-func (i *BlobInventoryPolicy) ToBlobInventoryPolicyPtrOutput() BlobInventoryPolicyPtrOutput {
-	return i.ToBlobInventoryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *BlobInventoryPolicy) ToBlobInventoryPolicyPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyPtrOutput)
-}
-
-type BlobInventoryPolicyPtrInput interface {
-	pulumi.Input
-
-	ToBlobInventoryPolicyPtrOutput() BlobInventoryPolicyPtrOutput
-	ToBlobInventoryPolicyPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyPtrOutput
-}
-
-type blobInventoryPolicyPtrType BlobInventoryPolicyArgs
-
-func (*blobInventoryPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobInventoryPolicy)(nil))
-}
-
-func (i *blobInventoryPolicyPtrType) ToBlobInventoryPolicyPtrOutput() BlobInventoryPolicyPtrOutput {
-	return i.ToBlobInventoryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *blobInventoryPolicyPtrType) ToBlobInventoryPolicyPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyPtrOutput)
 }
 
 // BlobInventoryPolicyArrayInput is an input type that accepts BlobInventoryPolicyArray and BlobInventoryPolicyArrayOutput values.
@@ -279,7 +250,7 @@ func (i BlobInventoryPolicyMap) ToBlobInventoryPolicyMapOutputWithContext(ctx co
 type BlobInventoryPolicyOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobInventoryPolicy)(nil))
+	return reflect.TypeOf((**BlobInventoryPolicy)(nil)).Elem()
 }
 
 func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutput() BlobInventoryPolicyOutput {
@@ -290,44 +261,10 @@ func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutputWithContext(ctx co
 	return o
 }
 
-func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyPtrOutput() BlobInventoryPolicyPtrOutput {
-	return o.ToBlobInventoryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobInventoryPolicy) *BlobInventoryPolicy {
-		return &v
-	}).(BlobInventoryPolicyPtrOutput)
-}
-
-type BlobInventoryPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (BlobInventoryPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobInventoryPolicy)(nil))
-}
-
-func (o BlobInventoryPolicyPtrOutput) ToBlobInventoryPolicyPtrOutput() BlobInventoryPolicyPtrOutput {
-	return o
-}
-
-func (o BlobInventoryPolicyPtrOutput) ToBlobInventoryPolicyPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyPtrOutput {
-	return o
-}
-
-func (o BlobInventoryPolicyPtrOutput) Elem() BlobInventoryPolicyOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicy) BlobInventoryPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret BlobInventoryPolicy
-		return ret
-	}).(BlobInventoryPolicyOutput)
-}
-
 type BlobInventoryPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BlobInventoryPolicy)(nil))
+	return reflect.TypeOf((*[]*BlobInventoryPolicy)(nil)).Elem()
 }
 
 func (o BlobInventoryPolicyArrayOutput) ToBlobInventoryPolicyArrayOutput() BlobInventoryPolicyArrayOutput {
@@ -339,15 +276,15 @@ func (o BlobInventoryPolicyArrayOutput) ToBlobInventoryPolicyArrayOutputWithCont
 }
 
 func (o BlobInventoryPolicyArrayOutput) Index(i pulumi.IntInput) BlobInventoryPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlobInventoryPolicy {
-		return vs[0].([]BlobInventoryPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BlobInventoryPolicy {
+		return vs[0].([]*BlobInventoryPolicy)[vs[1].(int)]
 	}).(BlobInventoryPolicyOutput)
 }
 
 type BlobInventoryPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BlobInventoryPolicy)(nil))
+	return reflect.TypeOf((*map[string]*BlobInventoryPolicy)(nil)).Elem()
 }
 
 func (o BlobInventoryPolicyMapOutput) ToBlobInventoryPolicyMapOutput() BlobInventoryPolicyMapOutput {
@@ -359,18 +296,16 @@ func (o BlobInventoryPolicyMapOutput) ToBlobInventoryPolicyMapOutputWithContext(
 }
 
 func (o BlobInventoryPolicyMapOutput) MapIndex(k pulumi.StringInput) BlobInventoryPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BlobInventoryPolicy {
-		return vs[0].(map[string]BlobInventoryPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BlobInventoryPolicy {
+		return vs[0].(map[string]*BlobInventoryPolicy)[vs[1].(string)]
 	}).(BlobInventoryPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyInput)(nil)).Elem(), &BlobInventoryPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyPtrInput)(nil)).Elem(), &BlobInventoryPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyArrayInput)(nil)).Elem(), BlobInventoryPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyMapInput)(nil)).Elem(), BlobInventoryPolicyMap{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyOutput{})
-	pulumi.RegisterOutputType(BlobInventoryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyArrayOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyMapOutput{})
 }

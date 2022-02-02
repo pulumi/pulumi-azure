@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.OperationalInsights
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAnalyticsWorkspaceResult> InvokeAsync(GetAnalyticsWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAnalyticsWorkspaceResult> Invoke(GetAnalyticsWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

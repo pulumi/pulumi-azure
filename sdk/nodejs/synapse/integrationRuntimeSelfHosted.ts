@@ -107,30 +107,28 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationRuntimeSelfHostedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeSelfHostedArgs | IntegrationRuntimeSelfHostedState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
-            inputs["authorizationKeyPrimary"] = state ? state.authorizationKeyPrimary : undefined;
-            inputs["authorizationKeySecondary"] = state ? state.authorizationKeySecondary : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["authorizationKeyPrimary"] = state ? state.authorizationKeyPrimary : undefined;
+            resourceInputs["authorizationKeySecondary"] = state ? state.authorizationKeySecondary : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["authorizationKeyPrimary"] = undefined /*out*/;
-            inputs["authorizationKeySecondary"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["authorizationKeyPrimary"] = undefined /*out*/;
+            resourceInputs["authorizationKeySecondary"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IntegrationRuntimeSelfHosted.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IntegrationRuntimeSelfHosted.__pulumiType, name, resourceInputs, opts);
     }
 }
 

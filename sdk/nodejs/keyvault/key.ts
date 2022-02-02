@@ -162,27 +162,27 @@ export class Key extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
-            inputs["curve"] = state ? state.curve : undefined;
-            inputs["e"] = state ? state.e : undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["keyOpts"] = state ? state.keyOpts : undefined;
-            inputs["keySize"] = state ? state.keySize : undefined;
-            inputs["keyType"] = state ? state.keyType : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["n"] = state ? state.n : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
-            inputs["publicKeyOpenssh"] = state ? state.publicKeyOpenssh : undefined;
-            inputs["publicKeyPem"] = state ? state.publicKeyPem : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["versionlessId"] = state ? state.versionlessId : undefined;
-            inputs["x"] = state ? state.x : undefined;
-            inputs["y"] = state ? state.y : undefined;
+            resourceInputs["curve"] = state ? state.curve : undefined;
+            resourceInputs["e"] = state ? state.e : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["keyOpts"] = state ? state.keyOpts : undefined;
+            resourceInputs["keySize"] = state ? state.keySize : undefined;
+            resourceInputs["keyType"] = state ? state.keyType : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["n"] = state ? state.n : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
+            resourceInputs["publicKeyOpenssh"] = state ? state.publicKeyOpenssh : undefined;
+            resourceInputs["publicKeyPem"] = state ? state.publicKeyPem : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
+            resourceInputs["x"] = state ? state.x : undefined;
+            resourceInputs["y"] = state ? state.y : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
             if ((!args || args.keyOpts === undefined) && !opts.urn) {
@@ -194,28 +194,26 @@ export class Key extends pulumi.CustomResource {
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            inputs["curve"] = args ? args.curve : undefined;
-            inputs["expirationDate"] = args ? args.expirationDate : undefined;
-            inputs["keyOpts"] = args ? args.keyOpts : undefined;
-            inputs["keySize"] = args ? args.keySize : undefined;
-            inputs["keyType"] = args ? args.keyType : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["e"] = undefined /*out*/;
-            inputs["n"] = undefined /*out*/;
-            inputs["publicKeyOpenssh"] = undefined /*out*/;
-            inputs["publicKeyPem"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionlessId"] = undefined /*out*/;
-            inputs["x"] = undefined /*out*/;
-            inputs["y"] = undefined /*out*/;
+            resourceInputs["curve"] = args ? args.curve : undefined;
+            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
+            resourceInputs["keyOpts"] = args ? args.keyOpts : undefined;
+            resourceInputs["keySize"] = args ? args.keySize : undefined;
+            resourceInputs["keyType"] = args ? args.keyType : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["e"] = undefined /*out*/;
+            resourceInputs["n"] = undefined /*out*/;
+            resourceInputs["publicKeyOpenssh"] = undefined /*out*/;
+            resourceInputs["publicKeyPem"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionlessId"] = undefined /*out*/;
+            resourceInputs["x"] = undefined /*out*/;
+            resourceInputs["y"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Key.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Key.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -127,22 +127,22 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetSqlServerTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetSqlServerTableArgs | DatasetSqlServerTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetSqlServerTableState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["folder"] = state ? state.folder : undefined;
-            inputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["folder"] = state ? state.folder : undefined;
+            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as DatasetSqlServerTableArgs | undefined;
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
@@ -151,23 +151,21 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DatasetSqlServerTable.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DatasetSqlServerTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

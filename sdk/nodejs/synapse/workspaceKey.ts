@@ -50,15 +50,15 @@ export class WorkspaceKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceKeyArgs | WorkspaceKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceKeyState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["cusomterManagedKeyName"] = state ? state.cusomterManagedKeyName : undefined;
-            inputs["customerManagedKeyName"] = state ? state.customerManagedKeyName : undefined;
-            inputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["cusomterManagedKeyName"] = state ? state.cusomterManagedKeyName : undefined;
+            resourceInputs["customerManagedKeyName"] = state ? state.customerManagedKeyName : undefined;
+            resourceInputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceKeyArgs | undefined;
             if ((!args || args.active === undefined) && !opts.urn) {
@@ -67,16 +67,14 @@ export class WorkspaceKey extends pulumi.CustomResource {
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["cusomterManagedKeyName"] = args ? args.cusomterManagedKeyName : undefined;
-            inputs["customerManagedKeyName"] = args ? args.customerManagedKeyName : undefined;
-            inputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["cusomterManagedKeyName"] = args ? args.cusomterManagedKeyName : undefined;
+            resourceInputs["customerManagedKeyName"] = args ? args.customerManagedKeyName : undefined;
+            resourceInputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WorkspaceKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WorkspaceKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

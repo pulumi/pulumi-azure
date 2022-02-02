@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataProtection
 {
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.DataProtection
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("azure:dataprotection/getBackupVault:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("azure:dataprotection/getBackupVault:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Backup Vault.
@@ -82,7 +81,7 @@ namespace Pulumi.Azure.DataProtection
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure:dataprotection/getBackupVault:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure:dataprotection/getBackupVault:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());
     }
 
 

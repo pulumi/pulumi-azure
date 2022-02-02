@@ -120,21 +120,21 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: SharedAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedAccessPolicyArgs | SharedAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedAccessPolicyState | undefined;
-            inputs["deviceConnect"] = state ? state.deviceConnect : undefined;
-            inputs["iothubName"] = state ? state.iothubName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["primaryKey"] = state ? state.primaryKey : undefined;
-            inputs["registryRead"] = state ? state.registryRead : undefined;
-            inputs["registryWrite"] = state ? state.registryWrite : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            inputs["serviceConnect"] = state ? state.serviceConnect : undefined;
+            resourceInputs["deviceConnect"] = state ? state.deviceConnect : undefined;
+            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["registryRead"] = state ? state.registryRead : undefined;
+            resourceInputs["registryWrite"] = state ? state.registryWrite : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["serviceConnect"] = state ? state.serviceConnect : undefined;
         } else {
             const args = argsOrState as SharedAccessPolicyArgs | undefined;
             if ((!args || args.iothubName === undefined) && !opts.urn) {
@@ -143,22 +143,20 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["deviceConnect"] = args ? args.deviceConnect : undefined;
-            inputs["iothubName"] = args ? args.iothubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["registryRead"] = args ? args.registryRead : undefined;
-            inputs["registryWrite"] = args ? args.registryWrite : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceConnect"] = args ? args.serviceConnect : undefined;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["deviceConnect"] = args ? args.deviceConnect : undefined;
+            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["registryRead"] = args ? args.registryRead : undefined;
+            resourceInputs["registryWrite"] = args ? args.registryWrite : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceConnect"] = args ? args.serviceConnect : undefined;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SharedAccessPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SharedAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

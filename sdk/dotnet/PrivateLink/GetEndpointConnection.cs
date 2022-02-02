@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.PrivateLink
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEndpointConnectionResult> InvokeAsync(GetEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? new GetEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? new GetEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the connection status information about an existing Private Endpoint Connection.
@@ -76,7 +75,7 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEndpointConnectionResult> Invoke(GetEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? new GetEndpointConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? new GetEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -148,48 +148,46 @@ export class Environment extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            inputs["allowedUserIpCidrs"] = state ? state.allowedUserIpCidrs : undefined;
-            inputs["clusterSettings"] = state ? state.clusterSettings : undefined;
-            inputs["frontEndScaleFactor"] = state ? state.frontEndScaleFactor : undefined;
-            inputs["internalIpAddress"] = state ? state.internalIpAddress : undefined;
-            inputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            inputs["pricingTier"] = state ? state.pricingTier : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceIpAddress"] = state ? state.serviceIpAddress : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["userWhitelistedIpRanges"] = state ? state.userWhitelistedIpRanges : undefined;
+            resourceInputs["allowedUserIpCidrs"] = state ? state.allowedUserIpCidrs : undefined;
+            resourceInputs["clusterSettings"] = state ? state.clusterSettings : undefined;
+            resourceInputs["frontEndScaleFactor"] = state ? state.frontEndScaleFactor : undefined;
+            resourceInputs["internalIpAddress"] = state ? state.internalIpAddress : undefined;
+            resourceInputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
+            resourceInputs["pricingTier"] = state ? state.pricingTier : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceIpAddress"] = state ? state.serviceIpAddress : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["userWhitelistedIpRanges"] = state ? state.userWhitelistedIpRanges : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["allowedUserIpCidrs"] = args ? args.allowedUserIpCidrs : undefined;
-            inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            inputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
-            inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pricingTier"] = args ? args.pricingTier : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
-            inputs["internalIpAddress"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["outboundIpAddresses"] = undefined /*out*/;
-            inputs["serviceIpAddress"] = undefined /*out*/;
+            resourceInputs["allowedUserIpCidrs"] = args ? args.allowedUserIpCidrs : undefined;
+            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
+            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pricingTier"] = args ? args.pricingTier : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
+            resourceInputs["internalIpAddress"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["outboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["serviceIpAddress"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Environment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

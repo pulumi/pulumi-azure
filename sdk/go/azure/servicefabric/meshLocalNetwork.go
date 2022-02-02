@@ -146,7 +146,7 @@ type MeshLocalNetworkInput interface {
 }
 
 func (*MeshLocalNetwork) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshLocalNetwork)(nil))
+	return reflect.TypeOf((**MeshLocalNetwork)(nil)).Elem()
 }
 
 func (i *MeshLocalNetwork) ToMeshLocalNetworkOutput() MeshLocalNetworkOutput {
@@ -155,35 +155,6 @@ func (i *MeshLocalNetwork) ToMeshLocalNetworkOutput() MeshLocalNetworkOutput {
 
 func (i *MeshLocalNetwork) ToMeshLocalNetworkOutputWithContext(ctx context.Context) MeshLocalNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshLocalNetworkOutput)
-}
-
-func (i *MeshLocalNetwork) ToMeshLocalNetworkPtrOutput() MeshLocalNetworkPtrOutput {
-	return i.ToMeshLocalNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *MeshLocalNetwork) ToMeshLocalNetworkPtrOutputWithContext(ctx context.Context) MeshLocalNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshLocalNetworkPtrOutput)
-}
-
-type MeshLocalNetworkPtrInput interface {
-	pulumi.Input
-
-	ToMeshLocalNetworkPtrOutput() MeshLocalNetworkPtrOutput
-	ToMeshLocalNetworkPtrOutputWithContext(ctx context.Context) MeshLocalNetworkPtrOutput
-}
-
-type meshLocalNetworkPtrType MeshLocalNetworkArgs
-
-func (*meshLocalNetworkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MeshLocalNetwork)(nil))
-}
-
-func (i *meshLocalNetworkPtrType) ToMeshLocalNetworkPtrOutput() MeshLocalNetworkPtrOutput {
-	return i.ToMeshLocalNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *meshLocalNetworkPtrType) ToMeshLocalNetworkPtrOutputWithContext(ctx context.Context) MeshLocalNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshLocalNetworkPtrOutput)
 }
 
 // MeshLocalNetworkArrayInput is an input type that accepts MeshLocalNetworkArray and MeshLocalNetworkArrayOutput values.
@@ -239,7 +210,7 @@ func (i MeshLocalNetworkMap) ToMeshLocalNetworkMapOutputWithContext(ctx context.
 type MeshLocalNetworkOutput struct{ *pulumi.OutputState }
 
 func (MeshLocalNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshLocalNetwork)(nil))
+	return reflect.TypeOf((**MeshLocalNetwork)(nil)).Elem()
 }
 
 func (o MeshLocalNetworkOutput) ToMeshLocalNetworkOutput() MeshLocalNetworkOutput {
@@ -250,44 +221,10 @@ func (o MeshLocalNetworkOutput) ToMeshLocalNetworkOutputWithContext(ctx context.
 	return o
 }
 
-func (o MeshLocalNetworkOutput) ToMeshLocalNetworkPtrOutput() MeshLocalNetworkPtrOutput {
-	return o.ToMeshLocalNetworkPtrOutputWithContext(context.Background())
-}
-
-func (o MeshLocalNetworkOutput) ToMeshLocalNetworkPtrOutputWithContext(ctx context.Context) MeshLocalNetworkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshLocalNetwork) *MeshLocalNetwork {
-		return &v
-	}).(MeshLocalNetworkPtrOutput)
-}
-
-type MeshLocalNetworkPtrOutput struct{ *pulumi.OutputState }
-
-func (MeshLocalNetworkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MeshLocalNetwork)(nil))
-}
-
-func (o MeshLocalNetworkPtrOutput) ToMeshLocalNetworkPtrOutput() MeshLocalNetworkPtrOutput {
-	return o
-}
-
-func (o MeshLocalNetworkPtrOutput) ToMeshLocalNetworkPtrOutputWithContext(ctx context.Context) MeshLocalNetworkPtrOutput {
-	return o
-}
-
-func (o MeshLocalNetworkPtrOutput) Elem() MeshLocalNetworkOutput {
-	return o.ApplyT(func(v *MeshLocalNetwork) MeshLocalNetwork {
-		if v != nil {
-			return *v
-		}
-		var ret MeshLocalNetwork
-		return ret
-	}).(MeshLocalNetworkOutput)
-}
-
 type MeshLocalNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (MeshLocalNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MeshLocalNetwork)(nil))
+	return reflect.TypeOf((*[]*MeshLocalNetwork)(nil)).Elem()
 }
 
 func (o MeshLocalNetworkArrayOutput) ToMeshLocalNetworkArrayOutput() MeshLocalNetworkArrayOutput {
@@ -299,15 +236,15 @@ func (o MeshLocalNetworkArrayOutput) ToMeshLocalNetworkArrayOutputWithContext(ct
 }
 
 func (o MeshLocalNetworkArrayOutput) Index(i pulumi.IntInput) MeshLocalNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshLocalNetwork {
-		return vs[0].([]MeshLocalNetwork)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MeshLocalNetwork {
+		return vs[0].([]*MeshLocalNetwork)[vs[1].(int)]
 	}).(MeshLocalNetworkOutput)
 }
 
 type MeshLocalNetworkMapOutput struct{ *pulumi.OutputState }
 
 func (MeshLocalNetworkMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MeshLocalNetwork)(nil))
+	return reflect.TypeOf((*map[string]*MeshLocalNetwork)(nil)).Elem()
 }
 
 func (o MeshLocalNetworkMapOutput) ToMeshLocalNetworkMapOutput() MeshLocalNetworkMapOutput {
@@ -319,18 +256,16 @@ func (o MeshLocalNetworkMapOutput) ToMeshLocalNetworkMapOutputWithContext(ctx co
 }
 
 func (o MeshLocalNetworkMapOutput) MapIndex(k pulumi.StringInput) MeshLocalNetworkOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MeshLocalNetwork {
-		return vs[0].(map[string]MeshLocalNetwork)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MeshLocalNetwork {
+		return vs[0].(map[string]*MeshLocalNetwork)[vs[1].(string)]
 	}).(MeshLocalNetworkOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkInput)(nil)).Elem(), &MeshLocalNetwork{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkPtrInput)(nil)).Elem(), &MeshLocalNetwork{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkArrayInput)(nil)).Elem(), MeshLocalNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkMapInput)(nil)).Elem(), MeshLocalNetworkMap{})
 	pulumi.RegisterOutputType(MeshLocalNetworkOutput{})
-	pulumi.RegisterOutputType(MeshLocalNetworkPtrOutput{})
 	pulumi.RegisterOutputType(MeshLocalNetworkArrayOutput{})
 	pulumi.RegisterOutputType(MeshLocalNetworkMapOutput{})
 }

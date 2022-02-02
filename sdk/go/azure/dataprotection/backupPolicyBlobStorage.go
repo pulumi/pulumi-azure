@@ -158,7 +158,7 @@ type BackupPolicyBlobStorageInput interface {
 }
 
 func (*BackupPolicyBlobStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPolicyBlobStorage)(nil))
+	return reflect.TypeOf((**BackupPolicyBlobStorage)(nil)).Elem()
 }
 
 func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStorageOutput() BackupPolicyBlobStorageOutput {
@@ -167,35 +167,6 @@ func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStorageOutput() BackupPolicy
 
 func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStorageOutputWithContext(ctx context.Context) BackupPolicyBlobStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageOutput)
-}
-
-func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStoragePtrOutput() BackupPolicyBlobStoragePtrOutput {
-	return i.ToBackupPolicyBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStoragePtrOutputWithContext(ctx context.Context) BackupPolicyBlobStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStoragePtrOutput)
-}
-
-type BackupPolicyBlobStoragePtrInput interface {
-	pulumi.Input
-
-	ToBackupPolicyBlobStoragePtrOutput() BackupPolicyBlobStoragePtrOutput
-	ToBackupPolicyBlobStoragePtrOutputWithContext(ctx context.Context) BackupPolicyBlobStoragePtrOutput
-}
-
-type backupPolicyBlobStoragePtrType BackupPolicyBlobStorageArgs
-
-func (*backupPolicyBlobStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPolicyBlobStorage)(nil))
-}
-
-func (i *backupPolicyBlobStoragePtrType) ToBackupPolicyBlobStoragePtrOutput() BackupPolicyBlobStoragePtrOutput {
-	return i.ToBackupPolicyBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *backupPolicyBlobStoragePtrType) ToBackupPolicyBlobStoragePtrOutputWithContext(ctx context.Context) BackupPolicyBlobStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStoragePtrOutput)
 }
 
 // BackupPolicyBlobStorageArrayInput is an input type that accepts BackupPolicyBlobStorageArray and BackupPolicyBlobStorageArrayOutput values.
@@ -251,7 +222,7 @@ func (i BackupPolicyBlobStorageMap) ToBackupPolicyBlobStorageMapOutputWithContex
 type BackupPolicyBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyBlobStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPolicyBlobStorage)(nil))
+	return reflect.TypeOf((**BackupPolicyBlobStorage)(nil)).Elem()
 }
 
 func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStorageOutput() BackupPolicyBlobStorageOutput {
@@ -262,44 +233,10 @@ func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStorageOutputWithContex
 	return o
 }
 
-func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStoragePtrOutput() BackupPolicyBlobStoragePtrOutput {
-	return o.ToBackupPolicyBlobStoragePtrOutputWithContext(context.Background())
-}
-
-func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStoragePtrOutputWithContext(ctx context.Context) BackupPolicyBlobStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyBlobStorage) *BackupPolicyBlobStorage {
-		return &v
-	}).(BackupPolicyBlobStoragePtrOutput)
-}
-
-type BackupPolicyBlobStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupPolicyBlobStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPolicyBlobStorage)(nil))
-}
-
-func (o BackupPolicyBlobStoragePtrOutput) ToBackupPolicyBlobStoragePtrOutput() BackupPolicyBlobStoragePtrOutput {
-	return o
-}
-
-func (o BackupPolicyBlobStoragePtrOutput) ToBackupPolicyBlobStoragePtrOutputWithContext(ctx context.Context) BackupPolicyBlobStoragePtrOutput {
-	return o
-}
-
-func (o BackupPolicyBlobStoragePtrOutput) Elem() BackupPolicyBlobStorageOutput {
-	return o.ApplyT(func(v *BackupPolicyBlobStorage) BackupPolicyBlobStorage {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPolicyBlobStorage
-		return ret
-	}).(BackupPolicyBlobStorageOutput)
-}
-
 type BackupPolicyBlobStorageArrayOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyBlobStorageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackupPolicyBlobStorage)(nil))
+	return reflect.TypeOf((*[]*BackupPolicyBlobStorage)(nil)).Elem()
 }
 
 func (o BackupPolicyBlobStorageArrayOutput) ToBackupPolicyBlobStorageArrayOutput() BackupPolicyBlobStorageArrayOutput {
@@ -311,15 +248,15 @@ func (o BackupPolicyBlobStorageArrayOutput) ToBackupPolicyBlobStorageArrayOutput
 }
 
 func (o BackupPolicyBlobStorageArrayOutput) Index(i pulumi.IntInput) BackupPolicyBlobStorageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyBlobStorage {
-		return vs[0].([]BackupPolicyBlobStorage)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupPolicyBlobStorage {
+		return vs[0].([]*BackupPolicyBlobStorage)[vs[1].(int)]
 	}).(BackupPolicyBlobStorageOutput)
 }
 
 type BackupPolicyBlobStorageMapOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyBlobStorageMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BackupPolicyBlobStorage)(nil))
+	return reflect.TypeOf((*map[string]*BackupPolicyBlobStorage)(nil)).Elem()
 }
 
 func (o BackupPolicyBlobStorageMapOutput) ToBackupPolicyBlobStorageMapOutput() BackupPolicyBlobStorageMapOutput {
@@ -331,18 +268,16 @@ func (o BackupPolicyBlobStorageMapOutput) ToBackupPolicyBlobStorageMapOutputWith
 }
 
 func (o BackupPolicyBlobStorageMapOutput) MapIndex(k pulumi.StringInput) BackupPolicyBlobStorageOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BackupPolicyBlobStorage {
-		return vs[0].(map[string]BackupPolicyBlobStorage)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BackupPolicyBlobStorage {
+		return vs[0].(map[string]*BackupPolicyBlobStorage)[vs[1].(string)]
 	}).(BackupPolicyBlobStorageOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageInput)(nil)).Elem(), &BackupPolicyBlobStorage{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStoragePtrInput)(nil)).Elem(), &BackupPolicyBlobStorage{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageArrayInput)(nil)).Elem(), BackupPolicyBlobStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageMapInput)(nil)).Elem(), BackupPolicyBlobStorageMap{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageOutput{})
-	pulumi.RegisterOutputType(BackupPolicyBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageMapOutput{})
 }

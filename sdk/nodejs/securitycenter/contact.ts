@@ -85,14 +85,14 @@ export class Contact extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContactArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContactArgs | ContactState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactState | undefined;
-            inputs["alertNotifications"] = state ? state.alertNotifications : undefined;
-            inputs["alertsToAdmins"] = state ? state.alertsToAdmins : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["phone"] = state ? state.phone : undefined;
+            resourceInputs["alertNotifications"] = state ? state.alertNotifications : undefined;
+            resourceInputs["alertsToAdmins"] = state ? state.alertsToAdmins : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["phone"] = state ? state.phone : undefined;
         } else {
             const args = argsOrState as ContactArgs | undefined;
             if ((!args || args.alertNotifications === undefined) && !opts.urn) {
@@ -104,15 +104,13 @@ export class Contact extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
-            inputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["phone"] = args ? args.phone : undefined;
+            resourceInputs["alertNotifications"] = args ? args.alertNotifications : undefined;
+            resourceInputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["phone"] = args ? args.phone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Contact.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Contact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

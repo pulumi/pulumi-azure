@@ -35,6 +35,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleFunctionApp := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
+// 			Name:              pulumi.String("test-azure-functions"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -268,7 +272,7 @@ type LinkedServiceAzureFunctionInput interface {
 }
 
 func (*LinkedServiceAzureFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureFunction)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureFunction)(nil)).Elem()
 }
 
 func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionOutput() LinkedServiceAzureFunctionOutput {
@@ -277,35 +281,6 @@ func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionOutput() Linked
 
 func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionOutput)
-}
-
-func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionPtrOutput() LinkedServiceAzureFunctionPtrOutput {
-	return i.ToLinkedServiceAzureFunctionPtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionPtrOutput)
-}
-
-type LinkedServiceAzureFunctionPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureFunctionPtrOutput() LinkedServiceAzureFunctionPtrOutput
-	ToLinkedServiceAzureFunctionPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionPtrOutput
-}
-
-type linkedServiceAzureFunctionPtrType LinkedServiceAzureFunctionArgs
-
-func (*linkedServiceAzureFunctionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureFunction)(nil))
-}
-
-func (i *linkedServiceAzureFunctionPtrType) ToLinkedServiceAzureFunctionPtrOutput() LinkedServiceAzureFunctionPtrOutput {
-	return i.ToLinkedServiceAzureFunctionPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureFunctionPtrType) ToLinkedServiceAzureFunctionPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionPtrOutput)
 }
 
 // LinkedServiceAzureFunctionArrayInput is an input type that accepts LinkedServiceAzureFunctionArray and LinkedServiceAzureFunctionArrayOutput values.
@@ -361,7 +336,7 @@ func (i LinkedServiceAzureFunctionMap) ToLinkedServiceAzureFunctionMapOutputWith
 type LinkedServiceAzureFunctionOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureFunction)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureFunction)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionOutput() LinkedServiceAzureFunctionOutput {
@@ -372,44 +347,10 @@ func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionOutputWith
 	return o
 }
 
-func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionPtrOutput() LinkedServiceAzureFunctionPtrOutput {
-	return o.ToLinkedServiceAzureFunctionPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureFunction) *LinkedServiceAzureFunction {
-		return &v
-	}).(LinkedServiceAzureFunctionPtrOutput)
-}
-
-type LinkedServiceAzureFunctionPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureFunctionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureFunction)(nil))
-}
-
-func (o LinkedServiceAzureFunctionPtrOutput) ToLinkedServiceAzureFunctionPtrOutput() LinkedServiceAzureFunctionPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureFunctionPtrOutput) ToLinkedServiceAzureFunctionPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureFunctionPtrOutput) Elem() LinkedServiceAzureFunctionOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureFunction) LinkedServiceAzureFunction {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureFunction
-		return ret
-	}).(LinkedServiceAzureFunctionOutput)
-}
-
 type LinkedServiceAzureFunctionArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFunctionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceAzureFunction)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceAzureFunction)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureFunctionArrayOutput) ToLinkedServiceAzureFunctionArrayOutput() LinkedServiceAzureFunctionArrayOutput {
@@ -421,15 +362,15 @@ func (o LinkedServiceAzureFunctionArrayOutput) ToLinkedServiceAzureFunctionArray
 }
 
 func (o LinkedServiceAzureFunctionArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureFunctionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceAzureFunction {
-		return vs[0].([]LinkedServiceAzureFunction)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureFunction {
+		return vs[0].([]*LinkedServiceAzureFunction)[vs[1].(int)]
 	}).(LinkedServiceAzureFunctionOutput)
 }
 
 type LinkedServiceAzureFunctionMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFunctionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceAzureFunction)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceAzureFunction)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureFunctionMapOutput) ToLinkedServiceAzureFunctionMapOutput() LinkedServiceAzureFunctionMapOutput {
@@ -441,18 +382,16 @@ func (o LinkedServiceAzureFunctionMapOutput) ToLinkedServiceAzureFunctionMapOutp
 }
 
 func (o LinkedServiceAzureFunctionMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureFunctionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceAzureFunction {
-		return vs[0].(map[string]LinkedServiceAzureFunction)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceAzureFunction {
+		return vs[0].(map[string]*LinkedServiceAzureFunction)[vs[1].(string)]
 	}).(LinkedServiceAzureFunctionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionInput)(nil)).Elem(), &LinkedServiceAzureFunction{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionPtrInput)(nil)).Elem(), &LinkedServiceAzureFunction{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionArrayInput)(nil)).Elem(), LinkedServiceAzureFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionMapInput)(nil)).Elem(), LinkedServiceAzureFunctionMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFunctionOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureFunctionPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFunctionArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFunctionMapOutput{})
 }

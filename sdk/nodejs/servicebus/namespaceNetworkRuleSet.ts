@@ -126,33 +126,31 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceNetworkRuleSetArgs | NamespaceNetworkRuleSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceNetworkRuleSetState | undefined;
-            inputs["defaultAction"] = state ? state.defaultAction : undefined;
-            inputs["ipRules"] = state ? state.ipRules : undefined;
-            inputs["namespaceId"] = state ? state.namespaceId : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["networkRules"] = state ? state.networkRules : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["trustedServicesAllowed"] = state ? state.trustedServicesAllowed : undefined;
+            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
+            resourceInputs["ipRules"] = state ? state.ipRules : undefined;
+            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["networkRules"] = state ? state.networkRules : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["trustedServicesAllowed"] = state ? state.trustedServicesAllowed : undefined;
         } else {
             const args = argsOrState as NamespaceNetworkRuleSetArgs | undefined;
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
-            inputs["ipRules"] = args ? args.ipRules : undefined;
-            inputs["namespaceId"] = args ? args.namespaceId : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["networkRules"] = args ? args.networkRules : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["trustedServicesAllowed"] = args ? args.trustedServicesAllowed : undefined;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
+            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["networkRules"] = args ? args.networkRules : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["trustedServicesAllowed"] = args ? args.trustedServicesAllowed : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NamespaceNetworkRuleSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

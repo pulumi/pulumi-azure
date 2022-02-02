@@ -99,15 +99,15 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedPrivateEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPrivateEndpointArgs | ManagedPrivateEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["fqdns"] = state ? state.fqdns : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["subresourceName"] = state ? state.subresourceName : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as ManagedPrivateEndpointArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -116,16 +116,14 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["fqdns"] = args ? args.fqdns : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subresourceName"] = args ? args.subresourceName : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

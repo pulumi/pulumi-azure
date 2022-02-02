@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Management Policy.
@@ -78,7 +77,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

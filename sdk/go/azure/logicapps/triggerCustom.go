@@ -158,7 +158,7 @@ type TriggerCustomInput interface {
 }
 
 func (*TriggerCustom) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCustom)(nil))
+	return reflect.TypeOf((**TriggerCustom)(nil)).Elem()
 }
 
 func (i *TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
@@ -167,35 +167,6 @@ func (i *TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
 
 func (i *TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomOutput)
-}
-
-func (i *TriggerCustom) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
-	return i.ToTriggerCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *TriggerCustom) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomPtrOutput)
-}
-
-type TriggerCustomPtrInput interface {
-	pulumi.Input
-
-	ToTriggerCustomPtrOutput() TriggerCustomPtrOutput
-	ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput
-}
-
-type triggerCustomPtrType TriggerCustomArgs
-
-func (*triggerCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TriggerCustom)(nil))
-}
-
-func (i *triggerCustomPtrType) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
-	return i.ToTriggerCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *triggerCustomPtrType) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomPtrOutput)
 }
 
 // TriggerCustomArrayInput is an input type that accepts TriggerCustomArray and TriggerCustomArrayOutput values.
@@ -251,7 +222,7 @@ func (i TriggerCustomMap) ToTriggerCustomMapOutputWithContext(ctx context.Contex
 type TriggerCustomOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCustom)(nil))
+	return reflect.TypeOf((**TriggerCustom)(nil)).Elem()
 }
 
 func (o TriggerCustomOutput) ToTriggerCustomOutput() TriggerCustomOutput {
@@ -262,44 +233,10 @@ func (o TriggerCustomOutput) ToTriggerCustomOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o TriggerCustomOutput) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
-	return o.ToTriggerCustomPtrOutputWithContext(context.Background())
-}
-
-func (o TriggerCustomOutput) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerCustom) *TriggerCustom {
-		return &v
-	}).(TriggerCustomPtrOutput)
-}
-
-type TriggerCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (TriggerCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TriggerCustom)(nil))
-}
-
-func (o TriggerCustomPtrOutput) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
-	return o
-}
-
-func (o TriggerCustomPtrOutput) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
-	return o
-}
-
-func (o TriggerCustomPtrOutput) Elem() TriggerCustomOutput {
-	return o.ApplyT(func(v *TriggerCustom) TriggerCustom {
-		if v != nil {
-			return *v
-		}
-		var ret TriggerCustom
-		return ret
-	}).(TriggerCustomOutput)
-}
-
 type TriggerCustomArrayOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TriggerCustom)(nil))
+	return reflect.TypeOf((*[]*TriggerCustom)(nil)).Elem()
 }
 
 func (o TriggerCustomArrayOutput) ToTriggerCustomArrayOutput() TriggerCustomArrayOutput {
@@ -311,15 +248,15 @@ func (o TriggerCustomArrayOutput) ToTriggerCustomArrayOutputWithContext(ctx cont
 }
 
 func (o TriggerCustomArrayOutput) Index(i pulumi.IntInput) TriggerCustomOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerCustom {
-		return vs[0].([]TriggerCustom)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerCustom {
+		return vs[0].([]*TriggerCustom)[vs[1].(int)]
 	}).(TriggerCustomOutput)
 }
 
 type TriggerCustomMapOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TriggerCustom)(nil))
+	return reflect.TypeOf((*map[string]*TriggerCustom)(nil)).Elem()
 }
 
 func (o TriggerCustomMapOutput) ToTriggerCustomMapOutput() TriggerCustomMapOutput {
@@ -331,18 +268,16 @@ func (o TriggerCustomMapOutput) ToTriggerCustomMapOutputWithContext(ctx context.
 }
 
 func (o TriggerCustomMapOutput) MapIndex(k pulumi.StringInput) TriggerCustomOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TriggerCustom {
-		return vs[0].(map[string]TriggerCustom)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TriggerCustom {
+		return vs[0].(map[string]*TriggerCustom)[vs[1].(string)]
 	}).(TriggerCustomOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomInput)(nil)).Elem(), &TriggerCustom{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomPtrInput)(nil)).Elem(), &TriggerCustom{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomArrayInput)(nil)).Elem(), TriggerCustomArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomMapInput)(nil)).Elem(), TriggerCustomMap{})
 	pulumi.RegisterOutputType(TriggerCustomOutput{})
-	pulumi.RegisterOutputType(TriggerCustomPtrOutput{})
 	pulumi.RegisterOutputType(TriggerCustomArrayOutput{})
 	pulumi.RegisterOutputType(TriggerCustomMapOutput{})
 }

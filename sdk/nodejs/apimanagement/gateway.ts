@@ -93,14 +93,14 @@ export class Gateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["locationData"] = state ? state.locationData : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["locationData"] = state ? state.locationData : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
             if ((!args || args.apiManagementId === undefined) && !opts.urn) {
@@ -109,15 +109,13 @@ export class Gateway extends pulumi.CustomResource {
             if ((!args || args.locationData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationData'");
             }
-            inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["locationData"] = args ? args.locationData : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["locationData"] = args ? args.locationData : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Gateway.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

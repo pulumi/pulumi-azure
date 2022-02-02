@@ -103,17 +103,17 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["base64"] = state ? state.base64 : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["exportable"] = state ? state.exportable : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["base64"] = state ? state.base64 : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["exportable"] = state ? state.exportable : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -125,18 +125,16 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["base64"] = args ? args.base64 : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["exportable"] = args ? args.exportable : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["base64"] = args ? args.base64 : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["exportable"] = args ? args.exportable : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

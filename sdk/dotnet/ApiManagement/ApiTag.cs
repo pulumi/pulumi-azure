@@ -26,11 +26,11 @@ namespace Pulumi.Azure.ApiManagement
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var exampleService = exampleResourceGroup.Name.Apply(name =&gt; Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
+    ///         var exampleService = Azure.ApiManagement.GetService.Invoke(new Azure.ApiManagement.GetServiceInvokeArgs
     ///         {
     ///             Name = "example-apim",
-    ///             ResourceGroupName = name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,

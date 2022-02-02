@@ -93,26 +93,24 @@ export class DataConnectorAzureAdvancedThreadProtection extends pulumi.CustomRes
      */
     constructor(name: string, args: DataConnectorAzureAdvancedThreadProtectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataConnectorAzureAdvancedThreadProtectionArgs | DataConnectorAzureAdvancedThreadProtectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorAzureAdvancedThreadProtectionState | undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as DataConnectorAzureAdvancedThreadProtectionArgs | undefined;
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataConnectorAzureAdvancedThreadProtection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataConnectorAzureAdvancedThreadProtection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

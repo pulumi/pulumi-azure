@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Lb
 {
@@ -52,7 +51,7 @@ namespace Pulumi.Azure.Lb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBackendAddressPoolResult> InvokeAsync(GetBackendAddressPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer's Backend Address Pool.
@@ -94,7 +93,7 @@ namespace Pulumi.Azure.Lb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBackendAddressPoolResult> Invoke(GetBackendAddressPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -141,19 +141,19 @@ export class Automation extends pulumi.CustomResource {
      */
     constructor(name: string, args: AutomationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutomationArgs | AutomationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["sources"] = state ? state.sources : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["sources"] = state ? state.sources : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AutomationArgs | undefined;
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -168,20 +168,18 @@ export class Automation extends pulumi.CustomResource {
             if ((!args || args.sources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Automation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Automation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

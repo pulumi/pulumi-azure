@@ -270,39 +270,39 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     constructor(name: string, args: FunctionAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionAppArgs | FunctionAppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionAppState | undefined;
-            inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            inputs["appSettings"] = state ? state.appSettings : undefined;
-            inputs["authSettings"] = state ? state.authSettings : undefined;
-            inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
-            inputs["clientCertMode"] = state ? state.clientCertMode : undefined;
-            inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            inputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            inputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
-            inputs["defaultHostname"] = state ? state.defaultHostname : undefined;
-            inputs["enableBuiltinLogging"] = state ? state.enableBuiltinLogging : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["osType"] = state ? state.osType : undefined;
-            inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["siteConfig"] = state ? state.siteConfig : undefined;
-            inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            inputs["sourceControl"] = state ? state.sourceControl : undefined;
-            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
+            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
+            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
+            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
+            resourceInputs["clientCertMode"] = state ? state.clientCertMode : undefined;
+            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
+            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
+            resourceInputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
+            resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
+            resourceInputs["enableBuiltinLogging"] = state ? state.enableBuiltinLogging : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["osType"] = state ? state.osType : undefined;
+            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
+            resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
+            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            resourceInputs["sourceControl"] = state ? state.sourceControl : undefined;
+            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as FunctionAppArgs | undefined;
             if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
@@ -311,40 +311,38 @@ export class FunctionApp extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            inputs["appSettings"] = args ? args.appSettings : undefined;
-            inputs["authSettings"] = args ? args.authSettings : undefined;
-            inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
-            inputs["clientCertMode"] = args ? args.clientCertMode : undefined;
-            inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            inputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
-            inputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteConfig"] = args ? args.siteConfig : undefined;
-            inputs["sourceControl"] = args ? args.sourceControl : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["customDomainVerificationId"] = undefined /*out*/;
-            inputs["defaultHostname"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["outboundIpAddresses"] = undefined /*out*/;
-            inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
-            inputs["siteCredentials"] = undefined /*out*/;
+            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
+            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
+            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
+            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
+            resourceInputs["clientCertMode"] = args ? args.clientCertMode : undefined;
+            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
+            resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
+            resourceInputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
+            resourceInputs["sourceControl"] = args ? args.sourceControl : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["customDomainVerificationId"] = undefined /*out*/;
+            resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["outboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["possibleOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["siteCredentials"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FunctionApp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FunctionApp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

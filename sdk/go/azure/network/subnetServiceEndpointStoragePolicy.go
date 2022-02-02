@@ -184,7 +184,7 @@ type SubnetServiceEndpointStoragePolicyInput interface {
 }
 
 func (*SubnetServiceEndpointStoragePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetServiceEndpointStoragePolicy)(nil))
+	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicy)(nil)).Elem()
 }
 
 func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolicyOutput() SubnetServiceEndpointStoragePolicyOutput {
@@ -193,35 +193,6 @@ func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolic
 
 func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolicyOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyOutput)
-}
-
-func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolicyPtrOutput() SubnetServiceEndpointStoragePolicyPtrOutput {
-	return i.ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyPtrOutput)
-}
-
-type SubnetServiceEndpointStoragePolicyPtrInput interface {
-	pulumi.Input
-
-	ToSubnetServiceEndpointStoragePolicyPtrOutput() SubnetServiceEndpointStoragePolicyPtrOutput
-	ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyPtrOutput
-}
-
-type subnetServiceEndpointStoragePolicyPtrType SubnetServiceEndpointStoragePolicyArgs
-
-func (*subnetServiceEndpointStoragePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicy)(nil))
-}
-
-func (i *subnetServiceEndpointStoragePolicyPtrType) ToSubnetServiceEndpointStoragePolicyPtrOutput() SubnetServiceEndpointStoragePolicyPtrOutput {
-	return i.ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *subnetServiceEndpointStoragePolicyPtrType) ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyPtrOutput)
 }
 
 // SubnetServiceEndpointStoragePolicyArrayInput is an input type that accepts SubnetServiceEndpointStoragePolicyArray and SubnetServiceEndpointStoragePolicyArrayOutput values.
@@ -277,7 +248,7 @@ func (i SubnetServiceEndpointStoragePolicyMap) ToSubnetServiceEndpointStoragePol
 type SubnetServiceEndpointStoragePolicyOutput struct{ *pulumi.OutputState }
 
 func (SubnetServiceEndpointStoragePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetServiceEndpointStoragePolicy)(nil))
+	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicy)(nil)).Elem()
 }
 
 func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStoragePolicyOutput() SubnetServiceEndpointStoragePolicyOutput {
@@ -288,44 +259,10 @@ func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStorage
 	return o
 }
 
-func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStoragePolicyPtrOutput() SubnetServiceEndpointStoragePolicyPtrOutput {
-	return o.ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetServiceEndpointStoragePolicy) *SubnetServiceEndpointStoragePolicy {
-		return &v
-	}).(SubnetServiceEndpointStoragePolicyPtrOutput)
-}
-
-type SubnetServiceEndpointStoragePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SubnetServiceEndpointStoragePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicy)(nil))
-}
-
-func (o SubnetServiceEndpointStoragePolicyPtrOutput) ToSubnetServiceEndpointStoragePolicyPtrOutput() SubnetServiceEndpointStoragePolicyPtrOutput {
-	return o
-}
-
-func (o SubnetServiceEndpointStoragePolicyPtrOutput) ToSubnetServiceEndpointStoragePolicyPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyPtrOutput {
-	return o
-}
-
-func (o SubnetServiceEndpointStoragePolicyPtrOutput) Elem() SubnetServiceEndpointStoragePolicyOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicy) SubnetServiceEndpointStoragePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetServiceEndpointStoragePolicy
-		return ret
-	}).(SubnetServiceEndpointStoragePolicyOutput)
-}
-
 type SubnetServiceEndpointStoragePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (SubnetServiceEndpointStoragePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubnetServiceEndpointStoragePolicy)(nil))
+	return reflect.TypeOf((*[]*SubnetServiceEndpointStoragePolicy)(nil)).Elem()
 }
 
 func (o SubnetServiceEndpointStoragePolicyArrayOutput) ToSubnetServiceEndpointStoragePolicyArrayOutput() SubnetServiceEndpointStoragePolicyArrayOutput {
@@ -337,15 +274,15 @@ func (o SubnetServiceEndpointStoragePolicyArrayOutput) ToSubnetServiceEndpointSt
 }
 
 func (o SubnetServiceEndpointStoragePolicyArrayOutput) Index(i pulumi.IntInput) SubnetServiceEndpointStoragePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetServiceEndpointStoragePolicy {
-		return vs[0].([]SubnetServiceEndpointStoragePolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetServiceEndpointStoragePolicy {
+		return vs[0].([]*SubnetServiceEndpointStoragePolicy)[vs[1].(int)]
 	}).(SubnetServiceEndpointStoragePolicyOutput)
 }
 
 type SubnetServiceEndpointStoragePolicyMapOutput struct{ *pulumi.OutputState }
 
 func (SubnetServiceEndpointStoragePolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SubnetServiceEndpointStoragePolicy)(nil))
+	return reflect.TypeOf((*map[string]*SubnetServiceEndpointStoragePolicy)(nil)).Elem()
 }
 
 func (o SubnetServiceEndpointStoragePolicyMapOutput) ToSubnetServiceEndpointStoragePolicyMapOutput() SubnetServiceEndpointStoragePolicyMapOutput {
@@ -357,18 +294,16 @@ func (o SubnetServiceEndpointStoragePolicyMapOutput) ToSubnetServiceEndpointStor
 }
 
 func (o SubnetServiceEndpointStoragePolicyMapOutput) MapIndex(k pulumi.StringInput) SubnetServiceEndpointStoragePolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubnetServiceEndpointStoragePolicy {
-		return vs[0].(map[string]SubnetServiceEndpointStoragePolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SubnetServiceEndpointStoragePolicy {
+		return vs[0].(map[string]*SubnetServiceEndpointStoragePolicy)[vs[1].(string)]
 	}).(SubnetServiceEndpointStoragePolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyInput)(nil)).Elem(), &SubnetServiceEndpointStoragePolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyPtrInput)(nil)).Elem(), &SubnetServiceEndpointStoragePolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyArrayInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyMapInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyMap{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyOutput{})
-	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyArrayOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyMapOutput{})
 }

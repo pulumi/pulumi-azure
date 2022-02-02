@@ -128,22 +128,22 @@ export class Schedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["expiryTime"] = state ? state.expiryTime : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["interval"] = state ? state.interval : undefined;
-            inputs["monthDays"] = state ? state.monthDays : undefined;
-            inputs["monthlyOccurrences"] = state ? state.monthlyOccurrences : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
-            inputs["weekDays"] = state ? state.weekDays : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["expiryTime"] = state ? state.expiryTime : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["interval"] = state ? state.interval : undefined;
+            resourceInputs["monthDays"] = state ? state.monthDays : undefined;
+            resourceInputs["monthlyOccurrences"] = state ? state.monthlyOccurrences : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["weekDays"] = state ? state.weekDays : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -155,23 +155,21 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["expiryTime"] = args ? args.expiryTime : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["monthDays"] = args ? args.monthDays : undefined;
-            inputs["monthlyOccurrences"] = args ? args.monthlyOccurrences : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
-            inputs["weekDays"] = args ? args.weekDays : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["monthDays"] = args ? args.monthDays : undefined;
+            resourceInputs["monthlyOccurrences"] = args ? args.monthlyOccurrences : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["weekDays"] = args ? args.weekDays : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Schedule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

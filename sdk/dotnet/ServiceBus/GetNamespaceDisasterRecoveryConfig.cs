@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
     public static class GetNamespaceDisasterRecoveryConfig
     {
         public static Task<GetNamespaceDisasterRecoveryConfigResult> InvokeAsync(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         public static Output<GetNamespaceDisasterRecoveryConfigResult> Invoke(GetNamespaceDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
     }
 
 

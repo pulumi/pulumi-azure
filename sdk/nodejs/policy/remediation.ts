@@ -149,16 +149,16 @@ export class Remediation extends pulumi.CustomResource {
      */
     constructor(name: string, args: RemediationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RemediationArgs | RemediationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RemediationState | undefined;
-            inputs["locationFilters"] = state ? state.locationFilters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
-            inputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
-            inputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["locationFilters"] = state ? state.locationFilters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
+            resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RemediationArgs | undefined;
             if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
@@ -167,17 +167,15 @@ export class Remediation extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["locationFilters"] = args ? args.locationFilters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["locationFilters"] = args ? args.locationFilters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Remediation.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Remediation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

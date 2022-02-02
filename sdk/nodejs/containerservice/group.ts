@@ -161,27 +161,27 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["containers"] = state ? state.containers : undefined;
-            inputs["diagnostics"] = state ? state.diagnostics : undefined;
-            inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
-            inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
-            inputs["exposedPorts"] = state ? state.exposedPorts : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkProfileId"] = state ? state.networkProfileId : undefined;
-            inputs["osType"] = state ? state.osType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["restartPolicy"] = state ? state.restartPolicy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["containers"] = state ? state.containers : undefined;
+            resourceInputs["diagnostics"] = state ? state.diagnostics : undefined;
+            resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
+            resourceInputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
+            resourceInputs["exposedPorts"] = state ? state.exposedPorts : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkProfileId"] = state ? state.networkProfileId : undefined;
+            resourceInputs["osType"] = state ? state.osType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["restartPolicy"] = state ? state.restartPolicy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.containers === undefined) && !opts.urn) {
@@ -193,28 +193,26 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["containers"] = args ? args.containers : undefined;
-            inputs["diagnostics"] = args ? args.diagnostics : undefined;
-            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
-            inputs["exposedPorts"] = args ? args.exposedPorts : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkProfileId"] = args ? args.networkProfileId : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restartPolicy"] = args ? args.restartPolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["containers"] = args ? args.containers : undefined;
+            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
+            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            resourceInputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
+            resourceInputs["exposedPorts"] = args ? args.exposedPorts : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkProfileId"] = args ? args.networkProfileId : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

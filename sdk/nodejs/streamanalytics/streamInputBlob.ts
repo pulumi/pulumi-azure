@@ -133,20 +133,20 @@ export class StreamInputBlob extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamInputBlobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamInputBlobArgs | StreamInputBlobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamInputBlobState | undefined;
-            inputs["dateFormat"] = state ? state.dateFormat : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pathPattern"] = state ? state.pathPattern : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serialization"] = state ? state.serialization : undefined;
-            inputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["storageContainerName"] = state ? state.storageContainerName : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            inputs["timeFormat"] = state ? state.timeFormat : undefined;
+            resourceInputs["dateFormat"] = state ? state.dateFormat : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pathPattern"] = state ? state.pathPattern : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serialization"] = state ? state.serialization : undefined;
+            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["timeFormat"] = state ? state.timeFormat : undefined;
         } else {
             const args = argsOrState as StreamInputBlobArgs | undefined;
             if ((!args || args.dateFormat === undefined) && !opts.urn) {
@@ -176,21 +176,19 @@ export class StreamInputBlob extends pulumi.CustomResource {
             if ((!args || args.timeFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeFormat'");
             }
-            inputs["dateFormat"] = args ? args.dateFormat : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pathPattern"] = args ? args.pathPattern : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serialization"] = args ? args.serialization : undefined;
-            inputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            inputs["timeFormat"] = args ? args.timeFormat : undefined;
+            resourceInputs["dateFormat"] = args ? args.dateFormat : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pathPattern"] = args ? args.pathPattern : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(StreamInputBlob.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(StreamInputBlob.__pulumiType, name, resourceInputs, opts);
     }
 }
 
