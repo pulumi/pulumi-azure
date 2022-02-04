@@ -30,10 +30,6 @@ namespace Pulumi.Azure.Dns
     ///         {
     ///             ResourceGroupName = example.Name,
     ///         });
-    ///         var example_private = new Azure.PrivateDns.Zone("example-private", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///         });
     ///     }
     /// 
     /// }

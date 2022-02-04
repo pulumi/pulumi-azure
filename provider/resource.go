@@ -755,9 +755,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_disk_access":                       {Tok: azureResource(azureCompute, "DiskAccess")},
 			"azurerm_ssh_public_key":                    {Tok: azureResource(azureCompute, "SshPublicKey")},
-			"azurerm_linux_function_app":                {Tok: azureResource(azureCompute, "LinuxFunctionApp")},
 			"azurerm_disk_pool":                         {Tok: azureResource(azureCompute, "DiskPool")},
 			"azurerm_disk_pool_managed_disk_attachment": {Tok: azureResource(azureCompute, "DiskPoolManagedDiskAttachment")},
+			"azurerm_disk_pool_iscsi_target":            {Tok: azureResource(azureCompute, "DiskPoolIscsiTarget")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1569,11 +1569,14 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_ip_group":                    {Tok: azureResource(azureNetwork, "IPGroup")},
-			"azurerm_vpn_site":                    {Tok: azureResource(azureNetwork, "VpnSite")},
-			"azurerm_express_route_port":          {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
-			"azurerm_virtual_network_dns_servers": {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},
-			"azurerm_vpn_gateway_nat_rule":        {Tok: azureResource(azureNetwork, "VnpGatewayNatRule")},
+			"azurerm_ip_group":                          {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":                          {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_express_route_port":                {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
+			"azurerm_virtual_network_dns_servers":       {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},
+			"azurerm_vpn_gateway_nat_rule":              {Tok: azureResource(azureNetwork, "VnpGatewayNatRule")},
+			"azurerm_traffic_manager_azure_endpoint":    {Tok: azureResource(azureNetwork, "TrafficManagerAzureEndpoint")},
+			"azurerm_traffic_manager_external_endpoint": {Tok: azureResource(azureNetwork, "TrafficManagerExternalEndpoint")},
+			"azurerm_traffic_manager_nested_endpoint":   {Tok: azureResource(azureNetwork, "TrafficManagerNestedEndpoint")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
@@ -2092,7 +2095,6 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_windows_function_app": {Tok: azureDataSource(azureAutomation, "getWindowsFunctionApp")},
 
 			"azurerm_automation_variable_bool":     {Tok: azureDataSource(azureAutomation, "getBoolVariable")},
 			"azurerm_automation_variable_datetime": {Tok: azureDataSource(azureAutomation, "getDateTimeVariable")},
@@ -2142,7 +2144,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_shared_image":         {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery": {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
 			"azurerm_shared_image_version": {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
-			"azurerm_linux_function_app":   {Tok: azureDataSource(azureCompute, "getLinuxFunctionApp")},
 
 			"azurerm_lb": {
 				Tok: azureDataSource(azureLB, "getLB"),
@@ -2164,6 +2165,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
 			"azurerm_logic_app_integration_account": {Tok: azureDataSource(azureLogicApps, "getIntegrationAccount")},
+			"azurerm_logic_app_standard":            {Tok: azureDataSource(azureLogicApps, "getStandard")},
 			"azurerm_maps_account":                  {Tok: azureDataSource(azureMaps, "getAccount")},
 			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
 			"azurerm_monitor_diagnostic_categories": {
@@ -2208,6 +2210,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_container_registry_scope_map": {Tok: azureDataSource(azureContainerService, "getRegistryScopeMap")},
 			"azurerm_container_registry_token":     {Tok: azureDataSource(azureContainerService, "getRegistryToken")},
+			"azurerm_container_group":              {Tok: azureDataSource(azureContainerService, "getGroup")},
 			"azurerm_notification_hub":             {Tok: azureDataSource(azureNotificationHub, "getHub")},
 			"azurerm_notification_hub_namespace": {
 				Tok: azureDataSource(azureNotificationHub, "getNamespace"),
@@ -2404,8 +2407,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},
 
 			// Web PubSub
-			"azurerm_web_pubsub":     {Tok: azureDataSource(azureWebPubSub, "getService")},
-			"azurerm_web_pubsub_hub": {Tok: azureDataSource(azureWebPubSub, "getHub")},
+			"azurerm_web_pubsub": {Tok: azureDataSource(azureWebPubSub, "getService")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

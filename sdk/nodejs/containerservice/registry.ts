@@ -64,6 +64,40 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Attaching A Container Registry To A Kubernetes Cluster)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "exampleaks1",
+ *     defaultNodePool: {
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_D2_v2",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     principalId: exampleKubernetesCluster.kubeletIdentities.apply(kubeletIdentities => kubeletIdentities[0].objectId),
+ *     roleDefinitionName: "AcrPull",
+ *     scope: exampleRegistry.id,
+ *     skipServicePrincipalAadCheck: true,
+ * });
+ * ```
  *
  * ## Import
  *

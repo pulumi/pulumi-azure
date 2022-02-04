@@ -22,7 +22,7 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+        /// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

@@ -485,7 +485,7 @@ class AccountIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
+        :param pulumi.Input[str] type: Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
@@ -502,7 +502,7 @@ class AccountIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
+        Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 

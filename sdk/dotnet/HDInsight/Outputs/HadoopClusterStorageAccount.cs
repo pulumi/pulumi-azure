@@ -25,6 +25,10 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// The ID of the Storage Container. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StorageContainerId;
+        /// <summary>
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? StorageResourceId;
 
         [OutputConstructor]
         private HadoopClusterStorageAccount(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
             string storageAccountKey,
 
-            string storageContainerId)
+            string storageContainerId,
+
+            string? storageResourceId)
         {
             IsDefault = isDefault;
             StorageAccountKey = storageAccountKey;
             StorageContainerId = storageContainerId;
+            StorageResourceId = storageResourceId;
         }
     }
 }

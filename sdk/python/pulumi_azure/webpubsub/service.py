@@ -39,6 +39,7 @@ class ServiceArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
                forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
                to `false`.
@@ -166,6 +167,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable public network access? Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -234,6 +238,7 @@ class _ServiceState:
         :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the Web Pubsub service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the Web Pubsub service.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[int] public_port: The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
                this forces a new resource to be created.
@@ -408,6 +413,9 @@ class _ServiceState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable public network access? Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -542,6 +550,26 @@ class Service(pulumi.CustomResource):
         """
         Manages an Azure Web Pubsub Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_service = azure.webpubsub.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard_S1",
+            capacity=1,
+            public_network_access_enabled=False,
+            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
+                enabled=True,
+                messaging_logs_enabled=True,
+                connectivity_logs_enabled=False,
+            ))
+        ```
+
         ## Import
 
         Web Pubsub services can be imported using the `resource id`, e.g.
@@ -560,6 +588,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
                forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
@@ -575,6 +604,26 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Web Pubsub Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_service = azure.webpubsub.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard_S1",
+            capacity=1,
+            public_network_access_enabled=False,
+            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
+                enabled=True,
+                messaging_logs_enabled=True,
+                connectivity_logs_enabled=False,
+            ))
+        ```
 
         ## Import
 
@@ -694,6 +743,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the Web Pubsub service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the Web Pubsub service.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[int] public_port: The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
                this forces a new resource to be created.
@@ -813,6 +863,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable public network access? Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

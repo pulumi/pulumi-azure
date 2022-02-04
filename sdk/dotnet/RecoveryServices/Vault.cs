@@ -92,7 +92,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         /// </summary>
         [Output("storageModeType")]
         public Output<string?> StorageModeType { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
         /// <summary>
-        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         /// </summary>
         [Input("storageModeType")]
         public Input<string>? StorageModeType { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
         /// <summary>
-        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         /// </summary>
         [Input("storageModeType")]
         public Input<string>? StorageModeType { get; set; }

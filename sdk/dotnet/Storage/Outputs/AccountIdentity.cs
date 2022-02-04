@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
+        /// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

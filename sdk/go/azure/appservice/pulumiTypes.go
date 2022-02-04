@@ -18111,7 +18111,7 @@ func (o GetEnvironmentV3InboundNetworkDependencyArrayOutput) Index(i pulumi.IntI
 type GetFunctionAppConnectionString struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
-	// The identity type of the Managed Identity assigned to the function app.
+	// The identity type of the Managed Identity assigned to the Function App.
 	Type string `pulumi:"type"`
 	// The value for the Connection String.
 	Value string `pulumi:"value"`
@@ -18131,7 +18131,7 @@ type GetFunctionAppConnectionStringInput interface {
 type GetFunctionAppConnectionStringArgs struct {
 	// The name of the Function App resource.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The identity type of the Managed Identity assigned to the function app.
+	// The identity type of the Managed Identity assigned to the Function App.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value for the Connection String.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -18193,7 +18193,7 @@ func (o GetFunctionAppConnectionStringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppConnectionString) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The identity type of the Managed Identity assigned to the function app.
+// The identity type of the Managed Identity assigned to the Function App.
 func (o GetFunctionAppConnectionStringOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppConnectionString) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18224,11 +18224,13 @@ func (o GetFunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetF
 }
 
 type GetFunctionAppIdentity struct {
-	// The ID of the System Managed Service Principal assigned to the function app.
+	// A list of User Assigned Identity IDs assigned to the Function App.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the Managed Identity assigned to the Function App.
 	PrincipalId string `pulumi:"principalId"`
-	// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+	// The ID of the Tenant where the Managed Identity assigned to the Function App is located.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type of the Managed Identity assigned to the function app.
+	// The identity type of the Managed Identity assigned to the Function App.
 	Type string `pulumi:"type"`
 }
 
@@ -18244,11 +18246,13 @@ type GetFunctionAppIdentityInput interface {
 }
 
 type GetFunctionAppIdentityArgs struct {
-	// The ID of the System Managed Service Principal assigned to the function app.
+	// A list of User Assigned Identity IDs assigned to the Function App.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the Managed Identity assigned to the Function App.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+	// The ID of the Tenant where the Managed Identity assigned to the Function App is located.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type of the Managed Identity assigned to the function app.
+	// The identity type of the Managed Identity assigned to the Function App.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18303,17 +18307,22 @@ func (o GetFunctionAppIdentityOutput) ToGetFunctionAppIdentityOutputWithContext(
 	return o
 }
 
-// The ID of the System Managed Service Principal assigned to the function app.
+// A list of User Assigned Identity IDs assigned to the Function App.
+func (o GetFunctionAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Managed Identity assigned to the Function App.
 func (o GetFunctionAppIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+// The ID of the Tenant where the Managed Identity assigned to the Function App is located.
 func (o GetFunctionAppIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type of the Managed Identity assigned to the function app.
+// The identity type of the Managed Identity assigned to the Function App.
 func (o GetFunctionAppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

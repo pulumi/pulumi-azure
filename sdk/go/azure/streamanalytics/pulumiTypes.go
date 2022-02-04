@@ -249,7 +249,7 @@ type JobIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+	// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -269,7 +269,7 @@ type JobIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+	// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -360,7 +360,7 @@ func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
 func (o JobIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -409,7 +409,7 @@ func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
 func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {

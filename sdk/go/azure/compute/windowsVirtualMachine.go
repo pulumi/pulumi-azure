@@ -139,7 +139,9 @@ type WindowsVirtualMachine struct {
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId pulumi.StringPtrOutput `pulumi:"dedicatedHostGroupId"`
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
@@ -278,7 +280,9 @@ type windowsVirtualMachineState struct {
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
@@ -371,7 +375,9 @@ type WindowsVirtualMachineState struct {
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId pulumi.StringPtrInput
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
@@ -468,7 +474,9 @@ type windowsVirtualMachineArgs struct {
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
@@ -552,7 +560,9 @@ type WindowsVirtualMachineArgs struct {
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId pulumi.StringPtrInput
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrInput

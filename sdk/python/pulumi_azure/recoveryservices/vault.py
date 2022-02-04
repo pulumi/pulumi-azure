@@ -33,7 +33,7 @@ class VaultArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
-        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -141,7 +141,7 @@ class VaultArgs:
     @pulumi.getter(name="storageModeType")
     def storage_mode_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         """
         return pulumi.get(self, "storage_mode_type")
 
@@ -183,7 +183,7 @@ class _VaultState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
-        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if encryption is not None:
@@ -293,7 +293,7 @@ class _VaultState:
     @pulumi.getter(name="storageModeType")
     def storage_mode_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         """
         return pulumi.get(self, "storage_mode_type")
 
@@ -363,7 +363,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
-        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -479,7 +479,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
-        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -557,7 +557,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="storageModeType")
     def storage_mode_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         """
         return pulumi.get(self, "storage_mode_type")
 

@@ -102,12 +102,12 @@ export class Definition extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_name`
      */
     public readonly managementGroupId!: pulumi.Output<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `management_group_id`
      */
     public readonly managementGroupName!: pulumi.Output<string>;
     /**
@@ -206,12 +206,12 @@ export interface DefinitionState {
     displayName?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_name`
      */
     managementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `management_group_id`
      */
     managementGroupName?: pulumi.Input<string>;
     /**
@@ -261,12 +261,12 @@ export interface DefinitionArgs {
     displayName: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_name`
      */
     managementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `management_group_id`
      */
     managementGroupName?: pulumi.Input<string>;
     /**

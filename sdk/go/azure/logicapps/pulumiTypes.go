@@ -4114,6 +4114,1099 @@ func (o WorkflowIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetStandardConnectionString struct {
+	// The name of this Logic App.
+	Name string `pulumi:"name"`
+	// The Type of Managed Identity assigned to this Logic App Workflow.
+	Type  string `pulumi:"type"`
+	Value string `pulumi:"value"`
+}
+
+// GetStandardConnectionStringInput is an input type that accepts GetStandardConnectionStringArgs and GetStandardConnectionStringOutput values.
+// You can construct a concrete instance of `GetStandardConnectionStringInput` via:
+//
+//          GetStandardConnectionStringArgs{...}
+type GetStandardConnectionStringInput interface {
+	pulumi.Input
+
+	ToGetStandardConnectionStringOutput() GetStandardConnectionStringOutput
+	ToGetStandardConnectionStringOutputWithContext(context.Context) GetStandardConnectionStringOutput
+}
+
+type GetStandardConnectionStringArgs struct {
+	// The name of this Logic App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Type of Managed Identity assigned to this Logic App Workflow.
+	Type  pulumi.StringInput `pulumi:"type"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetStandardConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardConnectionString)(nil)).Elem()
+}
+
+func (i GetStandardConnectionStringArgs) ToGetStandardConnectionStringOutput() GetStandardConnectionStringOutput {
+	return i.ToGetStandardConnectionStringOutputWithContext(context.Background())
+}
+
+func (i GetStandardConnectionStringArgs) ToGetStandardConnectionStringOutputWithContext(ctx context.Context) GetStandardConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardConnectionStringOutput)
+}
+
+// GetStandardConnectionStringArrayInput is an input type that accepts GetStandardConnectionStringArray and GetStandardConnectionStringArrayOutput values.
+// You can construct a concrete instance of `GetStandardConnectionStringArrayInput` via:
+//
+//          GetStandardConnectionStringArray{ GetStandardConnectionStringArgs{...} }
+type GetStandardConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardConnectionStringArrayOutput() GetStandardConnectionStringArrayOutput
+	ToGetStandardConnectionStringArrayOutputWithContext(context.Context) GetStandardConnectionStringArrayOutput
+}
+
+type GetStandardConnectionStringArray []GetStandardConnectionStringInput
+
+func (GetStandardConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardConnectionString)(nil)).Elem()
+}
+
+func (i GetStandardConnectionStringArray) ToGetStandardConnectionStringArrayOutput() GetStandardConnectionStringArrayOutput {
+	return i.ToGetStandardConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardConnectionStringArray) ToGetStandardConnectionStringArrayOutputWithContext(ctx context.Context) GetStandardConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardConnectionStringArrayOutput)
+}
+
+type GetStandardConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (GetStandardConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardConnectionString)(nil)).Elem()
+}
+
+func (o GetStandardConnectionStringOutput) ToGetStandardConnectionStringOutput() GetStandardConnectionStringOutput {
+	return o
+}
+
+func (o GetStandardConnectionStringOutput) ToGetStandardConnectionStringOutputWithContext(ctx context.Context) GetStandardConnectionStringOutput {
+	return o
+}
+
+// The name of this Logic App.
+func (o GetStandardConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity assigned to this Logic App Workflow.
+func (o GetStandardConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetStandardConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetStandardConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardConnectionString)(nil)).Elem()
+}
+
+func (o GetStandardConnectionStringArrayOutput) ToGetStandardConnectionStringArrayOutput() GetStandardConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetStandardConnectionStringArrayOutput) ToGetStandardConnectionStringArrayOutputWithContext(ctx context.Context) GetStandardConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetStandardConnectionStringArrayOutput) Index(i pulumi.IntInput) GetStandardConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardConnectionString {
+		return vs[0].([]GetStandardConnectionString)[vs[1].(int)]
+	}).(GetStandardConnectionStringOutput)
+}
+
+type GetStandardIdentity struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Logic App Workflow.
+	Type string `pulumi:"type"`
+}
+
+// GetStandardIdentityInput is an input type that accepts GetStandardIdentityArgs and GetStandardIdentityOutput values.
+// You can construct a concrete instance of `GetStandardIdentityInput` via:
+//
+//          GetStandardIdentityArgs{...}
+type GetStandardIdentityInput interface {
+	pulumi.Input
+
+	ToGetStandardIdentityOutput() GetStandardIdentityOutput
+	ToGetStandardIdentityOutputWithContext(context.Context) GetStandardIdentityOutput
+}
+
+type GetStandardIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Logic App Workflow.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStandardIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardIdentity)(nil)).Elem()
+}
+
+func (i GetStandardIdentityArgs) ToGetStandardIdentityOutput() GetStandardIdentityOutput {
+	return i.ToGetStandardIdentityOutputWithContext(context.Background())
+}
+
+func (i GetStandardIdentityArgs) ToGetStandardIdentityOutputWithContext(ctx context.Context) GetStandardIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityOutput)
+}
+
+func (i GetStandardIdentityArgs) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
+	return i.ToGetStandardIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i GetStandardIdentityArgs) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityOutput).ToGetStandardIdentityPtrOutputWithContext(ctx)
+}
+
+// GetStandardIdentityPtrInput is an input type that accepts GetStandardIdentityArgs, GetStandardIdentityPtr and GetStandardIdentityPtrOutput values.
+// You can construct a concrete instance of `GetStandardIdentityPtrInput` via:
+//
+//          GetStandardIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type GetStandardIdentityPtrInput interface {
+	pulumi.Input
+
+	ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput
+	ToGetStandardIdentityPtrOutputWithContext(context.Context) GetStandardIdentityPtrOutput
+}
+
+type getStandardIdentityPtrType GetStandardIdentityArgs
+
+func GetStandardIdentityPtr(v *GetStandardIdentityArgs) GetStandardIdentityPtrInput {
+	return (*getStandardIdentityPtrType)(v)
+}
+
+func (*getStandardIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetStandardIdentity)(nil)).Elem()
+}
+
+func (i *getStandardIdentityPtrType) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
+	return i.ToGetStandardIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *getStandardIdentityPtrType) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityPtrOutput)
+}
+
+type GetStandardIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetStandardIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardIdentity)(nil)).Elem()
+}
+
+func (o GetStandardIdentityOutput) ToGetStandardIdentityOutput() GetStandardIdentityOutput {
+	return o
+}
+
+func (o GetStandardIdentityOutput) ToGetStandardIdentityOutputWithContext(ctx context.Context) GetStandardIdentityOutput {
+	return o
+}
+
+func (o GetStandardIdentityOutput) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
+	return o.ToGetStandardIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o GetStandardIdentityOutput) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardIdentity) *GetStandardIdentity {
+		return &v
+	}).(GetStandardIdentityPtrOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o GetStandardIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o GetStandardIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity assigned to this Logic App Workflow.
+func (o GetStandardIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStandardIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (GetStandardIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetStandardIdentity)(nil)).Elem()
+}
+
+func (o GetStandardIdentityPtrOutput) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
+	return o
+}
+
+func (o GetStandardIdentityPtrOutput) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
+	return o
+}
+
+func (o GetStandardIdentityPtrOutput) Elem() GetStandardIdentityOutput {
+	return o.ApplyT(func(v *GetStandardIdentity) GetStandardIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GetStandardIdentity
+		return ret
+	}).(GetStandardIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o GetStandardIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o GetStandardIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity assigned to this Logic App Workflow.
+func (o GetStandardIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetStandardSiteConfig struct {
+	AlwaysOn                      *bool                                `pulumi:"alwaysOn"`
+	AppScaleLimit                 int                                  `pulumi:"appScaleLimit"`
+	Cors                          GetStandardSiteConfigCors            `pulumi:"cors"`
+	DotnetFrameworkVersion        *string                              `pulumi:"dotnetFrameworkVersion"`
+	ElasticInstanceMinimum        int                                  `pulumi:"elasticInstanceMinimum"`
+	FtpsState                     string                               `pulumi:"ftpsState"`
+	HealthCheckPath               *string                              `pulumi:"healthCheckPath"`
+	Http2Enabled                  *bool                                `pulumi:"http2Enabled"`
+	IpRestrictions                []GetStandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	LinuxFxVersion                string                               `pulumi:"linuxFxVersion"`
+	MinTlsVersion                 string                               `pulumi:"minTlsVersion"`
+	PreWarmedInstanceCount        int                                  `pulumi:"preWarmedInstanceCount"`
+	RuntimeScaleMonitoringEnabled *bool                                `pulumi:"runtimeScaleMonitoringEnabled"`
+	Use32BitWorkerProcess         *bool                                `pulumi:"use32BitWorkerProcess"`
+	VnetRouteAllEnabled           bool                                 `pulumi:"vnetRouteAllEnabled"`
+	WebsocketsEnabled             *bool                                `pulumi:"websocketsEnabled"`
+}
+
+// GetStandardSiteConfigInput is an input type that accepts GetStandardSiteConfigArgs and GetStandardSiteConfigOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigInput` via:
+//
+//          GetStandardSiteConfigArgs{...}
+type GetStandardSiteConfigInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigOutput() GetStandardSiteConfigOutput
+	ToGetStandardSiteConfigOutputWithContext(context.Context) GetStandardSiteConfigOutput
+}
+
+type GetStandardSiteConfigArgs struct {
+	AlwaysOn                      pulumi.BoolPtrInput                          `pulumi:"alwaysOn"`
+	AppScaleLimit                 pulumi.IntInput                              `pulumi:"appScaleLimit"`
+	Cors                          GetStandardSiteConfigCorsInput               `pulumi:"cors"`
+	DotnetFrameworkVersion        pulumi.StringPtrInput                        `pulumi:"dotnetFrameworkVersion"`
+	ElasticInstanceMinimum        pulumi.IntInput                              `pulumi:"elasticInstanceMinimum"`
+	FtpsState                     pulumi.StringInput                           `pulumi:"ftpsState"`
+	HealthCheckPath               pulumi.StringPtrInput                        `pulumi:"healthCheckPath"`
+	Http2Enabled                  pulumi.BoolPtrInput                          `pulumi:"http2Enabled"`
+	IpRestrictions                GetStandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	LinuxFxVersion                pulumi.StringInput                           `pulumi:"linuxFxVersion"`
+	MinTlsVersion                 pulumi.StringInput                           `pulumi:"minTlsVersion"`
+	PreWarmedInstanceCount        pulumi.IntInput                              `pulumi:"preWarmedInstanceCount"`
+	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput                          `pulumi:"runtimeScaleMonitoringEnabled"`
+	Use32BitWorkerProcess         pulumi.BoolPtrInput                          `pulumi:"use32BitWorkerProcess"`
+	VnetRouteAllEnabled           pulumi.BoolInput                             `pulumi:"vnetRouteAllEnabled"`
+	WebsocketsEnabled             pulumi.BoolPtrInput                          `pulumi:"websocketsEnabled"`
+}
+
+func (GetStandardSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfig)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigOutput() GetStandardSiteConfigOutput {
+	return i.ToGetStandardSiteConfigOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigOutputWithContext(ctx context.Context) GetStandardSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigOutput)
+}
+
+func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
+	return i.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigOutput).ToGetStandardSiteConfigPtrOutputWithContext(ctx)
+}
+
+// GetStandardSiteConfigPtrInput is an input type that accepts GetStandardSiteConfigArgs, GetStandardSiteConfigPtr and GetStandardSiteConfigPtrOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigPtrInput` via:
+//
+//          GetStandardSiteConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type GetStandardSiteConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput
+	ToGetStandardSiteConfigPtrOutputWithContext(context.Context) GetStandardSiteConfigPtrOutput
+}
+
+type getStandardSiteConfigPtrType GetStandardSiteConfigArgs
+
+func GetStandardSiteConfigPtr(v *GetStandardSiteConfigArgs) GetStandardSiteConfigPtrInput {
+	return (*getStandardSiteConfigPtrType)(v)
+}
+
+func (*getStandardSiteConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetStandardSiteConfig)(nil)).Elem()
+}
+
+func (i *getStandardSiteConfigPtrType) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
+	return i.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getStandardSiteConfigPtrType) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigPtrOutput)
+}
+
+type GetStandardSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfig)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigOutput() GetStandardSiteConfigOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigOutputWithContext(ctx context.Context) GetStandardSiteConfigOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
+	return o.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardSiteConfig) *GetStandardSiteConfig {
+		return &v
+	}).(GetStandardSiteConfigPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) AppScaleLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) int { return v.AppScaleLimit }).(pulumi.IntOutput)
+}
+
+func (o GetStandardSiteConfigOutput) Cors() GetStandardSiteConfigCorsOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) GetStandardSiteConfigCors { return v.Cors }).(GetStandardSiteConfigCorsOutput)
+}
+
+func (o GetStandardSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) ElasticInstanceMinimum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) int { return v.ElasticInstanceMinimum }).(pulumi.IntOutput)
+}
+
+func (o GetStandardSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) IpRestrictions() GetStandardSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) []GetStandardSiteConfigIpRestriction { return v.IpRestrictions }).(GetStandardSiteConfigIpRestrictionArrayOutput)
+}
+
+func (o GetStandardSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.LinuxFxVersion }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.MinTlsVersion }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) int { return v.PreWarmedInstanceCount }).(pulumi.IntOutput)
+}
+
+func (o GetStandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetStandardSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetStandardSiteConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetStandardSiteConfig)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigPtrOutput) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigPtrOutput) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigPtrOutput) Elem() GetStandardSiteConfigOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) GetStandardSiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetStandardSiteConfig
+		return ret
+	}).(GetStandardSiteConfigOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlwaysOn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AppScaleLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) Cors() GetStandardSiteConfigCorsPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *GetStandardSiteConfigCors {
+		if v == nil {
+			return nil
+		}
+		return &v.Cors
+	}).(GetStandardSiteConfigCorsPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DotnetFrameworkVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ElasticInstanceMinimum
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) IpRestrictions() GetStandardSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) []GetStandardSiteConfigIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.IpRestrictions
+	}).(GetStandardSiteConfigIpRestrictionArrayOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinuxFxVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PreWarmedInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Use32BitWorkerProcess
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.VnetRouteAllEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WebsocketsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetStandardSiteConfigCors struct {
+	AllowedOrigins     []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool    `pulumi:"supportCredentials"`
+}
+
+// GetStandardSiteConfigCorsInput is an input type that accepts GetStandardSiteConfigCorsArgs and GetStandardSiteConfigCorsOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigCorsInput` via:
+//
+//          GetStandardSiteConfigCorsArgs{...}
+type GetStandardSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigCorsOutput() GetStandardSiteConfigCorsOutput
+	ToGetStandardSiteConfigCorsOutputWithContext(context.Context) GetStandardSiteConfigCorsOutput
+}
+
+type GetStandardSiteConfigCorsArgs struct {
+	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
+}
+
+func (GetStandardSiteConfigCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigCors)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsOutput() GetStandardSiteConfigCorsOutput {
+	return i.ToGetStandardSiteConfigCorsOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsOutput)
+}
+
+func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
+	return i.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsOutput).ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx)
+}
+
+// GetStandardSiteConfigCorsPtrInput is an input type that accepts GetStandardSiteConfigCorsArgs, GetStandardSiteConfigCorsPtr and GetStandardSiteConfigCorsPtrOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigCorsPtrInput` via:
+//
+//          GetStandardSiteConfigCorsArgs{...}
+//
+//  or:
+//
+//          nil
+type GetStandardSiteConfigCorsPtrInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput
+	ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Context) GetStandardSiteConfigCorsPtrOutput
+}
+
+type getStandardSiteConfigCorsPtrType GetStandardSiteConfigCorsArgs
+
+func GetStandardSiteConfigCorsPtr(v *GetStandardSiteConfigCorsArgs) GetStandardSiteConfigCorsPtrInput {
+	return (*getStandardSiteConfigCorsPtrType)(v)
+}
+
+func (*getStandardSiteConfigCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetStandardSiteConfigCors)(nil)).Elem()
+}
+
+func (i *getStandardSiteConfigCorsPtrType) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
+	return i.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *getStandardSiteConfigCorsPtrType) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsPtrOutput)
+}
+
+type GetStandardSiteConfigCorsOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigCors)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsOutput() GetStandardSiteConfigCorsOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
+	return o.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardSiteConfigCors) *GetStandardSiteConfigCors {
+		return &v
+	}).(GetStandardSiteConfigCorsPtrOutput)
+}
+
+func (o GetStandardSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+func (o GetStandardSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
+}
+
+type GetStandardSiteConfigCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetStandardSiteConfigCors)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigCorsPtrOutput) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigCorsPtrOutput) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigCorsPtrOutput) Elem() GetStandardSiteConfigCorsOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfigCors) GetStandardSiteConfigCors {
+		if v != nil {
+			return *v
+		}
+		var ret GetStandardSiteConfigCors
+		return ret
+	}).(GetStandardSiteConfigCorsOutput)
+}
+
+func (o GetStandardSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfigCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetStandardSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfigCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SupportCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetStandardSiteConfigIpRestriction struct {
+	Action    *string                                   `pulumi:"action"`
+	Headers   GetStandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
+	IpAddress *string                                   `pulumi:"ipAddress"`
+	// The name of this Logic App.
+	Name                   string  `pulumi:"name"`
+	Priority               *int    `pulumi:"priority"`
+	ServiceTag             *string `pulumi:"serviceTag"`
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetStandardSiteConfigIpRestrictionInput is an input type that accepts GetStandardSiteConfigIpRestrictionArgs and GetStandardSiteConfigIpRestrictionOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionInput` via:
+//
+//          GetStandardSiteConfigIpRestrictionArgs{...}
+type GetStandardSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigIpRestrictionOutput() GetStandardSiteConfigIpRestrictionOutput
+	ToGetStandardSiteConfigIpRestrictionOutputWithContext(context.Context) GetStandardSiteConfigIpRestrictionOutput
+}
+
+type GetStandardSiteConfigIpRestrictionArgs struct {
+	Action    pulumi.StringPtrInput                          `pulumi:"action"`
+	Headers   GetStandardSiteConfigIpRestrictionHeadersInput `pulumi:"headers"`
+	IpAddress pulumi.StringPtrInput                          `pulumi:"ipAddress"`
+	// The name of this Logic App.
+	Name                   pulumi.StringInput    `pulumi:"name"`
+	Priority               pulumi.IntPtrInput    `pulumi:"priority"`
+	ServiceTag             pulumi.StringPtrInput `pulumi:"serviceTag"`
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetStandardSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigIpRestrictionArgs) ToGetStandardSiteConfigIpRestrictionOutput() GetStandardSiteConfigIpRestrictionOutput {
+	return i.ToGetStandardSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigIpRestrictionArgs) ToGetStandardSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigIpRestrictionOutput)
+}
+
+// GetStandardSiteConfigIpRestrictionArrayInput is an input type that accepts GetStandardSiteConfigIpRestrictionArray and GetStandardSiteConfigIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionArrayInput` via:
+//
+//          GetStandardSiteConfigIpRestrictionArray{ GetStandardSiteConfigIpRestrictionArgs{...} }
+type GetStandardSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigIpRestrictionArrayOutput() GetStandardSiteConfigIpRestrictionArrayOutput
+	ToGetStandardSiteConfigIpRestrictionArrayOutputWithContext(context.Context) GetStandardSiteConfigIpRestrictionArrayOutput
+}
+
+type GetStandardSiteConfigIpRestrictionArray []GetStandardSiteConfigIpRestrictionInput
+
+func (GetStandardSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigIpRestrictionArray) ToGetStandardSiteConfigIpRestrictionArrayOutput() GetStandardSiteConfigIpRestrictionArrayOutput {
+	return i.ToGetStandardSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigIpRestrictionArray) ToGetStandardSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigIpRestrictionArrayOutput)
+}
+
+type GetStandardSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) ToGetStandardSiteConfigIpRestrictionOutput() GetStandardSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) ToGetStandardSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) Headers() GetStandardSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) GetStandardSiteConfigIpRestrictionHeaders { return v.Headers }).(GetStandardSiteConfigIpRestrictionHeadersOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name of this Logic App.
+func (o GetStandardSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type GetStandardSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigIpRestrictionArrayOutput) ToGetStandardSiteConfigIpRestrictionArrayOutput() GetStandardSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigIpRestrictionArrayOutput) ToGetStandardSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetStandardSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardSiteConfigIpRestriction {
+		return vs[0].([]GetStandardSiteConfigIpRestriction)[vs[1].(int)]
+	}).(GetStandardSiteConfigIpRestrictionOutput)
+}
+
+type GetStandardSiteConfigIpRestrictionHeaders struct {
+	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	XFdHealthProbe  *string  `pulumi:"xFdHealthProbe"`
+	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// GetStandardSiteConfigIpRestrictionHeadersInput is an input type that accepts GetStandardSiteConfigIpRestrictionHeadersArgs and GetStandardSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionHeadersInput` via:
+//
+//          GetStandardSiteConfigIpRestrictionHeadersArgs{...}
+type GetStandardSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteConfigIpRestrictionHeadersOutput() GetStandardSiteConfigIpRestrictionHeadersOutput
+	ToGetStandardSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) GetStandardSiteConfigIpRestrictionHeadersOutput
+}
+
+type GetStandardSiteConfigIpRestrictionHeadersArgs struct {
+	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	XFdHealthProbe  pulumi.StringPtrInput   `pulumi:"xFdHealthProbe"`
+	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (GetStandardSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i GetStandardSiteConfigIpRestrictionHeadersArgs) ToGetStandardSiteConfigIpRestrictionHeadersOutput() GetStandardSiteConfigIpRestrictionHeadersOutput {
+	return i.ToGetStandardSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteConfigIpRestrictionHeadersArgs) ToGetStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigIpRestrictionHeadersOutput)
+}
+
+type GetStandardSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) ToGetStandardSiteConfigIpRestrictionHeadersOutput() GetStandardSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) ToGetStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type GetStandardSiteCredential struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+
+// GetStandardSiteCredentialInput is an input type that accepts GetStandardSiteCredentialArgs and GetStandardSiteCredentialOutput values.
+// You can construct a concrete instance of `GetStandardSiteCredentialInput` via:
+//
+//          GetStandardSiteCredentialArgs{...}
+type GetStandardSiteCredentialInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteCredentialOutput() GetStandardSiteCredentialOutput
+	ToGetStandardSiteCredentialOutputWithContext(context.Context) GetStandardSiteCredentialOutput
+}
+
+type GetStandardSiteCredentialArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetStandardSiteCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteCredential)(nil)).Elem()
+}
+
+func (i GetStandardSiteCredentialArgs) ToGetStandardSiteCredentialOutput() GetStandardSiteCredentialOutput {
+	return i.ToGetStandardSiteCredentialOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteCredentialArgs) ToGetStandardSiteCredentialOutputWithContext(ctx context.Context) GetStandardSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteCredentialOutput)
+}
+
+// GetStandardSiteCredentialArrayInput is an input type that accepts GetStandardSiteCredentialArray and GetStandardSiteCredentialArrayOutput values.
+// You can construct a concrete instance of `GetStandardSiteCredentialArrayInput` via:
+//
+//          GetStandardSiteCredentialArray{ GetStandardSiteCredentialArgs{...} }
+type GetStandardSiteCredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardSiteCredentialArrayOutput() GetStandardSiteCredentialArrayOutput
+	ToGetStandardSiteCredentialArrayOutputWithContext(context.Context) GetStandardSiteCredentialArrayOutput
+}
+
+type GetStandardSiteCredentialArray []GetStandardSiteCredentialInput
+
+func (GetStandardSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardSiteCredential)(nil)).Elem()
+}
+
+func (i GetStandardSiteCredentialArray) ToGetStandardSiteCredentialArrayOutput() GetStandardSiteCredentialArrayOutput {
+	return i.ToGetStandardSiteCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardSiteCredentialArray) ToGetStandardSiteCredentialArrayOutputWithContext(ctx context.Context) GetStandardSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteCredentialArrayOutput)
+}
+
+type GetStandardSiteCredentialOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardSiteCredential)(nil)).Elem()
+}
+
+func (o GetStandardSiteCredentialOutput) ToGetStandardSiteCredentialOutput() GetStandardSiteCredentialOutput {
+	return o
+}
+
+func (o GetStandardSiteCredentialOutput) ToGetStandardSiteCredentialOutputWithContext(ctx context.Context) GetStandardSiteCredentialOutput {
+	return o
+}
+
+func (o GetStandardSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteCredential) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o GetStandardSiteCredentialOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteCredential) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetStandardSiteCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardSiteCredential)(nil)).Elem()
+}
+
+func (o GetStandardSiteCredentialArrayOutput) ToGetStandardSiteCredentialArrayOutput() GetStandardSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetStandardSiteCredentialArrayOutput) ToGetStandardSiteCredentialArrayOutputWithContext(ctx context.Context) GetStandardSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetStandardSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetStandardSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardSiteCredential {
+		return vs[0].([]GetStandardSiteCredential)[vs[1].(int)]
+	}).(GetStandardSiteCredentialOutput)
+}
+
 type GetWorkflowIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
@@ -4286,6 +5379,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlWorkflowManagementPtrInput)(nil)).Elem(), WorkflowAccessControlWorkflowManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIdentityInput)(nil)).Elem(), WorkflowIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIdentityPtrInput)(nil)).Elem(), WorkflowIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardConnectionStringInput)(nil)).Elem(), GetStandardConnectionStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardConnectionStringArrayInput)(nil)).Elem(), GetStandardConnectionStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityInput)(nil)).Elem(), GetStandardIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityPtrInput)(nil)).Elem(), GetStandardIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigInput)(nil)).Elem(), GetStandardSiteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigPtrInput)(nil)).Elem(), GetStandardSiteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigCorsInput)(nil)).Elem(), GetStandardSiteConfigCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigCorsPtrInput)(nil)).Elem(), GetStandardSiteConfigCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionArrayInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionHeadersInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteCredentialInput)(nil)).Elem(), GetStandardSiteCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteCredentialArrayInput)(nil)).Elem(), GetStandardSiteCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowIdentityInput)(nil)).Elem(), GetWorkflowIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowIdentityArrayInput)(nil)).Elem(), GetWorkflowIdentityArray{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
@@ -4338,6 +5444,19 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowAccessControlWorkflowManagementPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowIdentityOutput{})
 	pulumi.RegisterOutputType(WorkflowIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetStandardConnectionStringOutput{})
+	pulumi.RegisterOutputType(GetStandardConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardIdentityOutput{})
+	pulumi.RegisterOutputType(GetStandardIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigCorsOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigCorsPtrOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteCredentialOutput{})
+	pulumi.RegisterOutputType(GetStandardSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkflowIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkflowIdentityArrayOutput{})
 }

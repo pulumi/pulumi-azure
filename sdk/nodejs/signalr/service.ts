@@ -25,8 +25,8 @@ import * as utilities from "../utilities";
  *     cors: [{
  *         allowedOrigins: ["http://www.example.com"],
  *     }],
- *     connectivityLogsEnabled: "True",
- *     messagingLogsEnabled: "True",
+ *     connectivityLogsEnabled: true,
+ *     messagingLogsEnabled: true,
  *     serviceMode: "Default",
  *     upstreamEndpoints: [{
  *         categoryPatterns: [

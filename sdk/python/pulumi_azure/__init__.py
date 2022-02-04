@@ -62,6 +62,8 @@ if typing.TYPE_CHECKING:
     core = __core
     import pulumi_azure.cosmosdb as __cosmosdb
     cosmosdb = __cosmosdb
+    import pulumi_azure.costmanagement as __costmanagement
+    costmanagement = __costmanagement
     import pulumi_azure.dashboard as __dashboard
     dashboard = __dashboard
     import pulumi_azure.databasemigration as __databasemigration
@@ -243,6 +245,7 @@ else:
     containerservice = _utilities.lazy_import('pulumi_azure.containerservice')
     core = _utilities.lazy_import('pulumi_azure.core')
     cosmosdb = _utilities.lazy_import('pulumi_azure.cosmosdb')
+    costmanagement = _utilities.lazy_import('pulumi_azure.costmanagement')
     dashboard = _utilities.lazy_import('pulumi_azure.dashboard')
     databasemigration = _utilities.lazy_import('pulumi_azure.databasemigration')
     databoxedge = _utilities.lazy_import('pulumi_azure.databoxedge')
@@ -1502,6 +1505,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/diskPoolIscsiTarget",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget": "DiskPoolIscsiTarget"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/diskPoolManagedDiskAttachment",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -1970,6 +1981,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
    "azure:cosmosdb/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "costmanagement/resourceGroupExport",
+  "fqn": "pulumi_azure.costmanagement",
+  "classes": {
+   "azure:costmanagement/resourceGroupExport:ResourceGroupExport": "ResourceGroupExport"
   }
  },
  {
@@ -4894,10 +4913,34 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/trafficManagerAzureEndpoint",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint": "TrafficManagerAzureEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/trafficManagerEndpoint",
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint": "TrafficManagerEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/trafficManagerExternalEndpoint",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint": "TrafficManagerExternalEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/trafficManagerNestedEndpoint",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint": "TrafficManagerNestedEndpoint"
   }
  },
  {

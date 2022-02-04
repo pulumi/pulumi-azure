@@ -69,10 +69,10 @@ type PolicySetDefinition struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupName pulumi.StringOutput `pulumi:"managementGroupName"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
@@ -132,10 +132,10 @@ type policySetDefinitionState struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
@@ -161,10 +161,10 @@ type PolicySetDefinitionState struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId pulumi.StringPtrInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
@@ -194,10 +194,10 @@ type policySetDefinitionArgs struct {
 	// The display name of the policy set definition.
 	DisplayName string `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
@@ -224,10 +224,10 @@ type PolicySetDefinitionArgs struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId pulumi.StringPtrInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	//
+	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput

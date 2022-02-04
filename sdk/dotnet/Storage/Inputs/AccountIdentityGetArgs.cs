@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
+        /// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

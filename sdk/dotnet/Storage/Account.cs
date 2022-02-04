@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Storage
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.

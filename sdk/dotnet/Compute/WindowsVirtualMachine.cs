@@ -167,7 +167,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> CustomData { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on.
+        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        /// </summary>
+        [Output("dedicatedHostGroupId")]
+        public Output<string?> DedicatedHostGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         /// </summary>
         [Output("dedicatedHostId")]
         public Output<string?> DedicatedHostId { get; private set; } = null!;
@@ -489,7 +495,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on.
+        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        /// </summary>
+        [Input("dedicatedHostGroupId")]
+        public Input<string>? DedicatedHostGroupId { get; set; }
+
+        /// <summary>
+        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -766,7 +778,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on.
+        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        /// </summary>
+        [Input("dedicatedHostGroupId")]
+        public Input<string>? DedicatedHostGroupId { get; set; }
+
+        /// <summary>
+        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }

@@ -35,6 +35,13 @@ __all__ = [
     'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim',
     'WorkflowAccessControlWorkflowManagement',
     'WorkflowIdentity',
+    'GetStandardConnectionStringResult',
+    'GetStandardIdentityResult',
+    'GetStandardSiteConfigResult',
+    'GetStandardSiteConfigCorsResult',
+    'GetStandardSiteConfigIpRestrictionResult',
+    'GetStandardSiteConfigIpRestrictionHeadersResult',
+    'GetStandardSiteCredentialResult',
     'GetWorkflowIdentityResult',
 ]
 
@@ -1546,6 +1553,347 @@ class WorkflowIdentity(dict):
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetStandardConnectionStringResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 value: str):
+        """
+        :param str name: The name of this Logic App.
+        :param str type: The Type of Managed Identity assigned to this Logic App Workflow.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Logic App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Managed Identity assigned to this Logic App Workflow.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetStandardIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        :param str type: The Type of Managed Identity assigned to this Logic App Workflow.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Managed Identity assigned to this Logic App Workflow.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStandardSiteConfigResult(dict):
+    def __init__(__self__, *,
+                 app_scale_limit: int,
+                 cors: 'outputs.GetStandardSiteConfigCorsResult',
+                 elastic_instance_minimum: int,
+                 ftps_state: str,
+                 ip_restrictions: Sequence['outputs.GetStandardSiteConfigIpRestrictionResult'],
+                 linux_fx_version: str,
+                 min_tls_version: str,
+                 pre_warmed_instance_count: int,
+                 vnet_route_all_enabled: bool,
+                 always_on: Optional[bool] = None,
+                 dotnet_framework_version: Optional[str] = None,
+                 health_check_path: Optional[str] = None,
+                 http2_enabled: Optional[bool] = None,
+                 runtime_scale_monitoring_enabled: Optional[bool] = None,
+                 use32_bit_worker_process: Optional[bool] = None,
+                 websockets_enabled: Optional[bool] = None):
+        pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        pulumi.set(__self__, "cors", cors)
+        pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        pulumi.set(__self__, "ftps_state", ftps_state)
+        pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        pulumi.set(__self__, "min_tls_version", min_tls_version)
+        pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if dotnet_framework_version is not None:
+            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if use32_bit_worker_process is not None:
+            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+
+    @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> int:
+        return pulumi.get(self, "app_scale_limit")
+
+    @property
+    @pulumi.getter
+    def cors(self) -> 'outputs.GetStandardSiteConfigCorsResult':
+        return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> int:
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> str:
+        return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Sequence['outputs.GetStandardSiteConfigIpRestrictionResult']:
+        return pulumi.get(self, "ip_restrictions")
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> str:
+        return pulumi.get(self, "linux_fx_version")
+
+    @property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> str:
+        return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> int:
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> bool:
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[bool]:
+        return pulumi.get(self, "always_on")
+
+    @property
+    @pulumi.getter(name="dotnetFrameworkVersion")
+    def dotnet_framework_version(self) -> Optional[str]:
+        return pulumi.get(self, "dotnet_framework_version")
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[str]:
+        return pulumi.get(self, "health_check_path")
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "http2_enabled")
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @property
+    @pulumi.getter(name="use32BitWorkerProcess")
+    def use32_bit_worker_process(self) -> Optional[bool]:
+        return pulumi.get(self, "use32_bit_worker_process")
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "websockets_enabled")
+
+
+@pulumi.output_type
+class GetStandardSiteConfigCorsResult(dict):
+    def __init__(__self__, *,
+                 allowed_origins: Sequence[str],
+                 support_credentials: Optional[bool] = None):
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[bool]:
+        return pulumi.get(self, "support_credentials")
+
+
+@pulumi.output_type
+class GetStandardSiteConfigIpRestrictionResult(dict):
+    def __init__(__self__, *,
+                 headers: 'outputs.GetStandardSiteConfigIpRestrictionHeadersResult',
+                 name: str,
+                 action: Optional[str] = None,
+                 ip_address: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
+                 virtual_network_subnet_id: Optional[str] = None):
+        """
+        :param str name: The name of this Logic App.
+        """
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> 'outputs.GetStandardSiteConfigIpRestrictionHeadersResult':
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Logic App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        return pulumi.get(self, "service_tag")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+
+@pulumi.output_type
+class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[Sequence[str]] = None,
+                 x_fd_health_probe: Optional[str] = None,
+                 x_forwarded_fors: Optional[Sequence[str]] = None,
+                 x_forwarded_hosts: Optional[Sequence[str]] = None):
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_azure_fdids")
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[str]:
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "x_forwarded_hosts")
+
+
+@pulumi.output_type
+class GetStandardSiteCredentialResult(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

@@ -13,6 +13,45 @@ import (
 
 // Manages an Azure Web Pubsub Service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/webpubsub"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("east us"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
+// 			Location:                   exampleResourceGroup.Location,
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Sku:                        pulumi.String("Standard_S1"),
+// 			Capacity:                   pulumi.Int(1),
+// 			PublicNetworkAccessEnabled: pulumi.Bool(false),
+// 			LiveTrace: &webpubsub.ServiceLiveTraceArgs{
+// 				Enabled:                 pulumi.Bool(true),
+// 				MessagingLogsEnabled:    pulumi.Bool(true),
+// 				ConnectivityLogsEnabled: pulumi.Bool(false),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Web Pubsub services can be imported using the `resource id`, e.g.
@@ -43,7 +82,8 @@ type Service struct {
 	// The primary access key for the Web Pubsub service.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// The primary connection string for the Web Pubsub service.
-	PrimaryConnectionString    pulumi.StringOutput  `pulumi:"primaryConnectionString"`
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
 	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
@@ -121,8 +161,9 @@ type serviceState struct {
 	// The primary access key for the Web Pubsub service.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// The primary connection string for the Web Pubsub service.
-	PrimaryConnectionString    *string `pulumi:"primaryConnectionString"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
 	PublicPort *int `pulumi:"publicPort"`
 	// The name of the resource group in which to create the Web Pubsub service. Changing
@@ -165,7 +206,8 @@ type ServiceState struct {
 	// The primary access key for the Web Pubsub service.
 	PrimaryAccessKey pulumi.StringPtrInput
 	// The primary connection string for the Web Pubsub service.
-	PrimaryConnectionString    pulumi.StringPtrInput
+	PrimaryConnectionString pulumi.StringPtrInput
+	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
 	PublicPort pulumi.IntPtrInput
@@ -206,8 +248,9 @@ type serviceArgs struct {
 	// forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Web Pubsub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -235,7 +278,8 @@ type ServiceArgs struct {
 	// forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Web Pubsub service. Changing
 	// this forces a new resource to be created.

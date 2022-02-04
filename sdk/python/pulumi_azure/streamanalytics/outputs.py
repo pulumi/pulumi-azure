@@ -85,7 +85,7 @@ class JobIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+        :param str type: The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
         :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
         :param str tenant_id: The ID of the Azure Active Directory Tenant.
         """
@@ -99,7 +99,7 @@ class JobIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+        The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 

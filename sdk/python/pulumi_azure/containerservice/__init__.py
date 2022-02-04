@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_cluster_node_pool import *
+from .get_group import *
 from .get_kubernetes_cluster import *
 from .get_kubernetes_service_versions import *
 from .get_registry import *

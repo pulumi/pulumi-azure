@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./actionCustom";
 export * from "./actionHttp";
 export * from "./getIntegrationAccount";
+export * from "./getStandard";
 export * from "./getWorkflow";
 export * from "./integrationAccount";
 export * from "./integrationAccountAgreement";

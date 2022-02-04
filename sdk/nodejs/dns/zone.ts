@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const example_public = new azure.dns.Zone("example-public", {resourceGroupName: example.name});
- * const example_private = new azure.privatedns.Zone("example-private", {resourceGroupName: example.name});
  * ```
  *
  * ## Import

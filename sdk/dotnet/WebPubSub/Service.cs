@@ -12,6 +12,39 @@ namespace Pulumi.Azure.WebPubSub
     /// <summary>
     /// Manages an Azure Web Pubsub Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "east us",
+    ///         });
+    ///         var exampleService = new Azure.WebPubSub.Service("exampleService", new Azure.WebPubSub.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard_S1",
+    ///             Capacity = 1,
+    ///             PublicNetworkAccessEnabled = false,
+    ///             LiveTrace = new Azure.WebPubSub.Inputs.ServiceLiveTraceArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 MessagingLogsEnabled = true,
+    ///                 ConnectivityLogsEnabled = false,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Web Pubsub services can be imported using the `resource id`, e.g.
@@ -82,6 +115,9 @@ namespace Pulumi.Azure.WebPubSub
         [Output("primaryConnectionString")]
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to enable public network access? Defaults to `true`.
+        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -222,6 +258,9 @@ namespace Pulumi.Azure.WebPubSub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether to enable public network access? Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -323,6 +362,9 @@ namespace Pulumi.Azure.WebPubSub
         [Input("primaryConnectionString")]
         public Input<string>? PrimaryConnectionString { get; set; }
 
+        /// <summary>
+        /// Whether to enable public network access? Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

@@ -8,6 +8,7 @@ import typing
 from .action_custom import *
 from .action_http import *
 from .get_integration_account import *
+from .get_standard import *
 from .get_workflow import *
 from .integration_account import *
 from .integration_account_agreement import *

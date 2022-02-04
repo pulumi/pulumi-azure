@@ -45,8 +45,8 @@ namespace Pulumi.Azure.SignalR
     ///                     },
     ///                 },
     ///             },
-    ///             ConnectivityLogsEnabled = "True",
-    ///             MessagingLogsEnabled = "True",
+    ///             ConnectivityLogsEnabled = true,
+    ///             MessagingLogsEnabled = true,
     ///             ServiceMode = "Default",
     ///             UpstreamEndpoints = 
     ///             {

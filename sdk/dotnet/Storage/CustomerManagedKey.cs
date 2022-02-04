@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Storage
     ///         {
     ///             KeyVaultId = exampleKeyVault.Id,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
     ///                 "get",
