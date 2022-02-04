@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getClusterNodePool";
+export * from "./getGroup";
 export * from "./getKubernetesCluster";
 export * from "./getKubernetesServiceVersions";
 export * from "./getRegistry";

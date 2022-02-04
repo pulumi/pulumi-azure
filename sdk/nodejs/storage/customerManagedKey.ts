@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * const storage = new azure.keyvault.AccessPolicy("storage", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
- *     objectId: exampleAccount.identity.apply(identity => identity.principalId),
+ *     objectId: exampleAccount.identity.apply(identity => identity?.principalId),
  *     keyPermissions: [
  *         "get",
  *         "create",

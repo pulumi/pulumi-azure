@@ -3005,6 +3005,8 @@ type HBaseClusterStorageAccount struct {
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId *string `pulumi:"storageResourceId"`
 }
 
 // HBaseClusterStorageAccountInput is an input type that accepts HBaseClusterStorageAccountArgs and HBaseClusterStorageAccountOutput values.
@@ -3025,6 +3027,8 @@ type HBaseClusterStorageAccountArgs struct {
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (HBaseClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -3091,6 +3095,11 @@ func (o HBaseClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o HBaseClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HBaseClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type HBaseClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -6781,6 +6790,8 @@ type HadoopClusterStorageAccount struct {
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId *string `pulumi:"storageResourceId"`
 }
 
 // HadoopClusterStorageAccountInput is an input type that accepts HadoopClusterStorageAccountArgs and HadoopClusterStorageAccountOutput values.
@@ -6801,6 +6812,8 @@ type HadoopClusterStorageAccountArgs struct {
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (HadoopClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -6867,6 +6880,11 @@ func (o HadoopClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutp
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o HadoopClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HadoopClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -10255,6 +10273,8 @@ type InteractiveQueryClusterStorageAccount struct {
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId *string `pulumi:"storageResourceId"`
 }
 
 // InteractiveQueryClusterStorageAccountInput is an input type that accepts InteractiveQueryClusterStorageAccountArgs and InteractiveQueryClusterStorageAccountOutput values.
@@ -10275,6 +10295,8 @@ type InteractiveQueryClusterStorageAccountArgs struct {
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (InteractiveQueryClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -10341,6 +10363,11 @@ func (o InteractiveQueryClusterStorageAccountOutput) StorageAccountKey() pulumi.
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type InteractiveQueryClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -13391,6 +13418,8 @@ type KafkaClusterStorageAccount struct {
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId *string `pulumi:"storageResourceId"`
 }
 
 // KafkaClusterStorageAccountInput is an input type that accepts KafkaClusterStorageAccountArgs and KafkaClusterStorageAccountOutput values.
@@ -13411,6 +13440,8 @@ type KafkaClusterStorageAccountArgs struct {
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (KafkaClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -13477,6 +13508,11 @@ func (o KafkaClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o KafkaClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o KafkaClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -15050,7 +15086,8 @@ type MLServicesClusterStorageAccount struct {
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	StorageContainerId string `pulumi:"storageContainerId"`
+	StorageContainerId string  `pulumi:"storageContainerId"`
+	StorageResourceId  *string `pulumi:"storageResourceId"`
 }
 
 // MLServicesClusterStorageAccountInput is an input type that accepts MLServicesClusterStorageAccountArgs and MLServicesClusterStorageAccountOutput values.
@@ -15070,7 +15107,8 @@ type MLServicesClusterStorageAccountArgs struct {
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	StorageContainerId pulumi.StringInput    `pulumi:"storageContainerId"`
+	StorageResourceId  pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (MLServicesClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -15137,6 +15175,10 @@ func (o MLServicesClusterStorageAccountOutput) StorageAccountKey() pulumi.String
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o MLServicesClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLServicesClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type MLServicesClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -16516,7 +16558,8 @@ type RServerClusterStorageAccount struct {
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	StorageContainerId string `pulumi:"storageContainerId"`
+	StorageContainerId string  `pulumi:"storageContainerId"`
+	StorageResourceId  *string `pulumi:"storageResourceId"`
 }
 
 // RServerClusterStorageAccountInput is an input type that accepts RServerClusterStorageAccountArgs and RServerClusterStorageAccountOutput values.
@@ -16536,7 +16579,8 @@ type RServerClusterStorageAccountArgs struct {
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	StorageContainerId pulumi.StringInput    `pulumi:"storageContainerId"`
+	StorageResourceId  pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (RServerClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -16603,6 +16647,10 @@ func (o RServerClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOut
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o RServerClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+func (o RServerClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RServerClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type RServerClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -19797,6 +19845,8 @@ type SparkClusterStorageAccount struct {
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId *string `pulumi:"storageResourceId"`
 }
 
 // SparkClusterStorageAccountInput is an input type that accepts SparkClusterStorageAccountArgs and SparkClusterStorageAccountOutput values.
@@ -19817,6 +19867,8 @@ type SparkClusterStorageAccountArgs struct {
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (SparkClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -19883,6 +19935,11 @@ func (o SparkClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o SparkClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o SparkClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -22255,7 +22312,8 @@ type StormClusterStorageAccount struct {
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	StorageContainerId string `pulumi:"storageContainerId"`
+	StorageContainerId string  `pulumi:"storageContainerId"`
+	StorageResourceId  *string `pulumi:"storageResourceId"`
 }
 
 // StormClusterStorageAccountInput is an input type that accepts StormClusterStorageAccountArgs and StormClusterStorageAccountOutput values.
@@ -22275,7 +22333,8 @@ type StormClusterStorageAccountArgs struct {
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+	StorageContainerId pulumi.StringInput    `pulumi:"storageContainerId"`
+	StorageResourceId  pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
 func (StormClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -22342,6 +22401,10 @@ func (o StormClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 func (o StormClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+func (o StormClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StormClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type StormClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }

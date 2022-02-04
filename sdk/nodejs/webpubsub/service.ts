@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard_S1",
- *     capactiy: 1,
+ *     capacity: 1,
  *     publicNetworkAccessEnabled: false,
  *     liveTrace: {
  *         enabled: true,
@@ -104,6 +104,9 @@ export class Service extends pulumi.CustomResource {
      * The primary connection string for the Web Pubsub service.
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    /**
+     * Whether to enable public network access? Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
@@ -251,6 +254,9 @@ export interface ServiceState {
      * The primary connection string for the Web Pubsub service.
      */
     primaryConnectionString?: pulumi.Input<string>;
+    /**
+     * Whether to enable public network access? Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
@@ -319,6 +325,9 @@ export interface ServiceArgs {
      * The name of the Web Pubsub service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether to enable public network access? Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Web Pubsub service. Changing

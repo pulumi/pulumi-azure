@@ -3891,7 +3891,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The identity type of the Managed Identity assigned to the function app.
+         * The identity type of the Managed Identity assigned to the Function App.
          */
         type: string;
         /**
@@ -3902,15 +3902,19 @@ export namespace appservice {
 
     export interface GetFunctionAppIdentity {
         /**
-         * The ID of the System Managed Service Principal assigned to the function app.
+         * A list of User Assigned Identity IDs assigned to the Function App.
+         */
+        identityIds: string[];
+        /**
+         * The ID of the Managed Identity assigned to the Function App.
          */
         principalId: string;
         /**
-         * The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+         * The ID of the Tenant where the Managed Identity assigned to the Function App is located.
          */
         tenantId: string;
         /**
-         * The identity type of the Managed Identity assigned to the function app.
+         * The identity type of the Managed Identity assigned to the Function App.
          */
         type: string;
     }
@@ -12212,6 +12216,35 @@ export namespace cosmosdb {
 
 }
 
+export namespace costmanagement {
+    export interface ResourceGroupExportDeliveryInfo {
+        /**
+         * The name of the container where exports will be uploaded.
+         */
+        containerName: string;
+        /**
+         * The path of the directory where exports will be uploaded.
+         */
+        rootFolderPath: string;
+        /**
+         * The storage account id where exports will be delivered.
+         */
+        storageAccountId: string;
+    }
+
+    export interface ResourceGroupExportQuery {
+        /**
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         */
+        timeFrame: string;
+        /**
+         * The type of the query.
+         */
+        type: string;
+    }
+
+}
+
 export namespace databoxedge {
     export interface DeviceDeviceProperty {
         /**
@@ -17011,6 +17044,10 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageResourceId?: string;
     }
 
     export interface HBaseClusterStorageAccountGen2 {
@@ -17382,6 +17419,10 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageResourceId?: string;
     }
 
     export interface HadoopClusterStorageAccountGen2 {
@@ -17720,6 +17761,10 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageResourceId?: string;
     }
 
     export interface InteractiveQueryClusterStorageAccountGen2 {
@@ -18044,6 +18089,10 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageResourceId?: string;
     }
 
     export interface KafkaClusterStorageAccountGen2 {
@@ -18232,6 +18281,7 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        storageResourceId?: string;
     }
 
     export interface RServerClusterGateway {
@@ -18401,6 +18451,7 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        storageResourceId?: string;
     }
 
     export interface SparkClusterComponentVersion {
@@ -18723,6 +18774,10 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
+        storageResourceId?: string;
     }
 
     export interface SparkClusterStorageAccountGen2 {
@@ -18970,6 +19025,7 @@ export namespace hdinsight {
          * The ID of the Storage Container. Changing this forces a new resource to be created.
          */
         storageContainerId: string;
+        storageResourceId?: string;
     }
 }
 
@@ -20592,6 +20648,82 @@ export namespace logicapps {
          * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
          */
         actionResult: string;
+    }
+
+    export interface GetStandardConnectionString {
+        /**
+         * The name of this Logic App.
+         */
+        name: string;
+        /**
+         * The Type of Managed Identity assigned to this Logic App Workflow.
+         */
+        type: string;
+        value: string;
+    }
+
+    export interface GetStandardIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to this Logic App Workflow.
+         */
+        type: string;
+    }
+
+    export interface GetStandardSiteConfig {
+        alwaysOn?: boolean;
+        appScaleLimit: number;
+        cors: outputs.logicapps.GetStandardSiteConfigCors;
+        dotnetFrameworkVersion?: string;
+        elasticInstanceMinimum: number;
+        ftpsState: string;
+        healthCheckPath?: string;
+        http2Enabled?: boolean;
+        ipRestrictions: outputs.logicapps.GetStandardSiteConfigIpRestriction[];
+        linuxFxVersion: string;
+        minTlsVersion: string;
+        preWarmedInstanceCount: number;
+        runtimeScaleMonitoringEnabled?: boolean;
+        use32BitWorkerProcess?: boolean;
+        vnetRouteAllEnabled: boolean;
+        websocketsEnabled?: boolean;
+    }
+
+    export interface GetStandardSiteConfigCors {
+        allowedOrigins: string[];
+        supportCredentials?: boolean;
+    }
+
+    export interface GetStandardSiteConfigIpRestriction {
+        action?: string;
+        headers: outputs.logicapps.GetStandardSiteConfigIpRestrictionHeaders;
+        ipAddress?: string;
+        /**
+         * The name of this Logic App.
+         */
+        name: string;
+        priority?: number;
+        serviceTag?: string;
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface GetStandardSiteConfigIpRestrictionHeaders {
+        xAzureFdids?: string[];
+        xFdHealthProbe?: string;
+        xForwardedFors?: string[];
+        xForwardedHosts?: string[];
+    }
+
+    export interface GetStandardSiteCredential {
+        password: string;
+        username: string;
     }
 
     export interface GetWorkflowIdentity {
@@ -27168,7 +27300,7 @@ export namespace network {
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
          */
         name: string;
     }
@@ -27186,6 +27318,32 @@ export namespace network {
          * Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
          */
         serviceResources: string[];
+    }
+
+    export interface TrafficManagerAzureEndpointCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: string;
+    }
+
+    export interface TrafficManagerAzureEndpointSubnet {
+        /**
+         * The first IP Address in this subnet.
+         */
+        first: string;
+        /**
+         * The last IP Address in this subnet.
+         */
+        last?: string;
+        /**
+         * The block size (number of leading bits in the subnet mask).
+         */
+        scope?: number;
     }
 
     export interface TrafficManagerEndpointCustomHeader {
@@ -27210,6 +27368,58 @@ export namespace network {
         last?: string;
         /**
          * The Scope...
+         */
+        scope?: number;
+    }
+
+    export interface TrafficManagerExternalEndpointCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: string;
+    }
+
+    export interface TrafficManagerExternalEndpointSubnet {
+        /**
+         * The first IP Address in this subnet.
+         */
+        first: string;
+        /**
+         * The last IP Address in this subnet.
+         */
+        last?: string;
+        /**
+         * The block size (number of leading bits in the subnet mask).
+         */
+        scope?: number;
+    }
+
+    export interface TrafficManagerNestedEndpointCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: string;
+    }
+
+    export interface TrafficManagerNestedEndpointSubnet {
+        /**
+         * The first IP Address in this subnet.
+         */
+        first: string;
+        /**
+         * The last IP Address in this subnet.
+         */
+        last?: string;
+        /**
+         * The block size (number of leading bits in the subnet mask).
          */
         scope?: number;
     }
@@ -27959,7 +28169,6 @@ export namespace network {
          */
         peeringAddress: string;
     }
-
 }
 
 export namespace notificationhub {
@@ -28276,7 +28485,7 @@ export namespace postgresql {
          */
         geoRedundantBackup: string;
         /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
          *
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
@@ -30258,7 +30467,7 @@ export namespace storage {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
+         * Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -31034,7 +31243,7 @@ export namespace streamanalytics {
          */
         tenantId: string;
         /**
-         * The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+         * The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
          */
         type: string;
     }

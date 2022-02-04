@@ -46,8 +46,8 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ConnectivityLogsEnabled: pulumi.Bool("True"),
-// 			MessagingLogsEnabled:    pulumi.Bool("True"),
+// 			ConnectivityLogsEnabled: pulumi.Bool(true),
+// 			MessagingLogsEnabled:    pulumi.Bool(true),
 // 			ServiceMode:             pulumi.String("Default"),
 // 			UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
 // 				&signalr.ServiceUpstreamEndpointArgs{

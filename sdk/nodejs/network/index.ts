@@ -80,7 +80,10 @@ export * from "./subnetNatGatewayAssociation";
 export * from "./subnetNetworkSecurityGroupAssociation";
 export * from "./subnetRouteTableAssociation";
 export * from "./subnetServiceEndpointStoragePolicy";
+export * from "./trafficManagerAzureEndpoint";
 export * from "./trafficManagerEndpoint";
+export * from "./trafficManagerExternalEndpoint";
+export * from "./trafficManagerNestedEndpoint";
 export * from "./trafficManagerProfile";
 export * from "./virtualHub";
 export * from "./virtualHubConnection";
@@ -148,7 +151,10 @@ import { SubnetNatGatewayAssociation } from "./subnetNatGatewayAssociation";
 import { SubnetNetworkSecurityGroupAssociation } from "./subnetNetworkSecurityGroupAssociation";
 import { SubnetRouteTableAssociation } from "./subnetRouteTableAssociation";
 import { SubnetServiceEndpointStoragePolicy } from "./subnetServiceEndpointStoragePolicy";
+import { TrafficManagerAzureEndpoint } from "./trafficManagerAzureEndpoint";
 import { TrafficManagerEndpoint } from "./trafficManagerEndpoint";
+import { TrafficManagerExternalEndpoint } from "./trafficManagerExternalEndpoint";
+import { TrafficManagerNestedEndpoint } from "./trafficManagerNestedEndpoint";
 import { TrafficManagerProfile } from "./trafficManagerProfile";
 import { VirtualHub } from "./virtualHub";
 import { VirtualHubConnection } from "./virtualHubConnection";
@@ -267,8 +273,14 @@ const _module = {
                 return new SubnetRouteTableAssociation(name, <any>undefined, { urn })
             case "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy":
                 return new SubnetServiceEndpointStoragePolicy(name, <any>undefined, { urn })
+            case "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint":
+                return new TrafficManagerAzureEndpoint(name, <any>undefined, { urn })
             case "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
                 return new TrafficManagerEndpoint(name, <any>undefined, { urn })
+            case "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint":
+                return new TrafficManagerExternalEndpoint(name, <any>undefined, { urn })
+            case "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint":
+                return new TrafficManagerNestedEndpoint(name, <any>undefined, { urn })
             case "azure:network/trafficManagerProfile:TrafficManagerProfile":
                 return new TrafficManagerProfile(name, <any>undefined, { urn })
             case "azure:network/virtualHub:VirtualHub":
@@ -356,7 +368,10 @@ pulumi.runtime.registerResourceModule("azure", "network/subnetNatGatewayAssociat
 pulumi.runtime.registerResourceModule("azure", "network/subnetNetworkSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetServiceEndpointStoragePolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "network/trafficManagerAzureEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "network/trafficManagerExternalEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "network/trafficManagerNestedEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualHub", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualHubConnection", _module)

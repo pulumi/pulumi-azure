@@ -67,8 +67,7 @@ namespace Pulumi.Azure.Storage
     ///         });
     ///         var test = new Azure.Storage.AccountNetworkRules("test", new Azure.Storage.AccountNetworkRulesArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             StorageAccountName = azurerm_storage_account.Test.Name,
+    ///             StorageAccountId = azurerm_storage_account.Test.Id,
     ///             DefaultAction = "Allow",
     ///             IpRules = 
     ///             {

@@ -145,7 +145,11 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly customData!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on.
+     * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+     */
+    public readonly dedicatedHostGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
     public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
     /**
@@ -303,6 +307,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
             resourceInputs["computerName"] = state ? state.computerName : undefined;
             resourceInputs["customData"] = state ? state.customData : undefined;
+            resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
             resourceInputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
@@ -363,6 +368,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
             resourceInputs["computerName"] = args ? args.computerName : undefined;
             resourceInputs["customData"] = args ? args.customData : undefined;
+            resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
             resourceInputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
@@ -444,7 +450,11 @@ export interface LinuxVirtualMachineState {
      */
     customData?: pulumi.Input<string>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on.
+     * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+     */
+    dedicatedHostGroupId?: pulumi.Input<string>;
+    /**
+     * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
     dedicatedHostId?: pulumi.Input<string>;
     /**
@@ -622,7 +632,11 @@ export interface LinuxVirtualMachineArgs {
      */
     customData?: pulumi.Input<string>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on.
+     * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+     */
+    dedicatedHostGroupId?: pulumi.Input<string>;
+    /**
+     * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
     dedicatedHostId?: pulumi.Input<string>;
     /**

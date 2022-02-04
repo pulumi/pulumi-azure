@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Traffic Manager Endpoint.
  *
+ * > **NOTE:** This resource is **deprecated** in favour of the `azure.network.TrafficManagerAzureEndpoint`, `azure.network.TrafficManagerExternalEndpoint`, or `azure.network.TrafficManagerNestedEndpoint` resources and will be removed in version 3.0 of the Azure Provider.
+ *
  * ## Example Usage
  *
  * ```typescript

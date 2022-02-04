@@ -152,7 +152,9 @@ type LinuxVirtualMachine struct {
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId pulumi.StringPtrOutput `pulumi:"dedicatedHostGroupId"`
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
@@ -284,7 +286,9 @@ type linuxVirtualMachineState struct {
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -373,7 +377,9 @@ type LinuxVirtualMachineState struct {
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId pulumi.StringPtrInput
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -466,7 +472,9 @@ type linuxVirtualMachineArgs struct {
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -546,7 +554,9 @@ type LinuxVirtualMachineArgs struct {
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
-	// The ID of a Dedicated Host where this machine should be run on.
+	// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
+	DedicatedHostGroupId pulumi.StringPtrInput
+	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrInput

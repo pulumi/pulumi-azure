@@ -70,7 +70,7 @@ type Vault struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// Is soft delete enable for this Vault? Defaults to `true`.
 	SoftDeleteEnabled pulumi.BoolPtrOutput `pulumi:"softDeleteEnabled"`
-	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType pulumi.StringPtrOutput `pulumi:"storageModeType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -125,7 +125,7 @@ type vaultState struct {
 	Sku *string `pulumi:"sku"`
 	// Is soft delete enable for this Vault? Defaults to `true`.
 	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
-	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType *string `pulumi:"storageModeType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -146,7 +146,7 @@ type VaultState struct {
 	Sku pulumi.StringPtrInput
 	// Is soft delete enable for this Vault? Defaults to `true`.
 	SoftDeleteEnabled pulumi.BoolPtrInput
-	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -171,7 +171,7 @@ type vaultArgs struct {
 	Sku string `pulumi:"sku"`
 	// Is soft delete enable for this Vault? Defaults to `true`.
 	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
-	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType *string `pulumi:"storageModeType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -193,7 +193,7 @@ type VaultArgs struct {
 	Sku pulumi.StringInput
 	// Is soft delete enable for this Vault? Defaults to `true`.
 	SoftDeleteEnabled pulumi.BoolPtrInput
-	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

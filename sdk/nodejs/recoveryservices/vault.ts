@@ -88,7 +88,7 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly softDeleteEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      */
     public readonly storageModeType!: pulumi.Output<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface VaultState {
      */
     softDeleteEnabled?: pulumi.Input<boolean>;
     /**
-     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      */
     storageModeType?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface VaultArgs {
      */
     softDeleteEnabled?: pulumi.Input<boolean>;
     /**
-     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      */
     storageModeType?: pulumi.Input<string>;
     /**

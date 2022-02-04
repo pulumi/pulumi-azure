@@ -80,7 +80,10 @@ from .subnet_nat_gateway_association import *
 from .subnet_network_security_group_association import *
 from .subnet_route_table_association import *
 from .subnet_service_endpoint_storage_policy import *
+from .traffic_manager_azure_endpoint import *
 from .traffic_manager_endpoint import *
+from .traffic_manager_external_endpoint import *
+from .traffic_manager_nested_endpoint import *
 from .traffic_manager_profile import *
 from .virtual_hub import *
 from .virtual_hub_connection import *

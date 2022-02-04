@@ -30,6 +30,9 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
 
+        [Input("storageResourceId")]
+        public Input<string>? StorageResourceId { get; set; }
+
         public RServerClusterStorageAccountArgs()
         {
         }

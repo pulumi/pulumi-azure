@@ -28,6 +28,7 @@ class LinuxVirtualMachineArgs:
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
+                 dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -68,7 +69,8 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
+        :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -115,6 +117,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "computer_name", computer_name)
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
+        if dedicated_host_group_id is not None:
+            pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
         if disable_password_authentication is not None:
@@ -323,10 +327,22 @@ class LinuxVirtualMachineArgs:
         pulumi.set(self, "custom_data", value)
 
     @property
+    @pulumi.getter(name="dedicatedHostGroupId")
+    def dedicated_host_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        """
+        return pulumi.get(self, "dedicated_host_group_id")
+
+    @dedicated_host_group_id.setter
+    def dedicated_host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_host_group_id", value)
+
+    @property
     @pulumi.getter(name="dedicatedHostId")
     def dedicated_host_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Dedicated Host where this machine should be run on.
+        The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
 
@@ -635,6 +651,7 @@ class _LinuxVirtualMachineState:
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
+                 dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -680,7 +697,8 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
+        :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -733,6 +751,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "computer_name", computer_name)
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
+        if dedicated_host_group_id is not None:
+            pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
         if disable_password_authentication is not None:
@@ -911,10 +931,22 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "custom_data", value)
 
     @property
+    @pulumi.getter(name="dedicatedHostGroupId")
+    def dedicated_host_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        """
+        return pulumi.get(self, "dedicated_host_group_id")
+
+    @dedicated_host_group_id.setter
+    def dedicated_host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_host_group_id", value)
+
+    @property
     @pulumi.getter(name="dedicatedHostId")
     def dedicated_host_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Dedicated Host where this machine should be run on.
+        The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
 
@@ -1333,6 +1365,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
+                 dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1444,7 +1477,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
+        :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -1574,6 +1608,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
+                 dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1626,6 +1661,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["computer_name"] = computer_name
             __props__.__dict__["custom_data"] = custom_data
+            __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
             __props__.__dict__["dedicated_host_id"] = dedicated_host_id
             __props__.__dict__["disable_password_authentication"] = disable_password_authentication
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
@@ -1687,6 +1723,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
             computer_name: Optional[pulumi.Input[str]] = None,
             custom_data: Optional[pulumi.Input[str]] = None,
+            dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
             dedicated_host_id: Optional[pulumi.Input[str]] = None,
             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1737,7 +1774,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
+        :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -1785,6 +1823,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
         __props__.__dict__["computer_name"] = computer_name
         __props__.__dict__["custom_data"] = custom_data
+        __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
         __props__.__dict__["dedicated_host_id"] = dedicated_host_id
         __props__.__dict__["disable_password_authentication"] = disable_password_authentication
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
@@ -1894,10 +1933,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "custom_data")
 
     @property
+    @pulumi.getter(name="dedicatedHostGroupId")
+    def dedicated_host_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        """
+        return pulumi.get(self, "dedicated_host_group_id")
+
+    @property
     @pulumi.getter(name="dedicatedHostId")
     def dedicated_host_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a Dedicated Host where this machine should be run on.
+        The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
 

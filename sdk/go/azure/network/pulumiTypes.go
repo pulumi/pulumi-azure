@@ -15816,7 +15816,7 @@ func (o SubnetDelegationArrayOutput) Index(i pulumi.IntInput) SubnetDelegationOu
 type SubnetDelegationServiceDelegation struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions []string `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
 	Name string `pulumi:"name"`
 }
 
@@ -15834,7 +15834,7 @@ type SubnetDelegationServiceDelegationInput interface {
 type SubnetDelegationServiceDelegationArgs struct {
 	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15869,7 +15869,7 @@ func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOut
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -16047,6 +16047,227 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ServiceResources(
 		}
 		return v.ServiceResources
 	}).(pulumi.StringArrayOutput)
+}
+
+type TrafficManagerAzureEndpointCustomHeader struct {
+	// The name of the custom header.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value string `pulumi:"value"`
+}
+
+// TrafficManagerAzureEndpointCustomHeaderInput is an input type that accepts TrafficManagerAzureEndpointCustomHeaderArgs and TrafficManagerAzureEndpointCustomHeaderOutput values.
+// You can construct a concrete instance of `TrafficManagerAzureEndpointCustomHeaderInput` via:
+//
+//          TrafficManagerAzureEndpointCustomHeaderArgs{...}
+type TrafficManagerAzureEndpointCustomHeaderInput interface {
+	pulumi.Input
+
+	ToTrafficManagerAzureEndpointCustomHeaderOutput() TrafficManagerAzureEndpointCustomHeaderOutput
+	ToTrafficManagerAzureEndpointCustomHeaderOutputWithContext(context.Context) TrafficManagerAzureEndpointCustomHeaderOutput
+}
+
+type TrafficManagerAzureEndpointCustomHeaderArgs struct {
+	// The name of the custom header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficManagerAzureEndpointCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerAzureEndpointCustomHeaderArgs) ToTrafficManagerAzureEndpointCustomHeaderOutput() TrafficManagerAzureEndpointCustomHeaderOutput {
+	return i.ToTrafficManagerAzureEndpointCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerAzureEndpointCustomHeaderArgs) ToTrafficManagerAzureEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointCustomHeaderOutput)
+}
+
+// TrafficManagerAzureEndpointCustomHeaderArrayInput is an input type that accepts TrafficManagerAzureEndpointCustomHeaderArray and TrafficManagerAzureEndpointCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `TrafficManagerAzureEndpointCustomHeaderArrayInput` via:
+//
+//          TrafficManagerAzureEndpointCustomHeaderArray{ TrafficManagerAzureEndpointCustomHeaderArgs{...} }
+type TrafficManagerAzureEndpointCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerAzureEndpointCustomHeaderArrayOutput() TrafficManagerAzureEndpointCustomHeaderArrayOutput
+	ToTrafficManagerAzureEndpointCustomHeaderArrayOutputWithContext(context.Context) TrafficManagerAzureEndpointCustomHeaderArrayOutput
+}
+
+type TrafficManagerAzureEndpointCustomHeaderArray []TrafficManagerAzureEndpointCustomHeaderInput
+
+func (TrafficManagerAzureEndpointCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerAzureEndpointCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerAzureEndpointCustomHeaderArray) ToTrafficManagerAzureEndpointCustomHeaderArrayOutput() TrafficManagerAzureEndpointCustomHeaderArrayOutput {
+	return i.ToTrafficManagerAzureEndpointCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerAzureEndpointCustomHeaderArray) ToTrafficManagerAzureEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointCustomHeaderArrayOutput)
+}
+
+type TrafficManagerAzureEndpointCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerAzureEndpointCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerAzureEndpointCustomHeaderOutput) ToTrafficManagerAzureEndpointCustomHeaderOutput() TrafficManagerAzureEndpointCustomHeaderOutput {
+	return o
+}
+
+func (o TrafficManagerAzureEndpointCustomHeaderOutput) ToTrafficManagerAzureEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointCustomHeaderOutput {
+	return o
+}
+
+// The name of the custom header.
+func (o TrafficManagerAzureEndpointCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerAzureEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of custom header. Applicable for Http and Https protocol.
+func (o TrafficManagerAzureEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerAzureEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficManagerAzureEndpointCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerAzureEndpointCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerAzureEndpointCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerAzureEndpointCustomHeaderArrayOutput) ToTrafficManagerAzureEndpointCustomHeaderArrayOutput() TrafficManagerAzureEndpointCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerAzureEndpointCustomHeaderArrayOutput) ToTrafficManagerAzureEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerAzureEndpointCustomHeaderArrayOutput) Index(i pulumi.IntInput) TrafficManagerAzureEndpointCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerAzureEndpointCustomHeader {
+		return vs[0].([]TrafficManagerAzureEndpointCustomHeader)[vs[1].(int)]
+	}).(TrafficManagerAzureEndpointCustomHeaderOutput)
+}
+
+type TrafficManagerAzureEndpointSubnet struct {
+	// The first IP Address in this subnet.
+	First string `pulumi:"first"`
+	// The last IP Address in this subnet.
+	Last *string `pulumi:"last"`
+	// The block size (number of leading bits in the subnet mask).
+	Scope *int `pulumi:"scope"`
+}
+
+// TrafficManagerAzureEndpointSubnetInput is an input type that accepts TrafficManagerAzureEndpointSubnetArgs and TrafficManagerAzureEndpointSubnetOutput values.
+// You can construct a concrete instance of `TrafficManagerAzureEndpointSubnetInput` via:
+//
+//          TrafficManagerAzureEndpointSubnetArgs{...}
+type TrafficManagerAzureEndpointSubnetInput interface {
+	pulumi.Input
+
+	ToTrafficManagerAzureEndpointSubnetOutput() TrafficManagerAzureEndpointSubnetOutput
+	ToTrafficManagerAzureEndpointSubnetOutputWithContext(context.Context) TrafficManagerAzureEndpointSubnetOutput
+}
+
+type TrafficManagerAzureEndpointSubnetArgs struct {
+	// The first IP Address in this subnet.
+	First pulumi.StringInput `pulumi:"first"`
+	// The last IP Address in this subnet.
+	Last pulumi.StringPtrInput `pulumi:"last"`
+	// The block size (number of leading bits in the subnet mask).
+	Scope pulumi.IntPtrInput `pulumi:"scope"`
+}
+
+func (TrafficManagerAzureEndpointSubnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerAzureEndpointSubnet)(nil)).Elem()
+}
+
+func (i TrafficManagerAzureEndpointSubnetArgs) ToTrafficManagerAzureEndpointSubnetOutput() TrafficManagerAzureEndpointSubnetOutput {
+	return i.ToTrafficManagerAzureEndpointSubnetOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerAzureEndpointSubnetArgs) ToTrafficManagerAzureEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointSubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointSubnetOutput)
+}
+
+// TrafficManagerAzureEndpointSubnetArrayInput is an input type that accepts TrafficManagerAzureEndpointSubnetArray and TrafficManagerAzureEndpointSubnetArrayOutput values.
+// You can construct a concrete instance of `TrafficManagerAzureEndpointSubnetArrayInput` via:
+//
+//          TrafficManagerAzureEndpointSubnetArray{ TrafficManagerAzureEndpointSubnetArgs{...} }
+type TrafficManagerAzureEndpointSubnetArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerAzureEndpointSubnetArrayOutput() TrafficManagerAzureEndpointSubnetArrayOutput
+	ToTrafficManagerAzureEndpointSubnetArrayOutputWithContext(context.Context) TrafficManagerAzureEndpointSubnetArrayOutput
+}
+
+type TrafficManagerAzureEndpointSubnetArray []TrafficManagerAzureEndpointSubnetInput
+
+func (TrafficManagerAzureEndpointSubnetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerAzureEndpointSubnet)(nil)).Elem()
+}
+
+func (i TrafficManagerAzureEndpointSubnetArray) ToTrafficManagerAzureEndpointSubnetArrayOutput() TrafficManagerAzureEndpointSubnetArrayOutput {
+	return i.ToTrafficManagerAzureEndpointSubnetArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerAzureEndpointSubnetArray) ToTrafficManagerAzureEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointSubnetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointSubnetArrayOutput)
+}
+
+type TrafficManagerAzureEndpointSubnetOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerAzureEndpointSubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerAzureEndpointSubnet)(nil)).Elem()
+}
+
+func (o TrafficManagerAzureEndpointSubnetOutput) ToTrafficManagerAzureEndpointSubnetOutput() TrafficManagerAzureEndpointSubnetOutput {
+	return o
+}
+
+func (o TrafficManagerAzureEndpointSubnetOutput) ToTrafficManagerAzureEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointSubnetOutput {
+	return o
+}
+
+// The first IP Address in this subnet.
+func (o TrafficManagerAzureEndpointSubnetOutput) First() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerAzureEndpointSubnet) string { return v.First }).(pulumi.StringOutput)
+}
+
+// The last IP Address in this subnet.
+func (o TrafficManagerAzureEndpointSubnetOutput) Last() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrafficManagerAzureEndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
+}
+
+// The block size (number of leading bits in the subnet mask).
+func (o TrafficManagerAzureEndpointSubnetOutput) Scope() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrafficManagerAzureEndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
+}
+
+type TrafficManagerAzureEndpointSubnetArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerAzureEndpointSubnetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerAzureEndpointSubnet)(nil)).Elem()
+}
+
+func (o TrafficManagerAzureEndpointSubnetArrayOutput) ToTrafficManagerAzureEndpointSubnetArrayOutput() TrafficManagerAzureEndpointSubnetArrayOutput {
+	return o
+}
+
+func (o TrafficManagerAzureEndpointSubnetArrayOutput) ToTrafficManagerAzureEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointSubnetArrayOutput {
+	return o
+}
+
+func (o TrafficManagerAzureEndpointSubnetArrayOutput) Index(i pulumi.IntInput) TrafficManagerAzureEndpointSubnetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerAzureEndpointSubnet {
+		return vs[0].([]TrafficManagerAzureEndpointSubnet)[vs[1].(int)]
+	}).(TrafficManagerAzureEndpointSubnetOutput)
 }
 
 type TrafficManagerEndpointCustomHeader struct {
@@ -16268,6 +16489,448 @@ func (o TrafficManagerEndpointSubnetArrayOutput) Index(i pulumi.IntInput) Traffi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerEndpointSubnet {
 		return vs[0].([]TrafficManagerEndpointSubnet)[vs[1].(int)]
 	}).(TrafficManagerEndpointSubnetOutput)
+}
+
+type TrafficManagerExternalEndpointCustomHeader struct {
+	// The name of the custom header.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value string `pulumi:"value"`
+}
+
+// TrafficManagerExternalEndpointCustomHeaderInput is an input type that accepts TrafficManagerExternalEndpointCustomHeaderArgs and TrafficManagerExternalEndpointCustomHeaderOutput values.
+// You can construct a concrete instance of `TrafficManagerExternalEndpointCustomHeaderInput` via:
+//
+//          TrafficManagerExternalEndpointCustomHeaderArgs{...}
+type TrafficManagerExternalEndpointCustomHeaderInput interface {
+	pulumi.Input
+
+	ToTrafficManagerExternalEndpointCustomHeaderOutput() TrafficManagerExternalEndpointCustomHeaderOutput
+	ToTrafficManagerExternalEndpointCustomHeaderOutputWithContext(context.Context) TrafficManagerExternalEndpointCustomHeaderOutput
+}
+
+type TrafficManagerExternalEndpointCustomHeaderArgs struct {
+	// The name of the custom header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficManagerExternalEndpointCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerExternalEndpointCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerExternalEndpointCustomHeaderArgs) ToTrafficManagerExternalEndpointCustomHeaderOutput() TrafficManagerExternalEndpointCustomHeaderOutput {
+	return i.ToTrafficManagerExternalEndpointCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerExternalEndpointCustomHeaderArgs) ToTrafficManagerExternalEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointCustomHeaderOutput)
+}
+
+// TrafficManagerExternalEndpointCustomHeaderArrayInput is an input type that accepts TrafficManagerExternalEndpointCustomHeaderArray and TrafficManagerExternalEndpointCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `TrafficManagerExternalEndpointCustomHeaderArrayInput` via:
+//
+//          TrafficManagerExternalEndpointCustomHeaderArray{ TrafficManagerExternalEndpointCustomHeaderArgs{...} }
+type TrafficManagerExternalEndpointCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerExternalEndpointCustomHeaderArrayOutput() TrafficManagerExternalEndpointCustomHeaderArrayOutput
+	ToTrafficManagerExternalEndpointCustomHeaderArrayOutputWithContext(context.Context) TrafficManagerExternalEndpointCustomHeaderArrayOutput
+}
+
+type TrafficManagerExternalEndpointCustomHeaderArray []TrafficManagerExternalEndpointCustomHeaderInput
+
+func (TrafficManagerExternalEndpointCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerExternalEndpointCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerExternalEndpointCustomHeaderArray) ToTrafficManagerExternalEndpointCustomHeaderArrayOutput() TrafficManagerExternalEndpointCustomHeaderArrayOutput {
+	return i.ToTrafficManagerExternalEndpointCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerExternalEndpointCustomHeaderArray) ToTrafficManagerExternalEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointCustomHeaderArrayOutput)
+}
+
+type TrafficManagerExternalEndpointCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerExternalEndpointCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerExternalEndpointCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerExternalEndpointCustomHeaderOutput) ToTrafficManagerExternalEndpointCustomHeaderOutput() TrafficManagerExternalEndpointCustomHeaderOutput {
+	return o
+}
+
+func (o TrafficManagerExternalEndpointCustomHeaderOutput) ToTrafficManagerExternalEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointCustomHeaderOutput {
+	return o
+}
+
+// The name of the custom header.
+func (o TrafficManagerExternalEndpointCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerExternalEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of custom header. Applicable for Http and Https protocol.
+func (o TrafficManagerExternalEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerExternalEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficManagerExternalEndpointCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerExternalEndpointCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerExternalEndpointCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerExternalEndpointCustomHeaderArrayOutput) ToTrafficManagerExternalEndpointCustomHeaderArrayOutput() TrafficManagerExternalEndpointCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerExternalEndpointCustomHeaderArrayOutput) ToTrafficManagerExternalEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerExternalEndpointCustomHeaderArrayOutput) Index(i pulumi.IntInput) TrafficManagerExternalEndpointCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerExternalEndpointCustomHeader {
+		return vs[0].([]TrafficManagerExternalEndpointCustomHeader)[vs[1].(int)]
+	}).(TrafficManagerExternalEndpointCustomHeaderOutput)
+}
+
+type TrafficManagerExternalEndpointSubnet struct {
+	// The first IP Address in this subnet.
+	First string `pulumi:"first"`
+	// The last IP Address in this subnet.
+	Last *string `pulumi:"last"`
+	// The block size (number of leading bits in the subnet mask).
+	Scope *int `pulumi:"scope"`
+}
+
+// TrafficManagerExternalEndpointSubnetInput is an input type that accepts TrafficManagerExternalEndpointSubnetArgs and TrafficManagerExternalEndpointSubnetOutput values.
+// You can construct a concrete instance of `TrafficManagerExternalEndpointSubnetInput` via:
+//
+//          TrafficManagerExternalEndpointSubnetArgs{...}
+type TrafficManagerExternalEndpointSubnetInput interface {
+	pulumi.Input
+
+	ToTrafficManagerExternalEndpointSubnetOutput() TrafficManagerExternalEndpointSubnetOutput
+	ToTrafficManagerExternalEndpointSubnetOutputWithContext(context.Context) TrafficManagerExternalEndpointSubnetOutput
+}
+
+type TrafficManagerExternalEndpointSubnetArgs struct {
+	// The first IP Address in this subnet.
+	First pulumi.StringInput `pulumi:"first"`
+	// The last IP Address in this subnet.
+	Last pulumi.StringPtrInput `pulumi:"last"`
+	// The block size (number of leading bits in the subnet mask).
+	Scope pulumi.IntPtrInput `pulumi:"scope"`
+}
+
+func (TrafficManagerExternalEndpointSubnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerExternalEndpointSubnet)(nil)).Elem()
+}
+
+func (i TrafficManagerExternalEndpointSubnetArgs) ToTrafficManagerExternalEndpointSubnetOutput() TrafficManagerExternalEndpointSubnetOutput {
+	return i.ToTrafficManagerExternalEndpointSubnetOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerExternalEndpointSubnetArgs) ToTrafficManagerExternalEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointSubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointSubnetOutput)
+}
+
+// TrafficManagerExternalEndpointSubnetArrayInput is an input type that accepts TrafficManagerExternalEndpointSubnetArray and TrafficManagerExternalEndpointSubnetArrayOutput values.
+// You can construct a concrete instance of `TrafficManagerExternalEndpointSubnetArrayInput` via:
+//
+//          TrafficManagerExternalEndpointSubnetArray{ TrafficManagerExternalEndpointSubnetArgs{...} }
+type TrafficManagerExternalEndpointSubnetArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerExternalEndpointSubnetArrayOutput() TrafficManagerExternalEndpointSubnetArrayOutput
+	ToTrafficManagerExternalEndpointSubnetArrayOutputWithContext(context.Context) TrafficManagerExternalEndpointSubnetArrayOutput
+}
+
+type TrafficManagerExternalEndpointSubnetArray []TrafficManagerExternalEndpointSubnetInput
+
+func (TrafficManagerExternalEndpointSubnetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerExternalEndpointSubnet)(nil)).Elem()
+}
+
+func (i TrafficManagerExternalEndpointSubnetArray) ToTrafficManagerExternalEndpointSubnetArrayOutput() TrafficManagerExternalEndpointSubnetArrayOutput {
+	return i.ToTrafficManagerExternalEndpointSubnetArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerExternalEndpointSubnetArray) ToTrafficManagerExternalEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointSubnetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointSubnetArrayOutput)
+}
+
+type TrafficManagerExternalEndpointSubnetOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerExternalEndpointSubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerExternalEndpointSubnet)(nil)).Elem()
+}
+
+func (o TrafficManagerExternalEndpointSubnetOutput) ToTrafficManagerExternalEndpointSubnetOutput() TrafficManagerExternalEndpointSubnetOutput {
+	return o
+}
+
+func (o TrafficManagerExternalEndpointSubnetOutput) ToTrafficManagerExternalEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointSubnetOutput {
+	return o
+}
+
+// The first IP Address in this subnet.
+func (o TrafficManagerExternalEndpointSubnetOutput) First() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerExternalEndpointSubnet) string { return v.First }).(pulumi.StringOutput)
+}
+
+// The last IP Address in this subnet.
+func (o TrafficManagerExternalEndpointSubnetOutput) Last() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrafficManagerExternalEndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
+}
+
+// The block size (number of leading bits in the subnet mask).
+func (o TrafficManagerExternalEndpointSubnetOutput) Scope() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrafficManagerExternalEndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
+}
+
+type TrafficManagerExternalEndpointSubnetArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerExternalEndpointSubnetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerExternalEndpointSubnet)(nil)).Elem()
+}
+
+func (o TrafficManagerExternalEndpointSubnetArrayOutput) ToTrafficManagerExternalEndpointSubnetArrayOutput() TrafficManagerExternalEndpointSubnetArrayOutput {
+	return o
+}
+
+func (o TrafficManagerExternalEndpointSubnetArrayOutput) ToTrafficManagerExternalEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointSubnetArrayOutput {
+	return o
+}
+
+func (o TrafficManagerExternalEndpointSubnetArrayOutput) Index(i pulumi.IntInput) TrafficManagerExternalEndpointSubnetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerExternalEndpointSubnet {
+		return vs[0].([]TrafficManagerExternalEndpointSubnet)[vs[1].(int)]
+	}).(TrafficManagerExternalEndpointSubnetOutput)
+}
+
+type TrafficManagerNestedEndpointCustomHeader struct {
+	// The name of the custom header.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value string `pulumi:"value"`
+}
+
+// TrafficManagerNestedEndpointCustomHeaderInput is an input type that accepts TrafficManagerNestedEndpointCustomHeaderArgs and TrafficManagerNestedEndpointCustomHeaderOutput values.
+// You can construct a concrete instance of `TrafficManagerNestedEndpointCustomHeaderInput` via:
+//
+//          TrafficManagerNestedEndpointCustomHeaderArgs{...}
+type TrafficManagerNestedEndpointCustomHeaderInput interface {
+	pulumi.Input
+
+	ToTrafficManagerNestedEndpointCustomHeaderOutput() TrafficManagerNestedEndpointCustomHeaderOutput
+	ToTrafficManagerNestedEndpointCustomHeaderOutputWithContext(context.Context) TrafficManagerNestedEndpointCustomHeaderOutput
+}
+
+type TrafficManagerNestedEndpointCustomHeaderArgs struct {
+	// The name of the custom header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficManagerNestedEndpointCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerNestedEndpointCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerNestedEndpointCustomHeaderArgs) ToTrafficManagerNestedEndpointCustomHeaderOutput() TrafficManagerNestedEndpointCustomHeaderOutput {
+	return i.ToTrafficManagerNestedEndpointCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerNestedEndpointCustomHeaderArgs) ToTrafficManagerNestedEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointCustomHeaderOutput)
+}
+
+// TrafficManagerNestedEndpointCustomHeaderArrayInput is an input type that accepts TrafficManagerNestedEndpointCustomHeaderArray and TrafficManagerNestedEndpointCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `TrafficManagerNestedEndpointCustomHeaderArrayInput` via:
+//
+//          TrafficManagerNestedEndpointCustomHeaderArray{ TrafficManagerNestedEndpointCustomHeaderArgs{...} }
+type TrafficManagerNestedEndpointCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerNestedEndpointCustomHeaderArrayOutput() TrafficManagerNestedEndpointCustomHeaderArrayOutput
+	ToTrafficManagerNestedEndpointCustomHeaderArrayOutputWithContext(context.Context) TrafficManagerNestedEndpointCustomHeaderArrayOutput
+}
+
+type TrafficManagerNestedEndpointCustomHeaderArray []TrafficManagerNestedEndpointCustomHeaderInput
+
+func (TrafficManagerNestedEndpointCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerNestedEndpointCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerNestedEndpointCustomHeaderArray) ToTrafficManagerNestedEndpointCustomHeaderArrayOutput() TrafficManagerNestedEndpointCustomHeaderArrayOutput {
+	return i.ToTrafficManagerNestedEndpointCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerNestedEndpointCustomHeaderArray) ToTrafficManagerNestedEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointCustomHeaderArrayOutput)
+}
+
+type TrafficManagerNestedEndpointCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerNestedEndpointCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerNestedEndpointCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerNestedEndpointCustomHeaderOutput) ToTrafficManagerNestedEndpointCustomHeaderOutput() TrafficManagerNestedEndpointCustomHeaderOutput {
+	return o
+}
+
+func (o TrafficManagerNestedEndpointCustomHeaderOutput) ToTrafficManagerNestedEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointCustomHeaderOutput {
+	return o
+}
+
+// The name of the custom header.
+func (o TrafficManagerNestedEndpointCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerNestedEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of custom header. Applicable for Http and Https protocol.
+func (o TrafficManagerNestedEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerNestedEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficManagerNestedEndpointCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerNestedEndpointCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerNestedEndpointCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerNestedEndpointCustomHeaderArrayOutput) ToTrafficManagerNestedEndpointCustomHeaderArrayOutput() TrafficManagerNestedEndpointCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerNestedEndpointCustomHeaderArrayOutput) ToTrafficManagerNestedEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerNestedEndpointCustomHeaderArrayOutput) Index(i pulumi.IntInput) TrafficManagerNestedEndpointCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerNestedEndpointCustomHeader {
+		return vs[0].([]TrafficManagerNestedEndpointCustomHeader)[vs[1].(int)]
+	}).(TrafficManagerNestedEndpointCustomHeaderOutput)
+}
+
+type TrafficManagerNestedEndpointSubnet struct {
+	// The first IP Address in this subnet.
+	First string `pulumi:"first"`
+	// The last IP Address in this subnet.
+	Last *string `pulumi:"last"`
+	// The block size (number of leading bits in the subnet mask).
+	Scope *int `pulumi:"scope"`
+}
+
+// TrafficManagerNestedEndpointSubnetInput is an input type that accepts TrafficManagerNestedEndpointSubnetArgs and TrafficManagerNestedEndpointSubnetOutput values.
+// You can construct a concrete instance of `TrafficManagerNestedEndpointSubnetInput` via:
+//
+//          TrafficManagerNestedEndpointSubnetArgs{...}
+type TrafficManagerNestedEndpointSubnetInput interface {
+	pulumi.Input
+
+	ToTrafficManagerNestedEndpointSubnetOutput() TrafficManagerNestedEndpointSubnetOutput
+	ToTrafficManagerNestedEndpointSubnetOutputWithContext(context.Context) TrafficManagerNestedEndpointSubnetOutput
+}
+
+type TrafficManagerNestedEndpointSubnetArgs struct {
+	// The first IP Address in this subnet.
+	First pulumi.StringInput `pulumi:"first"`
+	// The last IP Address in this subnet.
+	Last pulumi.StringPtrInput `pulumi:"last"`
+	// The block size (number of leading bits in the subnet mask).
+	Scope pulumi.IntPtrInput `pulumi:"scope"`
+}
+
+func (TrafficManagerNestedEndpointSubnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerNestedEndpointSubnet)(nil)).Elem()
+}
+
+func (i TrafficManagerNestedEndpointSubnetArgs) ToTrafficManagerNestedEndpointSubnetOutput() TrafficManagerNestedEndpointSubnetOutput {
+	return i.ToTrafficManagerNestedEndpointSubnetOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerNestedEndpointSubnetArgs) ToTrafficManagerNestedEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointSubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointSubnetOutput)
+}
+
+// TrafficManagerNestedEndpointSubnetArrayInput is an input type that accepts TrafficManagerNestedEndpointSubnetArray and TrafficManagerNestedEndpointSubnetArrayOutput values.
+// You can construct a concrete instance of `TrafficManagerNestedEndpointSubnetArrayInput` via:
+//
+//          TrafficManagerNestedEndpointSubnetArray{ TrafficManagerNestedEndpointSubnetArgs{...} }
+type TrafficManagerNestedEndpointSubnetArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerNestedEndpointSubnetArrayOutput() TrafficManagerNestedEndpointSubnetArrayOutput
+	ToTrafficManagerNestedEndpointSubnetArrayOutputWithContext(context.Context) TrafficManagerNestedEndpointSubnetArrayOutput
+}
+
+type TrafficManagerNestedEndpointSubnetArray []TrafficManagerNestedEndpointSubnetInput
+
+func (TrafficManagerNestedEndpointSubnetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerNestedEndpointSubnet)(nil)).Elem()
+}
+
+func (i TrafficManagerNestedEndpointSubnetArray) ToTrafficManagerNestedEndpointSubnetArrayOutput() TrafficManagerNestedEndpointSubnetArrayOutput {
+	return i.ToTrafficManagerNestedEndpointSubnetArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerNestedEndpointSubnetArray) ToTrafficManagerNestedEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointSubnetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointSubnetArrayOutput)
+}
+
+type TrafficManagerNestedEndpointSubnetOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerNestedEndpointSubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerNestedEndpointSubnet)(nil)).Elem()
+}
+
+func (o TrafficManagerNestedEndpointSubnetOutput) ToTrafficManagerNestedEndpointSubnetOutput() TrafficManagerNestedEndpointSubnetOutput {
+	return o
+}
+
+func (o TrafficManagerNestedEndpointSubnetOutput) ToTrafficManagerNestedEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointSubnetOutput {
+	return o
+}
+
+// The first IP Address in this subnet.
+func (o TrafficManagerNestedEndpointSubnetOutput) First() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerNestedEndpointSubnet) string { return v.First }).(pulumi.StringOutput)
+}
+
+// The last IP Address in this subnet.
+func (o TrafficManagerNestedEndpointSubnetOutput) Last() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrafficManagerNestedEndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
+}
+
+// The block size (number of leading bits in the subnet mask).
+func (o TrafficManagerNestedEndpointSubnetOutput) Scope() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrafficManagerNestedEndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
+}
+
+type TrafficManagerNestedEndpointSubnetArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerNestedEndpointSubnetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerNestedEndpointSubnet)(nil)).Elem()
+}
+
+func (o TrafficManagerNestedEndpointSubnetArrayOutput) ToTrafficManagerNestedEndpointSubnetArrayOutput() TrafficManagerNestedEndpointSubnetArrayOutput {
+	return o
+}
+
+func (o TrafficManagerNestedEndpointSubnetArrayOutput) ToTrafficManagerNestedEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointSubnetArrayOutput {
+	return o
+}
+
+func (o TrafficManagerNestedEndpointSubnetArrayOutput) Index(i pulumi.IntInput) TrafficManagerNestedEndpointSubnetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerNestedEndpointSubnet {
+		return vs[0].([]TrafficManagerNestedEndpointSubnet)[vs[1].(int)]
+	}).(TrafficManagerNestedEndpointSubnetOutput)
 }
 
 type TrafficManagerProfileDnsConfig struct {
@@ -26507,10 +27170,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationServiceDelegationInput)(nil)).Elem(), SubnetDelegationServiceDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionPtrInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointSubnetInput)(nil)).Elem(), TrafficManagerAzureEndpointSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointSubnetArrayInput)(nil)).Elem(), TrafficManagerAzureEndpointSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerEndpointCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerEndpointCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointSubnetInput)(nil)).Elem(), TrafficManagerEndpointSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointSubnetArrayInput)(nil)).Elem(), TrafficManagerEndpointSubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerExternalEndpointCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerExternalEndpointCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointSubnetInput)(nil)).Elem(), TrafficManagerExternalEndpointSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointSubnetArrayInput)(nil)).Elem(), TrafficManagerExternalEndpointSubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerNestedEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerNestedEndpointCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerNestedEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerNestedEndpointCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerNestedEndpointSubnetInput)(nil)).Elem(), TrafficManagerNestedEndpointSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerNestedEndpointSubnetArrayInput)(nil)).Elem(), TrafficManagerNestedEndpointSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerProfileDnsConfigInput)(nil)).Elem(), TrafficManagerProfileDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerProfileDnsConfigPtrInput)(nil)).Elem(), TrafficManagerProfileDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerProfileMonitorConfigInput)(nil)).Elem(), TrafficManagerProfileMonitorConfigArgs{})
@@ -26850,10 +27525,22 @@ func init() {
 	pulumi.RegisterOutputType(SubnetDelegationServiceDelegationOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderOutput{})
+	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(TrafficManagerAzureEndpointSubnetOutput{})
+	pulumi.RegisterOutputType(TrafficManagerAzureEndpointSubnetArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointCustomHeaderOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointSubnetOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointSubnetArrayOutput{})
+	pulumi.RegisterOutputType(TrafficManagerExternalEndpointCustomHeaderOutput{})
+	pulumi.RegisterOutputType(TrafficManagerExternalEndpointCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(TrafficManagerExternalEndpointSubnetOutput{})
+	pulumi.RegisterOutputType(TrafficManagerExternalEndpointSubnetArrayOutput{})
+	pulumi.RegisterOutputType(TrafficManagerNestedEndpointCustomHeaderOutput{})
+	pulumi.RegisterOutputType(TrafficManagerNestedEndpointCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(TrafficManagerNestedEndpointSubnetOutput{})
+	pulumi.RegisterOutputType(TrafficManagerNestedEndpointSubnetArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileDnsConfigOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigOutput{})

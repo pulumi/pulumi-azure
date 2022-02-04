@@ -100,6 +100,56 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// }
     /// ```
+    /// ### Attaching A Container Registry To A Kubernetes Cluster)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new Azure.ContainerService.RegistryArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///         });
+    ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DnsPrefix = "exampleaks1",
+    ///             DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///             {
+    ///                 Name = "default",
+    ///                 NodeCount = 1,
+    ///                 VmSize = "Standard_D2_v2",
+    ///             },
+    ///             Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             PrincipalId = exampleKubernetesCluster.KubeletIdentities.Apply(kubeletIdentities =&gt; kubeletIdentities[0].ObjectId),
+    ///             RoleDefinitionName = "AcrPull",
+    ///             Scope = exampleRegistry.Id,
+    ///             SkipServicePrincipalAadCheck = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

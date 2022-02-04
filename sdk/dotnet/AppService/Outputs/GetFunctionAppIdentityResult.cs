@@ -14,26 +14,33 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetFunctionAppIdentityResult
     {
         /// <summary>
-        /// The ID of the System Managed Service Principal assigned to the function app.
+        /// A list of User Assigned Identity IDs assigned to the Function App.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The ID of the Managed Identity assigned to the Function App.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+        /// The ID of the Tenant where the Managed Identity assigned to the Function App is located.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type of the Managed Identity assigned to the function app.
+        /// The identity type of the Managed Identity assigned to the Function App.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetFunctionAppIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

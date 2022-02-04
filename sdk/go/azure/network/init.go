@@ -117,8 +117,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubnetRouteTableAssociation{}
 	case "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy":
 		r = &SubnetServiceEndpointStoragePolicy{}
+	case "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint":
+		r = &TrafficManagerAzureEndpoint{}
 	case "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
 		r = &TrafficManagerEndpoint{}
+	case "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint":
+		r = &TrafficManagerExternalEndpoint{}
+	case "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint":
+		r = &TrafficManagerNestedEndpoint{}
 	case "azure:network/trafficManagerProfile:TrafficManagerProfile":
 		r = &TrafficManagerProfile{}
 	case "azure:network/virtualHub:VirtualHub":
@@ -408,7 +414,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"network/trafficManagerAzureEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"network/trafficManagerEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/trafficManagerExternalEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/trafficManagerNestedEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

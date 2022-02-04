@@ -582,8 +582,8 @@ class Service(pulumi.CustomResource):
             cors=[azure.signalr.ServiceCorArgs(
                 allowed_origins=["http://www.example.com"],
             )],
-            connectivity_logs_enabled="True",
-            messaging_logs_enabled="True",
+            connectivity_logs_enabled=True,
+            messaging_logs_enabled=True,
             service_mode="Default",
             upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
                 category_patterns=[
@@ -645,8 +645,8 @@ class Service(pulumi.CustomResource):
             cors=[azure.signalr.ServiceCorArgs(
                 allowed_origins=["http://www.example.com"],
             )],
-            connectivity_logs_enabled="True",
-            messaging_logs_enabled="True",
+            connectivity_logs_enabled=True,
+            messaging_logs_enabled=True,
             service_mode="Default",
             upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
                 category_patterns=[

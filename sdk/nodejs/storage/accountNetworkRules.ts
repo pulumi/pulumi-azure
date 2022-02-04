@@ -42,8 +42,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const test = new azure.storage.AccountNetworkRules("test", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     storageAccountName: azurerm_storage_account.test.name,
+ *     storageAccountId: azurerm_storage_account.test.id,
  *     defaultAction: "Allow",
  *     ipRules: ["127.0.0.1"],
  *     virtualNetworkSubnetIds: [azurerm_subnet.test.id],

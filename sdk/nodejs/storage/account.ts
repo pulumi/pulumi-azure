@@ -138,7 +138,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity>;
+    public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity | undefined>;
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */

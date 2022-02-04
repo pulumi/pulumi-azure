@@ -111,8 +111,14 @@ __all__ = [
     'SubnetDelegationArgs',
     'SubnetDelegationServiceDelegationArgs',
     'SubnetServiceEndpointStoragePolicyDefinitionArgs',
+    'TrafficManagerAzureEndpointCustomHeaderArgs',
+    'TrafficManagerAzureEndpointSubnetArgs',
     'TrafficManagerEndpointCustomHeaderArgs',
     'TrafficManagerEndpointSubnetArgs',
+    'TrafficManagerExternalEndpointCustomHeaderArgs',
+    'TrafficManagerExternalEndpointSubnetArgs',
+    'TrafficManagerNestedEndpointCustomHeaderArgs',
+    'TrafficManagerNestedEndpointSubnetArgs',
     'TrafficManagerProfileDnsConfigArgs',
     'TrafficManagerProfileMonitorConfigArgs',
     'TrafficManagerProfileMonitorConfigCustomHeaderArgs',
@@ -8210,7 +8216,7 @@ class SubnetDelegationServiceDelegationArgs:
                  name: pulumi.Input[str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+        :param pulumi.Input[str] name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         pulumi.set(__self__, "name", name)
@@ -8221,7 +8227,7 @@ class SubnetDelegationServiceDelegationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
         """
         return pulumi.get(self, "name")
 
@@ -8293,6 +8299,97 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class TrafficManagerAzureEndpointCustomHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the custom header.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the custom header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of custom header. Applicable for Http and Https protocol.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrafficManagerAzureEndpointSubnetArgs:
+    def __init__(__self__, *,
+                 first: pulumi.Input[str],
+                 last: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] first: The first IP Address in this subnet.
+        :param pulumi.Input[str] last: The last IP Address in this subnet.
+        :param pulumi.Input[int] scope: The block size (number of leading bits in the subnet mask).
+        """
+        pulumi.set(__self__, "first", first)
+        if last is not None:
+            pulumi.set(__self__, "last", last)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def first(self) -> pulumi.Input[str]:
+        """
+        The first IP Address in this subnet.
+        """
+        return pulumi.get(self, "first")
+
+    @first.setter
+    def first(self, value: pulumi.Input[str]):
+        pulumi.set(self, "first", value)
+
+    @property
+    @pulumi.getter
+    def last(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last IP Address in this subnet.
+        """
+        return pulumi.get(self, "last")
+
+    @last.setter
+    def last(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[int]]:
+        """
+        The block size (number of leading bits in the subnet mask).
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scope", value)
 
 
 @pulumi.input_type
@@ -8378,6 +8475,188 @@ class TrafficManagerEndpointSubnetArgs:
     def scope(self) -> Optional[pulumi.Input[int]]:
         """
         The Scope...
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
+class TrafficManagerExternalEndpointCustomHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the custom header.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the custom header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of custom header. Applicable for Http and Https protocol.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrafficManagerExternalEndpointSubnetArgs:
+    def __init__(__self__, *,
+                 first: pulumi.Input[str],
+                 last: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] first: The first IP Address in this subnet.
+        :param pulumi.Input[str] last: The last IP Address in this subnet.
+        :param pulumi.Input[int] scope: The block size (number of leading bits in the subnet mask).
+        """
+        pulumi.set(__self__, "first", first)
+        if last is not None:
+            pulumi.set(__self__, "last", last)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def first(self) -> pulumi.Input[str]:
+        """
+        The first IP Address in this subnet.
+        """
+        return pulumi.get(self, "first")
+
+    @first.setter
+    def first(self, value: pulumi.Input[str]):
+        pulumi.set(self, "first", value)
+
+    @property
+    @pulumi.getter
+    def last(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last IP Address in this subnet.
+        """
+        return pulumi.get(self, "last")
+
+    @last.setter
+    def last(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[int]]:
+        """
+        The block size (number of leading bits in the subnet mask).
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
+class TrafficManagerNestedEndpointCustomHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the custom header.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the custom header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of custom header. Applicable for Http and Https protocol.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrafficManagerNestedEndpointSubnetArgs:
+    def __init__(__self__, *,
+                 first: pulumi.Input[str],
+                 last: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] first: The first IP Address in this subnet.
+        :param pulumi.Input[str] last: The last IP Address in this subnet.
+        :param pulumi.Input[int] scope: The block size (number of leading bits in the subnet mask).
+        """
+        pulumi.set(__self__, "first", first)
+        if last is not None:
+            pulumi.set(__self__, "last", last)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def first(self) -> pulumi.Input[str]:
+        """
+        The first IP Address in this subnet.
+        """
+        return pulumi.get(self, "first")
+
+    @first.setter
+    def first(self, value: pulumi.Input[str]):
+        pulumi.set(self, "first", value)
+
+    @property
+    @pulumi.getter
+    def last(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last IP Address in this subnet.
+        """
+        return pulumi.get(self, "last")
+
+    @last.setter
+    def last(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[int]]:
+        """
+        The block size (number of leading bits in the subnet mask).
         """
         return pulumi.get(self, "scope")
 

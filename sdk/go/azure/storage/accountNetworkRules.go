@@ -75,9 +75,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = storage.NewAccountNetworkRules(ctx, "test", &storage.AccountNetworkRulesArgs{
-// 			ResourceGroupName:  pulumi.Any(azurerm_resource_group.Test.Name),
-// 			StorageAccountName: pulumi.Any(azurerm_storage_account.Test.Name),
-// 			DefaultAction:      pulumi.String("Allow"),
+// 			StorageAccountId: pulumi.Any(azurerm_storage_account.Test.Id),
+// 			DefaultAction:    pulumi.String("Allow"),
 // 			IpRules: pulumi.StringArray{
 // 				pulumi.String("127.0.0.1"),
 // 			},

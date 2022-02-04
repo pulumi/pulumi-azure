@@ -671,6 +671,8 @@ class Endpoint(pulumi.CustomResource):
         """
         Manages a Traffic Manager Endpoint.
 
+        > **NOTE:** This resource is **deprecated** in favour of the `network.TrafficManagerAzureEndpoint`, `network.TrafficManagerExternalEndpoint`, or `network.TrafficManagerNestedEndpoint` resources and will be removed in version 3.0 of the Azure Provider.
+
         ## Example Usage
 
         ```python
@@ -767,6 +769,8 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Traffic Manager Endpoint.
+
+        > **NOTE:** This resource is **deprecated** in favour of the `network.TrafficManagerAzureEndpoint`, `network.TrafficManagerExternalEndpoint`, or `network.TrafficManagerNestedEndpoint` resources and will be removed in version 3.0 of the Azure Provider.
 
         ## Example Usage
 

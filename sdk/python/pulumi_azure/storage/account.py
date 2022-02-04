@@ -1983,7 +1983,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.AccountIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
         """
         An `identity` block as defined below.
         """

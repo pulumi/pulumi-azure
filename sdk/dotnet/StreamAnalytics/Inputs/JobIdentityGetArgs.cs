@@ -25,7 +25,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
+        /// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

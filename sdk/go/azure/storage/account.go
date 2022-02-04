@@ -148,7 +148,7 @@ type Account struct {
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
-	Identity AccountIdentityOutput `pulumi:"identity"`
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.

@@ -1166,6 +1166,8 @@ class HBaseClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HBaseClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -1181,15 +1183,19 @@ class HBaseClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+        :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -1214,6 +1220,14 @@ class HBaseClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -2488,6 +2502,8 @@ class HadoopClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HadoopClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -2503,15 +2519,19 @@ class HadoopClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+        :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -2536,6 +2556,14 @@ class HadoopClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -3717,6 +3745,8 @@ class InteractiveQueryClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -3732,15 +3762,19 @@ class InteractiveQueryClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+        :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -3765,6 +3799,14 @@ class InteractiveQueryClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -4884,6 +4926,8 @@ class KafkaClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KafkaClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -4899,15 +4943,19 @@ class KafkaClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+        :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -4932,6 +4980,14 @@ class KafkaClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -5561,6 +5617,8 @@ class MLServicesClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -5576,7 +5634,8 @@ class MLServicesClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
@@ -5585,6 +5644,8 @@ class MLServicesClusterStorageAccount(dict):
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -5609,6 +5670,11 @@ class MLServicesClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -6164,6 +6230,8 @@ class RServerClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RServerClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -6179,7 +6247,8 @@ class RServerClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight RServer Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
@@ -6188,6 +6257,8 @@ class RServerClusterStorageAccount(dict):
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -6212,6 +6283,11 @@ class RServerClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -7308,6 +7384,8 @@ class SparkClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SparkClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -7323,15 +7401,19 @@ class SparkClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
+        :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -7356,6 +7438,14 @@ class SparkClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
@@ -8185,6 +8275,8 @@ class StormClusterStorageAccount(dict):
             suggest = "storage_account_key"
         elif key == "storageContainerId":
             suggest = "storage_container_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StormClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -8200,7 +8292,8 @@ class StormClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
-                 storage_container_id: str):
+                 storage_container_id: str,
+                 storage_resource_id: Optional[str] = None):
         """
         :param bool is_default: Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
         :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
@@ -8209,6 +8302,8 @@ class StormClusterStorageAccount(dict):
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
         pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -8233,6 +8328,11 @@ class StormClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type
