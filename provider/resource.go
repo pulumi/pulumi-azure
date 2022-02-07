@@ -2416,7 +2416,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^3.0.0",
-				"azure-eventgrid":               "^1.6.0",
+				"@azure/eventgrid":              "^4.6.0",
 				"@azure/functions":              "=1.2.2",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
