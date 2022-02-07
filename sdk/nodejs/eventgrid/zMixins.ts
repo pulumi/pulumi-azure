@@ -14,7 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import * as eventgrid from "azure-eventgrid/lib/models";
+import * as eventgrid from "@azure/eventgrid";
 import fetch from "node-fetch";
 import * as appservice from "../appservice";
 import { ResourceGroup } from "../core";
@@ -24,7 +24,7 @@ import { EventSubscription } from "./eventSubscription";
 /**
  * Event that will be passed along to the EventGridCallback.
  */
-export interface EventGridEvent<T> extends eventgrid.EventGridEvent {
+export interface EventGridEvent<T> extends eventgrid.EventGridEvent<T> {
     data: T;
 }
 
@@ -200,15 +200,15 @@ export interface StorageAccountEventGridCallbackSubscriptionArgs<T> extends Even
  * Possible types of Event Grid events for a Resource Group.
  */
 type ResourceGroupEvent =
-    eventgrid.ResourceActionCancelData |
-    eventgrid.ResourceActionFailureData |
-    eventgrid.ResourceActionSuccessData |
-    eventgrid.ResourceDeleteCancelData |
-    eventgrid.ResourceDeleteFailureData |
-    eventgrid.ResourceDeleteSuccessData |
-    eventgrid.ResourceWriteCancelData |
-    eventgrid.ResourceWriteFailureData |
-    eventgrid.ResourceWriteSuccessData;
+    eventgrid.ResourceActionCancelEventData |
+    eventgrid.ResourceActionFailureEventData |
+    eventgrid.ResourceActionSuccessEventData |
+    eventgrid.ResourceDeleteCancelEventData |
+    eventgrid.ResourceDeleteFailureEventData |
+    eventgrid.ResourceDeleteSuccessEventData |
+    eventgrid.ResourceWriteCancelEventData |
+    eventgrid.ResourceWriteFailureEventData |
+    eventgrid.ResourceWriteSuccessEventData;
 
 export interface ResourceGroupEventGridCallbackSubscriptionArgs extends EventGridCallbackSubscriptionArgs<ResourceGroupEvent> {
     /**
