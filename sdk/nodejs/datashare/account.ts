@@ -64,7 +64,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * An `identity` block as defined below.
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly identity!: pulumi.Output<outputs.datashare.AccountIdentity>;
     /**
@@ -126,7 +126,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * An `identity` block as defined below.
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
     identity?: pulumi.Input<inputs.datashare.AccountIdentity>;
     /**
@@ -152,7 +152,7 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * An `identity` block as defined below.
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
     identity: pulumi.Input<inputs.datashare.AccountIdentity>;
     /**

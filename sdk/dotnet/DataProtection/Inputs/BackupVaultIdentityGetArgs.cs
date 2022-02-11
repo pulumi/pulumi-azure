@@ -27,8 +27,8 @@ namespace Pulumi.Azure.DataProtection.Inputs
         /// <summary>
         /// Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public BackupVaultIdentityGetArgs()
         {

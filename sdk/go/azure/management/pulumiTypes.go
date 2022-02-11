@@ -16,7 +16,7 @@ type GroupPolicyAssignmentIdentity struct {
 	// The Tenant ID of the Policy Assignment for this Management Group.
 	TenantId *string `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // GroupPolicyAssignmentIdentityInput is an input type that accepts GroupPolicyAssignmentIdentityArgs and GroupPolicyAssignmentIdentityOutput values.
@@ -36,7 +36,7 @@ type GroupPolicyAssignmentIdentityArgs struct {
 	// The Tenant ID of the Policy Assignment for this Management Group.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GroupPolicyAssignmentIdentityArgs) ElementType() reflect.Type {
@@ -127,8 +127,8 @@ func (o GroupPolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-func (o GroupPolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupPolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o GroupPolicyAssignmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GroupPolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -181,7 +181,7 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -562,20 +562,27 @@ class ManagedInstanceIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
+                 tenant_id: Optional[str] = None):
         """
+        :param str type: The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-        :param str type: The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
         """
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="principalId")
@@ -592,14 +599,6 @@ class ManagedInstanceIdentity(dict):
         The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
         return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -906,12 +905,10 @@ class GetSqlManagedInstanceIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str,
-                 user_assigned_identity_id: str):
+                 type: str):
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -927,10 +924,5 @@ class GetSqlManagedInstanceIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> str:
-        return pulumi.get(self, "user_assigned_identity_id")
 
 

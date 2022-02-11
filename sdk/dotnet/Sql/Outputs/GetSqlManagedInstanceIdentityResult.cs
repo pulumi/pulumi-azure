@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Sql.Outputs
         public readonly string PrincipalId;
         public readonly string TenantId;
         public readonly string Type;
-        public readonly string UserAssignedIdentityId;
 
         [OutputConstructor]
         private GetSqlManagedInstanceIdentityResult(
@@ -24,14 +23,11 @@ namespace Pulumi.Azure.Sql.Outputs
 
             string tenantId,
 
-            string type,
-
-            string userAssignedIdentityId)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
-            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

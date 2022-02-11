@@ -22,5 +22,6 @@ from .data_connector_threat_intelligence import *
 from .get_alert_rule import *
 from .get_alert_rule_template import *
 from .watchlist import *
+from .watchlist_item import *
 from ._inputs import *
 from . import outputs

@@ -17,6 +17,7 @@ from .channel_teams import *
 from .channel_web_chat import *
 from .channels_registration import *
 from .connection import *
+from .healthbot import *
 from .service_azure_bot import *
 from .web_app import *
 from ._inputs import *

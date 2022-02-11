@@ -64,13 +64,15 @@ type Account struct {
 	DscSecondaryAccessKey pulumi.StringOutput `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint pulumi.StringOutput `pulumi:"dscServerEndpoint"`
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU name of the account - only `Basic` is supported at this time.
+	// The SKU of the account - only `Basic` is supported at this time.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -117,13 +119,15 @@ type accountState struct {
 	DscSecondaryAccessKey *string `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint *string `pulumi:"dscServerEndpoint"`
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU name of the account - only `Basic` is supported at this time.
+	// The SKU of the account - only `Basic` is supported at this time.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -136,13 +140,15 @@ type AccountState struct {
 	DscSecondaryAccessKey pulumi.StringPtrInput
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU name of the account - only `Basic` is supported at this time.
+	// The SKU of the account - only `Basic` is supported at this time.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -153,13 +159,15 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name of the account - only `Basic` is supported at this time.
+	// The SKU of the account - only `Basic` is supported at this time.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -167,13 +175,15 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name of the account - only `Basic` is supported at this time.
+	// The SKU of the account - only `Basic` is supported at this time.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

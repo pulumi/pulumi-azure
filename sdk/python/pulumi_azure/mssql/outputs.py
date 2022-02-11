@@ -21,6 +21,7 @@ __all__ = [
     'FailoverGroupReadWriteEndpointFailoverPolicy',
     'ServerAzureadAdministrator',
     'ServerExtendedAuditingPolicy',
+    'ServerFoo',
     'ServerIdentity',
     'ServerVulnerabilityAssessmentRecurringScans',
     'VirtualMachineAutoBackup',
@@ -735,6 +736,77 @@ class ServerExtendedAuditingPolicy(dict):
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "storage_endpoint")
+
+
+@pulumi.output_type
+class ServerFoo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerFoo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerFoo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerFoo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the Azure AD Administrator of this SQL Server.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

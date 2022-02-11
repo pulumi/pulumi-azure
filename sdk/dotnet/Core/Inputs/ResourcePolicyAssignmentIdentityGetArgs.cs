@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Core.Inputs
         /// <summary>
         /// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ResourcePolicyAssignmentIdentityGetArgs()
         {

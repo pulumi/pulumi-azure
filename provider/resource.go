@@ -631,17 +631,20 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_template_deployment":                   {Tok: azureResource(azureCore, "TemplateDeployment")},
-			"azurerm_resource_group_template_deployment":    {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
-			"azurerm_resource_group_policy_assignment":      {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
-			"azurerm_resource_policy_assignment":            {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
-			"azurerm_subscription_template_deployment":      {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
-			"azurerm_custom_provider":                       {Tok: azureResource(azureCore, "CustomProvider")},
-			"azurerm_resource_provider_registration":        {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
-			"azurerm_subscription":                          {Tok: azureResource(azureCore, "Subscription")},
-			"azurerm_subscription_policy_assignment":        {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
-			"azurerm_tenant_template_deployment":            {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
-			"azurerm_portal_tenant_configuration":           {Tok: azureResource(azureCore, "PortalTenantConfiguration")},
+			"azurerm_template_deployment":                {Tok: azureResource(azureCore, "TemplateDeployment")},
+			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
+			"azurerm_resource_group_policy_assignment":   {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
+			"azurerm_resource_policy_assignment":         {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
+			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
+			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
+			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
+			"azurerm_subscription":                       {Tok: azureResource(azureCore, "Subscription")},
+			"azurerm_subscription_policy_assignment":     {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
+			"azurerm_tenant_template_deployment":         {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
+
+			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
+			"azurerm_portal_tenant_configuration": {Tok: azureResource(azureCore, "PortalTenantConfiguration")},
+
 			"azurerm_resource_group_cost_management_export": {Tok: azureResource(azureCore, "ResourceGroupCostManagementExport")},
 			"azurerm_subscription_cost_management_export":   {Tok: azureResource(azureCore, "SubscriptionCostManagementExport")},
 
@@ -758,6 +761,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_pool":                         {Tok: azureResource(azureCompute, "DiskPool")},
 			"azurerm_disk_pool_managed_disk_attachment": {Tok: azureResource(azureCompute, "DiskPoolManagedDiskAttachment")},
 			"azurerm_disk_pool_iscsi_target":            {Tok: azureResource(azureCompute, "DiskPoolIscsiTarget")},
+			"azurerm_disk_pool_iscsi_target_lun":        {Tok: azureResource(azureCompute, "DiskPoolIscsiTargetLun")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1769,6 +1773,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_stream_analytics_cluster":                  {Tok: azureResource(azureStreamAnalytics, "Cluster")},
 			"azurerm_stream_analytics_managed_private_endpoint": {Tok: azureResource(azureStreamAnalytics, "ManagedPrivateEndpoint")},
+			"azurerm_stream_analytics_output_function":          {Tok: azureResource(azureStreamAnalytics, "OutputFunction")},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
@@ -1837,6 +1842,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_sms":                {Tok: azureResource(azureBot, "ChannelSms")},
 			"azurerm_bot_channel_line":               {Tok: azureResource(azureBot, "ChannelLine")},
 			"azurerm_bot_service_azure_bot":          {Tok: azureResource(azureBot, "ServiceAzureBot")},
+			"azurerm_healthbot":                      {Tok: azureResource(azureBot, "Healthbot")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -1849,6 +1855,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},
 
 			// Dashboard
+			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
 			"azurerm_dashboard": {Tok: azureResource(azureDashboard, "Dashboard")},
 
 			// Healthcare
@@ -1973,7 +1980,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics": {
 				Tok: azureResource(azureSentinel, "AlertRuleMachineLearningBehaviorAnalytics"),
 			},
-			"azurerm_sentinel_watchlist": {Tok: azureResource(azureSentinel, "Watchlist")},
+			"azurerm_sentinel_watchlist":      {Tok: azureResource(azureSentinel, "Watchlist")},
+			"azurerm_sentinel_watchlist_item": {Tok: azureResource(azureSentinel, "WatchlistItem")},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -2060,8 +2068,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_consumption_budget_management_group": {Tok: azureResource(azureConsumption, "BudgetManagementGroup")},
 
 			// Web PubSub
-			"azurerm_web_pubsub":     {Tok: azureResource(azureWebPubSub, "Service")}, // Per the upstream docs, property "name" is described as the name of the service, ergo this resource describes a service.
-			"azurerm_web_pubsub_hub": {Tok: azureResource(azureWebPubSub, "Hub")},
+			"azurerm_web_pubsub":             {Tok: azureResource(azureWebPubSub, "Service")}, // Per the upstream docs, property "name" is described as the name of the service, ergo this resource describes a service.
+			"azurerm_web_pubsub_hub":         {Tok: azureResource(azureWebPubSub, "Hub")},
+			"azurerm_web_pubsub_network_acl": {Tok: azureResource(azureWebPubSub, "NetworkAcl")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -2405,6 +2414,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_share":                     {Tok: azureDataSource(azureStorage, "getShare")},
 			"azurerm_consumption_budget_resource_group": {Tok: azureDataSource(azureConsumption, "getBudgetResourceGroup")},
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},
+
+			// Dashboard
+			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
+			"azurerm_portal_dashboard": {Tok: azureDataSource(azureDashboard, "azurerm_portal_dashboard")},
+
+			// Site Recovery
+			"azurerm_site_recovery_fabric":               {Tok: azureDataSource(azureSiteRecovery, "getFabric")},
+			"azurerm_site_recovery_protection_container": {Tok: azureDataSource(azureSiteRecovery, "getProtectionContainer")},
+			"azurerm_site_recovery_replication_policy":   {Tok: azureDataSource(azureSiteRecovery, "getReplicationPolicy")},
 
 			// Web PubSub
 			"azurerm_web_pubsub": {Tok: azureDataSource(azureWebPubSub, "getService")},

@@ -22,7 +22,7 @@ class GetStandardResult:
     """
     A collection of values returned by getStandard.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identity=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -56,9 +56,9 @@ class GetStandardResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -162,11 +162,11 @@ class GetStandardResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.GetStandardIdentityResult':
+    def identities(self) -> Sequence['outputs.GetStandardIdentityResult']:
         """
         An `identity` block as defined below.
         """
-        return pulumi.get(self, "identity")
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -259,7 +259,7 @@ class AwaitableGetStandardResult(GetStandardResult):
             enabled=self.enabled,
             https_only=self.https_only,
             id=self.id,
-            identity=self.identity,
+            identities=self.identities,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -276,8 +276,7 @@ class AwaitableGetStandardResult(GetStandardResult):
             version=self.version)
 
 
-def get_standard(identity: Optional[pulumi.InputType['GetStandardIdentityArgs']] = None,
-                 name: Optional[str] = None,
+def get_standard(name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  site_config: Optional[pulumi.InputType['GetStandardSiteConfigArgs']] = None,
                  tags: Optional[Mapping[str, str]] = None,
@@ -297,12 +296,10 @@ def get_standard(identity: Optional[pulumi.InputType['GetStandardIdentityArgs']]
     ```
 
 
-    :param pulumi.InputType['GetStandardIdentityArgs'] identity: An `identity` block as defined below.
     :param str name: The name of this Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
     """
     __args__ = dict()
-    __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteConfig'] = site_config
@@ -325,7 +322,7 @@ def get_standard(identity: Optional[pulumi.InputType['GetStandardIdentityArgs']]
         enabled=__ret__.enabled,
         https_only=__ret__.https_only,
         id=__ret__.id,
-        identity=__ret__.identity,
+        identities=__ret__.identities,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
@@ -343,8 +340,7 @@ def get_standard(identity: Optional[pulumi.InputType['GetStandardIdentityArgs']]
 
 
 @_utilities.lift_output_func(get_standard)
-def get_standard_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType['GetStandardIdentityArgs']]]] = None,
-                        name: Optional[pulumi.Input[str]] = None,
+def get_standard_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         site_config: Optional[pulumi.Input[Optional[pulumi.InputType['GetStandardSiteConfigArgs']]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -364,7 +360,6 @@ def get_standard_output(identity: Optional[pulumi.Input[Optional[pulumi.InputTyp
     ```
 
 
-    :param pulumi.InputType['GetStandardIdentityArgs'] identity: An `identity` block as defined below.
     :param str name: The name of this Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
     """

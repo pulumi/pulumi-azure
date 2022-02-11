@@ -76,12 +76,6 @@ namespace Pulumi.Azure.EventGrid
     public sealed class GetSystemTopicArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-        /// </summary>
-        [Input("identity")]
-        public Inputs.GetSystemTopicIdentityArgs? Identity { get; set; }
-
-        /// <summary>
         /// The name of the EventGrid System Topic resource.
         /// </summary>
         [Input("name", required: true)]
@@ -100,12 +94,6 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class GetSystemTopicInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.GetSystemTopicIdentityInputArgs>? Identity { get; set; }
-
         /// <summary>
         /// The name of the EventGrid System Topic resource.
         /// </summary>
@@ -134,7 +122,7 @@ namespace Pulumi.Azure.EventGrid
         /// <summary>
         /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
         /// </summary>
-        public readonly Outputs.GetSystemTopicIdentityResult Identity;
+        public readonly ImmutableArray<Outputs.GetSystemTopicIdentityResult> Identities;
         public readonly string Location;
         /// <summary>
         /// The Metric ARM Resource ID of the Event Grid System Topic.
@@ -159,7 +147,7 @@ namespace Pulumi.Azure.EventGrid
         private GetSystemTopicResult(
             string id,
 
-            Outputs.GetSystemTopicIdentityResult identity,
+            ImmutableArray<Outputs.GetSystemTopicIdentityResult> identities,
 
             string location,
 
@@ -176,7 +164,7 @@ namespace Pulumi.Azure.EventGrid
             string topicType)
         {
             Id = id;
-            Identity = identity;
+            Identities = identities;
             Location = location;
             MetricArmResourceId = metricArmResourceId;
             Name = name;

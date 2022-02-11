@@ -12,8 +12,6 @@ import (
 
 type AssignmentIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
 	// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
 	Type string `pulumi:"type"`
 }
@@ -31,8 +29,6 @@ type AssignmentIdentityInput interface {
 
 type AssignmentIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -118,14 +114,6 @@ func (o AssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-func (o AssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-func (o AssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
 // The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
 func (o AssignmentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -162,24 +150,6 @@ func (o AssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 		}
 		return v.IdentityIds
 	}).(pulumi.StringArrayOutput)
-}
-
-func (o AssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
 }
 
 // The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.

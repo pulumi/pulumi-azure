@@ -1416,7 +1416,7 @@ type ManagedInstanceIdentity struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId *string `pulumi:"tenantId"`
 	// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ManagedInstanceIdentityInput is an input type that accepts ManagedInstanceIdentityArgs and ManagedInstanceIdentityOutput values.
@@ -1436,7 +1436,7 @@ type ManagedInstanceIdentityArgs struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ManagedInstanceIdentityArgs) ElementType() reflect.Type {
@@ -1527,8 +1527,8 @@ func (o ManagedInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
-func (o ManagedInstanceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ManagedInstanceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1581,7 +1581,7 @@ func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2328,10 +2328,9 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 type GetSqlManagedInstanceIdentity struct {
-	PrincipalId            string `pulumi:"principalId"`
-	TenantId               string `pulumi:"tenantId"`
-	Type                   string `pulumi:"type"`
-	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+	PrincipalId string `pulumi:"principalId"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
 }
 
 // GetSqlManagedInstanceIdentityInput is an input type that accepts GetSqlManagedInstanceIdentityArgs and GetSqlManagedInstanceIdentityOutput values.
@@ -2346,10 +2345,9 @@ type GetSqlManagedInstanceIdentityInput interface {
 }
 
 type GetSqlManagedInstanceIdentityArgs struct {
-	PrincipalId            pulumi.StringInput `pulumi:"principalId"`
-	TenantId               pulumi.StringInput `pulumi:"tenantId"`
-	Type                   pulumi.StringInput `pulumi:"type"`
-	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetSqlManagedInstanceIdentityArgs) ElementType() reflect.Type {
@@ -2413,10 +2411,6 @@ func (o GetSqlManagedInstanceIdentityOutput) TenantId() pulumi.StringOutput {
 
 func (o GetSqlManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o GetSqlManagedInstanceIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type GetSqlManagedInstanceIdentityArrayOutput struct{ *pulumi.OutputState }

@@ -46,8 +46,6 @@ func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ..
 
 // A collection of arguments for invoking getSystemTopic.
 type LookupSystemTopicArgs struct {
-	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-	Identity *GetSystemTopicIdentity `pulumi:"identity"`
 	// The name of the EventGrid System Topic resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group in which the EventGrid System Topic exists.
@@ -59,8 +57,8 @@ type LookupSystemTopicResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-	Identity GetSystemTopicIdentity `pulumi:"identity"`
-	Location string                 `pulumi:"location"`
+	Identities []GetSystemTopicIdentity `pulumi:"identities"`
+	Location   string                   `pulumi:"location"`
 	// The Metric ARM Resource ID of the Event Grid System Topic.
 	MetricArmResourceId string `pulumi:"metricArmResourceId"`
 	Name                string `pulumi:"name"`
@@ -84,8 +82,6 @@ func LookupSystemTopicOutput(ctx *pulumi.Context, args LookupSystemTopicOutputAr
 
 // A collection of arguments for invoking getSystemTopic.
 type LookupSystemTopicOutputArgs struct {
-	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-	Identity GetSystemTopicIdentityPtrInput `pulumi:"identity"`
 	// The name of the EventGrid System Topic resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the EventGrid System Topic exists.
@@ -117,8 +113,8 @@ func (o LookupSystemTopicResultOutput) Id() pulumi.StringOutput {
 }
 
 // An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-func (o LookupSystemTopicResultOutput) Identity() GetSystemTopicIdentityOutput {
-	return o.ApplyT(func(v LookupSystemTopicResult) GetSystemTopicIdentity { return v.Identity }).(GetSystemTopicIdentityOutput)
+func (o LookupSystemTopicResultOutput) Identities() GetSystemTopicIdentityArrayOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) []GetSystemTopicIdentity { return v.Identities }).(GetSystemTopicIdentityArrayOutput)
 }
 
 func (o LookupSystemTopicResultOutput) Location() pulumi.StringOutput {

@@ -73,7 +73,7 @@ type Account struct {
 	pulumi.CustomResourceState
 
 	// An `identity` block as defined below.
-	Identity AccountIdentityOutput `pulumi:"identity"`
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// A `keyDeliveryAccessControl` block as defined below.
 	KeyDeliveryAccessControl AccountKeyDeliveryAccessControlOutput `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -16,17 +16,17 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
         /// </summary>
-        public readonly string IdentityIds;
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ApplicationGatewayIdentity(
-            string identityIds,
+            ImmutableArray<string> identityIds,
 
-            string? type)
+            string type)
         {
             IdentityIds = identityIds;
             Type = type;

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:webpubsub/hub:Hub":
 		r = &Hub{}
+	case "azure:webpubsub/networkAcl:NetworkAcl":
+		r = &NetworkAcl{}
 	case "azure:webpubsub/service:Service":
 		r = &Service{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"webpubsub/hub",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"webpubsub/networkAcl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

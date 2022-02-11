@@ -8,6 +8,28 @@ import * as utilities from "../utilities";
 /**
  * Manages a backend within an API Management Service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@exmaple.com",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleBackend = new azure.apimanagement.Backend("exampleBackend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     protocol: "http",
+ *     url: "https://backend",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management backends can be imported using the `resource id`, e.g.

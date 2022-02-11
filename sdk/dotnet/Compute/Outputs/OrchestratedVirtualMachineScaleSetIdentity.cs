@@ -14,19 +14,15 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetIdentity
     {
         public readonly ImmutableArray<string> IdentityIds;
-        public readonly string? PrincipalId;
         public readonly string Type;
 
         [OutputConstructor]
         private OrchestratedVirtualMachineScaleSetIdentity(
             ImmutableArray<string> identityIds,
 
-            string? principalId,
-
             string type)
         {
             IdentityIds = identityIds;
-            PrincipalId = principalId;
             Type = type;
         }
     }

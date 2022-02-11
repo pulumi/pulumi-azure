@@ -56,7 +56,7 @@ namespace Pulumi.Azure.DataShare
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.DataShare
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.AccountIdentityArgs> Identity { get; set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.DataShare
     public sealed class AccountState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }

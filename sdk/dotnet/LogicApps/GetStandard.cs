@@ -82,12 +82,6 @@ namespace Pulumi.Azure.LogicApps
     public sealed class GetStandardArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
-        [Input("identity")]
-        public Inputs.GetStandardIdentityArgs? Identity { get; set; }
-
-        /// <summary>
         /// The name of this Logic App.
         /// </summary>
         [Input("name", required: true)]
@@ -117,12 +111,6 @@ namespace Pulumi.Azure.LogicApps
 
     public sealed class GetStandardInvokeArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.GetStandardIdentityInputArgs>? Identity { get; set; }
-
         /// <summary>
         /// The name of this Logic App.
         /// </summary>
@@ -172,7 +160,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
-        public readonly Outputs.GetStandardIdentityResult Identity;
+        public readonly ImmutableArray<Outputs.GetStandardIdentityResult> Identities;
         public readonly string Kind;
         /// <summary>
         /// The Azure location where the Logic App Standard exists.
@@ -215,7 +203,7 @@ namespace Pulumi.Azure.LogicApps
 
             string id,
 
-            Outputs.GetStandardIdentityResult identity,
+            ImmutableArray<Outputs.GetStandardIdentityResult> identities,
 
             string kind,
 
@@ -256,7 +244,7 @@ namespace Pulumi.Azure.LogicApps
             Enabled = enabled;
             HttpsOnly = httpsOnly;
             Id = id;
-            Identity = identity;
+            Identities = identities;
             Kind = kind;
             Location = location;
             Name = name;

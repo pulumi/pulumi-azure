@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
         /// <summary>
         /// Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private BackupVaultIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

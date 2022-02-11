@@ -19,10 +19,6 @@ class AssignmentIdentity(dict):
         suggest = None
         if key == "identityIds":
             suggest = "identity_ids"
-        elif key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AssignmentIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -37,18 +33,12 @@ class AssignmentIdentity(dict):
 
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
-                 type: str,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 type: str):
         """
         :param str type: The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -62,15 +52,5 @@ class AssignmentIdentity(dict):
         The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        return pulumi.get(self, "tenant_id")
 
 

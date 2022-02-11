@@ -482,7 +482,7 @@ class ServiceAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.ServiceAccountIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ServiceAccountIdentity']]:
         """
         An `identity` block as defined below.
         """

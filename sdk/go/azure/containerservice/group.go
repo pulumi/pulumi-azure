@@ -95,7 +95,7 @@ type Group struct {
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// An `identity` block as defined below.
-	Identity GroupIdentityOutput `pulumi:"identity"`
+	Identity GroupIdentityPtrOutput `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayOutput `pulumi:"imageRegistryCredentials"`
 	// The IP address allocated to the container group.

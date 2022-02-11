@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./fabric";
+export * from "./getFabric";
+export * from "./getProtectionContainer";
+export * from "./getReplicationPolicy";
 export * from "./networkMapping";
 export * from "./protectionContainer";
 export * from "./protectionContainerMapping";

@@ -15,6 +15,7 @@ from .disk_access import *
 from .disk_encryption_set import *
 from .disk_pool import *
 from .disk_pool_iscsi_target import *
+from .disk_pool_iscsi_target_lun import *
 from .disk_pool_managed_disk_attachment import *
 from .extension import *
 from .get_availability_set import *

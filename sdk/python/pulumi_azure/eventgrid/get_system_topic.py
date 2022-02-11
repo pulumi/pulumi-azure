@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetSystemTopicResult',
@@ -22,13 +21,13 @@ class GetSystemTopicResult:
     """
     A collection of values returned by getSystemTopic.
     """
-    def __init__(__self__, id=None, identity=None, location=None, metric_arm_resource_id=None, name=None, resource_group_name=None, source_arm_resource_id=None, tags=None, topic_type=None):
+    def __init__(__self__, id=None, identities=None, location=None, metric_arm_resource_id=None, name=None, resource_group_name=None, source_arm_resource_id=None, tags=None, topic_type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,11 +60,11 @@ class GetSystemTopicResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.GetSystemTopicIdentityResult':
+    def identities(self) -> Sequence['outputs.GetSystemTopicIdentityResult']:
         """
         An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
         """
-        return pulumi.get(self, "identity")
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -122,7 +121,7 @@ class AwaitableGetSystemTopicResult(GetSystemTopicResult):
             yield self
         return GetSystemTopicResult(
             id=self.id,
-            identity=self.identity,
+            identities=self.identities,
             location=self.location,
             metric_arm_resource_id=self.metric_arm_resource_id,
             name=self.name,
@@ -132,8 +131,7 @@ class AwaitableGetSystemTopicResult(GetSystemTopicResult):
             topic_type=self.topic_type)
 
 
-def get_system_topic(identity: Optional[pulumi.InputType['GetSystemTopicIdentityArgs']] = None,
-                     name: Optional[str] = None,
+def get_system_topic(name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
     """
@@ -150,12 +148,10 @@ def get_system_topic(identity: Optional[pulumi.InputType['GetSystemTopicIdentity
     ```
 
 
-    :param pulumi.InputType['GetSystemTopicIdentityArgs'] identity: An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
     :param str name: The name of the EventGrid System Topic resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
     """
     __args__ = dict()
-    __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -166,7 +162,7 @@ def get_system_topic(identity: Optional[pulumi.InputType['GetSystemTopicIdentity
 
     return AwaitableGetSystemTopicResult(
         id=__ret__.id,
-        identity=__ret__.identity,
+        identities=__ret__.identities,
         location=__ret__.location,
         metric_arm_resource_id=__ret__.metric_arm_resource_id,
         name=__ret__.name,
@@ -177,8 +173,7 @@ def get_system_topic(identity: Optional[pulumi.InputType['GetSystemTopicIdentity
 
 
 @_utilities.lift_output_func(get_system_topic)
-def get_system_topic_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType['GetSystemTopicIdentityArgs']]]] = None,
-                            name: Optional[pulumi.Input[str]] = None,
+def get_system_topic_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicResult]:
     """
@@ -195,7 +190,6 @@ def get_system_topic_output(identity: Optional[pulumi.Input[Optional[pulumi.Inpu
     ```
 
 
-    :param pulumi.InputType['GetSystemTopicIdentityArgs'] identity: An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
     :param str name: The name of the EventGrid System Topic resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
     """

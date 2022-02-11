@@ -1563,20 +1563,27 @@ class ServiceAccountIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
+                 tenant_id: Optional[str] = None):
         """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
         """
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="principalId")
@@ -1593,14 +1600,6 @@ class ServiceAccountIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

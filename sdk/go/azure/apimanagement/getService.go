@@ -81,6 +81,8 @@ type LookupServiceResult struct {
 	PortalUrl string `pulumi:"portalUrl"`
 	// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// The email of Publisher/Company of the API Management Service.
@@ -194,6 +196,11 @@ func (o LookupServiceResultOutput) PortalUrl() pulumi.StringOutput {
 // Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
 func (o LookupServiceResultOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+func (o LookupServiceResultOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.

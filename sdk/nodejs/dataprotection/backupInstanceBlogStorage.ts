@@ -13,18 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleAccount.id,
@@ -37,7 +40,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBackupInstanceBlogStorage = new azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", {
  *     vaultId: exampleBackupVault.id,
- *     location: rg.location,
+ *     location: exampleResourceGroup.location,
  *     storageAccountId: exampleAccount.id,
  *     backupPolicyId: exampleBackupPolicyBlobStorage.id,
  * }, {

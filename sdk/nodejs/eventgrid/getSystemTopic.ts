@@ -27,7 +27,6 @@ export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:eventgrid/getSystemTopic:getSystemTopic", {
-        "identity": args.identity,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -37,10 +36,6 @@ export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getSystemTopic.
  */
 export interface GetSystemTopicArgs {
-    /**
-     * An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-     */
-    identity?: inputs.eventgrid.GetSystemTopicIdentity;
     /**
      * The name of the EventGrid System Topic resource.
      */
@@ -62,7 +57,7 @@ export interface GetSystemTopicResult {
     /**
      * An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
      */
-    readonly identity: outputs.eventgrid.GetSystemTopicIdentity;
+    readonly identities: outputs.eventgrid.GetSystemTopicIdentity[];
     readonly location: string;
     /**
      * The Metric ARM Resource ID of the Event Grid System Topic.
@@ -92,10 +87,6 @@ export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulu
  * A collection of arguments for invoking getSystemTopic.
  */
 export interface GetSystemTopicOutputArgs {
-    /**
-     * An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-     */
-    identity?: pulumi.Input<inputs.eventgrid.GetSystemTopicIdentityArgs>;
     /**
      * The name of the EventGrid System Topic resource.
      */

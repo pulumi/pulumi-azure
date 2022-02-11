@@ -1034,6 +1034,10 @@ export namespace apimanagement {
 
     export interface ServiceAdditionalLocation {
         /**
+         * The number of compute units in this region. Defaults to the capacity of the main region.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
          * The URL of the Regional Gateway for the API Management Service in the specified region.
          */
         gatewayRegionalUrl?: pulumi.Input<string>;
@@ -1046,6 +1050,10 @@ export namespace apimanagement {
          */
         privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * ID of a standard SKU IPv4 Public IP.
+         */
+        publicIpAddressId?: pulumi.Input<string>;
+        /**
          * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
          */
         publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
@@ -1053,6 +1061,10 @@ export namespace apimanagement {
          * A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
          */
         virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration>;
+        /**
+         * A list of availability zones.
+         */
+        zones?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServiceAdditionalLocationVirtualNetworkConfiguration {
@@ -1327,7 +1339,7 @@ export namespace apimanagement {
         /**
          * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ServicePolicy {
@@ -1607,7 +1619,7 @@ export namespace appplatform {
         /**
          * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface SpringCloudAppPersistentDisk {
@@ -3749,6 +3761,19 @@ export namespace authorization {
 }
 
 export namespace automation {
+    export interface AccountIdentity {
+        /**
+         * The ID of the User Assigned Identity which should be assigned to this Automation Account.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for the automation account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ModuleModuleLink {
         hash?: pulumi.Input<inputs.automation.ModuleModuleLinkHash>;
         /**
@@ -4253,8 +4278,6 @@ export namespace batch {
 export namespace blueprint {
     export interface AssignmentIdentity {
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
-        principalId?: pulumi.Input<string>;
-        tenantId?: pulumi.Input<string>;
         /**
          * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
          */
@@ -4962,7 +4985,7 @@ export namespace cognitive {
         /**
          * Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface AccountNetworkAcls {
@@ -5180,7 +5203,7 @@ export namespace compute {
          */
         name?: pulumi.Input<string>;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         storageAccountType: pulumi.Input<string>;
         /**
@@ -5349,6 +5372,7 @@ export namespace compute {
          * The ID of the System Managed Service Principal.
          */
         principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
@@ -5687,7 +5711,6 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetIdentity {
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
-        principalId?: pulumi.Input<string>;
         type: pulumi.Input<string>;
     }
 
@@ -5765,6 +5788,10 @@ export namespace compute {
          * When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
          */
         disablePasswordAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         */
+        patchMode?: pulumi.Input<string>;
         provisionVmAgent?: pulumi.Input<boolean>;
         secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret>[]>;
     }
@@ -5797,6 +5824,14 @@ export namespace compute {
         adminUsername: pulumi.Input<string>;
         computerNamePrefix?: pulumi.Input<string>;
         enableAutomaticUpdates?: pulumi.Input<boolean>;
+        /**
+         * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+         */
+        hotpatchingEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         */
+        patchMode?: pulumi.Input<string>;
         provisionVmAgent?: pulumi.Input<boolean>;
         secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret>[]>;
         timezone?: pulumi.Input<string>;
@@ -6613,7 +6648,7 @@ export namespace compute {
          */
         name?: pulumi.Input<string>;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         storageAccountType: pulumi.Input<string>;
         /**
@@ -6782,6 +6817,7 @@ export namespace compute {
          * The ID of the System Managed Service Principal.
          */
         principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
@@ -7730,6 +7766,7 @@ export namespace containerservice {
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
          */
@@ -9249,7 +9286,7 @@ export namespace core {
         /**
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ResourceGroupPolicyAssignmentNonComplianceMessage {
@@ -9275,7 +9312,7 @@ export namespace core {
         /**
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ResourcePolicyAssignmentNonComplianceMessage {
@@ -9334,7 +9371,7 @@ export namespace core {
         /**
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface SubscriptionPolicyAssignmentNonComplianceMessage {
@@ -11263,7 +11300,7 @@ export namespace dataprotection {
         /**
          * Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
 }
@@ -11279,7 +11316,7 @@ export namespace datashare {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -12268,44 +12305,6 @@ export namespace eventgrid {
         ipMask: string;
     }
 
-    export interface GetSystemTopicIdentity {
-        /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
-         */
-        identityIds?: string[];
-        /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-         */
-        principalId?: string;
-        /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-         */
-        tenantId?: string;
-        /**
-         * Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
-         */
-        type: string;
-    }
-
-    export interface GetSystemTopicIdentityArgs {
-        /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
-         */
-        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-         */
-        principalId?: pulumi.Input<string>;
-        /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
-         */
-        type: pulumi.Input<string>;
-    }
-
     export interface SystemTopicEventSubscriptionAdvancedFilter {
         /**
          * Compares a value of an event using a single boolean value.
@@ -12991,7 +12990,7 @@ export namespace eventhub {
         /**
          * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface EventHubNamespaceNetworkRulesets {
@@ -17651,36 +17650,6 @@ export namespace logicapps {
         actionResult: pulumi.Input<string>;
     }
 
-    export interface GetStandardIdentity {
-        /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-         */
-        principalId?: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-         */
-        tenantId?: string;
-        /**
-         * The Type of Managed Identity assigned to this Logic App Workflow.
-         */
-        type: string;
-    }
-
-    export interface GetStandardIdentityArgs {
-        /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-         */
-        principalId?: pulumi.Input<string>;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * The Type of Managed Identity assigned to this Logic App Workflow.
-         */
-        type: pulumi.Input<string>;
-    }
-
     export interface GetStandardSiteConfig {
         alwaysOn?: boolean;
         appScaleLimit?: number;
@@ -18185,7 +18154,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18245,7 +18214,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Compute Instance to be created.
+         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18279,7 +18248,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18321,7 +18290,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`. Changing this forces a new Machine Learning Synapse Spark to be created.
+         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18428,7 +18397,7 @@ export namespace management {
         /**
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface GroupPolicyAssignmentNonComplianceMessage {
@@ -18877,7 +18846,7 @@ export namespace media {
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ServiceAccountKeyDeliveryAccessControl {
@@ -19194,7 +19163,7 @@ export namespace mediaservices {
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface AccountKeyDeliveryAccessControl {
@@ -20570,6 +20539,22 @@ export namespace mssql {
         storageEndpoint?: pulumi.Input<string>;
     }
 
+    export interface ServerFoo {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The tenant id of the Azure AD Administrator of this SQL Server.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ServerIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -20743,7 +20728,6 @@ export namespace mssql {
          */
         luns: pulumi.Input<pulumi.Input<number>[]>;
     }
-
 }
 
 export namespace mysql {
@@ -21311,11 +21295,11 @@ export namespace network {
         /**
          * Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
          */
-        identityIds: pulumi.Input<string>;
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+         * The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ApplicationGatewayPrivateEndpointConnection {
@@ -22019,7 +22003,7 @@ export namespace network {
         /**
          * Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
          */
-        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
          */
@@ -25813,7 +25797,7 @@ export namespace sql {
         /**
          * The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface SqlServerExtendedAuditingPolicy {
@@ -27406,6 +27390,32 @@ export namespace webpubsub {
          * Specify the identity ID of the target resource.
          */
         managedIdentityId: pulumi.Input<string>;
+    }
+
+    export interface NetworkAclPrivateEndpoint {
+        /**
+         * The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        allowedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        deniedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Private Endpoint which is based on the Web Pubsub service.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    export interface NetworkAclPublicNetwork {
+        /**
+         * The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        allowedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         */
+        deniedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServiceLiveTrace {

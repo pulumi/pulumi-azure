@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * Network Watcher Flow Logs can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/networkSecurityGroupId/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/group1
+ *  $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/flowLogs/log1
  * ```
  */
 export class NetworkWatcherFlowLog extends pulumi.CustomResource {
@@ -100,7 +100,10 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
     public readonly location!: pulumi.Output<string>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
+     */
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
@@ -180,6 +183,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -188,7 +192,6 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkWatcherFlowLog.__pulumiType, name, resourceInputs, opts);
@@ -207,6 +210,9 @@ export interface NetworkWatcherFlowLogState {
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
@@ -254,6 +260,10 @@ export interface NetworkWatcherFlowLogArgs {
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */

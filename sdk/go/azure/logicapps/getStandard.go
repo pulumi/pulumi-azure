@@ -47,8 +47,6 @@ func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulum
 
 // A collection of arguments for invoking getStandard.
 type LookupStandardArgs struct {
-	// An `identity` block as defined below.
-	Identity *GetStandardIdentity `pulumi:"identity"`
 	// The name of this Logic App.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
@@ -72,8 +70,8 @@ type LookupStandardResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
-	Identity GetStandardIdentity `pulumi:"identity"`
-	Kind     string              `pulumi:"kind"`
+	Identities []GetStandardIdentity `pulumi:"identities"`
+	Kind       string                `pulumi:"kind"`
 	// The Azure location where the Logic App Standard exists.
 	Location                    string                      `pulumi:"location"`
 	Name                        string                      `pulumi:"name"`
@@ -101,8 +99,6 @@ func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, op
 
 // A collection of arguments for invoking getStandard.
 type LookupStandardOutputArgs struct {
-	// An `identity` block as defined below.
-	Identity GetStandardIdentityPtrInput `pulumi:"identity"`
 	// The name of this Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
@@ -176,8 +172,8 @@ func (o LookupStandardResultOutput) Id() pulumi.StringOutput {
 }
 
 // An `identity` block as defined below.
-func (o LookupStandardResultOutput) Identity() GetStandardIdentityOutput {
-	return o.ApplyT(func(v LookupStandardResult) GetStandardIdentity { return v.Identity }).(GetStandardIdentityOutput)
+func (o LookupStandardResultOutput) Identities() GetStandardIdentityArrayOutput {
+	return o.ApplyT(func(v LookupStandardResult) []GetStandardIdentity { return v.Identities }).(GetStandardIdentityArrayOutput)
 }
 
 func (o LookupStandardResultOutput) Kind() pulumi.StringOutput {

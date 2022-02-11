@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'HubEventHandler',
     'HubEventHandlerAuth',
+    'NetworkAclPrivateEndpoint',
+    'NetworkAclPublicNetwork',
     'ServiceLiveTrace',
 ]
 
@@ -135,6 +137,117 @@ class HubEventHandlerAuth(dict):
         Specify the identity ID of the target resource.
         """
         return pulumi.get(self, "managed_identity_id")
+
+
+@pulumi.output_type
+class NetworkAclPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedRequestTypes":
+            suggest = "allowed_request_types"
+        elif key == "deniedRequestTypes":
+            suggest = "denied_request_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 allowed_request_types: Optional[Sequence[str]] = None,
+                 denied_request_types: Optional[Sequence[str]] = None):
+        """
+        :param str id: The ID of the Private Endpoint which is based on the Web Pubsub service.
+        :param Sequence[str] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        :param Sequence[str] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        pulumi.set(__self__, "id", id)
+        if allowed_request_types is not None:
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
+        if denied_request_types is not None:
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Private Endpoint which is based on the Web Pubsub service.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="allowedRequestTypes")
+    def allowed_request_types(self) -> Optional[Sequence[str]]:
+        """
+        The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "allowed_request_types")
+
+    @property
+    @pulumi.getter(name="deniedRequestTypes")
+    def denied_request_types(self) -> Optional[Sequence[str]]:
+        """
+        The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "denied_request_types")
+
+
+@pulumi.output_type
+class NetworkAclPublicNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedRequestTypes":
+            suggest = "allowed_request_types"
+        elif key == "deniedRequestTypes":
+            suggest = "denied_request_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclPublicNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclPublicNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclPublicNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_request_types: Optional[Sequence[str]] = None,
+                 denied_request_types: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        :param Sequence[str] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        if allowed_request_types is not None:
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
+        if denied_request_types is not None:
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
+
+    @property
+    @pulumi.getter(name="allowedRequestTypes")
+    def allowed_request_types(self) -> Optional[Sequence[str]]:
+        """
+        The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "allowed_request_types")
+
+    @property
+    @pulumi.getter(name="deniedRequestTypes")
+    def denied_request_types(self) -> Optional[Sequence[str]]:
+        """
+        The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "denied_request_types")
 
 
 @pulumi.output_type

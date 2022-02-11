@@ -646,7 +646,7 @@ type ResourceGroupPolicyAssignmentIdentity struct {
 	// The Tenant ID of the Policy Assignment for this Resource Group.
 	TenantId *string `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ResourceGroupPolicyAssignmentIdentityInput is an input type that accepts ResourceGroupPolicyAssignmentIdentityArgs and ResourceGroupPolicyAssignmentIdentityOutput values.
@@ -666,7 +666,7 @@ type ResourceGroupPolicyAssignmentIdentityArgs struct {
 	// The Tenant ID of the Policy Assignment for this Resource Group.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ResourceGroupPolicyAssignmentIdentityArgs) ElementType() reflect.Type {
@@ -757,8 +757,8 @@ func (o ResourceGroupPolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtr
 }
 
 // The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-func (o ResourceGroupPolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourceGroupPolicyAssignmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ResourceGroupPolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -811,7 +811,7 @@ func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -929,7 +929,7 @@ type ResourcePolicyAssignmentIdentity struct {
 	// The Tenant ID of the Policy Assignment for this Resource.
 	TenantId *string `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ResourcePolicyAssignmentIdentityInput is an input type that accepts ResourcePolicyAssignmentIdentityArgs and ResourcePolicyAssignmentIdentityOutput values.
@@ -949,7 +949,7 @@ type ResourcePolicyAssignmentIdentityArgs struct {
 	// The Tenant ID of the Policy Assignment for this Resource.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ResourcePolicyAssignmentIdentityArgs) ElementType() reflect.Type {
@@ -1040,8 +1040,8 @@ func (o ResourcePolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrOutpu
 }
 
 // The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-func (o ResourcePolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourcePolicyAssignmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ResourcePolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1094,7 +1094,7 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1628,7 +1628,7 @@ type SubscriptionPolicyAssignmentIdentity struct {
 	// The Tenant ID of the Policy Assignment for this Subscription.
 	TenantId *string `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // SubscriptionPolicyAssignmentIdentityInput is an input type that accepts SubscriptionPolicyAssignmentIdentityArgs and SubscriptionPolicyAssignmentIdentityOutput values.
@@ -1648,7 +1648,7 @@ type SubscriptionPolicyAssignmentIdentityArgs struct {
 	// The Tenant ID of the Policy Assignment for this Subscription.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (SubscriptionPolicyAssignmentIdentityArgs) ElementType() reflect.Type {
@@ -1739,8 +1739,8 @@ func (o SubscriptionPolicyAssignmentIdentityOutput) TenantId() pulumi.StringPtrO
 }
 
 // The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-func (o SubscriptionPolicyAssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o SubscriptionPolicyAssignmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type SubscriptionPolicyAssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1793,7 +1793,7 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

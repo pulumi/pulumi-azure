@@ -1197,7 +1197,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.RegistryIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.RegistryIdentity']]:
         """
         An `identity` block as defined below.
         """

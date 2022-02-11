@@ -217,7 +217,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `windowsProfile` block as defined below.
-     * ---
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
 
@@ -472,7 +471,6 @@ export interface KubernetesClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `windowsProfile` block as defined below.
-     * ---
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
 }
@@ -597,7 +595,6 @@ export interface KubernetesClusterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `windowsProfile` block as defined below.
-     * ---
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
 }

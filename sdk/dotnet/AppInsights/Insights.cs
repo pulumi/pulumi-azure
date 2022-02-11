@@ -129,6 +129,12 @@ namespace Pulumi.Azure.AppInsights
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
 
         /// <summary>
+        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        /// </summary>
+        [Output("forceCustomerStorageForProfiler")]
+        public Output<bool?> ForceCustomerStorageForProfiler { get; private set; } = null!;
+
+        /// <summary>
         /// The Instrumentation Key for this Application Insights component. (Sensitive)
         /// </summary>
         [Output("instrumentationKey")]
@@ -263,6 +269,12 @@ namespace Pulumi.Azure.AppInsights
         [Input("disableIpMasking")]
         public Input<bool>? DisableIpMasking { get; set; }
 
+        /// <summary>
+        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        /// </summary>
+        [Input("forceCustomerStorageForProfiler")]
+        public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
+
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
@@ -370,6 +382,12 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("disableIpMasking")]
         public Input<bool>? DisableIpMasking { get; set; }
+
+        /// <summary>
+        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        /// </summary>
+        [Input("forceCustomerStorageForProfiler")]
+        public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
 
         /// <summary>
         /// The Instrumentation Key for this Application Insights component. (Sensitive)

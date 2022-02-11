@@ -43,7 +43,7 @@ class AccountIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
+        :param str type: Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
         """
@@ -57,7 +57,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
+        Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

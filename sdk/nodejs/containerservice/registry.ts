@@ -172,7 +172,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.RegistryIdentity>;
+    public readonly identity!: pulumi.Output<outputs.containerservice.RegistryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

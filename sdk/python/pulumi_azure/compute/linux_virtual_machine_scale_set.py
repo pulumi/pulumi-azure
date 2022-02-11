@@ -1567,7 +1567,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Disclaimers
 
-        > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+        > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
@@ -1687,7 +1687,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Disclaimers
 
-        > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+        > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 

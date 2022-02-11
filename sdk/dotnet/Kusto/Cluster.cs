@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Output("enableAutoStop")]
+        public Output<bool?> EnableAutoStop { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if the cluster's disks are encrypted.
         /// </summary>
         [Output("enableDiskEncryption")]
@@ -96,7 +102,7 @@ namespace Pulumi.Azure.Kusto
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.ClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
@@ -215,6 +221,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Input("enableAutoStop")]
+        public Input<bool>? EnableAutoStop { get; set; }
 
         /// <summary>
         /// Specifies if the cluster's disks are encrypted.
@@ -348,6 +360,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Input("enableAutoStop")]
+        public Input<bool>? EnableAutoStop { get; set; }
 
         /// <summary>
         /// Specifies if the cluster's disks are encrypted.

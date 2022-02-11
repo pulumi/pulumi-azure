@@ -50,7 +50,6 @@ class AccountArgs:
         :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: A `storage` block as defined below.
@@ -263,9 +262,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="outboundNetworkAccessRestrited")
     def outbound_network_access_restrited(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        """
         return pulumi.get(self, "outbound_network_access_restrited")
 
     @outbound_network_access_restrited.setter
@@ -361,7 +357,6 @@ class _AccountState:
         :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -575,9 +570,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="outboundNetworkAccessRestrited")
     def outbound_network_access_restrited(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        """
         return pulumi.get(self, "outbound_network_access_restrited")
 
     @outbound_network_access_restrited.setter
@@ -729,7 +721,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
@@ -878,7 +869,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] metrics_advisor_website_name: The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -1023,9 +1013,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="outboundNetworkAccessRestrited")
     def outbound_network_access_restrited(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        """
         return pulumi.get(self, "outbound_network_access_restrited")
 
     @property

@@ -11,6 +11,8 @@ from .. import _utilities
 __all__ = [
     'HubEventHandlerArgs',
     'HubEventHandlerAuthArgs',
+    'NetworkAclPrivateEndpointArgs',
+    'NetworkAclPublicNetworkArgs',
     'ServiceLiveTraceArgs',
 ]
 
@@ -116,6 +118,99 @@ class HubEventHandlerAuthArgs:
     @managed_identity_id.setter
     def managed_identity_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "managed_identity_id", value)
+
+
+@pulumi.input_type
+class NetworkAclPrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the Private Endpoint which is based on the Web Pubsub service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        pulumi.set(__self__, "id", id)
+        if allowed_request_types is not None:
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
+        if denied_request_types is not None:
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Private Endpoint which is based on the Web Pubsub service.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="allowedRequestTypes")
+    def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "allowed_request_types")
+
+    @allowed_request_types.setter
+    def allowed_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_request_types", value)
+
+    @property
+    @pulumi.getter(name="deniedRequestTypes")
+    def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "denied_request_types")
+
+    @denied_request_types.setter
+    def denied_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "denied_request_types", value)
+
+
+@pulumi.input_type
+class NetworkAclPublicNetworkArgs:
+    def __init__(__self__, *,
+                 allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_request_types: The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        if allowed_request_types is not None:
+            pulumi.set(__self__, "allowed_request_types", allowed_request_types)
+        if denied_request_types is not None:
+            pulumi.set(__self__, "denied_request_types", denied_request_types)
+
+    @property
+    @pulumi.getter(name="allowedRequestTypes")
+    def allowed_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "allowed_request_types")
+
+    @allowed_request_types.setter
+    def allowed_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_request_types", value)
+
+    @property
+    @pulumi.getter(name="deniedRequestTypes")
+    def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        """
+        return pulumi.get(self, "denied_request_types")
+
+    @denied_request_types.setter
+    def denied_request_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "denied_request_types", value)
 
 
 @pulumi.input_type

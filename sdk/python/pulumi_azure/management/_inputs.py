@@ -16,20 +16,31 @@ __all__ = [
 @pulumi.input_type
 class GroupPolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
+                 type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Management Group.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Management Group.
-        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
         """
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="principalId")
@@ -54,18 +65,6 @@ class GroupPolicyAssignmentIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

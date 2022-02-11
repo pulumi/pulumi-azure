@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// ## Disclaimers
     /// 
+    /// &gt; When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.
+    /// 
     /// &gt; **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostname_configurations` block and by using the `azure.apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
     /// 
     /// ## Example Usage
@@ -163,10 +165,22 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.ServiceProtocols> Protocols { get; private set; } = null!;
 
         /// <summary>
+        /// ID of a standard SKU IPv4 Public IP.
+        /// </summary>
+        [Output("publicIpAddressId")]
+        public Output<string?> PublicIpAddressId { get; private set; } = null!;
+
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         [Output("publicIpAddresses")]
         public Output<ImmutableArray<string>> PublicIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// Is public access to the service allowed?.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The email of publisher/company.
@@ -376,6 +390,18 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("protocols")]
         public Input<Inputs.ServiceProtocolsArgs>? Protocols { get; set; }
+
+        /// <summary>
+        /// ID of a standard SKU IPv4 Public IP.
+        /// </summary>
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
+
+        /// <summary>
+        /// Is public access to the service allowed?.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The email of publisher/company.
@@ -595,6 +621,12 @@ namespace Pulumi.Azure.ApiManagement
         [Input("protocols")]
         public Input<Inputs.ServiceProtocolsGetArgs>? Protocols { get; set; }
 
+        /// <summary>
+        /// ID of a standard SKU IPv4 Public IP.
+        /// </summary>
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
+
         [Input("publicIpAddresses")]
         private InputList<string>? _publicIpAddresses;
 
@@ -606,6 +638,12 @@ namespace Pulumi.Azure.ApiManagement
             get => _publicIpAddresses ?? (_publicIpAddresses = new InputList<string>());
             set => _publicIpAddresses = value;
         }
+
+        /// <summary>
+        /// Is public access to the service allowed?.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The email of publisher/company.

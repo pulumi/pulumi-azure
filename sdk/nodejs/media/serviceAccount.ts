@@ -70,7 +70,7 @@ export class ServiceAccount extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.media.ServiceAccountIdentity>;
+    public readonly identity!: pulumi.Output<outputs.media.ServiceAccountIdentity | undefined>;
     /**
      * A `keyDeliveryAccessControl` block as defined below.
      */

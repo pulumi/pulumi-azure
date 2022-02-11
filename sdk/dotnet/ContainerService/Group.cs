@@ -121,7 +121,7 @@ namespace Pulumi.Azure.ContainerService
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.GroupIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.GroupIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.

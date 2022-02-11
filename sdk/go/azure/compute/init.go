@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DiskPool{}
 	case "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget":
 		r = &DiskPoolIscsiTarget{}
+	case "azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun":
+		r = &DiskPoolIscsiTargetLun{}
 	case "azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment":
 		r = &DiskPoolManagedDiskAttachment{}
 	case "azure:compute/extension:Extension":
@@ -136,6 +138,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/diskPoolIscsiTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/diskPoolIscsiTargetLun",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -30,6 +30,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
         /// <summary>
         /// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>

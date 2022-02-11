@@ -110,7 +110,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.GroupIdentity>;
+    public readonly identity!: pulumi.Output<outputs.containerservice.GroupIdentity | undefined>;
     /**
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
