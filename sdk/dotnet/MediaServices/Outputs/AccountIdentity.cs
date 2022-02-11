@@ -24,7 +24,7 @@ namespace Pulumi.Azure.MediaServices.Outputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private AccountIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.MediaServices.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

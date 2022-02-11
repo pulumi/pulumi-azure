@@ -151,9 +151,11 @@ type WindowsVirtualMachine struct {
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled pulumi.BoolPtrOutput `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrOutput `pulumi:"identity"`
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -165,7 +167,7 @@ type WindowsVirtualMachine struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskOutput `pulumi:"osDisk"`
-	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode pulumi.StringPtrOutput `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachinePlanPtrOutput `pulumi:"plan"`
@@ -292,9 +294,11 @@ type windowsVirtualMachineState struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -306,7 +310,7 @@ type windowsVirtualMachineState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk *WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
-	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *WindowsVirtualMachinePlan `pulumi:"plan"`
@@ -387,9 +391,11 @@ type WindowsVirtualMachineState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -401,7 +407,7 @@ type WindowsVirtualMachineState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskPtrInput
-	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachinePlanPtrInput
@@ -486,9 +492,11 @@ type windowsVirtualMachineArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -500,7 +508,7 @@ type windowsVirtualMachineArgs struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
-	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *WindowsVirtualMachinePlan `pulumi:"plan"`
@@ -572,9 +580,11 @@ type WindowsVirtualMachineArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -586,7 +596,7 @@ type WindowsVirtualMachineArgs struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskInput
-	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachinePlanPtrInput

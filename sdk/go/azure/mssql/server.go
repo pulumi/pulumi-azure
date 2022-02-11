@@ -85,6 +85,7 @@ type Server struct {
 	ConnectionPolicy pulumi.StringPtrOutput `pulumi:"connectionPolicy"`
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy ServerExtendedAuditingPolicyTypeOutput `pulumi:"extendedAuditingPolicy"`
+	Foo                    ServerFooPtrOutput                     `pulumi:"foo"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -160,6 +161,7 @@ type serverState struct {
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *ServerExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
+	Foo                    *ServerFoo                        `pulumi:"foo"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -195,6 +197,7 @@ type ServerState struct {
 	ConnectionPolicy pulumi.StringPtrInput
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy ServerExtendedAuditingPolicyTypePtrInput
+	Foo                    ServerFooPtrInput
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -234,6 +237,7 @@ type serverArgs struct {
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *ServerExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
+	Foo                    *ServerFoo                        `pulumi:"foo"`
 	// An `identity` block as defined below.
 	Identity *ServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -266,6 +270,7 @@ type ServerArgs struct {
 	ConnectionPolicy pulumi.StringPtrInput
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy ServerExtendedAuditingPolicyTypePtrInput
+	Foo                    ServerFooPtrInput
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

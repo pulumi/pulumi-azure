@@ -174,6 +174,10 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
+        /// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+        /// </summary>
+        public readonly string PublicIpAddressId;
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
@@ -224,6 +228,8 @@ namespace Pulumi.Azure.ApiManagement
 
             ImmutableArray<string> privateIpAddresses,
 
+            string publicIpAddressId,
+
             ImmutableArray<string> publicIpAddresses,
 
             string publisherEmail,
@@ -251,6 +257,7 @@ namespace Pulumi.Azure.ApiManagement
             NotificationSenderEmail = notificationSenderEmail;
             PortalUrl = portalUrl;
             PrivateIpAddresses = privateIpAddresses;
+            PublicIpAddressId = publicIpAddressId;
             PublicIpAddresses = publicIpAddresses;
             PublisherEmail = publisherEmail;
             PublisherName = publisherName;

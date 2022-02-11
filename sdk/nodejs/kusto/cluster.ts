@@ -73,6 +73,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    public readonly enableAutoStop!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies if the cluster's disks are encrypted.
      */
     public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
@@ -91,7 +95,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity>;
+    public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity | undefined>;
     /**
      * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
      */
@@ -152,6 +156,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
             resourceInputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
+            resourceInputs["enableAutoStop"] = state ? state.enableAutoStop : undefined;
             resourceInputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
             resourceInputs["enablePurge"] = state ? state.enablePurge : undefined;
             resourceInputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
@@ -177,6 +182,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
+            resourceInputs["enableAutoStop"] = args ? args.enableAutoStop : undefined;
             resourceInputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
             resourceInputs["enablePurge"] = args ? args.enablePurge : undefined;
             resourceInputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
@@ -212,6 +218,10 @@ export interface ClusterState {
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    enableAutoStop?: pulumi.Input<boolean>;
     /**
      * Specifies if the cluster's disks are encrypted.
      */
@@ -286,6 +296,10 @@ export interface ClusterArgs {
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    enableAutoStop?: pulumi.Input<boolean>;
     /**
      * Specifies if the cluster's disks are encrypted.
      */

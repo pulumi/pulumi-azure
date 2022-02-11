@@ -40,22 +40,29 @@ class AccountIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
+                 tenant_id: Optional[str] = None):
         """
-        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param str type: Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         """
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="identityIds")
@@ -74,14 +81,6 @@ class AccountIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

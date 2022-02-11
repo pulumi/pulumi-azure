@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network
     /// Network Watcher Flow Logs can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/networkSecurityGroupId/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/group1
+    ///  $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/flowLogs/log1
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog")]
@@ -100,6 +100,9 @@ namespace Pulumi.Azure.Network
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -210,6 +213,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkSecurityGroupId", required: true)]
@@ -282,6 +291,9 @@ namespace Pulumi.Azure.Network
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

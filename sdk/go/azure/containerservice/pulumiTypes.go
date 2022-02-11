@@ -2160,6 +2160,7 @@ type GroupIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
 	// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
@@ -2179,6 +2180,7 @@ type GroupIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2269,6 +2271,10 @@ func (o GroupIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+func (o GroupIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -2314,6 +2320,15 @@ func (o GroupIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 

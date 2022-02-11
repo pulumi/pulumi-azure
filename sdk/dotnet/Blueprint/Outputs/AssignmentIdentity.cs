@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Blueprint.Outputs
     public sealed class AssignmentIdentity
     {
         public readonly ImmutableArray<string> IdentityIds;
-        public readonly string? PrincipalId;
-        public readonly string? TenantId;
         /// <summary>
         /// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         /// </summary>
@@ -25,15 +23,9 @@ namespace Pulumi.Azure.Blueprint.Outputs
         private AssignmentIdentity(
             ImmutableArray<string> identityIds,
 
-            string? principalId,
-
-            string? tenantId,
-
             string type)
         {
             IdentityIds = identityIds;
-            PrincipalId = principalId;
-            TenantId = tenantId;
             Type = type;
         }
     }

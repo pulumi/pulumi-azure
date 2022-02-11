@@ -22,6 +22,7 @@ export * from "./dataConnectorThreatIntelligence";
 export * from "./getAlertRule";
 export * from "./getAlertRuleTemplate";
 export * from "./watchlist";
+export * from "./watchlistItem";
 
 // Import resources to register:
 import { AlertRuleFusion } from "./alertRuleFusion";
@@ -39,6 +40,7 @@ import { DataConnectorMicrosoftDefenderAdvancedThreatProtection } from "./dataCo
 import { DataConnectorOffice365 } from "./dataConnectorOffice365";
 import { DataConnectorThreatIntelligence } from "./dataConnectorThreatIntelligence";
 import { Watchlist } from "./watchlist";
+import { WatchlistItem } from "./watchlistItem";
 
 const _module = {
     version: utilities.getVersion(),
@@ -74,6 +76,8 @@ const _module = {
                 return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
+            case "azure:sentinel/watchlistItem:WatchlistItem":
+                return new WatchlistItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -94,3 +98,4 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftD
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

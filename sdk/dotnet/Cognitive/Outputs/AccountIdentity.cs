@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private AccountIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             IdentityIds = identityIds;
             PrincipalId = principalId;

@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const cluster = new azure.keyvault.AccessPolicy("cluster", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
- *     objectId: exampleCluster.identity.apply(identity => identity.principalId),
+ *     objectId: exampleCluster.identity.apply(identity => identity?.principalId),
  *     keyPermissions: [
  *         "get",
  *         "unwrapkey",

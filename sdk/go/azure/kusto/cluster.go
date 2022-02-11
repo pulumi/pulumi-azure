@@ -65,6 +65,8 @@ type Cluster struct {
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop pulumi.BoolPtrOutput `pulumi:"enableAutoStop"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
 	// Specifies if the purge operations are enabled.
@@ -74,7 +76,7 @@ type Cluster struct {
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
-	Identity ClusterIdentityOutput `pulumi:"identity"`
+	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayOutput `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -138,6 +140,8 @@ type clusterState struct {
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop *bool `pulumi:"enableAutoStop"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// Specifies if the purge operations are enabled.
@@ -177,6 +181,8 @@ type ClusterState struct {
 	DataIngestionUri pulumi.StringPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
@@ -218,6 +224,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop *bool `pulumi:"enableAutoStop"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// Specifies if the purge operations are enabled.
@@ -254,6 +262,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	EnableAutoStop pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.

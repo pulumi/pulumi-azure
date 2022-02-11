@@ -94,6 +94,7 @@ export class Server extends pulumi.CustomResource {
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     public readonly extendedAuditingPolicy!: pulumi.Output<outputs.mssql.ServerExtendedAuditingPolicy>;
+    public readonly foo!: pulumi.Output<outputs.mssql.ServerFoo | undefined>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
@@ -157,6 +158,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
             resourceInputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
             resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
+            resourceInputs["foo"] = state ? state.foo : undefined;
             resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -187,6 +189,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
             resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
             resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
+            resourceInputs["foo"] = args ? args.foo : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
@@ -228,6 +231,7 @@ export interface ServerState {
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     extendedAuditingPolicy?: pulumi.Input<inputs.mssql.ServerExtendedAuditingPolicy>;
+    foo?: pulumi.Input<inputs.mssql.ServerFoo>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
@@ -298,6 +302,7 @@ export interface ServerArgs {
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     extendedAuditingPolicy?: pulumi.Input<inputs.mssql.ServerExtendedAuditingPolicy>;
+    foo?: pulumi.Input<inputs.mssql.ServerFoo>;
     /**
      * An `identity` block as defined below.
      */

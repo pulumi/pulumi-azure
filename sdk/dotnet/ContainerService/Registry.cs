@@ -214,7 +214,7 @@ namespace Pulumi.Azure.ContainerService
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.RegistryIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.RegistryIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

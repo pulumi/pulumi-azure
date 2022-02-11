@@ -67,7 +67,7 @@ namespace Pulumi.Azure.MediaServices
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A `key_delivery_access_control` block as defined below.

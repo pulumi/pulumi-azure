@@ -192,7 +192,7 @@ namespace Pulumi.Azure.LogicApps
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.StandardIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.StandardIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Logic App kind - will be `functionapp,workflowapp`

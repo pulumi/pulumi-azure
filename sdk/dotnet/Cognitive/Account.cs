@@ -99,9 +99,6 @@ namespace Pulumi.Azure.Cognitive
         [Output("networkAcls")]
         public Output<Outputs.AccountNetworkAcls?> NetworkAcls { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        /// </summary>
         [Output("outboundNetworkAccessRestrited")]
         public Output<bool?> OutboundNetworkAccessRestrited { get; private set; } = null!;
 
@@ -277,9 +274,6 @@ namespace Pulumi.Azure.Cognitive
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsArgs>? NetworkAcls { get; set; }
 
-        /// <summary>
-        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        /// </summary>
         [Input("outboundNetworkAccessRestrited")]
         public Input<bool>? OutboundNetworkAccessRestrited { get; set; }
 
@@ -422,9 +416,6 @@ namespace Pulumi.Azure.Cognitive
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
-        /// <summary>
-        /// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-        /// </summary>
         [Input("outboundNetworkAccessRestrited")]
         public Input<bool>? OutboundNetworkAccessRestrited { get; set; }
 

@@ -39,8 +39,8 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ServiceIdentityArgs()
         {

@@ -21,6 +21,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The ID of the System Managed Service Principal.
         /// </summary>
         public readonly string? PrincipalId;
+        public readonly string? TenantId;
         /// <summary>
         /// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
@@ -32,10 +33,13 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? principalId,
 
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
             PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

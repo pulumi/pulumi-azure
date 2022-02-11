@@ -5,4 +5,5 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .azurerm_portal_dashboard import *
 from .dashboard import *

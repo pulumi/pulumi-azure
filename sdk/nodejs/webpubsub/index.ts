@@ -7,10 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getService";
 export * from "./hub";
+export * from "./networkAcl";
 export * from "./service";
 
 // Import resources to register:
 import { Hub } from "./hub";
+import { NetworkAcl } from "./networkAcl";
 import { Service } from "./service";
 
 const _module = {
@@ -19,6 +21,8 @@ const _module = {
         switch (type) {
             case "azure:webpubsub/hub:Hub":
                 return new Hub(name, <any>undefined, { urn })
+            case "azure:webpubsub/networkAcl:NetworkAcl":
+                return new NetworkAcl(name, <any>undefined, { urn })
             case "azure:webpubsub/service:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
@@ -27,4 +31,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "webpubsub/hub", _module)
+pulumi.runtime.registerResourceModule("azure", "webpubsub/networkAcl", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/service", _module)

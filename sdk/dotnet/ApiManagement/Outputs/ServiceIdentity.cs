@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ServiceIdentity(
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             IdentityIds = identityIds;
             PrincipalId = principalId;

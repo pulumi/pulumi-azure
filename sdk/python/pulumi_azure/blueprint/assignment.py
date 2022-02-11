@@ -15,9 +15,9 @@ __all__ = ['AssignmentArgs', 'Assignment']
 @pulumi.input_type
 class AssignmentArgs:
     def __init__(__self__, *,
+                 identity: pulumi.Input['AssignmentIdentityArgs'],
                  target_subscription_id: pulumi.Input[str],
                  version_id: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['AssignmentIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -27,9 +27,9 @@ class AssignmentArgs:
                  resource_groups: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Assignment resource.
+        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
-        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -38,10 +38,9 @@ class AssignmentArgs:
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
         """
+        pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "target_subscription_id", target_subscription_id)
         pulumi.set(__self__, "version_id", version_id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if lock_exclude_actions is not None:
@@ -56,6 +55,18 @@ class AssignmentArgs:
             pulumi.set(__self__, "parameter_values", parameter_values)
         if resource_groups is not None:
             pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['AssignmentIdentityArgs']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['AssignmentIdentityArgs']):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="targetSubscriptionId")
@@ -80,18 +91,6 @@ class AssignmentArgs:
     @version_id.setter
     def version_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "version_id", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
-        """
-        An `identity` block as defined below.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AssignmentIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -626,6 +625,8 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
+            if identity is None and not opts.urn:
+                raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["lock_exclude_actions"] = lock_exclude_actions
@@ -736,7 +737,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.AssignmentIdentity']]:
+    def identity(self) -> pulumi.Output['outputs.AssignmentIdentity']:
         """
         An `identity` block as defined below.
         """

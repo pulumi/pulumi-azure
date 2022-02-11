@@ -206,7 +206,7 @@ type Registry struct {
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayOutput `pulumi:"georeplications"`
 	// An `identity` block as defined below.
-	Identity RegistryIdentityOutput `pulumi:"identity"`
+	Identity RegistryIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The URL that can be used to log into the container registry.

@@ -60,7 +60,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// An `identity` block as defined below.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity AccountIdentityOutput `pulumi:"identity"`
 	// The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -107,7 +107,7 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// An `identity` block as defined below.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
 	Location *string `pulumi:"location"`
@@ -120,7 +120,7 @@ type accountState struct {
 }
 
 type AccountState struct {
-	// An `identity` block as defined below.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity AccountIdentityPtrInput
 	// The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
 	Location pulumi.StringPtrInput
@@ -137,7 +137,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// An `identity` block as defined below.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity AccountIdentity `pulumi:"identity"`
 	// The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
 	Location *string `pulumi:"location"`
@@ -151,7 +151,7 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// An `identity` block as defined below.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity AccountIdentityInput
 	// The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
 	Location pulumi.StringPtrInput

@@ -1856,7 +1856,7 @@ type EventHubNamespaceIdentity struct {
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId *string `pulumi:"tenantId"`
 	// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EventHubNamespaceIdentityInput is an input type that accepts EventHubNamespaceIdentityArgs and EventHubNamespaceIdentityOutput values.
@@ -1876,7 +1876,7 @@ type EventHubNamespaceIdentityArgs struct {
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventHubNamespaceIdentityArgs) ElementType() reflect.Type {
@@ -1967,8 +1967,8 @@ func (o EventHubNamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
-func (o EventHubNamespaceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubNamespaceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EventHubNamespaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubNamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type EventHubNamespaceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2021,7 +2021,7 @@ func (o EventHubNamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

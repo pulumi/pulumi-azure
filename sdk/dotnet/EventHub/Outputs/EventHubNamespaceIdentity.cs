@@ -24,7 +24,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// <summary>
         /// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private EventHubNamespaceIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.EventHub.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -22,23 +22,27 @@ namespace Pulumi.Azure.DataProtection
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///         });
     ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             DatastoreType = "VaultStore",
     ///             Redundancy = "LocallyRedundant",
+    ///             Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
     ///         {
@@ -54,7 +58,7 @@ namespace Pulumi.Azure.DataProtection
     ///         var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", new Azure.DataProtection.BackupInstanceBlogStorageArgs
     ///         {
     ///             VaultId = exampleBackupVault.Id,
-    ///             Location = rg.Location,
+    ///             Location = exampleResourceGroup.Location,
     ///             StorageAccountId = exampleAccount.Id,
     ///             BackupPolicyId = exampleBackupPolicyBlobStorage.Id,
     ///         }, new CustomResourceOptions

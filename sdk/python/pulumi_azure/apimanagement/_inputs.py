@@ -3862,26 +3862,38 @@ class NamedValueValueFromKeyVaultArgs:
 class ServiceAdditionalLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
                  gateway_regional_url: Optional[pulumi.Input[str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']] = None):
+                 virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] location: The name of the Azure Region in which the API Management Service should be expanded to.
+        :param pulumi.Input[int] capacity: The number of compute units in this region. Defaults to the capacity of the main region.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
         """
         pulumi.set(__self__, "location", location)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if gateway_regional_url is not None:
             pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         if private_ip_addresses is not None:
             pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -3894,6 +3906,18 @@ class ServiceAdditionalLocationArgs:
     @location.setter
     def location(self, value: pulumi.Input[str]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of compute units in this region. Defaults to the capacity of the main region.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -3920,6 +3944,18 @@ class ServiceAdditionalLocationArgs:
         pulumi.set(self, "private_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of a standard SKU IPv4 Public IP.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -3942,6 +3978,18 @@ class ServiceAdditionalLocationArgs:
     @virtual_network_configuration.setter
     def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]):
         pulumi.set(self, "virtual_network_configuration", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
@@ -4923,24 +4971,35 @@ class ServiceHostnameConfigurationScmArgs:
 @pulumi.input_type
 class ServiceIdentityArgs:
     def __init__(__self__, *,
+                 type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The identifier for the tenant access information contract.
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
+        pulumi.set(__self__, "type", type)
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -4977,18 +5036,6 @@ class ServiceIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

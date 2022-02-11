@@ -171,7 +171,7 @@ type Standard struct {
 	// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
-	Identity StandardIdentityOutput `pulumi:"identity"`
+	Identity StandardIdentityPtrOutput `pulumi:"identity"`
 	// The Logic App kind - will be `functionapp,workflowapp`
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

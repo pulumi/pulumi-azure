@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Sql.Inputs
         /// <summary>
         /// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ManagedInstanceIdentityArgs()
         {

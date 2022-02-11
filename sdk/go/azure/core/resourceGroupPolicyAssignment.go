@@ -45,7 +45,7 @@ import (
 // 		_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
 // 			ResourceGroupId:    exampleResourceGroup.ID(),
 // 			PolicyDefinitionId: exampleDefinition.ID(),
-// 			Parameters:         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "      \"tagName\": {\n", "        \"value\": \"Business Unit\"\n", "      },\n", "      \"tagValue\": {\n", "        \"value\": \"BU\"\n", "      }\n")),
+// 			Parameters:         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "    {\n", "      \"tagName\": {\n", "        \"value\": \"Business Unit\"\n", "      },\n", "      \"tagValue\": {\n", "        \"value\": \"BU\"\n", "      }\n", "    }\n")),
 // 		})
 // 		if err != nil {
 // 			return err

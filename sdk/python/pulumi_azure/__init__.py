@@ -1369,6 +1369,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "bot/healthbot",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/healthbot:Healthbot": "Healthbot"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "bot/serviceAzureBot",
   "fqn": "pulumi_azure.bot",
   "classes": {
@@ -1509,6 +1517,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget": "DiskPoolIscsiTarget"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/diskPoolIscsiTargetLun",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun": "DiskPoolIscsiTargetLun"
   }
  },
  {
@@ -5673,6 +5689,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/watchlistItem",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/watchlistItem:WatchlistItem": "WatchlistItem"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "servicebus/namespace",
   "fqn": "pulumi_azure.servicebus",
   "classes": {
@@ -6185,6 +6209,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "streamanalytics/outputFunction",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/outputFunction:OutputFunction": "OutputFunction"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "streamanalytics/outputMssql",
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
@@ -6485,6 +6517,14 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/hub:Hub": "Hub"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/networkAcl",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/networkAcl:NetworkAcl": "NetworkAcl"
   }
  },
  {

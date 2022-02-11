@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>

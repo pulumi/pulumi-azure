@@ -18,6 +18,7 @@ class InsightsArgs:
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -35,6 +36,7 @@ class InsightsArgs:
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -53,6 +55,8 @@ class InsightsArgs:
             pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if disable_ip_masking is not None:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if force_customer_storage_for_profiler is not None:
+            pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if internet_ingestion_enabled is not None:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
@@ -132,6 +136,18 @@ class InsightsArgs:
     @disable_ip_masking.setter
     def disable_ip_masking(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_ip_masking", value)
+
+    @property
+    @pulumi.getter(name="forceCustomerStorageForProfiler")
+    def force_customer_storage_for_profiler(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        """
+        return pulumi.get(self, "force_customer_storage_for_profiler")
+
+    @force_customer_storage_for_profiler.setter
+    def force_customer_storage_for_profiler(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_customer_storage_for_profiler", value)
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")
@@ -249,6 +265,7 @@ class _InsightsState:
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  instrumentation_key: Optional[pulumi.Input[str]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -268,6 +285,7 @@ class _InsightsState:
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -293,6 +311,8 @@ class _InsightsState:
             pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if disable_ip_masking is not None:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if force_customer_storage_for_profiler is not None:
+            pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if instrumentation_key is not None:
             pulumi.set(__self__, "instrumentation_key", instrumentation_key)
         if internet_ingestion_enabled is not None:
@@ -387,6 +407,18 @@ class _InsightsState:
     @disable_ip_masking.setter
     def disable_ip_masking(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_ip_masking", value)
+
+    @property
+    @pulumi.getter(name="forceCustomerStorageForProfiler")
+    def force_customer_storage_for_profiler(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        """
+        return pulumi.get(self, "force_customer_storage_for_profiler")
+
+    @force_customer_storage_for_profiler.setter
+    def force_customer_storage_for_profiler(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_customer_storage_for_profiler", value)
 
     @property
     @pulumi.getter(name="instrumentationKey")
@@ -529,6 +561,7 @@ class Insights(pulumi.CustomResource):
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -592,6 +625,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -675,6 +709,7 @@ class Insights(pulumi.CustomResource):
                  daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
                  daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -703,6 +738,7 @@ class Insights(pulumi.CustomResource):
             __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
             __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
             __props__.__dict__["disable_ip_masking"] = disable_ip_masking
+            __props__.__dict__["force_customer_storage_for_profiler"] = force_customer_storage_for_profiler
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
@@ -734,6 +770,7 @@ class Insights(pulumi.CustomResource):
             daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
             daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
             disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+            force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
             instrumentation_key: Optional[pulumi.Input[str]] = None,
             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -758,6 +795,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -781,6 +819,7 @@ class Insights(pulumi.CustomResource):
         __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
         __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
         __props__.__dict__["disable_ip_masking"] = disable_ip_masking
+        __props__.__dict__["force_customer_storage_for_profiler"] = force_customer_storage_for_profiler
         __props__.__dict__["instrumentation_key"] = instrumentation_key
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
@@ -841,6 +880,14 @@ class Insights(pulumi.CustomResource):
         By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
         """
         return pulumi.get(self, "disable_ip_masking")
+
+    @property
+    @pulumi.getter(name="forceCustomerStorageForProfiler")
+    def force_customer_storage_for_profiler(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        """
+        return pulumi.get(self, "force_customer_storage_for_profiler")
 
     @property
     @pulumi.getter(name="instrumentationKey")

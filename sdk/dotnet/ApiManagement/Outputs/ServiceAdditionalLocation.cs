@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceAdditionalLocation
     {
         /// <summary>
+        /// The number of compute units in this region. Defaults to the capacity of the main region.
+        /// </summary>
+        public readonly int? Capacity;
+        /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
         /// </summary>
         public readonly string? GatewayRegionalUrl;
@@ -26,6 +30,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
+        /// ID of a standard SKU IPv4 Public IP.
+        /// </summary>
+        public readonly string? PublicIpAddressId;
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
@@ -33,24 +41,37 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
         /// </summary>
         public readonly Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? VirtualNetworkConfiguration;
+        /// <summary>
+        /// A list of availability zones.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private ServiceAdditionalLocation(
+            int? capacity,
+
             string? gatewayRegionalUrl,
 
             string location,
 
             ImmutableArray<string> privateIpAddresses,
 
+            string? publicIpAddressId,
+
             ImmutableArray<string> publicIpAddresses,
 
-            Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? virtualNetworkConfiguration)
+            Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? virtualNetworkConfiguration,
+
+            ImmutableArray<string> zones)
         {
+            Capacity = capacity;
             GatewayRegionalUrl = gatewayRegionalUrl;
             Location = location;
             PrivateIpAddresses = privateIpAddresses;
+            PublicIpAddressId = publicIpAddressId;
             PublicIpAddresses = publicIpAddresses;
             VirtualNetworkConfiguration = virtualNetworkConfiguration;
+            Zones = zones;
         }
     }
 }

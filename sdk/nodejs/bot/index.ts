@@ -17,6 +17,7 @@ export * from "./channelTeams";
 export * from "./channelWebChat";
 export * from "./channelsRegistration";
 export * from "./connection";
+export * from "./healthbot";
 export * from "./serviceAzureBot";
 export * from "./webApp";
 
@@ -33,6 +34,7 @@ import { ChannelTeams } from "./channelTeams";
 import { ChannelWebChat } from "./channelWebChat";
 import { ChannelsRegistration } from "./channelsRegistration";
 import { Connection } from "./connection";
+import { Healthbot } from "./healthbot";
 import { ServiceAzureBot } from "./serviceAzureBot";
 import { WebApp } from "./webApp";
 
@@ -64,6 +66,8 @@ const _module = {
                 return new ChannelsRegistration(name, <any>undefined, { urn })
             case "azure:bot/connection:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "azure:bot/healthbot:Healthbot":
+                return new Healthbot(name, <any>undefined, { urn })
             case "azure:bot/serviceAzureBot:ServiceAzureBot":
                 return new ServiceAzureBot(name, <any>undefined, { urn })
             case "azure:bot/webApp:WebApp":
@@ -85,5 +89,6 @@ pulumi.runtime.registerResourceModule("azure", "bot/channelTeams", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/channelWebChat", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/channelsRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/connection", _module)
+pulumi.runtime.registerResourceModule("azure", "bot/healthbot", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/serviceAzureBot", _module)
 pulumi.runtime.registerResourceModule("azure", "bot/webApp", _module)

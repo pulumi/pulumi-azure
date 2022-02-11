@@ -113,6 +113,8 @@ type Insights struct {
 	DailyDataCapNotificationsDisabled pulumi.BoolOutput `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
+	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrOutput `pulumi:"forceCustomerStorageForProfiler"`
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey       pulumi.StringOutput  `pulumi:"instrumentationKey"`
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
@@ -185,6 +187,8 @@ type insightsState struct {
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey       *string `pulumi:"instrumentationKey"`
 	InternetIngestionEnabled *bool   `pulumi:"internetIngestionEnabled"`
@@ -223,6 +227,8 @@ type InsightsState struct {
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
 	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey       pulumi.StringPtrInput
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -260,8 +266,10 @@ type insightsArgs struct {
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
-	DisableIpMasking         *bool `pulumi:"disableIpMasking"`
-	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
+	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
+	InternetIngestionEnabled        *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -293,8 +301,10 @@ type InsightsArgs struct {
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
-	DisableIpMasking         pulumi.BoolPtrInput
-	InternetIngestionEnabled pulumi.BoolPtrInput
+	DisableIpMasking pulumi.BoolPtrInput
+	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
+	InternetIngestionEnabled        pulumi.BoolPtrInput
 	// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
 	InternetQueryEnabled pulumi.BoolPtrInput
 	// Disable Non-Azure AD based Auth. Defaults to `false`.

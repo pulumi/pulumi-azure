@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Management.Outputs
         /// <summary>
         /// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private GroupPolicyAssignmentIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Management.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

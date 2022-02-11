@@ -106,6 +106,10 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
+     * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+     */
+    public readonly forceCustomerStorageForProfiler!: pulumi.Output<boolean | undefined>;
+    /**
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
@@ -168,6 +172,7 @@ export class Insights extends pulumi.CustomResource {
             resourceInputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
             resourceInputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
             resourceInputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
+            resourceInputs["forceCustomerStorageForProfiler"] = state ? state.forceCustomerStorageForProfiler : undefined;
             resourceInputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
@@ -191,6 +196,7 @@ export class Insights extends pulumi.CustomResource {
             resourceInputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
             resourceInputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
             resourceInputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            resourceInputs["forceCustomerStorageForProfiler"] = args ? args.forceCustomerStorageForProfiler : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
@@ -238,6 +244,10 @@ export interface InsightsState {
      * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
      */
     disableIpMasking?: pulumi.Input<boolean>;
+    /**
+     * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+     */
+    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
     /**
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
@@ -303,6 +313,10 @@ export interface InsightsArgs {
      * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
      */
     disableIpMasking?: pulumi.Input<boolean>;
+    /**
+     * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+     */
+    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
     internetIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.

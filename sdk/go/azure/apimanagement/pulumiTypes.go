@@ -9394,16 +9394,22 @@ func (o NamedValueValueFromKeyVaultPtrOutput) SecretId() pulumi.StringPtrOutput 
 }
 
 type ServiceAdditionalLocation struct {
+	// The number of compute units in this region. Defaults to the capacity of the main region.
+	Capacity *int `pulumi:"capacity"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location string `pulumi:"location"`
 	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceAdditionalLocationVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
+	// A list of availability zones.
+	Zones []string `pulumi:"zones"`
 }
 
 // ServiceAdditionalLocationInput is an input type that accepts ServiceAdditionalLocationArgs and ServiceAdditionalLocationOutput values.
@@ -9418,16 +9424,22 @@ type ServiceAdditionalLocationInput interface {
 }
 
 type ServiceAdditionalLocationArgs struct {
+	// The number of compute units in this region. Defaults to the capacity of the main region.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
 	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
 	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
+	// A list of availability zones.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (ServiceAdditionalLocationArgs) ElementType() reflect.Type {
@@ -9481,6 +9493,11 @@ func (o ServiceAdditionalLocationOutput) ToServiceAdditionalLocationOutputWithCo
 	return o
 }
 
+// The number of compute units in this region. Defaults to the capacity of the main region.
+func (o ServiceAdditionalLocationOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocation) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 // The URL of the Regional Gateway for the API Management Service in the specified region.
 func (o ServiceAdditionalLocationOutput) GatewayRegionalUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) *string { return v.GatewayRegionalUrl }).(pulumi.StringPtrOutput)
@@ -9496,6 +9513,11 @@ func (o ServiceAdditionalLocationOutput) PrivateIpAddresses() pulumi.StringArray
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// ID of a standard SKU IPv4 Public IP.
+func (o ServiceAdditionalLocationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocation) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
+}
+
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o ServiceAdditionalLocationOutput) PublicIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
@@ -9506,6 +9528,11 @@ func (o ServiceAdditionalLocationOutput) VirtualNetworkConfiguration() ServiceAd
 	return o.ApplyT(func(v ServiceAdditionalLocation) *ServiceAdditionalLocationVirtualNetworkConfiguration {
 		return v.VirtualNetworkConfiguration
 	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
+}
+
+// A list of availability zones.
+func (o ServiceAdditionalLocationOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type ServiceAdditionalLocationArrayOutput struct{ *pulumi.OutputState }
@@ -10884,7 +10911,7 @@ type ServiceIdentity struct {
 	// The identifier for the tenant access information contract.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ServiceIdentityInput is an input type that accepts ServiceIdentityArgs and ServiceIdentityOutput values.
@@ -10906,7 +10933,7 @@ type ServiceIdentityArgs struct {
 	// The identifier for the tenant access information contract.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceIdentityArgs) ElementType() reflect.Type {
@@ -11002,8 +11029,8 @@ func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-func (o ServiceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -11066,7 +11093,7 @@ func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12831,14 +12858,20 @@ func (o GetGatewayLocationDataArrayOutput) Index(i pulumi.IntInput) GetGatewayLo
 }
 
 type GetServiceAdditionalLocation struct {
+	// Specifies the number of units associated with this API Management service.
+	Capacity *int `pulumi:"capacity"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
 	// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// List of the availability zones where API Management is deployed in the additional region exists.
+	Zones []string `pulumi:"zones"`
 }
 
 // GetServiceAdditionalLocationInput is an input type that accepts GetServiceAdditionalLocationArgs and GetServiceAdditionalLocationOutput values.
@@ -12853,14 +12886,20 @@ type GetServiceAdditionalLocationInput interface {
 }
 
 type GetServiceAdditionalLocationArgs struct {
+	// Specifies the number of units associated with this API Management service.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
 	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
+	// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// List of the availability zones where API Management is deployed in the additional region exists.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (GetServiceAdditionalLocationArgs) ElementType() reflect.Type {
@@ -12914,6 +12953,11 @@ func (o GetServiceAdditionalLocationOutput) ToGetServiceAdditionalLocationOutput
 	return o
 }
 
+// Specifies the number of units associated with this API Management service.
+func (o GetServiceAdditionalLocationOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceAdditionalLocation) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 // Gateway URL of the API Management service in the Region.
 func (o GetServiceAdditionalLocationOutput) GatewayRegionalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAdditionalLocation) string { return v.GatewayRegionalUrl }).(pulumi.StringOutput)
@@ -12929,9 +12973,19 @@ func (o GetServiceAdditionalLocationOutput) PrivateIpAddresses() pulumi.StringAr
 	return o.ApplyT(func(v GetServiceAdditionalLocation) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+func (o GetServiceAdditionalLocationOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceAdditionalLocation) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+}
+
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o GetServiceAdditionalLocationOutput) PublicIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of the availability zones where API Management is deployed in the additional region exists.
+func (o GetServiceAdditionalLocationOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceAdditionalLocation) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type GetServiceAdditionalLocationArrayOutput struct{ *pulumi.OutputState }

@@ -15,6 +15,8 @@ import (
 //
 // ## Disclaimers
 //
+// > When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.
+//
 // > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostnameConfigurations` block and by using the `apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
 //
 // ## Example Usage
@@ -97,8 +99,12 @@ type Service struct {
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsOutput `pulumi:"protocols"`
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId pulumi.StringPtrOutput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
+	// Is public access to the service allowed?.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringOutput `pulumi:"publisherEmail"`
 	// The name of publisher/company.
@@ -205,8 +211,12 @@ type serviceState struct {
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// A `protocols` block as defined below.
 	Protocols *ServiceProtocols `pulumi:"protocols"`
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// Is public access to the service allowed?.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail *string `pulumi:"publisherEmail"`
 	// The name of publisher/company.
@@ -273,8 +283,12 @@ type ServiceState struct {
 	PrivateIpAddresses pulumi.StringArrayInput
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsPtrInput
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId pulumi.StringPtrInput
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput
+	// Is public access to the service allowed?.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringPtrInput
 	// The name of publisher/company.
@@ -333,6 +347,10 @@ type serviceArgs struct {
 	Policy *ServicePolicy `pulumi:"policy"`
 	// A `protocols` block as defined below.
 	Protocols *ServiceProtocols `pulumi:"protocols"`
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	// Is public access to the service allowed?.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// The name of publisher/company.
@@ -386,6 +404,10 @@ type ServiceArgs struct {
 	Policy ServicePolicyPtrInput
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsPtrInput
+	// ID of a standard SKU IPv4 Public IP.
+	PublicIpAddressId pulumi.StringPtrInput
+	// Is public access to the service allowed?.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringInput
 	// The name of publisher/company.

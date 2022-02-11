@@ -12,6 +12,7 @@ from .job import *
 from .managed_private_endpoint import *
 from .output_blob import *
 from .output_event_hub import *
+from .output_function import *
 from .output_mssql import *
 from .output_service_bus_queue import *
 from .output_servicebus_topic import *

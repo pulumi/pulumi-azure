@@ -47,12 +47,14 @@ namespace Pulumi.Azure.Core
     ///         {
     ///             ResourceGroupId = exampleResourceGroup.Id,
     ///             PolicyDefinitionId = exampleDefinition.Id,
-    ///             Parameters = @"      ""tagName"": {
+    ///             Parameters = @"    {
+    ///       ""tagName"": {
     ///         ""value"": ""Business Unit""
     ///       },
     ///       ""tagValue"": {
     ///         ""value"": ""BU""
     ///       }
+    ///     }
     /// ",
     ///         });
     ///     }

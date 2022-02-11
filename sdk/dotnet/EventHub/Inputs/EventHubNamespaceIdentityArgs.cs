@@ -27,8 +27,8 @@ namespace Pulumi.Azure.EventHub.Inputs
         /// <summary>
         /// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public EventHubNamespaceIdentityArgs()
         {

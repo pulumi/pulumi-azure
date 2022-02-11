@@ -870,7 +870,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.GroupIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.GroupIdentity']]:
         """
         An `identity` block as defined below.
         """
