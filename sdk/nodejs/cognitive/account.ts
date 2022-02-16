@@ -94,9 +94,6 @@ export class Account extends pulumi.CustomResource {
      * A `networkAcls` block as defined below.
      */
     public readonly networkAcls!: pulumi.Output<outputs.cognitive.AccountNetworkAcls | undefined>;
-    /**
-     * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-     */
     public readonly outboundNetworkAccessRestrited!: pulumi.Output<boolean | undefined>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
@@ -261,9 +258,6 @@ export interface AccountState {
      * A `networkAcls` block as defined below.
      */
     networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
-    /**
-     * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-     */
     outboundNetworkAccessRestrited?: pulumi.Input<boolean>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
@@ -351,9 +345,6 @@ export interface AccountArgs {
      * A `networkAcls` block as defined below.
      */
     networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
-    /**
-     * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-     */
     outboundNetworkAccessRestrited?: pulumi.Input<boolean>;
     /**
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.

@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Kusto
     ///         {
     ///             KeyVaultId = exampleKeyVault.Id,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             ObjectId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
     ///                 "get",

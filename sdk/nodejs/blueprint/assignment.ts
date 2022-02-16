@@ -130,7 +130,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.blueprint.AssignmentIdentity | undefined>;
+    public readonly identity!: pulumi.Output<outputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment.
      */
@@ -201,6 +201,9 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
+            if ((!args || args.identity === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'identity'");
+            }
             if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
@@ -296,7 +299,7 @@ export interface AssignmentArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
+    identity: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment.
      */

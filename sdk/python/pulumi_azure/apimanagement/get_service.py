@@ -21,7 +21,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, additional_locations=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
+    def __init__(__self__, additional_locations=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, public_ip_address_id=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -61,6 +61,9 @@ class GetServiceResult:
         if private_ip_addresses and not isinstance(private_ip_addresses, list):
             raise TypeError("Expected argument 'private_ip_addresses' to be a list")
         pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if public_ip_address_id and not isinstance(public_ip_address_id, str):
+            raise TypeError("Expected argument 'public_ip_address_id' to be a str")
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if public_ip_addresses and not isinstance(public_ip_addresses, list):
             raise TypeError("Expected argument 'public_ip_addresses' to be a list")
         pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
@@ -188,6 +191,14 @@ class GetServiceResult:
         return pulumi.get(self, "private_ip_addresses")
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> str:
+        """
+        ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Sequence[str]:
         """
@@ -257,6 +268,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             notification_sender_email=self.notification_sender_email,
             portal_url=self.portal_url,
             private_ip_addresses=self.private_ip_addresses,
+            public_ip_address_id=self.public_ip_address_id,
             public_ip_addresses=self.public_ip_addresses,
             publisher_email=self.publisher_email,
             publisher_name=self.publisher_name,
@@ -310,6 +322,7 @@ def get_service(name: Optional[str] = None,
         notification_sender_email=__ret__.notification_sender_email,
         portal_url=__ret__.portal_url,
         private_ip_addresses=__ret__.private_ip_addresses,
+        public_ip_address_id=__ret__.public_ip_address_id,
         public_ip_addresses=__ret__.public_ip_addresses,
         publisher_email=__ret__.publisher_email,
         publisher_name=__ret__.publisher_name,

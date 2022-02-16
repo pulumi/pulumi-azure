@@ -17,6 +17,14 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string AdminUsername;
         public readonly string? ComputerNamePrefix;
         public readonly bool? EnableAutomaticUpdates;
+        /// <summary>
+        /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        /// </summary>
+        public readonly bool? HotpatchingEnabled;
+        /// <summary>
+        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// </summary>
+        public readonly string? PatchMode;
         public readonly bool? ProvisionVmAgent;
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> Secrets;
         public readonly string? Timezone;
@@ -32,6 +40,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
             bool? enableAutomaticUpdates,
 
+            bool? hotpatchingEnabled,
+
+            string? patchMode,
+
             bool? provisionVmAgent,
 
             ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets,
@@ -44,6 +56,8 @@ namespace Pulumi.Azure.Compute.Outputs
             AdminUsername = adminUsername;
             ComputerNamePrefix = computerNamePrefix;
             EnableAutomaticUpdates = enableAutomaticUpdates;
+            HotpatchingEnabled = hotpatchingEnabled;
+            PatchMode = patchMode;
             ProvisionVmAgent = provisionVmAgent;
             Secrets = secrets;
             Timezone = timezone;

@@ -16,7 +16,7 @@ type SpringCloudAppIdentity struct {
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // SpringCloudAppIdentityInput is an input type that accepts SpringCloudAppIdentityArgs and SpringCloudAppIdentityOutput values.
@@ -36,7 +36,7 @@ type SpringCloudAppIdentityArgs struct {
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (SpringCloudAppIdentityArgs) ElementType() reflect.Type {
@@ -127,8 +127,8 @@ func (o SpringCloudAppIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
-func (o SpringCloudAppIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudAppIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o SpringCloudAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type SpringCloudAppIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -181,7 +181,7 @@ func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

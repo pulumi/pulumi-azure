@@ -76,7 +76,6 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
-               ---
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -498,7 +497,6 @@ class KubernetesClusterArgs:
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
         """
         A `windows_profile` block as defined below.
-        ---
         """
         return pulumi.get(self, "windows_profile")
 
@@ -585,7 +583,6 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
-               ---
         """
         if addon_profile is not None:
             pulumi.set(__self__, "addon_profile", addon_profile)
@@ -1107,7 +1104,6 @@ class _KubernetesClusterState:
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
         """
         A `windows_profile` block as defined below.
-        ---
         """
         return pulumi.get(self, "windows_profile")
 
@@ -1222,7 +1218,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
-               ---
         """
         ...
     @overload
@@ -1462,7 +1457,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
-               ---
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1800,7 +1794,6 @@ class KubernetesCluster(pulumi.CustomResource):
     def windows_profile(self) -> pulumi.Output['outputs.KubernetesClusterWindowsProfile']:
         """
         A `windows_profile` block as defined below.
-        ---
         """
         return pulumi.get(self, "windows_profile")
 

@@ -699,7 +699,7 @@ class LinuxVirtualMachineOsDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
@@ -735,7 +735,7 @@ class LinuxVirtualMachineOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1351,7 +1351,8 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None):
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
@@ -1362,6 +1363,8 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1398,6 +1401,15 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -2721,12 +2733,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
 class OrchestratedVirtualMachineScaleSetIdentityArgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str],
-                 principal_id: Optional[pulumi.Input[str]] = None):
+                 type: pulumi.Input[str]):
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -2745,15 +2754,6 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
 
 
 @pulumi.input_type
@@ -3198,10 +3198,12 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
                  admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 patch_mode: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]] = None):
         """
         :param pulumi.Input[bool] disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
+        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -3212,6 +3214,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
             pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
         if provision_vm_agent is not None:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if secrets is not None:
@@ -3264,6 +3268,18 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @disable_password_authentication.setter
     def disable_password_authentication(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_password_authentication", value)
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "patch_mode", value)
 
     @property
     @pulumi.getter(name="provisionVmAgent")
@@ -3377,16 +3393,26 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                  admin_username: pulumi.Input[str],
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+                 hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
+                 patch_mode: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
         if computer_name_prefix is not None:
             pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+        if hotpatching_enabled is not None:
+            pulumi.set(__self__, "hotpatching_enabled", hotpatching_enabled)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
         if provision_vm_agent is not None:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if secrets is not None:
@@ -3431,6 +3457,30 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @enable_automatic_updates.setter
     def enable_automatic_updates(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_automatic_updates", value)
+
+    @property
+    @pulumi.getter(name="hotpatchingEnabled")
+    def hotpatching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        """
+        return pulumi.get(self, "hotpatching_enabled")
+
+    @hotpatching_enabled.setter
+    def hotpatching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hotpatching_enabled", value)
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "patch_mode", value)
 
     @property
     @pulumi.getter(name="provisionVmAgent")
@@ -6464,7 +6514,7 @@ class WindowsVirtualMachineOsDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
@@ -6500,7 +6550,7 @@ class WindowsVirtualMachineOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -7116,7 +7166,8 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None):
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
@@ -7127,6 +7178,8 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
             pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -7163,6 +7216,15 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

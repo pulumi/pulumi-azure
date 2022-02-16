@@ -1593,7 +1593,7 @@ type LinuxVirtualMachineOsDisk struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -1621,7 +1621,7 @@ type LinuxVirtualMachineOsDiskArgs struct {
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -1731,7 +1731,7 @@ func (o LinuxVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -1815,7 +1815,7 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
 		if v == nil {
@@ -3191,6 +3191,7 @@ type LinuxVirtualMachineScaleSetIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -3211,6 +3212,7 @@ type LinuxVirtualMachineScaleSetIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3302,6 +3304,10 @@ func (o LinuxVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPt
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+func (o LinuxVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -3348,6 +3354,15 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.Strin
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6702,7 +6717,6 @@ func (o OrchestratedVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.I
 
 type OrchestratedVirtualMachineScaleSetIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
 	Type        string   `pulumi:"type"`
 }
 
@@ -6719,7 +6733,6 @@ type OrchestratedVirtualMachineScaleSetIdentityInput interface {
 
 type OrchestratedVirtualMachineScaleSetIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
@@ -6804,10 +6817,6 @@ func (o OrchestratedVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.S
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-func (o OrchestratedVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
 func (o OrchestratedVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6843,15 +6852,6 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulum
 		}
 		return v.IdentityIds
 	}).(pulumi.StringArrayOutput)
-}
-
-func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
@@ -7900,9 +7900,11 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	AdminUsername      string                                                                     `pulumi:"adminUsername"`
 	ComputerNamePrefix *string                                                                    `pulumi:"computerNamePrefix"`
 	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
-	DisablePasswordAuthentication *bool                                                                 `pulumi:"disablePasswordAuthentication"`
-	ProvisionVmAgent              *bool                                                                 `pulumi:"provisionVmAgent"`
-	Secrets                       []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret `pulumi:"secrets"`
+	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	PatchMode        *string                                                               `pulumi:"patchMode"`
+	ProvisionVmAgent *bool                                                                 `pulumi:"provisionVmAgent"`
+	Secrets          []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret `pulumi:"secrets"`
 }
 
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput values.
@@ -7922,9 +7924,11 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	AdminUsername      pulumi.StringInput                                                                 `pulumi:"adminUsername"`
 	ComputerNamePrefix pulumi.StringPtrInput                                                              `pulumi:"computerNamePrefix"`
 	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
-	DisablePasswordAuthentication pulumi.BoolPtrInput                                                           `pulumi:"disablePasswordAuthentication"`
-	ProvisionVmAgent              pulumi.BoolPtrInput                                                           `pulumi:"provisionVmAgent"`
-	Secrets                       OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput `pulumi:"secrets"`
+	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	PatchMode        pulumi.StringPtrInput                                                         `pulumi:"patchMode"`
+	ProvisionVmAgent pulumi.BoolPtrInput                                                           `pulumi:"provisionVmAgent"`
+	Secrets          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput `pulumi:"secrets"`
 }
 
 func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ElementType() reflect.Type {
@@ -8031,6 +8035,11 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Dis
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
+}
+
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
@@ -8109,6 +8118,16 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 		}
 		return v.DisablePasswordAuthentication
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchMode
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
@@ -8443,14 +8462,18 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCerti
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
-	AdminPassword          string                                                                         `pulumi:"adminPassword"`
-	AdminUsername          string                                                                         `pulumi:"adminUsername"`
-	ComputerNamePrefix     *string                                                                        `pulumi:"computerNamePrefix"`
-	EnableAutomaticUpdates *bool                                                                          `pulumi:"enableAutomaticUpdates"`
-	ProvisionVmAgent       *bool                                                                          `pulumi:"provisionVmAgent"`
-	Secrets                []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret        `pulumi:"secrets"`
-	Timezone               *string                                                                        `pulumi:"timezone"`
-	WinrmListeners         []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener `pulumi:"winrmListeners"`
+	AdminPassword          string  `pulumi:"adminPassword"`
+	AdminUsername          string  `pulumi:"adminUsername"`
+	ComputerNamePrefix     *string `pulumi:"computerNamePrefix"`
+	EnableAutomaticUpdates *bool   `pulumi:"enableAutomaticUpdates"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	PatchMode        *string                                                                        `pulumi:"patchMode"`
+	ProvisionVmAgent *bool                                                                          `pulumi:"provisionVmAgent"`
+	Secrets          []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret        `pulumi:"secrets"`
+	Timezone         *string                                                                        `pulumi:"timezone"`
+	WinrmListeners   []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener `pulumi:"winrmListeners"`
 }
 
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput values.
@@ -8465,14 +8488,18 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput interf
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct {
-	AdminPassword          pulumi.StringInput                                                                     `pulumi:"adminPassword"`
-	AdminUsername          pulumi.StringInput                                                                     `pulumi:"adminUsername"`
-	ComputerNamePrefix     pulumi.StringPtrInput                                                                  `pulumi:"computerNamePrefix"`
-	EnableAutomaticUpdates pulumi.BoolPtrInput                                                                    `pulumi:"enableAutomaticUpdates"`
-	ProvisionVmAgent       pulumi.BoolPtrInput                                                                    `pulumi:"provisionVmAgent"`
-	Secrets                OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput        `pulumi:"secrets"`
-	Timezone               pulumi.StringPtrInput                                                                  `pulumi:"timezone"`
-	WinrmListeners         OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput `pulumi:"winrmListeners"`
+	AdminPassword          pulumi.StringInput    `pulumi:"adminPassword"`
+	AdminUsername          pulumi.StringInput    `pulumi:"adminUsername"`
+	ComputerNamePrefix     pulumi.StringPtrInput `pulumi:"computerNamePrefix"`
+	EnableAutomaticUpdates pulumi.BoolPtrInput   `pulumi:"enableAutomaticUpdates"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	HotpatchingEnabled pulumi.BoolPtrInput `pulumi:"hotpatchingEnabled"`
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	PatchMode        pulumi.StringPtrInput                                                                  `pulumi:"patchMode"`
+	ProvisionVmAgent pulumi.BoolPtrInput                                                                    `pulumi:"provisionVmAgent"`
+	Secrets          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput        `pulumi:"secrets"`
+	Timezone         pulumi.StringPtrInput                                                                  `pulumi:"timezone"`
+	WinrmListeners   OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput `pulumi:"winrmListeners"`
 }
 
 func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ElementType() reflect.Type {
@@ -8572,6 +8599,18 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) E
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) HotpatchingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		return v.HotpatchingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
+}
+
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
 		return v.ProvisionVmAgent
@@ -8652,6 +8691,26 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 		}
 		return v.EnableAutomaticUpdates
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) HotpatchingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HotpatchingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchMode
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
@@ -16812,7 +16871,7 @@ type WindowsVirtualMachineOsDisk struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -16840,7 +16899,7 @@ type WindowsVirtualMachineOsDiskArgs struct {
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -16950,7 +17009,7 @@ func (o WindowsVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -17034,7 +17093,7 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
 		if v == nil {
@@ -18410,6 +18469,7 @@ type WindowsVirtualMachineScaleSetIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -18430,6 +18490,7 @@ type WindowsVirtualMachineScaleSetIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -18521,6 +18582,10 @@ func (o WindowsVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.String
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+func (o WindowsVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -18567,6 +18632,15 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.Str
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22700,6 +22774,7 @@ type GetVirtualMachineScaleSetIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
 	PrincipalId string `pulumi:"principalId"`
+	TenantId    string `pulumi:"tenantId"`
 	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
 	Type string `pulumi:"type"`
 }
@@ -22720,6 +22795,7 @@ type GetVirtualMachineScaleSetIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -22783,6 +22859,10 @@ func (o GetVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArra
 // The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.

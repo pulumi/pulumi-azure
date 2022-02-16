@@ -406,7 +406,7 @@ type BackupVaultIdentity struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BackupVaultIdentityInput is an input type that accepts BackupVaultIdentityArgs and BackupVaultIdentityOutput values.
@@ -426,7 +426,7 @@ type BackupVaultIdentityArgs struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BackupVaultIdentityArgs) ElementType() reflect.Type {
@@ -517,8 +517,8 @@ func (o BackupVaultIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
-func (o BackupVaultIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackupVaultIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BackupVaultIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupVaultIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type BackupVaultIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -571,7 +571,7 @@ func (o BackupVaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

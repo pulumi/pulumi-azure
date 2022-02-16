@@ -12,17 +12,23 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class ApplicationGatewayIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds", required: true)]
+        private InputList<string>? _identityIds;
+
         /// <summary>
         /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
         /// </summary>
-        [Input("identityIds", required: true)]
-        public Input<string> IdentityIds { get; set; } = null!;
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
 
         /// <summary>
-        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ApplicationGatewayIdentityArgs()
         {

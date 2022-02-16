@@ -145,7 +145,6 @@ type KubernetesCluster struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
-	// ---
 	WindowsProfile KubernetesClusterWindowsProfileOutput `pulumi:"windowsProfile"`
 }
 
@@ -257,7 +256,6 @@ type kubernetesClusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
-	// ---
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
 }
 
@@ -335,7 +333,6 @@ type KubernetesClusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
-	// ---
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
 }
 
@@ -403,7 +400,6 @@ type kubernetesClusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
-	// ---
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
 }
 
@@ -468,7 +464,6 @@ type KubernetesClusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
-	// ---
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
 }
 

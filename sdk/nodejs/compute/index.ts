@@ -15,6 +15,7 @@ export * from "./diskAccess";
 export * from "./diskEncryptionSet";
 export * from "./diskPool";
 export * from "./diskPoolIscsiTarget";
+export * from "./diskPoolIscsiTargetLun";
 export * from "./diskPoolManagedDiskAttachment";
 export * from "./extension";
 export * from "./getAvailabilitySet";
@@ -61,6 +62,7 @@ import { DiskAccess } from "./diskAccess";
 import { DiskEncryptionSet } from "./diskEncryptionSet";
 import { DiskPool } from "./diskPool";
 import { DiskPoolIscsiTarget } from "./diskPoolIscsiTarget";
+import { DiskPoolIscsiTargetLun } from "./diskPoolIscsiTargetLun";
 import { DiskPoolManagedDiskAttachment } from "./diskPoolManagedDiskAttachment";
 import { Extension } from "./extension";
 import { Image } from "./image";
@@ -103,6 +105,8 @@ const _module = {
                 return new DiskPool(name, <any>undefined, { urn })
             case "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget":
                 return new DiskPoolIscsiTarget(name, <any>undefined, { urn })
+            case "azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun":
+                return new DiskPoolIscsiTargetLun(name, <any>undefined, { urn })
             case "azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment":
                 return new DiskPoolManagedDiskAttachment(name, <any>undefined, { urn })
             case "azure:compute/extension:Extension":
@@ -152,6 +156,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/diskAccess", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskEncryptionSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskPool", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTarget", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTargetLun", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskPoolManagedDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/extension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/image", _module)

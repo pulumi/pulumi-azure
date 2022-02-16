@@ -1955,6 +1955,196 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerFoo struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+	PrincipalId *string `pulumi:"principalId"`
+	// The tenant id of the Azure AD Administrator of this SQL Server.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+	Type string `pulumi:"type"`
+}
+
+// ServerFooInput is an input type that accepts ServerFooArgs and ServerFooOutput values.
+// You can construct a concrete instance of `ServerFooInput` via:
+//
+//          ServerFooArgs{...}
+type ServerFooInput interface {
+	pulumi.Input
+
+	ToServerFooOutput() ServerFooOutput
+	ToServerFooOutputWithContext(context.Context) ServerFooOutput
+}
+
+type ServerFooArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The tenant id of the Azure AD Administrator of this SQL Server.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServerFooArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFoo)(nil)).Elem()
+}
+
+func (i ServerFooArgs) ToServerFooOutput() ServerFooOutput {
+	return i.ToServerFooOutputWithContext(context.Background())
+}
+
+func (i ServerFooArgs) ToServerFooOutputWithContext(ctx context.Context) ServerFooOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerFooOutput)
+}
+
+func (i ServerFooArgs) ToServerFooPtrOutput() ServerFooPtrOutput {
+	return i.ToServerFooPtrOutputWithContext(context.Background())
+}
+
+func (i ServerFooArgs) ToServerFooPtrOutputWithContext(ctx context.Context) ServerFooPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerFooOutput).ToServerFooPtrOutputWithContext(ctx)
+}
+
+// ServerFooPtrInput is an input type that accepts ServerFooArgs, ServerFooPtr and ServerFooPtrOutput values.
+// You can construct a concrete instance of `ServerFooPtrInput` via:
+//
+//          ServerFooArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerFooPtrInput interface {
+	pulumi.Input
+
+	ToServerFooPtrOutput() ServerFooPtrOutput
+	ToServerFooPtrOutputWithContext(context.Context) ServerFooPtrOutput
+}
+
+type serverFooPtrType ServerFooArgs
+
+func ServerFooPtr(v *ServerFooArgs) ServerFooPtrInput {
+	return (*serverFooPtrType)(v)
+}
+
+func (*serverFooPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerFoo)(nil)).Elem()
+}
+
+func (i *serverFooPtrType) ToServerFooPtrOutput() ServerFooPtrOutput {
+	return i.ToServerFooPtrOutputWithContext(context.Background())
+}
+
+func (i *serverFooPtrType) ToServerFooPtrOutputWithContext(ctx context.Context) ServerFooPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerFooPtrOutput)
+}
+
+type ServerFooOutput struct{ *pulumi.OutputState }
+
+func (ServerFooOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerFoo)(nil)).Elem()
+}
+
+func (o ServerFooOutput) ToServerFooOutput() ServerFooOutput {
+	return o
+}
+
+func (o ServerFooOutput) ToServerFooOutputWithContext(ctx context.Context) ServerFooOutput {
+	return o
+}
+
+func (o ServerFooOutput) ToServerFooPtrOutput() ServerFooPtrOutput {
+	return o.ToServerFooPtrOutputWithContext(context.Background())
+}
+
+func (o ServerFooOutput) ToServerFooPtrOutputWithContext(ctx context.Context) ServerFooPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerFoo) *ServerFoo {
+		return &v
+	}).(ServerFooPtrOutput)
+}
+
+func (o ServerFooOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerFoo) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+func (o ServerFooOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerFoo) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this SQL Server.
+func (o ServerFooOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerFoo) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+func (o ServerFooOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerFoo) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServerFooPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerFooPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerFoo)(nil)).Elem()
+}
+
+func (o ServerFooPtrOutput) ToServerFooPtrOutput() ServerFooPtrOutput {
+	return o
+}
+
+func (o ServerFooPtrOutput) ToServerFooPtrOutputWithContext(ctx context.Context) ServerFooPtrOutput {
+	return o
+}
+
+func (o ServerFooPtrOutput) Elem() ServerFooOutput {
+	return o.ApplyT(func(v *ServerFoo) ServerFoo {
+		if v != nil {
+			return *v
+		}
+		var ret ServerFoo
+		return ret
+	}).(ServerFooOutput)
+}
+
+func (o ServerFooPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerFoo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+func (o ServerFooPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFoo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this SQL Server.
+func (o ServerFooPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFoo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+func (o ServerFooPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFoo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
@@ -4096,6 +4286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorPtrInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyTypeInput)(nil)).Elem(), ServerExtendedAuditingPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyTypePtrInput)(nil)).Elem(), ServerExtendedAuditingPolicyTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerFooInput)(nil)).Elem(), ServerFooArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerFooPtrInput)(nil)).Elem(), ServerFooArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), ServerVulnerabilityAssessmentRecurringScansArgs{})
@@ -4142,6 +4334,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerAzureadAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyTypeOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerFooOutput{})
+	pulumi.RegisterOutputType(ServerFooPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansOutput{})

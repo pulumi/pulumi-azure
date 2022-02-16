@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Blueprint
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.AssignmentIdentity?> Identity { get; private set; } = null!;
+        public Output<Outputs.AssignmentIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure location of the Assignment.
@@ -256,8 +256,8 @@ namespace Pulumi.Azure.Blueprint
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
-        [Input("identity")]
-        public Input<Inputs.AssignmentIdentityArgs>? Identity { get; set; }
+        [Input("identity", required: true)]
+        public Input<Inputs.AssignmentIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
         /// The Azure location of the Assignment.

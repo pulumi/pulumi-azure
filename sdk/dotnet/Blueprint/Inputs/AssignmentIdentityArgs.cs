@@ -20,12 +20,6 @@ namespace Pulumi.Azure.Blueprint.Inputs
             set => _identityIds = value;
         }
 
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
         /// <summary>
         /// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         /// </summary>

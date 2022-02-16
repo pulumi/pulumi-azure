@@ -71,6 +71,12 @@ namespace Pulumi.Azure.Automation
         public Output<string> DscServerEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -89,7 +95,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the account - only `Basic` is supported at this time.
+        /// The SKU of the account - only `Basic` is supported at this time.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -147,6 +153,12 @@ namespace Pulumi.Azure.Automation
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -165,7 +177,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the account - only `Basic` is supported at this time.
+        /// The SKU of the account - only `Basic` is supported at this time.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -208,6 +220,12 @@ namespace Pulumi.Azure.Automation
         public Input<string>? DscServerEndpoint { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -226,7 +244,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU name of the account - only `Basic` is supported at this time.
+        /// The SKU of the account - only `Basic` is supported at this time.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

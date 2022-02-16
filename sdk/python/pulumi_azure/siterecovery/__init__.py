@@ -6,6 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .fabric import *
+from .get_fabric import *
+from .get_protection_container import *
+from .get_replication_policy import *
 from .network_mapping import *
 from .protection_container import *
 from .protection_container_mapping import *

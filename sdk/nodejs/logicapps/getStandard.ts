@@ -28,7 +28,6 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:logicapps/getStandard:getStandard", {
-        "identity": args.identity,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "siteConfig": args.siteConfig,
@@ -40,10 +39,6 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getStandard.
  */
 export interface GetStandardArgs {
-    /**
-     * An `identity` block as defined below.
-     */
-    identity?: inputs.logicapps.GetStandardIdentity;
     /**
      * The name of this Logic App.
      */
@@ -77,7 +72,7 @@ export interface GetStandardResult {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity: outputs.logicapps.GetStandardIdentity;
+    readonly identities: outputs.logicapps.GetStandardIdentity[];
     readonly kind: string;
     /**
      * The Azure location where the Logic App Standard exists.
@@ -105,10 +100,6 @@ export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getStandard.
  */
 export interface GetStandardOutputArgs {
-    /**
-     * An `identity` block as defined below.
-     */
-    identity?: pulumi.Input<inputs.logicapps.GetStandardIdentityArgs>;
     /**
      * The name of this Logic App.
      */

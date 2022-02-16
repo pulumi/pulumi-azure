@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ChannelsRegistration{}
 	case "azure:bot/connection:Connection":
 		r = &Connection{}
+	case "azure:bot/healthbot:Healthbot":
+		r = &Healthbot{}
 	case "azure:bot/serviceAzureBot:ServiceAzureBot":
 		r = &ServiceAzureBot{}
 	case "azure:bot/webApp:WebApp":
@@ -120,6 +122,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"bot/connection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"bot/healthbot",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

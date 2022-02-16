@@ -28,15 +28,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      pulumi.Any(azurerm_resource_group.Example.Name),
-// 			Location:               pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})
@@ -44,10 +44,13 @@ import (
 // 			return err
 // 		}
 // 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			DatastoreType:     pulumi.String("VaultStore"),
 // 			Redundancy:        pulumi.String("LocallyRedundant"),
+// 			Identity: &dataprotection.BackupVaultIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -71,7 +74,7 @@ import (
 // 		}
 // 		_, err = dataprotection.NewBackupInstanceBlogStorage(ctx, "exampleBackupInstanceBlogStorage", &dataprotection.BackupInstanceBlogStorageArgs{
 // 			VaultId:          exampleBackupVault.ID(),
-// 			Location:         rg.Location,
+// 			Location:         exampleResourceGroup.Location,
 // 			StorageAccountId: exampleAccount.ID(),
 // 			BackupPolicyId:   exampleBackupPolicyBlobStorage.ID(),
 // 		}, pulumi.DependsOn([]pulumi.Resource{

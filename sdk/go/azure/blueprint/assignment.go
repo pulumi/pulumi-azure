@@ -133,7 +133,7 @@ type Assignment struct {
 	// The display name of the blueprint
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// An `identity` block as defined below.
-	Identity AssignmentIdentityPtrOutput `pulumi:"identity"`
+	Identity AssignmentIdentityOutput `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
@@ -163,6 +163,9 @@ func NewAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
 	if args.TargetSubscriptionId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetSubscriptionId'")
 	}
@@ -258,7 +261,7 @@ func (AssignmentState) ElementType() reflect.Type {
 
 type assignmentArgs struct {
 	// An `identity` block as defined below.
-	Identity *AssignmentIdentity `pulumi:"identity"`
+	Identity AssignmentIdentity `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location *string `pulumi:"location"`
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
@@ -282,7 +285,7 @@ type assignmentArgs struct {
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
 	// An `identity` block as defined below.
-	Identity AssignmentIdentityPtrInput
+	Identity AssignmentIdentityInput
 	// The Azure location of the Assignment.
 	Location pulumi.StringPtrInput
 	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.

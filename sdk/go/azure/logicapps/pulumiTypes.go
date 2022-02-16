@@ -4267,45 +4267,29 @@ func (i GetStandardIdentityArgs) ToGetStandardIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityOutput)
 }
 
-func (i GetStandardIdentityArgs) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
-	return i.ToGetStandardIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i GetStandardIdentityArgs) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityOutput).ToGetStandardIdentityPtrOutputWithContext(ctx)
-}
-
-// GetStandardIdentityPtrInput is an input type that accepts GetStandardIdentityArgs, GetStandardIdentityPtr and GetStandardIdentityPtrOutput values.
-// You can construct a concrete instance of `GetStandardIdentityPtrInput` via:
+// GetStandardIdentityArrayInput is an input type that accepts GetStandardIdentityArray and GetStandardIdentityArrayOutput values.
+// You can construct a concrete instance of `GetStandardIdentityArrayInput` via:
 //
-//          GetStandardIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type GetStandardIdentityPtrInput interface {
+//          GetStandardIdentityArray{ GetStandardIdentityArgs{...} }
+type GetStandardIdentityArrayInput interface {
 	pulumi.Input
 
-	ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput
-	ToGetStandardIdentityPtrOutputWithContext(context.Context) GetStandardIdentityPtrOutput
+	ToGetStandardIdentityArrayOutput() GetStandardIdentityArrayOutput
+	ToGetStandardIdentityArrayOutputWithContext(context.Context) GetStandardIdentityArrayOutput
 }
 
-type getStandardIdentityPtrType GetStandardIdentityArgs
+type GetStandardIdentityArray []GetStandardIdentityInput
 
-func GetStandardIdentityPtr(v *GetStandardIdentityArgs) GetStandardIdentityPtrInput {
-	return (*getStandardIdentityPtrType)(v)
+func (GetStandardIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardIdentity)(nil)).Elem()
 }
 
-func (*getStandardIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStandardIdentity)(nil)).Elem()
+func (i GetStandardIdentityArray) ToGetStandardIdentityArrayOutput() GetStandardIdentityArrayOutput {
+	return i.ToGetStandardIdentityArrayOutputWithContext(context.Background())
 }
 
-func (i *getStandardIdentityPtrType) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
-	return i.ToGetStandardIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *getStandardIdentityPtrType) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityPtrOutput)
+func (i GetStandardIdentityArray) ToGetStandardIdentityArrayOutputWithContext(ctx context.Context) GetStandardIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityArrayOutput)
 }
 
 type GetStandardIdentityOutput struct{ *pulumi.OutputState }
@@ -4320,16 +4304,6 @@ func (o GetStandardIdentityOutput) ToGetStandardIdentityOutput() GetStandardIden
 
 func (o GetStandardIdentityOutput) ToGetStandardIdentityOutputWithContext(ctx context.Context) GetStandardIdentityOutput {
 	return o
-}
-
-func (o GetStandardIdentityOutput) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
-	return o.ToGetStandardIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o GetStandardIdentityOutput) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardIdentity) *GetStandardIdentity {
-		return &v
-	}).(GetStandardIdentityPtrOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
@@ -4347,58 +4321,24 @@ func (o GetStandardIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStandardIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetStandardIdentityPtrOutput struct{ *pulumi.OutputState }
+type GetStandardIdentityArrayOutput struct{ *pulumi.OutputState }
 
-func (GetStandardIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStandardIdentity)(nil)).Elem()
+func (GetStandardIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardIdentity)(nil)).Elem()
 }
 
-func (o GetStandardIdentityPtrOutput) ToGetStandardIdentityPtrOutput() GetStandardIdentityPtrOutput {
+func (o GetStandardIdentityArrayOutput) ToGetStandardIdentityArrayOutput() GetStandardIdentityArrayOutput {
 	return o
 }
 
-func (o GetStandardIdentityPtrOutput) ToGetStandardIdentityPtrOutputWithContext(ctx context.Context) GetStandardIdentityPtrOutput {
+func (o GetStandardIdentityArrayOutput) ToGetStandardIdentityArrayOutputWithContext(ctx context.Context) GetStandardIdentityArrayOutput {
 	return o
 }
 
-func (o GetStandardIdentityPtrOutput) Elem() GetStandardIdentityOutput {
-	return o.ApplyT(func(v *GetStandardIdentity) GetStandardIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret GetStandardIdentity
-		return ret
+func (o GetStandardIdentityArrayOutput) Index(i pulumi.IntInput) GetStandardIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardIdentity {
+		return vs[0].([]GetStandardIdentity)[vs[1].(int)]
 	}).(GetStandardIdentityOutput)
-}
-
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-func (o GetStandardIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-func (o GetStandardIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Type of Managed Identity assigned to this Logic App Workflow.
-func (o GetStandardIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetStandardSiteConfig struct {
@@ -5382,7 +5322,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardConnectionStringInput)(nil)).Elem(), GetStandardConnectionStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardConnectionStringArrayInput)(nil)).Elem(), GetStandardConnectionStringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityInput)(nil)).Elem(), GetStandardIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityPtrInput)(nil)).Elem(), GetStandardIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityArrayInput)(nil)).Elem(), GetStandardIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigInput)(nil)).Elem(), GetStandardSiteConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigPtrInput)(nil)).Elem(), GetStandardSiteConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigCorsInput)(nil)).Elem(), GetStandardSiteConfigCorsArgs{})
@@ -5447,7 +5387,7 @@ func init() {
 	pulumi.RegisterOutputType(GetStandardConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetStandardConnectionStringArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardIdentityOutput{})
-	pulumi.RegisterOutputType(GetStandardIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetStandardIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigCorsOutput{})

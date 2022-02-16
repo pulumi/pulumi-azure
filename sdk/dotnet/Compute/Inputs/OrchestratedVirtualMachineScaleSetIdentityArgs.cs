@@ -20,9 +20,6 @@ namespace Pulumi.Azure.Compute.Inputs
             set => _identityIds = value;
         }
 
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

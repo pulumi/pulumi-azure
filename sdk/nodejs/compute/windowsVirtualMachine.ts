@@ -165,11 +165,15 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     */
+    public readonly hotpatchingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.WindowsVirtualMachineIdentity | undefined>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -193,7 +197,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsDisk>;
     /**
-     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     public readonly patchMode!: pulumi.Output<string | undefined>;
     /**
@@ -317,6 +321,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
+            resourceInputs["hotpatchingEnabled"] = state ? state.hotpatchingEnabled : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -383,6 +388,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
+            resourceInputs["hotpatchingEnabled"] = args ? args.hotpatchingEnabled : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -485,11 +491,15 @@ export interface WindowsVirtualMachineState {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     */
+    hotpatchingEnabled?: pulumi.Input<boolean>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -513,7 +523,7 @@ export interface WindowsVirtualMachineState {
      */
     osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
-     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -675,11 +685,15 @@ export interface WindowsVirtualMachineArgs {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     */
+    hotpatchingEnabled?: pulumi.Input<boolean>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -703,7 +717,7 @@ export interface WindowsVirtualMachineArgs {
      */
     osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
-     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     patchMode?: pulumi.Input<string>;
     /**

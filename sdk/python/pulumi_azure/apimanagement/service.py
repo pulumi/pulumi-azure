@@ -31,6 +31,8 @@ class ServiceArgs:
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
                  protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
                  sign_in: Optional[pulumi.Input['ServiceSignInArgs']] = None,
                  sign_up: Optional[pulumi.Input['ServiceSignUpArgs']] = None,
@@ -57,6 +59,8 @@ class ServiceArgs:
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
@@ -95,6 +99,10 @@ class ServiceArgs:
             pulumi.set(__self__, "policy", policy)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if security is not None:
             pulumi.set(__self__, "security", security)
         if sign_in is not None:
@@ -305,6 +313,30 @@ class ServiceArgs:
         pulumi.set(self, "protocols", value)
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of a standard SKU IPv4 Public IP.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public access to the service allowed?.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter
     def security(self) -> Optional[pulumi.Input['ServiceSecurityArgs']]:
         """
@@ -423,7 +455,9 @@ class _ServiceState:
                  portal_url: Optional[pulumi.Input[str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -457,7 +491,9 @@ class _ServiceState:
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -509,8 +545,12 @@ class _ServiceState:
             pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if publisher_email is not None:
             pulumi.set(__self__, "publisher_email", publisher_email)
         if publisher_name is not None:
@@ -755,6 +795,18 @@ class _ServiceState:
         pulumi.set(self, "protocols", value)
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of a standard SKU IPv4 Public IP.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -765,6 +817,18 @@ class _ServiceState:
     @public_ip_addresses.setter
     def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "public_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public access to the service allowed?.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -941,6 +1005,8 @@ class Service(pulumi.CustomResource):
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
                  protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -958,6 +1024,8 @@ class Service(pulumi.CustomResource):
         Manages an API Management Service.
 
         ## Disclaimers
+
+        > When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.
 
         > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using the `apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
 
@@ -998,6 +1066,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -1022,6 +1092,8 @@ class Service(pulumi.CustomResource):
         Manages an API Management Service.
 
         ## Disclaimers
+
+        > When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.
 
         > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using the `apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
 
@@ -1075,6 +1147,8 @@ class Service(pulumi.CustomResource):
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
                  protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1111,6 +1185,8 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["notification_sender_email"] = notification_sender_email
             __props__.__dict__["policy"] = policy
             __props__.__dict__["protocols"] = protocols
+            __props__.__dict__["public_ip_address_id"] = public_ip_address_id
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if publisher_email is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_email'")
             __props__.__dict__["publisher_email"] = publisher_email
@@ -1167,7 +1243,9 @@ class Service(pulumi.CustomResource):
             portal_url: Optional[pulumi.Input[str]] = None,
             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+            public_ip_address_id: Optional[pulumi.Input[str]] = None,
             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             publisher_email: Optional[pulumi.Input[str]] = None,
             publisher_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1206,7 +1284,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -1244,7 +1324,9 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["private_ip_addresses"] = private_ip_addresses
         __props__.__dict__["protocols"] = protocols
+        __props__.__dict__["public_ip_address_id"] = public_ip_address_id
         __props__.__dict__["public_ip_addresses"] = public_ip_addresses
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["publisher_email"] = publisher_email
         __props__.__dict__["publisher_name"] = publisher_name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1405,12 +1487,28 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "protocols")
 
     @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of a standard SKU IPv4 Public IP.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is public access to the service allowed?.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="publisherEmail")

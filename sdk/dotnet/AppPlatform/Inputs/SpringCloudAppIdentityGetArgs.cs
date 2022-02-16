@@ -27,8 +27,8 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         /// <summary>
         /// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public SpringCloudAppIdentityGetArgs()
         {

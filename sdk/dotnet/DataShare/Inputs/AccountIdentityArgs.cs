@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DataShare.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

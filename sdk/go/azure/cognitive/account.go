@@ -46,9 +46,8 @@ type Account struct {
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
-	NetworkAcls AccountNetworkAclsPtrOutput `pulumi:"networkAcls"`
-	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-	OutboundNetworkAccessRestrited pulumi.BoolPtrOutput `pulumi:"outboundNetworkAccessRestrited"`
+	NetworkAcls                    AccountNetworkAclsPtrOutput `pulumi:"networkAcls"`
+	OutboundNetworkAccessRestrited pulumi.BoolPtrOutput        `pulumi:"outboundNetworkAccessRestrited"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -130,9 +129,8 @@ type accountState struct {
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
-	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
-	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-	OutboundNetworkAccessRestrited *bool `pulumi:"outboundNetworkAccessRestrited"`
+	NetworkAcls                    *AccountNetworkAcls `pulumi:"networkAcls"`
+	OutboundNetworkAccessRestrited *bool               `pulumi:"outboundNetworkAccessRestrited"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -177,8 +175,7 @@ type AccountState struct {
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
-	NetworkAcls AccountNetworkAclsPtrInput
-	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	NetworkAcls                    AccountNetworkAclsPtrInput
 	OutboundNetworkAccessRestrited pulumi.BoolPtrInput
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringPtrInput
@@ -226,9 +223,8 @@ type accountArgs struct {
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
-	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
-	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
-	OutboundNetworkAccessRestrited *bool `pulumi:"outboundNetworkAccessRestrited"`
+	NetworkAcls                    *AccountNetworkAcls `pulumi:"networkAcls"`
+	OutboundNetworkAccessRestrited *bool               `pulumi:"outboundNetworkAccessRestrited"`
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -268,8 +264,7 @@ type AccountArgs struct {
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
-	NetworkAcls AccountNetworkAclsPtrInput
-	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+	NetworkAcls                    AccountNetworkAclsPtrInput
 	OutboundNetworkAccessRestrited pulumi.BoolPtrInput
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class ExpressRoutePortIdentityGetArgs : Pulumi.ResourceArgs
     {
-        [Input("identityIds")]
+        [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
 
         /// <summary>

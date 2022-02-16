@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
  *
  * ## Disclaimers
  *
+ * > When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.
+ *
  * > **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostnameConfigurations` block and by using the `azure.apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
  *
  * ## Example Usage
@@ -137,9 +139,17 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<outputs.apimanagement.ServiceProtocols>;
     /**
+     * ID of a standard SKU IPv4 Public IP.
+     */
+    public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
+    /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
     public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * Is public access to the service allowed?.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The email of publisher/company.
      */
@@ -225,7 +235,9 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
             resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
             resourceInputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["publisherEmail"] = state ? state.publisherEmail : undefined;
             resourceInputs["publisherName"] = state ? state.publisherName : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -265,6 +277,8 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             resourceInputs["publisherName"] = args ? args.publisherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -368,9 +382,17 @@ export interface ServiceState {
      */
     protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
+     * ID of a standard SKU IPv4 Public IP.
+     */
+    publicIpAddressId?: pulumi.Input<string>;
+    /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
     publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Is public access to the service allowed?.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The email of publisher/company.
      */
@@ -478,6 +500,14 @@ export interface ServiceArgs {
      * A `protocols` block as defined below.
      */
     protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    /**
+     * ID of a standard SKU IPv4 Public IP.
+     */
+    publicIpAddressId?: pulumi.Input<string>;
+    /**
+     * Is public access to the service allowed?.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The email of publisher/company.
      */

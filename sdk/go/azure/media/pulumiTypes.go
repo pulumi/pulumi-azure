@@ -3420,7 +3420,7 @@ type ServiceAccountIdentity struct {
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ServiceAccountIdentityInput is an input type that accepts ServiceAccountIdentityArgs and ServiceAccountIdentityOutput values.
@@ -3440,7 +3440,7 @@ type ServiceAccountIdentityArgs struct {
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceAccountIdentityArgs) ElementType() reflect.Type {
@@ -3531,8 +3531,8 @@ func (o ServiceAccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
-func (o ServiceAccountIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceAccountIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceAccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ServiceAccountIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3585,7 +3585,7 @@ func (o ServiceAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

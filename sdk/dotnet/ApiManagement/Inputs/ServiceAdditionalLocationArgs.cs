@@ -13,6 +13,12 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class ServiceAdditionalLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The number of compute units in this region. Defaults to the capacity of the main region.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
         /// </summary>
         [Input("gatewayRegionalUrl")]
@@ -36,6 +42,12 @@ namespace Pulumi.Azure.ApiManagement.Inputs
             set => _privateIpAddresses = value;
         }
 
+        /// <summary>
+        /// ID of a standard SKU IPv4 Public IP.
+        /// </summary>
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
+
         [Input("publicIpAddresses")]
         private InputList<string>? _publicIpAddresses;
 
@@ -53,6 +65,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ServiceAdditionalLocationVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of availability zones.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public ServiceAdditionalLocationArgs()
         {

@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnectorThreatIntelligence{}
 	case "azure:sentinel/watchlist:Watchlist":
 		r = &Watchlist{}
+	case "azure:sentinel/watchlistItem:WatchlistItem":
+		r = &WatchlistItem{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -137,6 +139,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/watchlist",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/watchlistItem",
 		&module{version},
 	)
 }

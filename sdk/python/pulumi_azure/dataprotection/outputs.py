@@ -270,20 +270,27 @@ class BackupVaultIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
+                 tenant_id: Optional[str] = None):
         """
+        :param str type: Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
-        :param str type: Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
         """
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="principalId")
@@ -300,14 +307,6 @@ class BackupVaultIdentity(dict):
         The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
         """
         return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

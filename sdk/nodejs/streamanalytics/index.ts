@@ -12,6 +12,7 @@ export * from "./job";
 export * from "./managedPrivateEndpoint";
 export * from "./outputBlob";
 export * from "./outputEventHub";
+export * from "./outputFunction";
 export * from "./outputMssql";
 export * from "./outputServiceBusQueue";
 export * from "./outputServicebusTopic";
@@ -30,6 +31,7 @@ import { Job } from "./job";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { OutputBlob } from "./outputBlob";
 import { OutputEventHub } from "./outputEventHub";
+import { OutputFunction } from "./outputFunction";
 import { OutputMssql } from "./outputMssql";
 import { OutputServiceBusQueue } from "./outputServiceBusQueue";
 import { OutputServicebusTopic } from "./outputServicebusTopic";
@@ -57,6 +59,8 @@ const _module = {
                 return new OutputBlob(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputEventHub:OutputEventHub":
                 return new OutputEventHub(name, <any>undefined, { urn })
+            case "azure:streamanalytics/outputFunction:OutputFunction":
+                return new OutputFunction(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputMssql:OutputMssql":
                 return new OutputMssql(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue":
@@ -88,6 +92,7 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/job", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputMssql", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServiceBusQueue", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServicebusTopic", _module)

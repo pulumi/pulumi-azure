@@ -10213,45 +10213,29 @@ func (i GetSystemTopicIdentityArgs) ToGetSystemTopicIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicIdentityOutput)
 }
 
-func (i GetSystemTopicIdentityArgs) ToGetSystemTopicIdentityPtrOutput() GetSystemTopicIdentityPtrOutput {
-	return i.ToGetSystemTopicIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i GetSystemTopicIdentityArgs) ToGetSystemTopicIdentityPtrOutputWithContext(ctx context.Context) GetSystemTopicIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicIdentityOutput).ToGetSystemTopicIdentityPtrOutputWithContext(ctx)
-}
-
-// GetSystemTopicIdentityPtrInput is an input type that accepts GetSystemTopicIdentityArgs, GetSystemTopicIdentityPtr and GetSystemTopicIdentityPtrOutput values.
-// You can construct a concrete instance of `GetSystemTopicIdentityPtrInput` via:
+// GetSystemTopicIdentityArrayInput is an input type that accepts GetSystemTopicIdentityArray and GetSystemTopicIdentityArrayOutput values.
+// You can construct a concrete instance of `GetSystemTopicIdentityArrayInput` via:
 //
-//          GetSystemTopicIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type GetSystemTopicIdentityPtrInput interface {
+//          GetSystemTopicIdentityArray{ GetSystemTopicIdentityArgs{...} }
+type GetSystemTopicIdentityArrayInput interface {
 	pulumi.Input
 
-	ToGetSystemTopicIdentityPtrOutput() GetSystemTopicIdentityPtrOutput
-	ToGetSystemTopicIdentityPtrOutputWithContext(context.Context) GetSystemTopicIdentityPtrOutput
+	ToGetSystemTopicIdentityArrayOutput() GetSystemTopicIdentityArrayOutput
+	ToGetSystemTopicIdentityArrayOutputWithContext(context.Context) GetSystemTopicIdentityArrayOutput
 }
 
-type getSystemTopicIdentityPtrType GetSystemTopicIdentityArgs
+type GetSystemTopicIdentityArray []GetSystemTopicIdentityInput
 
-func GetSystemTopicIdentityPtr(v *GetSystemTopicIdentityArgs) GetSystemTopicIdentityPtrInput {
-	return (*getSystemTopicIdentityPtrType)(v)
+func (GetSystemTopicIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSystemTopicIdentity)(nil)).Elem()
 }
 
-func (*getSystemTopicIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetSystemTopicIdentity)(nil)).Elem()
+func (i GetSystemTopicIdentityArray) ToGetSystemTopicIdentityArrayOutput() GetSystemTopicIdentityArrayOutput {
+	return i.ToGetSystemTopicIdentityArrayOutputWithContext(context.Background())
 }
 
-func (i *getSystemTopicIdentityPtrType) ToGetSystemTopicIdentityPtrOutput() GetSystemTopicIdentityPtrOutput {
-	return i.ToGetSystemTopicIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *getSystemTopicIdentityPtrType) ToGetSystemTopicIdentityPtrOutputWithContext(ctx context.Context) GetSystemTopicIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicIdentityPtrOutput)
+func (i GetSystemTopicIdentityArray) ToGetSystemTopicIdentityArrayOutputWithContext(ctx context.Context) GetSystemTopicIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicIdentityArrayOutput)
 }
 
 type GetSystemTopicIdentityOutput struct{ *pulumi.OutputState }
@@ -10266,16 +10250,6 @@ func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityOutput() GetSystem
 
 func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityOutputWithContext(ctx context.Context) GetSystemTopicIdentityOutput {
 	return o
-}
-
-func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityPtrOutput() GetSystemTopicIdentityPtrOutput {
-	return o.ToGetSystemTopicIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityPtrOutputWithContext(ctx context.Context) GetSystemTopicIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSystemTopicIdentity) *GetSystemTopicIdentity {
-		return &v
-	}).(GetSystemTopicIdentityPtrOutput)
 }
 
 // A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -10298,68 +10272,24 @@ func (o GetSystemTopicIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetSystemTopicIdentityPtrOutput struct{ *pulumi.OutputState }
+type GetSystemTopicIdentityArrayOutput struct{ *pulumi.OutputState }
 
-func (GetSystemTopicIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetSystemTopicIdentity)(nil)).Elem()
+func (GetSystemTopicIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSystemTopicIdentity)(nil)).Elem()
 }
 
-func (o GetSystemTopicIdentityPtrOutput) ToGetSystemTopicIdentityPtrOutput() GetSystemTopicIdentityPtrOutput {
+func (o GetSystemTopicIdentityArrayOutput) ToGetSystemTopicIdentityArrayOutput() GetSystemTopicIdentityArrayOutput {
 	return o
 }
 
-func (o GetSystemTopicIdentityPtrOutput) ToGetSystemTopicIdentityPtrOutputWithContext(ctx context.Context) GetSystemTopicIdentityPtrOutput {
+func (o GetSystemTopicIdentityArrayOutput) ToGetSystemTopicIdentityArrayOutputWithContext(ctx context.Context) GetSystemTopicIdentityArrayOutput {
 	return o
 }
 
-func (o GetSystemTopicIdentityPtrOutput) Elem() GetSystemTopicIdentityOutput {
-	return o.ApplyT(func(v *GetSystemTopicIdentity) GetSystemTopicIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret GetSystemTopicIdentity
-		return ret
+func (o GetSystemTopicIdentityArrayOutput) Index(i pulumi.IntInput) GetSystemTopicIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSystemTopicIdentity {
+		return vs[0].([]GetSystemTopicIdentity)[vs[1].(int)]
 	}).(GetSystemTopicIdentityOutput)
-}
-
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
-func (o GetSystemTopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetSystemTopicIdentity) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-func (o GetSystemTopicIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetSystemTopicIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-func (o GetSystemTopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetSystemTopicIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
-func (o GetSystemTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetSystemTopicIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -10506,7 +10436,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInputMappingFieldInput)(nil)).Elem(), GetDomainInputMappingFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInputMappingFieldArrayInput)(nil)).Elem(), GetDomainInputMappingFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSystemTopicIdentityInput)(nil)).Elem(), GetSystemTopicIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSystemTopicIdentityPtrInput)(nil)).Elem(), GetSystemTopicIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSystemTopicIdentityArrayInput)(nil)).Elem(), GetSystemTopicIdentityArray{})
 	pulumi.RegisterOutputType(DomainIdentityOutput{})
 	pulumi.RegisterOutputType(DomainIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DomainInboundIpRuleOutput{})
@@ -10650,5 +10580,5 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainInputMappingFieldOutput{})
 	pulumi.RegisterOutputType(GetDomainInputMappingFieldArrayOutput{})
 	pulumi.RegisterOutputType(GetSystemTopicIdentityOutput{})
-	pulumi.RegisterOutputType(GetSystemTopicIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetSystemTopicIdentityArrayOutput{})
 }

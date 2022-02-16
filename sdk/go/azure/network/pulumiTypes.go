@@ -1750,9 +1750,9 @@ func (o ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) Index
 
 type ApplicationGatewayIdentity struct {
 	// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-	IdentityIds string `pulumi:"identityIds"`
-	// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
-	Type *string `pulumi:"type"`
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
 }
 
 // ApplicationGatewayIdentityInput is an input type that accepts ApplicationGatewayIdentityArgs and ApplicationGatewayIdentityOutput values.
@@ -1768,9 +1768,9 @@ type ApplicationGatewayIdentityInput interface {
 
 type ApplicationGatewayIdentityArgs struct {
 	// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-	IdentityIds pulumi.StringInput `pulumi:"identityIds"`
-	// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ApplicationGatewayIdentityArgs) ElementType() reflect.Type {
@@ -1851,13 +1851,13 @@ func (o ApplicationGatewayIdentityOutput) ToApplicationGatewayIdentityPtrOutputW
 }
 
 // Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-func (o ApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayIdentity) string { return v.IdentityIds }).(pulumi.StringOutput)
+func (o ApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
-func (o ApplicationGatewayIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+func (o ApplicationGatewayIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ApplicationGatewayIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1885,22 +1885,22 @@ func (o ApplicationGatewayIdentityPtrOutput) Elem() ApplicationGatewayIdentityOu
 }
 
 // Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
+func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewayIdentity) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.IdentityIds
-	}).(pulumi.StringPtrOutput)
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
-// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
 func (o ApplicationGatewayIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

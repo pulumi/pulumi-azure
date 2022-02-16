@@ -12,6 +12,40 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a backend within an API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@exmaple.com",
+    ///             SkuName = "Developer_1",
+    ///         });
+    ///         var exampleBackend = new Azure.ApiManagement.Backend("exampleBackend", new Azure.ApiManagement.BackendArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApiManagementName = exampleService.Name,
+    ///             Protocol = "http",
+    ///             Url = "https://backend",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management backends can be imported using the `resource id`, e.g.

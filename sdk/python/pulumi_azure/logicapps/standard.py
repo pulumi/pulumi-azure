@@ -1201,7 +1201,7 @@ class Standard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.StandardIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.StandardIdentity']]:
         """
         An `identity` block as defined below.
         """

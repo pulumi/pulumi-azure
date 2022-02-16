@@ -162,7 +162,7 @@ export class Standard extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.logicapps.StandardIdentity>;
+    public readonly identity!: pulumi.Output<outputs.logicapps.StandardIdentity | undefined>;
     /**
      * The Logic App kind - will be `functionapp,workflowapp`
      */

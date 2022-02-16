@@ -3619,21 +3619,28 @@ class GetDomainInputMappingFieldResult(dict):
 @pulumi.output_type
 class GetSystemTopicIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
-                 type: str,
-                 identity_ids: Optional[Sequence[str]] = None):
+                 type: str):
         """
+        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param str principal_id: Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         :param str tenant_id: Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         :param str type: Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
-        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
-        if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -3658,13 +3665,5 @@ class GetSystemTopicIdentityResult(dict):
         Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[Sequence[str]]:
-        """
-        A list of IDs for User Assigned Managed Identity resources to be assigned.
-        """
-        return pulumi.get(self, "identity_ids")
 
 

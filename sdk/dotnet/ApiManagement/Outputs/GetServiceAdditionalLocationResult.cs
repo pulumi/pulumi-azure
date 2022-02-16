@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class GetServiceAdditionalLocationResult
     {
         /// <summary>
+        /// Specifies the number of units associated with this API Management service.
+        /// </summary>
+        public readonly int? Capacity;
+        /// <summary>
         /// Gateway URL of the API Management service in the Region.
         /// </summary>
         public readonly string GatewayRegionalUrl;
@@ -26,24 +30,41 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
+        /// ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
+        /// </summary>
+        public readonly string PublicIpAddressId;
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
+        /// <summary>
+        /// List of the availability zones where API Management is deployed in the additional region exists.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetServiceAdditionalLocationResult(
+            int? capacity,
+
             string gatewayRegionalUrl,
 
             string location,
 
             ImmutableArray<string> privateIpAddresses,
 
-            ImmutableArray<string> publicIpAddresses)
+            string publicIpAddressId,
+
+            ImmutableArray<string> publicIpAddresses,
+
+            ImmutableArray<string> zones)
         {
+            Capacity = capacity;
             GatewayRegionalUrl = gatewayRegionalUrl;
             Location = location;
             PrivateIpAddresses = privateIpAddresses;
+            PublicIpAddressId = publicIpAddressId;
             PublicIpAddresses = publicIpAddresses;
+            Zones = zones;
         }
     }
 }

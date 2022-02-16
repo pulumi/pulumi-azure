@@ -1247,38 +1247,37 @@ class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
 @pulumi.input_type
 class ApplicationGatewayIdentityArgs:
     def __init__(__self__, *,
-                 identity_ids: pulumi.Input[str],
-                 type: Optional[pulumi.Input[str]] = None):
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-        :param pulumi.Input[str] type: The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        :param pulumi.Input[str] type: The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> pulumi.Input[str]:
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: pulumi.Input[str]):
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> pulumi.Input[str]:
         """
-        The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
 
@@ -3882,15 +3881,26 @@ class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
 @pulumi.input_type
 class ExpressRoutePortIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        :param pulumi.Input[str] type: The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-        if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter
@@ -3903,18 +3913,6 @@ class ExpressRoutePortIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
-        """
-        return pulumi.get(self, "identity_ids")
-
-    @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "identity_ids", value)
 
 
 @pulumi.input_type

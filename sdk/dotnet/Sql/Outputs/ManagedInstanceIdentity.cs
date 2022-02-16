@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Sql.Outputs
         /// <summary>
         /// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ManagedInstanceIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Sql.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

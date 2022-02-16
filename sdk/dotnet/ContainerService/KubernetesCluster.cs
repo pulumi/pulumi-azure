@@ -285,7 +285,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `windows_profile` block as defined below.
-        /// ---
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterWindowsProfile> WindowsProfile { get; private set; } = null!;
@@ -527,7 +526,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `windows_profile` block as defined below.
-        /// ---
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileArgs>? WindowsProfile { get; set; }
@@ -784,7 +782,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `windows_profile` block as defined below.
-        /// ---
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileGetArgs>? WindowsProfile { get; set; }

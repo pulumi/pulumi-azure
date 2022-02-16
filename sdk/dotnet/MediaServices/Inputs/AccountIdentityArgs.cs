@@ -27,8 +27,8 @@ namespace Pulumi.Azure.MediaServices.Inputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public AccountIdentityArgs()
         {

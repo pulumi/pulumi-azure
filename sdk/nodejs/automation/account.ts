@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -73,6 +74,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly dscServerEndpoint!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.automation.AccountIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -85,7 +90,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU name of the account - only `Basic` is supported at this time.
+     * The SKU of the account - only `Basic` is supported at this time.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -109,6 +114,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
             resourceInputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
             resourceInputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -122,6 +128,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -153,6 +160,10 @@ export interface AccountState {
      */
     dscServerEndpoint?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.automation.AccountIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -165,7 +176,7 @@ export interface AccountState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU name of the account - only `Basic` is supported at this time.
+     * The SKU of the account - only `Basic` is supported at this time.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -179,6 +190,10 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.automation.AccountIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -191,7 +206,7 @@ export interface AccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name of the account - only `Basic` is supported at this time.
+     * The SKU of the account - only `Basic` is supported at this time.
      */
     skuName: pulumi.Input<string>;
     /**
