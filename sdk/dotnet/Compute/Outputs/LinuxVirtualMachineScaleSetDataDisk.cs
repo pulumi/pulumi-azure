@@ -45,6 +45,8 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         /// </summary>
         public readonly string StorageAccountType;
+        public readonly int? UltraSsdDiskIopsReadWrite;
+        public readonly int? UltraSsdDiskMbpsReadWrite;
         /// <summary>
         /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         /// </summary>
@@ -68,6 +70,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string storageAccountType,
 
+            int? ultraSsdDiskIopsReadWrite,
+
+            int? ultraSsdDiskMbpsReadWrite,
+
             bool? writeAcceleratorEnabled)
         {
             Caching = caching;
@@ -78,6 +84,8 @@ namespace Pulumi.Azure.Compute.Outputs
             DiskSizeGb = diskSizeGb;
             Lun = lun;
             StorageAccountType = storageAccountType;
+            UltraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
+            UltraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }

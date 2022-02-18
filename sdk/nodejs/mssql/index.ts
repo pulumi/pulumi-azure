@@ -13,9 +13,15 @@ export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getDatabase";
 export * from "./getElasticPool";
+export * from "./getManagedInstance";
 export * from "./getServer";
 export * from "./jobAgent";
 export * from "./jobCredential";
+export * from "./managedDatabase";
+export * from "./managedInstance";
+export * from "./managedInstanceActiveDirectoryAdministrator";
+export * from "./managedInstanceFailoverGroup";
+export * from "./outboundFirewallRule";
 export * from "./server";
 export * from "./serverExtendedAuditingPolicy";
 export * from "./serverSecurityAlertPolicy";
@@ -33,6 +39,11 @@ import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { JobAgent } from "./jobAgent";
 import { JobCredential } from "./jobCredential";
+import { ManagedDatabase } from "./managedDatabase";
+import { ManagedInstance } from "./managedInstance";
+import { ManagedInstanceActiveDirectoryAdministrator } from "./managedInstanceActiveDirectoryAdministrator";
+import { ManagedInstanceFailoverGroup } from "./managedInstanceFailoverGroup";
+import { OutboundFirewallRule } from "./outboundFirewallRule";
 import { Server } from "./server";
 import { ServerExtendedAuditingPolicy } from "./serverExtendedAuditingPolicy";
 import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
@@ -61,6 +72,16 @@ const _module = {
                 return new JobAgent(name, <any>undefined, { urn })
             case "azure:mssql/jobCredential:JobCredential":
                 return new JobCredential(name, <any>undefined, { urn })
+            case "azure:mssql/managedDatabase:ManagedDatabase":
+                return new ManagedDatabase(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstance:ManagedInstance":
+                return new ManagedInstance(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator":
+                return new ManagedInstanceActiveDirectoryAdministrator(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
+                return new ManagedInstanceFailoverGroup(name, <any>undefined, { urn })
+            case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
+                return new OutboundFirewallRule(name, <any>undefined, { urn })
             case "azure:mssql/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
@@ -88,6 +109,11 @@ pulumi.runtime.registerResourceModule("azure", "mssql/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobAgent", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobCredential", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceFailoverGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/outboundFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverSecurityAlertPolicy", _module)

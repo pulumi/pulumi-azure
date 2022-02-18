@@ -19,6 +19,9 @@ __all__ = [
     'ElasticPoolSku',
     'FailoverGroupPartnerServer',
     'FailoverGroupReadWriteEndpointFailoverPolicy',
+    'ManagedInstanceFailoverGroupPartnerRegion',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy',
+    'ManagedInstanceIdentity',
     'ServerAzureadAdministrator',
     'ServerExtendedAuditingPolicy',
     'ServerFoo',
@@ -33,6 +36,7 @@ __all__ = [
     'VirtualMachineStorageConfigurationLogSettings',
     'VirtualMachineStorageConfigurationTempDbSettings',
     'GetElasticPoolSkusResult',
+    'GetManagedInstanceIdentityResult',
     'GetServerIdentityResult',
 ]
 
@@ -580,6 +584,145 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
         The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
         """
         return pulumi.get(self, "grace_minutes")
+
+
+@pulumi.output_type
+class ManagedInstanceFailoverGroupPartnerRegion(dict):
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 role: Optional[str] = None):
+        """
+        :param str location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+        :param str role: The partner replication role of the Managed Instance Failover Group.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The partner replication role of the Managed Instance Failover Group.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graceMinutes":
+            suggest = "grace_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 grace_minutes: Optional[int] = None):
+        """
+        :param str mode: The failover mode. Possible values are `Automatic` or `Manual`.
+        :param int grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if grace_minutes is not None:
+            pulumi.set(__self__, "grace_minutes", grace_minutes)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The failover mode. Possible values are `Automatic` or `Manual`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="graceMinutes")
+    def grace_minutes(self) -> Optional[int]:
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        return pulumi.get(self, "grace_minutes")
+
+
+@pulumi.output_type
+class ManagedInstanceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstanceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstanceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstanceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -1545,6 +1688,46 @@ class GetElasticPoolSkusResult(dict):
         The tier of the particular SKU.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class GetManagedInstanceIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str type: The identity type of the SQL Managed Instance.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of the SQL Managed Instance.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

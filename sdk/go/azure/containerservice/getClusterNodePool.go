@@ -58,7 +58,6 @@ type GetClusterNodePoolArgs struct {
 
 // A collection of values returned by getClusterNodePool.
 type GetClusterNodePoolResult struct {
-	// A list of Availability Zones in which the Nodes in this Node Pool exists.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Does this Node Pool have Auto-Scaling enabled?
 	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
@@ -109,6 +108,8 @@ type GetClusterNodePoolResult struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet in which this Node Pool exists.
 	VnetSubnetId string `pulumi:"vnetSubnetId"`
+	// A list of the Availability Zones where the Nodes in this Node Pool exist.
+	Zones []string `pulumi:"zones"`
 }
 
 func GetClusterNodePoolOutput(ctx *pulumi.Context, args GetClusterNodePoolOutputArgs, opts ...pulumi.InvokeOption) GetClusterNodePoolResultOutput {
@@ -149,7 +150,6 @@ func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutputWithCont
 	return o
 }
 
-// A list of Availability Zones in which the Nodes in this Node Pool exists.
 func (o GetClusterNodePoolResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -279,6 +279,11 @@ func (o GetClusterNodePoolResultOutput) VmSize() pulumi.StringOutput {
 // The ID of the Subnet in which this Node Pool exists.
 func (o GetClusterNodePoolResultOutput) VnetSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.VnetSubnetId }).(pulumi.StringOutput)
+}
+
+// A list of the Availability Zones where the Nodes in this Node Pool exist.
+func (o GetClusterNodePoolResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

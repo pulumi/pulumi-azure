@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileAciConnectorLinux
     {
         /// <summary>
-        /// Is the virtual node addon enabled?
+        /// Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

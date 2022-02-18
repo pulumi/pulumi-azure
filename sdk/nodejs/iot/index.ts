@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./certificate";
 export * from "./consumerGroup";
 export * from "./dpsSharedAccessPolicy";
 export * from "./endpointEventhub";
@@ -33,6 +34,7 @@ export * from "./timeSeriesInsightsStandardEnvironment";
 export * from "./zMixins";
 
 // Import resources to register:
+import { Certificate } from "./certificate";
 import { ConsumerGroup } from "./consumerGroup";
 import { DpsSharedAccessPolicy } from "./dpsSharedAccessPolicy";
 import { EndpointEventhub } from "./endpointEventhub";
@@ -59,6 +61,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:iot/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             case "azure:iot/consumerGroup:ConsumerGroup":
                 return new ConsumerGroup(name, <any>undefined, { urn })
             case "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy":
@@ -106,6 +110,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "iot/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/consumerGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/dpsSharedAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointEventhub", _module)

@@ -113,6 +113,26 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
                  hostpool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages the Registration Info for a Virtual Desktop Host Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="Pooled",
+            validate_environment=True,
+            load_balancer_type="BreadthFirst")
+        exampleget_host_pool_registration_info = azure.desktopvirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo",
+            hostpool_id=example_host_pool.id,
+            expiration_date="2022-01-01T23:40:52Z")
+        ```
+
         ## Import
 
         AVD Registration Infos can be imported using the `resource id`, e.g.
@@ -133,6 +153,26 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
                  args: GetHostPoolRegistrationInfoArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages the Registration Info for a Virtual Desktop Host Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="Pooled",
+            validate_environment=True,
+            load_balancer_type="BreadthFirst")
+        exampleget_host_pool_registration_info = azure.desktopvirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo",
+            hostpool_id=example_host_pool.id,
+            expiration_date="2022-01-01T23:40:52Z")
+        ```
+
         ## Import
 
         AVD Registration Infos can be imported using the `resource id`, e.g.

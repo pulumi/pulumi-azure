@@ -1215,7 +1215,7 @@ class FlexibleServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zone(self) -> pulumi.Output[str]:
+    def zone(self) -> pulumi.Output[Optional[str]]:
         """
         The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
         """

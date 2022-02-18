@@ -243,7 +243,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.sql.ManagedInstanceIdentity | undefined>;
     /**
-     * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
@@ -413,7 +413,7 @@ export interface ManagedInstanceState {
      */
     identity?: pulumi.Input<inputs.sql.ManagedInstanceIdentity>;
     /**
-     * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -495,7 +495,7 @@ export interface ManagedInstanceArgs {
      */
     identity?: pulumi.Input<inputs.sql.ManagedInstanceIdentity>;
     /**
-     * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+     * What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
      */
     licenseType: pulumi.Input<string>;
     /**

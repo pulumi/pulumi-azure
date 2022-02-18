@@ -21,6 +21,7 @@ __all__ = [
     'IoTHubRoute',
     'IoTHubSharedAccessPolicy',
     'IoTHubSku',
+    'IotHubDpsIpFilterRule',
     'IotHubDpsLinkedHub',
     'IotHubDpsSku',
     'SecurityDeviceGroupAllowRule',
@@ -913,6 +914,75 @@ class IoTHubSku(dict):
         The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IotHubDpsIpFilterRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubDpsIpFilterRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubDpsIpFilterRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubDpsIpFilterRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 ip_mask: str,
+                 name: str,
+                 target: Optional[str] = None):
+        """
+        :param str action: The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        :param str ip_mask: The IP address range in CIDR notation for the rule.
+        :param str name: The name of the filter.
+        :param str target: Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        pulumi.set(__self__, "name", name)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        The IP address range in CIDR notation for the rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type

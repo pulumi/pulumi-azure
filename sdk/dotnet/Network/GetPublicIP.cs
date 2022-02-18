@@ -269,18 +269,6 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assigned to the resource.
-        /// </summary>
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
-
         public GetPublicIPArgs()
         {
         }
@@ -299,18 +287,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assigned to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public GetPublicIPInvokeArgs()
         {
@@ -361,7 +337,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
@@ -392,7 +368,7 @@ namespace Pulumi.Azure.Network
 
             string sku,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> zones)
         {

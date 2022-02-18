@@ -404,10 +404,10 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "disabledRules":
-            suggest = "disabled_rules"
-        elif key == "ruleGroupName":
+        if key == "ruleGroupName":
             suggest = "rule_group_name"
+        elif key == "disabledRules":
+            suggest = "disabled_rules"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesManagedRuleSetRuleGroupOverride. Access the value via the '{suggest}' property getter instead.")
@@ -421,22 +421,15 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 disabled_rules: Sequence[str],
-                 rule_group_name: str):
+                 rule_group_name: str,
+                 disabled_rules: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] disabled_rules: One or more Rule ID's
         :param str rule_group_name: The name of the Rule Group
+        :param Sequence[str] disabled_rules: One or more Rule ID's
         """
-        pulumi.set(__self__, "disabled_rules", disabled_rules)
         pulumi.set(__self__, "rule_group_name", rule_group_name)
-
-    @property
-    @pulumi.getter(name="disabledRules")
-    def disabled_rules(self) -> Sequence[str]:
-        """
-        One or more Rule ID's
-        """
-        return pulumi.get(self, "disabled_rules")
+        if disabled_rules is not None:
+            pulumi.set(__self__, "disabled_rules", disabled_rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
@@ -445,6 +438,14 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
         The name of the Rule Group
         """
         return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter(name="disabledRules")
+    def disabled_rules(self) -> Optional[Sequence[str]]:
+        """
+        One or more Rule ID's
+        """
+        return pulumi.get(self, "disabled_rules")
 
 
 @pulumi.output_type

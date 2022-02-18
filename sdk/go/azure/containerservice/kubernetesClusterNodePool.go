@@ -35,7 +35,7 @@ type KubernetesClusterNodePool struct {
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrOutput `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible Values are `OS`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringOutput `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
@@ -142,7 +142,7 @@ type kubernetesClusterNodePoolState struct {
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible Values are `OS`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
@@ -215,7 +215,7 @@ type KubernetesClusterNodePoolState struct {
 	FipsEnabled pulumi.BoolPtrInput
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
-	// The type of disk used by kubelet. Possible Values are `OS`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringPtrInput
@@ -292,7 +292,7 @@ type kubernetesClusterNodePoolArgs struct {
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible Values are `OS`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
@@ -366,7 +366,7 @@ type KubernetesClusterNodePoolArgs struct {
 	FipsEnabled pulumi.BoolPtrInput
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
-	// The type of disk used by kubelet. Possible Values are `OS`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringInput

@@ -24,6 +24,7 @@ class AccountArgs:
                  azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
+                 customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -53,6 +54,7 @@ class AccountArgs:
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -87,6 +89,8 @@ class AccountArgs:
             pulumi.set(__self__, "blob_properties", blob_properties)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
@@ -231,6 +235,18 @@ class AccountArgs:
     @custom_domain.setter
     def custom_domain(self, value: Optional[pulumi.Input['AccountCustomDomainArgs']]):
         pulumi.set(self, "custom_domain", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]:
+        """
+        A `customer_managed_key` block as documented below.
+        """
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -458,6 +474,7 @@ class _AccountState:
                  azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
+                 customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -519,6 +536,7 @@ class _AccountState:
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -587,6 +605,8 @@ class _AccountState:
             pulumi.set(__self__, "blob_properties", blob_properties)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
@@ -785,6 +805,18 @@ class _AccountState:
     @custom_domain.setter
     def custom_domain(self, value: Optional[pulumi.Input['AccountCustomDomainArgs']]):
         pulumi.set(self, "custom_domain", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]:
+        """
+        A `customer_managed_key` block as documented below.
+        """
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -1410,6 +1442,7 @@ class Account(pulumi.CustomResource):
                  azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1501,6 +1534,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -1611,6 +1645,7 @@ class Account(pulumi.CustomResource):
                  azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1654,6 +1689,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["azure_files_authentication"] = azure_files_authentication
             __props__.__dict__["blob_properties"] = blob_properties
             __props__.__dict__["custom_domain"] = custom_domain
+            __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
@@ -1725,6 +1761,7 @@ class Account(pulumi.CustomResource):
             azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
             blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
             custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
+            customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1791,6 +1828,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -1855,6 +1893,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["azure_files_authentication"] = azure_files_authentication
         __props__.__dict__["blob_properties"] = blob_properties
         __props__.__dict__["custom_domain"] = custom_domain
+        __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
@@ -1971,6 +2010,14 @@ class Account(pulumi.CustomResource):
         A `custom_domain` block as documented below.
         """
         return pulumi.get(self, "custom_domain")
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> pulumi.Output['outputs.AccountCustomerManagedKey']:
+        """
+        A `customer_managed_key` block as documented below.
+        """
+        return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")

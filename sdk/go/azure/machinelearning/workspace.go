@@ -44,6 +44,8 @@ type Workspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The user assigned identity id that represents the workspace identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -123,6 +125,8 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The user assigned identity id that represents the workspace identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -159,6 +163,8 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The user assigned identity id that represents the workspace identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -197,6 +203,8 @@ type workspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The user assigned identity id that represents the workspace identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -232,6 +240,8 @@ type WorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The user assigned identity id that represents the workspace identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.

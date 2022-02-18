@@ -1787,6 +1787,130 @@ func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IotHubDpsIpFilterRule struct {
+	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+	Action string `pulumi:"action"`
+	// The IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+	// The name of the filter.
+	Name string `pulumi:"name"`
+	// Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+	Target *string `pulumi:"target"`
+}
+
+// IotHubDpsIpFilterRuleInput is an input type that accepts IotHubDpsIpFilterRuleArgs and IotHubDpsIpFilterRuleOutput values.
+// You can construct a concrete instance of `IotHubDpsIpFilterRuleInput` via:
+//
+//          IotHubDpsIpFilterRuleArgs{...}
+type IotHubDpsIpFilterRuleInput interface {
+	pulumi.Input
+
+	ToIotHubDpsIpFilterRuleOutput() IotHubDpsIpFilterRuleOutput
+	ToIotHubDpsIpFilterRuleOutputWithContext(context.Context) IotHubDpsIpFilterRuleOutput
+}
+
+type IotHubDpsIpFilterRuleArgs struct {
+	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// The name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (IotHubDpsIpFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDpsIpFilterRule)(nil)).Elem()
+}
+
+func (i IotHubDpsIpFilterRuleArgs) ToIotHubDpsIpFilterRuleOutput() IotHubDpsIpFilterRuleOutput {
+	return i.ToIotHubDpsIpFilterRuleOutputWithContext(context.Background())
+}
+
+func (i IotHubDpsIpFilterRuleArgs) ToIotHubDpsIpFilterRuleOutputWithContext(ctx context.Context) IotHubDpsIpFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsIpFilterRuleOutput)
+}
+
+// IotHubDpsIpFilterRuleArrayInput is an input type that accepts IotHubDpsIpFilterRuleArray and IotHubDpsIpFilterRuleArrayOutput values.
+// You can construct a concrete instance of `IotHubDpsIpFilterRuleArrayInput` via:
+//
+//          IotHubDpsIpFilterRuleArray{ IotHubDpsIpFilterRuleArgs{...} }
+type IotHubDpsIpFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToIotHubDpsIpFilterRuleArrayOutput() IotHubDpsIpFilterRuleArrayOutput
+	ToIotHubDpsIpFilterRuleArrayOutputWithContext(context.Context) IotHubDpsIpFilterRuleArrayOutput
+}
+
+type IotHubDpsIpFilterRuleArray []IotHubDpsIpFilterRuleInput
+
+func (IotHubDpsIpFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubDpsIpFilterRule)(nil)).Elem()
+}
+
+func (i IotHubDpsIpFilterRuleArray) ToIotHubDpsIpFilterRuleArrayOutput() IotHubDpsIpFilterRuleArrayOutput {
+	return i.ToIotHubDpsIpFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IotHubDpsIpFilterRuleArray) ToIotHubDpsIpFilterRuleArrayOutputWithContext(ctx context.Context) IotHubDpsIpFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsIpFilterRuleArrayOutput)
+}
+
+type IotHubDpsIpFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (IotHubDpsIpFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDpsIpFilterRule)(nil)).Elem()
+}
+
+func (o IotHubDpsIpFilterRuleOutput) ToIotHubDpsIpFilterRuleOutput() IotHubDpsIpFilterRuleOutput {
+	return o
+}
+
+func (o IotHubDpsIpFilterRuleOutput) ToIotHubDpsIpFilterRuleOutputWithContext(ctx context.Context) IotHubDpsIpFilterRuleOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+func (o IotHubDpsIpFilterRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDpsIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The IP address range in CIDR notation for the rule.
+func (o IotHubDpsIpFilterRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDpsIpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// The name of the filter.
+func (o IotHubDpsIpFilterRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDpsIpFilterRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+func (o IotHubDpsIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubDpsIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type IotHubDpsIpFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IotHubDpsIpFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubDpsIpFilterRule)(nil)).Elem()
+}
+
+func (o IotHubDpsIpFilterRuleArrayOutput) ToIotHubDpsIpFilterRuleArrayOutput() IotHubDpsIpFilterRuleArrayOutput {
+	return o
+}
+
+func (o IotHubDpsIpFilterRuleArrayOutput) ToIotHubDpsIpFilterRuleArrayOutputWithContext(ctx context.Context) IotHubDpsIpFilterRuleArrayOutput {
+	return o
+}
+
+func (o IotHubDpsIpFilterRuleArrayOutput) Index(i pulumi.IntInput) IotHubDpsIpFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubDpsIpFilterRule {
+		return vs[0].([]IotHubDpsIpFilterRule)[vs[1].(int)]
+	}).(IotHubDpsIpFilterRuleOutput)
+}
+
 type IotHubDpsLinkedHub struct {
 	// The weight applied to the IoT Hub. Defaults to 0.
 	AllocationWeight *int `pulumi:"allocationWeight"`
@@ -3264,6 +3388,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSharedAccessPolicyArrayInput)(nil)).Elem(), IoTHubSharedAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSkuInput)(nil)).Elem(), IoTHubSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSkuPtrInput)(nil)).Elem(), IoTHubSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsIpFilterRuleInput)(nil)).Elem(), IotHubDpsIpFilterRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsIpFilterRuleArrayInput)(nil)).Elem(), IotHubDpsIpFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsLinkedHubInput)(nil)).Elem(), IotHubDpsLinkedHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsLinkedHubArrayInput)(nil)).Elem(), IotHubDpsLinkedHubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsSkuInput)(nil)).Elem(), IotHubDpsSkuArgs{})
@@ -3302,6 +3428,8 @@ func init() {
 	pulumi.RegisterOutputType(IoTHubSharedAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubSkuOutput{})
 	pulumi.RegisterOutputType(IoTHubSkuPtrOutput{})
+	pulumi.RegisterOutputType(IotHubDpsIpFilterRuleOutput{})
+	pulumi.RegisterOutputType(IotHubDpsIpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubOutput{})
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDpsSkuOutput{})

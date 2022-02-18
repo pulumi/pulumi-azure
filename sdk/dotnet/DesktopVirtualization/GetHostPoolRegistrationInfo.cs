@@ -10,6 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DesktopVirtualization
 {
     /// <summary>
+    /// Manages the Registration Info for a Virtual Desktop Host Pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "westeurope",
+    ///         });
+    ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Type = "Pooled",
+    ///             ValidateEnvironment = true,
+    ///             LoadBalancerType = "BreadthFirst",
+    ///         });
+    ///         var examplegetHostPoolRegistrationInfo = new Azure.DesktopVirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo", new Azure.DesktopVirtualization.GetHostPoolRegistrationInfoArgs
+    ///         {
+    ///             HostpoolId = exampleHostPool.Id,
+    ///             ExpirationDate = "2022-01-01T23:40:52Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// AVD Registration Infos can be imported using the `resource id`, e.g.

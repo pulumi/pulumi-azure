@@ -39,6 +39,10 @@ namespace Pulumi.Azure.WebPubSub
     ///                 MessagingLogsEnabled = true,
     ///                 ConnectivityLogsEnabled = false,
     ///             },
+    ///             Identity = new Azure.WebPubSub.Inputs.ServiceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -77,6 +81,12 @@ namespace Pulumi.Azure.WebPubSub
         /// </summary>
         [Output("hostname")]
         public Output<string> Hostname { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A `live_trace` block as defined below.
@@ -234,6 +244,12 @@ namespace Pulumi.Azure.WebPubSub
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// A `live_trace` block as defined below.
         /// </summary>
         [Input("liveTrace")]
@@ -324,6 +340,12 @@ namespace Pulumi.Azure.WebPubSub
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// A `live_trace` block as defined below.

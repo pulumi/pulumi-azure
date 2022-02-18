@@ -65,29 +65,37 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    public readonly autoStopEnabled!: pulumi.Output<boolean>;
+    /**
      * The Kusto Cluster URI to be used for data ingestion.
      */
     public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    /**
+     * Specifies if the cluster's disks are encrypted.
+     */
+    public readonly diskEncryptionEnabled!: pulumi.Output<boolean>;
     /**
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
-    public readonly enableAutoStop!: pulumi.Output<boolean | undefined>;
+    public readonly enableAutoStop!: pulumi.Output<boolean>;
     /**
-     * Specifies if the cluster's disks are encrypted.
+     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
-    public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
+    public readonly enableDiskEncryption!: pulumi.Output<boolean>;
     /**
-     * Specifies if the purge operations are enabled.
+     * @deprecated This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
-    public readonly enablePurge!: pulumi.Output<boolean | undefined>;
+    public readonly enablePurge!: pulumi.Output<boolean>;
     /**
-     * Specifies if the streaming ingest is enabled.
+     * @deprecated This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
-    public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
+    public readonly enableStreamingIngest!: pulumi.Output<boolean>;
     /**
      * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
      */
@@ -112,6 +120,11 @@ export class Cluster extends pulumi.CustomResource {
      * An `optimizedAutoScale` block as defined below.
      */
     public readonly optimizedAutoScale!: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if the purge operations are enabled.
+     */
+    public readonly purgeEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -120,6 +133,7 @@ export class Cluster extends pulumi.CustomResource {
      * A `sku` block as defined below.
      */
     public readonly sku!: pulumi.Output<outputs.kusto.ClusterSku>;
+    public readonly streamingIngestionEnabled!: pulumi.Output<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -154,7 +168,9 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            resourceInputs["autoStopEnabled"] = state ? state.autoStopEnabled : undefined;
             resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
+            resourceInputs["diskEncryptionEnabled"] = state ? state.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
             resourceInputs["enableAutoStop"] = state ? state.enableAutoStop : undefined;
             resourceInputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
@@ -166,8 +182,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["purgeEnabled"] = state ? state.purgeEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["streamingIngestionEnabled"] = state ? state.streamingIngestionEnabled : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trustedExternalTenants"] = state ? state.trustedExternalTenants : undefined;
             resourceInputs["uri"] = state ? state.uri : undefined;
@@ -181,6 +200,8 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["autoStopEnabled"] = args ? args.autoStopEnabled : undefined;
+            resourceInputs["diskEncryptionEnabled"] = args ? args.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
             resourceInputs["enableAutoStop"] = args ? args.enableAutoStop : undefined;
             resourceInputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
@@ -192,8 +213,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["purgeEnabled"] = args ? args.purgeEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["streamingIngestionEnabled"] = args ? args.streamingIngestionEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
             resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
@@ -211,27 +235,35 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    autoStopEnabled?: pulumi.Input<boolean>;
+    /**
      * The Kusto Cluster URI to be used for data ingestion.
      */
     dataIngestionUri?: pulumi.Input<string>;
+    /**
+     * Specifies if the cluster's disks are encrypted.
+     */
+    diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableAutoStop?: pulumi.Input<boolean>;
     /**
-     * Specifies if the cluster's disks are encrypted.
+     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableDiskEncryption?: pulumi.Input<boolean>;
     /**
-     * Specifies if the purge operations are enabled.
+     * @deprecated This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enablePurge?: pulumi.Input<boolean>;
     /**
-     * Specifies if the streaming ingest is enabled.
+     * @deprecated This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableStreamingIngest?: pulumi.Input<boolean>;
     /**
@@ -258,6 +290,11 @@ export interface ClusterState {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the purge operations are enabled.
+     */
+    purgeEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -266,6 +303,7 @@ export interface ClusterState {
      * A `sku` block as defined below.
      */
     sku?: pulumi.Input<inputs.kusto.ClusterSku>;
+    streamingIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -293,23 +331,31 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    autoStopEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the cluster's disks are encrypted.
+     */
+    diskEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableAutoStop?: pulumi.Input<boolean>;
     /**
-     * Specifies if the cluster's disks are encrypted.
+     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableDiskEncryption?: pulumi.Input<boolean>;
     /**
-     * Specifies if the purge operations are enabled.
+     * @deprecated This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enablePurge?: pulumi.Input<boolean>;
     /**
-     * Specifies if the streaming ingest is enabled.
+     * @deprecated This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableStreamingIngest?: pulumi.Input<boolean>;
     /**
@@ -336,6 +382,11 @@ export interface ClusterArgs {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the purge operations are enabled.
+     */
+    purgeEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -344,6 +395,7 @@ export interface ClusterArgs {
      * A `sku` block as defined below.
      */
     sku: pulumi.Input<inputs.kusto.ClusterSku>;
+    streamingIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */

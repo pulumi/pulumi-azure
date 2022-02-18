@@ -71,7 +71,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
     /**
-     * The type of disk used by kubelet. Possible Values are `OS`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
      */
     public readonly kubeletDiskType!: pulumi.Output<string>;
     /**
@@ -313,7 +313,7 @@ export interface KubernetesClusterNodePoolState {
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
-     * The type of disk used by kubelet. Possible Values are `OS`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
      */
     kubeletDiskType?: pulumi.Input<string>;
     /**
@@ -459,7 +459,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
-     * The type of disk used by kubelet. Possible Values are `OS`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
      */
     kubeletDiskType?: pulumi.Input<string>;
     /**

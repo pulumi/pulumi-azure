@@ -166,6 +166,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountCustomDomain?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
+        /// A `customer_managed_key` block as documented below.
+        /// </summary>
+        [Output("customerManagedKey")]
+        public Output<Outputs.AccountCustomerManagedKey> CustomerManagedKey { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         /// for more information. Defaults to `true`.
         /// </summary>
@@ -564,6 +570,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountCustomDomainArgs>? CustomDomain { get; set; }
 
         /// <summary>
+        /// A `customer_managed_key` block as documented below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         /// for more information. Defaults to `true`.
         /// </summary>
@@ -735,6 +747,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("customDomain")]
         public Input<Inputs.AccountCustomDomainGetArgs>? CustomDomain { get; set; }
+
+        /// <summary>
+        /// A `customer_managed_key` block as documented below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)

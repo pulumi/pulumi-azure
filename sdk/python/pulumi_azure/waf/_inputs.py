@@ -371,26 +371,15 @@ class PolicyManagedRulesManagedRuleSetArgs:
 @pulumi.input_type
 class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
     def __init__(__self__, *,
-                 disabled_rules: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 rule_group_name: pulumi.Input[str]):
+                 rule_group_name: pulumi.Input[str],
+                 disabled_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_rules: One or more Rule ID's
         :param pulumi.Input[str] rule_group_name: The name of the Rule Group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_rules: One or more Rule ID's
         """
-        pulumi.set(__self__, "disabled_rules", disabled_rules)
         pulumi.set(__self__, "rule_group_name", rule_group_name)
-
-    @property
-    @pulumi.getter(name="disabledRules")
-    def disabled_rules(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        One or more Rule ID's
-        """
-        return pulumi.get(self, "disabled_rules")
-
-    @disabled_rules.setter
-    def disabled_rules(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "disabled_rules", value)
+        if disabled_rules is not None:
+            pulumi.set(__self__, "disabled_rules", disabled_rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
@@ -403,6 +392,18 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
     @rule_group_name.setter
     def rule_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_group_name", value)
+
+    @property
+    @pulumi.getter(name="disabledRules")
+    def disabled_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more Rule ID's
+        """
+        return pulumi.get(self, "disabled_rules")
+
+    @disabled_rules.setter
+    def disabled_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disabled_rules", value)
 
 
 @pulumi.input_type

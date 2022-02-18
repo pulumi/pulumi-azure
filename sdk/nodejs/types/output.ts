@@ -1022,7 +1022,7 @@ export namespace apimanagement {
         /**
          * Specifies the number of units associated with this API Management service.
          */
-        capacity?: number;
+        capacity: number;
         /**
          * Gateway URL of the API Management service in the Region.
          */
@@ -1046,7 +1046,7 @@ export namespace apimanagement {
         /**
          * List of the availability zones where API Management is deployed in the additional region exists.
          */
-        zones?: string[];
+        zones: string[];
     }
 
     export interface GetServiceHostnameConfiguration {
@@ -1998,6 +1998,29 @@ export namespace appplatform {
         protocol: string;
     }
 
+    export interface SpringCloudAppCustomPersistentDisk {
+        /**
+         * These are the mount options for a persistent disk.
+         */
+        mountOptions?: string[];
+        /**
+         * The mount path of the persistent disk.
+         */
+        mountPath: string;
+        /**
+         * Indicates whether the persistent disk is a readOnly one.
+         */
+        readOnlyEnabled?: boolean;
+        /**
+         * The share name of the Azure File share.
+         */
+        shareName: string;
+        /**
+         * The name of the Spring Cloud Storage.
+         */
+        storageName: string;
+    }
+
     export interface SpringCloudAppIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
@@ -2210,6 +2233,7 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
+
 }
 
 export namespace appservice {
@@ -6843,10 +6867,14 @@ export namespace compute {
         diskEncryptionSetId?: string;
         /**
          * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
          */
         diskIopsReadWrite: number;
         /**
          * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
          */
         diskMbpsReadWrite: number;
         /**
@@ -6861,6 +6889,8 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
+        ultraSsdDiskIopsReadWrite: number;
+        ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          */
@@ -7230,11 +7260,19 @@ export namespace compute {
         caching: string;
         createOption?: string;
         diskEncryptionSetId?: string;
+        /**
+         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
+         */
         diskIopsReadWrite: number;
+        /**
+         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
+         */
         diskMbpsReadWrite: number;
         diskSizeGb: number;
         lun: number;
         storageAccountType: string;
+        ultraSsdDiskIopsReadWrite: number;
+        ultraSsdDiskMbpsReadWrite: number;
         writeAcceleratorEnabled?: boolean;
     }
 
@@ -8288,10 +8326,14 @@ export namespace compute {
         diskEncryptionSetId?: string;
         /**
          * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
          */
         diskIopsReadWrite: number;
         /**
          * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
          */
         diskMbpsReadWrite: number;
         /**
@@ -8306,6 +8348,8 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
+        ultraSsdDiskIopsReadWrite: number;
+        ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          */
@@ -9513,9 +9557,6 @@ export namespace containerservice {
     }
 
     export interface GetKubernetesClusterAgentPoolProfile {
-        /**
-         * The availability zones used for the nodes.
-         */
         availabilityZones: string[];
         /**
          * The number of Agents (VM's) in the Pool.
@@ -9583,6 +9624,10 @@ export namespace containerservice {
          * The ID of the Subnet where the Agents in the Pool are provisioned.
          */
         vnetSubnetId: string;
+        /**
+         * Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+         */
+        zones: string[];
     }
 
     export interface GetKubernetesClusterAgentPoolProfileUpgradeSetting {
@@ -10073,67 +10118,102 @@ export namespace containerservice {
         username: string;
     }
 
+    export interface KubernetesClusterAciConnectorLinux {
+        /**
+         * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         */
+        subnetName: string;
+    }
+
     export interface KubernetesClusterAddonProfile {
         /**
          * A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+         *
+         * @deprecated `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         aciConnectorLinux?: outputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux;
         /**
          * An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         azureKeyvaultSecretsProvider?: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider;
         /**
          * A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+         *
+         * @deprecated `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         azurePolicy?: outputs.containerservice.KubernetesClusterAddonProfileAzurePolicy;
         /**
          * A `httpApplicationRouting` block as defined below.
+         *
+         * @deprecated `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
          */
         httpApplicationRouting?: outputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting;
         /**
          * An `ingressApplicationGateway` block as defined below.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         ingressApplicationGateway?: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGateway;
         /**
          * A `kubeDashboard` block as defined below.
+         *
+         * @deprecated `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
          */
         kubeDashboard?: outputs.containerservice.KubernetesClusterAddonProfileKubeDashboard;
         /**
          * A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+         *
+         * @deprecated `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         omsAgent?: outputs.containerservice.KubernetesClusterAddonProfileOmsAgent;
         /**
          * An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+         *
+         * @deprecated `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         openServiceMesh?: outputs.containerservice.KubernetesClusterAddonProfileOpenServiceMesh;
     }
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
         /**
-         * Is the virtual node addon enabled?
+         * Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         *
+         * @deprecated `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
          * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         *
+         * @deprecated `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
         subnetName?: string;
     }
 
     export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
         /**
-         * Is the Azure Keyvault Secrets Providerenabled?
+         * Is the Azure Keyvault Secrets Provider enabled?
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
          * An `secretIdentity` block is exported. The exported attributes are defined below.
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
          */
         secretIdentities: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity[];
         /**
          * Is secret rotation enabled?
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         secretRotationEnabled?: boolean;
         /**
          * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
          */
         secretRotationInterval?: string;
     }
@@ -10156,6 +10236,8 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileAzurePolicy {
         /**
          * Is the Azure Policy for Kubernetes Add On enabled?
+         *
+         * @deprecated `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
     }
@@ -10163,10 +10245,14 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
         /**
          * Is HTTP Application Routing Enabled?
+         *
+         * @deprecated `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
          * The Zone Name of the HTTP Application Routing.
+         *
+         * @deprecated `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
         httpApplicationRoutingZoneName: string;
     }
@@ -10174,30 +10260,44 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileIngressApplicationGateway {
         /**
          * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         effectiveGatewayId: string;
         /**
-         * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+         * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
          * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         gatewayId?: string;
         /**
          * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
         gatewayName?: string;
         /**
          * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
          */
         ingressApplicationGatewayIdentities: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity[];
         /**
          * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
          */
         subnetCidr?: string;
         /**
          * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         subnetId?: string;
     }
@@ -10226,15 +10326,21 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgent {
         /**
-         * Is the OMS Agent Enabled?
+         * Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         *
+         * @deprecated `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         *
+         * @deprecated `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         logAnalyticsWorkspaceId?: string;
         /**
          * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
+         *
+         * @deprecated `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
          */
         omsAgentIdentities: outputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity[];
     }
@@ -10257,6 +10363,8 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileOpenServiceMesh {
         /**
          * Is Open Service Mesh enabled?
+         *
+         * @deprecated `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
     }
@@ -10358,7 +10466,7 @@ export namespace containerservice {
          */
         kubeletConfig?: outputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig;
         /**
-         * The type of disk used by kubelet. At this time the only possible value is `OS`.
+         * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
          */
         kubeletDiskType: string;
         /**
@@ -10669,6 +10777,78 @@ export namespace containerservice {
          * The ID of a user assigned identity.
          */
         userAssignedIdentityId?: string;
+    }
+
+    export interface KubernetesClusterIngressApplicationGateway {
+        /**
+         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         */
+        effectiveGatewayId: string;
+        /**
+         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+         */
+        gatewayId?: string;
+        /**
+         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        gatewayName?: string;
+        /**
+         * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+         */
+        ingressApplicationGatewayIdentities: outputs.containerservice.KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity[];
+        /**
+         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        subnetCidr?: string;
+        /**
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        subnetId?: string;
+    }
+
+    export interface KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface KubernetesClusterKeyVaultSecretsProvider {
+        /**
+         * An `secretIdentity` block is exported. The exported attributes are defined below.
+         */
+        secretIdentities: outputs.containerservice.KubernetesClusterKeyVaultSecretsProviderSecretIdentity[];
+        /**
+         * Is secret rotation enabled?
+         */
+        secretRotationEnabled?: boolean;
+        /**
+         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+         */
+        secretRotationInterval?: string;
+    }
+
+    export interface KubernetesClusterKeyVaultSecretsProviderSecretIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface KubernetesClusterKubeAdminConfig {
@@ -11066,6 +11246,32 @@ export namespace containerservice {
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
+    }
+
+    export interface KubernetesClusterOmsAgent {
+        /**
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
+         */
+        omsAgentIdentities: outputs.containerservice.KubernetesClusterOmsAgentOmsAgentIdentity[];
+    }
+
+    export interface KubernetesClusterOmsAgentOmsAgentIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -13939,13 +14145,10 @@ export namespace datashare {
 export namespace desktopvirtualization {
     export interface HostPoolRegistrationInfo {
         /**
-         * A valid `RFC3339Time` for the expiration of the token.
+         * @deprecated This field is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
          */
-        expirationDate: string;
+        expirationDate?: string;
         resetToken: boolean;
-        /**
-         * The registration token generated by the Virtual Desktop Host Pool.
-         */
         token: string;
     }
 
@@ -16215,6 +16418,25 @@ export namespace eventhub {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
+    }
+
+    export interface NamespaceIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: string;
     }
 
     export interface SubscriptionRuleCorrelationFilter {
@@ -19601,6 +19823,25 @@ export namespace iot {
         name: string;
     }
 
+    export interface IotHubDpsIpFilterRule {
+        /**
+         * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+         */
+        action: string;
+        /**
+         * The IP address range in CIDR notation for the rule.
+         */
+        ipMask: string;
+        /**
+         * The name of the filter.
+         */
+        name: string;
+        /**
+         * Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+         */
+        target?: string;
+    }
+
     export interface IotHubDpsLinkedHub {
         /**
          * The weight applied to the IoT Hub. Defaults to 0.
@@ -21290,8 +21531,21 @@ export namespace machinelearning {
     }
 
     export interface GetWorkspaceIdentity {
+        /**
+         * A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+         */
         principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+         */
         tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to this Machine Learning Workspace.
+         */
         type: string;
     }
 
@@ -21365,9 +21619,17 @@ export namespace machinelearning {
          * The ID of the keyVault where the customer owned encryption key is present.
          */
         keyVaultId: string;
+        /**
+         * The Key Vault URI to access the encryption key.
+         */
+        userAssignedIdentityId?: string;
     }
 
     export interface WorkspaceIdentity {
+        /**
+         * The user assigned identity IDs associated with the resource.
+         */
+        identityIds?: string[];
         /**
          * The (Client) ID of the Service Principal.
          */
@@ -21377,7 +21639,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+         * The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -22453,7 +22715,7 @@ export namespace monitoring {
          */
         ticketConfiguration: string;
         /**
-         * The Azure Log Analytics workspace ID where this connection is defined.
+         * The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
          */
         workspaceId: string;
     }
@@ -22854,6 +23116,10 @@ export namespace monitoring {
          */
         resourceGroup?: string;
         /**
+         * A block to define fine grain resource health settings.
+         */
+        resourceHealths: outputs.monitoring.ActivityLogAlertCriteriaResourceHealth[];
+        /**
          * The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
          */
         resourceId?: string;
@@ -22877,6 +23143,21 @@ export namespace monitoring {
          * The sub status of the event.
          */
         subStatus?: string;
+    }
+
+    export interface ActivityLogAlertCriteriaResourceHealth {
+        /**
+         * The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+         */
+        currents?: string[];
+        /**
+         * The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+         */
+        previouses?: string[];
+        /**
+         * The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+         */
+        reasons?: string[];
     }
 
     export interface ActivityLogAlertCriteriaServiceHealth {
@@ -23885,6 +24166,21 @@ export namespace mssql {
         tier: string;
     }
 
+    export interface GetManagedInstanceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the SQL Managed Instance.
+         */
+        type: string;
+    }
+
     export interface GetServerIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -23902,6 +24198,43 @@ export namespace mssql {
          * A list of the User Assigned Identities of this SQL Server.
          */
         userAssignedIdentityIds: string[];
+    }
+
+    export interface ManagedInstanceFailoverGroupPartnerRegion {
+        /**
+         * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+         */
+        location: string;
+        /**
+         * The partner replication role of the Managed Instance Failover Group.
+         */
+        role: string;
+    }
+
+    export interface ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+         */
+        graceMinutes?: number;
+        /**
+         * The failover mode. Possible values are `Automatic` or `Manual`.
+         */
+        mode: string;
+    }
+
+    export interface ManagedInstanceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+         */
+        type: string;
     }
 
     export interface ServerAzureadAdministrator {
@@ -24121,7 +24454,6 @@ export namespace mssql {
          */
         luns: number[];
     }
-
 }
 
 export namespace mysql {
@@ -24133,7 +24465,7 @@ export namespace mysql {
         /**
          * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
          */
-        standbyAvailabilityZone: string;
+        standbyAvailabilityZone?: string;
     }
 
     export interface FlexibleServerMaintenanceWindow {
@@ -29470,6 +29802,25 @@ export namespace sentinel {
 }
 
 export namespace servicebus {
+    export interface NamespaceIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: string;
+    }
+
     export interface NamespaceNetworkRuleSetNetworkRule {
         /**
          * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -30519,6 +30870,17 @@ export namespace storage {
         useSubdomain?: boolean;
     }
 
+    export interface AccountCustomerManagedKey {
+        /**
+         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+         */
+        keyVaultKeyId: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: string;
+    }
+
     export interface AccountIdentity {
         /**
          * A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -31122,13 +31484,25 @@ export namespace storage {
 
     export interface ManagementPolicyRuleActionsBaseBlob {
         /**
+         * The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+         */
+        deleteAfterDaysSinceLastAccessTimeGreaterThan?: number;
+        /**
          * The age in days after last modification to delete the blob. Must be between 0 and 99999.
          */
         deleteAfterDaysSinceModificationGreaterThan?: number;
         /**
+         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+         */
+        tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: number;
+        /**
          * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
+        /**
+         * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+         */
+        tierToCoolAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
          * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
          */
@@ -31897,7 +32271,7 @@ export namespace waf {
         /**
          * One or more Rule ID's
          */
-        disabledRules: string[];
+        disabledRules?: string[];
         /**
          * The name of the Rule Group
          */
@@ -31986,6 +32360,19 @@ export namespace webpubsub {
          * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          */
         deniedRequestTypes?: string[];
+    }
+
+    export interface ServiceIdentity {
+        /**
+         * A list of User Assigned Identity IDs which should be assigned to this Web PubSub service.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of identity used for the Web PubSub service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+         */
+        type: string;
     }
 
     export interface ServiceLiveTrace {

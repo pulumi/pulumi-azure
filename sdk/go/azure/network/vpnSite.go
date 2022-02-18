@@ -43,6 +43,9 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			VirtualWanId:      exampleVirtualWan.ID(),
+// 			AddressCidrs: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/24"),
+// 			},
 // 			Links: network.VpnSiteLinkArray{
 // 				&network.VpnSiteLinkArgs{
 // 					Name:      pulumi.String("link1"),

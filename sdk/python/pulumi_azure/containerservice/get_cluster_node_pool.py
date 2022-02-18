@@ -21,7 +21,7 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -103,13 +103,13 @@ class GetClusterNodePoolResult:
         if vnet_subnet_id and not isinstance(vnet_subnet_id, str):
             raise TypeError("Expected argument 'vnet_subnet_id' to be a str")
         pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
-        """
-        A list of Availability Zones in which the Nodes in this Node Pool exists.
-        """
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -311,6 +311,14 @@ class GetClusterNodePoolResult:
         """
         return pulumi.get(self, "vnet_subnet_id")
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        A list of the Availability Zones where the Nodes in this Node Pool exist.
+        """
+        return pulumi.get(self, "zones")
+
 
 class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
     # pylint: disable=using-constant-test
@@ -344,7 +352,8 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             tags=self.tags,
             upgrade_settings=self.upgrade_settings,
             vm_size=self.vm_size,
-            vnet_subnet_id=self.vnet_subnet_id)
+            vnet_subnet_id=self.vnet_subnet_id,
+            zones=self.zones)
 
 
 def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
@@ -408,7 +417,8 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         tags=__ret__.tags,
         upgrade_settings=__ret__.upgrade_settings,
         vm_size=__ret__.vm_size,
-        vnet_subnet_id=__ret__.vnet_subnet_id)
+        vnet_subnet_id=__ret__.vnet_subnet_id,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(get_cluster_node_pool)

@@ -70,6 +70,8 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the account - only `Basic` is supported at this time.
@@ -125,6 +127,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the account - only `Basic` is supported at this time.
@@ -146,6 +150,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the account - only `Basic` is supported at this time.
@@ -165,6 +171,8 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the account - only `Basic` is supported at this time.
@@ -181,6 +189,8 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the account - only `Basic` is supported at this time.

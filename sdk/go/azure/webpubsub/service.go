@@ -43,6 +43,9 @@ import (
 // 				MessagingLogsEnabled:    pulumi.Bool(true),
 // 				ConnectivityLogsEnabled: pulumi.Bool(false),
 // 			},
+// 			Identity: &webpubsub.ServiceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -70,6 +73,8 @@ type Service struct {
 	ExternalIp pulumi.StringOutput `pulumi:"externalIp"`
 	// The FQDN of the Web Pubsub service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// A `liveTrace` block as defined below.
 	LiveTrace ServiceLiveTracePtrOutput `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
@@ -149,6 +154,8 @@ type serviceState struct {
 	ExternalIp *string `pulumi:"externalIp"`
 	// The FQDN of the Web Pubsub service.
 	Hostname *string `pulumi:"hostname"`
+	// An `identity` block as defined below.
+	Identity *ServiceIdentity `pulumi:"identity"`
 	// A `liveTrace` block as defined below.
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
@@ -194,6 +201,8 @@ type ServiceState struct {
 	ExternalIp pulumi.StringPtrInput
 	// The FQDN of the Web Pubsub service.
 	Hostname pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrInput
 	// A `liveTrace` block as defined below.
 	LiveTrace ServiceLiveTracePtrInput
 	// Whether to enable local auth? Defaults to `true`.
@@ -240,6 +249,8 @@ type serviceArgs struct {
 	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity *int `pulumi:"capacity"`
+	// An `identity` block as defined below.
+	Identity *ServiceIdentity `pulumi:"identity"`
 	// A `liveTrace` block as defined below.
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
@@ -270,6 +281,8 @@ type ServiceArgs struct {
 	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity pulumi.IntPtrInput
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrInput
 	// A `liveTrace` block as defined below.
 	LiveTrace ServiceLiveTracePtrInput
 	// Whether to enable local auth? Defaults to `true`.

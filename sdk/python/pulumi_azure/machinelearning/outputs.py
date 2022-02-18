@@ -651,6 +651,8 @@ class WorkspaceEncryption(dict):
             suggest = "key_id"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkspaceEncryption. Access the value via the '{suggest}' property getter instead.")
@@ -665,13 +667,17 @@ class WorkspaceEncryption(dict):
 
     def __init__(__self__, *,
                  key_id: str,
-                 key_vault_id: str):
+                 key_vault_id: str,
+                 user_assigned_identity_id: Optional[str] = None):
         """
         :param str key_id: The Key Vault URI to access the encryption key.
         :param str key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
+        :param str user_assigned_identity_id: The Key Vault URI to access the encryption key.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyId")
@@ -689,13 +695,23 @@ class WorkspaceEncryption(dict):
         """
         return pulumi.get(self, "key_vault_id")
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The Key Vault URI to access the encryption key.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
 
 @pulumi.output_type
 class WorkspaceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -713,14 +729,18 @@ class WorkspaceIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+        :param str type: The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        :param Sequence[str] identity_ids: The user assigned identity IDs associated with the resource.
         :param str principal_id: The (Client) ID of the Service Principal.
         :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -730,9 +750,17 @@ class WorkspaceIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+        The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        The user assigned identity IDs associated with the resource.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -754,26 +782,51 @@ class WorkspaceIdentity(dict):
 @pulumi.output_type
 class GetWorkspaceIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
+        """
+        :param Sequence[str] identity_ids: A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+        :param str principal_id: The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+        :param str type: The Type of Managed Identity assigned to this Machine Learning Workspace.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
+        """
+        The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
+        """
+        The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+        """
         return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The Type of Managed Identity assigned to this Machine Learning Workspace.
+        """
         return pulumi.get(self, "type")
 
 

@@ -85,6 +85,12 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.NamespaceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -179,6 +185,12 @@ namespace Pulumi.Azure.ServiceBus
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.NamespaceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -260,6 +272,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("defaultSecondaryKey")]
         public Input<string>? DefaultSecondaryKey { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.NamespaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

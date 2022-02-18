@@ -25,6 +25,7 @@ __all__ = [
     'GroupExposedPort',
     'GroupIdentity',
     'GroupImageRegistryCredential',
+    'KubernetesClusterAciConnectorLinux',
     'KubernetesClusterAddonProfile',
     'KubernetesClusterAddonProfileAciConnectorLinux',
     'KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider',
@@ -45,6 +46,10 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolUpgradeSettings',
     'KubernetesClusterHttpProxyConfig',
     'KubernetesClusterIdentity',
+    'KubernetesClusterIngressApplicationGateway',
+    'KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity',
+    'KubernetesClusterKeyVaultSecretsProvider',
+    'KubernetesClusterKeyVaultSecretsProviderSecretIdentity',
     'KubernetesClusterKubeAdminConfig',
     'KubernetesClusterKubeConfig',
     'KubernetesClusterKubeletIdentity',
@@ -60,6 +65,8 @@ __all__ = [
     'KubernetesClusterNodePoolLinuxOsConfig',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfig',
     'KubernetesClusterNodePoolUpgradeSettings',
+    'KubernetesClusterOmsAgent',
+    'KubernetesClusterOmsAgentOmsAgentIdentity',
     'KubernetesClusterRoleBasedAccessControl',
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectory',
     'KubernetesClusterServicePrincipal',
@@ -1157,6 +1164,41 @@ class GroupImageRegistryCredential(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterAciConnectorLinux(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetName":
+            suggest = "subnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAciConnectorLinux. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAciConnectorLinux.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAciConnectorLinux.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_name: str):
+        """
+        :param str subnet_name: The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        """
+        pulumi.set(__self__, "subnet_name", subnet_name)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> str:
+        """
+        The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        """
+        return pulumi.get(self, "subnet_name")
+
+
+@pulumi.output_type
 class KubernetesClusterAddonProfile(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1313,7 +1355,7 @@ class KubernetesClusterAddonProfileAciConnectorLinux(dict):
                  enabled: bool,
                  subnet_name: Optional[str] = None):
         """
-        :param bool enabled: Is the virtual node addon enabled?
+        :param bool enabled: Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         :param str subnet_name: The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1324,7 +1366,7 @@ class KubernetesClusterAddonProfileAciConnectorLinux(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the virtual node addon enabled?
+        Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
@@ -1366,7 +1408,7 @@ class KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider(dict):
                  secret_rotation_enabled: Optional[bool] = None,
                  secret_rotation_interval: Optional[str] = None):
         """
-        :param bool enabled: Is the Azure Keyvault Secrets Providerenabled?
+        :param bool enabled: Is the Azure Keyvault Secrets Provider enabled?
         :param Sequence['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param bool secret_rotation_enabled: Is secret rotation enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
@@ -1383,7 +1425,7 @@ class KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the Azure Keyvault Secrets Providerenabled?
+        Is the Azure Keyvault Secrets Provider enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1579,7 +1621,7 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
                  subnet_cidr: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
-        :param bool enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        :param bool enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param str gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         :param str gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -1605,7 +1647,7 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
@@ -1766,7 +1808,7 @@ class KubernetesClusterAddonProfileOmsAgent(dict):
                  log_analytics_workspace_id: Optional[str] = None,
                  oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity']] = None):
         """
-        :param bool enabled: Is the OMS Agent Enabled?
+        :param bool enabled: Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
         :param Sequence['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
@@ -1780,7 +1822,7 @@ class KubernetesClusterAddonProfileOmsAgent(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the OMS Agent Enabled?
+        Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
@@ -2249,7 +2291,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below.
-        :param str kubelet_disk_type: The type of disk used by kubelet. At this time the only possible value is `OS`.
+        :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -2394,7 +2436,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[str]:
         """
-        The type of disk used by kubelet. At this time the only possible value is `OS`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -3399,6 +3441,304 @@ class KubernetesClusterIdentity(dict):
         The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class KubernetesClusterIngressApplicationGateway(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveGatewayId":
+            suggest = "effective_gateway_id"
+        elif key == "gatewayId":
+            suggest = "gateway_id"
+        elif key == "gatewayName":
+            suggest = "gateway_name"
+        elif key == "ingressApplicationGatewayIdentities":
+            suggest = "ingress_application_gateway_identities"
+        elif key == "subnetCidr":
+            suggest = "subnet_cidr"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterIngressApplicationGateway. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterIngressApplicationGateway.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterIngressApplicationGateway.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 effective_gateway_id: Optional[str] = None,
+                 gateway_id: Optional[str] = None,
+                 gateway_name: Optional[str] = None,
+                 ingress_application_gateway_identities: Optional[Sequence['outputs.KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity']] = None,
+                 subnet_cidr: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        :param str gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param str gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param Sequence['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        :param str subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        if effective_gateway_id is not None:
+            pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
+        if ingress_application_gateway_identities is not None:
+            pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
+        if subnet_cidr is not None:
+            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="effectiveGatewayId")
+    def effective_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        """
+        return pulumi.get(self, "effective_gateway_id")
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[str]:
+        """
+        The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> Optional[str]:
+        """
+        The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @property
+    @pulumi.getter(name="ingressApplicationGatewayIdentities")
+    def ingress_application_gateway_identities(self) -> Optional[Sequence['outputs.KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity']]:
+        """
+        An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway_identities")
+
+    @property
+    @pulumi.getter(name="subnetCidr")
+    def subnet_cidr(self) -> Optional[str]:
+        """
+        The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "subnet_cidr")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class KubernetesClusterKeyVaultSecretsProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretIdentities":
+            suggest = "secret_identities"
+        elif key == "secretRotationEnabled":
+            suggest = "secret_rotation_enabled"
+        elif key == "secretRotationInterval":
+            suggest = "secret_rotation_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterKeyVaultSecretsProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterKeyVaultSecretsProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterKeyVaultSecretsProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_identities: Optional[Sequence['outputs.KubernetesClusterKeyVaultSecretsProviderSecretIdentity']] = None,
+                 secret_rotation_enabled: Optional[bool] = None,
+                 secret_rotation_interval: Optional[str] = None):
+        """
+        :param Sequence['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
+        :param bool secret_rotation_enabled: Is secret rotation enabled?
+        :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        """
+        if secret_identities is not None:
+            pulumi.set(__self__, "secret_identities", secret_identities)
+        if secret_rotation_enabled is not None:
+            pulumi.set(__self__, "secret_rotation_enabled", secret_rotation_enabled)
+        if secret_rotation_interval is not None:
+            pulumi.set(__self__, "secret_rotation_interval", secret_rotation_interval)
+
+    @property
+    @pulumi.getter(name="secretIdentities")
+    def secret_identities(self) -> Optional[Sequence['outputs.KubernetesClusterKeyVaultSecretsProviderSecretIdentity']]:
+        """
+        An `secret_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "secret_identities")
+
+    @property
+    @pulumi.getter(name="secretRotationEnabled")
+    def secret_rotation_enabled(self) -> Optional[bool]:
+        """
+        Is secret rotation enabled?
+        """
+        return pulumi.get(self, "secret_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="secretRotationInterval")
+    def secret_rotation_interval(self) -> Optional[str]:
+        """
+        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        """
+        return pulumi.get(self, "secret_rotation_interval")
+
+
+@pulumi.output_type
+class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterKeyVaultSecretsProviderSecretIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterKeyVaultSecretsProviderSecretIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterKeyVaultSecretsProviderSecretIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
@@ -4908,6 +5248,119 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         """
         return pulumi.get(self, "max_surge")
+
+
+@pulumi.output_type
+class KubernetesClusterOmsAgent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "omsAgentIdentities":
+            suggest = "oms_agent_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterOmsAgent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterOmsAgent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterOmsAgent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterOmsAgentOmsAgentIdentity']] = None):
+        """
+        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        :param Sequence['KubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if oms_agent_identities is not None:
+            pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="omsAgentIdentities")
+    def oms_agent_identities(self) -> Optional[Sequence['outputs.KubernetesClusterOmsAgentOmsAgentIdentity']]:
+        """
+        An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "oms_agent_identities")
+
+
+@pulumi.output_type
+class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterOmsAgentOmsAgentIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterOmsAgentOmsAgentIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterOmsAgentOmsAgentIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -7012,9 +7465,9 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
                  type: str,
                  upgrade_settings: Sequence['outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult'],
                  vm_size: str,
-                 vnet_subnet_id: str):
+                 vnet_subnet_id: str,
+                 zones: Sequence[str]):
         """
-        :param Sequence[str] availability_zones: The availability zones used for the nodes.
         :param int count: The number of Agents (VM's) in the Pool.
         :param bool enable_auto_scaling: If the auto-scaler is enabled.
         :param bool enable_node_public_ip: If the Public IPs for the nodes in this Agent Pool are enabled.
@@ -7031,6 +7484,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param Sequence['GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vm_size: The size of each VM in the Agent Pool (e.g. `Standard_F1`).
         :param str vnet_subnet_id: The ID of the Subnet where the Agents in the Pool are provisioned.
+        :param Sequence[str] zones: Specifies the Availability Zones where the Nodes within this Agent Pool exist.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         pulumi.set(__self__, "count", count)
@@ -7051,13 +7505,11 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         pulumi.set(__self__, "vm_size", vm_size)
         pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
-        """
-        The availability zones used for the nodes.
-        """
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -7197,6 +7649,14 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         The ID of the Subnet where the Agents in the Pool are provisioned.
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+        """
+        return pulumi.get(self, "zones")
 
 
 @pulumi.output_type

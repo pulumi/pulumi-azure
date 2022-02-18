@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Azure Keyvault Secrets Providerenabled?
+        /// Is the Azure Keyvault Secrets Provider enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -24,6 +24,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// An `secret_identity` block is exported. The exported attributes are defined below.
         /// </summary>
+        [Obsolete(@"`addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.")]
         public InputList<Inputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityGetArgs> SecretIdentities
         {
             get => _secretIdentities ?? (_secretIdentities = new InputList<Inputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityGetArgs>());

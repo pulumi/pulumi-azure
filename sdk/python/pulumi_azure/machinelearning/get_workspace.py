@@ -52,6 +52,9 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetWorkspaceIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identities")
 
     @property

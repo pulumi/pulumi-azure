@@ -242,7 +242,7 @@ namespace Pulumi.Azure.MySql
         /// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Output("zone")]
-        public Output<string> Zone { get; private set; } = null!;
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>

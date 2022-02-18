@@ -96,6 +96,8 @@ type Server struct {
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+	OutboundNetworkRestrictionEnabled pulumi.BoolPtrOutput `pulumi:"outboundNetworkRestrictionEnabled"`
 	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringOutput `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
@@ -172,6 +174,8 @@ type serverState struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
+	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+	OutboundNetworkRestrictionEnabled *bool `pulumi:"outboundNetworkRestrictionEnabled"`
 	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
@@ -208,6 +212,8 @@ type ServerState struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
+	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+	OutboundNetworkRestrictionEnabled pulumi.BoolPtrInput
 	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.
@@ -246,6 +252,8 @@ type serverArgs struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
+	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+	OutboundNetworkRestrictionEnabled *bool `pulumi:"outboundNetworkRestrictionEnabled"`
 	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
@@ -279,6 +287,8 @@ type ServerArgs struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
+	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+	OutboundNetworkRestrictionEnabled pulumi.BoolPtrInput
 	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.

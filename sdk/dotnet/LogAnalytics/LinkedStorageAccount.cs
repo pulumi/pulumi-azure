@@ -66,7 +66,7 @@ namespace Pulumi.Azure.LogAnalytics
     public partial class LinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>
-        /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "Ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
+        /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
         [Output("dataSourceType")]
         public Output<string> DataSourceType { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.LogAnalytics
     public sealed class LinkedStorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "Ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
+        /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
         [Input("dataSourceType", required: true)]
         public Input<string> DataSourceType { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.LogAnalytics
     public sealed class LinkedStorageAccountState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "Ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
+        /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
         [Input("dataSourceType")]
         public Input<string>? DataSourceType { get; set; }

@@ -105,7 +105,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly sqlConnectivityUpdateUsername!: pulumi.Output<string | undefined>;
     /**
-     * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+     * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
     public readonly sqlLicenseType!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface VirtualMachineState {
      */
     sqlConnectivityUpdateUsername?: pulumi.Input<string>;
     /**
-     * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+     * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
     sqlLicenseType?: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface VirtualMachineArgs {
      */
     sqlConnectivityUpdateUsername?: pulumi.Input<string>;
     /**
-     * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+     * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
     sqlLicenseType: pulumi.Input<string>;
     /**

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -83,6 +84,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.servicebus.NamespaceIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -127,6 +132,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             resourceInputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
             resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -142,6 +148,7 @@ export class Namespace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -187,6 +194,10 @@ export interface NamespaceState {
      */
     defaultSecondaryKey?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.servicebus.NamespaceIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -222,6 +233,10 @@ export interface NamespaceArgs {
      * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
     capacity?: pulumi.Input<number>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.servicebus.NamespaceIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

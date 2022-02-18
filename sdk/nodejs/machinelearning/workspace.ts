@@ -88,6 +88,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The user assigned identity id that represents the workspace identity.
+     */
+    public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
+    /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -133,6 +137,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -166,6 +171,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -227,6 +233,10 @@ export interface WorkspaceState {
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The user assigned identity id that represents the workspace identity.
+     */
+    primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
      */
@@ -294,6 +304,10 @@ export interface WorkspaceArgs {
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The user assigned identity id that represents the workspace identity.
+     */
+    primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
      */

@@ -70,7 +70,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "Ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
     public readonly dataSourceType!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
  */
 export interface LinkedStorageAccountState {
     /**
-     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "Ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
     dataSourceType?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface LinkedStorageAccountState {
  */
 export interface LinkedStorageAccountArgs {
     /**
-     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "Ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
     dataSourceType: pulumi.Input<string>;
     /**

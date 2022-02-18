@@ -180,7 +180,7 @@ export class FlexibleServer extends pulumi.CustomResource {
     /**
      * The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
      */
-    public readonly zone!: pulumi.Output<string>;
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlexibleServer resource with the given unique name, arguments, and options.

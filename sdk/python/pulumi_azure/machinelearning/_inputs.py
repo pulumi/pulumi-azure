@@ -592,13 +592,17 @@ class SynapseSparkIdentityArgs:
 class WorkspaceEncryptionArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[str],
-                 key_vault_id: pulumi.Input[str]):
+                 key_vault_id: pulumi.Input[str],
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key_id: The Key Vault URI to access the encryption key.
         :param pulumi.Input[str] key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
+        :param pulumi.Input[str] user_assigned_identity_id: The Key Vault URI to access the encryption key.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyId")
@@ -624,19 +628,35 @@ class WorkspaceEncryptionArgs:
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key Vault URI to access the encryption key.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 @pulumi.input_type
 class WorkspaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The user assigned identity IDs associated with the resource.
         :param pulumi.Input[str] principal_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -646,13 +666,25 @@ class WorkspaceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+        The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user assigned identity IDs associated with the resource.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")

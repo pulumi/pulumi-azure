@@ -16,5 +16,6 @@ from .spring_cloud_certificate import *
 from .spring_cloud_custom_domain import *
 from .spring_cloud_java_deployment import *
 from .spring_cloud_service import *
+from .spring_cloud_storage import *
 from ._inputs import *
 from . import outputs

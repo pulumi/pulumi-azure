@@ -80,8 +80,10 @@ type TrafficManagerExternalEndpoint struct {
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
-	Enabled          pulumi.BoolPtrOutput `pulumi:"enabled"`
-	EndpointLocation pulumi.StringOutput  `pulumi:"endpointLocation"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Specifies the Azure location of the Endpoint,
+	// this must be specified for Profiles using the `Performance` routing method.
+	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
@@ -143,7 +145,9 @@ type trafficManagerExternalEndpointState struct {
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerExternalEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
-	Enabled          *bool   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the Azure location of the Endpoint,
+	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
@@ -169,7 +173,9 @@ type TrafficManagerExternalEndpointState struct {
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
-	Enabled          pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// Specifies the Azure location of the Endpoint,
+	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
@@ -199,7 +205,9 @@ type trafficManagerExternalEndpointArgs struct {
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerExternalEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
-	Enabled          *bool   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the Azure location of the Endpoint,
+	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
@@ -226,7 +234,9 @@ type TrafficManagerExternalEndpointArgs struct {
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
-	Enabled          pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// Specifies the Azure location of the Endpoint,
+	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput

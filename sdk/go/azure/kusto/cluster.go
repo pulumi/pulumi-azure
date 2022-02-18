@@ -61,18 +61,22 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	AutoStopEnabled pulumi.BoolOutput `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
+	// Specifies if the cluster's disks are encrypted.
+	DiskEncryptionEnabled pulumi.BoolOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-	EnableAutoStop pulumi.BoolPtrOutput `pulumi:"enableAutoStop"`
-	// Specifies if the cluster's disks are encrypted.
-	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
-	// Specifies if the purge operations are enabled.
-	EnablePurge pulumi.BoolPtrOutput `pulumi:"enablePurge"`
-	// Specifies if the streaming ingest is enabled.
-	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	EnableAutoStop pulumi.BoolOutput `pulumi:"enableAutoStop"`
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	EnableDiskEncryption pulumi.BoolOutput `pulumi:"enableDiskEncryption"`
+	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	EnablePurge pulumi.BoolOutput `pulumi:"enablePurge"`
+	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	EnableStreamingIngest pulumi.BoolOutput `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
@@ -84,11 +88,15 @@ type Cluster struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
+	OptimizedAutoScale         ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput               `pulumi:"publicNetworkAccessEnabled"`
+	// Specifies if the purge operations are enabled.
+	PurgeEnabled pulumi.BoolOutput `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku ClusterSkuOutput `pulumi:"sku"`
+	Sku                       ClusterSkuOutput  `pulumi:"sku"`
+	StreamingIngestionEnabled pulumi.BoolOutput `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -136,17 +144,21 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
+	// Specifies if the cluster's disks are encrypted.
+	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop *bool `pulumi:"enableAutoStop"`
-	// Specifies if the cluster's disks are encrypted.
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
-	// Specifies if the purge operations are enabled.
+	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge *bool `pulumi:"enablePurge"`
-	// Specifies if the streaming ingest is enabled.
+	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
@@ -159,11 +171,15 @@ type clusterState struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	OptimizedAutoScale         *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	PublicNetworkAccessEnabled *bool                      `pulumi:"publicNetworkAccessEnabled"`
+	// Specifies if the purge operations are enabled.
+	PurgeEnabled *bool `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku *ClusterSku `pulumi:"sku"`
+	Sku                       *ClusterSku `pulumi:"sku"`
+	StreamingIngestionEnabled *bool       `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -177,17 +193,21 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	AutoStopEnabled pulumi.BoolPtrInput
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringPtrInput
+	// Specifies if the cluster's disks are encrypted.
+	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop pulumi.BoolPtrInput
-	// Specifies if the cluster's disks are encrypted.
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption pulumi.BoolPtrInput
-	// Specifies if the purge operations are enabled.
+	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge pulumi.BoolPtrInput
-	// Specifies if the streaming ingest is enabled.
+	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
@@ -200,11 +220,15 @@ type ClusterState struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	OptimizedAutoScale         ClusterOptimizedAutoScalePtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// Specifies if the purge operations are enabled.
+	PurgeEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `sku` block as defined below.
-	Sku ClusterSkuPtrInput
+	Sku                       ClusterSkuPtrInput
+	StreamingIngestionEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -222,15 +246,19 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
+	// Specifies if the cluster's disks are encrypted.
+	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop *bool `pulumi:"enableAutoStop"`
-	// Specifies if the cluster's disks are encrypted.
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
-	// Specifies if the purge operations are enabled.
+	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge *bool `pulumi:"enablePurge"`
-	// Specifies if the streaming ingest is enabled.
+	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
@@ -243,11 +271,15 @@ type clusterArgs struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	OptimizedAutoScale         *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	PublicNetworkAccessEnabled *bool                      `pulumi:"publicNetworkAccessEnabled"`
+	// Specifies if the purge operations are enabled.
+	PurgeEnabled *bool `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku ClusterSku `pulumi:"sku"`
+	Sku                       ClusterSku `pulumi:"sku"`
+	StreamingIngestionEnabled *bool      `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -260,15 +292,19 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	AutoStopEnabled pulumi.BoolPtrInput
+	// Specifies if the cluster's disks are encrypted.
+	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop pulumi.BoolPtrInput
-	// Specifies if the cluster's disks are encrypted.
+	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption pulumi.BoolPtrInput
-	// Specifies if the purge operations are enabled.
+	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge pulumi.BoolPtrInput
-	// Specifies if the streaming ingest is enabled.
+	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
@@ -281,11 +317,15 @@ type ClusterArgs struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	OptimizedAutoScale         ClusterOptimizedAutoScalePtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// Specifies if the purge operations are enabled.
+	PurgeEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `sku` block as defined below.
-	Sku ClusterSkuInput
+	Sku                       ClusterSkuInput
+	StreamingIngestionEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.

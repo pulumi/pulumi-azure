@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// Specifies the number of units associated with this API Management service.
         /// </summary>
-        public readonly int? Capacity;
+        public readonly int Capacity;
         /// <summary>
         /// Gateway URL of the API Management service in the Region.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
         [OutputConstructor]
         private GetServiceAdditionalLocationResult(
-            int? capacity,
+            int capacity,
 
             string gatewayRegionalUrl,
 

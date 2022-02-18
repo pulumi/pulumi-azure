@@ -83,7 +83,7 @@ type VirtualMachine struct {
 	SqlConnectivityUpdatePassword pulumi.StringPtrOutput `pulumi:"sqlConnectivityUpdatePassword"`
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername pulumi.StringPtrOutput `pulumi:"sqlConnectivityUpdateUsername"`
-	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringOutput `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
@@ -144,7 +144,7 @@ type virtualMachineState struct {
 	SqlConnectivityUpdatePassword *string `pulumi:"sqlConnectivityUpdatePassword"`
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername *string `pulumi:"sqlConnectivityUpdateUsername"`
-	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType *string `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
@@ -171,7 +171,7 @@ type VirtualMachineState struct {
 	SqlConnectivityUpdatePassword pulumi.StringPtrInput
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername pulumi.StringPtrInput
-	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringPtrInput
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrInput
@@ -202,7 +202,7 @@ type virtualMachineArgs struct {
 	SqlConnectivityUpdatePassword *string `pulumi:"sqlConnectivityUpdatePassword"`
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername *string `pulumi:"sqlConnectivityUpdateUsername"`
-	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType string `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
@@ -230,7 +230,7 @@ type VirtualMachineArgs struct {
 	SqlConnectivityUpdatePassword pulumi.StringPtrInput
 	// The SQL Server sysadmin login to create.
 	SqlConnectivityUpdateUsername pulumi.StringPtrInput
-	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringInput
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrInput

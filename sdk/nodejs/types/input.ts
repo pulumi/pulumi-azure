@@ -1607,6 +1607,29 @@ export namespace appconfiguration {
 }
 
 export namespace appplatform {
+    export interface SpringCloudAppCustomPersistentDisk {
+        /**
+         * These are the mount options for a persistent disk.
+         */
+        mountOptions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The mount path of the persistent disk.
+         */
+        mountPath: pulumi.Input<string>;
+        /**
+         * Indicates whether the persistent disk is a readOnly one.
+         */
+        readOnlyEnabled?: pulumi.Input<boolean>;
+        /**
+         * The share name of the Azure File share.
+         */
+        shareName: pulumi.Input<string>;
+        /**
+         * The name of the Spring Cloud Storage.
+         */
+        storageName: pulumi.Input<string>;
+    }
+
     export interface SpringCloudAppIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
@@ -1819,6 +1842,7 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
+
 }
 
 export namespace appservice {
@@ -5296,10 +5320,14 @@ export namespace compute {
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
          * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
          */
         diskIopsReadWrite?: pulumi.Input<number>;
         /**
          * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
          */
         diskMbpsReadWrite?: pulumi.Input<number>;
         /**
@@ -5314,6 +5342,8 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
          */
         storageAccountType: pulumi.Input<string>;
+        ultraSsdDiskIopsReadWrite?: pulumi.Input<number>;
+        ultraSsdDiskMbpsReadWrite?: pulumi.Input<number>;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          */
@@ -5683,11 +5713,19 @@ export namespace compute {
         caching: pulumi.Input<string>;
         createOption?: pulumi.Input<string>;
         diskEncryptionSetId?: pulumi.Input<string>;
+        /**
+         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
+         */
         diskIopsReadWrite?: pulumi.Input<number>;
+        /**
+         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
+         */
         diskMbpsReadWrite?: pulumi.Input<number>;
         diskSizeGb: pulumi.Input<number>;
         lun: pulumi.Input<number>;
         storageAccountType: pulumi.Input<string>;
+        ultraSsdDiskIopsReadWrite?: pulumi.Input<number>;
+        ultraSsdDiskMbpsReadWrite?: pulumi.Input<number>;
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
 
@@ -6741,10 +6779,14 @@ export namespace compute {
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
          * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
          */
         diskIopsReadWrite?: pulumi.Input<number>;
         /**
          * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         *
+         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
          */
         diskMbpsReadWrite?: pulumi.Input<number>;
         /**
@@ -6759,6 +6801,8 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
          */
         storageAccountType: pulumi.Input<string>;
+        ultraSsdDiskIopsReadWrite?: pulumi.Input<number>;
+        ultraSsdDiskMbpsReadWrite?: pulumi.Input<number>;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          */
@@ -7788,67 +7832,102 @@ export namespace containerservice {
         username: pulumi.Input<string>;
     }
 
+    export interface KubernetesClusterAciConnectorLinux {
+        /**
+         * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         */
+        subnetName: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterAddonProfile {
         /**
          * A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+         *
+         * @deprecated `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux>;
         /**
          * An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         azureKeyvaultSecretsProvider?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider>;
         /**
          * A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+         *
+         * @deprecated `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         azurePolicy?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzurePolicy>;
         /**
          * A `httpApplicationRouting` block as defined below.
+         *
+         * @deprecated `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
          */
         httpApplicationRouting?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting>;
         /**
          * An `ingressApplicationGateway` block as defined below.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGateway>;
         /**
          * A `kubeDashboard` block as defined below.
+         *
+         * @deprecated `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
          */
         kubeDashboard?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileKubeDashboard>;
         /**
          * A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+         *
+         * @deprecated `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         omsAgent?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgent>;
         /**
          * An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+         *
+         * @deprecated `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         openServiceMesh?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOpenServiceMesh>;
     }
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
         /**
-         * Is the virtual node addon enabled?
+         * Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         *
+         * @deprecated `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
         /**
          * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         *
+         * @deprecated `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
         subnetName?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
         /**
-         * Is the Azure Keyvault Secrets Providerenabled?
+         * Is the Azure Keyvault Secrets Provider enabled?
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
         /**
          * An `secretIdentity` block is exported. The exported attributes are defined below.
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
          */
         secretIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity>[]>;
         /**
          * Is secret rotation enabled?
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         secretRotationEnabled?: pulumi.Input<boolean>;
         /**
          * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+         *
+         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
          */
         secretRotationInterval?: pulumi.Input<string>;
     }
@@ -7871,6 +7950,8 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileAzurePolicy {
         /**
          * Is the Azure Policy for Kubernetes Add On enabled?
+         *
+         * @deprecated `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
     }
@@ -7878,10 +7959,14 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
         /**
          * Is HTTP Application Routing Enabled?
+         *
+         * @deprecated `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
         /**
          * The Zone Name of the HTTP Application Routing.
+         *
+         * @deprecated `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
         httpApplicationRoutingZoneName?: pulumi.Input<string>;
     }
@@ -7889,30 +7974,44 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileIngressApplicationGateway {
         /**
          * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         effectiveGatewayId?: pulumi.Input<string>;
         /**
-         * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+         * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
         /**
          * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         gatewayId?: pulumi.Input<string>;
         /**
          * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
         gatewayName?: pulumi.Input<string>;
         /**
          * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
          */
         ingressApplicationGatewayIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity>[]>;
         /**
          * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
          */
         subnetCidr?: pulumi.Input<string>;
         /**
          * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         subnetId?: pulumi.Input<string>;
     }
@@ -7941,15 +8040,21 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgent {
         /**
-         * Is the OMS Agent Enabled?
+         * Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         *
+         * @deprecated `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
         /**
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         *
+         * @deprecated `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
         logAnalyticsWorkspaceId?: pulumi.Input<string>;
         /**
          * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
+         *
+         * @deprecated `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
          */
         omsAgentIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity>[]>;
     }
@@ -7972,6 +8077,8 @@ export namespace containerservice {
     export interface KubernetesClusterAddonProfileOpenServiceMesh {
         /**
          * Is Open Service Mesh enabled?
+         *
+         * @deprecated `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: pulumi.Input<boolean>;
     }
@@ -8073,7 +8180,7 @@ export namespace containerservice {
          */
         kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig>;
         /**
-         * The type of disk used by kubelet. At this time the only possible value is `OS`.
+         * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
          */
         kubeletDiskType?: pulumi.Input<string>;
         /**
@@ -8380,6 +8487,78 @@ export namespace containerservice {
          * The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
          */
         type: pulumi.Input<string>;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterIngressApplicationGateway {
+        /**
+         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         */
+        effectiveGatewayId?: pulumi.Input<string>;
+        /**
+         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+         */
+        gatewayId?: pulumi.Input<string>;
+        /**
+         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        gatewayName?: pulumi.Input<string>;
+        /**
+         * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+         */
+        ingressApplicationGatewayIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity>[]>;
+        /**
+         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        subnetCidr?: pulumi.Input<string>;
+        /**
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterKeyVaultSecretsProvider {
+        /**
+         * An `secretIdentity` block is exported. The exported attributes are defined below.
+         */
+        secretIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKeyVaultSecretsProviderSecretIdentity>[]>;
+        /**
+         * Is secret rotation enabled?
+         */
+        secretRotationEnabled?: pulumi.Input<boolean>;
+        /**
+         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+         */
+        secretRotationInterval?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterKeyVaultSecretsProviderSecretIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId?: pulumi.Input<string>;
         /**
          * The ID of a user assigned identity.
          */
@@ -8781,6 +8960,32 @@ export namespace containerservice {
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterOmsAgent {
+        /**
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        /**
+         * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
+         */
+        omsAgentIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterOmsAgentOmsAgentIdentity>[]>;
+    }
+
+    export interface KubernetesClusterOmsAgentOmsAgentIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -9215,7 +9420,6 @@ export namespace containerservice {
          */
         enabled?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace core {
@@ -11355,13 +11559,10 @@ export namespace datashare {
 export namespace desktopvirtualization {
     export interface HostPoolRegistrationInfo {
         /**
-         * A valid `RFC3339Time` for the expiration of the token.
+         * @deprecated This field is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
          */
-        expirationDate: pulumi.Input<string>;
+        expirationDate?: pulumi.Input<string>;
         resetToken?: pulumi.Input<boolean>;
-        /**
-         * The registration token generated by the Virtual Desktop Host Pool.
-         */
         token?: pulumi.Input<string>;
     }
 
@@ -13465,6 +13666,25 @@ export namespace eventhub {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
+    }
+
+    export interface NamespaceIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface SubscriptionRuleCorrelationFilter {
@@ -16794,6 +17014,25 @@ export namespace iot {
         name: pulumi.Input<string>;
     }
 
+    export interface IotHubDpsIpFilterRule {
+        /**
+         * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The IP address range in CIDR notation for the rule.
+         */
+        ipMask: pulumi.Input<string>;
+        /**
+         * The name of the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+         */
+        target?: pulumi.Input<string>;
+    }
+
     export interface IotHubDpsLinkedHub {
         /**
          * The weight applied to the IoT Hub. Defaults to 0.
@@ -18304,9 +18543,17 @@ export namespace machinelearning {
          * The ID of the keyVault where the customer owned encryption key is present.
          */
         keyVaultId: pulumi.Input<string>;
+        /**
+         * The Key Vault URI to access the encryption key.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface WorkspaceIdentity {
+        /**
+         * The user assigned identity IDs associated with the resource.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The (Client) ID of the Service Principal.
          */
@@ -18316,7 +18563,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+         * The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -19348,7 +19595,7 @@ export namespace monitoring {
          */
         ticketConfiguration: pulumi.Input<string>;
         /**
-         * The Azure Log Analytics workspace ID where this connection is defined.
+         * The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
          */
         workspaceId: pulumi.Input<string>;
     }
@@ -19749,6 +19996,10 @@ export namespace monitoring {
          */
         resourceGroup?: pulumi.Input<string>;
         /**
+         * A block to define fine grain resource health settings.
+         */
+        resourceHealths?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertCriteriaResourceHealth>[]>;
+        /**
          * The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
          */
         resourceId?: pulumi.Input<string>;
@@ -19772,6 +20023,21 @@ export namespace monitoring {
          * The sub status of the event.
          */
         subStatus?: pulumi.Input<string>;
+    }
+
+    export interface ActivityLogAlertCriteriaResourceHealth {
+        /**
+         * The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+         */
+        currents?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+         */
+        previouses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+         */
+        reasons?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ActivityLogAlertCriteriaServiceHealth {
@@ -20363,6 +20629,7 @@ export namespace monitoring {
          */
         webhookPayload?: pulumi.Input<string>;
     }
+
 }
 
 export namespace mssql {
@@ -20509,6 +20776,43 @@ export namespace mssql {
          * The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
          */
         mode: pulumi.Input<string>;
+    }
+
+    export interface ManagedInstanceFailoverGroupPartnerRegion {
+        /**
+         * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * The partner replication role of the Managed Instance Failover Group.
+         */
+        role?: pulumi.Input<string>;
+    }
+
+    export interface ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+         */
+        graceMinutes?: pulumi.Input<number>;
+        /**
+         * The failover mode. Possible values are `Automatic` or `Manual`.
+         */
+        mode: pulumi.Input<string>;
+    }
+
+    export interface ManagedInstanceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface ServerAzureadAdministrator {
@@ -24956,6 +25260,25 @@ export namespace sentinel {
 }
 
 export namespace servicebus {
+    export interface NamespaceIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface NamespaceNetworkRuleSetNetworkRule {
         /**
          * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -25980,6 +26303,17 @@ export namespace storage {
         useSubdomain?: pulumi.Input<boolean>;
     }
 
+    export interface AccountCustomerManagedKey {
+        /**
+         * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: pulumi.Input<string>;
+    }
+
     export interface AccountIdentity {
         /**
          * A list of IDs for User Assigned Managed Identity resources to be assigned.
@@ -26432,21 +26766,6 @@ export namespace storage {
         write: boolean;
     }
 
-    export interface GetAccountSASResourceTypes {
-        /**
-         * Should permission be granted to the container?
-         */
-        container: boolean;
-        /**
-         * Should permission be granted only to a specific object?
-         */
-        object: boolean;
-        /**
-         * Should permission be granted to the entire service?
-         */
-        service: boolean;
-    }
-
     export interface GetAccountSASResourceTypesArgs {
         /**
          * Should permission be granted to the container?
@@ -26462,23 +26781,19 @@ export namespace storage {
         service: pulumi.Input<boolean>;
     }
 
-    export interface GetAccountSASServicesArgs {
+    export interface GetAccountSASResourceTypes {
         /**
-         * Should permission be granted to `blob` services within this storage account?
+         * Should permission be granted to the container?
          */
-        blob: pulumi.Input<boolean>;
+        container: boolean;
         /**
-         * Should permission be granted to `file` services within this storage account?
+         * Should permission be granted only to a specific object?
          */
-        file: pulumi.Input<boolean>;
+        object: boolean;
         /**
-         * Should permission be granted to `queue` services within this storage account?
+         * Should permission be granted to the entire service?
          */
-        queue: pulumi.Input<boolean>;
-        /**
-         * Should permission be granted to `table` services within this storage account?
-         */
-        table: pulumi.Input<boolean>;
+        service: boolean;
     }
 
     export interface GetAccountSASServices {
@@ -26498,6 +26813,25 @@ export namespace storage {
          * Should permission be granted to `table` services within this storage account?
          */
         table: boolean;
+    }
+
+    export interface GetAccountSASServicesArgs {
+        /**
+         * Should permission be granted to `blob` services within this storage account?
+         */
+        blob: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `file` services within this storage account?
+         */
+        file: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `queue` services within this storage account?
+         */
+        queue: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `table` services within this storage account?
+         */
+        table: pulumi.Input<boolean>;
     }
 
     export interface GetShareAcl {
@@ -26588,13 +26922,25 @@ export namespace storage {
 
     export interface ManagementPolicyRuleActionsBaseBlob {
         /**
+         * The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+         */
+        deleteAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
+        /**
          * The age in days after last modification to delete the blob. Must be between 0 and 99999.
          */
         deleteAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
         /**
+         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+         */
+        tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
+        /**
          * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+         */
+        tierToCoolAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
         /**
          * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
          */
@@ -27328,7 +27674,7 @@ export namespace waf {
         /**
          * One or more Rule ID's
          */
-        disabledRules: pulumi.Input<pulumi.Input<string>[]>;
+        disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the Rule Group
          */
@@ -27416,6 +27762,19 @@ export namespace webpubsub {
          * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          */
         deniedRequestTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ServiceIdentity {
+        /**
+         * A list of User Assigned Identity IDs which should be assigned to this Web PubSub service.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for the Web PubSub service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface ServiceLiveTrace {

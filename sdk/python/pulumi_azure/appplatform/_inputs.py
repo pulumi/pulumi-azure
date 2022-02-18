@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SpringCloudAppCustomPersistentDiskArgs',
     'SpringCloudAppIdentityArgs',
     'SpringCloudAppPersistentDiskArgs',
     'SpringCloudJavaDeploymentQuotaArgs',
@@ -22,6 +23,90 @@ __all__ = [
     'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
     'SpringCloudServiceTraceArgs',
 ]
+
+@pulumi.input_type
+class SpringCloudAppCustomPersistentDiskArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 storage_name: pulumi.Input[str],
+                 mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 read_only_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] mount_path: The mount path of the persistent disk.
+        :param pulumi.Input[str] share_name: The share name of the Azure File share.
+        :param pulumi.Input[str] storage_name: The name of the Spring Cloud Storage.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_options: These are the mount options for a persistent disk.
+        :param pulumi.Input[bool] read_only_enabled: Indicates whether the persistent disk is a readOnly one.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "storage_name", storage_name)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+        if read_only_enabled is not None:
+            pulumi.set(__self__, "read_only_enabled", read_only_enabled)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        """
+        The mount path of the persistent disk.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The share name of the Azure File share.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter(name="storageName")
+    def storage_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Spring Cloud Storage.
+        """
+        return pulumi.get(self, "storage_name")
+
+    @storage_name.setter
+    def storage_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_name", value)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        These are the mount options for a persistent disk.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "mount_options", value)
+
+    @property
+    @pulumi.getter(name="readOnlyEnabled")
+    def read_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the persistent disk is a readOnly one.
+        """
+        return pulumi.get(self, "read_only_enabled")
+
+    @read_only_enabled.setter
+    def read_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only_enabled", value)
+
 
 @pulumi.input_type
 class SpringCloudAppIdentityArgs:

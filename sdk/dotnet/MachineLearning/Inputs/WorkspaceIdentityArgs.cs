@@ -12,6 +12,18 @@ namespace Pulumi.Azure.MachineLearning.Inputs
 
     public sealed class WorkspaceIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// The user assigned identity IDs associated with the resource.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The (Client) ID of the Service Principal.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+        /// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

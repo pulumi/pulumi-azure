@@ -13,16 +13,34 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ManagementPolicyRuleActionsBaseBlobGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+        /// </summary>
+        [Input("deleteAfterDaysSinceLastAccessTimeGreaterThan")]
+        public Input<int>? DeleteAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
+
+        /// <summary>
         /// The age in days after last modification to delete the blob. Must be between 0 and 99999.
         /// </summary>
         [Input("deleteAfterDaysSinceModificationGreaterThan")]
         public Input<int>? DeleteAfterDaysSinceModificationGreaterThan { get; set; }
 
         /// <summary>
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        /// </summary>
+        [Input("tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")]
+        public Input<int>? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
+
+        /// <summary>
         /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceModificationGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceModificationGreaterThan { get; set; }
+
+        /// <summary>
+        /// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+        /// </summary>
+        [Input("tierToCoolAfterDaysSinceLastAccessTimeGreaterThan")]
+        public Input<int>? TierToCoolAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
 
         /// <summary>
         /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.

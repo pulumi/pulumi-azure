@@ -24,6 +24,12 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
 
+        /// <summary>
+        /// The Key Vault URI to access the encryption key.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
         public WorkspaceEncryptionArgs()
         {
         }

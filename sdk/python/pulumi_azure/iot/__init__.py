@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .certificate import *
 from .consumer_group import *
 from .dps_shared_access_policy import *
 from .endpoint_eventhub import *

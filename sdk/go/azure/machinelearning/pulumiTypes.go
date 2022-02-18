@@ -1685,6 +1685,8 @@ type WorkspaceEncryption struct {
 	KeyId string `pulumi:"keyId"`
 	// The ID of the keyVault where the customer owned encryption key is present.
 	KeyVaultId string `pulumi:"keyVaultId"`
+	// The Key Vault URI to access the encryption key.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // WorkspaceEncryptionInput is an input type that accepts WorkspaceEncryptionArgs and WorkspaceEncryptionOutput values.
@@ -1703,6 +1705,8 @@ type WorkspaceEncryptionArgs struct {
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The ID of the keyVault where the customer owned encryption key is present.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// The Key Vault URI to access the encryption key.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (WorkspaceEncryptionArgs) ElementType() reflect.Type {
@@ -1792,6 +1796,11 @@ func (o WorkspaceEncryptionOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceEncryption) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
+// The Key Vault URI to access the encryption key.
+func (o WorkspaceEncryptionOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceEncryption) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceEncryptionPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceEncryptionPtrOutput) ElementType() reflect.Type {
@@ -1836,12 +1845,24 @@ func (o WorkspaceEncryptionPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Key Vault URI to access the encryption key.
+func (o WorkspaceEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceIdentity struct {
+	// The user assigned identity IDs associated with the resource.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+	// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1857,11 +1878,13 @@ type WorkspaceIdentityInput interface {
 }
 
 type WorkspaceIdentityArgs struct {
+	// The user assigned identity IDs associated with the resource.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The (Client) ID of the Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+	// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1942,6 +1965,11 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx con
 	}).(WorkspaceIdentityPtrOutput)
 }
 
+// The user assigned identity IDs associated with the resource.
+func (o WorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The (Client) ID of the Service Principal.
 func (o WorkspaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -1952,7 +1980,7 @@ func (o WorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 func (o WorkspaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1981,6 +2009,16 @@ func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
 	}).(WorkspaceIdentityOutput)
 }
 
+// The user assigned identity IDs associated with the resource.
+func (o WorkspaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The (Client) ID of the Service Principal.
 func (o WorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) *string {
@@ -2001,7 +2039,7 @@ func (o WorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) *string {
 		if v == nil {
@@ -2012,9 +2050,14 @@ func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetWorkspaceIdentity struct {
+	// A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
 	PrincipalId string `pulumi:"principalId"`
-	TenantId    string `pulumi:"tenantId"`
-	Type        string `pulumi:"type"`
+	// The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Machine Learning Workspace.
+	Type string `pulumi:"type"`
 }
 
 // GetWorkspaceIdentityInput is an input type that accepts GetWorkspaceIdentityArgs and GetWorkspaceIdentityOutput values.
@@ -2029,9 +2072,14 @@ type GetWorkspaceIdentityInput interface {
 }
 
 type GetWorkspaceIdentityArgs struct {
+	// A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-	Type        pulumi.StringInput `pulumi:"type"`
+	// The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Machine Learning Workspace.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetWorkspaceIdentityArgs) ElementType() reflect.Type {
@@ -2085,14 +2133,22 @@ func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutputWithContext(ctx 
 	return o
 }
 
+// A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+func (o GetWorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
 func (o GetWorkspaceIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkspaceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
+// The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
 func (o GetWorkspaceIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkspaceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
+// The Type of Managed Identity assigned to this Machine Learning Workspace.
 func (o GetWorkspaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -93,18 +93,6 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
-
         public GetManagedDiskArgs()
         {
         }
@@ -123,18 +111,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public GetManagedDiskInvokeArgs()
         {
@@ -195,7 +171,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// A list of Availability Zones where the Managed Disk exists.
         /// </summary>
@@ -231,7 +207,7 @@ namespace Pulumi.Azure.Compute
 
             string storageAccountType,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> zones)
         {

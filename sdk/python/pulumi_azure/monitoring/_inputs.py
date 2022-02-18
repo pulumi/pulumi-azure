@@ -45,6 +45,7 @@ __all__ = [
     'ActionRuleSuppressionSuppressionScheduleArgs',
     'ActivityLogAlertActionArgs',
     'ActivityLogAlertCriteriaArgs',
+    'ActivityLogAlertCriteriaResourceHealthArgs',
     'ActivityLogAlertCriteriaServiceHealthArgs',
     'AutoscaleSettingNotificationArgs',
     'AutoscaleSettingNotificationEmailArgs',
@@ -593,7 +594,7 @@ class ActionGroupItsmReceiverArgs:
         :param pulumi.Input[str] name: The name of the ITSM receiver.
         :param pulumi.Input[str] region: The region of the workspace.
         :param pulumi.Input[str] ticket_configuration: A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        :param pulumi.Input[str] workspace_id: The Azure Log Analytics workspace ID where this connection is defined.
+        :param pulumi.Input[str] workspace_id: The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
         """
         pulumi.set(__self__, "connection_id", connection_id)
         pulumi.set(__self__, "name", name)
@@ -653,7 +654,7 @@ class ActionGroupItsmReceiverArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        The Azure Log Analytics workspace ID where this connection is defined.
+        The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -1943,6 +1944,7 @@ class ActivityLogAlertCriteriaArgs:
                  recommendation_impact: Optional[pulumi.Input[str]] = None,
                  recommendation_type: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 resource_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
@@ -1958,6 +1960,7 @@ class ActivityLogAlertCriteriaArgs:
         :param pulumi.Input[str] recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
         :param pulumi.Input[str] recommendation_type: The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
         :param pulumi.Input[str] resource_group: The name of resource group monitored by the activity log alert.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]] resource_healths: A block to define fine grain resource health settings.
         :param pulumi.Input[str] resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         :param pulumi.Input[str] resource_provider: The name of the resource provider monitored by the activity log alert.
         :param pulumi.Input[str] resource_type: The resource type monitored by the activity log alert.
@@ -1980,6 +1983,8 @@ class ActivityLogAlertCriteriaArgs:
             pulumi.set(__self__, "recommendation_type", recommendation_type)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if resource_healths is not None:
+            pulumi.set(__self__, "resource_healths", resource_healths)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_provider is not None:
@@ -2090,6 +2095,18 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_group", value)
 
     @property
+    @pulumi.getter(name="resourceHealths")
+    def resource_healths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]]:
+        """
+        A block to define fine grain resource health settings.
+        """
+        return pulumi.get(self, "resource_healths")
+
+    @resource_healths.setter
+    def resource_healths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]]):
+        pulumi.set(self, "resource_healths", value)
+
+    @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2160,6 +2177,61 @@ class ActivityLogAlertCriteriaArgs:
     @sub_status.setter
     def sub_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sub_status", value)
+
+
+@pulumi.input_type
+class ActivityLogAlertCriteriaResourceHealthArgs:
+    def __init__(__self__, *,
+                 currents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 previouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] currents: The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] previouses: The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] reasons: The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+        """
+        if currents is not None:
+            pulumi.set(__self__, "currents", currents)
+        if previouses is not None:
+            pulumi.set(__self__, "previouses", previouses)
+        if reasons is not None:
+            pulumi.set(__self__, "reasons", reasons)
+
+    @property
+    @pulumi.getter
+    def currents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+        """
+        return pulumi.get(self, "currents")
+
+    @currents.setter
+    def currents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "currents", value)
+
+    @property
+    @pulumi.getter
+    def previouses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+        """
+        return pulumi.get(self, "previouses")
+
+    @previouses.setter
+    def previouses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "previouses", value)
+
+    @property
+    @pulumi.getter
+    def reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+        """
+        return pulumi.get(self, "reasons")
+
+    @reasons.setter
+    def reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "reasons", value)
 
 
 @pulumi.input_type

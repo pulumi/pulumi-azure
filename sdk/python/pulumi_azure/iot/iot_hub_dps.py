@@ -18,30 +18,38 @@ class IotHubDpsArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['IotHubDpsSkuArgs'],
                  allocation_policy: Optional[pulumi.Input[str]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IotHubDps resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IotHubDpsSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+        :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]] ip_filter_rules: An `ip_filter_rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if allocation_policy is not None:
             pulumi.set(__self__, "allocation_policy", allocation_policy)
+        if ip_filter_rules is not None:
+            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if linked_hubs is not None:
             pulumi.set(__self__, "linked_hubs", linked_hubs)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -82,6 +90,18 @@ class IotHubDpsArgs:
         pulumi.set(self, "allocation_policy", value)
 
     @property
+    @pulumi.getter(name="ipFilterRules")
+    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]]:
+        """
+        An `ip_filter_rule` block as defined below.
+        """
+        return pulumi.get(self, "ip_filter_rules")
+
+    @ip_filter_rules.setter
+    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]]):
+        pulumi.set(self, "ip_filter_rules", value)
+
+    @property
     @pulumi.getter(name="linkedHubs")
     def linked_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]]:
         """
@@ -118,6 +138,18 @@ class IotHubDpsArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether requests from Public Network are allowed. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -136,9 +168,11 @@ class _IotHubDpsState:
                  allocation_policy: Optional[pulumi.Input[str]] = None,
                  device_provisioning_host_name: Optional[pulumi.Input[str]] = None,
                  id_scope: Optional[pulumi.Input[str]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_operations_host_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['IotHubDpsSkuArgs']] = None,
@@ -148,9 +182,11 @@ class _IotHubDpsState:
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
+        :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]] ip_filter_rules: An `ip_filter_rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_operations_host_name: The service endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input['IotHubDpsSkuArgs'] sku: A `sku` block as defined below.
@@ -162,12 +198,16 @@ class _IotHubDpsState:
             pulumi.set(__self__, "device_provisioning_host_name", device_provisioning_host_name)
         if id_scope is not None:
             pulumi.set(__self__, "id_scope", id_scope)
+        if ip_filter_rules is not None:
+            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if linked_hubs is not None:
             pulumi.set(__self__, "linked_hubs", linked_hubs)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_operations_host_name is not None:
@@ -214,6 +254,18 @@ class _IotHubDpsState:
         pulumi.set(self, "id_scope", value)
 
     @property
+    @pulumi.getter(name="ipFilterRules")
+    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]]:
+        """
+        An `ip_filter_rule` block as defined below.
+        """
+        return pulumi.get(self, "ip_filter_rules")
+
+    @ip_filter_rules.setter
+    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]]):
+        pulumi.set(self, "ip_filter_rules", value)
+
+    @property
     @pulumi.getter(name="linkedHubs")
     def linked_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]]]:
         """
@@ -248,6 +300,18 @@ class _IotHubDpsState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether requests from Public Network are allowed. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -304,9 +368,11 @@ class IotHubDps(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_policy: Optional[pulumi.Input[str]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IotHubDpsSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -342,9 +408,11 @@ class IotHubDps(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['IotHubDpsSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -399,9 +467,11 @@ class IotHubDps(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_policy: Optional[pulumi.Input[str]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]]] = None,
                  linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IotHubDpsSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -418,9 +488,11 @@ class IotHubDps(pulumi.CustomResource):
             __props__ = IotHubDpsArgs.__new__(IotHubDpsArgs)
 
             __props__.__dict__["allocation_policy"] = allocation_policy
+            __props__.__dict__["ip_filter_rules"] = ip_filter_rules
             __props__.__dict__["linked_hubs"] = linked_hubs
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -444,9 +516,11 @@ class IotHubDps(pulumi.CustomResource):
             allocation_policy: Optional[pulumi.Input[str]] = None,
             device_provisioning_host_name: Optional[pulumi.Input[str]] = None,
             id_scope: Optional[pulumi.Input[str]] = None,
+            ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]]] = None,
             linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_operations_host_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['IotHubDpsSkuArgs']]] = None,
@@ -461,9 +535,11 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_operations_host_name: The service endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[pulumi.InputType['IotHubDpsSkuArgs']] sku: A `sku` block as defined below.
@@ -476,9 +552,11 @@ class IotHubDps(pulumi.CustomResource):
         __props__.__dict__["allocation_policy"] = allocation_policy
         __props__.__dict__["device_provisioning_host_name"] = device_provisioning_host_name
         __props__.__dict__["id_scope"] = id_scope
+        __props__.__dict__["ip_filter_rules"] = ip_filter_rules
         __props__.__dict__["linked_hubs"] = linked_hubs
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_operations_host_name"] = service_operations_host_name
         __props__.__dict__["sku"] = sku
@@ -510,6 +588,14 @@ class IotHubDps(pulumi.CustomResource):
         return pulumi.get(self, "id_scope")
 
     @property
+    @pulumi.getter(name="ipFilterRules")
+    def ip_filter_rules(self) -> pulumi.Output[Optional[Sequence['outputs.IotHubDpsIpFilterRule']]]:
+        """
+        An `ip_filter_rule` block as defined below.
+        """
+        return pulumi.get(self, "ip_filter_rules")
+
+    @property
     @pulumi.getter(name="linkedHubs")
     def linked_hubs(self) -> pulumi.Output[Optional[Sequence['outputs.IotHubDpsLinkedHub']]]:
         """
@@ -532,6 +618,14 @@ class IotHubDps(pulumi.CustomResource):
         Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether requests from Public Network are allowed. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

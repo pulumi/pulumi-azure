@@ -97,7 +97,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
      *
-     * @deprecated Deprecated in favour of `management_group_name`
+     * @deprecated Deprecated in favour of `management_group_id`
      */
     public readonly managementGroupName!: pulumi.Output<string>;
     /**
@@ -199,7 +199,7 @@ export interface PolicySetDefinitionState {
     /**
      * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
      *
-     * @deprecated Deprecated in favour of `management_group_name`
+     * @deprecated Deprecated in favour of `management_group_id`
      */
     managementGroupName?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
      *
-     * @deprecated Deprecated in favour of `management_group_name`
+     * @deprecated Deprecated in favour of `management_group_id`
      */
     managementGroupName?: pulumi.Input<string>;
     /**

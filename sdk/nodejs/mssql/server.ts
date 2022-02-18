@@ -116,6 +116,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether outbound network traffic is restricted for this server. Defaults to `false`.
+     */
+    public readonly outboundNetworkRestrictionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
      */
     public readonly primaryUserAssignedIdentityId!: pulumi.Output<string>;
@@ -164,6 +168,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outboundNetworkRestrictionEnabled"] = state ? state.outboundNetworkRestrictionEnabled : undefined;
             resourceInputs["primaryUserAssignedIdentityId"] = state ? state.primaryUserAssignedIdentityId : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -194,6 +199,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outboundNetworkRestrictionEnabled"] = args ? args.outboundNetworkRestrictionEnabled : undefined;
             resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -252,6 +258,10 @@ export interface ServerState {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether outbound network traffic is restricted for this server. Defaults to `false`.
+     */
+    outboundNetworkRestrictionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
      */
@@ -319,6 +329,10 @@ export interface ServerArgs {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether outbound network traffic is restricted for this server. Defaults to `false`.
+     */
+    outboundNetworkRestrictionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
      */

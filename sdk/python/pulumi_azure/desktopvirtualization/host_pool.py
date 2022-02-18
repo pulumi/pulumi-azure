@@ -53,7 +53,8 @@ class HostPoolArgs:
                `Direct` Assignment – Admin selects a specific host to assign to an user.
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
                Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
-        :param pulumi.Input['HostPoolRegistrationInfoArgs'] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        :param pulumi.Input['HostPoolRegistrationInfoArgs'] registration_info: This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+               `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
@@ -232,7 +233,8 @@ class HostPoolArgs:
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> Optional[pulumi.Input['HostPoolRegistrationInfoArgs']]:
         """
-        A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+        `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         """
         return pulumi.get(self, "registration_info")
 
@@ -313,7 +315,8 @@ class _HostPoolState:
                `Direct` Assignment – Admin selects a specific host to assign to an user.
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
                Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
-        :param pulumi.Input['HostPoolRegistrationInfoArgs'] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        :param pulumi.Input['HostPoolRegistrationInfoArgs'] registration_info: This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+               `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Desktop Host Pool. Changing the resource group name forces
                a new resource to be created.
@@ -473,7 +476,8 @@ class _HostPoolState:
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> Optional[pulumi.Input['HostPoolRegistrationInfoArgs']]:
         """
-        A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+        `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         """
         return pulumi.get(self, "registration_info")
 
@@ -567,6 +571,28 @@ class HostPool(pulumi.CustomResource):
                  validate_environment: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Manages a Virtual Desktop Host Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            friendly_name="pooleddepthfirst",
+            validate_environment=True,
+            start_vm_on_connect=True,
+            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
+            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
+            type="Pooled",
+            maximum_sessions_allowed=50,
+            load_balancer_type="DepthFirst")
+        ```
+
         ## Import
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -593,7 +619,8 @@ class HostPool(pulumi.CustomResource):
                `Direct` Assignment – Admin selects a specific host to assign to an user.
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
                Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
-        :param pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        :param pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']] registration_info: This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+               `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Desktop Host Pool. Changing the resource group name forces
                a new resource to be created.
@@ -610,6 +637,28 @@ class HostPool(pulumi.CustomResource):
                  args: HostPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Virtual Desktop Host Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            friendly_name="pooleddepthfirst",
+            validate_environment=True,
+            start_vm_on_connect=True,
+            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
+            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
+            type="Pooled",
+            maximum_sessions_allowed=50,
+            load_balancer_type="DepthFirst")
+        ```
+
         ## Import
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -729,7 +778,8 @@ class HostPool(pulumi.CustomResource):
                `Direct` Assignment – Admin selects a specific host to assign to an user.
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
                Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
-        :param pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        :param pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']] registration_info: This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+               `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Desktop Host Pool. Changing the resource group name forces
                a new resource to be created.
@@ -843,7 +893,8 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> pulumi.Output[Optional['outputs.HostPoolRegistrationInfo']]:
         """
-        A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+        `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
         """
         return pulumi.get(self, "registration_info")
 

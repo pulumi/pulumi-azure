@@ -1553,6 +1553,443 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedInstanceFailoverGroupPartnerRegion struct {
+	// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
+	// The partner replication role of the Managed Instance Failover Group.
+	Role *string `pulumi:"role"`
+}
+
+// ManagedInstanceFailoverGroupPartnerRegionInput is an input type that accepts ManagedInstanceFailoverGroupPartnerRegionArgs and ManagedInstanceFailoverGroupPartnerRegionOutput values.
+// You can construct a concrete instance of `ManagedInstanceFailoverGroupPartnerRegionInput` via:
+//
+//          ManagedInstanceFailoverGroupPartnerRegionArgs{...}
+type ManagedInstanceFailoverGroupPartnerRegionInput interface {
+	pulumi.Input
+
+	ToManagedInstanceFailoverGroupPartnerRegionOutput() ManagedInstanceFailoverGroupPartnerRegionOutput
+	ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(context.Context) ManagedInstanceFailoverGroupPartnerRegionOutput
+}
+
+type ManagedInstanceFailoverGroupPartnerRegionArgs struct {
+	// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The partner replication role of the Managed Instance Failover Group.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (ManagedInstanceFailoverGroupPartnerRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegion)(nil)).Elem()
+}
+
+func (i ManagedInstanceFailoverGroupPartnerRegionArgs) ToManagedInstanceFailoverGroupPartnerRegionOutput() ManagedInstanceFailoverGroupPartnerRegionOutput {
+	return i.ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceFailoverGroupPartnerRegionArgs) ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPartnerRegionOutput)
+}
+
+// ManagedInstanceFailoverGroupPartnerRegionArrayInput is an input type that accepts ManagedInstanceFailoverGroupPartnerRegionArray and ManagedInstanceFailoverGroupPartnerRegionArrayOutput values.
+// You can construct a concrete instance of `ManagedInstanceFailoverGroupPartnerRegionArrayInput` via:
+//
+//          ManagedInstanceFailoverGroupPartnerRegionArray{ ManagedInstanceFailoverGroupPartnerRegionArgs{...} }
+type ManagedInstanceFailoverGroupPartnerRegionArrayInput interface {
+	pulumi.Input
+
+	ToManagedInstanceFailoverGroupPartnerRegionArrayOutput() ManagedInstanceFailoverGroupPartnerRegionArrayOutput
+	ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(context.Context) ManagedInstanceFailoverGroupPartnerRegionArrayOutput
+}
+
+type ManagedInstanceFailoverGroupPartnerRegionArray []ManagedInstanceFailoverGroupPartnerRegionInput
+
+func (ManagedInstanceFailoverGroupPartnerRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstanceFailoverGroupPartnerRegion)(nil)).Elem()
+}
+
+func (i ManagedInstanceFailoverGroupPartnerRegionArray) ToManagedInstanceFailoverGroupPartnerRegionArrayOutput() ManagedInstanceFailoverGroupPartnerRegionArrayOutput {
+	return i.ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceFailoverGroupPartnerRegionArray) ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPartnerRegionArrayOutput)
+}
+
+type ManagedInstanceFailoverGroupPartnerRegionOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceFailoverGroupPartnerRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegion)(nil)).Elem()
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailoverGroupPartnerRegionOutput() ManagedInstanceFailoverGroupPartnerRegionOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionOutput {
+	return o
+}
+
+// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+func (o ManagedInstanceFailoverGroupPartnerRegionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceFailoverGroupPartnerRegion) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The partner replication role of the Managed Instance Failover Group.
+func (o ManagedInstanceFailoverGroupPartnerRegionOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceFailoverGroupPartnerRegion) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstanceFailoverGroupPartnerRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstanceFailoverGroupPartnerRegion)(nil)).Elem()
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToManagedInstanceFailoverGroupPartnerRegionArrayOutput() ManagedInstanceFailoverGroupPartnerRegionArrayOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionArrayOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) Index(i pulumi.IntInput) ManagedInstanceFailoverGroupPartnerRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstanceFailoverGroupPartnerRegion {
+		return vs[0].([]ManagedInstanceFailoverGroupPartnerRegion)[vs[1].(int)]
+	}).(ManagedInstanceFailoverGroupPartnerRegionOutput)
+}
+
+type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy struct {
+	// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+	GraceMinutes *int `pulumi:"graceMinutes"`
+	// The failover mode. Possible values are `Automatic` or `Manual`.
+	Mode string `pulumi:"mode"`
+}
+
+// ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput is an input type that accepts ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs and ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput values.
+// You can construct a concrete instance of `ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput` via:
+//
+//          ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
+type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput interface {
+	pulumi.Input
+
+	ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput
+	ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput
+}
+
+type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs struct {
+	// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+	GraceMinutes pulumi.IntPtrInput `pulumi:"graceMinutes"`
+	// The failover mode. Possible values are `Automatic` or `Manual`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
+}
+
+func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput).ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx)
+}
+
+// ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput is an input type that accepts ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs, ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtr and ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput values.
+// You can construct a concrete instance of `ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput` via:
+//
+//          ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput interface {
+	pulumi.Input
+
+	ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
+	ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
+}
+
+type managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
+
+func ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtr(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput {
+	return (*managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType)(v)
+}
+
+func (*managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
+}
+
+type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return o.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
+		return &v
+	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
+}
+
+// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The failover mode. Possible values are `Automatic` or `Manual`.
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return o.ApplyT(func(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy
+		return ret
+	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
+}
+
+// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) GraceMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GraceMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The failover mode. Possible values are `Automatic` or `Manual`.
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstanceIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId *string `pulumi:"tenantId"`
+	// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ManagedInstanceIdentityInput is an input type that accepts ManagedInstanceIdentityArgs and ManagedInstanceIdentityOutput values.
+// You can construct a concrete instance of `ManagedInstanceIdentityInput` via:
+//
+//          ManagedInstanceIdentityArgs{...}
+type ManagedInstanceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedInstanceIdentityOutput() ManagedInstanceIdentityOutput
+	ToManagedInstanceIdentityOutputWithContext(context.Context) ManagedInstanceIdentityOutput
+}
+
+type ManagedInstanceIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedInstanceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityOutput() ManagedInstanceIdentityOutput {
+	return i.ToManagedInstanceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityOutputWithContext(ctx context.Context) ManagedInstanceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityOutput)
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return i.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityOutput).ToManagedInstanceIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedInstanceIdentityPtrInput is an input type that accepts ManagedInstanceIdentityArgs, ManagedInstanceIdentityPtr and ManagedInstanceIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedInstanceIdentityPtrInput` via:
+//
+//          ManagedInstanceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedInstanceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput
+	ToManagedInstanceIdentityPtrOutputWithContext(context.Context) ManagedInstanceIdentityPtrOutput
+}
+
+type managedInstanceIdentityPtrType ManagedInstanceIdentityArgs
+
+func ManagedInstanceIdentityPtr(v *ManagedInstanceIdentityArgs) ManagedInstanceIdentityPtrInput {
+	return (*managedInstanceIdentityPtrType)(v)
+}
+
+func (*managedInstanceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i *managedInstanceIdentityPtrType) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return i.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstanceIdentityPtrType) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityPtrOutput)
+}
+
+type ManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityOutput() ManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityOutputWithContext(ctx context.Context) ManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return o.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceIdentity) *ManagedInstanceIdentity {
+		return &v
+	}).(ManagedInstanceIdentityPtrOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+func (o ManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedInstanceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) ManagedInstanceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedInstanceIdentity
+		return ret
+	}).(ManagedInstanceIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerAzureadAdministrator struct {
 	// Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
@@ -4139,6 +4576,121 @@ func (o GetElasticPoolSkusArrayOutput) Index(i pulumi.IntInput) GetElasticPoolSk
 	}).(GetElasticPoolSkusOutput)
 }
 
+type GetManagedInstanceIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of the SQL Managed Instance.
+	Type string `pulumi:"type"`
+}
+
+// GetManagedInstanceIdentityInput is an input type that accepts GetManagedInstanceIdentityArgs and GetManagedInstanceIdentityOutput values.
+// You can construct a concrete instance of `GetManagedInstanceIdentityInput` via:
+//
+//          GetManagedInstanceIdentityArgs{...}
+type GetManagedInstanceIdentityInput interface {
+	pulumi.Input
+
+	ToGetManagedInstanceIdentityOutput() GetManagedInstanceIdentityOutput
+	ToGetManagedInstanceIdentityOutputWithContext(context.Context) GetManagedInstanceIdentityOutput
+}
+
+type GetManagedInstanceIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type of the SQL Managed Instance.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetManagedInstanceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i GetManagedInstanceIdentityArgs) ToGetManagedInstanceIdentityOutput() GetManagedInstanceIdentityOutput {
+	return i.ToGetManagedInstanceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetManagedInstanceIdentityArgs) ToGetManagedInstanceIdentityOutputWithContext(ctx context.Context) GetManagedInstanceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedInstanceIdentityOutput)
+}
+
+// GetManagedInstanceIdentityArrayInput is an input type that accepts GetManagedInstanceIdentityArray and GetManagedInstanceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetManagedInstanceIdentityArrayInput` via:
+//
+//          GetManagedInstanceIdentityArray{ GetManagedInstanceIdentityArgs{...} }
+type GetManagedInstanceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedInstanceIdentityArrayOutput() GetManagedInstanceIdentityArrayOutput
+	ToGetManagedInstanceIdentityArrayOutputWithContext(context.Context) GetManagedInstanceIdentityArrayOutput
+}
+
+type GetManagedInstanceIdentityArray []GetManagedInstanceIdentityInput
+
+func (GetManagedInstanceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i GetManagedInstanceIdentityArray) ToGetManagedInstanceIdentityArrayOutput() GetManagedInstanceIdentityArrayOutput {
+	return i.ToGetManagedInstanceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedInstanceIdentityArray) ToGetManagedInstanceIdentityArrayOutputWithContext(ctx context.Context) GetManagedInstanceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedInstanceIdentityArrayOutput)
+}
+
+type GetManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetManagedInstanceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o GetManagedInstanceIdentityOutput) ToGetManagedInstanceIdentityOutput() GetManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o GetManagedInstanceIdentityOutput) ToGetManagedInstanceIdentityOutputWithContext(ctx context.Context) GetManagedInstanceIdentityOutput {
+	return o
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o GetManagedInstanceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedInstanceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o GetManagedInstanceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedInstanceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type of the SQL Managed Instance.
+func (o GetManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetManagedInstanceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedInstanceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o GetManagedInstanceIdentityArrayOutput) ToGetManagedInstanceIdentityArrayOutput() GetManagedInstanceIdentityArrayOutput {
+	return o
+}
+
+func (o GetManagedInstanceIdentityArrayOutput) ToGetManagedInstanceIdentityArrayOutputWithContext(ctx context.Context) GetManagedInstanceIdentityArrayOutput {
+	return o
+}
+
+func (o GetManagedInstanceIdentityArrayOutput) Index(i pulumi.IntInput) GetManagedInstanceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedInstanceIdentity {
+		return vs[0].([]GetManagedInstanceIdentity)[vs[1].(int)]
+	}).(GetManagedInstanceIdentityOutput)
+}
+
 type GetServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId string `pulumi:"principalId"`
@@ -4282,6 +4834,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionArrayInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityPtrInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorPtrInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyTypeInput)(nil)).Elem(), ServerExtendedAuditingPolicyTypeArgs{})
@@ -4310,6 +4868,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationTempDbSettingsPtrInput)(nil)).Elem(), VirtualMachineStorageConfigurationTempDbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusInput)(nil)).Elem(), GetElasticPoolSkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusArrayInput)(nil)).Elem(), GetElasticPoolSkusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityInput)(nil)).Elem(), GetManagedInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityArrayInput)(nil)).Elem(), GetManagedInstanceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypeOutput{})
@@ -4330,6 +4890,12 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionArrayOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyTypeOutput{})
@@ -4358,6 +4924,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedInstanceIdentityOutput{})
+	pulumi.RegisterOutputType(GetManagedInstanceIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 }

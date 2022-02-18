@@ -2847,15 +2847,21 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
 	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
-	StorageAccountType string `pulumi:"storageAccountType"`
+	StorageAccountType        string `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
@@ -2879,15 +2885,21 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
 	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
-	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
@@ -2959,11 +2971,15 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.
 }
 
 // Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+//
+// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+//
+// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -2981,6 +2997,14 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
 // The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -6424,15 +6448,19 @@ func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccou
 }
 
 type OrchestratedVirtualMachineScaleSetDataDisk struct {
-	Caching                 string  `pulumi:"caching"`
-	CreateOption            *string `pulumi:"createOption"`
-	DiskEncryptionSetId     *string `pulumi:"diskEncryptionSetId"`
-	DiskIopsReadWrite       *int    `pulumi:"diskIopsReadWrite"`
-	DiskMbpsReadWrite       *int    `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb              int     `pulumi:"diskSizeGb"`
-	Lun                     int     `pulumi:"lun"`
-	StorageAccountType      string  `pulumi:"storageAccountType"`
-	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
+	Caching             string  `pulumi:"caching"`
+	CreateOption        *string `pulumi:"createOption"`
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
+	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
+	DiskMbpsReadWrite         *int   `pulumi:"diskMbpsReadWrite"`
+	DiskSizeGb                int    `pulumi:"diskSizeGb"`
+	Lun                       int    `pulumi:"lun"`
+	StorageAccountType        string `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	WriteAcceleratorEnabled   *bool  `pulumi:"writeAcceleratorEnabled"`
 }
 
 // OrchestratedVirtualMachineScaleSetDataDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArgs and OrchestratedVirtualMachineScaleSetDataDiskOutput values.
@@ -6447,15 +6475,19 @@ type OrchestratedVirtualMachineScaleSetDataDiskInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
-	Caching                 pulumi.StringInput    `pulumi:"caching"`
-	CreateOption            pulumi.StringPtrInput `pulumi:"createOption"`
-	DiskEncryptionSetId     pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	DiskIopsReadWrite       pulumi.IntPtrInput    `pulumi:"diskIopsReadWrite"`
-	DiskMbpsReadWrite       pulumi.IntPtrInput    `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb              pulumi.IntInput       `pulumi:"diskSizeGb"`
-	Lun                     pulumi.IntInput       `pulumi:"lun"`
-	StorageAccountType      pulumi.StringInput    `pulumi:"storageAccountType"`
-	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
+	Caching             pulumi.StringInput    `pulumi:"caching"`
+	CreateOption        pulumi.StringPtrInput `pulumi:"createOption"`
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
+	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
+	DiskMbpsReadWrite         pulumi.IntPtrInput  `pulumi:"diskMbpsReadWrite"`
+	DiskSizeGb                pulumi.IntInput     `pulumi:"diskSizeGb"`
+	Lun                       pulumi.IntInput     `pulumi:"lun"`
+	StorageAccountType        pulumi.StringInput  `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput  `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput  `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	WriteAcceleratorEnabled   pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
 func (OrchestratedVirtualMachineScaleSetDataDiskArgs) ElementType() reflect.Type {
@@ -6521,10 +6553,12 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() 
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
+// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -6539,6 +6573,14 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput
 
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
@@ -18125,15 +18167,21 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
 	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
-	StorageAccountType string `pulumi:"storageAccountType"`
+	StorageAccountType        string `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
@@ -18157,15 +18205,21 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
 	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	//
+	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
-	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
@@ -18237,11 +18291,15 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulum
 }
 
 // Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+//
+// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+//
+// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -18259,6 +18317,14 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
 // The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.

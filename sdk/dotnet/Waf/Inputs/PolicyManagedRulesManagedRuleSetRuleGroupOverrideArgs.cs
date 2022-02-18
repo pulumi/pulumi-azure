@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Waf.Inputs
 
     public sealed class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs : Pulumi.ResourceArgs
     {
-        [Input("disabledRules", required: true)]
+        [Input("disabledRules")]
         private InputList<string>? _disabledRules;
 
         /// <summary>

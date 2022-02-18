@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudJavaDeployment{}
 	case "azure:appplatform/springCloudService:SpringCloudService":
 		r = &SpringCloudService{}
+	case "azure:appplatform/springCloudStorage:SpringCloudStorage":
+		r = &SpringCloudStorage{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudStorage",
 		&module{version},
 	)
 }

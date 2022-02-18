@@ -20,6 +20,7 @@ __all__ = [
     'IoTHubRouteArgs',
     'IoTHubSharedAccessPolicyArgs',
     'IoTHubSkuArgs',
+    'IotHubDpsIpFilterRuleArgs',
     'IotHubDpsLinkedHubArgs',
     'IotHubDpsSkuArgs',
     'SecurityDeviceGroupAllowRuleArgs',
@@ -904,6 +905,74 @@ class IoTHubSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class IotHubDpsIpFilterRuleArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 ip_mask: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        :param pulumi.Input[str] ip_mask: The IP address range in CIDR notation for the rule.
+        :param pulumi.Input[str] name: The name of the filter.
+        :param pulumi.Input[str] target: Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        pulumi.set(__self__, "name", name)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        The IP address range in CIDR notation for the rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
 
 
 @pulumi.input_type

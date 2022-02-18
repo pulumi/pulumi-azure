@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileOmsAgent
     {
         /// <summary>
-        /// Is the OMS Agent Enabled?
+        /// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

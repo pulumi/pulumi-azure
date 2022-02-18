@@ -37,6 +37,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobAgent{}
 	case "azure:mssql/jobCredential:JobCredential":
 		r = &JobCredential{}
+	case "azure:mssql/managedDatabase:ManagedDatabase":
+		r = &ManagedDatabase{}
+	case "azure:mssql/managedInstance:ManagedInstance":
+		r = &ManagedInstance{}
+	case "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator":
+		r = &ManagedInstanceActiveDirectoryAdministrator{}
+	case "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
+		r = &ManagedInstanceFailoverGroup{}
+	case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
+		r = &OutboundFirewallRule{}
 	case "azure:mssql/server:Server":
 		r = &Server{}
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
@@ -102,6 +112,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/jobCredential",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedInstanceActiveDirectoryAdministrator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedInstanceFailoverGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/outboundFirewallRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

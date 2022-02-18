@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? EffectiveGatewayId;
         /// <summary>
-        /// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        /// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

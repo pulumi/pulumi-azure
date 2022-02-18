@@ -72,6 +72,12 @@ namespace Pulumi.Azure.Iot
         public Output<string> IdScope { get; private set; } = null!;
 
         /// <summary>
+        /// An `ip_filter_rule` block as defined below.
+        /// </summary>
+        [Output("ipFilterRules")]
+        public Output<ImmutableArray<Outputs.IotHubDpsIpFilterRule>> IpFilterRules { get; private set; } = null!;
+
+        /// <summary>
         /// A `linked_hub` block as defined below.
         /// </summary>
         [Output("linkedHubs")]
@@ -88,6 +94,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether requests from Public Network are allowed. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
@@ -165,6 +177,18 @@ namespace Pulumi.Azure.Iot
         [Input("allocationPolicy")]
         public Input<string>? AllocationPolicy { get; set; }
 
+        [Input("ipFilterRules")]
+        private InputList<Inputs.IotHubDpsIpFilterRuleArgs>? _ipFilterRules;
+
+        /// <summary>
+        /// An `ip_filter_rule` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IotHubDpsIpFilterRuleArgs> IpFilterRules
+        {
+            get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IotHubDpsIpFilterRuleArgs>());
+            set => _ipFilterRules = value;
+        }
+
         [Input("linkedHubs")]
         private InputList<Inputs.IotHubDpsLinkedHubArgs>? _linkedHubs;
 
@@ -188,6 +212,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether requests from Public Network are allowed. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
@@ -238,6 +268,18 @@ namespace Pulumi.Azure.Iot
         [Input("idScope")]
         public Input<string>? IdScope { get; set; }
 
+        [Input("ipFilterRules")]
+        private InputList<Inputs.IotHubDpsIpFilterRuleGetArgs>? _ipFilterRules;
+
+        /// <summary>
+        /// An `ip_filter_rule` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IotHubDpsIpFilterRuleGetArgs> IpFilterRules
+        {
+            get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IotHubDpsIpFilterRuleGetArgs>());
+            set => _ipFilterRules = value;
+        }
+
         [Input("linkedHubs")]
         private InputList<Inputs.IotHubDpsLinkedHubGetArgs>? _linkedHubs;
 
@@ -261,6 +303,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether requests from Public Network are allowed. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
