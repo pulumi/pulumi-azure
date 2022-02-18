@@ -57,6 +57,12 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudApp : Pulumi.CustomResource
     {
         /// <summary>
+        /// A `custom_persistent_disk` block as defined below.
+        /// </summary>
+        [Output("customPersistentDisks")]
+        public Output<ImmutableArray<Outputs.SpringCloudAppCustomPersistentDisk>> CustomPersistentDisks { get; private set; } = null!;
+
+        /// <summary>
         /// The Fully Qualified DNS Name of the Spring Application in the service.
         /// </summary>
         [Output("fqdn")]
@@ -162,6 +168,18 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudAppArgs : Pulumi.ResourceArgs
     {
+        [Input("customPersistentDisks")]
+        private InputList<Inputs.SpringCloudAppCustomPersistentDiskArgs>? _customPersistentDisks;
+
+        /// <summary>
+        /// A `custom_persistent_disk` block as defined below.
+        /// </summary>
+        public InputList<Inputs.SpringCloudAppCustomPersistentDiskArgs> CustomPersistentDisks
+        {
+            get => _customPersistentDisks ?? (_customPersistentDisks = new InputList<Inputs.SpringCloudAppCustomPersistentDiskArgs>());
+            set => _customPersistentDisks = value;
+        }
+
         /// <summary>
         /// Is only https allowed? Defaults to `false`.
         /// </summary>
@@ -217,6 +235,18 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudAppState : Pulumi.ResourceArgs
     {
+        [Input("customPersistentDisks")]
+        private InputList<Inputs.SpringCloudAppCustomPersistentDiskGetArgs>? _customPersistentDisks;
+
+        /// <summary>
+        /// A `custom_persistent_disk` block as defined below.
+        /// </summary>
+        public InputList<Inputs.SpringCloudAppCustomPersistentDiskGetArgs> CustomPersistentDisks
+        {
+            get => _customPersistentDisks ?? (_customPersistentDisks = new InputList<Inputs.SpringCloudAppCustomPersistentDiskGetArgs>());
+            set => _customPersistentDisks = value;
+        }
+
         /// <summary>
         /// The Fully Qualified DNS Name of the Spring Application in the service.
         /// </summary>

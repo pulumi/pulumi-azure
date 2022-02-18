@@ -1221,6 +1221,162 @@ func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type AccountCustomerManagedKey struct {
+	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// AccountCustomerManagedKeyInput is an input type that accepts AccountCustomerManagedKeyArgs and AccountCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `AccountCustomerManagedKeyInput` via:
+//
+//          AccountCustomerManagedKeyArgs{...}
+type AccountCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToAccountCustomerManagedKeyOutput() AccountCustomerManagedKeyOutput
+	ToAccountCustomerManagedKeyOutputWithContext(context.Context) AccountCustomerManagedKeyOutput
+}
+
+type AccountCustomerManagedKeyArgs struct {
+	// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (AccountCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCustomerManagedKey)(nil)).Elem()
+}
+
+func (i AccountCustomerManagedKeyArgs) ToAccountCustomerManagedKeyOutput() AccountCustomerManagedKeyOutput {
+	return i.ToAccountCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i AccountCustomerManagedKeyArgs) ToAccountCustomerManagedKeyOutputWithContext(ctx context.Context) AccountCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyOutput)
+}
+
+func (i AccountCustomerManagedKeyArgs) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
+	return i.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i AccountCustomerManagedKeyArgs) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyOutput).ToAccountCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// AccountCustomerManagedKeyPtrInput is an input type that accepts AccountCustomerManagedKeyArgs, AccountCustomerManagedKeyPtr and AccountCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `AccountCustomerManagedKeyPtrInput` via:
+//
+//          AccountCustomerManagedKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput
+	ToAccountCustomerManagedKeyPtrOutputWithContext(context.Context) AccountCustomerManagedKeyPtrOutput
+}
+
+type accountCustomerManagedKeyPtrType AccountCustomerManagedKeyArgs
+
+func AccountCustomerManagedKeyPtr(v *AccountCustomerManagedKeyArgs) AccountCustomerManagedKeyPtrInput {
+	return (*accountCustomerManagedKeyPtrType)(v)
+}
+
+func (*accountCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *accountCustomerManagedKeyPtrType) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
+	return i.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *accountCustomerManagedKeyPtrType) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyPtrOutput)
+}
+
+type AccountCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (AccountCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCustomerManagedKey)(nil)).Elem()
+}
+
+func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyOutput() AccountCustomerManagedKeyOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyOutputWithContext(ctx context.Context) AccountCustomerManagedKeyOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
+	return o.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCustomerManagedKey) *AccountCustomerManagedKey {
+		return &v
+	}).(AccountCustomerManagedKeyPtrOutput)
+}
+
+// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+func (o AccountCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The ID of a user assigned identity.
+func (o AccountCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountCustomerManagedKey) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type AccountCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCustomerManagedKey)(nil)).Elem()
+}
+
+func (o AccountCustomerManagedKeyPtrOutput) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyPtrOutput) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyPtrOutput) Elem() AccountCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKey) AccountCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret AccountCustomerManagedKey
+		return ret
+	}).(AccountCustomerManagedKeyOutput)
+}
+
+// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+func (o AccountCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of a user assigned identity.
+func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountIdentity struct {
 	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -4376,10 +4532,16 @@ func (o ManagementPolicyRuleActionsOutput) Version() ManagementPolicyRuleActions
 }
 
 type ManagementPolicyRuleActionsBaseBlob struct {
+	// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+	DeleteAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob. Must be between 0 and 99999.
 	DeleteAfterDaysSinceModificationGreaterThan *int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 	TierToArchiveAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
 	TierToCoolAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
@@ -4396,10 +4558,16 @@ type ManagementPolicyRuleActionsBaseBlobInput interface {
 }
 
 type ManagementPolicyRuleActionsBaseBlobArgs struct {
+	// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+	DeleteAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob. Must be between 0 and 99999.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
 	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
@@ -4481,15 +4649,36 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
+// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.DeleteAfterDaysSinceLastAccessTimeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 // The age in days after last modification to delete the blob. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+}
+
+// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToCoolAfterDaysSinceLastAccessTimeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -4524,6 +4713,16 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 	}).(ManagementPolicyRuleActionsBaseBlobOutput)
 }
 
+// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteAfterDaysSinceLastAccessTimeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 // The age in days after last modification to delete the blob. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
@@ -4534,6 +4733,16 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModifi
 	}).(pulumi.IntPtrOutput)
 }
 
+// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
+func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
@@ -4541,6 +4750,16 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 			return nil
 		}
 		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCoolAfterDaysSinceLastAccessTimeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -7279,6 +7498,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountBlobPropertiesDeleteRetentionPolicyPtrInput)(nil)).Elem(), AccountBlobPropertiesDeleteRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomDomainInput)(nil)).Elem(), AccountCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomDomainPtrInput)(nil)).Elem(), AccountCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyInput)(nil)).Elem(), AccountCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyPtrInput)(nil)).Elem(), AccountCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesTypeInput)(nil)).Elem(), AccountNetworkRulesTypeArgs{})
@@ -7377,6 +7598,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomDomainOutput{})
 	pulumi.RegisterOutputType(AccountCustomDomainPtrOutput{})
+	pulumi.RegisterOutputType(AccountCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(AccountCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesTypeOutput{})

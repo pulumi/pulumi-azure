@@ -18,6 +18,9 @@ __all__ = [
     'ElasticPoolSkuArgs',
     'FailoverGroupPartnerServerArgs',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'ManagedInstanceFailoverGroupPartnerRegionArgs',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'ManagedInstanceIdentityArgs',
     'ServerAzureadAdministratorArgs',
     'ServerExtendedAuditingPolicyArgs',
     'ServerFooArgs',
@@ -572,6 +575,137 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @grace_minutes.setter
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
+
+
+@pulumi.input_type
+class ManagedInstanceFailoverGroupPartnerRegionArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The partner replication role of the Managed Instance Failover Group.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partner replication role of the Managed Instance Failover Group.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 grace_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] mode: The failover mode. Possible values are `Automatic` or `Manual`.
+        :param pulumi.Input[int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if grace_minutes is not None:
+            pulumi.set(__self__, "grace_minutes", grace_minutes)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The failover mode. Possible values are `Automatic` or `Manual`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="graceMinutes")
+    def grace_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        return pulumi.get(self, "grace_minutes")
+
+    @grace_minutes.setter
+    def grace_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_minutes", value)
+
+
+@pulumi.input_type
+class ManagedInstanceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The identity type of the SQL Managed Instance. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

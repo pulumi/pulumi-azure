@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     virtualWanId: exampleVirtualWan.id,
+ *     addressCidrs: ["10.0.0.0/24"],
  *     links: [{
  *         name: "link1",
  *         ipAddress: "10.0.0.1",

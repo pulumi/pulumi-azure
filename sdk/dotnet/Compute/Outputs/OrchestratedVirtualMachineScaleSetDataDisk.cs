@@ -21,6 +21,8 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly int DiskSizeGb;
         public readonly int Lun;
         public readonly string StorageAccountType;
+        public readonly int? UltraSsdDiskIopsReadWrite;
+        public readonly int? UltraSsdDiskMbpsReadWrite;
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]
@@ -41,6 +43,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string storageAccountType,
 
+            int? ultraSsdDiskIopsReadWrite,
+
+            int? ultraSsdDiskMbpsReadWrite,
+
             bool? writeAcceleratorEnabled)
         {
             Caching = caching;
@@ -51,6 +57,8 @@ namespace Pulumi.Azure.Compute.Outputs
             DiskSizeGb = diskSizeGb;
             Lun = lun;
             StorageAccountType = storageAccountType;
+            UltraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
+            UltraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }

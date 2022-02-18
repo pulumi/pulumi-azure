@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Sql
         public Output<Outputs.ManagedInstanceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        /// What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         /// </summary>
         [Output("licenseType")]
         public Output<string> LicenseType { get; private set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.Sql
         public Input<Inputs.ManagedInstanceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        /// What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         /// </summary>
         [Input("licenseType", required: true)]
         public Input<string> LicenseType { get; set; } = null!;
@@ -569,7 +569,7 @@ namespace Pulumi.Azure.Sql
         public Input<Inputs.ManagedInstanceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        /// What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }

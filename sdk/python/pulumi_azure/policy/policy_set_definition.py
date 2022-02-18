@@ -47,8 +47,8 @@ class PolicySetDefinitionArgs:
         if management_group_id is not None:
             pulumi.set(__self__, "management_group_id", management_group_id)
         if management_group_name is not None:
-            warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
-            pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_name`""")
+            warnings.warn("""Deprecated in favour of `management_group_id`""", DeprecationWarning)
+            pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_id`""")
         if management_group_name is not None:
             pulumi.set(__self__, "management_group_name", management_group_name)
         if metadata is not None:
@@ -235,8 +235,8 @@ class _PolicySetDefinitionState:
         if management_group_id is not None:
             pulumi.set(__self__, "management_group_id", management_group_id)
         if management_group_name is not None:
-            warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
-            pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_name`""")
+            warnings.warn("""Deprecated in favour of `management_group_id`""", DeprecationWarning)
+            pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_id`""")
         if management_group_name is not None:
             pulumi.set(__self__, "management_group_name", management_group_name)
         if metadata is not None:
@@ -571,8 +571,8 @@ class PolicySetDefinition(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["management_group_id"] = management_group_id
             if management_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
-                pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_name`""")
+                warnings.warn("""Deprecated in favour of `management_group_id`""", DeprecationWarning)
+                pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_id`""")
             __props__.__dict__["management_group_name"] = management_group_name
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name

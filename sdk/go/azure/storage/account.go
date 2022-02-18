@@ -144,6 +144,8 @@ type Account struct {
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey AccountCustomerManagedKeyOutput `pulumi:"customerManagedKey"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
@@ -302,6 +304,8 @@ type accountState struct {
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
@@ -423,6 +427,8 @@ type AccountState struct {
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey AccountCustomerManagedKeyPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
@@ -548,6 +554,8 @@ type accountArgs struct {
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
@@ -606,6 +614,8 @@ type AccountArgs struct {
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey AccountCustomerManagedKeyPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput

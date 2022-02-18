@@ -17,16 +17,21 @@ class KubernetesClusterArgs:
     def __init__(__self__, *,
                  default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
                  resource_group_name: pulumi.Input[str],
+                 aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
                  addon_profile: Optional[pulumi.Input['KubernetesClusterAddonProfileArgs']] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
@@ -36,6 +41,8 @@ class KubernetesClusterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
+                 open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -50,15 +57,20 @@ class KubernetesClusterArgs:
         The set of arguments for constructing a KubernetesCluster resource.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
@@ -68,6 +80,8 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
@@ -79,6 +93,11 @@ class KubernetesClusterArgs:
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if aci_connector_linux is not None:
+            pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+        if addon_profile is not None:
+            warnings.warn("""`addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.""", DeprecationWarning)
+            pulumi.log.warn("""addon_profile is deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.""")
         if addon_profile is not None:
             pulumi.set(__self__, "addon_profile", addon_profile)
         if api_server_authorized_ip_ranges is not None:
@@ -87,6 +106,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
         if automatic_channel_upgrade is not None:
             pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+        if azure_policy_enabled is not None:
+            pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
@@ -95,10 +116,16 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
+        if http_application_routing_enabled is not None:
+            pulumi.set(__self__, "http_application_routing_enabled", http_application_routing_enabled)
         if http_proxy_config is not None:
             pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if ingress_application_gateway is not None:
+            pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+        if key_vault_secrets_provider is not None:
+            pulumi.set(__self__, "key_vault_secrets_provider", key_vault_secrets_provider)
         if kubelet_identities is not None:
             pulumi.set(__self__, "kubelet_identities", kubelet_identities)
         if kubernetes_version is not None:
@@ -117,6 +144,10 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if oms_agent is not None:
+            pulumi.set(__self__, "oms_agent", oms_agent)
+        if open_service_mesh_enabled is not None:
+            pulumi.set(__self__, "open_service_mesh_enabled", open_service_mesh_enabled)
         if private_cluster_enabled is not None:
             pulumi.set(__self__, "private_cluster_enabled", private_cluster_enabled)
         if private_cluster_public_fqdn_enabled is not None:
@@ -164,6 +195,18 @@ class KubernetesClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="aciConnectorLinux")
+    def aci_connector_linux(self) -> Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]:
+        """
+        A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        """
+        return pulumi.get(self, "aci_connector_linux")
+
+    @aci_connector_linux.setter
+    def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]):
+        pulumi.set(self, "aci_connector_linux", value)
 
     @property
     @pulumi.getter(name="addonProfile")
@@ -214,6 +257,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "automatic_channel_upgrade", value)
 
     @property
+    @pulumi.getter(name="azurePolicyEnabled")
+    def azure_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        """
+        return pulumi.get(self, "azure_policy_enabled")
+
+    @azure_policy_enabled.setter
+    def azure_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_policy_enabled", value)
+
+    @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -259,6 +314,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "enable_pod_security_policy", value)
 
     @property
+    @pulumi.getter(name="httpApplicationRoutingEnabled")
+    def http_application_routing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTP Application Routing be enabled?
+        """
+        return pulumi.get(self, "http_application_routing_enabled")
+
+    @http_application_routing_enabled.setter
+    def http_application_routing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http_application_routing_enabled", value)
+
+    @property
     @pulumi.getter(name="httpProxyConfig")
     def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]:
         """
@@ -281,6 +348,30 @@ class KubernetesClusterArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="ingressApplicationGateway")
+    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]:
+        """
+        A `ingress_application_gateway` block as defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway")
+
+    @ingress_application_gateway.setter
+    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]):
+        pulumi.set(self, "ingress_application_gateway", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretsProvider")
+    def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]:
+        """
+        A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        """
+        return pulumi.get(self, "key_vault_secrets_provider")
+
+    @key_vault_secrets_provider.setter
+    def key_vault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]):
+        pulumi.set(self, "key_vault_secrets_provider", value)
 
     @property
     @pulumi.getter(name="kubeletIdentities")
@@ -389,6 +480,30 @@ class KubernetesClusterArgs:
     @node_resource_group.setter
     def node_resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_resource_group", value)
+
+    @property
+    @pulumi.getter(name="omsAgent")
+    def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]:
+        """
+        A `oms_agent` block as defined below.
+        """
+        return pulumi.get(self, "oms_agent")
+
+    @oms_agent.setter
+    def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]):
+        pulumi.set(self, "oms_agent", value)
+
+    @property
+    @pulumi.getter(name="openServiceMeshEnabled")
+    def open_service_mesh_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        """
+        return pulumi.get(self, "open_service_mesh_enabled")
+
+    @open_service_mesh_enabled.setter
+    def open_service_mesh_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "open_service_mesh_enabled", value)
 
     @property
     @pulumi.getter(name="privateClusterEnabled")
@@ -508,18 +623,24 @@ class KubernetesClusterArgs:
 @pulumi.input_type
 class _KubernetesClusterState:
     def __init__(__self__, *,
+                 aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
                  addon_profile: Optional[pulumi.Input['KubernetesClusterAddonProfileArgs']] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
+                 http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
                  http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
                  kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
                  kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]] = None,
                  kube_config_raw: Optional[pulumi.Input[str]] = None,
@@ -533,6 +654,8 @@ class _KubernetesClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
+                 open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  portal_fqdn: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -548,17 +671,23 @@ class _KubernetesClusterState:
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None):
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
+        :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
+        :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
@@ -572,6 +701,8 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
@@ -584,6 +715,11 @@ class _KubernetesClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         """
+        if aci_connector_linux is not None:
+            pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+        if addon_profile is not None:
+            warnings.warn("""`addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.""", DeprecationWarning)
+            pulumi.log.warn("""addon_profile is deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.""")
         if addon_profile is not None:
             pulumi.set(__self__, "addon_profile", addon_profile)
         if api_server_authorized_ip_ranges is not None:
@@ -592,6 +728,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
         if automatic_channel_upgrade is not None:
             pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+        if azure_policy_enabled is not None:
+            pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if default_node_pool is not None:
             pulumi.set(__self__, "default_node_pool", default_node_pool)
         if disk_encryption_set_id is not None:
@@ -604,10 +742,18 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if http_application_routing_enabled is not None:
+            pulumi.set(__self__, "http_application_routing_enabled", http_application_routing_enabled)
+        if http_application_routing_zone_name is not None:
+            pulumi.set(__self__, "http_application_routing_zone_name", http_application_routing_zone_name)
         if http_proxy_config is not None:
             pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if ingress_application_gateway is not None:
+            pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+        if key_vault_secrets_provider is not None:
+            pulumi.set(__self__, "key_vault_secrets_provider", key_vault_secrets_provider)
         if kube_admin_config_raw is not None:
             pulumi.set(__self__, "kube_admin_config_raw", kube_admin_config_raw)
         if kube_admin_configs is not None:
@@ -634,6 +780,10 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if oms_agent is not None:
+            pulumi.set(__self__, "oms_agent", oms_agent)
+        if open_service_mesh_enabled is not None:
+            pulumi.set(__self__, "open_service_mesh_enabled", open_service_mesh_enabled)
         if portal_fqdn is not None:
             pulumi.set(__self__, "portal_fqdn", portal_fqdn)
         if private_cluster_enabled is not None:
@@ -663,6 +813,18 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "tags", tags)
         if windows_profile is not None:
             pulumi.set(__self__, "windows_profile", windows_profile)
+
+    @property
+    @pulumi.getter(name="aciConnectorLinux")
+    def aci_connector_linux(self) -> Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]:
+        """
+        A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        """
+        return pulumi.get(self, "aci_connector_linux")
+
+    @aci_connector_linux.setter
+    def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]):
+        pulumi.set(self, "aci_connector_linux", value)
 
     @property
     @pulumi.getter(name="addonProfile")
@@ -711,6 +873,18 @@ class _KubernetesClusterState:
     @automatic_channel_upgrade.setter
     def automatic_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automatic_channel_upgrade", value)
+
+    @property
+    @pulumi.getter(name="azurePolicyEnabled")
+    def azure_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        """
+        return pulumi.get(self, "azure_policy_enabled")
+
+    @azure_policy_enabled.setter
+    def azure_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_policy_enabled", value)
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -782,6 +956,30 @@ class _KubernetesClusterState:
         pulumi.set(self, "fqdn", value)
 
     @property
+    @pulumi.getter(name="httpApplicationRoutingEnabled")
+    def http_application_routing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTP Application Routing be enabled?
+        """
+        return pulumi.get(self, "http_application_routing_enabled")
+
+    @http_application_routing_enabled.setter
+    def http_application_routing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http_application_routing_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpApplicationRoutingZoneName")
+    def http_application_routing_zone_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Zone Name of the HTTP Application Routing.
+        """
+        return pulumi.get(self, "http_application_routing_zone_name")
+
+    @http_application_routing_zone_name.setter
+    def http_application_routing_zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_application_routing_zone_name", value)
+
+    @property
     @pulumi.getter(name="httpProxyConfig")
     def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]:
         """
@@ -804,6 +1002,30 @@ class _KubernetesClusterState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="ingressApplicationGateway")
+    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]:
+        """
+        A `ingress_application_gateway` block as defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway")
+
+    @ingress_application_gateway.setter
+    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]):
+        pulumi.set(self, "ingress_application_gateway", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretsProvider")
+    def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]:
+        """
+        A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        """
+        return pulumi.get(self, "key_vault_secrets_provider")
+
+    @key_vault_secrets_provider.setter
+    def key_vault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]):
+        pulumi.set(self, "key_vault_secrets_provider", value)
 
     @property
     @pulumi.getter(name="kubeAdminConfigRaw")
@@ -962,6 +1184,30 @@ class _KubernetesClusterState:
         pulumi.set(self, "node_resource_group", value)
 
     @property
+    @pulumi.getter(name="omsAgent")
+    def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]:
+        """
+        A `oms_agent` block as defined below.
+        """
+        return pulumi.get(self, "oms_agent")
+
+    @oms_agent.setter
+    def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]):
+        pulumi.set(self, "oms_agent", value)
+
+    @property
+    @pulumi.getter(name="openServiceMeshEnabled")
+    def open_service_mesh_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        """
+        return pulumi.get(self, "open_service_mesh_enabled")
+
+    @open_service_mesh_enabled.setter
+    def open_service_mesh_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "open_service_mesh_enabled", value)
+
+    @property
     @pulumi.getter(name="portalFqdn")
     def portal_fqdn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1117,17 +1363,22 @@ class KubernetesCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']]] = None,
                  addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
@@ -1137,6 +1388,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
+                 open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -1190,16 +1443,21 @@ class KubernetesCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
@@ -1209,6 +1467,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
@@ -1279,17 +1539,22 @@ class KubernetesCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']]] = None,
                  addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
@@ -1299,6 +1564,8 @@ class KubernetesCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
+                 open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -1322,10 +1589,15 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KubernetesClusterArgs.__new__(KubernetesClusterArgs)
 
+            __props__.__dict__["aci_connector_linux"] = aci_connector_linux
+            if addon_profile is not None and not opts.urn:
+                warnings.warn("""`addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.""", DeprecationWarning)
+                pulumi.log.warn("""addon_profile is deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.""")
             __props__.__dict__["addon_profile"] = addon_profile
             __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
             __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
             __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+            __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -1333,8 +1605,11 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["dns_prefix"] = dns_prefix
             __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
+            __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
             __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
+            __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
             __props__.__dict__["kubelet_identities"] = kubelet_identities
             __props__.__dict__["kubernetes_version"] = kubernetes_version
             __props__.__dict__["linux_profile"] = linux_profile
@@ -1344,6 +1619,8 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
+            __props__.__dict__["oms_agent"] = oms_agent
+            __props__.__dict__["open_service_mesh_enabled"] = open_service_mesh_enabled
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
             __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
@@ -1361,6 +1638,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["fqdn"] = None
+            __props__.__dict__["http_application_routing_zone_name"] = None
             __props__.__dict__["kube_admin_config_raw"] = None
             __props__.__dict__["kube_admin_configs"] = None
             __props__.__dict__["kube_config_raw"] = None
@@ -1377,18 +1655,24 @@ class KubernetesCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']]] = None,
             addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
             automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+            azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
+            http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
+            http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
             http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+            ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
+            key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
             kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]]] = None,
             kube_config_raw: Optional[pulumi.Input[str]] = None,
@@ -1402,6 +1686,8 @@ class KubernetesCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
+            oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
+            open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
             portal_fqdn: Optional[pulumi.Input[str]] = None,
             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
             private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1422,17 +1708,23 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
+        :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
@@ -1446,6 +1738,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
@@ -1462,18 +1756,24 @@ class KubernetesCluster(pulumi.CustomResource):
 
         __props__ = _KubernetesClusterState.__new__(_KubernetesClusterState)
 
+        __props__.__dict__["aci_connector_linux"] = aci_connector_linux
         __props__.__dict__["addon_profile"] = addon_profile
         __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
         __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
         __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+        __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
         __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
         __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
+        __props__.__dict__["http_application_routing_zone_name"] = http_application_routing_zone_name
         __props__.__dict__["http_proxy_config"] = http_proxy_config
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
+        __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
         __props__.__dict__["kube_admin_config_raw"] = kube_admin_config_raw
         __props__.__dict__["kube_admin_configs"] = kube_admin_configs
         __props__.__dict__["kube_config_raw"] = kube_config_raw
@@ -1487,6 +1787,8 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
+        __props__.__dict__["oms_agent"] = oms_agent
+        __props__.__dict__["open_service_mesh_enabled"] = open_service_mesh_enabled
         __props__.__dict__["portal_fqdn"] = portal_fqdn
         __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
         __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
@@ -1501,6 +1803,14 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["windows_profile"] = windows_profile
         return KubernetesCluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aciConnectorLinux")
+    def aci_connector_linux(self) -> pulumi.Output['outputs.KubernetesClusterAciConnectorLinux']:
+        """
+        A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        """
+        return pulumi.get(self, "aci_connector_linux")
 
     @property
     @pulumi.getter(name="addonProfile")
@@ -1533,6 +1843,14 @@ class KubernetesCluster(pulumi.CustomResource):
         The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         """
         return pulumi.get(self, "automatic_channel_upgrade")
+
+    @property
+    @pulumi.getter(name="azurePolicyEnabled")
+    def azure_policy_enabled(self) -> pulumi.Output[bool]:
+        """
+        Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        """
+        return pulumi.get(self, "azure_policy_enabled")
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -1580,6 +1898,22 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "fqdn")
 
     @property
+    @pulumi.getter(name="httpApplicationRoutingEnabled")
+    def http_application_routing_enabled(self) -> pulumi.Output[bool]:
+        """
+        Should HTTP Application Routing be enabled?
+        """
+        return pulumi.get(self, "http_application_routing_enabled")
+
+    @property
+    @pulumi.getter(name="httpApplicationRoutingZoneName")
+    def http_application_routing_zone_name(self) -> pulumi.Output[str]:
+        """
+        The Zone Name of the HTTP Application Routing.
+        """
+        return pulumi.get(self, "http_application_routing_zone_name")
+
+    @property
     @pulumi.getter(name="httpProxyConfig")
     def http_proxy_config(self) -> pulumi.Output[Optional['outputs.KubernetesClusterHttpProxyConfig']]:
         """
@@ -1594,6 +1928,22 @@ class KubernetesCluster(pulumi.CustomResource):
         An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="ingressApplicationGateway")
+    def ingress_application_gateway(self) -> pulumi.Output['outputs.KubernetesClusterIngressApplicationGateway']:
+        """
+        A `ingress_application_gateway` block as defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretsProvider")
+    def key_vault_secrets_provider(self) -> pulumi.Output['outputs.KubernetesClusterKeyVaultSecretsProvider']:
+        """
+        A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        """
+        return pulumi.get(self, "key_vault_secrets_provider")
 
     @property
     @pulumi.getter(name="kubeAdminConfigRaw")
@@ -1698,6 +2048,22 @@ class KubernetesCluster(pulumi.CustomResource):
         The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_resource_group")
+
+    @property
+    @pulumi.getter(name="omsAgent")
+    def oms_agent(self) -> pulumi.Output['outputs.KubernetesClusterOmsAgent']:
+        """
+        A `oms_agent` block as defined below.
+        """
+        return pulumi.get(self, "oms_agent")
+
+    @property
+    @pulumi.getter(name="openServiceMeshEnabled")
+    def open_service_mesh_enabled(self) -> pulumi.Output[bool]:
+        """
+        Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        """
+        return pulumi.get(self, "open_service_mesh_enabled")
 
     @property
     @pulumi.getter(name="portalFqdn")

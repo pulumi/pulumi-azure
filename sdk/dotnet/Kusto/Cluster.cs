@@ -57,10 +57,22 @@ namespace Pulumi.Azure.Kusto
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Output("autoStopEnabled")]
+        public Output<bool> AutoStopEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Kusto Cluster URI to be used for data ingestion.
         /// </summary>
         [Output("dataIngestionUri")]
         public Output<string> DataIngestionUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the cluster's disks are encrypted.
+        /// </summary>
+        [Output("diskEncryptionEnabled")]
+        public Output<bool> DiskEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
@@ -68,29 +80,17 @@ namespace Pulumi.Azure.Kusto
         [Output("doubleEncryptionEnabled")]
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        /// </summary>
         [Output("enableAutoStop")]
-        public Output<bool?> EnableAutoStop { get; private set; } = null!;
+        public Output<bool> EnableAutoStop { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if the cluster's disks are encrypted.
-        /// </summary>
         [Output("enableDiskEncryption")]
-        public Output<bool?> EnableDiskEncryption { get; private set; } = null!;
+        public Output<bool> EnableDiskEncryption { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if the purge operations are enabled.
-        /// </summary>
         [Output("enablePurge")]
-        public Output<bool?> EnablePurge { get; private set; } = null!;
+        public Output<bool> EnablePurge { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if the streaming ingest is enabled.
-        /// </summary>
         [Output("enableStreamingIngest")]
-        public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
+        public Output<bool> EnableStreamingIngest { get; private set; } = null!;
 
         /// <summary>
         /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
@@ -128,6 +128,15 @@ namespace Pulumi.Azure.Kusto
         [Output("optimizedAutoScale")]
         public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
 
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the purge operations are enabled.
+        /// </summary>
+        [Output("purgeEnabled")]
+        public Output<bool> PurgeEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -139,6 +148,9 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ClusterSku> Sku { get; private set; } = null!;
+
+        [Output("streamingIngestionEnabled")]
+        public Output<bool> StreamingIngestionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -217,32 +229,32 @@ namespace Pulumi.Azure.Kusto
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Input("autoStopEnabled")]
+        public Input<bool>? AutoStopEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if the cluster's disks are encrypted.
+        /// </summary>
+        [Input("diskEncryptionEnabled")]
+        public Input<bool>? DiskEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        /// </summary>
         [Input("enableAutoStop")]
         public Input<bool>? EnableAutoStop { get; set; }
 
-        /// <summary>
-        /// Specifies if the cluster's disks are encrypted.
-        /// </summary>
         [Input("enableDiskEncryption")]
         public Input<bool>? EnableDiskEncryption { get; set; }
 
-        /// <summary>
-        /// Specifies if the purge operations are enabled.
-        /// </summary>
         [Input("enablePurge")]
         public Input<bool>? EnablePurge { get; set; }
 
-        /// <summary>
-        /// Specifies if the streaming ingest is enabled.
-        /// </summary>
         [Input("enableStreamingIngest")]
         public Input<bool>? EnableStreamingIngest { get; set; }
 
@@ -288,6 +300,15 @@ namespace Pulumi.Azure.Kusto
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
 
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if the purge operations are enabled.
+        /// </summary>
+        [Input("purgeEnabled")]
+        public Input<bool>? PurgeEnabled { get; set; }
+
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -299,6 +320,9 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ClusterSkuArgs> Sku { get; set; } = null!;
+
+        [Input("streamingIngestionEnabled")]
+        public Input<bool>? StreamingIngestionEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -350,10 +374,22 @@ namespace Pulumi.Azure.Kusto
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Input("autoStopEnabled")]
+        public Input<bool>? AutoStopEnabled { get; set; }
+
+        /// <summary>
         /// The Kusto Cluster URI to be used for data ingestion.
         /// </summary>
         [Input("dataIngestionUri")]
         public Input<string>? DataIngestionUri { get; set; }
+
+        /// <summary>
+        /// Specifies if the cluster's disks are encrypted.
+        /// </summary>
+        [Input("diskEncryptionEnabled")]
+        public Input<bool>? DiskEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
@@ -361,27 +397,15 @@ namespace Pulumi.Azure.Kusto
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        /// </summary>
         [Input("enableAutoStop")]
         public Input<bool>? EnableAutoStop { get; set; }
 
-        /// <summary>
-        /// Specifies if the cluster's disks are encrypted.
-        /// </summary>
         [Input("enableDiskEncryption")]
         public Input<bool>? EnableDiskEncryption { get; set; }
 
-        /// <summary>
-        /// Specifies if the purge operations are enabled.
-        /// </summary>
         [Input("enablePurge")]
         public Input<bool>? EnablePurge { get; set; }
 
-        /// <summary>
-        /// Specifies if the streaming ingest is enabled.
-        /// </summary>
         [Input("enableStreamingIngest")]
         public Input<bool>? EnableStreamingIngest { get; set; }
 
@@ -427,6 +451,15 @@ namespace Pulumi.Azure.Kusto
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
 
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if the purge operations are enabled.
+        /// </summary>
+        [Input("purgeEnabled")]
+        public Input<bool>? PurgeEnabled { get; set; }
+
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -438,6 +471,9 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ClusterSkuGetArgs>? Sku { get; set; }
+
+        [Input("streamingIngestionEnabled")]
+        public Input<bool>? StreamingIngestionEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

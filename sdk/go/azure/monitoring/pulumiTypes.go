@@ -939,7 +939,7 @@ type ActionGroupItsmReceiver struct {
 	Region string `pulumi:"region"`
 	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// The Azure Log Analytics workspace ID where this connection is defined.
+	// The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -963,7 +963,7 @@ type ActionGroupItsmReceiverArgs struct {
 	Region pulumi.StringInput `pulumi:"region"`
 	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// The Azure Log Analytics workspace ID where this connection is defined.
+	// The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 
@@ -1038,7 +1038,7 @@ func (o ActionGroupItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// The Azure Log Analytics workspace ID where this connection is defined.
+// The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
 func (o ActionGroupItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -5207,6 +5207,8 @@ type ActivityLogAlertCriteria struct {
 	RecommendationType *string `pulumi:"recommendationType"`
 	// The name of resource group monitored by the activity log alert.
 	ResourceGroup *string `pulumi:"resourceGroup"`
+	// A block to define fine grain resource health settings.
+	ResourceHealths []ActivityLogAlertCriteriaResourceHealth `pulumi:"resourceHealths"`
 	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 	ResourceId *string `pulumi:"resourceId"`
 	// The name of the resource provider monitored by the activity log alert.
@@ -5249,6 +5251,8 @@ type ActivityLogAlertCriteriaArgs struct {
 	RecommendationType pulumi.StringPtrInput `pulumi:"recommendationType"`
 	// The name of resource group monitored by the activity log alert.
 	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// A block to define fine grain resource health settings.
+	ResourceHealths ActivityLogAlertCriteriaResourceHealthArrayInput `pulumi:"resourceHealths"`
 	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 	// The name of the resource provider monitored by the activity log alert.
@@ -5378,6 +5382,11 @@ func (o ActivityLogAlertCriteriaOutput) RecommendationType() pulumi.StringPtrOut
 // The name of resource group monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// A block to define fine grain resource health settings.
+func (o ActivityLogAlertCriteriaOutput) ResourceHealths() ActivityLogAlertCriteriaResourceHealthArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []ActivityLogAlertCriteriaResourceHealth { return v.ResourceHealths }).(ActivityLogAlertCriteriaResourceHealthArrayOutput)
 }
 
 // The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
@@ -5514,6 +5523,16 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A block to define fine grain resource health settings.
+func (o ActivityLogAlertCriteriaPtrOutput) ResourceHealths() ActivityLogAlertCriteriaResourceHealthArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []ActivityLogAlertCriteriaResourceHealth {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceHealths
+	}).(ActivityLogAlertCriteriaResourceHealthArrayOutput)
+}
+
 // The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
@@ -5572,6 +5591,121 @@ func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 		}
 		return v.SubStatus
 	}).(pulumi.StringPtrOutput)
+}
+
+type ActivityLogAlertCriteriaResourceHealth struct {
+	// The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+	Currents []string `pulumi:"currents"`
+	// The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+	Previouses []string `pulumi:"previouses"`
+	// The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+	Reasons []string `pulumi:"reasons"`
+}
+
+// ActivityLogAlertCriteriaResourceHealthInput is an input type that accepts ActivityLogAlertCriteriaResourceHealthArgs and ActivityLogAlertCriteriaResourceHealthOutput values.
+// You can construct a concrete instance of `ActivityLogAlertCriteriaResourceHealthInput` via:
+//
+//          ActivityLogAlertCriteriaResourceHealthArgs{...}
+type ActivityLogAlertCriteriaResourceHealthInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertCriteriaResourceHealthOutput() ActivityLogAlertCriteriaResourceHealthOutput
+	ToActivityLogAlertCriteriaResourceHealthOutputWithContext(context.Context) ActivityLogAlertCriteriaResourceHealthOutput
+}
+
+type ActivityLogAlertCriteriaResourceHealthArgs struct {
+	// The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+	Currents pulumi.StringArrayInput `pulumi:"currents"`
+	// The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+	Previouses pulumi.StringArrayInput `pulumi:"previouses"`
+	// The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+	Reasons pulumi.StringArrayInput `pulumi:"reasons"`
+}
+
+func (ActivityLogAlertCriteriaResourceHealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlertCriteriaResourceHealth)(nil)).Elem()
+}
+
+func (i ActivityLogAlertCriteriaResourceHealthArgs) ToActivityLogAlertCriteriaResourceHealthOutput() ActivityLogAlertCriteriaResourceHealthOutput {
+	return i.ToActivityLogAlertCriteriaResourceHealthOutputWithContext(context.Background())
+}
+
+func (i ActivityLogAlertCriteriaResourceHealthArgs) ToActivityLogAlertCriteriaResourceHealthOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaResourceHealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaResourceHealthOutput)
+}
+
+// ActivityLogAlertCriteriaResourceHealthArrayInput is an input type that accepts ActivityLogAlertCriteriaResourceHealthArray and ActivityLogAlertCriteriaResourceHealthArrayOutput values.
+// You can construct a concrete instance of `ActivityLogAlertCriteriaResourceHealthArrayInput` via:
+//
+//          ActivityLogAlertCriteriaResourceHealthArray{ ActivityLogAlertCriteriaResourceHealthArgs{...} }
+type ActivityLogAlertCriteriaResourceHealthArrayInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertCriteriaResourceHealthArrayOutput() ActivityLogAlertCriteriaResourceHealthArrayOutput
+	ToActivityLogAlertCriteriaResourceHealthArrayOutputWithContext(context.Context) ActivityLogAlertCriteriaResourceHealthArrayOutput
+}
+
+type ActivityLogAlertCriteriaResourceHealthArray []ActivityLogAlertCriteriaResourceHealthInput
+
+func (ActivityLogAlertCriteriaResourceHealthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActivityLogAlertCriteriaResourceHealth)(nil)).Elem()
+}
+
+func (i ActivityLogAlertCriteriaResourceHealthArray) ToActivityLogAlertCriteriaResourceHealthArrayOutput() ActivityLogAlertCriteriaResourceHealthArrayOutput {
+	return i.ToActivityLogAlertCriteriaResourceHealthArrayOutputWithContext(context.Background())
+}
+
+func (i ActivityLogAlertCriteriaResourceHealthArray) ToActivityLogAlertCriteriaResourceHealthArrayOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaResourceHealthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaResourceHealthArrayOutput)
+}
+
+type ActivityLogAlertCriteriaResourceHealthOutput struct{ *pulumi.OutputState }
+
+func (ActivityLogAlertCriteriaResourceHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlertCriteriaResourceHealth)(nil)).Elem()
+}
+
+func (o ActivityLogAlertCriteriaResourceHealthOutput) ToActivityLogAlertCriteriaResourceHealthOutput() ActivityLogAlertCriteriaResourceHealthOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaResourceHealthOutput) ToActivityLogAlertCriteriaResourceHealthOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaResourceHealthOutput {
+	return o
+}
+
+// The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+func (o ActivityLogAlertCriteriaResourceHealthOutput) Currents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteriaResourceHealth) []string { return v.Currents }).(pulumi.StringArrayOutput)
+}
+
+// The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+func (o ActivityLogAlertCriteriaResourceHealthOutput) Previouses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteriaResourceHealth) []string { return v.Previouses }).(pulumi.StringArrayOutput)
+}
+
+// The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+func (o ActivityLogAlertCriteriaResourceHealthOutput) Reasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteriaResourceHealth) []string { return v.Reasons }).(pulumi.StringArrayOutput)
+}
+
+type ActivityLogAlertCriteriaResourceHealthArrayOutput struct{ *pulumi.OutputState }
+
+func (ActivityLogAlertCriteriaResourceHealthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActivityLogAlertCriteriaResourceHealth)(nil)).Elem()
+}
+
+func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) ToActivityLogAlertCriteriaResourceHealthArrayOutput() ActivityLogAlertCriteriaResourceHealthArrayOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) ToActivityLogAlertCriteriaResourceHealthArrayOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaResourceHealthArrayOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertCriteriaResourceHealthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertCriteriaResourceHealth {
+		return vs[0].([]ActivityLogAlertCriteriaResourceHealth)[vs[1].(int)]
+	}).(ActivityLogAlertCriteriaResourceHealthOutput)
 }
 
 type ActivityLogAlertCriteriaServiceHealth struct {
@@ -12516,6 +12650,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertActionArrayInput)(nil)).Elem(), ActivityLogAlertActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaInput)(nil)).Elem(), ActivityLogAlertCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaPtrInput)(nil)).Elem(), ActivityLogAlertCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaResourceHealthInput)(nil)).Elem(), ActivityLogAlertCriteriaResourceHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaResourceHealthArrayInput)(nil)).Elem(), ActivityLogAlertCriteriaResourceHealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealthInput)(nil)).Elem(), ActivityLogAlertCriteriaServiceHealthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealthArrayInput)(nil)).Elem(), ActivityLogAlertCriteriaServiceHealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationInput)(nil)).Elem(), AutoscaleSettingNotificationArgs{})
@@ -12684,6 +12820,8 @@ func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ActivityLogAlertCriteriaResourceHealthOutput{})
+	pulumi.RegisterOutputType(ActivityLogAlertCriteriaResourceHealthArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{})

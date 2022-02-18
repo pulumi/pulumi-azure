@@ -13,9 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAgentPoolProfileResult
     {
-        /// <summary>
-        /// The availability zones used for the nodes.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// The number of Agents (VM's) in the Pool.
@@ -83,6 +80,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the Subnet where the Agents in the Pool are provisioned.
         /// </summary>
         public readonly string VnetSubnetId;
+        /// <summary>
+        /// Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetKubernetesClusterAgentPoolProfileResult(
@@ -122,7 +123,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string vmSize,
 
-            string vnetSubnetId)
+            string vnetSubnetId,
+
+            ImmutableArray<string> zones)
         {
             AvailabilityZones = availabilityZones;
             Count = count;
@@ -143,6 +146,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
+            Zones = zones;
         }
     }
 }

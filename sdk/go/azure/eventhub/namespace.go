@@ -72,6 +72,8 @@ type Namespace struct {
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
+	// An `identity` block as defined below.
+	Identity NamespaceIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -135,6 +137,8 @@ type namespaceState struct {
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
+	// An `identity` block as defined below.
+	Identity *NamespaceIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -164,6 +168,8 @@ type NamespaceState struct {
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity NamespaceIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -187,6 +193,8 @@ func (NamespaceState) ElementType() reflect.Type {
 type namespaceArgs struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity *int `pulumi:"capacity"`
+	// An `identity` block as defined below.
+	Identity *NamespaceIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -207,6 +215,8 @@ type namespaceArgs struct {
 type NamespaceArgs struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrInput
+	// An `identity` block as defined below.
+	Identity NamespaceIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a

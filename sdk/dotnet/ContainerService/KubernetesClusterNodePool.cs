@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNodePoolKubeletConfig?> KubeletConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible Values are `OS`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         /// </summary>
         [Output("kubeletDiskType")]
         public Output<string> KubeletDiskType { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigArgs>? KubeletConfig { get; set; }
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible Values are `OS`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         /// </summary>
         [Input("kubeletDiskType")]
         public Input<string>? KubeletDiskType { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible Values are `OS`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         /// </summary>
         [Input("kubeletDiskType")]
         public Input<string>? KubeletDiskType { get; set; }

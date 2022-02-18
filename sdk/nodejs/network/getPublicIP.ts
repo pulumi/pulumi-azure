@@ -80,7 +80,6 @@ export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -96,10 +95,6 @@ export interface GetPublicIPArgs {
      * Specifies the name of the resource group.
      */
     resourceGroupName: string;
-    /**
-     * A mapping of tags to assigned to the resource.
-     */
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -146,7 +141,7 @@ export interface GetPublicIPResult {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     readonly zones: string[];
 }
 
@@ -166,8 +161,4 @@ export interface GetPublicIPOutputArgs {
      * Specifies the name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assigned to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

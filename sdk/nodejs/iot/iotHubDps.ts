@@ -75,6 +75,10 @@ export class IotHubDps extends pulumi.CustomResource {
      */
     public /*out*/ readonly idScope!: pulumi.Output<string>;
     /**
+     * An `ipFilterRule` block as defined below.
+     */
+    public readonly ipFilterRules!: pulumi.Output<outputs.iot.IotHubDpsIpFilterRule[] | undefined>;
+    /**
      * A `linkedHub` block as defined below.
      */
     public readonly linkedHubs!: pulumi.Output<outputs.iot.IotHubDpsLinkedHub[] | undefined>;
@@ -86,6 +90,10 @@ export class IotHubDps extends pulumi.CustomResource {
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether requests from Public Network are allowed. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
@@ -119,9 +127,11 @@ export class IotHubDps extends pulumi.CustomResource {
             resourceInputs["allocationPolicy"] = state ? state.allocationPolicy : undefined;
             resourceInputs["deviceProvisioningHostName"] = state ? state.deviceProvisioningHostName : undefined;
             resourceInputs["idScope"] = state ? state.idScope : undefined;
+            resourceInputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             resourceInputs["linkedHubs"] = state ? state.linkedHubs : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["serviceOperationsHostName"] = state ? state.serviceOperationsHostName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
@@ -135,9 +145,11 @@ export class IotHubDps extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["allocationPolicy"] = args ? args.allocationPolicy : undefined;
+            resourceInputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             resourceInputs["linkedHubs"] = args ? args.linkedHubs : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +179,10 @@ export interface IotHubDpsState {
      */
     idScope?: pulumi.Input<string>;
     /**
+     * An `ipFilterRule` block as defined below.
+     */
+    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsIpFilterRule>[]>;
+    /**
      * A `linkedHub` block as defined below.
      */
     linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
@@ -178,6 +194,10 @@ export interface IotHubDpsState {
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether requests from Public Network are allowed. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
@@ -205,6 +225,10 @@ export interface IotHubDpsArgs {
      */
     allocationPolicy?: pulumi.Input<string>;
     /**
+     * An `ipFilterRule` block as defined below.
+     */
+    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsIpFilterRule>[]>;
+    /**
      * A `linkedHub` block as defined below.
      */
     linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
@@ -216,6 +240,10 @@ export interface IotHubDpsArgs {
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether requests from Public Network are allowed. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */

@@ -10,6 +10,200 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type NamespaceIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// NamespaceIdentityInput is an input type that accepts NamespaceIdentityArgs and NamespaceIdentityOutput values.
+// You can construct a concrete instance of `NamespaceIdentityInput` via:
+//
+//          NamespaceIdentityArgs{...}
+type NamespaceIdentityInput interface {
+	pulumi.Input
+
+	ToNamespaceIdentityOutput() NamespaceIdentityOutput
+	ToNamespaceIdentityOutputWithContext(context.Context) NamespaceIdentityOutput
+}
+
+type NamespaceIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NamespaceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceIdentity)(nil)).Elem()
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityOutput() NamespaceIdentityOutput {
+	return i.ToNamespaceIdentityOutputWithContext(context.Background())
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityOutputWithContext(ctx context.Context) NamespaceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityOutput)
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return i.ToNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityOutput).ToNamespaceIdentityPtrOutputWithContext(ctx)
+}
+
+// NamespaceIdentityPtrInput is an input type that accepts NamespaceIdentityArgs, NamespaceIdentityPtr and NamespaceIdentityPtrOutput values.
+// You can construct a concrete instance of `NamespaceIdentityPtrInput` via:
+//
+//          NamespaceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type NamespaceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput
+	ToNamespaceIdentityPtrOutputWithContext(context.Context) NamespaceIdentityPtrOutput
+}
+
+type namespaceIdentityPtrType NamespaceIdentityArgs
+
+func NamespaceIdentityPtr(v *NamespaceIdentityArgs) NamespaceIdentityPtrInput {
+	return (*namespaceIdentityPtrType)(v)
+}
+
+func (*namespaceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceIdentity)(nil)).Elem()
+}
+
+func (i *namespaceIdentityPtrType) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return i.ToNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *namespaceIdentityPtrType) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityPtrOutput)
+}
+
+type NamespaceIdentityOutput struct{ *pulumi.OutputState }
+
+func (NamespaceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceIdentity)(nil)).Elem()
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityOutput() NamespaceIdentityOutput {
+	return o
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityOutputWithContext(ctx context.Context) NamespaceIdentityOutput {
+	return o
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return o.ToNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceIdentity) *NamespaceIdentity {
+		return &v
+	}).(NamespaceIdentityPtrOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+func (o NamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+func (o NamespaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+func (o NamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o NamespaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NamespaceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (NamespaceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceIdentity)(nil)).Elem()
+}
+
+func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return o
+}
+
+func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return o
+}
+
+func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) NamespaceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceIdentity
+		return ret
+	}).(NamespaceIdentityOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+func (o NamespaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+func (o NamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type NamespaceNetworkRuleSetNetworkRule struct {
 	// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
@@ -406,10 +600,14 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityInput)(nil)).Elem(), NamespaceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityPtrInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleArrayInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterPtrInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
+	pulumi.RegisterOutputType(NamespaceIdentityOutput{})
+	pulumi.RegisterOutputType(NamespaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterOutput{})

@@ -13,6 +13,8 @@ import (
 
 // Manages a Customer Managed Key for a Storage Account.
 //
+// > **NOTE:** It's possible to define a Customer Managed Key both within the `storage.Account` resource via the `customerManagedKey` block and by using the `storage.CustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there'll be conflicts.
+//
 // ## Example Usage
 //
 // ```go

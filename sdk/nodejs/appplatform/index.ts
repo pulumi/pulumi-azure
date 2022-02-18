@@ -16,6 +16,7 @@ export * from "./springCloudCertificate";
 export * from "./springCloudCustomDomain";
 export * from "./springCloudJavaDeployment";
 export * from "./springCloudService";
+export * from "./springCloudStorage";
 
 // Import resources to register:
 import { SpringCloudActiveDeployment } from "./springCloudActiveDeployment";
@@ -27,6 +28,7 @@ import { SpringCloudCertificate } from "./springCloudCertificate";
 import { SpringCloudCustomDomain } from "./springCloudCustomDomain";
 import { SpringCloudJavaDeployment } from "./springCloudJavaDeployment";
 import { SpringCloudService } from "./springCloudService";
+import { SpringCloudStorage } from "./springCloudStorage";
 
 const _module = {
     version: utilities.getVersion(),
@@ -50,6 +52,8 @@ const _module = {
                 return new SpringCloudJavaDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudService:SpringCloudService":
                 return new SpringCloudService(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudStorage:SpringCloudStorage":
+                return new SpringCloudStorage(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -64,3 +68,4 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCertifica
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudJavaDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudService", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudStorage", _module)

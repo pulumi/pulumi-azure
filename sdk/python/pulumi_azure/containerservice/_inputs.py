@@ -24,6 +24,7 @@ __all__ = [
     'GroupExposedPortArgs',
     'GroupIdentityArgs',
     'GroupImageRegistryCredentialArgs',
+    'KubernetesClusterAciConnectorLinuxArgs',
     'KubernetesClusterAddonProfileArgs',
     'KubernetesClusterAddonProfileAciConnectorLinuxArgs',
     'KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs',
@@ -44,6 +45,10 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
     'KubernetesClusterHttpProxyConfigArgs',
     'KubernetesClusterIdentityArgs',
+    'KubernetesClusterIngressApplicationGatewayArgs',
+    'KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs',
+    'KubernetesClusterKeyVaultSecretsProviderArgs',
+    'KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs',
     'KubernetesClusterKubeAdminConfigArgs',
     'KubernetesClusterKubeConfigArgs',
     'KubernetesClusterKubeletIdentityArgs',
@@ -59,6 +64,8 @@ __all__ = [
     'KubernetesClusterNodePoolLinuxOsConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterNodePoolUpgradeSettingsArgs',
+    'KubernetesClusterOmsAgentArgs',
+    'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterRoleBasedAccessControlArgs',
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs',
     'KubernetesClusterServicePrincipalArgs',
@@ -1209,6 +1216,28 @@ class GroupImageRegistryCredentialArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterAciConnectorLinuxArgs:
+    def __init__(__self__, *,
+                 subnet_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] subnet_name: The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        """
+        pulumi.set(__self__, "subnet_name", subnet_name)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> pulumi.Input[str]:
+        """
+        The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @subnet_name.setter
+    def subnet_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_name", value)
+
+
+@pulumi.input_type
 class KubernetesClusterAddonProfileArgs:
     def __init__(__self__, *,
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs']] = None,
@@ -1230,19 +1259,43 @@ class KubernetesClusterAddonProfileArgs:
         :param pulumi.Input['KubernetesClusterAddonProfileOpenServiceMeshArgs'] open_service_mesh: An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         """
         if aci_connector_linux is not None:
+            warnings.warn("""`addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""aci_connector_linux is deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.""")
+        if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+        if azure_keyvault_secrets_provider is not None:
+            warnings.warn("""`addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""azure_keyvault_secrets_provider is deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.""")
         if azure_keyvault_secrets_provider is not None:
             pulumi.set(__self__, "azure_keyvault_secrets_provider", azure_keyvault_secrets_provider)
         if azure_policy is not None:
+            warnings.warn("""`addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""azure_policy is deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.""")
+        if azure_policy is not None:
             pulumi.set(__self__, "azure_policy", azure_policy)
+        if http_application_routing is not None:
+            warnings.warn("""`addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""http_application_routing is deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.""")
         if http_application_routing is not None:
             pulumi.set(__self__, "http_application_routing", http_application_routing)
         if ingress_application_gateway is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""ingress_application_gateway is deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.""")
+        if ingress_application_gateway is not None:
             pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+        if kube_dashboard is not None:
+            warnings.warn("""`kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""kube_dashboard is deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.""")
         if kube_dashboard is not None:
             pulumi.set(__self__, "kube_dashboard", kube_dashboard)
         if oms_agent is not None:
+            warnings.warn("""`addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""oms_agent is deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.""")
+        if oms_agent is not None:
             pulumi.set(__self__, "oms_agent", oms_agent)
+        if open_service_mesh is not None:
+            warnings.warn("""`addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""open_service_mesh is deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.""")
         if open_service_mesh is not None:
             pulumi.set(__self__, "open_service_mesh", open_service_mesh)
 
@@ -1349,10 +1402,16 @@ class KubernetesClusterAddonProfileAciConnectorLinuxArgs:
                  enabled: pulumi.Input[bool],
                  subnet_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Is the virtual node addon enabled?
+        :param pulumi.Input[bool] enabled: Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         :param pulumi.Input[str] subnet_name: The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
+        if subnet_name is not None:
+            warnings.warn("""`addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""subnet_name is deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.""")
         if subnet_name is not None:
             pulumi.set(__self__, "subnet_name", subnet_name)
 
@@ -1360,7 +1419,7 @@ class KubernetesClusterAddonProfileAciConnectorLinuxArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is the virtual node addon enabled?
+        Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
@@ -1389,16 +1448,28 @@ class KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs:
                  secret_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  secret_rotation_interval: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Is the Azure Keyvault Secrets Providerenabled?
+        :param pulumi.Input[bool] enabled: Is the Azure Keyvault Secrets Provider enabled?
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs']]] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param pulumi.Input[bool] secret_rotation_enabled: Is secret rotation enabled?
         :param pulumi.Input[str] secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
+        if secret_identities is not None:
+            warnings.warn("""`addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""secret_identities is deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.""")
         if secret_identities is not None:
             pulumi.set(__self__, "secret_identities", secret_identities)
         if secret_rotation_enabled is not None:
+            warnings.warn("""`addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""secret_rotation_enabled is deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.""")
+        if secret_rotation_enabled is not None:
             pulumi.set(__self__, "secret_rotation_enabled", secret_rotation_enabled)
+        if secret_rotation_interval is not None:
+            warnings.warn("""`addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""secret_rotation_interval is deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.""")
         if secret_rotation_interval is not None:
             pulumi.set(__self__, "secret_rotation_interval", secret_rotation_interval)
 
@@ -1406,7 +1477,7 @@ class KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is the Azure Keyvault Secrets Providerenabled?
+        Is the Azure Keyvault Secrets Provider enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1513,6 +1584,9 @@ class KubernetesClusterAddonProfileAzurePolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is the Azure Policy for Kubernetes Add On enabled?
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
 
     @property
@@ -1537,7 +1611,13 @@ class KubernetesClusterAddonProfileHttpApplicationRoutingArgs:
         :param pulumi.Input[bool] enabled: Is HTTP Application Routing Enabled?
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
+        if http_application_routing_zone_name is not None:
+            warnings.warn("""`addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""http_application_routing_zone_name is deprecated: `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.""")
         if http_application_routing_zone_name is not None:
             pulumi.set(__self__, "http_application_routing_zone_name", http_application_routing_zone_name)
 
@@ -1577,7 +1657,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
                  subnet_cidr: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        :param pulumi.Input[bool] enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         :param pulumi.Input[str] effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         :param pulumi.Input[str] gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -1585,17 +1665,38 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
         :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
+        if effective_gateway_id is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""effective_gateway_id is deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.""")
         if effective_gateway_id is not None:
             pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
         if gateway_id is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""gateway_id is deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.""")
+        if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
+        if gateway_name is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""gateway_name is deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.""")
         if gateway_name is not None:
             pulumi.set(__self__, "gateway_name", gateway_name)
         if ingress_application_gateway_identities is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""ingress_application_gateway_identities is deprecated: `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.""")
+        if ingress_application_gateway_identities is not None:
             pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
         if subnet_cidr is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""subnet_cidr is deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.""")
+        if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        if subnet_id is not None:
+            warnings.warn("""`addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""subnet_id is deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.""")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -1603,7 +1704,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
@@ -1768,13 +1869,22 @@ class KubernetesClusterAddonProfileOmsAgentArgs:
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  oms_agent_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Is the OMS Agent Enabled?
+        :param pulumi.Input[bool] enabled: Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
         if log_analytics_workspace_id is not None:
+            warnings.warn("""`addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""log_analytics_workspace_id is deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.""")
+        if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if oms_agent_identities is not None:
+            warnings.warn("""`addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""oms_agent_identities is deprecated: `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.""")
         if oms_agent_identities is not None:
             pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
 
@@ -1782,7 +1892,7 @@ class KubernetesClusterAddonProfileOmsAgentArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is the OMS Agent Enabled?
+        Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
@@ -1877,6 +1987,9 @@ class KubernetesClusterAddonProfileOpenServiceMeshArgs:
         """
         :param pulumi.Input[bool] enabled: Is Open Service Mesh enabled?
         """
+        if enabled is not None:
+            warnings.warn("""`addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.""")
         pulumi.set(__self__, "enabled", enabled)
 
     @property
@@ -2212,7 +2325,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. At this time the only possible value is `OS`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -2389,7 +2502,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of disk used by kubelet. At this time the only possible value is `OS`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -3490,6 +3603,274 @@ class KubernetesClusterIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterIngressApplicationGatewayArgs:
+    def __init__(__self__, *,
+                 effective_gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
+                 ingress_application_gateway_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]] = None,
+                 subnet_cidr: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param pulumi.Input[str] gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        if effective_gateway_id is not None:
+            pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
+        if ingress_application_gateway_identities is not None:
+            pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
+        if subnet_cidr is not None:
+            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="effectiveGatewayId")
+    def effective_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        """
+        return pulumi.get(self, "effective_gateway_id")
+
+    @effective_gateway_id.setter
+    def effective_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_name", value)
+
+    @property
+    @pulumi.getter(name="ingressApplicationGatewayIdentities")
+    def ingress_application_gateway_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]]:
+        """
+        An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway_identities")
+
+    @ingress_application_gateway_identities.setter
+    def ingress_application_gateway_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]]):
+        pulumi.set(self, "ingress_application_gateway_identities", value)
+
+    @property
+    @pulumi.getter(name="subnetCidr")
+    def subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "subnet_cidr")
+
+    @subnet_cidr.setter
+    def subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_cidr", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterKeyVaultSecretsProviderArgs:
+    def __init__(__self__, *,
+                 secret_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]] = None,
+                 secret_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 secret_rotation_interval: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[bool] secret_rotation_enabled: Is secret rotation enabled?
+        :param pulumi.Input[str] secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        """
+        if secret_identities is not None:
+            pulumi.set(__self__, "secret_identities", secret_identities)
+        if secret_rotation_enabled is not None:
+            pulumi.set(__self__, "secret_rotation_enabled", secret_rotation_enabled)
+        if secret_rotation_interval is not None:
+            pulumi.set(__self__, "secret_rotation_interval", secret_rotation_interval)
+
+    @property
+    @pulumi.getter(name="secretIdentities")
+    def secret_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]]:
+        """
+        An `secret_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "secret_identities")
+
+    @secret_identities.setter
+    def secret_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]]):
+        pulumi.set(self, "secret_identities", value)
+
+    @property
+    @pulumi.getter(name="secretRotationEnabled")
+    def secret_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is secret rotation enabled?
+        """
+        return pulumi.get(self, "secret_rotation_enabled")
+
+    @secret_rotation_enabled.setter
+    def secret_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secret_rotation_enabled", value)
+
+    @property
+    @pulumi.getter(name="secretRotationInterval")
+    def secret_rotation_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        """
+        return pulumi.get(self, "secret_rotation_interval")
+
+    @secret_rotation_interval.setter
+    def secret_rotation_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_rotation_interval", value)
+
+
+@pulumi.input_type
+class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
@@ -5006,6 +5387,99 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: pulumi.Input[str]):
         pulumi.set(self, "max_surge", value)
+
+
+@pulumi.input_type
+class KubernetesClusterOmsAgentArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 oms_agent_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if oms_agent_identities is not None:
+            pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="omsAgentIdentities")
+    def oms_agent_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]:
+        """
+        An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "oms_agent_identities")
+
+    @oms_agent_identities.setter
+    def oms_agent_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]):
+        pulumi.set(self, "oms_agent_identities", value)
+
+
+@pulumi.input_type
+class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type

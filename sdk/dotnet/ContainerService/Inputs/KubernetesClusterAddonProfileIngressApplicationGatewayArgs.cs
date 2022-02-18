@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? EffectiveGatewayId { get; set; }
 
         /// <summary>
-        /// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        /// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -42,6 +42,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         /// </summary>
+        [Obsolete(@"`addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.")]
         public InputList<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs> IngressApplicationGatewayIdentities
         {
             get => _ingressApplicationGatewayIdentities ?? (_ingressApplicationGatewayIdentities = new InputList<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs>());

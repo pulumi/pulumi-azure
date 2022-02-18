@@ -56,7 +56,8 @@ type LookupWorkspaceArgs struct {
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                 `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
 	Identities []GetWorkspaceIdentity `pulumi:"identities"`
 	// The location where the Machine Learning Workspace exists.
 	Location          string `pulumi:"location"`
@@ -107,6 +108,7 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// An `identity` block as defined below.
 func (o LookupWorkspaceResultOutput) Identities() GetWorkspaceIdentityArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceIdentity { return v.Identities }).(GetWorkspaceIdentityArrayOutput)
 }

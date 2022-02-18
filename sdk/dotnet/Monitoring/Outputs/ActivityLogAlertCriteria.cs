@@ -46,6 +46,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? ResourceGroup;
         /// <summary>
+        /// A block to define fine grain resource health settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ActivityLogAlertCriteriaResourceHealth> ResourceHealths;
+        /// <summary>
         /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         /// </summary>
         public readonly string? ResourceId;
@@ -88,6 +92,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string? resourceGroup,
 
+            ImmutableArray<Outputs.ActivityLogAlertCriteriaResourceHealth> resourceHealths,
+
             string? resourceId,
 
             string? resourceProvider,
@@ -108,6 +114,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
             RecommendationImpact = recommendationImpact;
             RecommendationType = recommendationType;
             ResourceGroup = resourceGroup;
+            ResourceHealths = resourceHealths;
             ResourceId = resourceId;
             ResourceProvider = resourceProvider;
             ResourceType = resourceType;

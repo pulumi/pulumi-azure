@@ -26,6 +26,9 @@ import * as utilities from "../utilities";
  *         messagingLogsEnabled: true,
  *         connectivityLogsEnabled: false,
  *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * ```
  *
@@ -79,6 +82,10 @@ export class Service extends pulumi.CustomResource {
      * The FQDN of the Web Pubsub service.
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.webpubsub.ServiceIdentity | undefined>;
     /**
      * A `liveTrace` block as defined below.
      */
@@ -161,6 +168,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["externalIp"] = state ? state.externalIp : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
             resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -187,6 +195,7 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
             resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -229,6 +238,10 @@ export interface ServiceState {
      * The FQDN of the Web Pubsub service.
      */
     hostname?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.webpubsub.ServiceIdentity>;
     /**
      * A `liveTrace` block as defined below.
      */
@@ -308,6 +321,10 @@ export interface ServiceArgs {
      * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     capacity?: pulumi.Input<number>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.webpubsub.ServiceIdentity>;
     /**
      * A `liveTrace` block as defined below.
      */

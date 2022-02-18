@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileOmsAgentGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the OMS Agent Enabled?
+        /// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -30,6 +30,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// An `oms_agent_identity` block is exported. The exported attributes are defined below.
         /// </summary>
+        [Obsolete(@"`addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.")]
         public InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityGetArgs> OmsAgentIdentities
         {
             get => _omsAgentIdentities ?? (_omsAgentIdentities = new InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityGetArgs>());

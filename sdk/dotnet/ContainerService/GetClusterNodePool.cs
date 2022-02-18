@@ -135,9 +135,6 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GetClusterNodePoolResult
     {
-        /// <summary>
-        /// A list of Availability Zones in which the Nodes in this Node Pool exists.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// Does this Node Pool have Auto-Scaling enabled?
@@ -234,6 +231,10 @@ namespace Pulumi.Azure.ContainerService
         /// The ID of the Subnet in which this Node Pool exists.
         /// </summary>
         public readonly string VnetSubnetId;
+        /// <summary>
+        /// A list of the Availability Zones where the Nodes in this Node Pool exist.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetClusterNodePoolResult(
@@ -289,7 +290,9 @@ namespace Pulumi.Azure.ContainerService
 
             string vmSize,
 
-            string vnetSubnetId)
+            string vnetSubnetId,
+
+            ImmutableArray<string> zones)
         {
             AvailabilityZones = availabilityZones;
             EnableAutoScaling = enableAutoScaling;
@@ -318,6 +321,7 @@ namespace Pulumi.Azure.ContainerService
             UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
+            Zones = zones;
         }
     }
 }

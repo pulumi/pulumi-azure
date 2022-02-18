@@ -14,6 +14,10 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     public sealed class WorkspaceIdentity
     {
         /// <summary>
+        /// The user assigned identity IDs associated with the resource.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The (Client) ID of the Service Principal.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
+        /// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private WorkspaceIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

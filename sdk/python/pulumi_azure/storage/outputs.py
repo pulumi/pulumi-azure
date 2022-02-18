@@ -17,6 +17,7 @@ __all__ = [
     'AccountBlobPropertiesCorsRule',
     'AccountBlobPropertiesDeleteRetentionPolicy',
     'AccountCustomDomain',
+    'AccountCustomerManagedKey',
     'AccountIdentity',
     'AccountNetworkRules',
     'AccountNetworkRulesPrivateLinkAccess',
@@ -505,6 +506,54 @@ class AccountCustomDomain(dict):
         Should the Custom Domain Name be validated by using indirect CNAME validation?
         """
         return pulumi.get(self, "use_subdomain")
+
+
+@pulumi.output_type
+class AccountCustomerManagedKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountCustomerManagedKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountCustomerManagedKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: str,
+                 user_assigned_identity_id: str):
+        """
+        :param str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -1847,10 +1896,16 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "deleteAfterDaysSinceModificationGreaterThan":
+        if key == "deleteAfterDaysSinceLastAccessTimeGreaterThan":
+            suggest = "delete_after_days_since_last_access_time_greater_than"
+        elif key == "deleteAfterDaysSinceModificationGreaterThan":
             suggest = "delete_after_days_since_modification_greater_than"
+        elif key == "tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan":
+            suggest = "tier_to_archive_after_days_since_last_access_time_greater_than"
         elif key == "tierToArchiveAfterDaysSinceModificationGreaterThan":
             suggest = "tier_to_archive_after_days_since_modification_greater_than"
+        elif key == "tierToCoolAfterDaysSinceLastAccessTimeGreaterThan":
+            suggest = "tier_to_cool_after_days_since_last_access_time_greater_than"
         elif key == "tierToCoolAfterDaysSinceModificationGreaterThan":
             suggest = "tier_to_cool_after_days_since_modification_greater_than"
 
@@ -1866,20 +1921,40 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 delete_after_days_since_last_access_time_greater_than: Optional[int] = None,
                  delete_after_days_since_modification_greater_than: Optional[int] = None,
+                 tier_to_archive_after_days_since_last_access_time_greater_than: Optional[int] = None,
                  tier_to_archive_after_days_since_modification_greater_than: Optional[int] = None,
+                 tier_to_cool_after_days_since_last_access_time_greater_than: Optional[int] = None,
                  tier_to_cool_after_days_since_modification_greater_than: Optional[int] = None):
         """
+        :param int delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob. Must be between `0` and `99999`.
         :param int delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999.
+        :param int tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
         :param int tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+        :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
         """
+        if delete_after_days_since_last_access_time_greater_than is not None:
+            pulumi.set(__self__, "delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
         if delete_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
+        if tier_to_archive_after_days_since_last_access_time_greater_than is not None:
+            pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
         if tier_to_archive_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
+        if tier_to_cool_after_days_since_last_access_time_greater_than is not None:
+            pulumi.set(__self__, "tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
         if tier_to_cool_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="deleteAfterDaysSinceLastAccessTimeGreaterThan")
+    def delete_after_days_since_last_access_time_greater_than(self) -> Optional[int]:
+        """
+        The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+        """
+        return pulumi.get(self, "delete_after_days_since_last_access_time_greater_than")
 
     @property
     @pulumi.getter(name="deleteAfterDaysSinceModificationGreaterThan")
@@ -1890,12 +1965,28 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
         return pulumi.get(self, "delete_after_days_since_modification_greater_than")
 
     @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
+    def tier_to_archive_after_days_since_last_access_time_greater_than(self) -> Optional[int]:
+        """
+        The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0 and `99999`.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_last_access_time_greater_than")
+
+    @property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
     def tier_to_archive_after_days_since_modification_greater_than(self) -> Optional[int]:
         """
         The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_modification_greater_than")
+
+    @property
+    @pulumi.getter(name="tierToCoolAfterDaysSinceLastAccessTimeGreaterThan")
+    def tier_to_cool_after_days_since_last_access_time_greater_than(self) -> Optional[int]:
+        """
+        The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+        """
+        return pulumi.get(self, "tier_to_cool_after_days_since_last_access_time_greater_than")
 
     @property
     @pulumi.getter(name="tierToCoolAfterDaysSinceModificationGreaterThan")

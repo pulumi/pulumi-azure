@@ -36,6 +36,10 @@ namespace Pulumi.Azure.Network
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///             VirtualWanId = exampleVirtualWan.Id,
+    ///             AddressCidrs = 
+    ///             {
+    ///                 "10.0.0.0/24",
+    ///             },
     ///             Links = 
     ///             {
     ///                 new Azure.Network.Inputs.VpnSiteLinkArgs

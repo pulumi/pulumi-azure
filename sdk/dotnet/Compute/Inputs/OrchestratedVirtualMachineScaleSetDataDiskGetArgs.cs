@@ -36,6 +36,12 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        [Input("ultraSsdDiskIopsReadWrite")]
+        public Input<int>? UltraSsdDiskIopsReadWrite { get; set; }
+
+        [Input("ultraSsdDiskMbpsReadWrite")]
+        public Input<int>? UltraSsdDiskMbpsReadWrite { get; set; }
+
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 

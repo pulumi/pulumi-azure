@@ -125,6 +125,9 @@ namespace Pulumi.Azure.MachineLearning
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceIdentityResult> Identities;
         /// <summary>
         /// The location where the Machine Learning Workspace exists.

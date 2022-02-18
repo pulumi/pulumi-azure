@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./customProvider";
 export * from "./getClientConfig";
+export * from "./getExtendedLocations";
 export * from "./getResourceGroup";
 export * from "./getResources";
 export * from "./getSubscription";

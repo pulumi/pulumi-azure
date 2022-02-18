@@ -64,6 +64,8 @@ import (
 type SpringCloudApp struct {
 	pulumi.CustomResourceState
 
+	// A `customPersistentDisk` block as defined below.
+	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayOutput `pulumi:"customPersistentDisks"`
 	// The Fully Qualified DNS Name of the Spring Application in the service.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Is only https allowed? Defaults to `false`.
@@ -121,6 +123,8 @@ func GetSpringCloudApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudApp resources.
 type springCloudAppState struct {
+	// A `customPersistentDisk` block as defined below.
+	CustomPersistentDisks []SpringCloudAppCustomPersistentDisk `pulumi:"customPersistentDisks"`
 	// The Fully Qualified DNS Name of the Spring Application in the service.
 	Fqdn *string `pulumi:"fqdn"`
 	// Is only https allowed? Defaults to `false`.
@@ -144,6 +148,8 @@ type springCloudAppState struct {
 }
 
 type SpringCloudAppState struct {
+	// A `customPersistentDisk` block as defined below.
+	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayInput
 	// The Fully Qualified DNS Name of the Spring Application in the service.
 	Fqdn pulumi.StringPtrInput
 	// Is only https allowed? Defaults to `false`.
@@ -171,6 +177,8 @@ func (SpringCloudAppState) ElementType() reflect.Type {
 }
 
 type springCloudAppArgs struct {
+	// A `customPersistentDisk` block as defined below.
+	CustomPersistentDisks []SpringCloudAppCustomPersistentDisk `pulumi:"customPersistentDisks"`
 	// Is only https allowed? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -191,6 +199,8 @@ type springCloudAppArgs struct {
 
 // The set of arguments for constructing a SpringCloudApp resource.
 type SpringCloudAppArgs struct {
+	// A `customPersistentDisk` block as defined below.
+	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayInput
 	// Is only https allowed? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.

@@ -817,6 +817,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudStorage",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudStorage:SpringCloudStorage": "SpringCloudStorage"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appservice/activeSlot",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -3209,6 +3217,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "iot/certificate",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "iot/consumerGroup",
   "fqn": "pulumi_azure.iot",
   "classes": {
@@ -4357,6 +4373,46 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/jobCredential:JobCredential": "JobCredential"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/managedDatabase",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedDatabase:ManagedDatabase": "ManagedDatabase"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/managedInstance",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstance:ManagedInstance": "ManagedInstance"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/managedInstanceActiveDirectoryAdministrator",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator": "ManagedInstanceActiveDirectoryAdministrator"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/managedInstanceFailoverGroup",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup": "ManagedInstanceFailoverGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/outboundFirewallRule",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/outboundFirewallRule:OutboundFirewallRule": "OutboundFirewallRule"
   }
  },
  {

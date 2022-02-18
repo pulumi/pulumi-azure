@@ -29,7 +29,6 @@ export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -45,10 +44,6 @@ export interface GetManagedDiskArgs {
      * Specifies the name of the Resource Group where this Managed Disk exists.
      */
     resourceGroupName: string;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -105,7 +100,7 @@ export interface GetManagedDiskResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * A list of Availability Zones where the Managed Disk exists.
      */
@@ -128,8 +123,4 @@ export interface GetManagedDiskOutputArgs {
      * Specifies the name of the Resource Group where this Managed Disk exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

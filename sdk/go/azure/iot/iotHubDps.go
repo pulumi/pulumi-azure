@@ -65,12 +65,16 @@ type IotHubDps struct {
 	DeviceProvisioningHostName pulumi.StringOutput `pulumi:"deviceProvisioningHostName"`
 	// The unique identifier of the IoT Device Provisioning Service.
 	IdScope pulumi.StringOutput `pulumi:"idScope"`
+	// An `ipFilterRule` block as defined below.
+	IpFilterRules IotHubDpsIpFilterRuleArrayOutput `pulumi:"ipFilterRules"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayOutput `pulumi:"linkedHubs"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether requests from Public Network are allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The service endpoint of the IoT Device Provisioning Service.
@@ -122,12 +126,16 @@ type iotHubDpsState struct {
 	DeviceProvisioningHostName *string `pulumi:"deviceProvisioningHostName"`
 	// The unique identifier of the IoT Device Provisioning Service.
 	IdScope *string `pulumi:"idScope"`
+	// An `ipFilterRule` block as defined below.
+	IpFilterRules []IotHubDpsIpFilterRule `pulumi:"ipFilterRules"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs []IotHubDpsLinkedHub `pulumi:"linkedHubs"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether requests from Public Network are allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The service endpoint of the IoT Device Provisioning Service.
@@ -145,12 +153,16 @@ type IotHubDpsState struct {
 	DeviceProvisioningHostName pulumi.StringPtrInput
 	// The unique identifier of the IoT Device Provisioning Service.
 	IdScope pulumi.StringPtrInput
+	// An `ipFilterRule` block as defined below.
+	IpFilterRules IotHubDpsIpFilterRuleArrayInput
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether requests from Public Network are allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The service endpoint of the IoT Device Provisioning Service.
@@ -168,12 +180,16 @@ func (IotHubDpsState) ElementType() reflect.Type {
 type iotHubDpsArgs struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
+	// An `ipFilterRule` block as defined below.
+	IpFilterRules []IotHubDpsIpFilterRule `pulumi:"ipFilterRules"`
 	// A `linkedHub` block as defined below.
 	LinkedHubs []IotHubDpsLinkedHub `pulumi:"linkedHubs"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether requests from Public Network are allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
@@ -186,12 +202,16 @@ type iotHubDpsArgs struct {
 type IotHubDpsArgs struct {
 	// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
 	AllocationPolicy pulumi.StringPtrInput
+	// An `ipFilterRule` block as defined below.
+	IpFilterRules IotHubDpsIpFilterRuleArrayInput
 	// A `linkedHub` block as defined below.
 	LinkedHubs IotHubDpsLinkedHubArrayInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether requests from Public Network are allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `sku` block as defined below.

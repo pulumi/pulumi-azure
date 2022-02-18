@@ -131,6 +131,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
     /**
+     * A `customerManagedKey` block as documented below.
+     */
+    public readonly customerManagedKey!: pulumi.Output<outputs.storage.AccountCustomerManagedKey>;
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
      */
@@ -354,6 +358,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["azureFilesAuthentication"] = state ? state.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = state ? state.blobProperties : undefined;
             resourceInputs["customDomain"] = state ? state.customDomain : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
@@ -424,6 +429,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["azureFilesAuthentication"] = args ? args.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = args ? args.blobProperties : undefined;
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
@@ -517,6 +523,10 @@ export interface AccountState {
      * A `customDomain` block as documented below.
      */
     customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    /**
+     * A `customerManagedKey` block as documented below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
@@ -757,6 +767,10 @@ export interface AccountArgs {
      * A `customDomain` block as documented below.
      */
     customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    /**
+     * A `customerManagedKey` block as documented below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.

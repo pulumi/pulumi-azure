@@ -5579,31 +5579,37 @@ class GetGatewayLocationDataResult(dict):
 @pulumi.output_type
 class GetServiceAdditionalLocationResult(dict):
     def __init__(__self__, *,
+                 capacity: int,
                  gateway_regional_url: str,
                  location: str,
                  private_ip_addresses: Sequence[str],
                  public_ip_address_id: str,
                  public_ip_addresses: Sequence[str],
-                 capacity: Optional[int] = None,
-                 zones: Optional[Sequence[str]] = None):
+                 zones: Sequence[str]):
         """
+        :param int capacity: Specifies the number of units associated with this API Management service.
         :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param str location: The location name of the additional region among Azure Data center regions.
         :param Sequence[str] private_ip_addresses: Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
         :param str public_ip_address_id: ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param int capacity: Specifies the number of units associated with this API Management service.
         :param Sequence[str] zones: List of the availability zones where API Management is deployed in the additional region exists.
         """
+        pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        Specifies the number of units associated with this API Management service.
+        """
+        return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -5647,15 +5653,7 @@ class GetServiceAdditionalLocationResult(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        Specifies the number of units associated with this API Management service.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def zones(self) -> Optional[Sequence[str]]:
+    def zones(self) -> Sequence[str]:
         """
         List of the availability zones where API Management is deployed in the additional region exists.
         """

@@ -13,9 +13,15 @@ from .failover_group import *
 from .firewall_rule import *
 from .get_database import *
 from .get_elastic_pool import *
+from .get_managed_instance import *
 from .get_server import *
 from .job_agent import *
 from .job_credential import *
+from .managed_database import *
+from .managed_instance import *
+from .managed_instance_active_directory_administrator import *
+from .managed_instance_failover_group import *
+from .outbound_firewall_rule import *
 from .server import *
 from .server_extended_auditing_policy import *
 from .server_security_alert_policy import *

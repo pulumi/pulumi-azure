@@ -38,7 +38,7 @@ class ManagedInstanceArgs:
         The set of arguments for constructing a ManagedInstance resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for your instance. It should be a multiple of 32GB.
@@ -115,7 +115,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="licenseType")
     def license_type(self) -> pulumi.Input[str]:
         """
-        What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         """
         return pulumi.get(self, "license_type")
 
@@ -347,7 +347,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure.
@@ -479,7 +479,7 @@ class _ManagedInstanceState:
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[pulumi.Input[str]]:
         """
-        What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         """
         return pulumi.get(self, "license_type")
 
@@ -844,7 +844,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure.
@@ -1158,7 +1158,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
         :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure.
@@ -1251,7 +1251,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="licenseType")
     def license_type(self) -> pulumi.Output[str]:
         """
-        What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
+        What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         """
         return pulumi.get(self, "license_type")
 

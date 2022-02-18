@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:iot/certificate:Certificate":
+		r = &Certificate{}
 	case "azure:iot/consumerGroup:ConsumerGroup":
 		r = &ConsumerGroup{}
 	case "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy":
@@ -76,6 +78,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iot/certificate",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iot/consumerGroup",

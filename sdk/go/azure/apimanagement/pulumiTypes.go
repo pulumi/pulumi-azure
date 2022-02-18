@@ -12859,7 +12859,7 @@ func (o GetGatewayLocationDataArrayOutput) Index(i pulumi.IntInput) GetGatewayLo
 
 type GetServiceAdditionalLocation struct {
 	// Specifies the number of units associated with this API Management service.
-	Capacity *int `pulumi:"capacity"`
+	Capacity int `pulumi:"capacity"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
@@ -12887,7 +12887,7 @@ type GetServiceAdditionalLocationInput interface {
 
 type GetServiceAdditionalLocationArgs struct {
 	// Specifies the number of units associated with this API Management service.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
@@ -12954,8 +12954,8 @@ func (o GetServiceAdditionalLocationOutput) ToGetServiceAdditionalLocationOutput
 }
 
 // Specifies the number of units associated with this API Management service.
-func (o GetServiceAdditionalLocationOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetServiceAdditionalLocation) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o GetServiceAdditionalLocationOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceAdditionalLocation) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // Gateway URL of the API Management service in the Region.

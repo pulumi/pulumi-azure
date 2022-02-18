@@ -60,6 +60,18 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("resourceGroup")]
         public Input<string>? ResourceGroup { get; set; }
 
+        [Input("resourceHealths")]
+        private InputList<Inputs.ActivityLogAlertCriteriaResourceHealthGetArgs>? _resourceHealths;
+
+        /// <summary>
+        /// A block to define fine grain resource health settings.
+        /// </summary>
+        public InputList<Inputs.ActivityLogAlertCriteriaResourceHealthGetArgs> ResourceHealths
+        {
+            get => _resourceHealths ?? (_resourceHealths = new InputList<Inputs.ActivityLogAlertCriteriaResourceHealthGetArgs>());
+            set => _resourceHealths = value;
+        }
+
         /// <summary>
         /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         /// </summary>

@@ -1144,6 +1144,10 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
             suggest = "disk_iops_read_write"
         elif key == "diskMbpsReadWrite":
             suggest = "disk_mbps_read_write"
+        elif key == "ultraSsdDiskIopsReadWrite":
+            suggest = "ultra_ssd_disk_iops_read_write"
+        elif key == "ultraSsdDiskMbpsReadWrite":
+            suggest = "ultra_ssd_disk_mbps_read_write"
         elif key == "writeAcceleratorEnabled":
             suggest = "write_accelerator_enabled"
 
@@ -1167,6 +1171,8 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
                  disk_encryption_set_id: Optional[str] = None,
                  disk_iops_read_write: Optional[int] = None,
                  disk_mbps_read_write: Optional[int] = None,
+                 ultra_ssd_disk_iops_read_write: Optional[int] = None,
+                 ultra_ssd_disk_mbps_read_write: Optional[int] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -1191,6 +1197,10 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if ultra_ssd_disk_iops_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -1257,6 +1267,16 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         """
         return pulumi.get(self, "disk_mbps_read_write")
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    def ultra_ssd_disk_iops_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    def ultra_ssd_disk_mbps_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -2590,6 +2610,10 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
             suggest = "disk_iops_read_write"
         elif key == "diskMbpsReadWrite":
             suggest = "disk_mbps_read_write"
+        elif key == "ultraSsdDiskIopsReadWrite":
+            suggest = "ultra_ssd_disk_iops_read_write"
+        elif key == "ultraSsdDiskMbpsReadWrite":
+            suggest = "ultra_ssd_disk_mbps_read_write"
         elif key == "writeAcceleratorEnabled":
             suggest = "write_accelerator_enabled"
 
@@ -2613,6 +2637,8 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
                  disk_encryption_set_id: Optional[str] = None,
                  disk_iops_read_write: Optional[int] = None,
                  disk_mbps_read_write: Optional[int] = None,
+                 ultra_ssd_disk_iops_read_write: Optional[int] = None,
+                 ultra_ssd_disk_mbps_read_write: Optional[int] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -2626,6 +2652,10 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if ultra_ssd_disk_iops_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -2668,6 +2698,16 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
     @pulumi.getter(name="diskMbpsReadWrite")
     def disk_mbps_read_write(self) -> Optional[int]:
         return pulumi.get(self, "disk_mbps_read_write")
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    def ultra_ssd_disk_iops_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    def ultra_ssd_disk_mbps_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -7037,6 +7077,10 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
             suggest = "disk_iops_read_write"
         elif key == "diskMbpsReadWrite":
             suggest = "disk_mbps_read_write"
+        elif key == "ultraSsdDiskIopsReadWrite":
+            suggest = "ultra_ssd_disk_iops_read_write"
+        elif key == "ultraSsdDiskMbpsReadWrite":
+            suggest = "ultra_ssd_disk_mbps_read_write"
         elif key == "writeAcceleratorEnabled":
             suggest = "write_accelerator_enabled"
 
@@ -7060,6 +7104,8 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
                  disk_encryption_set_id: Optional[str] = None,
                  disk_iops_read_write: Optional[int] = None,
                  disk_mbps_read_write: Optional[int] = None,
+                 ultra_ssd_disk_iops_read_write: Optional[int] = None,
+                 ultra_ssd_disk_mbps_read_write: Optional[int] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -7084,6 +7130,10 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if ultra_ssd_disk_iops_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -7150,6 +7200,16 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         """
         return pulumi.get(self, "disk_mbps_read_write")
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    def ultra_ssd_disk_iops_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    def ultra_ssd_disk_mbps_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")

@@ -28,6 +28,7 @@ class WorkspaceArgs:
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -45,6 +46,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -70,6 +72,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_user_assigned_identity is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sku_name is not None:
@@ -231,6 +235,18 @@ class WorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity id that represents the workspace identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
+
+    @primary_user_assigned_identity.setter
+    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_user_assigned_identity", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -282,6 +298,7 @@ class _WorkspaceState:
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -300,6 +317,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -330,6 +348,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_user_assigned_identity is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -483,6 +503,18 @@ class _WorkspaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity id that represents the workspace identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
+
+    @primary_user_assigned_identity.setter
+    def primary_user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_user_assigned_identity", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -559,6 +591,7 @@ class Workspace(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -586,6 +619,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -633,6 +667,7 @@ class Workspace(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -667,6 +702,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -699,6 +735,7 @@ class Workspace(pulumi.CustomResource):
             key_vault_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -722,6 +759,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -744,6 +782,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
@@ -843,6 +882,14 @@ class Workspace(pulumi.CustomResource):
         Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user assigned identity id that represents the workspace identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")

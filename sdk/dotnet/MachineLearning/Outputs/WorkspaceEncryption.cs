@@ -21,15 +21,22 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// The ID of the keyVault where the customer owned encryption key is present.
         /// </summary>
         public readonly string KeyVaultId;
+        /// <summary>
+        /// The Key Vault URI to access the encryption key.
+        /// </summary>
+        public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]
         private WorkspaceEncryption(
             string keyId,
 
-            string keyVaultId)
+            string keyVaultId,
+
+            string? userAssignedIdentityId)
         {
             KeyId = keyId;
             KeyVaultId = keyVaultId;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

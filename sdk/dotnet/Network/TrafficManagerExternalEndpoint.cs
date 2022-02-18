@@ -83,6 +83,10 @@ namespace Pulumi.Azure.Network
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Azure location of the Endpoint,
+        /// this must be specified for Profiles using the `Performance` routing method.
+        /// </summary>
         [Output("endpointLocation")]
         public Output<string> EndpointLocation { get; private set; } = null!;
 
@@ -196,6 +200,10 @@ namespace Pulumi.Azure.Network
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specifies the Azure location of the Endpoint,
+        /// this must be specified for Profiles using the `Performance` routing method.
+        /// </summary>
         [Input("endpointLocation")]
         public Input<string>? EndpointLocation { get; set; }
 
@@ -282,6 +290,10 @@ namespace Pulumi.Azure.Network
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specifies the Azure location of the Endpoint,
+        /// this must be specified for Profiles using the `Performance` routing method.
+        /// </summary>
         [Input("endpointLocation")]
         public Input<string>? EndpointLocation { get; set; }
 

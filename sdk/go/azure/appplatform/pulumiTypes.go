@@ -10,6 +10,139 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SpringCloudAppCustomPersistentDisk struct {
+	// These are the mount options for a persistent disk.
+	MountOptions []string `pulumi:"mountOptions"`
+	// The mount path of the persistent disk.
+	MountPath string `pulumi:"mountPath"`
+	// Indicates whether the persistent disk is a readOnly one.
+	ReadOnlyEnabled *bool `pulumi:"readOnlyEnabled"`
+	// The share name of the Azure File share.
+	ShareName string `pulumi:"shareName"`
+	// The name of the Spring Cloud Storage.
+	StorageName string `pulumi:"storageName"`
+}
+
+// SpringCloudAppCustomPersistentDiskInput is an input type that accepts SpringCloudAppCustomPersistentDiskArgs and SpringCloudAppCustomPersistentDiskOutput values.
+// You can construct a concrete instance of `SpringCloudAppCustomPersistentDiskInput` via:
+//
+//          SpringCloudAppCustomPersistentDiskArgs{...}
+type SpringCloudAppCustomPersistentDiskInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppCustomPersistentDiskOutput() SpringCloudAppCustomPersistentDiskOutput
+	ToSpringCloudAppCustomPersistentDiskOutputWithContext(context.Context) SpringCloudAppCustomPersistentDiskOutput
+}
+
+type SpringCloudAppCustomPersistentDiskArgs struct {
+	// These are the mount options for a persistent disk.
+	MountOptions pulumi.StringArrayInput `pulumi:"mountOptions"`
+	// The mount path of the persistent disk.
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// Indicates whether the persistent disk is a readOnly one.
+	ReadOnlyEnabled pulumi.BoolPtrInput `pulumi:"readOnlyEnabled"`
+	// The share name of the Azure File share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// The name of the Spring Cloud Storage.
+	StorageName pulumi.StringInput `pulumi:"storageName"`
+}
+
+func (SpringCloudAppCustomPersistentDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppCustomPersistentDisk)(nil)).Elem()
+}
+
+func (i SpringCloudAppCustomPersistentDiskArgs) ToSpringCloudAppCustomPersistentDiskOutput() SpringCloudAppCustomPersistentDiskOutput {
+	return i.ToSpringCloudAppCustomPersistentDiskOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppCustomPersistentDiskArgs) ToSpringCloudAppCustomPersistentDiskOutputWithContext(ctx context.Context) SpringCloudAppCustomPersistentDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCustomPersistentDiskOutput)
+}
+
+// SpringCloudAppCustomPersistentDiskArrayInput is an input type that accepts SpringCloudAppCustomPersistentDiskArray and SpringCloudAppCustomPersistentDiskArrayOutput values.
+// You can construct a concrete instance of `SpringCloudAppCustomPersistentDiskArrayInput` via:
+//
+//          SpringCloudAppCustomPersistentDiskArray{ SpringCloudAppCustomPersistentDiskArgs{...} }
+type SpringCloudAppCustomPersistentDiskArrayInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppCustomPersistentDiskArrayOutput() SpringCloudAppCustomPersistentDiskArrayOutput
+	ToSpringCloudAppCustomPersistentDiskArrayOutputWithContext(context.Context) SpringCloudAppCustomPersistentDiskArrayOutput
+}
+
+type SpringCloudAppCustomPersistentDiskArray []SpringCloudAppCustomPersistentDiskInput
+
+func (SpringCloudAppCustomPersistentDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudAppCustomPersistentDisk)(nil)).Elem()
+}
+
+func (i SpringCloudAppCustomPersistentDiskArray) ToSpringCloudAppCustomPersistentDiskArrayOutput() SpringCloudAppCustomPersistentDiskArrayOutput {
+	return i.ToSpringCloudAppCustomPersistentDiskArrayOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppCustomPersistentDiskArray) ToSpringCloudAppCustomPersistentDiskArrayOutputWithContext(ctx context.Context) SpringCloudAppCustomPersistentDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCustomPersistentDiskArrayOutput)
+}
+
+type SpringCloudAppCustomPersistentDiskOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppCustomPersistentDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppCustomPersistentDisk)(nil)).Elem()
+}
+
+func (o SpringCloudAppCustomPersistentDiskOutput) ToSpringCloudAppCustomPersistentDiskOutput() SpringCloudAppCustomPersistentDiskOutput {
+	return o
+}
+
+func (o SpringCloudAppCustomPersistentDiskOutput) ToSpringCloudAppCustomPersistentDiskOutputWithContext(ctx context.Context) SpringCloudAppCustomPersistentDiskOutput {
+	return o
+}
+
+// These are the mount options for a persistent disk.
+func (o SpringCloudAppCustomPersistentDiskOutput) MountOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudAppCustomPersistentDisk) []string { return v.MountOptions }).(pulumi.StringArrayOutput)
+}
+
+// The mount path of the persistent disk.
+func (o SpringCloudAppCustomPersistentDiskOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudAppCustomPersistentDisk) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// Indicates whether the persistent disk is a readOnly one.
+func (o SpringCloudAppCustomPersistentDiskOutput) ReadOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppCustomPersistentDisk) *bool { return v.ReadOnlyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The share name of the Azure File share.
+func (o SpringCloudAppCustomPersistentDiskOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudAppCustomPersistentDisk) string { return v.ShareName }).(pulumi.StringOutput)
+}
+
+// The name of the Spring Cloud Storage.
+func (o SpringCloudAppCustomPersistentDiskOutput) StorageName() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudAppCustomPersistentDisk) string { return v.StorageName }).(pulumi.StringOutput)
+}
+
+type SpringCloudAppCustomPersistentDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppCustomPersistentDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudAppCustomPersistentDisk)(nil)).Elem()
+}
+
+func (o SpringCloudAppCustomPersistentDiskArrayOutput) ToSpringCloudAppCustomPersistentDiskArrayOutput() SpringCloudAppCustomPersistentDiskArrayOutput {
+	return o
+}
+
+func (o SpringCloudAppCustomPersistentDiskArrayOutput) ToSpringCloudAppCustomPersistentDiskArrayOutputWithContext(ctx context.Context) SpringCloudAppCustomPersistentDiskArrayOutput {
+	return o
+}
+
+func (o SpringCloudAppCustomPersistentDiskArrayOutput) Index(i pulumi.IntInput) SpringCloudAppCustomPersistentDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudAppCustomPersistentDisk {
+		return vs[0].([]SpringCloudAppCustomPersistentDisk)[vs[1].(int)]
+	}).(SpringCloudAppCustomPersistentDiskOutput)
+}
+
 type SpringCloudAppIdentity struct {
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3227,6 +3360,8 @@ func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCustomPersistentDiskInput)(nil)).Elem(), SpringCloudAppCustomPersistentDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCustomPersistentDiskArrayInput)(nil)).Elem(), SpringCloudAppCustomPersistentDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityPtrInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
@@ -3269,6 +3404,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput)(nil)).Elem(), GetSpringCloudServiceConfigServerGitSettingSshAuthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpringCloudServiceRequiredNetworkTrafficRuleInput)(nil)).Elem(), GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput)(nil)).Elem(), GetSpringCloudServiceRequiredNetworkTrafficRuleArray{})
+	pulumi.RegisterOutputType(SpringCloudAppCustomPersistentDiskOutput{})
+	pulumi.RegisterOutputType(SpringCloudAppCustomPersistentDiskArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskOutput{})

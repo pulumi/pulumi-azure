@@ -72,7 +72,11 @@ import (
 type KubernetesCluster struct {
 	pulumi.CustomResourceState
 
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	AciConnectorLinux KubernetesClusterAciConnectorLinuxOutput `pulumi:"aciConnectorLinux"`
 	// A `addonProfile` block as defined below.
+	//
+	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
@@ -80,6 +84,8 @@ type KubernetesCluster struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrOutput `pulumi:"automaticChannelUpgrade"`
+	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+	AzurePolicyEnabled pulumi.BoolOutput `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -91,10 +97,18 @@ type KubernetesCluster struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// Should HTTP Application Routing be enabled?
+	HttpApplicationRoutingEnabled pulumi.BoolOutput `pulumi:"httpApplicationRoutingEnabled"`
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName pulumi.StringOutput `pulumi:"httpApplicationRoutingZoneName"`
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrOutput `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
+	// A `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayOutput `pulumi:"ingressApplicationGateway"`
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderOutput `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -121,6 +135,10 @@ type KubernetesCluster struct {
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
+	// A `omsAgent` block as defined below.
+	OmsAgent KubernetesClusterOmsAgentOutput `pulumi:"omsAgent"`
+	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMeshEnabled pulumi.BoolOutput `pulumi:"openServiceMeshEnabled"`
 	// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PortalFqdn pulumi.StringOutput `pulumi:"portalFqdn"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -183,7 +201,11 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type kubernetesClusterState struct {
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// A `addonProfile` block as defined below.
+	//
+	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
@@ -191,6 +213,8 @@ type kubernetesClusterState struct {
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
+	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -202,10 +226,18 @@ type kubernetesClusterState struct {
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
+	// Should HTTP Application Routing be enabled?
+	HttpApplicationRoutingEnabled *bool `pulumi:"httpApplicationRoutingEnabled"`
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName *string `pulumi:"httpApplicationRoutingZoneName"`
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
+	// A `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -232,6 +264,10 @@ type kubernetesClusterState struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// A `omsAgent` block as defined below.
+	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
+	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMeshEnabled *bool `pulumi:"openServiceMeshEnabled"`
 	// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PortalFqdn *string `pulumi:"portalFqdn"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -260,7 +296,11 @@ type kubernetesClusterState struct {
 }
 
 type KubernetesClusterState struct {
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// A `addonProfile` block as defined below.
+	//
+	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
@@ -268,6 +308,8 @@ type KubernetesClusterState struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
+	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -279,10 +321,18 @@ type KubernetesClusterState struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
+	// Should HTTP Application Routing be enabled?
+	HttpApplicationRoutingEnabled pulumi.BoolPtrInput
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName pulumi.StringPtrInput
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
+	// A `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -309,6 +359,10 @@ type KubernetesClusterState struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
+	// A `omsAgent` block as defined below.
+	OmsAgent KubernetesClusterOmsAgentPtrInput
+	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMeshEnabled pulumi.BoolPtrInput
 	// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PortalFqdn pulumi.StringPtrInput
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -341,7 +395,11 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 }
 
 type kubernetesClusterArgs struct {
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// A `addonProfile` block as defined below.
+	//
+	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
@@ -349,6 +407,8 @@ type kubernetesClusterArgs struct {
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
+	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -358,10 +418,16 @@ type kubernetesClusterArgs struct {
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
+	// Should HTTP Application Routing be enabled?
+	HttpApplicationRoutingEnabled *bool `pulumi:"httpApplicationRoutingEnabled"`
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
+	// A `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentities []KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -380,6 +446,10 @@ type kubernetesClusterArgs struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// A `omsAgent` block as defined below.
+	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
+	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMeshEnabled *bool `pulumi:"openServiceMeshEnabled"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
@@ -405,7 +475,11 @@ type kubernetesClusterArgs struct {
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// A `addonProfile` block as defined below.
+	//
+	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
@@ -413,6 +487,8 @@ type KubernetesClusterArgs struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
+	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -422,10 +498,16 @@ type KubernetesClusterArgs struct {
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
+	// Should HTTP Application Routing be enabled?
+	HttpApplicationRoutingEnabled pulumi.BoolPtrInput
 	// A `httpProxyConfig` block as defined below.
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
+	// A `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentities KubernetesClusterKubeletIdentityArrayInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -444,6 +526,10 @@ type KubernetesClusterArgs struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
+	// A `omsAgent` block as defined below.
+	OmsAgent KubernetesClusterOmsAgentPtrInput
+	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMeshEnabled pulumi.BoolPtrInput
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrInput
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.

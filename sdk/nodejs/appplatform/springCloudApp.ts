@@ -65,6 +65,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
     }
 
     /**
+     * A `customPersistentDisk` block as defined below.
+     */
+    public readonly customPersistentDisks!: pulumi.Output<outputs.appplatform.SpringCloudAppCustomPersistentDisk[] | undefined>;
+    /**
      * The Fully Qualified DNS Name of the Spring Application in the service.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
+            resourceInputs["customPersistentDisks"] = state ? state.customPersistentDisks : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -136,6 +141,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            resourceInputs["customPersistentDisks"] = args ? args.customPersistentDisks : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["isPublic"] = args ? args.isPublic : undefined;
@@ -156,6 +162,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudApp resources.
  */
 export interface SpringCloudAppState {
+    /**
+     * A `customPersistentDisk` block as defined below.
+     */
+    customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[]>;
     /**
      * The Fully Qualified DNS Name of the Spring Application in the service.
      */
@@ -202,6 +212,10 @@ export interface SpringCloudAppState {
  * The set of arguments for constructing a SpringCloudApp resource.
  */
 export interface SpringCloudAppArgs {
+    /**
+     * A `customPersistentDisk` block as defined below.
+     */
+    customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[]>;
     /**
      * Is only https allowed? Defaults to `false`.
      */

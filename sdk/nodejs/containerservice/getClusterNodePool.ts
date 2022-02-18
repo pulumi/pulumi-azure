@@ -57,9 +57,6 @@ export interface GetClusterNodePoolArgs {
  * A collection of values returned by getClusterNodePool.
  */
 export interface GetClusterNodePoolResult {
-    /**
-     * A list of Availability Zones in which the Nodes in this Node Pool exists.
-     */
     readonly availabilityZones: string[];
     /**
      * Does this Node Pool have Auto-Scaling enabled?
@@ -156,6 +153,10 @@ export interface GetClusterNodePoolResult {
      * The ID of the Subnet in which this Node Pool exists.
      */
     readonly vnetSubnetId: string;
+    /**
+     * A list of the Availability Zones where the Nodes in this Node Pool exist.
+     */
+    readonly zones: string[];
 }
 
 export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterNodePoolResult> {

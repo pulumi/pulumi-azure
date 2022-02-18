@@ -157,7 +157,7 @@ type FlexibleServer struct {
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
-	Zone pulumi.StringOutput `pulumi:"zone"`
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewFlexibleServer registers a new resource with the given unique name, arguments, and options.

@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .custom_provider import *
 from .get_client_config import *
+from .get_extended_locations import *
 from .get_resource_group import *
 from .get_resources import *
 from .get_subscription import *

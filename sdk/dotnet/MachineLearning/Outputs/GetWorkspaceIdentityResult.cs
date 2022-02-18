@@ -13,18 +13,34 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     [OutputType]
     public sealed class GetWorkspaceIdentityResult
     {
+        /// <summary>
+        /// A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+        /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
+        /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// The Type of Managed Identity assigned to this Machine Learning Workspace.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWorkspaceIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

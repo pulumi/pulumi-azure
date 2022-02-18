@@ -74,7 +74,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
     }
 
     /**
+     * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+     */
+    public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux>;
+    /**
      * A `addonProfile` block as defined below.
+     *
+     * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
      */
     public readonly addonProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAddonProfile>;
     /**
@@ -89,6 +95,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      */
     public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
+    /**
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     */
+    public readonly azurePolicyEnabled!: pulumi.Output<boolean>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -111,6 +121,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
+     * Should HTTP Application Routing be enabled?
+     */
+    public readonly httpApplicationRoutingEnabled!: pulumi.Output<boolean>;
+    /**
+     * The Zone Name of the HTTP Application Routing.
+     */
+    public /*out*/ readonly httpApplicationRoutingZoneName!: pulumi.Output<string>;
+    /**
      * A `httpProxyConfig` block as defined below.
      */
     public readonly httpProxyConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterHttpProxyConfig | undefined>;
@@ -118,6 +136,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
+    /**
+     * A `ingressApplicationGateway` block as defined below.
+     */
+    public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway>;
+    /**
+     * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+     */
+    public readonly keyVaultSecretsProvider!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyVaultSecretsProvider>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      */
@@ -170,6 +196,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
+    /**
+     * A `omsAgent` block as defined below.
+     */
+    public readonly omsAgent!: pulumi.Output<outputs.containerservice.KubernetesClusterOmsAgent>;
+    /**
+     * Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+     */
+    public readonly openServiceMeshEnabled!: pulumi.Output<boolean>;
     /**
      * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
@@ -233,18 +267,24 @@ export class KubernetesCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
+            resourceInputs["aciConnectorLinux"] = state ? state.aciConnectorLinux : undefined;
             resourceInputs["addonProfile"] = state ? state.addonProfile : undefined;
             resourceInputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
+            resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             resourceInputs["dnsPrefixPrivateCluster"] = state ? state.dnsPrefixPrivateCluster : undefined;
             resourceInputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["httpApplicationRoutingEnabled"] = state ? state.httpApplicationRoutingEnabled : undefined;
+            resourceInputs["httpApplicationRoutingZoneName"] = state ? state.httpApplicationRoutingZoneName : undefined;
             resourceInputs["httpProxyConfig"] = state ? state.httpProxyConfig : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["ingressApplicationGateway"] = state ? state.ingressApplicationGateway : undefined;
+            resourceInputs["keyVaultSecretsProvider"] = state ? state.keyVaultSecretsProvider : undefined;
             resourceInputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
             resourceInputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
             resourceInputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
@@ -258,6 +298,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
+            resourceInputs["omsAgent"] = state ? state.omsAgent : undefined;
+            resourceInputs["openServiceMeshEnabled"] = state ? state.openServiceMeshEnabled : undefined;
             resourceInputs["portalFqdn"] = state ? state.portalFqdn : undefined;
             resourceInputs["privateClusterEnabled"] = state ? state.privateClusterEnabled : undefined;
             resourceInputs["privateClusterPublicFqdnEnabled"] = state ? state.privateClusterPublicFqdnEnabled : undefined;
@@ -279,17 +321,22 @@ export class KubernetesCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["aciConnectorLinux"] = args ? args.aciConnectorLinux : undefined;
             resourceInputs["addonProfile"] = args ? args.addonProfile : undefined;
             resourceInputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
+            resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             resourceInputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
             resourceInputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
+            resourceInputs["httpApplicationRoutingEnabled"] = args ? args.httpApplicationRoutingEnabled : undefined;
             resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["ingressApplicationGateway"] = args ? args.ingressApplicationGateway : undefined;
+            resourceInputs["keyVaultSecretsProvider"] = args ? args.keyVaultSecretsProvider : undefined;
             resourceInputs["kubeletIdentities"] = args ? args.kubeletIdentities : undefined;
             resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             resourceInputs["linuxProfile"] = args ? args.linuxProfile : undefined;
@@ -299,6 +346,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
+            resourceInputs["omsAgent"] = args ? args.omsAgent : undefined;
+            resourceInputs["openServiceMeshEnabled"] = args ? args.openServiceMeshEnabled : undefined;
             resourceInputs["privateClusterEnabled"] = args ? args.privateClusterEnabled : undefined;
             resourceInputs["privateClusterPublicFqdnEnabled"] = args ? args.privateClusterPublicFqdnEnabled : undefined;
             resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
@@ -311,6 +360,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["httpApplicationRoutingZoneName"] = undefined /*out*/;
             resourceInputs["kubeAdminConfigRaw"] = undefined /*out*/;
             resourceInputs["kubeAdminConfigs"] = undefined /*out*/;
             resourceInputs["kubeConfigRaw"] = undefined /*out*/;
@@ -328,7 +378,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
  */
 export interface KubernetesClusterState {
     /**
+     * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+     */
+    aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
+    /**
      * A `addonProfile` block as defined below.
+     *
+     * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
      */
     addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
@@ -343,6 +399,10 @@ export interface KubernetesClusterState {
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
+    /**
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     */
+    azurePolicyEnabled?: pulumi.Input<boolean>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -365,6 +425,14 @@ export interface KubernetesClusterState {
      */
     fqdn?: pulumi.Input<string>;
     /**
+     * Should HTTP Application Routing be enabled?
+     */
+    httpApplicationRoutingEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Zone Name of the HTTP Application Routing.
+     */
+    httpApplicationRoutingZoneName?: pulumi.Input<string>;
+    /**
      * A `httpProxyConfig` block as defined below.
      */
     httpProxyConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterHttpProxyConfig>;
@@ -372,6 +440,14 @@ export interface KubernetesClusterState {
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
+    /**
+     * A `ingressApplicationGateway` block as defined below.
+     */
+    ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
+    /**
+     * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+     */
+    keyVaultSecretsProvider?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyVaultSecretsProvider>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      */
@@ -424,6 +500,14 @@ export interface KubernetesClusterState {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * A `omsAgent` block as defined below.
+     */
+    omsAgent?: pulumi.Input<inputs.containerservice.KubernetesClusterOmsAgent>;
+    /**
+     * Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+     */
+    openServiceMeshEnabled?: pulumi.Input<boolean>;
     /**
      * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
@@ -480,7 +564,13 @@ export interface KubernetesClusterState {
  */
 export interface KubernetesClusterArgs {
     /**
+     * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+     */
+    aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
+    /**
      * A `addonProfile` block as defined below.
+     *
+     * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
      */
     addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
@@ -495,6 +585,10 @@ export interface KubernetesClusterArgs {
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
+    /**
+     * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+     */
+    azurePolicyEnabled?: pulumi.Input<boolean>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -513,6 +607,10 @@ export interface KubernetesClusterArgs {
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
+     * Should HTTP Application Routing be enabled?
+     */
+    httpApplicationRoutingEnabled?: pulumi.Input<boolean>;
+    /**
      * A `httpProxyConfig` block as defined below.
      */
     httpProxyConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterHttpProxyConfig>;
@@ -520,6 +618,14 @@ export interface KubernetesClusterArgs {
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
+    /**
+     * A `ingressApplicationGateway` block as defined below.
+     */
+    ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
+    /**
+     * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+     */
+    keyVaultSecretsProvider?: pulumi.Input<inputs.containerservice.KubernetesClusterKeyVaultSecretsProvider>;
     /**
      * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
      */
@@ -556,6 +662,14 @@ export interface KubernetesClusterArgs {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * A `omsAgent` block as defined below.
+     */
+    omsAgent?: pulumi.Input<inputs.containerservice.KubernetesClusterOmsAgent>;
+    /**
+     * Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+     */
+    openServiceMeshEnabled?: pulumi.Input<boolean>;
     /**
      * Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      */

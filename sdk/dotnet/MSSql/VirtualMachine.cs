@@ -110,7 +110,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> SqlConnectivityUpdateUsername { get; private set; } = null!;
 
         /// <summary>
-        /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         /// </summary>
         [Output("sqlLicenseType")]
         public Output<string> SqlLicenseType { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SqlConnectivityUpdateUsername { get; set; }
 
         /// <summary>
-        /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         /// </summary>
         [Input("sqlLicenseType", required: true)]
         public Input<string> SqlLicenseType { get; set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SqlConnectivityUpdateUsername { get; set; }
 
         /// <summary>
-        /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         /// </summary>
         [Input("sqlLicenseType")]
         public Input<string>? SqlLicenseType { get; set; }

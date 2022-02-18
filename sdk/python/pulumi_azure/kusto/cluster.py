@@ -17,6 +17,8 @@ class ClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['ClusterSkuArgs'],
+                 auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
+                 disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -28,6 +30,9 @@ class ClusterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purge_enabled: Optional[pulumi.Input[bool]] = None,
+                 streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_configuration: Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']] = None,
@@ -36,17 +41,16 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_stop: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
-        :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTentantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
@@ -54,14 +58,30 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if auto_stop_enabled is not None:
+            pulumi.set(__self__, "auto_stop_enabled", auto_stop_enabled)
+        if disk_encryption_enabled is not None:
+            pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if enable_auto_stop is not None:
+            warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_auto_stop is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+        if enable_auto_stop is not None:
             pulumi.set(__self__, "enable_auto_stop", enable_auto_stop)
+        if enable_disk_encryption is not None:
+            warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
         if enable_disk_encryption is not None:
             pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
         if enable_purge is not None:
+            warnings.warn("""This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_purge is deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+        if enable_purge is not None:
             pulumi.set(__self__, "enable_purge", enable_purge)
+        if enable_streaming_ingest is not None:
+            warnings.warn("""This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_streaming_ingest is deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
         if enable_streaming_ingest is not None:
             pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
         if engine is not None:
@@ -76,6 +96,12 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if optimized_auto_scale is not None:
             pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if purge_enabled is not None:
+            pulumi.set(__self__, "purge_enabled", purge_enabled)
+        if streaming_ingestion_enabled is not None:
+            pulumi.set(__self__, "streaming_ingestion_enabled", streaming_ingestion_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trusted_external_tenants is not None:
@@ -110,6 +136,30 @@ class ClusterArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="autoStopEnabled")
+    def auto_stop_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        """
+        return pulumi.get(self, "auto_stop_enabled")
+
+    @auto_stop_enabled.setter
+    def auto_stop_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_stop_enabled", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionEnabled")
+    def disk_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the cluster's disks are encrypted.
+        """
+        return pulumi.get(self, "disk_encryption_enabled")
+
+    @disk_encryption_enabled.setter
+    def disk_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disk_encryption_enabled", value)
+
+    @property
     @pulumi.getter(name="doubleEncryptionEnabled")
     def double_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -124,9 +174,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enableAutoStop")
     def enable_auto_stop(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        """
         return pulumi.get(self, "enable_auto_stop")
 
     @enable_auto_stop.setter
@@ -136,9 +183,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enableDiskEncryption")
     def enable_disk_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the cluster's disks are encrypted.
-        """
         return pulumi.get(self, "enable_disk_encryption")
 
     @enable_disk_encryption.setter
@@ -148,9 +192,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enablePurge")
     def enable_purge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the purge operations are enabled.
-        """
         return pulumi.get(self, "enable_purge")
 
     @enable_purge.setter
@@ -160,9 +201,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="enableStreamingIngest")
     def enable_streaming_ingest(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the streaming ingest is enabled.
-        """
         return pulumi.get(self, "enable_streaming_ingest")
 
     @enable_streaming_ingest.setter
@@ -240,6 +278,36 @@ class ClusterArgs:
     @optimized_auto_scale.setter
     def optimized_auto_scale(self, value: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']]):
         pulumi.set(self, "optimized_auto_scale", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="purgeEnabled")
+    def purge_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the purge operations are enabled.
+        """
+        return pulumi.get(self, "purge_enabled")
+
+    @purge_enabled.setter
+    def purge_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_enabled", value)
+
+    @property
+    @pulumi.getter(name="streamingIngestionEnabled")
+    def streaming_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "streaming_ingestion_enabled")
+
+    @streaming_ingestion_enabled.setter
+    def streaming_ingestion_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "streaming_ingestion_enabled", value)
 
     @property
     @pulumi.getter
@@ -293,7 +361,9 @@ class ClusterArgs:
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
+                 auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  data_ingestion_uri: Optional[pulumi.Input[str]] = None,
+                 disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -305,8 +375,11 @@ class _ClusterState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
+                 streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -314,18 +387,17 @@ class _ClusterState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
+        :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_stop: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
-        :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -334,16 +406,32 @@ class _ClusterState:
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """
+        if auto_stop_enabled is not None:
+            pulumi.set(__self__, "auto_stop_enabled", auto_stop_enabled)
         if data_ingestion_uri is not None:
             pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
+        if disk_encryption_enabled is not None:
+            pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if enable_auto_stop is not None:
+            warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_auto_stop is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+        if enable_auto_stop is not None:
             pulumi.set(__self__, "enable_auto_stop", enable_auto_stop)
+        if enable_disk_encryption is not None:
+            warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
         if enable_disk_encryption is not None:
             pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
         if enable_purge is not None:
+            warnings.warn("""This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_purge is deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+        if enable_purge is not None:
             pulumi.set(__self__, "enable_purge", enable_purge)
+        if enable_streaming_ingest is not None:
+            warnings.warn("""This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_streaming_ingest is deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
         if enable_streaming_ingest is not None:
             pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
         if engine is not None:
@@ -358,10 +446,16 @@ class _ClusterState:
             pulumi.set(__self__, "name", name)
         if optimized_auto_scale is not None:
             pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if purge_enabled is not None:
+            pulumi.set(__self__, "purge_enabled", purge_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if streaming_ingestion_enabled is not None:
+            pulumi.set(__self__, "streaming_ingestion_enabled", streaming_ingestion_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trusted_external_tenants is not None:
@@ -374,6 +468,18 @@ class _ClusterState:
             pulumi.set(__self__, "zones", zones)
 
     @property
+    @pulumi.getter(name="autoStopEnabled")
+    def auto_stop_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        """
+        return pulumi.get(self, "auto_stop_enabled")
+
+    @auto_stop_enabled.setter
+    def auto_stop_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_stop_enabled", value)
+
+    @property
     @pulumi.getter(name="dataIngestionUri")
     def data_ingestion_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -384,6 +490,18 @@ class _ClusterState:
     @data_ingestion_uri.setter
     def data_ingestion_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_ingestion_uri", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionEnabled")
+    def disk_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the cluster's disks are encrypted.
+        """
+        return pulumi.get(self, "disk_encryption_enabled")
+
+    @disk_encryption_enabled.setter
+    def disk_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disk_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="doubleEncryptionEnabled")
@@ -400,9 +518,6 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enableAutoStop")
     def enable_auto_stop(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        """
         return pulumi.get(self, "enable_auto_stop")
 
     @enable_auto_stop.setter
@@ -412,9 +527,6 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enableDiskEncryption")
     def enable_disk_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the cluster's disks are encrypted.
-        """
         return pulumi.get(self, "enable_disk_encryption")
 
     @enable_disk_encryption.setter
@@ -424,9 +536,6 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enablePurge")
     def enable_purge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the purge operations are enabled.
-        """
         return pulumi.get(self, "enable_purge")
 
     @enable_purge.setter
@@ -436,9 +545,6 @@ class _ClusterState:
     @property
     @pulumi.getter(name="enableStreamingIngest")
     def enable_streaming_ingest(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the streaming ingest is enabled.
-        """
         return pulumi.get(self, "enable_streaming_ingest")
 
     @enable_streaming_ingest.setter
@@ -518,6 +624,27 @@ class _ClusterState:
         pulumi.set(self, "optimized_auto_scale", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="purgeEnabled")
+    def purge_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the purge operations are enabled.
+        """
+        return pulumi.get(self, "purge_enabled")
+
+    @purge_enabled.setter
+    def purge_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -540,6 +667,15 @@ class _ClusterState:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['ClusterSkuArgs']]):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="streamingIngestionEnabled")
+    def streaming_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "streaming_ingestion_enabled")
+
+    @streaming_ingestion_enabled.setter
+    def streaming_ingestion_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "streaming_ingestion_enabled", value)
 
     @property
     @pulumi.getter
@@ -607,6 +743,8 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
+                 disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -618,8 +756,11 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
@@ -657,17 +798,16 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_stop: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
-        :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -726,6 +866,8 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
+                 disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_stop: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -737,8 +879,11 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
@@ -755,10 +900,24 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            __props__.__dict__["auto_stop_enabled"] = auto_stop_enabled
+            __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
+            if enable_auto_stop is not None and not opts.urn:
+                warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+                pulumi.log.warn("""enable_auto_stop is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
             __props__.__dict__["enable_auto_stop"] = enable_auto_stop
+            if enable_disk_encryption is not None and not opts.urn:
+                warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+                pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
             __props__.__dict__["enable_disk_encryption"] = enable_disk_encryption
+            if enable_purge is not None and not opts.urn:
+                warnings.warn("""This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+                pulumi.log.warn("""enable_purge is deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
             __props__.__dict__["enable_purge"] = enable_purge
+            if enable_streaming_ingest is not None and not opts.urn:
+                warnings.warn("""This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+                pulumi.log.warn("""enable_streaming_ingest is deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
             __props__.__dict__["enable_streaming_ingest"] = enable_streaming_ingest
             __props__.__dict__["engine"] = engine
             __props__.__dict__["identity"] = identity
@@ -766,12 +925,15 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+            __props__.__dict__["purge_enabled"] = purge_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["streaming_ingestion_enabled"] = streaming_ingestion_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
@@ -788,7 +950,9 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
             data_ingestion_uri: Optional[pulumi.Input[str]] = None,
+            disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             enable_auto_stop: Optional[pulumi.Input[bool]] = None,
             enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -800,8 +964,11 @@ class Cluster(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            purge_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+            streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             uri: Optional[pulumi.Input[str]] = None,
@@ -814,18 +981,17 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
+        :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_stop: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
-        :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
-        :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -838,7 +1004,9 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = _ClusterState.__new__(_ClusterState)
 
+        __props__.__dict__["auto_stop_enabled"] = auto_stop_enabled
         __props__.__dict__["data_ingestion_uri"] = data_ingestion_uri
+        __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
         __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
         __props__.__dict__["enable_auto_stop"] = enable_auto_stop
         __props__.__dict__["enable_disk_encryption"] = enable_disk_encryption
@@ -850,8 +1018,11 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["purge_enabled"] = purge_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["streaming_ingestion_enabled"] = streaming_ingestion_enabled
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
         __props__.__dict__["uri"] = uri
@@ -860,12 +1031,28 @@ class Cluster(pulumi.CustomResource):
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="autoStopEnabled")
+    def auto_stop_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        """
+        return pulumi.get(self, "auto_stop_enabled")
+
+    @property
     @pulumi.getter(name="dataIngestionUri")
     def data_ingestion_uri(self) -> pulumi.Output[str]:
         """
         The Kusto Cluster URI to be used for data ingestion.
         """
         return pulumi.get(self, "data_ingestion_uri")
+
+    @property
+    @pulumi.getter(name="diskEncryptionEnabled")
+    def disk_encryption_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the cluster's disks are encrypted.
+        """
+        return pulumi.get(self, "disk_encryption_enabled")
 
     @property
     @pulumi.getter(name="doubleEncryptionEnabled")
@@ -877,34 +1064,22 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutoStop")
-    def enable_auto_stop(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-        """
+    def enable_auto_stop(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enable_auto_stop")
 
     @property
     @pulumi.getter(name="enableDiskEncryption")
-    def enable_disk_encryption(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if the cluster's disks are encrypted.
-        """
+    def enable_disk_encryption(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enable_disk_encryption")
 
     @property
     @pulumi.getter(name="enablePurge")
-    def enable_purge(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if the purge operations are enabled.
-        """
+    def enable_purge(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enable_purge")
 
     @property
     @pulumi.getter(name="enableStreamingIngest")
-    def enable_streaming_ingest(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if the streaming ingest is enabled.
-        """
+    def enable_streaming_ingest(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enable_streaming_ingest")
 
     @property
@@ -956,6 +1131,19 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "optimized_auto_scale")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="purgeEnabled")
+    def purge_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the purge operations are enabled.
+        """
+        return pulumi.get(self, "purge_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
@@ -970,6 +1158,11 @@ class Cluster(pulumi.CustomResource):
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="streamingIngestionEnabled")
+    def streaming_ingestion_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "streaming_ingestion_enabled")
 
     @property
     @pulumi.getter

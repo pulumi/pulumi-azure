@@ -19,6 +19,7 @@ class ServiceArgs:
                  sku: pulumi.Input[str],
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
                  live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class ServiceArgs:
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
@@ -50,6 +52,8 @@ class ServiceArgs:
             pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if live_trace is not None:
             pulumi.set(__self__, "live_trace", live_trace)
         if local_auth_enabled is not None:
@@ -114,6 +118,18 @@ class ServiceArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="liveTrace")
@@ -209,6 +225,7 @@ class _ServiceState:
                  capacity: Optional[pulumi.Input[int]] = None,
                  external_ip: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
                  live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -231,6 +248,7 @@ class _ServiceState:
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input[str] hostname: The FQDN of the Web Pubsub service.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
@@ -258,6 +276,8 @@ class _ServiceState:
             pulumi.set(__self__, "external_ip", external_ip)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if live_trace is not None:
             pulumi.set(__self__, "live_trace", live_trace)
         if local_auth_enabled is not None:
@@ -336,6 +356,18 @@ class _ServiceState:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="liveTrace")
@@ -537,6 +569,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -567,6 +600,9 @@ class Service(pulumi.CustomResource):
                 enabled=True,
                 messaging_logs_enabled=True,
                 connectivity_logs_enabled=False,
+            ),
+            identity=azure.webpubsub.ServiceIdentityArgs(
+                type="SystemAssigned",
             ))
         ```
 
@@ -583,6 +619,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
@@ -622,6 +659,9 @@ class Service(pulumi.CustomResource):
                 enabled=True,
                 messaging_logs_enabled=True,
                 connectivity_logs_enabled=False,
+            ),
+            identity=azure.webpubsub.ServiceIdentityArgs(
+                type="SystemAssigned",
             ))
         ```
 
@@ -650,6 +690,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -673,6 +714,7 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["aad_auth_enabled"] = aad_auth_enabled
             __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["live_trace"] = live_trace
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
@@ -709,6 +751,7 @@ class Service(pulumi.CustomResource):
             capacity: Optional[pulumi.Input[int]] = None,
             external_ip: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
             live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -736,6 +779,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input[str] hostname: The FQDN of the Web Pubsub service.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
@@ -763,6 +807,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["capacity"] = capacity
         __props__.__dict__["external_ip"] = external_ip
         __props__.__dict__["hostname"] = hostname
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["live_trace"] = live_trace
         __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
@@ -810,6 +855,14 @@ class Service(pulumi.CustomResource):
         The FQDN of the Web Pubsub service.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ServiceIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="liveTrace")

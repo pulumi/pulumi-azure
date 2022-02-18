@@ -519,6 +519,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_app_redis_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppRedisAssociation")},
 			"azurerm_spring_cloud_app_mysql_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppMysqlAssociation")},
 			"azurerm_spring_cloud_app_cosmosdb_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppCosmosDBAssociation")},
+			"azurerm_spring_cloud_storage":                  {Tok: azureResource(azureAppPlatform, "SpringCloudStorage")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -985,6 +986,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iot_time_series_insights_event_source_eventhub": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsEventSourceEventhub"),
 			},
+			"azurerm_iothub_certificate": {Tok: azureResource(azureIot, "Certificate")},
 
 			// KeyVault
 			"azurerm_key_vault":                         {Tok: azureResource(azureKeyVault, "KeyVault")},
@@ -1238,17 +1240,22 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server_security_alert_policy": {
 				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
 			},
-			"azurerm_mssql_database":                           {Tok: azureResource(azureMSSQL, "Database")},
-			"azurerm_mssql_virtual_machine":                    {Tok: azureResource(azureMSSQL, "VirtualMachine")},
-			"azurerm_mssql_server":                             {Tok: azureResource(azureMSSQL, "Server")},
-			"azurerm_mssql_database_extended_auditing_policy":  {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
-			"azurerm_mssql_server_extended_auditing_policy":    {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
-			"azurerm_mssql_firewall_rule":                      {Tok: azureResource(azureMSSQL, "FirewallRule")},
-			"azurerm_mssql_virtual_network_rule":               {Tok: azureResource(azureMSSQL, "VirtualNetworkRule")},
-			"azurerm_mssql_job_agent":                          {Tok: azureResource(azureMSSQL, "JobAgent")},
-			"azurerm_mssql_job_credential":                     {Tok: azureResource(azureMSSQL, "JobCredential")},
-			"azurerm_mssql_server_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
-			"azurerm_mssql_failover_group":                     {Tok: azureResource(azureMSSQL, "FailoverGroup")},
+			"azurerm_mssql_database":                                        {Tok: azureResource(azureMSSQL, "Database")},
+			"azurerm_mssql_virtual_machine":                                 {Tok: azureResource(azureMSSQL, "VirtualMachine")},
+			"azurerm_mssql_server":                                          {Tok: azureResource(azureMSSQL, "Server")},
+			"azurerm_mssql_database_extended_auditing_policy":               {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
+			"azurerm_mssql_server_extended_auditing_policy":                 {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
+			"azurerm_mssql_firewall_rule":                                   {Tok: azureResource(azureMSSQL, "FirewallRule")},
+			"azurerm_mssql_virtual_network_rule":                            {Tok: azureResource(azureMSSQL, "VirtualNetworkRule")},
+			"azurerm_mssql_job_agent":                                       {Tok: azureResource(azureMSSQL, "JobAgent")},
+			"azurerm_mssql_job_credential":                                  {Tok: azureResource(azureMSSQL, "JobCredential")},
+			"azurerm_mssql_server_transparent_data_encryption":              {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
+			"azurerm_mssql_failover_group":                                  {Tok: azureResource(azureMSSQL, "FailoverGroup")},
+			"azurerm_mssql_outbound_firewall_rule":                          {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
+			"azurerm_mssql_managed_database":                                {Tok: azureResource(azureMSSQL, "ManagedDatabase")},
+			"azurerm_mssql_managed_instance":                                {Tok: azureResource(azureMSSQL, "ManagedInstance")},
+			"azurerm_mssql_managed_instance_active_directory_administrator": {Tok: azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator")},
+			"azurerm_mssql_managed_instance_failover_group":                 {Tok: azureResource(azureMSSQL, "ManagedInstanceFailoverGroup")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {
@@ -2127,8 +2134,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_batch_application":                     {Tok: azureDataSource(azureBatch, "getApplication")},
-			"azurerm_subscriptions":                         {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_batch_application": {Tok: azureDataSource(azureBatch, "getApplication")},
+
+			"azurerm_subscriptions":      {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_extended_locations": {Tok: azureDataSource(azureCore, "getExtendedLocations")},
+
 			"azurerm_cdn_profile":                           {Tok: azureDataSource(azureCDN, "getProfile")},
 			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
@@ -2187,10 +2197,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_scheduled_query_rules_log": {
 				Tok: azureDataSource(azureMonitoring, "getScheduledQueryRulesLog"),
 			},
-			"azurerm_mssql_elasticpool": {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
-			"azurerm_mssql_database":    {Tok: azureDataSource(azureMSSQL, "getDatabase")},
-			"azurerm_mssql_server":      {Tok: azureDataSource(azureMSSQL, "getServer")},
-			"azurerm_dns_zone":          {Tok: azureDataSource(azureDNS, "getZone")},
+
+			"azurerm_mssql_elasticpool":      {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
+			"azurerm_mssql_database":         {Tok: azureDataSource(azureMSSQL, "getDatabase")},
+			"azurerm_mssql_server":           {Tok: azureDataSource(azureMSSQL, "getServer")},
+			"azurerm_mssql_managed_instance": {Tok: azureDataSource(azureMSSQL, "getManagedInstance")},
+
+			"azurerm_dns_zone": {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{

@@ -85,6 +85,10 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
      * Is the endpoint enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the Azure location of the Endpoint,
+     * this must be specified for Profiles using the `Performance` routing method.
+     */
     public readonly endpointLocation!: pulumi.Output<string>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -181,6 +185,10 @@ export interface TrafficManagerExternalEndpointState {
      * Is the endpoint enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Azure location of the Endpoint,
+     * this must be specified for Profiles using the `Performance` routing method.
+     */
     endpointLocation?: pulumi.Input<string>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -228,6 +236,10 @@ export interface TrafficManagerExternalEndpointArgs {
      * Is the endpoint enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Azure location of the Endpoint,
+     * this must be specified for Profiles using the `Performance` routing method.
+     */
     endpointLocation?: pulumi.Input<string>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).

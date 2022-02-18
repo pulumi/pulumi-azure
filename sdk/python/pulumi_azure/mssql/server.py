@@ -27,6 +27,7 @@ class ServerArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -42,6 +43,7 @@ class ServerArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -69,6 +71,8 @@ class ServerArgs:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outbound_network_restriction_enabled is not None:
+            pulumi.set(__self__, "outbound_network_restriction_enabled", outbound_network_restriction_enabled)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if public_network_access_enabled is not None:
@@ -215,6 +219,18 @@ class ServerArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outboundNetworkRestrictionEnabled")
+    def outbound_network_restriction_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        """
+        return pulumi.get(self, "outbound_network_restriction_enabled")
+
+    @outbound_network_restriction_enabled.setter
+    def outbound_network_restriction_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_network_restriction_enabled", value)
+
+    @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -265,6 +281,7 @@ class _ServerState:
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -282,6 +299,7 @@ class _ServerState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
@@ -314,6 +332,8 @@ class _ServerState:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outbound_network_restriction_enabled is not None:
+            pulumi.set(__self__, "outbound_network_restriction_enabled", outbound_network_restriction_enabled)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if public_network_access_enabled is not None:
@@ -454,6 +474,18 @@ class _ServerState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outboundNetworkRestrictionEnabled")
+    def outbound_network_restriction_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        """
+        return pulumi.get(self, "outbound_network_restriction_enabled")
+
+    @outbound_network_restriction_enabled.setter
+    def outbound_network_restriction_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_network_restriction_enabled", value)
+
+    @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -541,6 +573,7 @@ class Server(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -596,6 +629,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
@@ -672,6 +706,7 @@ class Server(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -706,6 +741,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
+            __props__.__dict__["outbound_network_restriction_enabled"] = outbound_network_restriction_enabled
             __props__.__dict__["primary_user_assigned_identity_id"] = primary_user_assigned_identity_id
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
@@ -738,6 +774,7 @@ class Server(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
             primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -760,6 +797,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
@@ -782,6 +820,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["minimum_tls_version"] = minimum_tls_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["outbound_network_restriction_enabled"] = outbound_network_restriction_enabled
         __props__.__dict__["primary_user_assigned_identity_id"] = primary_user_assigned_identity_id
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -871,6 +910,14 @@ class Server(pulumi.CustomResource):
         The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outboundNetworkRestrictionEnabled")
+    def outbound_network_restriction_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        """
+        return pulumi.get(self, "outbound_network_restriction_enabled")
 
     @property
     @pulumi.getter(name="primaryUserAssignedIdentityId")

@@ -33,6 +33,8 @@ class TrafficManagerExternalEndpointArgs:
                endpoint. Valid values are between `1` and `1000`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
+               this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -123,6 +125,10 @@ class TrafficManagerExternalEndpointArgs:
     @property
     @pulumi.getter(name="endpointLocation")
     def endpoint_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure location of the Endpoint,
+        this must be specified for Profiles using the `Performance` routing method.
+        """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
@@ -198,6 +204,8 @@ class _TrafficManagerExternalEndpointState:
         Input properties used for looking up and filtering TrafficManagerExternalEndpoint resources.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
+               this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -258,6 +266,10 @@ class _TrafficManagerExternalEndpointState:
     @property
     @pulumi.getter(name="endpointLocation")
     def endpoint_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure location of the Endpoint,
+        this must be specified for Profiles using the `Performance` routing method.
+        """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
@@ -415,6 +427,8 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerExternalEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
+               this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -557,6 +571,8 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerExternalEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
+               this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
@@ -604,6 +620,10 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointLocation")
     def endpoint_location(self) -> pulumi.Output[str]:
+        """
+        Specifies the Azure location of the Endpoint,
+        this must be specified for Profiles using the `Performance` routing method.
+        """
         return pulumi.get(self, "endpoint_location")
 
     @property

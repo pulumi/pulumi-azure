@@ -1047,6 +1047,8 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
+                 ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -1068,9 +1070,19 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_write is not None:
+            warnings.warn("""This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""disk_iops_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""")
+        if disk_iops_read_write is not None:
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_write is not None:
+            warnings.warn("""This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""disk_mbps_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""")
+        if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if ultra_ssd_disk_iops_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -1169,6 +1181,24 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
     @disk_mbps_read_write.setter
     def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_mbps_read_write", value)
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    def ultra_ssd_disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
+
+    @ultra_ssd_disk_iops_read_write.setter
+    def ultra_ssd_disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ultra_ssd_disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    def ultra_ssd_disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
+
+    @ultra_ssd_disk_mbps_read_write.setter
+    def ultra_ssd_disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ultra_ssd_disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -2512,6 +2542,8 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
+                 ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -2522,9 +2554,19 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_write is not None:
+            warnings.warn("""This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""disk_iops_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""")
+        if disk_iops_read_write is not None:
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_write is not None:
+            warnings.warn("""This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""disk_mbps_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""")
+        if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if ultra_ssd_disk_iops_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -2599,6 +2641,24 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @disk_mbps_read_write.setter
     def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_mbps_read_write", value)
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    def ultra_ssd_disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
+
+    @ultra_ssd_disk_iops_read_write.setter
+    def ultra_ssd_disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ultra_ssd_disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    def ultra_ssd_disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
+
+    @ultra_ssd_disk_mbps_read_write.setter
+    def ultra_ssd_disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ultra_ssd_disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -6862,6 +6922,8 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
+                 ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -6883,9 +6945,19 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_write is not None:
+            warnings.warn("""This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""disk_iops_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""")
+        if disk_iops_read_write is not None:
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
         if disk_mbps_read_write is not None:
+            warnings.warn("""This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""disk_mbps_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""")
+        if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if ultra_ssd_disk_iops_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -6984,6 +7056,24 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
     @disk_mbps_read_write.setter
     def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_mbps_read_write", value)
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    def ultra_ssd_disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
+
+    @ultra_ssd_disk_iops_read_write.setter
+    def ultra_ssd_disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ultra_ssd_disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    def ultra_ssd_disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
+
+    @ultra_ssd_disk_mbps_read_write.setter
+    def ultra_ssd_disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ultra_ssd_disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")

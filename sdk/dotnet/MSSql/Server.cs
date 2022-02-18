@@ -128,6 +128,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        /// </summary>
+        [Output("outboundNetworkRestrictionEnabled")]
+        public Output<bool?> OutboundNetworkRestrictionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
         /// </summary>
         [Output("primaryUserAssignedIdentityId")]
@@ -264,6 +270,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        /// </summary>
+        [Input("outboundNetworkRestrictionEnabled")]
+        public Input<bool>? OutboundNetworkRestrictionEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
@@ -365,6 +377,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether outbound network traffic is restricted for this server. Defaults to `false`.
+        /// </summary>
+        [Input("outboundNetworkRestrictionEnabled")]
+        public Input<bool>? OutboundNetworkRestrictionEnabled { get; set; }
 
         /// <summary>
         /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.

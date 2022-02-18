@@ -91,6 +91,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The user assigned identity id that represents the workspace identity.
+        /// </summary>
+        [Output("primaryUserAssignedIdentity")]
+        public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
@@ -230,6 +236,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The user assigned identity id that represents the workspace identity.
+        /// </summary>
+        [Input("primaryUserAssignedIdentity")]
+        public Input<string>? PrimaryUserAssignedIdentity { get; set; }
+
+        /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
@@ -340,6 +352,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The user assigned identity id that represents the workspace identity.
+        /// </summary>
+        [Input("primaryUserAssignedIdentity")]
+        public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.

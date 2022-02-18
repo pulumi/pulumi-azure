@@ -6,6 +6,29 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Virtual Desktop Host Pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     friendlyName: "pooleddepthfirst",
+ *     validateEnvironment: true,
+ *     startVmOnConnect: true,
+ *     customRdpProperties: "audiocapturemode:i:1;audiomode:i:0;",
+ *     description: "Acceptance Test: A pooled host pool - pooleddepthfirst",
+ *     type: "Pooled",
+ *     maximumSessionsAllowed: 50,
+ *     loadBalancerType: "DepthFirst",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -86,7 +109,8 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
     /**
-     * A `registrationInfo` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+     * This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+     * `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
      */
     public readonly registrationInfo!: pulumi.Output<outputs.desktopvirtualization.HostPoolRegistrationInfo | undefined>;
     /**
@@ -221,7 +245,8 @@ export interface HostPoolState {
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
-     * A `registrationInfo` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+     * This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+     * `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
      */
     registrationInfo?: pulumi.Input<inputs.desktopvirtualization.HostPoolRegistrationInfo>;
     /**
@@ -297,7 +322,8 @@ export interface HostPoolArgs {
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
-     * A `registrationInfo` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+     * This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
+     * `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
      */
     registrationInfo?: pulumi.Input<inputs.desktopvirtualization.HostPoolRegistrationInfo>;
     /**

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> TicketConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The Azure Log Analytics workspace ID where this connection is defined.
+        /// The Azure Log Analytics workspace ID where this connection is defined. Format is `&lt;subscription id&gt;|&lt;workspace id&gt;`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;

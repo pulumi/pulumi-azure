@@ -61,7 +61,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible Values are `OS`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -269,7 +269,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of disk used by kubelet. Possible Values are `OS`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -625,7 +625,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible Values are `OS`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -813,7 +813,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of disk used by kubelet. Possible Values are `OS`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -1205,7 +1205,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible Values are `OS`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -1409,7 +1409,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible Values are `OS`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -1539,7 +1539,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> pulumi.Output[str]:
         """
-        The type of disk used by kubelet. Possible Values are `OS`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 

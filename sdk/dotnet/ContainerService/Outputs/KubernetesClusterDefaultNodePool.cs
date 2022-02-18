@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? KubeletConfig;
         /// <summary>
-        /// The type of disk used by kubelet. At this time the only possible value is `OS`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         /// </summary>
         public readonly string? KubeletDiskType;
         /// <summary>

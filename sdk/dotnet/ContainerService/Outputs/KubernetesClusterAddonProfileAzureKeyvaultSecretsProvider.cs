@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider
     {
         /// <summary>
-        /// Is the Azure Keyvault Secrets Providerenabled?
+        /// Is the Azure Keyvault Secrets Provider enabled?
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
