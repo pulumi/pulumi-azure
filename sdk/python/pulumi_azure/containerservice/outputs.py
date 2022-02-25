@@ -1185,7 +1185,7 @@ class KubernetesClusterAciConnectorLinux(dict):
     def __init__(__self__, *,
                  subnet_name: str):
         """
-        :param str subnet_name: The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        :param str subnet_name: The subnet name for the virtual nodes to run.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
 
@@ -1193,7 +1193,7 @@ class KubernetesClusterAciConnectorLinux(dict):
     @pulumi.getter(name="subnetName")
     def subnet_name(self) -> str:
         """
-        The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        The subnet name for the virtual nodes to run.
         """
         return pulumi.get(self, "subnet_name")
 
@@ -1241,14 +1241,10 @@ class KubernetesClusterAddonProfile(dict):
                  oms_agent: Optional['outputs.KubernetesClusterAddonProfileOmsAgent'] = None,
                  open_service_mesh: Optional['outputs.KubernetesClusterAddonProfileOpenServiceMesh'] = None):
         """
-        :param 'KubernetesClusterAddonProfileAciConnectorLinuxArgs' aci_connector_linux: A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-        :param 'KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs' azure_keyvault_secrets_provider: An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-        :param 'KubernetesClusterAddonProfileAzurePolicyArgs' azure_policy: A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        :param 'KubernetesClusterAddonProfileAciConnectorLinuxArgs' aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param 'KubernetesClusterAddonProfileHttpApplicationRoutingArgs' http_application_routing: A `http_application_routing` block as defined below.
-        :param 'KubernetesClusterAddonProfileIngressApplicationGatewayArgs' ingress_application_gateway: An `ingress_application_gateway` block as defined below.
-        :param 'KubernetesClusterAddonProfileKubeDashboardArgs' kube_dashboard: A `kube_dashboard` block as defined below.
-        :param 'KubernetesClusterAddonProfileOmsAgentArgs' oms_agent: A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
-        :param 'KubernetesClusterAddonProfileOpenServiceMeshArgs' open_service_mesh: An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        :param 'KubernetesClusterAddonProfileIngressApplicationGatewayArgs' ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param 'KubernetesClusterAddonProfileOmsAgentArgs' oms_agent: A `oms_agent` block as defined below.
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
@@ -1271,24 +1267,18 @@ class KubernetesClusterAddonProfile(dict):
     @pulumi.getter(name="aciConnectorLinux")
     def aci_connector_linux(self) -> Optional['outputs.KubernetesClusterAddonProfileAciConnectorLinux']:
         """
-        A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         """
         return pulumi.get(self, "aci_connector_linux")
 
     @property
     @pulumi.getter(name="azureKeyvaultSecretsProvider")
     def azure_keyvault_secrets_provider(self) -> Optional['outputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider']:
-        """
-        An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-        """
         return pulumi.get(self, "azure_keyvault_secrets_provider")
 
     @property
     @pulumi.getter(name="azurePolicy")
     def azure_policy(self) -> Optional['outputs.KubernetesClusterAddonProfileAzurePolicy']:
-        """
-        A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        """
         return pulumi.get(self, "azure_policy")
 
     @property
@@ -1303,32 +1293,26 @@ class KubernetesClusterAddonProfile(dict):
     @pulumi.getter(name="ingressApplicationGateway")
     def ingress_application_gateway(self) -> Optional['outputs.KubernetesClusterAddonProfileIngressApplicationGateway']:
         """
-        An `ingress_application_gateway` block as defined below.
+        A `ingress_application_gateway` block as defined below.
         """
         return pulumi.get(self, "ingress_application_gateway")
 
     @property
     @pulumi.getter(name="kubeDashboard")
     def kube_dashboard(self) -> Optional['outputs.KubernetesClusterAddonProfileKubeDashboard']:
-        """
-        A `kube_dashboard` block as defined below.
-        """
         return pulumi.get(self, "kube_dashboard")
 
     @property
     @pulumi.getter(name="omsAgent")
     def oms_agent(self) -> Optional['outputs.KubernetesClusterAddonProfileOmsAgent']:
         """
-        A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        A `oms_agent` block as defined below.
         """
         return pulumi.get(self, "oms_agent")
 
     @property
     @pulumi.getter(name="openServiceMesh")
     def open_service_mesh(self) -> Optional['outputs.KubernetesClusterAddonProfileOpenServiceMesh']:
-        """
-        An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-        """
         return pulumi.get(self, "open_service_mesh")
 
 
@@ -1355,8 +1339,8 @@ class KubernetesClusterAddonProfileAciConnectorLinux(dict):
                  enabled: bool,
                  subnet_name: Optional[str] = None):
         """
-        :param bool enabled: Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
-        :param str subnet_name: The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
+        :param str subnet_name: The subnet name for the virtual nodes to run.
         """
         pulumi.set(__self__, "enabled", enabled)
         if subnet_name is not None:
@@ -1366,7 +1350,7 @@ class KubernetesClusterAddonProfileAciConnectorLinux(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1374,7 +1358,7 @@ class KubernetesClusterAddonProfileAciConnectorLinux(dict):
     @pulumi.getter(name="subnetName")
     def subnet_name(self) -> Optional[str]:
         """
-        The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        The subnet name for the virtual nodes to run.
         """
         return pulumi.get(self, "subnet_name")
 
@@ -1408,7 +1392,7 @@ class KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider(dict):
                  secret_rotation_enabled: Optional[bool] = None,
                  secret_rotation_interval: Optional[str] = None):
         """
-        :param bool enabled: Is the Azure Keyvault Secrets Provider enabled?
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
         :param Sequence['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param bool secret_rotation_enabled: Is secret rotation enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
@@ -1425,7 +1409,7 @@ class KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the Azure Keyvault Secrets Provider enabled?
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1523,7 +1507,7 @@ class KubernetesClusterAddonProfileAzurePolicy(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Is the Azure Policy for Kubernetes Add On enabled?
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -1531,7 +1515,7 @@ class KubernetesClusterAddonProfileAzurePolicy(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the Azure Policy for Kubernetes Add On enabled?
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1559,7 +1543,7 @@ class KubernetesClusterAddonProfileHttpApplicationRouting(dict):
                  enabled: bool,
                  http_application_routing_zone_name: Optional[str] = None):
         """
-        :param bool enabled: Is HTTP Application Routing Enabled?
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
         :param str http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1570,7 +1554,7 @@ class KubernetesClusterAddonProfileHttpApplicationRouting(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is HTTP Application Routing Enabled?
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1621,7 +1605,7 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
                  subnet_cidr: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
-        :param bool enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param str gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         :param str gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -1647,7 +1631,7 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1808,8 +1792,8 @@ class KubernetesClusterAddonProfileOmsAgent(dict):
                  log_analytics_workspace_id: Optional[str] = None,
                  oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity']] = None):
         """
-        :param bool enabled: Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
-        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
+        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param Sequence['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1822,7 +1806,7 @@ class KubernetesClusterAddonProfileOmsAgent(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1830,7 +1814,7 @@ class KubernetesClusterAddonProfileOmsAgent(dict):
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> Optional[str]:
         """
-        The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
@@ -1912,7 +1896,7 @@ class KubernetesClusterAddonProfileOpenServiceMesh(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Is Open Service Mesh enabled?
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -1920,7 +1904,7 @@ class KubernetesClusterAddonProfileOpenServiceMesh(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is Open Service Mesh enabled?
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -5275,7 +5259,7 @@ class KubernetesClusterOmsAgent(dict):
                  log_analytics_workspace_id: str,
                  oms_agent_identities: Optional[Sequence['outputs.KubernetesClusterOmsAgentOmsAgentIdentity']] = None):
         """
-        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param Sequence['KubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -5286,7 +5270,7 @@ class KubernetesClusterOmsAgent(dict):
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> str:
         """
-        The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 

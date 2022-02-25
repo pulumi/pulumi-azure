@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileHttpApplicationRouting
     {
         /// <summary>
-        /// Is HTTP Application Routing Enabled?
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

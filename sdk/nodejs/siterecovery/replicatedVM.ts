@@ -108,16 +108,24 @@ import * as utilities from "../utilities";
  *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
  *     recoveryReplicationPolicyId: policy.id,
  * });
+ * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondaryVirtualNetwork", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     addressSpaces: ["192.168.2.0/24"],
+ *     location: secondaryResourceGroup.location,
+ * });
+ * const network_mapping = new azure.siterecovery.NetworkMapping("network-mapping", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     sourceRecoveryFabricName: primaryFabric.name,
+ *     targetRecoveryFabricName: secondaryFabric.name,
+ *     sourceNetworkId: primaryVirtualNetwork.id,
+ *     targetNetworkId: secondaryVirtualNetwork.id,
+ * });
  * const primaryAccount = new azure.storage.Account("primaryAccount", {
  *     location: primaryResourceGroup.location,
  *     resourceGroupName: primaryResourceGroup.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
- * });
- * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondaryVirtualNetwork", {
- *     resourceGroupName: secondaryResourceGroup.name,
- *     addressSpaces: ["192.168.2.0/24"],
- *     location: secondaryResourceGroup.location,
  * });
  * const secondarySubnet = new azure.network.Subnet("secondarySubnet", {
  *     resourceGroupName: secondaryResourceGroup.name,
@@ -149,9 +157,14 @@ import * as utilities from "../utilities";
  *     }],
  *     networkInterfaces: [{
  *         sourceNetworkInterfaceId: vmNetworkInterface.id,
- *         targetSubnetName: "network2-subnet",
+ *         targetSubnetName: secondarySubnet.name,
  *         recoveryPublicIpAddressId: secondaryPublicIp.id,
  *     }],
+ * }, {
+ *     dependsOn: [
+ *         container_mapping,
+ *         network_mapping,
+ *     ],
  * });
  * ```
  *

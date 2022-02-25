@@ -178,15 +178,6 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		primaryAccount, err := storage.NewAccount(ctx, "primaryAccount", &storage.AccountArgs{
-// 			Location:               primaryResourceGroup.Location,
-// 			ResourceGroupName:      primaryResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		secondaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "secondaryVirtualNetwork", &network.VirtualNetworkArgs{
 // 			ResourceGroupName: secondaryResourceGroup.Name,
 // 			AddressSpaces: pulumi.StringArray{
@@ -197,7 +188,27 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = network.NewSubnet(ctx, "secondarySubnet", &network.SubnetArgs{
+// 		_, err = siterecovery.NewNetworkMapping(ctx, "network-mapping", &siterecovery.NetworkMappingArgs{
+// 			ResourceGroupName:        secondaryResourceGroup.Name,
+// 			RecoveryVaultName:        vault.Name,
+// 			SourceRecoveryFabricName: primaryFabric.Name,
+// 			TargetRecoveryFabricName: secondaryFabric.Name,
+// 			SourceNetworkId:          primaryVirtualNetwork.ID(),
+// 			TargetNetworkId:          secondaryVirtualNetwork.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		primaryAccount, err := storage.NewAccount(ctx, "primaryAccount", &storage.AccountArgs{
+// 			Location:               primaryResourceGroup.Location,
+// 			ResourceGroupName:      primaryResourceGroup.Name,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		secondarySubnet, err := network.NewSubnet(ctx, "secondarySubnet", &network.SubnetArgs{
 // 			ResourceGroupName:  secondaryResourceGroup.Name,
 // 			VirtualNetworkName: secondaryVirtualNetwork.Name,
 // 			AddressPrefixes: pulumi.StringArray{
@@ -240,11 +251,14 @@ import (
 // 			NetworkInterfaces: siterecovery.ReplicatedVMNetworkInterfaceArray{
 // 				&siterecovery.ReplicatedVMNetworkInterfaceArgs{
 // 					SourceNetworkInterfaceId:  vmNetworkInterface.ID(),
-// 					TargetSubnetName:          pulumi.String("network2-subnet"),
+// 					TargetSubnetName:          secondarySubnet.Name,
 // 					RecoveryPublicIpAddressId: secondaryPublicIp.ID(),
 // 				},
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			container_mapping,
+// 			network_mapping,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

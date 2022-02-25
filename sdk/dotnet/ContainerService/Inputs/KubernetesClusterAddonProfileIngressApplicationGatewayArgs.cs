@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? EffectiveGatewayId { get; set; }
 
         /// <summary>
-        /// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

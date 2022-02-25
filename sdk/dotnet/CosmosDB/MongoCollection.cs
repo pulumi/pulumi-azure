@@ -78,7 +78,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
         /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.MongoCollectionAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<Outputs.MongoCollectionSystemIndex>> SystemIndexes { get; private set; } = null!;
 
         /// <summary>
-        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.MongoCollectionAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? ShardKey { get; set; }
 
         /// <summary>
-        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.MongoCollectionAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

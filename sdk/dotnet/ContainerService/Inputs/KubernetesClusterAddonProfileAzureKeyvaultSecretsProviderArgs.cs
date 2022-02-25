@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Azure Keyvault Secrets Provider enabled?
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

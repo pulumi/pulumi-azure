@@ -74,7 +74,7 @@ type KubernetesCluster struct {
 
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxOutput `pulumi:"aciConnectorLinux"`
-	// A `addonProfile` block as defined below.
+	// An `addonProfile` block as defined below.
 	//
 	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
@@ -203,7 +203,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// A `addonProfile` block as defined below.
+	// An `addonProfile` block as defined below.
 	//
 	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
@@ -298,7 +298,7 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// A `addonProfile` block as defined below.
+	// An `addonProfile` block as defined below.
 	//
 	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
@@ -397,7 +397,7 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// A `addonProfile` block as defined below.
+	// An `addonProfile` block as defined below.
 	//
 	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
@@ -477,7 +477,7 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// A `addonProfile` block as defined below.
+	// An `addonProfile` block as defined below.
 	//
 	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
 	AddonProfile KubernetesClusterAddonProfilePtrInput

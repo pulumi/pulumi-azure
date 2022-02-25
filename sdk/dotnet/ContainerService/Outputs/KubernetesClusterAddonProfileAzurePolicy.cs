@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileAzurePolicy
     {
         /// <summary>
-        /// Is the Azure Policy for Kubernetes Add On enabled?
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         public readonly bool Enabled;
 

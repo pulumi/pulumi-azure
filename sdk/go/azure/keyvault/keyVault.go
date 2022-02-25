@@ -98,7 +98,7 @@ type KeyVault struct {
 	EnabledForTemplateDeployment pulumi.BoolPtrOutput `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsOutput `pulumi:"networkAcls"`
@@ -172,7 +172,7 @@ type keyVaultState struct {
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
@@ -209,7 +209,7 @@ type KeyVaultState struct {
 	EnabledForTemplateDeployment pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsPtrInput
@@ -250,7 +250,7 @@ type keyVaultArgs struct {
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
@@ -286,7 +286,7 @@ type KeyVaultArgs struct {
 	EnabledForTemplateDeployment pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsPtrInput

@@ -13,20 +13,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAddonProfileAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
 
-        /// <summary>
-        /// An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-        /// </summary>
         [Input("azureKeyvaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderGetArgs>? AzureKeyvaultSecretsProvider { get; set; }
 
-        /// <summary>
-        /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        /// </summary>
         [Input("azurePolicy")]
         public Input<Inputs.KubernetesClusterAddonProfileAzurePolicyGetArgs>? AzurePolicy { get; set; }
 
@@ -37,26 +31,20 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterAddonProfileHttpApplicationRoutingGetArgs>? HttpApplicationRouting { get; set; }
 
         /// <summary>
-        /// An `ingress_application_gateway` block as defined below.
+        /// A `ingress_application_gateway` block as defined below.
         /// </summary>
         [Input("ingressApplicationGateway")]
         public Input<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayGetArgs>? IngressApplicationGateway { get; set; }
 
-        /// <summary>
-        /// A `kube_dashboard` block as defined below.
-        /// </summary>
         [Input("kubeDashboard")]
         public Input<Inputs.KubernetesClusterAddonProfileKubeDashboardGetArgs>? KubeDashboard { get; set; }
 
         /// <summary>
-        /// A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        /// A `oms_agent` block as defined below.
         /// </summary>
         [Input("omsAgent")]
         public Input<Inputs.KubernetesClusterAddonProfileOmsAgentGetArgs>? OmsAgent { get; set; }
 
-        /// <summary>
-        /// An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-        /// </summary>
         [Input("openServiceMesh")]
         public Input<Inputs.KubernetesClusterAddonProfileOpenServiceMeshGetArgs>? OpenServiceMesh { get; set; }
 

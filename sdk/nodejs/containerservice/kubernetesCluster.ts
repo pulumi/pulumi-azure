@@ -78,7 +78,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * A `addonProfile` block as defined below.
+     * An `addonProfile` block as defined below.
      *
      * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
      */
@@ -382,7 +382,7 @@ export interface KubernetesClusterState {
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * A `addonProfile` block as defined below.
+     * An `addonProfile` block as defined below.
      *
      * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
      */
@@ -568,7 +568,7 @@ export interface KubernetesClusterArgs {
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * A `addonProfile` block as defined below.
+     * An `addonProfile` block as defined below.
      *
      * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
      */

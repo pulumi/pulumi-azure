@@ -58,7 +58,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: An `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -212,7 +212,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="addonProfile")
     def addon_profile(self) -> Optional[pulumi.Input['KubernetesClusterAddonProfileArgs']]:
         """
-        A `addon_profile` block as defined below.
+        An `addon_profile` block as defined below.
         """
         return pulumi.get(self, "addon_profile")
 
@@ -672,7 +672,7 @@ class _KubernetesClusterState:
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: An `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -830,7 +830,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="addonProfile")
     def addon_profile(self) -> Optional[pulumi.Input['KubernetesClusterAddonProfileArgs']]:
         """
-        A `addon_profile` block as defined below.
+        An `addon_profile` block as defined below.
         """
         return pulumi.get(self, "addon_profile")
 
@@ -1444,7 +1444,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: An `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -1709,7 +1709,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: An `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -1816,7 +1816,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="addonProfile")
     def addon_profile(self) -> pulumi.Output['outputs.KubernetesClusterAddonProfile']:
         """
-        A `addon_profile` block as defined below.
+        An `addon_profile` block as defined below.
         """
         return pulumi.get(self, "addon_profile")
 

@@ -151,13 +151,6 @@ namespace Pulumi.Azure.SiteRecovery
     ///             RecoveryTargetProtectionContainerId = secondaryProtectionContainer.Id,
     ///             RecoveryReplicationPolicyId = policy.Id,
     ///         });
-    ///         var primaryAccount = new Azure.Storage.Account("primaryAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = primaryResourceGroup.Location,
-    ///             ResourceGroupName = primaryResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
     ///         var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondaryVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {
     ///             ResourceGroupName = secondaryResourceGroup.Name,
@@ -166,6 +159,22 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 "192.168.2.0/24",
     ///             },
     ///             Location = secondaryResourceGroup.Location,
+    ///         });
+    ///         var network_mapping = new Azure.SiteRecovery.NetworkMapping("network-mapping", new Azure.SiteRecovery.NetworkMappingArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             SourceRecoveryFabricName = primaryFabric.Name,
+    ///             TargetRecoveryFabricName = secondaryFabric.Name,
+    ///             SourceNetworkId = primaryVirtualNetwork.Id,
+    ///             TargetNetworkId = secondaryVirtualNetwork.Id,
+    ///         });
+    ///         var primaryAccount = new Azure.Storage.Account("primaryAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = primaryResourceGroup.Location,
+    ///             ResourceGroupName = primaryResourceGroup.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
     ///         });
     ///         var secondarySubnet = new Azure.Network.Subnet("secondarySubnet", new Azure.Network.SubnetArgs
     ///         {
@@ -210,9 +219,16 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 new Azure.SiteRecovery.Inputs.ReplicatedVMNetworkInterfaceArgs
     ///                 {
     ///                     SourceNetworkInterfaceId = vmNetworkInterface.Id,
-    ///                     TargetSubnetName = "network2-subnet",
+    ///                     TargetSubnetName = secondarySubnet.Name,
     ///                     RecoveryPublicIpAddressId = secondaryPublicIp.Id,
     ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 container_mapping,
+    ///                 network_mapping,
     ///             },
     ///         });
     ///     }

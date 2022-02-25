@@ -85,7 +85,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableAutoStop!: pulumi.Output<boolean>;
     /**
-     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+     * @deprecated This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     public readonly enableDiskEncryption!: pulumi.Output<boolean>;
     /**
@@ -255,7 +255,7 @@ export interface ClusterState {
      */
     enableAutoStop?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+     * @deprecated This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableDiskEncryption?: pulumi.Input<boolean>;
     /**
@@ -347,7 +347,7 @@ export interface ClusterArgs {
      */
     enableAutoStop?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+     * @deprecated This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
      */
     enableDiskEncryption?: pulumi.Input<boolean>;
     /**

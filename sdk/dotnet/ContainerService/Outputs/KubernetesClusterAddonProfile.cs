@@ -14,36 +14,24 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfile
     {
         /// <summary>
-        /// A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileAciConnectorLinux? AciConnectorLinux;
-        /// <summary>
-        /// An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-        /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider? AzureKeyvaultSecretsProvider;
-        /// <summary>
-        /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileAzurePolicy? AzurePolicy;
         /// <summary>
         /// A `http_application_routing` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileHttpApplicationRouting? HttpApplicationRouting;
         /// <summary>
-        /// An `ingress_application_gateway` block as defined below.
+        /// A `ingress_application_gateway` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileIngressApplicationGateway? IngressApplicationGateway;
-        /// <summary>
-        /// A `kube_dashboard` block as defined below.
-        /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileKubeDashboard? KubeDashboard;
         /// <summary>
-        /// A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        /// A `oms_agent` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileOmsAgent? OmsAgent;
-        /// <summary>
-        /// An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-        /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileOpenServiceMesh? OpenServiceMesh;
 
         [OutputConstructor]
