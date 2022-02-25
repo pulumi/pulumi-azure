@@ -71,7 +71,7 @@ type Cluster struct {
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
 	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop pulumi.BoolOutput `pulumi:"enableAutoStop"`
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption pulumi.BoolOutput `pulumi:"enableDiskEncryption"`
 	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge pulumi.BoolOutput `pulumi:"enablePurge"`
@@ -154,7 +154,7 @@ type clusterState struct {
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop *bool `pulumi:"enableAutoStop"`
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge *bool `pulumi:"enablePurge"`
@@ -203,7 +203,7 @@ type ClusterState struct {
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge pulumi.BoolPtrInput
@@ -254,7 +254,7 @@ type clusterArgs struct {
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop *bool `pulumi:"enableAutoStop"`
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge *bool `pulumi:"enablePurge"`
@@ -300,7 +300,7 @@ type ClusterArgs struct {
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableAutoStop pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
+	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
 	EnablePurge pulumi.BoolPtrInput

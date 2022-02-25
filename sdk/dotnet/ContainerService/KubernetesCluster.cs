@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAciConnectorLinux> AciConnectorLinux { get; private set; } = null!;
 
         /// <summary>
-        /// A `addon_profile` block as defined below.
+        /// An `addon_profile` block as defined below.
         /// </summary>
         [Output("addonProfile")]
         public Output<Outputs.KubernetesClusterAddonProfile> AddonProfile { get; private set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
 
         /// <summary>
-        /// A `addon_profile` block as defined below.
+        /// An `addon_profile` block as defined below.
         /// </summary>
         [Input("addonProfile")]
         public Input<Inputs.KubernetesClusterAddonProfileArgs>? AddonProfile { get; set; }
@@ -634,7 +634,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
 
         /// <summary>
-        /// A `addon_profile` block as defined below.
+        /// An `addon_profile` block as defined below.
         /// </summary>
         [Input("addonProfile")]
         public Input<Inputs.KubernetesClusterAddonProfileGetArgs>? AddonProfile { get; set; }

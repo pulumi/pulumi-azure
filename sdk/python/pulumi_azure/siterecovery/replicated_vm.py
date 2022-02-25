@@ -570,15 +570,22 @@ class ReplicatedVM(pulumi.CustomResource):
             recovery_source_protection_container_name=primary_protection_container.name,
             recovery_target_protection_container_id=secondary_protection_container.id,
             recovery_replication_policy_id=policy.id)
+        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
+            resource_group_name=secondary_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=secondary_resource_group.location)
+        network_mapping = azure.siterecovery.NetworkMapping("network-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name=primary_fabric.name,
+            target_recovery_fabric_name=secondary_fabric.name,
+            source_network_id=primary_virtual_network.id,
+            target_network_id=secondary_virtual_network.id)
         primary_account = azure.storage.Account("primaryAccount",
             location=primary_resource_group.location,
             resource_group_name=primary_resource_group.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
         secondary_subnet = azure.network.Subnet("secondarySubnet",
             resource_group_name=secondary_resource_group.name,
             virtual_network_name=secondary_virtual_network.name,
@@ -607,9 +614,13 @@ class ReplicatedVM(pulumi.CustomResource):
             )],
             network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
                 source_network_interface_id=vm_network_interface.id,
-                target_subnet_name="network2-subnet",
+                target_subnet_name=secondary_subnet.name,
                 recovery_public_ip_address_id=secondary_public_ip.id,
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    container_mapping,
+                    network_mapping,
+                ]))
         ```
 
         ## Import
@@ -733,15 +744,22 @@ class ReplicatedVM(pulumi.CustomResource):
             recovery_source_protection_container_name=primary_protection_container.name,
             recovery_target_protection_container_id=secondary_protection_container.id,
             recovery_replication_policy_id=policy.id)
+        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
+            resource_group_name=secondary_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=secondary_resource_group.location)
+        network_mapping = azure.siterecovery.NetworkMapping("network-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name=primary_fabric.name,
+            target_recovery_fabric_name=secondary_fabric.name,
+            source_network_id=primary_virtual_network.id,
+            target_network_id=secondary_virtual_network.id)
         primary_account = azure.storage.Account("primaryAccount",
             location=primary_resource_group.location,
             resource_group_name=primary_resource_group.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
         secondary_subnet = azure.network.Subnet("secondarySubnet",
             resource_group_name=secondary_resource_group.name,
             virtual_network_name=secondary_virtual_network.name,
@@ -770,9 +788,13 @@ class ReplicatedVM(pulumi.CustomResource):
             )],
             network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
                 source_network_interface_id=vm_network_interface.id,
-                target_subnet_name="network2-subnet",
+                target_subnet_name=secondary_subnet.name,
                 recovery_public_ip_address_id=secondary_public_ip.id,
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    container_mapping,
+                    network_mapping,
+                ]))
         ```
 
         ## Import

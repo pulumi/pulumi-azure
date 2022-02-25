@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAciConnectorLinux
     {
         /// <summary>
-        /// The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        /// The subnet name for the virtual nodes to run.
         /// </summary>
         public readonly string SubnetName;
 

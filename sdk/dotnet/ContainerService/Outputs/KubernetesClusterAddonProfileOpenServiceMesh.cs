@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileOpenServiceMesh
     {
         /// <summary>
-        /// Is Open Service Mesh enabled?
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         public readonly bool Enabled;
 

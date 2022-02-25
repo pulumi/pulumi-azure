@@ -105,7 +105,7 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export interface KeyVaultState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -316,7 +316,7 @@ export interface KeyVaultArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      */
     name?: pulumi.Input<string>;
     /**

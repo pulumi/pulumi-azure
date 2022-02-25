@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *     subnetId: primarySubnet.id,
  *     networkSecurityGroupId: primaryNetworkSecurityGroup.id,
  * });
- * const dcAdmins = new azuread.Group("dcAdmins", {});
+ * const dcAdmins = new azuread.Group("dcAdmins", {securityEnabled: true});
  * const adminUser = new azuread.User("adminUser", {
  *     userPrincipalName: `dc-admin@$hashicorp-example.net`,
  *     displayName: "DC Administrator",

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterAddonProfileOmsAgent
     {
         /// <summary>
-        /// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         /// </summary>
         public readonly string? LogAnalyticsWorkspaceId;
         /// <summary>

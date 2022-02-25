@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileAciConnectorLinuxGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        /// The subnet name for the virtual nodes to run.
         /// </summary>
         [Input("subnetName")]
         public Input<string>? SubnetName { get; set; }

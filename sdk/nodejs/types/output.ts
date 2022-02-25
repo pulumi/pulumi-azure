@@ -10120,27 +10120,23 @@ export namespace containerservice {
 
     export interface KubernetesClusterAciConnectorLinux {
         /**
-         * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         * The subnet name for the virtual nodes to run.
          */
         subnetName: string;
     }
 
     export interface KubernetesClusterAddonProfile {
         /**
-         * A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+         * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
          *
          * @deprecated `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         aciConnectorLinux?: outputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux;
         /**
-         * An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-         *
          * @deprecated `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         azureKeyvaultSecretsProvider?: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider;
         /**
-         * A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-         *
          * @deprecated `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         azurePolicy?: outputs.containerservice.KubernetesClusterAddonProfileAzurePolicy;
@@ -10151,26 +10147,22 @@ export namespace containerservice {
          */
         httpApplicationRouting?: outputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting;
         /**
-         * An `ingressApplicationGateway` block as defined below.
+         * A `ingressApplicationGateway` block as defined below.
          *
          * @deprecated `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         ingressApplicationGateway?: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGateway;
         /**
-         * A `kubeDashboard` block as defined below.
-         *
          * @deprecated `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
          */
         kubeDashboard?: outputs.containerservice.KubernetesClusterAddonProfileKubeDashboard;
         /**
-         * A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+         * A `omsAgent` block as defined below.
          *
          * @deprecated `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
          */
         omsAgent?: outputs.containerservice.KubernetesClusterAddonProfileOmsAgent;
         /**
-         * An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-         *
          * @deprecated `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
          */
         openServiceMesh?: outputs.containerservice.KubernetesClusterAddonProfileOpenServiceMesh;
@@ -10178,13 +10170,13 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
         /**
-         * Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
-         * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         * The subnet name for the virtual nodes to run.
          *
          * @deprecated `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -10193,7 +10185,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
         /**
-         * Is the Azure Keyvault Secrets Provider enabled?
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -10235,7 +10227,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileAzurePolicy {
         /**
-         * Is the Azure Policy for Kubernetes Add On enabled?
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -10244,7 +10236,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
         /**
-         * Is HTTP Application Routing Enabled?
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -10265,7 +10257,7 @@ export namespace containerservice {
          */
         effectiveGatewayId: string;
         /**
-         * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -10326,13 +10318,13 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgent {
         /**
-         * Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
         enabled: boolean;
         /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
          *
          * @deprecated `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -10362,7 +10354,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOpenServiceMesh {
         /**
-         * Is Open Service Mesh enabled?
+         * Is the Kubernetes Dashboard enabled?
          *
          * @deprecated `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
          */
@@ -11250,7 +11242,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterOmsAgent {
         /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
          */
         logAnalyticsWorkspaceId: string;
         /**

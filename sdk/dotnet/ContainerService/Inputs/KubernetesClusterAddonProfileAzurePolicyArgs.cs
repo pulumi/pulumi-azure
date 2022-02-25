@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileAzurePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Azure Policy for Kubernetes Add On enabled?
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

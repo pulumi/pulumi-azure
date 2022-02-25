@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterOmsAgentGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         /// </summary>
         [Input("logAnalyticsWorkspaceId", required: true)]
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;

@@ -2458,7 +2458,7 @@ func (o GroupImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) GroupI
 }
 
 type KubernetesClusterAciConnectorLinux struct {
-	// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+	// The subnet name for the virtual nodes to run.
 	SubnetName string `pulumi:"subnetName"`
 }
 
@@ -2474,7 +2474,7 @@ type KubernetesClusterAciConnectorLinuxInput interface {
 }
 
 type KubernetesClusterAciConnectorLinuxArgs struct {
-	// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+	// The subnet name for the virtual nodes to run.
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
 
@@ -2555,7 +2555,7 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ToKubernetesClusterAciConnecto
 	}).(KubernetesClusterAciConnectorLinuxPtrOutput)
 }
 
-// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+// The subnet name for the virtual nodes to run.
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
 }
@@ -2584,7 +2584,7 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAci
 	}).(KubernetesClusterAciConnectorLinuxOutput)
 }
 
-// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+// The subnet name for the virtual nodes to run.
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
 		if v == nil {
@@ -2595,36 +2595,28 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringP
 }
 
 type KubernetesClusterAddonProfile struct {
-	// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	//
 	// Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
 	AciConnectorLinux *KubernetesClusterAddonProfileAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-	//
 	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
 	AzureKeyvaultSecretsProvider *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider `pulumi:"azureKeyvaultSecretsProvider"`
-	// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-	//
 	// Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	//
 	// Deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
 	HttpApplicationRouting *KubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRouting"`
-	// An `ingressApplicationGateway` block as defined below.
+	// A `ingressApplicationGateway` block as defined below.
 	//
 	// Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
 	IngressApplicationGateway *KubernetesClusterAddonProfileIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
-	// A `kubeDashboard` block as defined below.
-	//
 	// Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
 	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
-	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+	// A `omsAgent` block as defined below.
 	//
 	// Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
 	OmsAgent *KubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgent"`
-	// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-	//
 	// Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 	OpenServiceMesh *KubernetesClusterAddonProfileOpenServiceMesh `pulumi:"openServiceMesh"`
 }
@@ -2641,36 +2633,28 @@ type KubernetesClusterAddonProfileInput interface {
 }
 
 type KubernetesClusterAddonProfileArgs struct {
-	// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	//
 	// Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
 	AciConnectorLinux KubernetesClusterAddonProfileAciConnectorLinuxPtrInput `pulumi:"aciConnectorLinux"`
-	// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-	//
 	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
 	AzureKeyvaultSecretsProvider KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput `pulumi:"azureKeyvaultSecretsProvider"`
-	// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-	//
 	// Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 	AzurePolicy KubernetesClusterAddonProfileAzurePolicyPtrInput `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	//
 	// Deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
 	HttpApplicationRouting KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput `pulumi:"httpApplicationRouting"`
-	// An `ingressApplicationGateway` block as defined below.
+	// A `ingressApplicationGateway` block as defined below.
 	//
 	// Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
 	IngressApplicationGateway KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput `pulumi:"ingressApplicationGateway"`
-	// A `kubeDashboard` block as defined below.
-	//
 	// Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
 	KubeDashboard KubernetesClusterAddonProfileKubeDashboardPtrInput `pulumi:"kubeDashboard"`
-	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+	// A `omsAgent` block as defined below.
 	//
 	// Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
 	OmsAgent KubernetesClusterAddonProfileOmsAgentPtrInput `pulumi:"omsAgent"`
-	// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-	//
 	// Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 	OpenServiceMesh KubernetesClusterAddonProfileOpenServiceMeshPtrInput `pulumi:"openServiceMesh"`
 }
@@ -2752,7 +2736,7 @@ func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrO
 	}).(KubernetesClusterAddonProfilePtrOutput)
 }
 
-// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 //
 // Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
@@ -2761,8 +2745,6 @@ func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClust
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
-// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-//
 // Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) AzureKeyvaultSecretsProvider() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
@@ -2770,8 +2752,6 @@ func (o KubernetesClusterAddonProfileOutput) AzureKeyvaultSecretsProvider() Kube
 	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
 }
 
-// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-//
 // Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
@@ -2786,7 +2766,7 @@ func (o KubernetesClusterAddonProfileOutput) HttpApplicationRouting() Kubernetes
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
-// An `ingressApplicationGateway` block as defined below.
+// A `ingressApplicationGateway` block as defined below.
 //
 // Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) IngressApplicationGateway() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
@@ -2795,8 +2775,6 @@ func (o KubernetesClusterAddonProfileOutput) IngressApplicationGateway() Kuberne
 	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
 }
 
-// A `kubeDashboard` block as defined below.
-//
 // Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
@@ -2804,15 +2782,13 @@ func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAd
 	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
-// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+// A `omsAgent` block as defined below.
 //
 // Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-//
 // Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOutput) OpenServiceMesh() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOpenServiceMesh {
@@ -2844,7 +2820,7 @@ func (o KubernetesClusterAddonProfilePtrOutput) Elem() KubernetesClusterAddonPro
 	}).(KubernetesClusterAddonProfileOutput)
 }
 
-// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 //
 // Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
@@ -2856,8 +2832,6 @@ func (o KubernetesClusterAddonProfilePtrOutput) AciConnectorLinux() KubernetesCl
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
-// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-//
 // Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) AzureKeyvaultSecretsProvider() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
@@ -2868,8 +2842,6 @@ func (o KubernetesClusterAddonProfilePtrOutput) AzureKeyvaultSecretsProvider() K
 	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
 }
 
-// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-//
 // Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy {
@@ -2892,7 +2864,7 @@ func (o KubernetesClusterAddonProfilePtrOutput) HttpApplicationRouting() Kuberne
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
-// An `ingressApplicationGateway` block as defined below.
+// A `ingressApplicationGateway` block as defined below.
 //
 // Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) IngressApplicationGateway() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
@@ -2904,8 +2876,6 @@ func (o KubernetesClusterAddonProfilePtrOutput) IngressApplicationGateway() Kube
 	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
 }
 
-// A `kubeDashboard` block as defined below.
-//
 // Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
@@ -2916,7 +2886,7 @@ func (o KubernetesClusterAddonProfilePtrOutput) KubeDashboard() KubernetesCluste
 	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
-// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+// A `omsAgent` block as defined below.
 //
 // Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
@@ -2928,8 +2898,6 @@ func (o KubernetesClusterAddonProfilePtrOutput) OmsAgent() KubernetesClusterAddo
 	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-//
 // Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfilePtrOutput) OpenServiceMesh() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOpenServiceMesh {
@@ -2941,11 +2909,11 @@ func (o KubernetesClusterAddonProfilePtrOutput) OpenServiceMesh() KubernetesClus
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinux struct {
-	// Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
-	// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+	// The subnet name for the virtual nodes to run.
 	//
 	// Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
 	SubnetName *string `pulumi:"subnetName"`
@@ -2963,11 +2931,11 @@ type KubernetesClusterAddonProfileAciConnectorLinuxInput interface {
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinuxArgs struct {
-	// Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+	// The subnet name for the virtual nodes to run.
 	//
 	// Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
@@ -3050,14 +3018,14 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesCluste
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
-// Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+// The subnet name for the virtual nodes to run.
 //
 // Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) SubnetName() pulumi.StringPtrOutput {
@@ -3088,7 +3056,7 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Elem() Kubernet
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
 }
 
-// Is the virtual node addon enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -3100,7 +3068,7 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+// The subnet name for the virtual nodes to run.
 //
 // Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
@@ -3113,7 +3081,7 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) SubnetName() pu
 }
 
 type KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider struct {
-	// Is the Azure Keyvault Secrets Provider enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
@@ -3143,7 +3111,7 @@ type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput interface {
 }
 
 type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs struct {
-	// Is the Azure Keyvault Secrets Provider enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -3238,7 +3206,7 @@ func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKuber
 	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
 }
 
-// Is the Azure Keyvault Secrets Provider enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) Enabled() pulumi.BoolOutput {
@@ -3296,7 +3264,7 @@ func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) Elem
 	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
 }
 
-// Is the Azure Keyvault Secrets Provider enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -3466,7 +3434,7 @@ func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityA
 }
 
 type KubernetesClusterAddonProfileAzurePolicy struct {
-	// Is the Azure Policy for Kubernetes Add On enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
@@ -3484,7 +3452,7 @@ type KubernetesClusterAddonProfileAzurePolicyInput interface {
 }
 
 type KubernetesClusterAddonProfileAzurePolicyArgs struct {
-	// Is the Azure Policy for Kubernetes Add On enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -3567,7 +3535,7 @@ func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddon
 	}).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
-// Is the Azure Policy for Kubernetes Add On enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
@@ -3598,7 +3566,7 @@ func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Elem() KubernetesClus
 	}).(KubernetesClusterAddonProfileAzurePolicyOutput)
 }
 
-// Is the Azure Policy for Kubernetes Add On enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -3611,7 +3579,7 @@ func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Enabled() pulumi.Bool
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRouting struct {
-	// Is HTTP Application Routing Enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
@@ -3633,7 +3601,7 @@ type KubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRoutingArgs struct {
-	// Is HTTP Application Routing Enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -3720,7 +3688,7 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesC
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
-// Is HTTP Application Routing Enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
@@ -3760,7 +3728,7 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Elem() Kub
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
 
-// Is HTTP Application Routing Enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -3789,7 +3757,7 @@ type KubernetesClusterAddonProfileIngressApplicationGateway struct {
 	//
 	// Deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
 	EffectiveGatewayId *string `pulumi:"effectiveGatewayId"`
-	// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
@@ -3831,7 +3799,7 @@ type KubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
 	//
 	// Deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
 	EffectiveGatewayId pulumi.StringPtrInput `pulumi:"effectiveGatewayId"`
-	// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -3941,7 +3909,7 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) EffectiveG
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.EffectiveGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) Enabled() pulumi.BoolOutput {
@@ -4021,7 +3989,7 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Effecti
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -4352,11 +4320,11 @@ func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Enabled() pulumi.Bo
 }
 
 type KubernetesClusterAddonProfileOmsAgent struct {
-	// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	//
 	// Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -4378,11 +4346,11 @@ type KubernetesClusterAddonProfileOmsAgentInput interface {
 }
 
 type KubernetesClusterAddonProfileOmsAgentArgs struct {
-	// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	//
 	// Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceId"`
@@ -4469,14 +4437,14 @@ func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonPro
 	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 //
 // Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
@@ -4516,7 +4484,7 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Elem() KubernetesCluster
 	}).(KubernetesClusterAddonProfileOmsAgentOutput)
 }
 
-// Is the OMS Agent Enabled? This field is deprecated and will be removed in version 3.0 of the AzureRM Provider.
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -4528,7 +4496,7 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 //
 // Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
@@ -4668,7 +4636,7 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(
 }
 
 type KubernetesClusterAddonProfileOpenServiceMesh struct {
-	// Is Open Service Mesh enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled bool `pulumi:"enabled"`
@@ -4686,7 +4654,7 @@ type KubernetesClusterAddonProfileOpenServiceMeshInput interface {
 }
 
 type KubernetesClusterAddonProfileOpenServiceMeshArgs struct {
-	// Is Open Service Mesh enabled?
+	// Is the Kubernetes Dashboard enabled?
 	//
 	// Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -4769,7 +4737,7 @@ func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterA
 	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
 }
 
-// Is Open Service Mesh enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) Enabled() pulumi.BoolOutput {
@@ -4800,7 +4768,7 @@ func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) Elem() Kubernetes
 	}).(KubernetesClusterAddonProfileOpenServiceMeshOutput)
 }
 
-// Is Open Service Mesh enabled?
+// Is the Kubernetes Dashboard enabled?
 //
 // Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
 func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -11410,7 +11378,7 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.Str
 }
 
 type KubernetesClusterOmsAgent struct {
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities []KubernetesClusterOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
@@ -11428,7 +11396,7 @@ type KubernetesClusterOmsAgentInput interface {
 }
 
 type KubernetesClusterOmsAgentArgs struct {
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
 	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities KubernetesClusterOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
@@ -11511,7 +11479,7 @@ func (o KubernetesClusterOmsAgentOutput) ToKubernetesClusterOmsAgentPtrOutputWit
 	}).(KubernetesClusterOmsAgentPtrOutput)
 }
 
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 func (o KubernetesClusterOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
@@ -11547,7 +11515,7 @@ func (o KubernetesClusterOmsAgentPtrOutput) Elem() KubernetesClusterOmsAgentOutp
 	}).(KubernetesClusterOmsAgentOutput)
 }
 
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 func (o KubernetesClusterOmsAgentPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterOmsAgent) *string {
 		if v == nil {

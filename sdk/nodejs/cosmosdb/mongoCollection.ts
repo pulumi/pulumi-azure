@@ -78,7 +78,7 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
     /**
@@ -110,7 +110,7 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemIndexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
     /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
      */
     public readonly throughput!: pulumi.Output<number>;
 
@@ -176,7 +176,7 @@ export interface MongoCollectionState {
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
@@ -208,7 +208,7 @@ export interface MongoCollectionState {
      */
     systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[]>;
     /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
      */
     throughput?: pulumi.Input<number>;
 }
@@ -223,7 +223,7 @@ export interface MongoCollectionArgs {
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
@@ -251,7 +251,7 @@ export interface MongoCollectionArgs {
      */
     shardKey?: pulumi.Input<string>;
     /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
      */
     throughput?: pulumi.Input<number>;
 }

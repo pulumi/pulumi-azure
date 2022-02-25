@@ -70,8 +70,8 @@ class ClusterArgs:
         if enable_auto_stop is not None:
             pulumi.set(__self__, "enable_auto_stop", enable_auto_stop)
         if enable_disk_encryption is not None:
-            warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+            warnings.warn("""This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
         if enable_disk_encryption is not None:
             pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
         if enable_purge is not None:
@@ -420,8 +420,8 @@ class _ClusterState:
         if enable_auto_stop is not None:
             pulumi.set(__self__, "enable_auto_stop", enable_auto_stop)
         if enable_disk_encryption is not None:
-            warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+            warnings.warn("""This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
         if enable_disk_encryption is not None:
             pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
         if enable_purge is not None:
@@ -908,8 +908,8 @@ class Cluster(pulumi.CustomResource):
                 pulumi.log.warn("""enable_auto_stop is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
             __props__.__dict__["enable_auto_stop"] = enable_auto_stop
             if enable_disk_encryption is not None and not opts.urn:
-                warnings.warn("""This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
-                pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
+                warnings.warn("""This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
+                pulumi.log.warn("""enable_disk_encryption is deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""")
             __props__.__dict__["enable_disk_encryption"] = enable_disk_encryption
             if enable_purge is not None and not opts.urn:
                 warnings.warn("""This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider""", DeprecationWarning)
