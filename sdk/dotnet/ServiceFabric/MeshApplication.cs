@@ -10,6 +10,54 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleMeshApplication = new Azure.ServiceFabric.MeshApplication("exampleMeshApplication", new Azure.ServiceFabric.MeshApplicationArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Services = 
+    ///             {
+    ///                 new Azure.ServiceFabric.Inputs.MeshApplicationServiceArgs
+    ///                 {
+    ///                     Name = "testservice1",
+    ///                     OsType = "Linux",
+    ///                     CodePackages = 
+    ///                     {
+    ///                         new Azure.ServiceFabric.Inputs.MeshApplicationServiceCodePackageArgs
+    ///                         {
+    ///                             Name = "testcodepackage1",
+    ///                             ImageName = "seabreeze/sbz-helloworld:1.0-alpine",
+    ///                             Resources = new Azure.ServiceFabric.Inputs.MeshApplicationServiceCodePackageResourcesArgs
+    ///                             {
+    ///                                 Requests = new Azure.ServiceFabric.Inputs.MeshApplicationServiceCodePackageResourcesRequestsArgs
+    ///                                 {
+    ///                                     Memory = 1,
+    ///                                     Cpu = 1,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Fabric Mesh Application can be imported using the `resource id`, e.g.

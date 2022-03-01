@@ -38,9 +38,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "Azure Spring Cloud Domain-Management"
 // 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: &opt0,
+// 			DisplayName: pulumi.StringRef("Azure Spring Cloud Domain-Management"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

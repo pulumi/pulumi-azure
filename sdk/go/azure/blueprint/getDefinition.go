@@ -32,9 +32,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := current.TenantId
 // 		root, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef(current.TenantId),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

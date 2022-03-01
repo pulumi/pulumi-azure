@@ -10,6 +10,36 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new Azure.Cdn.ProfileArgs
+    ///         {
+    ///             Location = "West US",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard_Verizon",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///                 { "cost_center", "MSFT" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CDN Profiles can be imported using the `resource id`, e.g.

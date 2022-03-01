@@ -24,10 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Create incidents based on Azure Security Center for IoT alerts"
 // 		example, err := sentinel.GetAlertRuleTemplate(ctx, &sentinel.GetAlertRuleTemplateArgs{
 // 			LogAnalyticsWorkspaceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
-// 			DisplayName:             &opt0,
+// 			DisplayName:             pulumi.StringRef("Create incidents based on Azure Security Center for IoT alerts"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -71,9 +71,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "Windows Virtual Desktop"
 // 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: &opt0,
+// 			DisplayName: pulumi.StringRef("Windows Virtual Desktop"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

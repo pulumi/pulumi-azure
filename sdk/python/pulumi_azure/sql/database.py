@@ -772,6 +772,42 @@ class Database(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location="West US",
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd",
+            tags={
+                "environment": "production",
+            })
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_database = azure.sql.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location="West US",
+            server_name=example_sql_server.name,
+            extended_auditing_policy=azure.sql.DatabaseExtendedAuditingPolicyArgs(
+                storage_endpoint=example_account.primary_blob_endpoint,
+                storage_account_access_key=example_account.primary_access_key,
+                storage_account_access_key_is_secondary=True,
+                retention_in_days=6,
+            ),
+            tags={
+                "environment": "production",
+            })
+        ```
+
         ## Import
 
         SQL Databases can be imported using the `resource id`, e.g.
@@ -811,6 +847,42 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location="West US",
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd",
+            tags={
+                "environment": "production",
+            })
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_database = azure.sql.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location="West US",
+            server_name=example_sql_server.name,
+            extended_auditing_policy=azure.sql.DatabaseExtendedAuditingPolicyArgs(
+                storage_endpoint=example_account.primary_blob_endpoint,
+                storage_account_access_key=example_account.primary_access_key,
+                storage_account_access_key_is_secondary=True,
+                retention_in_days=6,
+            ),
+            tags={
+                "environment": "production",
+            })
+        ```
+
         ## Import
 
         SQL Databases can be imported using the `resource id`, e.g.

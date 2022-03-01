@@ -10,6 +10,54 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// This example provisions a basic Kubernetes Node Pool.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DnsPrefix = "exampleaks1",
+    ///             DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///             {
+    ///                 Name = "default",
+    ///                 NodeCount = 1,
+    ///                 VmSize = "Standard_D2_v2",
+    ///             },
+    ///             ServicePrincipal = new Azure.ContainerService.Inputs.KubernetesClusterServicePrincipalArgs
+    ///             {
+    ///                 ClientId = "00000000-0000-0000-0000-000000000000",
+    ///                 ClientSecret = "00000000000000000000000000000000",
+    ///             },
+    ///         });
+    ///         var exampleKubernetesClusterNodePool = new Azure.ContainerService.KubernetesClusterNodePool("exampleKubernetesClusterNodePool", new Azure.ContainerService.KubernetesClusterNodePoolArgs
+    ///         {
+    ///             KubernetesClusterId = exampleKubernetesCluster.Id,
+    ///             VmSize = "Standard_DS2_v2",
+    ///             NodeCount = 1,
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.

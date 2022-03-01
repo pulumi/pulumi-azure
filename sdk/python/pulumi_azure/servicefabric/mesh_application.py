@@ -198,6 +198,32 @@ class MeshApplication(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_application = azure.servicefabric.MeshApplication("exampleMeshApplication",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            services=[azure.servicefabric.MeshApplicationServiceArgs(
+                name="testservice1",
+                os_type="Linux",
+                code_packages=[azure.servicefabric.MeshApplicationServiceCodePackageArgs(
+                    name="testcodepackage1",
+                    image_name="seabreeze/sbz-helloworld:1.0-alpine",
+                    resources=azure.servicefabric.MeshApplicationServiceCodePackageResourcesArgs(
+                        requests=azure.servicefabric.MeshApplicationServiceCodePackageResourcesRequestsArgs(
+                            memory=1,
+                            cpu=1,
+                        ),
+                    ),
+                )],
+            )])
+        ```
+
         ## Import
 
         Service Fabric Mesh Application can be imported using the `resource id`, e.g.
@@ -221,6 +247,32 @@ class MeshApplication(pulumi.CustomResource):
                  args: MeshApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_application = azure.servicefabric.MeshApplication("exampleMeshApplication",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            services=[azure.servicefabric.MeshApplicationServiceArgs(
+                name="testservice1",
+                os_type="Linux",
+                code_packages=[azure.servicefabric.MeshApplicationServiceCodePackageArgs(
+                    name="testcodepackage1",
+                    image_name="seabreeze/sbz-helloworld:1.0-alpine",
+                    resources=azure.servicefabric.MeshApplicationServiceCodePackageResourcesArgs(
+                        requests=azure.servicefabric.MeshApplicationServiceCodePackageResourcesRequestsArgs(
+                            memory=1,
+                            cpu=1,
+                        ),
+                    ),
+                )],
+            )])
+        ```
+
         ## Import
 
         Service Fabric Mesh Application can be imported using the `resource id`, e.g.

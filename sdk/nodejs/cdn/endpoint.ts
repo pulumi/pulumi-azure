@@ -6,6 +6,29 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleProfile = new azure.cdn.Profile("exampleProfile", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard_Verizon",
+ * });
+ * const exampleEndpoint = new azure.cdn.Endpoint("exampleEndpoint", {
+ *     profileName: exampleProfile.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     origins: [{
+ *         name: "example",
+ *         hostName: "www.contoso.com",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * CDN Endpoints can be imported using the `resource id`, e.g.

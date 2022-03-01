@@ -5,6 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ * ### CNAME validation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleStaticSite = new azure.appservice.StaticSite("exampleStaticSite", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
+ *     zoneName: "contoso.com",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     record: exampleStaticSite.defaultHostName,
+ * });
+ * const exampleStaticSiteCustomDomain = new azure.appservice.StaticSiteCustomDomain("exampleStaticSiteCustomDomain", {
+ *     staticSiteId: exampleStaticSite.id,
+ *     domainName: pulumi.interpolate`${exampleCNameRecord.name}.${exampleCNameRecord.zoneName}`,
+ *     validationType: "cname-delegation",
+ * });
+ * ```
+ * ### TXT validation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleStaticSite = new azure.appservice.StaticSite("exampleStaticSite", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleStaticSiteCustomDomain = new azure.appservice.StaticSiteCustomDomain("exampleStaticSiteCustomDomain", {
+ *     staticSiteId: exampleStaticSite.id,
+ *     domainName: `my-domain.${azurerm_dns_cname_record.example.zone_name}`,
+ *     validationType: "dns-txt-token",
+ * });
+ * const exampleTxtRecord = new azure.dns.TxtRecord("exampleTxtRecord", {
+ *     zoneName: "contoso.com",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     records: [{
+ *         value: exampleStaticSiteCustomDomain.validationToken,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Static Site Custom Domains can be imported using the `resource id`, e.g.

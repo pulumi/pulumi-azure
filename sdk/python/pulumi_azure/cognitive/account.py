@@ -699,6 +699,23 @@ class Account(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cognitive.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Face",
+            sku_name="S0",
+            tags={
+                "Acceptance": "Test",
+            })
+        ```
+
         ## Import
 
         Cognitive Service Accounts can be imported using the `resource id`, e.g.
@@ -735,6 +752,23 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cognitive.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Face",
+            sku_name="S0",
+            tags={
+                "Acceptance": "Test",
+            })
+        ```
+
         ## Import
 
         Cognitive Service Accounts can be imported using the `resource id`, e.g.

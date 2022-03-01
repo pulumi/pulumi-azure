@@ -67,10 +67,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "domain-rg"
 // 		exampleZone, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
 // 			Name:              "example-domain.com",
-// 			ResourceGroupName: &opt0,
+// 			ResourceGroupName: pulumi.StringRef("domain-rg"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

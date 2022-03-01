@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "00000000-0000-0000-0000-000000000000"
 // 		example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

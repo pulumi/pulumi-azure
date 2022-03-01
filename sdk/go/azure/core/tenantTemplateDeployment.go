@@ -10,6 +10,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+// 			Name:              "myTemplateForTenant",
+// 			ResourceGroupName: "myResourceGroup",
+// 			Version:           "v0.1",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = core.NewTenantTemplateDeployment(ctx, "exampleTenantTemplateDeployment", &core.TenantTemplateDeploymentArgs{
+// 			Location:              pulumi.String("West Europe"),
+// 			TemplateSpecVersionId: pulumi.String(exampleTemplateSpecVersion.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Tenant Template Deployments can be imported using the `resource id`, e.g.

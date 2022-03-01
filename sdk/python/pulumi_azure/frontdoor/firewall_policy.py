@@ -396,6 +396,112 @@ class FirewallPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_firewall_policy = azure.frontdoor.FirewallPolicy("exampleFirewallPolicy",
+            resource_group_name=example_resource_group.name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+            custom_rules=[
+                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                    name="Rule1",
+                    enabled=True,
+                    priority=1,
+                    rate_limit_duration_in_minutes=1,
+                    rate_limit_threshold=10,
+                    type="MatchRule",
+                    action="Block",
+                    match_conditions=[azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                        match_variable="RemoteAddr",
+                        operator="IPMatch",
+                        negation_condition=False,
+                        match_values=[
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                    )],
+                ),
+                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                    name="Rule2",
+                    enabled=True,
+                    priority=2,
+                    rate_limit_duration_in_minutes=1,
+                    rate_limit_threshold=10,
+                    type="MatchRule",
+                    action="Block",
+                    match_conditions=[
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                            match_variable="RemoteAddr",
+                            operator="IPMatch",
+                            negation_condition=False,
+                            match_values=["192.168.1.0/24"],
+                        ),
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                            match_variable="RequestHeader",
+                            selector="UserAgent",
+                            operator="Contains",
+                            negation_condition=False,
+                            match_values=["windows"],
+                            transforms=[
+                                "Lowercase",
+                                "Trim",
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+            managed_rules=[
+                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                    type="DefaultRuleSet",
+                    version="1.0",
+                    exclusions=[azure.frontdoor.FirewallPolicyManagedRuleExclusionArgs(
+                        match_variable="QueryStringArgNames",
+                        operator="Equals",
+                        selector="not_suspicious",
+                    )],
+                    overrides=[
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                            rule_group_name="PHP",
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                                rule_id="933100",
+                                enabled=False,
+                                action="Block",
+                            )],
+                        ),
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                            rule_group_name="SQLI",
+                            exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideExclusionArgs(
+                                match_variable="QueryStringArgNames",
+                                operator="Equals",
+                                selector="really_not_suspicious",
+                            )],
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                                rule_id="942200",
+                                action="Block",
+                                exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArgs(
+                                    match_variable="QueryStringArgNames",
+                                    operator="Equals",
+                                    selector="innocent",
+                                )],
+                            )],
+                        ),
+                    ],
+                ),
+                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                    type="Microsoft_BotManagerRuleSet",
+                    version="1.0",
+                ),
+            ])
+        ```
+
         ## Import
 
         FrontDoor Web Application Firewall Policy can be imported using the `resource id`, e.g.
@@ -424,6 +530,112 @@ class FirewallPolicy(pulumi.CustomResource):
                  args: FirewallPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_firewall_policy = azure.frontdoor.FirewallPolicy("exampleFirewallPolicy",
+            resource_group_name=example_resource_group.name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+            custom_rules=[
+                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                    name="Rule1",
+                    enabled=True,
+                    priority=1,
+                    rate_limit_duration_in_minutes=1,
+                    rate_limit_threshold=10,
+                    type="MatchRule",
+                    action="Block",
+                    match_conditions=[azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                        match_variable="RemoteAddr",
+                        operator="IPMatch",
+                        negation_condition=False,
+                        match_values=[
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                    )],
+                ),
+                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                    name="Rule2",
+                    enabled=True,
+                    priority=2,
+                    rate_limit_duration_in_minutes=1,
+                    rate_limit_threshold=10,
+                    type="MatchRule",
+                    action="Block",
+                    match_conditions=[
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                            match_variable="RemoteAddr",
+                            operator="IPMatch",
+                            negation_condition=False,
+                            match_values=["192.168.1.0/24"],
+                        ),
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                            match_variable="RequestHeader",
+                            selector="UserAgent",
+                            operator="Contains",
+                            negation_condition=False,
+                            match_values=["windows"],
+                            transforms=[
+                                "Lowercase",
+                                "Trim",
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+            managed_rules=[
+                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                    type="DefaultRuleSet",
+                    version="1.0",
+                    exclusions=[azure.frontdoor.FirewallPolicyManagedRuleExclusionArgs(
+                        match_variable="QueryStringArgNames",
+                        operator="Equals",
+                        selector="not_suspicious",
+                    )],
+                    overrides=[
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                            rule_group_name="PHP",
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                                rule_id="933100",
+                                enabled=False,
+                                action="Block",
+                            )],
+                        ),
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                            rule_group_name="SQLI",
+                            exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideExclusionArgs(
+                                match_variable="QueryStringArgNames",
+                                operator="Equals",
+                                selector="really_not_suspicious",
+                            )],
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                                rule_id="942200",
+                                action="Block",
+                                exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArgs(
+                                    match_variable="QueryStringArgNames",
+                                    operator="Equals",
+                                    selector="innocent",
+                                )],
+                            )],
+                        ),
+                    ],
+                ),
+                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                    type="Microsoft_BotManagerRuleSet",
+                    version="1.0",
+                ),
+            ])
+        ```
+
         ## Import
 
         FrontDoor Web Application Firewall Policy can be imported using the `resource id`, e.g.

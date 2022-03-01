@@ -229,6 +229,19 @@ class MeshLocalNetwork(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_local_network = azure.servicefabric.MeshLocalNetwork("exampleMeshLocalNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            network_address_prefix="10.0.0.0/22")
+        ```
+
         ## Import
 
         Service Fabric Mesh Local Network can be imported using the `resource id`, e.g.
@@ -253,6 +266,19 @@ class MeshLocalNetwork(pulumi.CustomResource):
                  args: MeshLocalNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_local_network = azure.servicefabric.MeshLocalNetwork("exampleMeshLocalNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            network_address_prefix="10.0.0.0/22")
+        ```
+
         ## Import
 
         Service Fabric Mesh Local Network can be imported using the `resource id`, e.g.

@@ -10,6 +10,341 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With Data Encryption
+    /// 
+    /// &gt; **NOTE:** The Key Vault must enable purge protection.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "Create",
+    ///                 "Get",
+    ///                 "Delete",
+    ///                 "Purge",
+    ///             },
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleKeyVault,
+    ///                 exampleAccessPolicy,
+    ///             },
+    ///         });
+    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Encryption = new Azure.MachineLearning.Inputs.WorkspaceEncryptionArgs
+    ///             {
+    ///                 KeyVaultId = exampleKeyVault.Id,
+    ///                 KeyId = exampleKey.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With User Assigned Identity And Data Encryption
+    /// 
+    /// &gt; **NOTE:** The Key Vault must enable purge protection.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var example_identity = new Azure.KeyVault.AccessPolicy("example-identity", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "wrapKey",
+    ///                 "unwrapKey",
+    ///                 "get",
+    ///                 "recover",
+    ///             },
+    ///             SecretPermissions = 
+    ///             {
+    ///                 "get",
+    ///                 "list",
+    ///                 "set",
+    ///                 "delete",
+    ///                 "recover",
+    ///                 "backup",
+    ///                 "restore",
+    ///             },
+    ///         });
+    ///         var example_sp = new Azure.KeyVault.AccessPolicy("example-sp", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "Get",
+    ///                 "Create",
+    ///                 "Recover",
+    ///                 "Delete",
+    ///                 "Purge",
+    ///             },
+    ///         });
+    ///         var test = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
+    ///         {
+    ///             DisplayName = "Azure Cosmos DB",
+    ///         }));
+    ///         var example_cosmosdb = new Azure.KeyVault.AccessPolicy("example-cosmosdb", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = test.Apply(test =&gt; test.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "Get",
+    ///                 "Recover",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 test,
+    ///                 current,
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleKeyVault,
+    ///                 example_sp,
+    ///             },
+    ///         });
+    ///         var example_role1 = new Azure.Authorization.Assignment("example-role1", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleKeyVault.Id,
+    ///             RoleDefinitionName = "Contributor",
+    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///         });
+    ///         var example_role2 = new Azure.Authorization.Assignment("example-role2", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleAccount.Id,
+    ///             RoleDefinitionName = "Storage Blob Data Contributor",
+    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///         });
+    ///         var example_role3 = new Azure.Authorization.Assignment("example-role3", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleAccount.Id,
+    ///             RoleDefinitionName = "Contributor",
+    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///         });
+    ///         var example_role4 = new Azure.Authorization.Assignment("example-role4", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleInsights.Id,
+    ///             RoleDefinitionName = "Contributor",
+    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///         });
+    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             HighBusinessImpact = true,
+    ///             PrimaryUserAssignedIdentity = exampleUserAssignedIdentity.Id,
+    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "UserAssigned",
+    ///                 IdentityIds = 
+    ///                 {
+    ///                     exampleUserAssignedIdentity.Id,
+    ///                 },
+    ///             },
+    ///             Encryption = new Azure.MachineLearning.Inputs.WorkspaceEncryptionArgs
+    ///             {
+    ///                 UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///                 KeyVaultId = exampleKeyVault.Id,
+    ///                 KeyId = exampleKey.Id,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 example_role1,
+    ///                 example_role2,
+    ///                 example_role3,
+    ///                 example_role4,
+    ///                 example_cosmosdb,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Machine Learning Workspace can be imported using the `resource id`, e.g.

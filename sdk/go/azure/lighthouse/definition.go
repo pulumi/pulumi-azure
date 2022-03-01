@@ -26,9 +26,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "b24988ac-6180-42a0-ab88-20f7382dd24c"
 // 		contributor, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-// 			RoleDefinitionId: &opt0,
+// 			RoleDefinitionId: pulumi.StringRef("b24988ac-6180-42a0-ab88-20f7382dd24c"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
