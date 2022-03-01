@@ -11,6 +11,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicefabric"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = servicefabric.NewMeshSecret(ctx, "exampleMeshSecret", &servicefabric.MeshSecretArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = servicefabric.NewMeshSecretValue(ctx, "exampleMeshSecretValue", &servicefabric.MeshSecretValueArgs{
+// 			ServiceFabricMeshSecretId: pulumi.Any(azurerm_service_fabric_mesh_secret_inline.Test.Id),
+// 			Location:                  pulumi.Any(azurerm_resource_group.Test.Location),
+// 			Value:                     pulumi.String("testValue"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Service Fabric Mesh Secret Value can be imported using the `resource id`, e.g.

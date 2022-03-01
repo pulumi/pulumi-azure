@@ -10,6 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleTemplateSpecVersion = Output.Create(Azure.Core.GetTemplateSpecVersion.InvokeAsync(new Azure.Core.GetTemplateSpecVersionArgs
+    ///         {
+    ///             Name = "myTemplateForTenant",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Version = "v0.1",
+    ///         }));
+    ///         var exampleTenantTemplateDeployment = new Azure.Core.TenantTemplateDeployment("exampleTenantTemplateDeployment", new Azure.Core.TenantTemplateDeploymentArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///             TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(exampleTemplateSpecVersion =&gt; exampleTemplateSpecVersion.Id),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Tenant Template Deployments can be imported using the `resource id`, e.g.

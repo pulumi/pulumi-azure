@@ -10,6 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleMeshLocalNetwork = new Azure.ServiceFabric.MeshLocalNetwork("exampleMeshLocalNetwork", new Azure.ServiceFabric.MeshLocalNetworkArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             NetworkAddressPrefix = "10.0.0.0/22",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Fabric Mesh Local Network can be imported using the `resource id`, e.g.

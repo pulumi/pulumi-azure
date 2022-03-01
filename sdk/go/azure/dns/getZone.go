@@ -24,10 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "search-service"
 // 		example, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
 // 			Name:              "search-eventhubns",
-// 			ResourceGroupName: &opt0,
+// 			ResourceGroupName: pulumi.StringRef("search-service"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

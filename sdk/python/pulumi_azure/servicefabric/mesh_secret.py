@@ -230,6 +230,18 @@ class MeshSecret(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_secret = azure.servicefabric.MeshSecret("exampleMeshSecret",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
+
         ## Import
 
         Service Fabric Mesh Secret can be imported using the `resource id`, e.g.
@@ -254,6 +266,18 @@ class MeshSecret(pulumi.CustomResource):
                  args: MeshSecretArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_secret = azure.servicefabric.MeshSecret("exampleMeshSecret",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
+
         ## Import
 
         Service Fabric Mesh Secret can be imported using the `resource id`, e.g.

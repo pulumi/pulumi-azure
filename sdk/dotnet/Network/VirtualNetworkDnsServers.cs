@@ -10,6 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Subnets = 
+    ///             {
+    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///                 {
+    ///                     Name = "subnet1",
+    ///                     AddressPrefix = "10.0.1.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", new Azure.Network.VirtualNetworkDnsServersArgs
+    ///         {
+    ///             VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///             DnsServers = 
+    ///             {
+    ///                 "10.7.7.2",
+    ///                 "10.7.7.7",
+    ///                 "10.7.7.1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Network DNS Servers can be imported using the `resource id`, e.g.

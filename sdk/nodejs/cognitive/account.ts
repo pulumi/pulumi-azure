@@ -6,6 +6,24 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "Face",
+ *     skuName: "S0",
+ *     tags: {
+ *         Acceptance: "Test",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cognitive Service Accounts can be imported using the `resource id`, e.g.

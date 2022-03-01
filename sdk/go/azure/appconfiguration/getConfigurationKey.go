@@ -26,11 +26,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "somelabel"
 // 		test, err := appconfiguration.LookupConfigurationKey(ctx, &appconfiguration.LookupConfigurationKeyArgs{
 // 			ConfigurationStoreId: azurerm_app_configuration.Appconf.Id,
 // 			Key:                  "appConfKey1",
-// 			Label:                &opt0,
+// 			Label:                pulumi.StringRef("somelabel"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

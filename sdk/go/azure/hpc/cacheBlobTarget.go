@@ -83,9 +83,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := "HPC Cache Resource Provider"
 // 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: &opt0,
+// 			DisplayName: pulumi.StringRef("HPC Cache Resource Provider"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

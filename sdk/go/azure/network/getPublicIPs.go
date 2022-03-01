@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Attached"
 // 		_, err := network.GetPublicIPs(ctx, &network.GetPublicIPsArgs{
-// 			AttachmentStatus:  &opt0,
+// 			AttachmentStatus:  pulumi.StringRef("Attached"),
 // 			ResourceGroupName: "pip-test",
 // 		}, nil)
 // 		if err != nil {

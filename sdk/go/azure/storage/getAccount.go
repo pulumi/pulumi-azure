@@ -24,10 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "packer-storage"
 // 		example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
 // 			Name:              "packerimages",
-// 			ResourceGroupName: &opt0,
+// 			ResourceGroupName: pulumi.StringRef("packer-storage"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

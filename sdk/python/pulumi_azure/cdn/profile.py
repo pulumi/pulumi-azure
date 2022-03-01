@@ -204,6 +204,23 @@ class Profile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_profile = azure.cdn.Profile("exampleProfile",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            sku="Standard_Verizon",
+            tags={
+                "environment": "Production",
+                "cost_center": "MSFT",
+            })
+        ```
+
         ## Import
 
         CDN Profiles can be imported using the `resource id`, e.g.
@@ -229,6 +246,23 @@ class Profile(pulumi.CustomResource):
                  args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_profile = azure.cdn.Profile("exampleProfile",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            sku="Standard_Verizon",
+            tags={
+                "environment": "Production",
+                "cost_center": "MSFT",
+            })
+        ```
+
         ## Import
 
         CDN Profiles can be imported using the `resource id`, e.g.

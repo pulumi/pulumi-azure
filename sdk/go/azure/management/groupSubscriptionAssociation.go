@@ -28,16 +28,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "exampleManagementGroup"
 // 		exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("exampleManagementGroup"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := "12345678-1234-1234-1234-123456789012"
 // 		exampleSubscription, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
-// 			SubscriptionId: &opt1,
+// 			SubscriptionId: pulumi.StringRef("12345678-1234-1234-1234-123456789012"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -1188,6 +1188,37 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        This example provisions a basic Kubernetes Node Pool.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            dns_prefix="exampleaks1",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="default",
+                node_count=1,
+                vm_size="Standard_D2_v2",
+            ),
+            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArgs(
+                client_id="00000000-0000-0000-0000-000000000000",
+                client_secret="00000000000000000000000000000000",
+            ))
+        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool",
+            kubernetes_cluster_id=example_kubernetes_cluster.id,
+            vm_size="Standard_DS2_v2",
+            node_count=1,
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
@@ -1241,6 +1272,37 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  args: KubernetesClusterNodePoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        This example provisions a basic Kubernetes Node Pool.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            dns_prefix="exampleaks1",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="default",
+                node_count=1,
+                vm_size="Standard_D2_v2",
+            ),
+            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArgs(
+                client_id="00000000-0000-0000-0000-000000000000",
+                client_secret="00000000000000000000000000000000",
+            ))
+        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool",
+            kubernetes_cluster_id=example_kubernetes_cluster.id,
+            vm_size="Standard_DS2_v2",
+            node_count=1,
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.

@@ -196,6 +196,22 @@ class MeshSecretValue(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_secret = azure.servicefabric.MeshSecret("exampleMeshSecret",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_mesh_secret_value = azure.servicefabric.MeshSecretValue("exampleMeshSecretValue",
+            service_fabric_mesh_secret_id=azurerm_service_fabric_mesh_secret_inline["test"]["id"],
+            location=azurerm_resource_group["test"]["location"],
+            value="testValue")
+        ```
+
         ## Import
 
         Service Fabric Mesh Secret Value can be imported using the `resource id`, e.g.
@@ -219,6 +235,22 @@ class MeshSecretValue(pulumi.CustomResource):
                  args: MeshSecretValueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mesh_secret = azure.servicefabric.MeshSecret("exampleMeshSecret",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_mesh_secret_value = azure.servicefabric.MeshSecretValue("exampleMeshSecretValue",
+            service_fabric_mesh_secret_id=azurerm_service_fabric_mesh_secret_inline["test"]["id"],
+            location=azurerm_resource_group["test"]["location"],
+            value="testValue")
+        ```
+
         ## Import
 
         Service Fabric Mesh Secret Value can be imported using the `resource id`, e.g.
