@@ -5,6 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a user assigned identity.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * User Assigned Identities can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+ * ```
+ *
  * @deprecated azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
@@ -36,12 +59,36 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserAssignedIdentity.__pulumiType;
     }
 
+    /**
+     * Client ID associated with the user assigned identity.
+     */
     public /*out*/ readonly clientId!: pulumi.Output<string>;
+    /**
+     * The location/region where the user assigned identity is
+     * created.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the user assigned identity. Changing this forces a
+     * new identity to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Service Principal ID associated with the user assigned identity.
+     */
     public /*out*/ readonly principalId!: pulumi.Output<string>;
+    /**
+     * The name of the resource group in which to
+     * create the user assigned identity.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Tenant ID associated with the user assigned identity.
+     */
     public /*out*/ readonly tenantId!: pulumi.Output<string>;
 
     /**
@@ -89,12 +136,36 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserAssignedIdentity resources.
  */
 export interface UserAssignedIdentityState {
+    /**
+     * Client ID associated with the user assigned identity.
+     */
     clientId?: pulumi.Input<string>;
+    /**
+     * The location/region where the user assigned identity is
+     * created.
+     */
     location?: pulumi.Input<string>;
+    /**
+     * The name of the user assigned identity. Changing this forces a
+     * new identity to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Service Principal ID associated with the user assigned identity.
+     */
     principalId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to
+     * create the user assigned identity.
+     */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Tenant ID associated with the user assigned identity.
+     */
     tenantId?: pulumi.Input<string>;
 }
 
@@ -102,8 +173,23 @@ export interface UserAssignedIdentityState {
  * The set of arguments for constructing a UserAssignedIdentity resource.
  */
 export interface UserAssignedIdentityArgs {
+    /**
+     * The location/region where the user assigned identity is
+     * created.
+     */
     location?: pulumi.Input<string>;
+    /**
+     * The name of the user assigned identity. Changing this forces a
+     * new identity to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to
+     * create the user assigned identity.
+     */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

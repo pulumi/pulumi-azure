@@ -11388,18 +11388,39 @@ export namespace datafactory {
     }
 
     export interface TriggerTumblingWindowPipeline {
+        /**
+         * The Data Factory Pipeline name that the trigger will act on.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The Data Factory Pipeline parameters that the trigger will act on.
+         */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface TriggerTumblingWindowRetry {
+        /**
+         * The maximum retry attempts if the pipeline run failed.
+         */
         count: pulumi.Input<number>;
+        /**
+         * The Interval in seconds between each retry if the pipeline run failed.
+         */
         interval?: pulumi.Input<number>;
     }
 
     export interface TriggerTumblingWindowTriggerDependency {
+        /**
+         * The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+         */
         offset?: pulumi.Input<string>;
+        /**
+         * The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+         */
         size?: pulumi.Input<string>;
+        /**
+         * The dependency trigger name. If not specified, it will use self dependency.
+         */
         triggerName?: pulumi.Input<string>;
     }
 }

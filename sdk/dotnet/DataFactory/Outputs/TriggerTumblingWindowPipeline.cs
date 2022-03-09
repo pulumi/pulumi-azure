@@ -13,7 +13,13 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class TriggerTumblingWindowPipeline
     {
+        /// <summary>
+        /// The Data Factory Pipeline name that the trigger will act on.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Data Factory Pipeline parameters that the trigger will act on.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
 
         [OutputConstructor]

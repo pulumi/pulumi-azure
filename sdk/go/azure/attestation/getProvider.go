@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to access information about an existing Attestation Provider.
 func LookupProvider(ctx *pulumi.Context, args *LookupProviderArgs, opts ...pulumi.InvokeOption) (*LookupProviderResult, error) {
 	var rv LookupProviderResult
 	err := ctx.Invoke("azure:attestation/getProvider:getProvider", args, &rv, opts...)
@@ -21,20 +22,26 @@ func LookupProvider(ctx *pulumi.Context, args *LookupProviderArgs, opts ...pulum
 
 // A collection of arguments for invoking getProvider.
 type LookupProviderArgs struct {
-	Name              string `pulumi:"name"`
+	// The name of this Attestation Provider.
+	Name string `pulumi:"name"`
+	// The name of the Resource Group where the Attestation Provider exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getProvider.
 type LookupProviderResult struct {
+	// The (Endpoint|URI) of the Attestation Service.
 	AttestationUri string `pulumi:"attestationUri"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string            `pulumi:"id"`
-	Location          string            `pulumi:"location"`
-	Name              string            `pulumi:"name"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
-	TrustModel        string            `pulumi:"trustModel"`
+	Id string `pulumi:"id"`
+	// The Azure Region where the Attestation Provider exists.
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the Attestation Provider.
+	Tags map[string]string `pulumi:"tags"`
+	// Trust model used for the Attestation Service.
+	TrustModel string `pulumi:"trustModel"`
 }
 
 func LookupProviderOutput(ctx *pulumi.Context, args LookupProviderOutputArgs, opts ...pulumi.InvokeOption) LookupProviderResultOutput {
@@ -48,7 +55,9 @@ func LookupProviderOutput(ctx *pulumi.Context, args LookupProviderOutputArgs, op
 
 // A collection of arguments for invoking getProvider.
 type LookupProviderOutputArgs struct {
-	Name              pulumi.StringInput `pulumi:"name"`
+	// The name of this Attestation Provider.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Attestation Provider exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -71,6 +80,7 @@ func (o LookupProviderResultOutput) ToLookupProviderResultOutputWithContext(ctx 
 	return o
 }
 
+// The (Endpoint|URI) of the Attestation Service.
 func (o LookupProviderResultOutput) AttestationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.AttestationUri }).(pulumi.StringOutput)
 }
@@ -80,6 +90,7 @@ func (o LookupProviderResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Azure Region where the Attestation Provider exists.
 func (o LookupProviderResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -92,10 +103,12 @@ func (o LookupProviderResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags assigned to the Attestation Provider.
 func (o LookupProviderResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Trust model used for the Attestation Service.
 func (o LookupProviderResultOutput) TrustModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProviderResult) string { return v.TrustModel }).(pulumi.StringOutput)
 }

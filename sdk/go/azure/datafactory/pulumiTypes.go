@@ -11083,7 +11083,9 @@ func (o TriggerScheduleScheduleMonthlyArrayOutput) Index(i pulumi.IntInput) Trig
 }
 
 type TriggerTumblingWindowPipeline struct {
-	Name       string            `pulumi:"name"`
+	// The Data Factory Pipeline name that the trigger will act on.
+	Name string `pulumi:"name"`
+	// The Data Factory Pipeline parameters that the trigger will act on.
 	Parameters map[string]string `pulumi:"parameters"`
 }
 
@@ -11099,7 +11101,9 @@ type TriggerTumblingWindowPipelineInput interface {
 }
 
 type TriggerTumblingWindowPipelineArgs struct {
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// The Data Factory Pipeline name that the trigger will act on.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Data Factory Pipeline parameters that the trigger will act on.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }
 
@@ -11180,10 +11184,12 @@ func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrO
 	}).(TriggerTumblingWindowPipelinePtrOutput)
 }
 
+// The Data Factory Pipeline name that the trigger will act on.
 func (o TriggerTumblingWindowPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowPipeline) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Data Factory Pipeline parameters that the trigger will act on.
 func (o TriggerTumblingWindowPipelineOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowPipeline) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -11212,6 +11218,7 @@ func (o TriggerTumblingWindowPipelinePtrOutput) Elem() TriggerTumblingWindowPipe
 	}).(TriggerTumblingWindowPipelineOutput)
 }
 
+// The Data Factory Pipeline name that the trigger will act on.
 func (o TriggerTumblingWindowPipelinePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) *string {
 		if v == nil {
@@ -11221,6 +11228,7 @@ func (o TriggerTumblingWindowPipelinePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Data Factory Pipeline parameters that the trigger will act on.
 func (o TriggerTumblingWindowPipelinePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) map[string]string {
 		if v == nil {
@@ -11231,7 +11239,9 @@ func (o TriggerTumblingWindowPipelinePtrOutput) Parameters() pulumi.StringMapOut
 }
 
 type TriggerTumblingWindowRetry struct {
-	Count    int  `pulumi:"count"`
+	// The maximum retry attempts if the pipeline run failed.
+	Count int `pulumi:"count"`
+	// The Interval in seconds between each retry if the pipeline run failed.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -11247,7 +11257,9 @@ type TriggerTumblingWindowRetryInput interface {
 }
 
 type TriggerTumblingWindowRetryArgs struct {
-	Count    pulumi.IntInput    `pulumi:"count"`
+	// The maximum retry attempts if the pipeline run failed.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The Interval in seconds between each retry if the pipeline run failed.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -11328,10 +11340,12 @@ func (o TriggerTumblingWindowRetryOutput) ToTriggerTumblingWindowRetryPtrOutputW
 	}).(TriggerTumblingWindowRetryPtrOutput)
 }
 
+// The maximum retry attempts if the pipeline run failed.
 func (o TriggerTumblingWindowRetryOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowRetry) int { return v.Count }).(pulumi.IntOutput)
 }
 
+// The Interval in seconds between each retry if the pipeline run failed.
 func (o TriggerTumblingWindowRetryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -11360,6 +11374,7 @@ func (o TriggerTumblingWindowRetryPtrOutput) Elem() TriggerTumblingWindowRetryOu
 	}).(TriggerTumblingWindowRetryOutput)
 }
 
+// The maximum retry attempts if the pipeline run failed.
 func (o TriggerTumblingWindowRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TriggerTumblingWindowRetry) *int {
 		if v == nil {
@@ -11369,6 +11384,7 @@ func (o TriggerTumblingWindowRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Interval in seconds between each retry if the pipeline run failed.
 func (o TriggerTumblingWindowRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TriggerTumblingWindowRetry) *int {
 		if v == nil {
@@ -11379,8 +11395,11 @@ func (o TriggerTumblingWindowRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 }
 
 type TriggerTumblingWindowTriggerDependency struct {
-	Offset      *string `pulumi:"offset"`
-	Size        *string `pulumi:"size"`
+	// The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+	Offset *string `pulumi:"offset"`
+	// The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+	Size *string `pulumi:"size"`
+	// The dependency trigger name. If not specified, it will use self dependency.
 	TriggerName *string `pulumi:"triggerName"`
 }
 
@@ -11396,8 +11415,11 @@ type TriggerTumblingWindowTriggerDependencyInput interface {
 }
 
 type TriggerTumblingWindowTriggerDependencyArgs struct {
-	Offset      pulumi.StringPtrInput `pulumi:"offset"`
-	Size        pulumi.StringPtrInput `pulumi:"size"`
+	// The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+	Offset pulumi.StringPtrInput `pulumi:"offset"`
+	// The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The dependency trigger name. If not specified, it will use self dependency.
 	TriggerName pulumi.StringPtrInput `pulumi:"triggerName"`
 }
 
@@ -11452,14 +11474,17 @@ func (o TriggerTumblingWindowTriggerDependencyOutput) ToTriggerTumblingWindowTri
 	return o
 }
 
+// The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
 func (o TriggerTumblingWindowTriggerDependencyOutput) Offset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowTriggerDependency) *string { return v.Offset }).(pulumi.StringPtrOutput)
 }
 
+// The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
 func (o TriggerTumblingWindowTriggerDependencyOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowTriggerDependency) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
+// The dependency trigger name. If not specified, it will use self dependency.
 func (o TriggerTumblingWindowTriggerDependencyOutput) TriggerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowTriggerDependency) *string { return v.TriggerName }).(pulumi.StringPtrOutput)
 }

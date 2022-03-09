@@ -9,27 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Media
 {
+    /// <summary>
+    /// Manages a Azure Media Live Event Output.
+    /// 
+    /// ## Import
+    /// 
+    /// Live Outputs can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:media/liveEventOutput:LiveEventOutput")]
     public partial class LiveEventOutput : Pulumi.CustomResource
     {
+        /// <summary>
+        /// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("archiveWindowDuration")]
         public Output<string> ArchiveWindowDuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("assetName")]
         public Output<string> AssetName { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the live output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("hlsFragmentsPerTsSegment")]
         public Output<int?> HlsFragmentsPerTsSegment { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the live event. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("liveEventId")]
         public Output<string> LiveEventId { get; private set; } = null!;
 
+        /// <summary>
+        /// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("manifestName")]
         public Output<string> ManifestName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -82,24 +114,45 @@ namespace Pulumi.Azure.Media
 
     public sealed class LiveEventOutputArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("archiveWindowDuration", required: true)]
         public Input<string> ArchiveWindowDuration { get; set; } = null!;
 
+        /// <summary>
+        /// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("assetName", required: true)]
         public Input<string> AssetName { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the live output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("hlsFragmentsPerTsSegment")]
         public Input<int>? HlsFragmentsPerTsSegment { get; set; }
 
+        /// <summary>
+        /// The id of the live event. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("liveEventId", required: true)]
         public Input<string> LiveEventId { get; set; } = null!;
 
+        /// <summary>
+        /// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -113,24 +166,45 @@ namespace Pulumi.Azure.Media
 
     public sealed class LiveEventOutputState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("archiveWindowDuration")]
         public Input<string>? ArchiveWindowDuration { get; set; }
 
+        /// <summary>
+        /// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("assetName")]
         public Input<string>? AssetName { get; set; }
 
+        /// <summary>
+        /// The description of the live output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("hlsFragmentsPerTsSegment")]
         public Input<int>? HlsFragmentsPerTsSegment { get; set; }
 
+        /// <summary>
+        /// The id of the live event. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("liveEventId")]
         public Input<string>? LiveEventId { get; set; }
 
+        /// <summary>
+        /// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

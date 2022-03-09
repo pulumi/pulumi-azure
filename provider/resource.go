@@ -839,21 +839,26 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_azure_sql_database": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureSqlDatabase"),
 			},
-			"azurerm_data_factory_integration_runtime_azure":        {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
-			"azurerm_data_factory_integration_runtime_azure_ssis":   {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
-			"azurerm_data_factory_dataset_parquet":                  {Tok: azureResource(azureDataFactory, "DatasetParquet")},
-			"azurerm_data_factory_linked_service_azure_databricks":  {Tok: azureResource(azureDataFactory, "LinkedServiceAzureDatabricks")},
-			"azurerm_data_factory_dataset_snowflake":                {Tok: azureResource(azureDataFactory, "DatasetSnowflake")},
-			"azurerm_data_factory_linked_service_azure_search":      {Tok: azureResource(azureDataFactory, "LinkedServiceAzureSearch")},
-			"azurerm_data_factory_linked_service_kusto":             {Tok: azureResource(azureDataFactory, "LinkedServiceKusto")},
-			"azurerm_data_factory_linked_service_odata":             {Tok: azureResource(azureDataFactory, "LinkedServiceOdata")},
-			"azurerm_data_factory_linked_custom_service":            {Tok: azureResource(azureDataFactory, "LinkedCustomService")},
-			"azurerm_data_factory_trigger_blob_event":               {Tok: azureResource(azureDataFactory, "TriggerBlobEvent")},
-			"azurerm_data_factory_custom_dataset":                   {Tok: azureResource(azureDataFactory, "CustomDataset")},
-			"azurerm_data_factory_dataset_binary":                   {Tok: azureResource(azureDataFactory, "DatasetBinary")},
-			"azurerm_data_factory_managed_private_endpoint":         {Tok: azureResource(azureDataFactory, "ManagedPrivateEndpoint")},
-			"azurerm_data_factory_trigger_custom_event":             {Tok: azureResource(azureDataFactory, "TriggerCustomEvent")},
-			"azurerm_data_factory_trigger_tumbling_window":          {Tok: azureResource(azureDataFactory, "TriggerTumblingWindow")},
+			"azurerm_data_factory_integration_runtime_azure":       {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
+			"azurerm_data_factory_integration_runtime_azure_ssis":  {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
+			"azurerm_data_factory_dataset_parquet":                 {Tok: azureResource(azureDataFactory, "DatasetParquet")},
+			"azurerm_data_factory_linked_service_azure_databricks": {Tok: azureResource(azureDataFactory, "LinkedServiceAzureDatabricks")},
+			"azurerm_data_factory_dataset_snowflake":               {Tok: azureResource(azureDataFactory, "DatasetSnowflake")},
+			"azurerm_data_factory_linked_service_azure_search":     {Tok: azureResource(azureDataFactory, "LinkedServiceAzureSearch")},
+			"azurerm_data_factory_linked_service_kusto":            {Tok: azureResource(azureDataFactory, "LinkedServiceKusto")},
+			"azurerm_data_factory_linked_service_odata":            {Tok: azureResource(azureDataFactory, "LinkedServiceOdata")},
+			"azurerm_data_factory_linked_custom_service":           {Tok: azureResource(azureDataFactory, "LinkedCustomService")},
+			"azurerm_data_factory_trigger_blob_event":              {Tok: azureResource(azureDataFactory, "TriggerBlobEvent")},
+			"azurerm_data_factory_custom_dataset":                  {Tok: azureResource(azureDataFactory, "CustomDataset")},
+			"azurerm_data_factory_dataset_binary":                  {Tok: azureResource(azureDataFactory, "DatasetBinary")},
+			"azurerm_data_factory_managed_private_endpoint":        {Tok: azureResource(azureDataFactory, "ManagedPrivateEndpoint")},
+			"azurerm_data_factory_trigger_custom_event":            {Tok: azureResource(azureDataFactory, "TriggerCustomEvent")},
+			"azurerm_data_factory_trigger_tumbling_window": {
+				Tok: azureResource(azureDataFactory, "TriggerTumblingWindow"),
+				Docs: &tfbridge.DocInfo{
+					Source: "data_factory_tumbling_window.html.markdown",
+				},
+			},
 			"azurerm_data_factory_data_flow":                        {Tok: azureResource(azureDataFactory, "DataFlow")},
 			"azurerm_data_factory_linked_service_cosmosdb_mongoapi": {Tok: azureResource(azureDataFactory, "LinkedServiceCosmosDbMongoApi")},
 			"azurerm_data_factory_linked_service_odbc":              {Tok: azureResource(azureDataFactory, "LinkedServiceOdbc")},
@@ -1182,7 +1187,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_content_key_policy": {Tok: azureResource(azureMedia, "ContentKeyPolicy")},
 			"azurerm_media_streaming_policy":   {Tok: azureResource(azureMedia, "StreamingPolicy")},
 			"azurerm_media_live_event":         {Tok: azureResource(azureMedia, "LiveEvent")},
-			"azurerm_media_live_event_output":  {Tok: azureResource(azureMedia, "LiveEventOutput")},
+			"azurerm_media_live_event_output": {
+				Tok: azureResource(azureMedia, "LiveEventOutput"),
+				Docs: &tfbridge.DocInfo{
+					Source: "media_live_output.html.markdown",
+				},
+			},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1849,7 +1859,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_sms":                {Tok: azureResource(azureBot, "ChannelSms")},
 			"azurerm_bot_channel_line":               {Tok: azureResource(azureBot, "ChannelLine")},
 			"azurerm_bot_service_azure_bot":          {Tok: azureResource(azureBot, "ServiceAzureBot")},
-			"azurerm_healthbot":                      {Tok: azureResource(azureBot, "Healthbot")},
+			"azurerm_healthbot": {
+				Tok: azureResource(azureBot, "Healthbot"),
+				Docs: &tfbridge.DocInfo{
+					Source: "bot_healthbot.html.markdown",
+				},
+			},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -1998,21 +2013,26 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 
 			// Synapse
-			"azurerm_synapse_workspace":                                  {Tok: azureResource(azureSynapse, "Workspace")},
-			"azurerm_synapse_firewall_rule":                              {Tok: azureResource(azureSynapse, "FirewallRule")},
-			"azurerm_synapse_spark_pool":                                 {Tok: azureResource(azureSynapse, "SparkPool")},
-			"azurerm_synapse_sql_pool":                                   {Tok: azureResource(azureSynapse, "SqlPool")},
-			"azurerm_synapse_role_assignment":                            {Tok: azureResource(azureSynapse, "RoleAssignment")},
-			"azurerm_synapse_managed_private_endpoint":                   {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
-			"azurerm_synapse_private_link_hub":                           {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
-			"azurerm_synapse_integration_runtime_self_hosted":            {Tok: azureResource(azureSynapse, "IntegrationRuntimeSelfHosted")},
-			"azurerm_synapse_integration_runtime_azure":                  {Tok: azureResource(azureSynapse, "IntegrationRuntimeAzure")},
-			"azurerm_synapse_linked_service":                             {Tok: azureResource(azureSynapse, "LinkedService")},
-			"azurerm_synapse_sql_pool_security_alert_policy":             {Tok: azureResource(azureSynapse, "SqlPoolSecurityAlertPolicy")},
-			"azurerm_synapse_sql_pool_vulnerability_assessment":          {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessment")},
-			"azurerm_synapse_workspace_security_alert_policy":            {Tok: azureResource(azureSynapse, "WorkspaceSecurityAlertPolicy")},
-			"azurerm_synapse_workspace_vulnerability_assessment":         {Tok: azureResource(azureSynapse, "WorkspaceVulnerabilityAssessment")},
-			"azurerm_synapse_workspace_key":                              {Tok: azureResource(azureSynapse, "WorkspaceKey")},
+			"azurerm_synapse_workspace":                          {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_firewall_rule":                      {Tok: azureResource(azureSynapse, "FirewallRule")},
+			"azurerm_synapse_spark_pool":                         {Tok: azureResource(azureSynapse, "SparkPool")},
+			"azurerm_synapse_sql_pool":                           {Tok: azureResource(azureSynapse, "SqlPool")},
+			"azurerm_synapse_role_assignment":                    {Tok: azureResource(azureSynapse, "RoleAssignment")},
+			"azurerm_synapse_managed_private_endpoint":           {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
+			"azurerm_synapse_private_link_hub":                   {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
+			"azurerm_synapse_integration_runtime_self_hosted":    {Tok: azureResource(azureSynapse, "IntegrationRuntimeSelfHosted")},
+			"azurerm_synapse_integration_runtime_azure":          {Tok: azureResource(azureSynapse, "IntegrationRuntimeAzure")},
+			"azurerm_synapse_linked_service":                     {Tok: azureResource(azureSynapse, "LinkedService")},
+			"azurerm_synapse_sql_pool_security_alert_policy":     {Tok: azureResource(azureSynapse, "SqlPoolSecurityAlertPolicy")},
+			"azurerm_synapse_sql_pool_vulnerability_assessment":  {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessment")},
+			"azurerm_synapse_workspace_security_alert_policy":    {Tok: azureResource(azureSynapse, "WorkspaceSecurityAlertPolicy")},
+			"azurerm_synapse_workspace_vulnerability_assessment": {Tok: azureResource(azureSynapse, "WorkspaceVulnerabilityAssessment")},
+			"azurerm_synapse_workspace_key": {
+				Tok: azureResource(azureSynapse, "WorkspaceKey"),
+				Docs: &tfbridge.DocInfo{
+					Source: "synapse_workspace.html.markdown",
+				},
+			},
 			"azurerm_synapse_sql_pool_extended_auditing_policy":          {Tok: azureResource(azureSynapse, "SqlPoolExtendedAuditingPolicy")},
 			"azurerm_synapse_workspace_extended_auditing_policy":         {Tok: azureResource(azureSynapse, "WorkspaceExtendedAuditingPolicy")},
 			"azurerm_synapse_sql_pool_vulnerability_assessment_baseline": {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessmentBaseline")},
@@ -2025,7 +2045,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
 
 			// Attestation
-			"azurerm_attestation_provider": {Tok: azureResource(azureAttestation, "Provider")},
+			"azurerm_attestation_provider": {
+				Tok: azureResource(azureAttestation, "Provider"),
+				Docs: &tfbridge.DocInfo{
+					Source: "attestation.html.markdown",
+				},
+			},
 
 			// Lighthouse
 			"azurerm_lighthouse_definition": {Tok: azureResource(azureLighthouse, "Definition")},
@@ -2384,6 +2409,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_topic": {Tok: azureDataSource(azureServiceBus, "getTopic")},
 			"azurerm_servicebus_namespace_disaster_recovery_config": {
 				Tok: azureDataSource(azureServiceBus, "getNamespaceDisasterRecoveryConfig"),
+				// At the time of writing, there are no docs for this data source, so we use a whitespace string to get
+				// the build to pass.
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
 			},
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
@@ -2406,8 +2436,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_published_version":     {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
 			"azurerm_web_application_firewall_policy": {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
 			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
-			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
-			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
+			"azurerm_attestation_provider": {
+				Tok: azureDataSource(azureAttestation, "getProvider"),
+				Docs: &tfbridge.DocInfo{
+					Source: "attestation.html.markdown",
+				},
+			},
+			"azurerm_databricks_workspace": {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
 			"azurerm_databricks_workspace_private_endpoint_connection": {
 				Tok: azureDataSource(azureDataBricks, "getWorkspacePrivateEndpointConnection"),
 			},
@@ -2552,13 +2587,13 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_user_assigned_identity", azureResource(azureLegacyMSI, "UserAssignedIdentity"),
 		azureResource(azureAuthorization, "UserAssignedIdentity"), azureLegacyMSI, azureAuthorization, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{
-				Source: "user_assigned_identity.markdown",
+				Source: "user_assigned_identity.html.markdown",
 			},
 		})
 	prov.RenameDataSource("azurerm_role_definition", azureDataSource(azureLegacyRole, "getRoleDefinition"),
 		azureDataSource(azureAuthorization, "getRoleDefinition"), azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
 			Docs: &tfbridge.DocInfo{
-				Source: "role_definition.markdown",
+				Source: "role_definition.html.markdown",
 			},
 		})
 	prov.RenameDataSource("azurerm_user_assigned_identity", azureDataSource(azureCore, "getUserAssignedIdentity"),
@@ -2708,11 +2743,14 @@ func Provider() tfbridge.ProviderInfo {
 		azureResource(azureMediaServices, "Account"),
 		azureResource(azureMedia, "ServiceAccount"), azureMediaServices, azureMedia, nil)
 
-	// Deprecated, remove in 3.0.
+	// Deprecated, remove when we upgrade to terraform-provider-azurerm 3.0.
 	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))
 	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
 		Tok:                azureResource(azureStorage, "ZipBlob"),
 		DeprecationMessage: "ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.",
+		Docs: &tfbridge.DocInfo{
+			Markdown: []byte(" "),
+		},
 		Fields: map[string]*tfbridge.SchemaInfo{
 			"source": {
 				Name: "content",

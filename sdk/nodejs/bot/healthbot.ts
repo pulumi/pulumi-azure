@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Healthbot Service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleHealthbot = new azure.bot.Healthbot("exampleHealthbot", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: [{
+ *         name: "F0",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Healthbot Service can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+ * ```
+ */
 export class Healthbot extends pulumi.CustomResource {
     /**
      * Get an existing Healthbot resource's state with the given name, ID, and optional extra
@@ -32,11 +59,30 @@ export class Healthbot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Healthbot.__pulumiType;
     }
 
+    /**
+     * The management portal url.
+     */
     public /*out*/ readonly botManagementPortalUrl!: pulumi.Output<string>;
+    /**
+     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+     * forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+     */
     public readonly skuName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags which should be assigned to the service.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -82,11 +128,30 @@ export class Healthbot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Healthbot resources.
  */
 export interface HealthbotState {
+    /**
+     * The management portal url.
+     */
     botManagementPortalUrl?: pulumi.Input<string>;
+    /**
+     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+     * forces a new resource to be created.
+     */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+     */
     skuName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to the service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -94,9 +159,25 @@ export interface HealthbotState {
  * The set of arguments for constructing a Healthbot resource.
  */
 export interface HealthbotArgs {
+    /**
+     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+     * forces a new resource to be created.
+     */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+     */
     skuName: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to the service.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

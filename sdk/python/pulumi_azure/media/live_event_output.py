@@ -23,6 +23,13 @@ class LiveEventOutputArgs:
                  output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a LiveEventOutput resource.
+        :param pulumi.Input[str] archive_window_duration: `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] asset_name: The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] description: The description of the live output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] hls_fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         """
         pulumi.set(__self__, "archive_window_duration", archive_window_duration)
         pulumi.set(__self__, "asset_name", asset_name)
@@ -41,6 +48,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="archiveWindowDuration")
     def archive_window_duration(self) -> pulumi.Input[str]:
+        """
+        `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "archive_window_duration")
 
     @archive_window_duration.setter
@@ -50,6 +60,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="assetName")
     def asset_name(self) -> pulumi.Input[str]:
+        """
+        The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "asset_name")
 
     @asset_name.setter
@@ -59,6 +72,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="liveEventId")
     def live_event_id(self) -> pulumi.Input[str]:
+        """
+        The id of the live event. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "live_event_id")
 
     @live_event_id.setter
@@ -68,6 +84,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the live output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,6 +96,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="hlsFragmentsPerTsSegment")
     def hls_fragments_per_ts_segment(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "hls_fragments_per_ts_segment")
 
     @hls_fragments_per_ts_segment.setter
@@ -86,6 +108,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "manifest_name")
 
     @manifest_name.setter
@@ -95,6 +120,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -124,6 +152,13 @@ class _LiveEventOutputState:
                  output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering LiveEventOutput resources.
+        :param pulumi.Input[str] archive_window_duration: `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] asset_name: The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] description: The description of the live output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] hls_fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         """
         if archive_window_duration is not None:
             pulumi.set(__self__, "archive_window_duration", archive_window_duration)
@@ -145,6 +180,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="archiveWindowDuration")
     def archive_window_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "archive_window_duration")
 
     @archive_window_duration.setter
@@ -154,6 +192,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="assetName")
     def asset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "asset_name")
 
     @asset_name.setter
@@ -163,6 +204,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the live output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -172,6 +216,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="hlsFragmentsPerTsSegment")
     def hls_fragments_per_ts_segment(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "hls_fragments_per_ts_segment")
 
     @hls_fragments_per_ts_segment.setter
@@ -181,6 +228,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="liveEventId")
     def live_event_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the live event. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "live_event_id")
 
     @live_event_id.setter
@@ -190,6 +240,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "manifest_name")
 
     @manifest_name.setter
@@ -199,6 +252,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -230,9 +286,25 @@ class LiveEventOutput(pulumi.CustomResource):
                  output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a LiveEventOutput resource with the given unique name, props, and options.
+        Manages a Azure Media Live Event Output.
+
+        ## Import
+
+        Live Outputs can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] archive_window_duration: `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] asset_name: The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] description: The description of the live output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] hls_fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         """
         ...
     @overload
@@ -241,7 +313,16 @@ class LiveEventOutput(pulumi.CustomResource):
                  args: LiveEventOutputArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LiveEventOutput resource with the given unique name, props, and options.
+        Manages a Azure Media Live Event Output.
+
+        ## Import
+
+        Live Outputs can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+        ```
+
         :param str resource_name: The name of the resource.
         :param LiveEventOutputArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +397,13 @@ class LiveEventOutput(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] archive_window_duration: `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] asset_name: The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] description: The description of the live output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[int] hls_fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] live_event_id: The id of the live event. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -334,36 +422,57 @@ class LiveEventOutput(pulumi.CustomResource):
     @property
     @pulumi.getter(name="archiveWindowDuration")
     def archive_window_duration(self) -> pulumi.Output[str]:
+        """
+        `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "archive_window_duration")
 
     @property
     @pulumi.getter(name="assetName")
     def asset_name(self) -> pulumi.Output[str]:
+        """
+        The asset that the live output will write to. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "asset_name")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the live output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hlsFragmentsPerTsSegment")
     def hls_fragments_per_ts_segment(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "hls_fragments_per_ts_segment")
 
     @property
     @pulumi.getter(name="liveEventId")
     def live_event_id(self) -> pulumi.Output[str]:
+        """
+        The id of the live event. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "live_event_id")
 
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> pulumi.Output[str]:
+        """
+        The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "manifest_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "name")
 
     @property

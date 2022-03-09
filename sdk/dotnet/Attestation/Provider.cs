@@ -9,27 +9,85 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Attestation
 {
+    /// <summary>
+    /// Manages a Attestation Provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleProvider = new Azure.Attestation.Provider("exampleProvider", new Azure.Attestation.ProviderArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             PolicySigningCertificateData = File.ReadAllText("./example/cert.pem"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Attestation Providers can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:attestation/provider:Provider")]
     public partial class Provider : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The URI of the Attestation Service.
+        /// </summary>
         [Output("attestationUri")]
         public Output<string> AttestationUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+        /// </summary>
         [Output("policySigningCertificateData")]
         public Output<string?> PolicySigningCertificateData { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Attestation Provider.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Trust model used for the Attestation Service.
+        /// </summary>
         [Output("trustModel")]
         public Output<string> TrustModel { get; private set; } = null!;
 
@@ -79,20 +137,36 @@ namespace Pulumi.Azure.Attestation
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+        /// </summary>
         [Input("policySigningCertificateData")]
         public Input<string>? PolicySigningCertificateData { get; set; }
 
+        /// <summary>
+        /// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Attestation Provider.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -106,29 +180,51 @@ namespace Pulumi.Azure.Attestation
 
     public sealed class ProviderState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URI of the Attestation Service.
+        /// </summary>
         [Input("attestationUri")]
         public Input<string>? AttestationUri { get; set; }
 
+        /// <summary>
+        /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+        /// </summary>
         [Input("policySigningCertificateData")]
         public Input<string>? PolicySigningCertificateData { get; set; }
 
+        /// <summary>
+        /// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Attestation Provider.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Trust model used for the Attestation Service.
+        /// </summary>
         [Input("trustModel")]
         public Input<string>? TrustModel { get; set; }
 

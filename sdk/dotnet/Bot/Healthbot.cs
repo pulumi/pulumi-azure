@@ -9,24 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Bot
 {
+    /// <summary>
+    /// Manages a Healthbot Service.
+    /// 
+    /// ## Import
+    /// 
+    /// Healthbot Service can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:bot/healthbot:Healthbot")]
     public partial class Healthbot : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The management portal url.
+        /// </summary>
         [Output("botManagementPortalUrl")]
         public Output<string> BotManagementPortalUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+        /// forces a new resource to be created.
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags which should be assigned to the service.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -76,20 +106,37 @@ namespace Pulumi.Azure.Bot
 
     public sealed class HealthbotArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+        /// forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the service.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -103,23 +150,43 @@ namespace Pulumi.Azure.Bot
 
     public sealed class HealthbotState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The management portal url.
+        /// </summary>
         [Input("botManagementPortalUrl")]
         public Input<string>? BotManagementPortalUrl { get; set; }
 
+        /// <summary>
+        /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+        /// forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the service.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

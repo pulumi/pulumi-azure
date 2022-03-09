@@ -11,24 +11,123 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Tumbling Window Trigger inside an Azure Data Factory.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datafactory.NewTriggerTumblingWindow(ctx, "exampleTriggerTumblingWindow", &datafactory.TriggerTumblingWindowArgs{
+// 			DataFactoryId: exampleFactory.ID(),
+// 			StartTime:     pulumi.String("2022-09-21T00:00:00Z"),
+// 			EndTime:       pulumi.String("2022-09-21T08:00:00Z"),
+// 			Frequency:     pulumi.String("Minute"),
+// 			Interval:      pulumi.Int(15),
+// 			Delay:         pulumi.String("16:00:00"),
+// 			Annotations: pulumi.StringArray{
+// 				pulumi.String("example1"),
+// 				pulumi.String("example2"),
+// 				pulumi.String("example3"),
+// 			},
+// 			Description: pulumi.String("example description"),
+// 			Retry: &datafactory.TriggerTumblingWindowRetryArgs{
+// 				Count:    pulumi.Int(1),
+// 				Interval: pulumi.Int(30),
+// 			},
+// 			Pipeline: &datafactory.TriggerTumblingWindowPipelineArgs{
+// 				Name: pulumi.Any(azurerm_data_factory_pipeline.Test.Name),
+// 				Parameters: pulumi.StringMap{
+// 					"Env": pulumi.String("Prod"),
+// 				},
+// 			},
+// 			TriggerDependencies: datafactory.TriggerTumblingWindowTriggerDependencyArray{
+// 				&datafactory.TriggerTumblingWindowTriggerDependencyArgs{
+// 					Size:   pulumi.String("24:00:00"),
+// 					Offset: pulumi.String("-24:00:00"),
+// 				},
+// 			},
+// 			AdditionalProperties: pulumi.StringMap{
+// 				"foo": pulumi.String("value1"),
+// 				"bar": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+// ```
 type TriggerTumblingWindow struct {
 	pulumi.CustomResourceState
 
-	Activated            pulumi.BoolPtrOutput                              `pulumi:"activated"`
-	AdditionalProperties pulumi.StringMapOutput                            `pulumi:"additionalProperties"`
-	Annotations          pulumi.StringArrayOutput                          `pulumi:"annotations"`
-	DataFactoryId        pulumi.StringOutput                               `pulumi:"dataFactoryId"`
-	Delay                pulumi.StringPtrOutput                            `pulumi:"delay"`
-	Description          pulumi.StringPtrOutput                            `pulumi:"description"`
-	EndTime              pulumi.StringPtrOutput                            `pulumi:"endTime"`
-	Frequency            pulumi.StringOutput                               `pulumi:"frequency"`
-	Interval             pulumi.IntOutput                                  `pulumi:"interval"`
-	MaxConcurrency       pulumi.IntPtrOutput                               `pulumi:"maxConcurrency"`
-	Name                 pulumi.StringOutput                               `pulumi:"name"`
-	Pipeline             TriggerTumblingWindowPipelineOutput               `pulumi:"pipeline"`
-	Retry                TriggerTumblingWindowRetryPtrOutput               `pulumi:"retry"`
-	StartTime            pulumi.StringOutput                               `pulumi:"startTime"`
-	TriggerDependencies  TriggerTumblingWindowTriggerDependencyArrayOutput `pulumi:"triggerDependencies"`
+	// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrOutput `pulumi:"activated"`
+	// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
+	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
+	// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
+	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+	Delay pulumi.StringPtrOutput `pulumi:"delay"`
+	// The description for the Data Factory Tumbling Window Trigger.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
+	// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+	Frequency pulumi.StringOutput `pulumi:"frequency"`
+	// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+	Interval pulumi.IntOutput `pulumi:"interval"`
+	// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+	MaxConcurrency pulumi.IntPtrOutput `pulumi:"maxConcurrency"`
+	// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A `pipeline` block as defined below.
+	Pipeline TriggerTumblingWindowPipelineOutput `pulumi:"pipeline"`
+	// A `retry` block as defined below.
+	Retry TriggerTumblingWindowRetryPtrOutput `pulumi:"retry"`
+	// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	// One or more `triggerDependency` block as defined below.
+	TriggerDependencies TriggerTumblingWindowTriggerDependencyArrayOutput `pulumi:"triggerDependencies"`
 }
 
 // NewTriggerTumblingWindow registers a new resource with the given unique name, arguments, and options.
@@ -75,39 +174,69 @@ func GetTriggerTumblingWindow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TriggerTumblingWindow resources.
 type triggerTumblingWindowState struct {
-	Activated            *bool                                    `pulumi:"activated"`
-	AdditionalProperties map[string]string                        `pulumi:"additionalProperties"`
-	Annotations          []string                                 `pulumi:"annotations"`
-	DataFactoryId        *string                                  `pulumi:"dataFactoryId"`
-	Delay                *string                                  `pulumi:"delay"`
-	Description          *string                                  `pulumi:"description"`
-	EndTime              *string                                  `pulumi:"endTime"`
-	Frequency            *string                                  `pulumi:"frequency"`
-	Interval             *int                                     `pulumi:"interval"`
-	MaxConcurrency       *int                                     `pulumi:"maxConcurrency"`
-	Name                 *string                                  `pulumi:"name"`
-	Pipeline             *TriggerTumblingWindowPipeline           `pulumi:"pipeline"`
-	Retry                *TriggerTumblingWindowRetry              `pulumi:"retry"`
-	StartTime            *string                                  `pulumi:"startTime"`
-	TriggerDependencies  []TriggerTumblingWindowTriggerDependency `pulumi:"triggerDependencies"`
+	// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+	Activated *bool `pulumi:"activated"`
+	// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
+	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
+	// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+	Annotations []string `pulumi:"annotations"`
+	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+	Delay *string `pulumi:"delay"`
+	// The description for the Data Factory Tumbling Window Trigger.
+	Description *string `pulumi:"description"`
+	// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+	Frequency *string `pulumi:"frequency"`
+	// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+	Interval *int `pulumi:"interval"`
+	// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+	MaxConcurrency *int `pulumi:"maxConcurrency"`
+	// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// A `pipeline` block as defined below.
+	Pipeline *TriggerTumblingWindowPipeline `pulumi:"pipeline"`
+	// A `retry` block as defined below.
+	Retry *TriggerTumblingWindowRetry `pulumi:"retry"`
+	// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+	StartTime *string `pulumi:"startTime"`
+	// One or more `triggerDependency` block as defined below.
+	TriggerDependencies []TriggerTumblingWindowTriggerDependency `pulumi:"triggerDependencies"`
 }
 
 type TriggerTumblingWindowState struct {
-	Activated            pulumi.BoolPtrInput
+	// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrInput
+	// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
 	AdditionalProperties pulumi.StringMapInput
-	Annotations          pulumi.StringArrayInput
-	DataFactoryId        pulumi.StringPtrInput
-	Delay                pulumi.StringPtrInput
-	Description          pulumi.StringPtrInput
-	EndTime              pulumi.StringPtrInput
-	Frequency            pulumi.StringPtrInput
-	Interval             pulumi.IntPtrInput
-	MaxConcurrency       pulumi.IntPtrInput
-	Name                 pulumi.StringPtrInput
-	Pipeline             TriggerTumblingWindowPipelinePtrInput
-	Retry                TriggerTumblingWindowRetryPtrInput
-	StartTime            pulumi.StringPtrInput
-	TriggerDependencies  TriggerTumblingWindowTriggerDependencyArrayInput
+	// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+	Annotations pulumi.StringArrayInput
+	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+	Delay pulumi.StringPtrInput
+	// The description for the Data Factory Tumbling Window Trigger.
+	Description pulumi.StringPtrInput
+	// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+	EndTime pulumi.StringPtrInput
+	// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+	Frequency pulumi.StringPtrInput
+	// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+	Interval pulumi.IntPtrInput
+	// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+	MaxConcurrency pulumi.IntPtrInput
+	// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// A `pipeline` block as defined below.
+	Pipeline TriggerTumblingWindowPipelinePtrInput
+	// A `retry` block as defined below.
+	Retry TriggerTumblingWindowRetryPtrInput
+	// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+	StartTime pulumi.StringPtrInput
+	// One or more `triggerDependency` block as defined below.
+	TriggerDependencies TriggerTumblingWindowTriggerDependencyArrayInput
 }
 
 func (TriggerTumblingWindowState) ElementType() reflect.Type {
@@ -115,40 +244,70 @@ func (TriggerTumblingWindowState) ElementType() reflect.Type {
 }
 
 type triggerTumblingWindowArgs struct {
-	Activated            *bool                                    `pulumi:"activated"`
-	AdditionalProperties map[string]string                        `pulumi:"additionalProperties"`
-	Annotations          []string                                 `pulumi:"annotations"`
-	DataFactoryId        string                                   `pulumi:"dataFactoryId"`
-	Delay                *string                                  `pulumi:"delay"`
-	Description          *string                                  `pulumi:"description"`
-	EndTime              *string                                  `pulumi:"endTime"`
-	Frequency            string                                   `pulumi:"frequency"`
-	Interval             int                                      `pulumi:"interval"`
-	MaxConcurrency       *int                                     `pulumi:"maxConcurrency"`
-	Name                 *string                                  `pulumi:"name"`
-	Pipeline             TriggerTumblingWindowPipeline            `pulumi:"pipeline"`
-	Retry                *TriggerTumblingWindowRetry              `pulumi:"retry"`
-	StartTime            string                                   `pulumi:"startTime"`
-	TriggerDependencies  []TriggerTumblingWindowTriggerDependency `pulumi:"triggerDependencies"`
+	// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+	Activated *bool `pulumi:"activated"`
+	// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
+	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
+	// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+	Annotations []string `pulumi:"annotations"`
+	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+	DataFactoryId string `pulumi:"dataFactoryId"`
+	// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+	Delay *string `pulumi:"delay"`
+	// The description for the Data Factory Tumbling Window Trigger.
+	Description *string `pulumi:"description"`
+	// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+	Frequency string `pulumi:"frequency"`
+	// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+	Interval int `pulumi:"interval"`
+	// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+	MaxConcurrency *int `pulumi:"maxConcurrency"`
+	// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// A `pipeline` block as defined below.
+	Pipeline TriggerTumblingWindowPipeline `pulumi:"pipeline"`
+	// A `retry` block as defined below.
+	Retry *TriggerTumblingWindowRetry `pulumi:"retry"`
+	// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+	StartTime string `pulumi:"startTime"`
+	// One or more `triggerDependency` block as defined below.
+	TriggerDependencies []TriggerTumblingWindowTriggerDependency `pulumi:"triggerDependencies"`
 }
 
 // The set of arguments for constructing a TriggerTumblingWindow resource.
 type TriggerTumblingWindowArgs struct {
-	Activated            pulumi.BoolPtrInput
+	// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+	Activated pulumi.BoolPtrInput
+	// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
 	AdditionalProperties pulumi.StringMapInput
-	Annotations          pulumi.StringArrayInput
-	DataFactoryId        pulumi.StringInput
-	Delay                pulumi.StringPtrInput
-	Description          pulumi.StringPtrInput
-	EndTime              pulumi.StringPtrInput
-	Frequency            pulumi.StringInput
-	Interval             pulumi.IntInput
-	MaxConcurrency       pulumi.IntPtrInput
-	Name                 pulumi.StringPtrInput
-	Pipeline             TriggerTumblingWindowPipelineInput
-	Retry                TriggerTumblingWindowRetryPtrInput
-	StartTime            pulumi.StringInput
-	TriggerDependencies  TriggerTumblingWindowTriggerDependencyArrayInput
+	// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+	Annotations pulumi.StringArrayInput
+	// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringInput
+	// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+	Delay pulumi.StringPtrInput
+	// The description for the Data Factory Tumbling Window Trigger.
+	Description pulumi.StringPtrInput
+	// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+	EndTime pulumi.StringPtrInput
+	// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+	Frequency pulumi.StringInput
+	// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+	Interval pulumi.IntInput
+	// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+	MaxConcurrency pulumi.IntPtrInput
+	// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// A `pipeline` block as defined below.
+	Pipeline TriggerTumblingWindowPipelineInput
+	// A `retry` block as defined below.
+	Retry TriggerTumblingWindowRetryPtrInput
+	// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+	StartTime pulumi.StringInput
+	// One or more `triggerDependency` block as defined below.
+	TriggerDependencies TriggerTumblingWindowTriggerDependencyArrayInput
 }
 
 func (TriggerTumblingWindowArgs) ElementType() reflect.Type {

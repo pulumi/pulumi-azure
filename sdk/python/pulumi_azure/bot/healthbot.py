@@ -20,6 +20,12 @@ class HealthbotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Healthbot resource.
+        :param pulumi.Input[str] resource_group_name: Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+               forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        :param pulumi.Input[str] location: Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        :param pulumi.Input[str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the service.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
@@ -33,6 +39,10 @@ class HealthbotArgs:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+        forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -42,6 +52,9 @@ class HealthbotArgs:
     @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
@@ -51,6 +64,9 @@ class HealthbotArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -60,6 +76,9 @@ class HealthbotArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -69,6 +88,9 @@ class HealthbotArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the service.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -87,6 +109,13 @@ class _HealthbotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Healthbot resources.
+        :param pulumi.Input[str] bot_management_portal_url: The management portal url.
+        :param pulumi.Input[str] location: Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        :param pulumi.Input[str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+               forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the service.
         """
         if bot_management_portal_url is not None:
             pulumi.set(__self__, "bot_management_portal_url", bot_management_portal_url)
@@ -104,6 +133,9 @@ class _HealthbotState:
     @property
     @pulumi.getter(name="botManagementPortalUrl")
     def bot_management_portal_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The management portal url.
+        """
         return pulumi.get(self, "bot_management_portal_url")
 
     @bot_management_portal_url.setter
@@ -113,6 +145,9 @@ class _HealthbotState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -122,6 +157,9 @@ class _HealthbotState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -131,6 +169,10 @@ class _HealthbotState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+        forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -140,6 +182,9 @@ class _HealthbotState:
     @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
@@ -149,6 +194,9 @@ class _HealthbotState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the service.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -168,9 +216,24 @@ class Healthbot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Healthbot resource with the given unique name, props, and options.
+        Manages a Healthbot Service.
+
+        ## Import
+
+        Healthbot Service can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] location: Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        :param pulumi.Input[str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+               forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the service.
         """
         ...
     @overload
@@ -179,7 +242,16 @@ class Healthbot(pulumi.CustomResource):
                  args: HealthbotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Healthbot resource with the given unique name, props, and options.
+        Manages a Healthbot Service.
+
+        ## Import
+
+        Healthbot Service can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+        ```
+
         :param str resource_name: The name of the resource.
         :param HealthbotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +317,13 @@ class Healthbot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bot_management_portal_url: The management portal url.
+        :param pulumi.Input[str] location: Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        :param pulumi.Input[str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+               forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,30 +340,49 @@ class Healthbot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="botManagementPortalUrl")
     def bot_management_portal_url(self) -> pulumi.Output[str]:
+        """
+        The management portal url.
+        """
         return pulumi.get(self, "bot_management_portal_url")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
+        """
+        Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
+        """
+        Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+        forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
+        """
+        The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+        """
         return pulumi.get(self, "sku_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags which should be assigned to the service.
+        """
         return pulumi.get(self, "tags")
 

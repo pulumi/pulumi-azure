@@ -11,9 +11,15 @@ namespace Pulumi.Azure.Attestation
 {
     public static class GetProvider
     {
+        /// <summary>
+        /// Use this data source to access information about an existing Attestation Provider.
+        /// </summary>
         public static Task<GetProviderResult> InvokeAsync(GetProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to access information about an existing Attestation Provider.
+        /// </summary>
         public static Output<GetProviderResult> Invoke(GetProviderInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +27,15 @@ namespace Pulumi.Azure.Attestation
 
     public sealed class GetProviderArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of this Attestation Provider.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Resource Group where the Attestation Provider exists.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
@@ -34,9 +46,15 @@ namespace Pulumi.Azure.Attestation
 
     public sealed class GetProviderInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of this Attestation Provider.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Resource Group where the Attestation Provider exists.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
@@ -49,15 +67,27 @@ namespace Pulumi.Azure.Attestation
     [OutputType]
     public sealed class GetProviderResult
     {
+        /// <summary>
+        /// The (Endpoint|URI) of the Attestation Service.
+        /// </summary>
         public readonly string AttestationUri;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Azure Region where the Attestation Provider exists.
+        /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// A mapping of tags assigned to the Attestation Provider.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Trust model used for the Attestation Service.
+        /// </summary>
         public readonly string TrustModel;
 
         [OutputConstructor]

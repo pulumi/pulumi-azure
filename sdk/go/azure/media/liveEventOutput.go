@@ -11,17 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Azure Media Live Event Output.
+//
+// ## Import
+//
+// Live Outputs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+// ```
 type LiveEventOutputResource struct {
 	pulumi.CustomResourceState
 
-	ArchiveWindowDuration    pulumi.StringOutput    `pulumi:"archiveWindowDuration"`
-	AssetName                pulumi.StringOutput    `pulumi:"assetName"`
-	Description              pulumi.StringPtrOutput `pulumi:"description"`
-	HlsFragmentsPerTsSegment pulumi.IntPtrOutput    `pulumi:"hlsFragmentsPerTsSegment"`
-	LiveEventId              pulumi.StringOutput    `pulumi:"liveEventId"`
-	ManifestName             pulumi.StringOutput    `pulumi:"manifestName"`
-	Name                     pulumi.StringOutput    `pulumi:"name"`
-	OutputSnapTimeInSeconds  pulumi.IntPtrOutput    `pulumi:"outputSnapTimeInSeconds"`
+	// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+	ArchiveWindowDuration pulumi.StringOutput `pulumi:"archiveWindowDuration"`
+	// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+	AssetName pulumi.StringOutput `pulumi:"assetName"`
+	// The description of the live output. Changing this forces a new Live Output to be created.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+	HlsFragmentsPerTsSegment pulumi.IntPtrOutput `pulumi:"hlsFragmentsPerTsSegment"`
+	// The id of the live event. Changing this forces a new Live Output to be created.
+	LiveEventId pulumi.StringOutput `pulumi:"liveEventId"`
+	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+	ManifestName pulumi.StringOutput `pulumi:"manifestName"`
+	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+	Name                    pulumi.StringOutput `pulumi:"name"`
+	OutputSnapTimeInSeconds pulumi.IntPtrOutput `pulumi:"outputSnapTimeInSeconds"`
 }
 
 // NewLiveEventOutputResource registers a new resource with the given unique name, arguments, and options.
@@ -62,25 +78,39 @@ func GetLiveEventOutputResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LiveEventOutputResource resources.
 type liveEventOutputResourceState struct {
-	ArchiveWindowDuration    *string `pulumi:"archiveWindowDuration"`
-	AssetName                *string `pulumi:"assetName"`
-	Description              *string `pulumi:"description"`
-	HlsFragmentsPerTsSegment *int    `pulumi:"hlsFragmentsPerTsSegment"`
-	LiveEventId              *string `pulumi:"liveEventId"`
-	ManifestName             *string `pulumi:"manifestName"`
-	Name                     *string `pulumi:"name"`
-	OutputSnapTimeInSeconds  *int    `pulumi:"outputSnapTimeInSeconds"`
+	// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+	ArchiveWindowDuration *string `pulumi:"archiveWindowDuration"`
+	// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+	AssetName *string `pulumi:"assetName"`
+	// The description of the live output. Changing this forces a new Live Output to be created.
+	Description *string `pulumi:"description"`
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+	HlsFragmentsPerTsSegment *int `pulumi:"hlsFragmentsPerTsSegment"`
+	// The id of the live event. Changing this forces a new Live Output to be created.
+	LiveEventId *string `pulumi:"liveEventId"`
+	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+	ManifestName *string `pulumi:"manifestName"`
+	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+	Name                    *string `pulumi:"name"`
+	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
 }
 
 type LiveEventOutputResourceState struct {
-	ArchiveWindowDuration    pulumi.StringPtrInput
-	AssetName                pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
+	// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+	ArchiveWindowDuration pulumi.StringPtrInput
+	// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+	AssetName pulumi.StringPtrInput
+	// The description of the live output. Changing this forces a new Live Output to be created.
+	Description pulumi.StringPtrInput
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
 	HlsFragmentsPerTsSegment pulumi.IntPtrInput
-	LiveEventId              pulumi.StringPtrInput
-	ManifestName             pulumi.StringPtrInput
-	Name                     pulumi.StringPtrInput
-	OutputSnapTimeInSeconds  pulumi.IntPtrInput
+	// The id of the live event. Changing this forces a new Live Output to be created.
+	LiveEventId pulumi.StringPtrInput
+	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+	ManifestName pulumi.StringPtrInput
+	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+	Name                    pulumi.StringPtrInput
+	OutputSnapTimeInSeconds pulumi.IntPtrInput
 }
 
 func (LiveEventOutputResourceState) ElementType() reflect.Type {
@@ -88,26 +118,40 @@ func (LiveEventOutputResourceState) ElementType() reflect.Type {
 }
 
 type liveEventOutputResourceArgs struct {
-	ArchiveWindowDuration    string  `pulumi:"archiveWindowDuration"`
-	AssetName                string  `pulumi:"assetName"`
-	Description              *string `pulumi:"description"`
-	HlsFragmentsPerTsSegment *int    `pulumi:"hlsFragmentsPerTsSegment"`
-	LiveEventId              string  `pulumi:"liveEventId"`
-	ManifestName             *string `pulumi:"manifestName"`
-	Name                     *string `pulumi:"name"`
-	OutputSnapTimeInSeconds  *int    `pulumi:"outputSnapTimeInSeconds"`
+	// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+	ArchiveWindowDuration string `pulumi:"archiveWindowDuration"`
+	// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+	AssetName string `pulumi:"assetName"`
+	// The description of the live output. Changing this forces a new Live Output to be created.
+	Description *string `pulumi:"description"`
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
+	HlsFragmentsPerTsSegment *int `pulumi:"hlsFragmentsPerTsSegment"`
+	// The id of the live event. Changing this forces a new Live Output to be created.
+	LiveEventId string `pulumi:"liveEventId"`
+	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+	ManifestName *string `pulumi:"manifestName"`
+	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+	Name                    *string `pulumi:"name"`
+	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
 }
 
 // The set of arguments for constructing a LiveEventOutputResource resource.
 type LiveEventOutputResourceArgs struct {
-	ArchiveWindowDuration    pulumi.StringInput
-	AssetName                pulumi.StringInput
-	Description              pulumi.StringPtrInput
+	// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
+	ArchiveWindowDuration pulumi.StringInput
+	// The asset that the live output will write to. Changing this forces a new Live Output to be created.
+	AssetName pulumi.StringInput
+	// The description of the live output. Changing this forces a new Live Output to be created.
+	Description pulumi.StringPtrInput
+	// The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
 	HlsFragmentsPerTsSegment pulumi.IntPtrInput
-	LiveEventId              pulumi.StringInput
-	ManifestName             pulumi.StringPtrInput
-	Name                     pulumi.StringPtrInput
-	OutputSnapTimeInSeconds  pulumi.IntPtrInput
+	// The id of the live event. Changing this forces a new Live Output to be created.
+	LiveEventId pulumi.StringInput
+	// The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
+	ManifestName pulumi.StringPtrInput
+	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
+	Name                    pulumi.StringPtrInput
+	OutputSnapTimeInSeconds pulumi.IntPtrInput
 }
 
 func (LiveEventOutputResourceArgs) ElementType() reflect.Type {

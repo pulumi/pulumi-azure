@@ -13,8 +13,14 @@ namespace Pulumi.Azure.Role.Outputs
     [OutputType]
     public sealed class GetRoleDefinitionPermissionResult
     {
+        /// <summary>
+        /// a list of actions supported by this role
+        /// </summary>
         public readonly ImmutableArray<string> Actions;
         public readonly ImmutableArray<string> DataActions;
+        /// <summary>
+        /// a list of actions which are denied by this role
+        /// </summary>
         public readonly ImmutableArray<string> NotActions;
         public readonly ImmutableArray<string> NotDataActions;
 

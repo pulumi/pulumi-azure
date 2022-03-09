@@ -11,16 +11,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Attestation Provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/attestation"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = attestation.NewProvider(ctx, "exampleProvider", &attestation.ProviderArgs{
+// 			ResourceGroupName:            exampleResourceGroup.Name,
+// 			Location:                     exampleResourceGroup.Location,
+// 			PolicySigningCertificateData: readFileOrPanic("./example/cert.pem"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Attestation Providers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
+// ```
 type Provider struct {
 	pulumi.CustomResourceState
 
-	AttestationUri               pulumi.StringOutput    `pulumi:"attestationUri"`
-	Location                     pulumi.StringOutput    `pulumi:"location"`
-	Name                         pulumi.StringOutput    `pulumi:"name"`
+	// The URI of the Attestation Service.
+	AttestationUri pulumi.StringOutput `pulumi:"attestationUri"`
+	// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData pulumi.StringPtrOutput `pulumi:"policySigningCertificateData"`
-	ResourceGroupName            pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
-	TrustModel                   pulumi.StringOutput    `pulumi:"trustModel"`
+	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags which should be assigned to the Attestation Provider.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Trust model used for the Attestation Service.
+	TrustModel pulumi.StringOutput `pulumi:"trustModel"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -55,23 +113,37 @@ func GetProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Provider resources.
 type providerState struct {
-	AttestationUri               *string           `pulumi:"attestationUri"`
-	Location                     *string           `pulumi:"location"`
-	Name                         *string           `pulumi:"name"`
-	PolicySigningCertificateData *string           `pulumi:"policySigningCertificateData"`
-	ResourceGroupName            *string           `pulumi:"resourceGroupName"`
-	Tags                         map[string]string `pulumi:"tags"`
-	TrustModel                   *string           `pulumi:"trustModel"`
+	// The URI of the Attestation Service.
+	AttestationUri *string `pulumi:"attestationUri"`
+	// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
+	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
+	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags which should be assigned to the Attestation Provider.
+	Tags map[string]string `pulumi:"tags"`
+	// Trust model used for the Attestation Service.
+	TrustModel *string `pulumi:"trustModel"`
 }
 
 type ProviderState struct {
-	AttestationUri               pulumi.StringPtrInput
-	Location                     pulumi.StringPtrInput
-	Name                         pulumi.StringPtrInput
+	// The URI of the Attestation Service.
+	AttestationUri pulumi.StringPtrInput
+	// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
+	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData pulumi.StringPtrInput
-	ResourceGroupName            pulumi.StringPtrInput
-	Tags                         pulumi.StringMapInput
-	TrustModel                   pulumi.StringPtrInput
+	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags which should be assigned to the Attestation Provider.
+	Tags pulumi.StringMapInput
+	// Trust model used for the Attestation Service.
+	TrustModel pulumi.StringPtrInput
 }
 
 func (ProviderState) ElementType() reflect.Type {
@@ -79,20 +151,30 @@ func (ProviderState) ElementType() reflect.Type {
 }
 
 type providerArgs struct {
-	Location                     *string           `pulumi:"location"`
-	Name                         *string           `pulumi:"name"`
-	PolicySigningCertificateData *string           `pulumi:"policySigningCertificateData"`
-	ResourceGroupName            string            `pulumi:"resourceGroupName"`
-	Tags                         map[string]string `pulumi:"tags"`
+	// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
+	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
+	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags which should be assigned to the Attestation Provider.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	Location                     pulumi.StringPtrInput
-	Name                         pulumi.StringPtrInput
+	// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
+	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData pulumi.StringPtrInput
-	ResourceGroupName            pulumi.StringInput
-	Tags                         pulumi.StringMapInput
+	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringInput
+	// A mapping of tags which should be assigned to the Attestation Provider.
+	Tags pulumi.StringMapInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
