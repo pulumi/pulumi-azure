@@ -13912,18 +13912,39 @@ export namespace datafactory {
     }
 
     export interface TriggerTumblingWindowPipeline {
+        /**
+         * The Data Factory Pipeline name that the trigger will act on.
+         */
         name: string;
+        /**
+         * The Data Factory Pipeline parameters that the trigger will act on.
+         */
         parameters?: {[key: string]: string};
     }
 
     export interface TriggerTumblingWindowRetry {
+        /**
+         * The maximum retry attempts if the pipeline run failed.
+         */
         count: number;
+        /**
+         * The Interval in seconds between each retry if the pipeline run failed.
+         */
         interval?: number;
     }
 
     export interface TriggerTumblingWindowTriggerDependency {
+        /**
+         * The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+         */
         offset?: string;
+        /**
+         * The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+         */
         size?: string;
+        /**
+         * The dependency trigger name. If not specified, it will use self dependency.
+         */
         triggerName?: string;
     }
 }
@@ -29444,8 +29465,14 @@ export namespace role {
     }
 
     export interface GetRoleDefinitionPermission {
+        /**
+         * a list of actions supported by this role
+         */
         actions: string[];
         dataActions?: string[];
+        /**
+         * a list of actions which are denied by this role
+         */
         notActions: string[];
         notDataActions?: string[];
     }

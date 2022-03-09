@@ -46,6 +46,9 @@ class GetProviderResult:
     @property
     @pulumi.getter(name="attestationUri")
     def attestation_uri(self) -> str:
+        """
+        The (Endpoint|URI) of the Attestation Service.
+        """
         return pulumi.get(self, "attestation_uri")
 
     @property
@@ -59,6 +62,9 @@ class GetProviderResult:
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        The Azure Region where the Attestation Provider exists.
+        """
         return pulumi.get(self, "location")
 
     @property
@@ -74,11 +80,17 @@ class GetProviderResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the Attestation Provider.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustModel")
     def trust_model(self) -> str:
+        """
+        Trust model used for the Attestation Service.
+        """
         return pulumi.get(self, "trust_model")
 
 
@@ -101,7 +113,11 @@ def get_provider(name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Attestation Provider.
+
+
+    :param str name: The name of this Attestation Provider.
+    :param str resource_group_name: The name of the Resource Group where the Attestation Provider exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -127,6 +143,10 @@ def get_provider_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Attestation Provider.
+
+
+    :param str name: The name of this Attestation Provider.
+    :param str resource_group_name: The name of the Resource Group where the Attestation Provider exists.
     """
     ...

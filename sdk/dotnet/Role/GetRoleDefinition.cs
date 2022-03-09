@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Role
     [Obsolete(@"azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")]
     public static class GetRoleDefinition
     {
+        /// <summary>
+        /// Use this data source to access information about an existing Role Definition.
+        /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to access information about an existing Role Definition.
+        /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
@@ -22,12 +28,21 @@ namespace Pulumi.Azure.Role
 
     public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the Name of either a built-in or custom Role Definition.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Role Definition as a UUID/GUID.
+        /// </summary>
         [Input("roleDefinitionId")]
         public string? RoleDefinitionId { get; set; }
 
+        /// <summary>
+        /// Specifies the Scope at which the Custom Role Definition exists.
+        /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
 
@@ -38,12 +53,21 @@ namespace Pulumi.Azure.Role
 
     public sealed class GetRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the Name of either a built-in or custom Role Definition.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Role Definition as a UUID/GUID.
+        /// </summary>
         [Input("roleDefinitionId")]
         public Input<string>? RoleDefinitionId { get; set; }
 
+        /// <summary>
+        /// Specifies the Scope at which the Custom Role Definition exists.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
@@ -56,16 +80,28 @@ namespace Pulumi.Azure.Role
     [OutputType]
     public sealed class GetRoleDefinitionResult
     {
+        /// <summary>
+        /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
+        /// <summary>
+        /// the Description of the built-in Role.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// a `permissions` block as documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
         public readonly string RoleDefinitionId;
         public readonly string? Scope;
+        /// <summary>
+        /// the Type of the Role.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -3982,6 +3982,10 @@ class TriggerTumblingWindowPipeline(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The Data Factory Pipeline name that the trigger will act on.
+        :param Mapping[str, str] parameters: The Data Factory Pipeline parameters that the trigger will act on.
+        """
         pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -3989,11 +3993,17 @@ class TriggerTumblingWindowPipeline(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -4002,6 +4012,10 @@ class TriggerTumblingWindowRetry(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: Optional[int] = None):
+        """
+        :param int count: The maximum retry attempts if the pipeline run failed.
+        :param int interval: The Interval in seconds between each retry if the pipeline run failed.
+        """
         pulumi.set(__self__, "count", count)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
@@ -4009,11 +4023,17 @@ class TriggerTumblingWindowRetry(dict):
     @property
     @pulumi.getter
     def count(self) -> int:
+        """
+        The maximum retry attempts if the pipeline run failed.
+        """
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
     def interval(self) -> Optional[int]:
+        """
+        The Interval in seconds between each retry if the pipeline run failed.
+        """
         return pulumi.get(self, "interval")
 
 
@@ -4040,6 +4060,11 @@ class TriggerTumblingWindowTriggerDependency(dict):
                  offset: Optional[str] = None,
                  size: Optional[str] = None,
                  trigger_name: Optional[str] = None):
+        """
+        :param str offset: The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+        :param str size: The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+        :param str trigger_name: The dependency trigger name. If not specified, it will use self dependency.
+        """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
         if size is not None:
@@ -4050,16 +4075,25 @@ class TriggerTumblingWindowTriggerDependency(dict):
     @property
     @pulumi.getter
     def offset(self) -> Optional[str]:
+        """
+        The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+        """
         return pulumi.get(self, "offset")
 
     @property
     @pulumi.getter
     def size(self) -> Optional[str]:
+        """
+        The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="triggerName")
     def trigger_name(self) -> Optional[str]:
+        """
+        The dependency trigger name. If not specified, it will use self dependency.
+        """
         return pulumi.get(self, "trigger_name")
 
 

@@ -9,51 +9,178 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DataFactory
 {
+    /// <summary>
+    /// Manages a Tumbling Window Trigger inside an Azure Data Factory.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryId = exampleFactory.Id,
+    ///         });
+    ///         var exampleTriggerTumblingWindow = new Azure.DataFactory.TriggerTumblingWindow("exampleTriggerTumblingWindow", new Azure.DataFactory.TriggerTumblingWindowArgs
+    ///         {
+    ///             DataFactoryId = exampleFactory.Id,
+    ///             StartTime = "2022-09-21T00:00:00Z",
+    ///             EndTime = "2022-09-21T08:00:00Z",
+    ///             Frequency = "Minute",
+    ///             Interval = 15,
+    ///             Delay = "16:00:00",
+    ///             Annotations = 
+    ///             {
+    ///                 "example1",
+    ///                 "example2",
+    ///                 "example3",
+    ///             },
+    ///             Description = "example description",
+    ///             Retry = new Azure.DataFactory.Inputs.TriggerTumblingWindowRetryArgs
+    ///             {
+    ///                 Count = 1,
+    ///                 Interval = 30,
+    ///             },
+    ///             Pipeline = new Azure.DataFactory.Inputs.TriggerTumblingWindowPipelineArgs
+    ///             {
+    ///                 Name = azurerm_data_factory_pipeline.Test.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "Env", "Prod" },
+    ///                 },
+    ///             },
+    ///             TriggerDependencies = 
+    ///             {
+    ///                 new Azure.DataFactory.Inputs.TriggerTumblingWindowTriggerDependencyArgs
+    ///                 {
+    ///                     Size = "24:00:00",
+    ///                     Offset = "-24:00:00",
+    ///                 },
+    ///             },
+    ///             AdditionalProperties = 
+    ///             {
+    ///                 { "foo", "value1" },
+    ///                 { "bar", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow")]
     public partial class TriggerTumblingWindow : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+        /// </summary>
         [Output("activated")]
         public Output<bool?> Activated { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
+        /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+        /// </summary>
         [Output("annotations")]
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+        /// </summary>
         [Output("dataFactoryId")]
         public Output<string> DataFactoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+        /// </summary>
         [Output("delay")]
         public Output<string?> Delay { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the Data Factory Tumbling Window Trigger.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+        /// </summary>
         [Output("endTime")]
         public Output<string?> EndTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+        /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+        /// </summary>
         [Output("interval")]
         public Output<int> Interval { get; private set; } = null!;
 
+        /// <summary>
+        /// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+        /// </summary>
         [Output("maxConcurrency")]
         public Output<int?> MaxConcurrency { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A `pipeline` block as defined below.
+        /// </summary>
         [Output("pipeline")]
         public Output<Outputs.TriggerTumblingWindowPipeline> Pipeline { get; private set; } = null!;
 
+        /// <summary>
+        /// A `retry` block as defined below.
+        /// </summary>
         [Output("retry")]
         public Output<Outputs.TriggerTumblingWindowRetry?> Retry { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+        /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `trigger_dependency` block as defined below.
+        /// </summary>
         [Output("triggerDependencies")]
         public Output<ImmutableArray<Outputs.TriggerTumblingWindowTriggerDependency>> TriggerDependencies { get; private set; } = null!;
 
@@ -103,11 +230,18 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class TriggerTumblingWindowArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+        /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
 
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
+
+        /// <summary>
+        /// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
+        /// </summary>
         public InputMap<string> AdditionalProperties
         {
             get => _additionalProperties ?? (_additionalProperties = new InputMap<string>());
@@ -116,47 +250,88 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("annotations")]
         private InputList<string>? _annotations;
+
+        /// <summary>
+        /// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+        /// </summary>
         public InputList<string> Annotations
         {
             get => _annotations ?? (_annotations = new InputList<string>());
             set => _annotations = value;
         }
 
+        /// <summary>
+        /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+        /// </summary>
         [Input("dataFactoryId", required: true)]
         public Input<string> DataFactoryId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+        /// </summary>
         [Input("delay")]
         public Input<string>? Delay { get; set; }
 
+        /// <summary>
+        /// The description for the Data Factory Tumbling Window Trigger.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
+        /// <summary>
+        /// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+        /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
 
+        /// <summary>
+        /// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+        /// </summary>
         [Input("maxConcurrency")]
         public Input<int>? MaxConcurrency { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A `pipeline` block as defined below.
+        /// </summary>
         [Input("pipeline", required: true)]
         public Input<Inputs.TriggerTumblingWindowPipelineArgs> Pipeline { get; set; } = null!;
 
+        /// <summary>
+        /// A `retry` block as defined below.
+        /// </summary>
         [Input("retry")]
         public Input<Inputs.TriggerTumblingWindowRetryArgs>? Retry { get; set; }
 
+        /// <summary>
+        /// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+        /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 
         [Input("triggerDependencies")]
         private InputList<Inputs.TriggerTumblingWindowTriggerDependencyArgs>? _triggerDependencies;
+
+        /// <summary>
+        /// One or more `trigger_dependency` block as defined below.
+        /// </summary>
         public InputList<Inputs.TriggerTumblingWindowTriggerDependencyArgs> TriggerDependencies
         {
             get => _triggerDependencies ?? (_triggerDependencies = new InputList<Inputs.TriggerTumblingWindowTriggerDependencyArgs>());
@@ -170,11 +345,18 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class TriggerTumblingWindowState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+        /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
 
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
+
+        /// <summary>
+        /// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
+        /// </summary>
         public InputMap<string> AdditionalProperties
         {
             get => _additionalProperties ?? (_additionalProperties = new InputMap<string>());
@@ -183,47 +365,88 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("annotations")]
         private InputList<string>? _annotations;
+
+        /// <summary>
+        /// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
+        /// </summary>
         public InputList<string> Annotations
         {
             get => _annotations ?? (_annotations = new InputList<string>());
             set => _annotations = value;
         }
 
+        /// <summary>
+        /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
+        /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }
 
+        /// <summary>
+        /// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
+        /// </summary>
         [Input("delay")]
         public Input<string>? Delay { get; set; }
 
+        /// <summary>
+        /// The description for the Data Factory Tumbling Window Trigger.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
+        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
+        /// <summary>
+        /// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
+        /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
 
+        /// <summary>
+        /// Specifies the interval of Tumbling Window. Changing this forces a new resource.
+        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
+        /// </summary>
         [Input("maxConcurrency")]
         public Input<int>? MaxConcurrency { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A `pipeline` block as defined below.
+        /// </summary>
         [Input("pipeline")]
         public Input<Inputs.TriggerTumblingWindowPipelineGetArgs>? Pipeline { get; set; }
 
+        /// <summary>
+        /// A `retry` block as defined below.
+        /// </summary>
         [Input("retry")]
         public Input<Inputs.TriggerTumblingWindowRetryGetArgs>? Retry { get; set; }
 
+        /// <summary>
+        /// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
+        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
         [Input("triggerDependencies")]
         private InputList<Inputs.TriggerTumblingWindowTriggerDependencyGetArgs>? _triggerDependencies;
+
+        /// <summary>
+        /// One or more `trigger_dependency` block as defined below.
+        /// </summary>
         public InputList<Inputs.TriggerTumblingWindowTriggerDependencyGetArgs> TriggerDependencies
         {
             get => _triggerDependencies ?? (_triggerDependencies = new InputList<Inputs.TriggerTumblingWindowTriggerDependencyGetArgs>());

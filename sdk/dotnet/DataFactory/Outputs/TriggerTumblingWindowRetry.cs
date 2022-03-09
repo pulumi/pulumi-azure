@@ -13,7 +13,13 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class TriggerTumblingWindowRetry
     {
+        /// <summary>
+        /// The maximum retry attempts if the pipeline run failed.
+        /// </summary>
         public readonly int Count;
+        /// <summary>
+        /// The Interval in seconds between each retry if the pipeline run failed.
+        /// </summary>
         public readonly int? Interval;
 
         [OutputConstructor]

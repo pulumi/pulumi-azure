@@ -4012,6 +4012,10 @@ class TriggerTumblingWindowPipelineArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The Data Factory Pipeline name that the trigger will act on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
+        """
         pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -4019,6 +4023,9 @@ class TriggerTumblingWindowPipelineArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4028,6 +4035,9 @@ class TriggerTumblingWindowPipelineArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -4040,6 +4050,10 @@ class TriggerTumblingWindowRetryArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] count: The maximum retry attempts if the pipeline run failed.
+        :param pulumi.Input[int] interval: The Interval in seconds between each retry if the pipeline run failed.
+        """
         pulumi.set(__self__, "count", count)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
@@ -4047,6 +4061,9 @@ class TriggerTumblingWindowRetryArgs:
     @property
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
+        """
+        The maximum retry attempts if the pipeline run failed.
+        """
         return pulumi.get(self, "count")
 
     @count.setter
@@ -4056,6 +4073,9 @@ class TriggerTumblingWindowRetryArgs:
     @property
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Interval in seconds between each retry if the pipeline run failed.
+        """
         return pulumi.get(self, "interval")
 
     @interval.setter
@@ -4069,6 +4089,11 @@ class TriggerTumblingWindowTriggerDependencyArgs:
                  offset: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] offset: The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+        :param pulumi.Input[str] size: The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+        :param pulumi.Input[str] trigger_name: The dependency trigger name. If not specified, it will use self dependency.
+        """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
         if size is not None:
@@ -4079,6 +4104,9 @@ class TriggerTumblingWindowTriggerDependencyArgs:
     @property
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[str]]:
+        """
+        The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+        """
         return pulumi.get(self, "offset")
 
     @offset.setter
@@ -4088,6 +4116,9 @@ class TriggerTumblingWindowTriggerDependencyArgs:
     @property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -4097,6 +4128,9 @@ class TriggerTumblingWindowTriggerDependencyArgs:
     @property
     @pulumi.getter(name="triggerName")
     def trigger_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dependency trigger name. If not specified, it will use self dependency.
+        """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter

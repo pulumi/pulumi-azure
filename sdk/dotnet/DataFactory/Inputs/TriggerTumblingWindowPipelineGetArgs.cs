@@ -12,11 +12,18 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
     public sealed class TriggerTumblingWindowPipelineGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Data Factory Pipeline name that the trigger will act on.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// The Data Factory Pipeline parameters that the trigger will act on.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());

@@ -96,6 +96,10 @@ class GetRoleDefinitionPermissionResult(dict):
                  not_actions: Sequence[str],
                  data_actions: Optional[Sequence[str]] = None,
                  not_data_actions: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] actions: a list of actions supported by this role
+        :param Sequence[str] not_actions: a list of actions which are denied by this role
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "not_actions", not_actions)
         if data_actions is not None:
@@ -106,11 +110,17 @@ class GetRoleDefinitionPermissionResult(dict):
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        a list of actions supported by this role
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Sequence[str]:
+        """
+        a list of actions which are denied by this role
+        """
         return pulumi.get(self, "not_actions")
 
     @property

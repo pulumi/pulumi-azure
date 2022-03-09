@@ -52,11 +52,17 @@ class GetRoleDefinitionResult:
     @property
     @pulumi.getter(name="assignableScopes")
     def assignable_scopes(self) -> Sequence[str]:
+        """
+        One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        """
         return pulumi.get(self, "assignable_scopes")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        the Description of the built-in Role.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -75,6 +81,9 @@ class GetRoleDefinitionResult:
     @property
     @pulumi.getter
     def permissions(self) -> Sequence['outputs.GetRoleDefinitionPermissionResult']:
+        """
+        a `permissions` block as documented below.
+        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -90,6 +99,9 @@ class GetRoleDefinitionResult:
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        the Type of the Role.
+        """
         return pulumi.get(self, "type")
 
 
@@ -114,7 +126,12 @@ def get_role_definition(name: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Role Definition.
+
+
+    :param str name: Specifies the Name of either a built-in or custom Role Definition.
+    :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
+    :param str scope: Specifies the Scope at which the Custom Role Definition exists.
     """
     pulumi.log.warn("""get_role_definition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition""")
     __args__ = dict()
@@ -144,7 +161,12 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = Non
                                scope: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Role Definition.
+
+
+    :param str name: Specifies the Name of either a built-in or custom Role Definition.
+    :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
+    :param str scope: Specifies the Scope at which the Custom Role Definition exists.
     """
     pulumi.log.warn("""get_role_definition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition""")
     ...

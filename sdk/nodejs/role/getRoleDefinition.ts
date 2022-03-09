@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to access information about an existing Role Definition.
+ */
 /** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     pulumi.log.warn("getRoleDefinition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")
@@ -25,8 +28,17 @@ export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.In
  * A collection of arguments for invoking getRoleDefinition.
  */
 export interface GetRoleDefinitionArgs {
+    /**
+     * Specifies the Name of either a built-in or custom Role Definition.
+     */
     name?: string;
+    /**
+     * Specifies the ID of the Role Definition as a UUID/GUID.
+     */
     roleDefinitionId?: string;
+    /**
+     * Specifies the Scope at which the Custom Role Definition exists.
+     */
     scope?: string;
 }
 
@@ -34,16 +46,28 @@ export interface GetRoleDefinitionArgs {
  * A collection of values returned by getRoleDefinition.
  */
 export interface GetRoleDefinitionResult {
+    /**
+     * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+     */
     readonly assignableScopes: string[];
+    /**
+     * the Description of the built-in Role.
+     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * a `permissions` block as documented below.
+     */
     readonly permissions: outputs.role.GetRoleDefinitionPermission[];
     readonly roleDefinitionId: string;
     readonly scope?: string;
+    /**
+     * the Type of the Role.
+     */
     readonly type: string;
 }
 
@@ -55,7 +79,16 @@ export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts
  * A collection of arguments for invoking getRoleDefinition.
  */
 export interface GetRoleDefinitionOutputArgs {
+    /**
+     * Specifies the Name of either a built-in or custom Role Definition.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the Role Definition as a UUID/GUID.
+     */
     roleDefinitionId?: pulumi.Input<string>;
+    /**
+     * Specifies the Scope at which the Custom Role Definition exists.
+     */
     scope?: pulumi.Input<string>;
 }

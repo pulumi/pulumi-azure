@@ -13,8 +13,17 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class TriggerTumblingWindowTriggerDependency
     {
+        /// <summary>
+        /// The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+        /// </summary>
         public readonly string? Offset;
+        /// <summary>
+        /// The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+        /// </summary>
         public readonly string? Size;
+        /// <summary>
+        /// The dependency trigger name. If not specified, it will use self dependency.
+        /// </summary>
         public readonly string? TriggerName;
 
         [OutputConstructor]

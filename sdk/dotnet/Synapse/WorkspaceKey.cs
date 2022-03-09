@@ -9,6 +9,192 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Synapse
 {
+    /// <summary>
+    /// Manages a Synapse Workspace.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///             AccountKind = "StorageV2",
+    ///             IsHnsEnabled = true,
+    ///         });
+    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///         });
+    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///             SqlAdministratorLogin = "sqladminuser",
+    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             AadAdmin = new Azure.Synapse.Inputs.WorkspaceAadAdminArgs
+    ///             {
+    ///                 Login = "AzureAD Admin",
+    ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///                 TenantId = "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Env", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Creating A Workspace With Customer Managed Key And Azure AD Admin
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///             AccountKind = "StorageV2",
+    ///             IsHnsEnabled = true,
+    ///         });
+    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var deployer = new Azure.KeyVault.AccessPolicy("deployer", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "create",
+    ///                 "get",
+    ///                 "delete",
+    ///                 "purge",
+    ///             },
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "unwrapKey",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 deployer,
+    ///             },
+    ///         });
+    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///             SqlAdministratorLogin = "sqladminuser",
+    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             CustomerManagedKey = new Azure.Synapse.Inputs.WorkspaceCustomerManagedKeyArgs
+    ///             {
+    ///                 KeyVersionlessId = exampleKey.VersionlessId,
+    ///                 KeyName = "enckey",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Env", "production" },
+    ///             },
+    ///         });
+    ///         var workspacePolicy = new Azure.KeyVault.AccessPolicy("workspacePolicy", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = exampleWorkspace.Identities.Apply(identities =&gt; identities[0].TenantId),
+    ///             ObjectId = exampleWorkspace.Identities.Apply(identities =&gt; identities[0].PrincipalId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "Get",
+    ///                 "WrapKey",
+    ///                 "UnwrapKey",
+    ///             },
+    ///         });
+    ///         var exampleWorkspaceKey = new Azure.Synapse.WorkspaceKey("exampleWorkspaceKey", new Azure.Synapse.WorkspaceKeyArgs
+    ///         {
+    ///             CustomerManagedKeyVersionlessId = exampleKey.VersionlessId,
+    ///             SynapseWorkspaceId = exampleWorkspace.Id,
+    ///             Active = true,
+    ///             CustomerManagedKeyName = "enckey",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 workspacePolicy,
+    ///             },
+    ///         });
+    ///         var exampleWorkspaceAadAdmin = new Azure.Synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", new Azure.Synapse.WorkspaceAadAdminArgs
+    ///         {
+    ///             SynapseWorkspaceId = exampleWorkspace.Id,
+    ///             Login = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleWorkspaceKey,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Synapse Workspace can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:synapse/workspaceKey:WorkspaceKey")]
     public partial class WorkspaceKey : Pulumi.CustomResource
     {
