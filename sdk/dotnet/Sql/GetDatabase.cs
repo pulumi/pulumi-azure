@@ -12,8 +12,6 @@ namespace Pulumi.Azure.Sql
     public static class GetDatabase
     {
         /// <summary>
-        /// Use this data source to access information about an existing SQL Azure Database.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -46,8 +44,6 @@ namespace Pulumi.Azure.Sql
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing SQL Azure Database.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

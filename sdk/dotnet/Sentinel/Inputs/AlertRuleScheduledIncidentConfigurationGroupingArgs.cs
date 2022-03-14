@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+        /// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
         /// </summary>
         [Input("entityMatchingMethod")]
         public Input<string>? EntityMatchingMethod { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<string>? _groupBies;
 
         /// <summary>
-        /// A list of entity types to group by, only when the `entity_matching_method` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+        /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         /// </summary>
         public InputList<string> GroupBies
         {

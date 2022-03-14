@@ -27,8 +27,7 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic", {

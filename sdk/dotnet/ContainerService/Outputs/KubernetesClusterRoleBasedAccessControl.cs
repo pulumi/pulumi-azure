@@ -13,12 +13,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class KubernetesClusterRoleBasedAccessControl
     {
-        /// <summary>
-        /// An `azure_active_directory` block.
-        /// </summary>
         public readonly Outputs.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory? AzureActiveDirectory;
         /// <summary>
-        /// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         public readonly bool Enabled;
 

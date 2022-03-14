@@ -29,6 +29,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getTopic:getTopic", {
         "name": args.name,
+        "namespaceId": args.namespaceId,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -42,14 +43,15 @@ export interface GetTopicArgs {
      * The name of this Service Bus Topic.
      */
     name: string;
+    namespaceId?: string;
     /**
      * The name of the Service Bus Namespace.
      */
-    namespaceName: string;
+    namespaceName?: string;
     /**
      * The name of the Resource Group where the Service Bus Topic exists.
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
 }
 
 /**
@@ -89,12 +91,13 @@ export interface GetTopicResult {
      */
     readonly maxSizeInMegabytes: number;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceId?: string;
+    readonly namespaceName?: string;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection.
      */
     readonly requiresDuplicateDetection: boolean;
-    readonly resourceGroupName: string;
+    readonly resourceGroupName?: string;
     /**
      * The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
      */
@@ -117,12 +120,13 @@ export interface GetTopicOutputArgs {
      * The name of this Service Bus Topic.
      */
     name: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
     /**
      * The name of the Service Bus Namespace.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Service Bus Topic exists.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

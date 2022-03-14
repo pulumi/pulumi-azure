@@ -32,6 +32,7 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
         "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
+        "topicId": args.topicId,
         "topicName": args.topicName,
     }, opts);
 }
@@ -47,15 +48,16 @@ export interface GetSubscriptionArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: string;
+    namespaceName?: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
+    topicId?: string;
     /**
      * The name of the ServiceBus Topic.
      */
-    topicName: string;
+    topicName?: string;
 }
 
 /**
@@ -103,13 +105,14 @@ export interface GetSubscriptionResult {
      */
     readonly maxDeliveryCount: number;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceName?: string;
     /**
      * Whether or not this ServiceBus Subscription supports session.
      */
     readonly requiresSession: boolean;
-    readonly resourceGroupName: string;
-    readonly topicName: string;
+    readonly resourceGroupName?: string;
+    readonly topicId?: string;
+    readonly topicName?: string;
 }
 
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
@@ -127,13 +130,14 @@ export interface GetSubscriptionOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
+    topicId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Topic.
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string>;
 }

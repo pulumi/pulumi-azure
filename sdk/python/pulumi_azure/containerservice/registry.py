@@ -20,6 +20,7 @@ class RegistryArgs:
                  anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
+                 export_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
@@ -42,6 +43,7 @@ class RegistryArgs:
         :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
+        :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
@@ -66,6 +68,8 @@ class RegistryArgs:
             pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if export_policy_enabled is not None:
+            pulumi.set(__self__, "export_policy_enabled", export_policy_enabled)
         if georeplication_locations is not None:
             warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
             pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
@@ -162,6 +166,18 @@ class RegistryArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['RegistryEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="exportPolicyEnabled")
+    def export_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        """
+        return pulumi.get(self, "export_policy_enabled")
+
+    @export_policy_enabled.setter
+    def export_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "export_policy_enabled", value)
 
     @property
     @pulumi.getter(name="georeplicationLocations")
@@ -350,6 +366,7 @@ class _RegistryState:
                  anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
+                 export_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
@@ -375,6 +392,7 @@ class _RegistryState:
         :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
+        :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
@@ -404,6 +422,8 @@ class _RegistryState:
             pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if export_policy_enabled is not None:
+            pulumi.set(__self__, "export_policy_enabled", export_policy_enabled)
         if georeplication_locations is not None:
             warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
             pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
@@ -516,6 +536,18 @@ class _RegistryState:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['RegistryEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="exportPolicyEnabled")
+    def export_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        """
+        return pulumi.get(self, "export_policy_enabled")
+
+    @export_policy_enabled.setter
+    def export_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "export_policy_enabled", value)
 
     @property
     @pulumi.getter(name="georeplicationLocations")
@@ -728,6 +760,7 @@ class Registry(pulumi.CustomResource):
                  anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
+                 export_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
@@ -845,6 +878,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
+        :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
@@ -980,6 +1014,7 @@ class Registry(pulumi.CustomResource):
                  anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
+                 export_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
@@ -1012,6 +1047,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["export_policy_enabled"] = export_policy_enabled
             if georeplication_locations is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
                 pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
@@ -1055,6 +1091,7 @@ class Registry(pulumi.CustomResource):
             anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
             data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
+            export_policy_enabled: Optional[pulumi.Input[bool]] = None,
             georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
@@ -1085,6 +1122,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
+        :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
@@ -1112,6 +1150,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
         __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
         __props__.__dict__["encryption"] = encryption
+        __props__.__dict__["export_policy_enabled"] = export_policy_enabled
         __props__.__dict__["georeplication_locations"] = georeplication_locations
         __props__.__dict__["georeplications"] = georeplications
         __props__.__dict__["identity"] = identity
@@ -1178,6 +1217,14 @@ class Registry(pulumi.CustomResource):
         An `encryption` block as documented below.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="exportPolicyEnabled")
+    def export_policy_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        """
+        return pulumi.get(self, "export_policy_enabled")
 
     @property
     @pulumi.getter(name="georeplicationLocations")

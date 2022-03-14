@@ -11977,7 +11977,7 @@ type ScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyInstancePercent *int `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 	MaxUnhealthyUpgradedInstancePercent *int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
 	PauseTimeBetweenBatches *string `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -11999,7 +11999,7 @@ type ScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyInstancePercent pulumi.IntPtrInput `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntPtrInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
 	PauseTimeBetweenBatches pulumi.StringPtrInput `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -12095,7 +12095,7 @@ func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent(
 	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
@@ -12154,7 +12154,7 @@ func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePerce
 	}).(pulumi.IntPtrOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetRollingUpgradePolicy) *string {
 		if v == nil {

@@ -52,12 +52,10 @@ import (
 // 			return err
 // 		}
 // 		exampleQueueAuthorizationRule, err := servicebus.NewQueueAuthorizationRule(ctx, "exampleQueueAuthorizationRule", &servicebus.QueueAuthorizationRuleArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			QueueName:         exampleQueue.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(false),
-// 			Send:              pulumi.Bool(true),
-// 			Manage:            pulumi.Bool(false),
+// 			QueueId: exampleQueue.ID(),
+// 			Listen:  pulumi.Bool(false),
+// 			Send:    pulumi.Bool(true),
+// 			Manage:  pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -78,7 +76,7 @@ import (
 // 		}
 // 		_, err = iot.NewEndpointServicebusQueue(ctx, "exampleEndpointServicebusQueue", &iot.EndpointServicebusQueueArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubName:        exampleIoTHub.Name,
+// 			IothubId:          exampleIoTHub.ID(),
 // 			ConnectionString:  exampleQueueAuthorizationRule.PrimaryConnectionString,
 // 		})
 // 		if err != nil {

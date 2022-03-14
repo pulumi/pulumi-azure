@@ -70,10 +70,11 @@ type LookupServiceResult struct {
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
 	// A `notifications` block as defined below.
-	Notifications     []GetServiceNotification `pulumi:"notifications"`
-	ReplicaSets       []GetServiceReplicaSet   `pulumi:"replicaSets"`
-	ResourceGroupName string                   `pulumi:"resourceGroupName"`
-	ResourceId        string                   `pulumi:"resourceId"`
+	Notifications []GetServiceNotification `pulumi:"notifications"`
+	// One or more `replicaSet` blocks as defined below.
+	ReplicaSets       []GetServiceReplicaSet `pulumi:"replicaSets"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	ResourceId        string                 `pulumi:"resourceId"`
 	// A `secureLdap` block as defined below.
 	SecureLdaps []GetServiceSecureLdap `pulumi:"secureLdaps"`
 	// A `security` block as defined below.
@@ -162,6 +163,7 @@ func (o LookupServiceResultOutput) Notifications() GetServiceNotificationArrayOu
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceNotification { return v.Notifications }).(GetServiceNotificationArrayOutput)
 }
 
+// One or more `replicaSet` blocks as defined below.
 func (o LookupServiceResultOutput) ReplicaSets() GetServiceReplicaSetArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceReplicaSet { return v.ReplicaSets }).(GetServiceReplicaSetArrayOutput)
 }

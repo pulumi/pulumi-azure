@@ -96,6 +96,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
+     * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+     */
+    public readonly azureActiveDirectoryRoleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
+    /**
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
     public readonly azurePolicyEnabled!: pulumi.Output<boolean>;
@@ -225,7 +229,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favour of `private_cluster_enabled`
+     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
      */
     public readonly privateLinkEnabled!: pulumi.Output<boolean>;
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -234,9 +238,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+     * @deprecated `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly roleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
+    /**
+     * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    public readonly roleBasedAccessControlEnabled!: pulumi.Output<boolean>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
@@ -272,6 +280,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
+            resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
@@ -309,6 +318,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControl"] = state ? state.roleBasedAccessControl : undefined;
+            resourceInputs["roleBasedAccessControlEnabled"] = state ? state.roleBasedAccessControlEnabled : undefined;
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -326,6 +336,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
+            resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args ? args.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
@@ -355,6 +366,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControl"] = args ? args.roleBasedAccessControl : undefined;
+            resourceInputs["roleBasedAccessControlEnabled"] = args ? args.roleBasedAccessControlEnabled : undefined;
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -399,6 +411,10 @@ export interface KubernetesClusterState {
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
+    /**
+     * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+     */
+    azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
     /**
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
@@ -529,7 +545,7 @@ export interface KubernetesClusterState {
      */
     privateFqdn?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favour of `private_cluster_enabled`
+     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
      */
     privateLinkEnabled?: pulumi.Input<boolean>;
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
@@ -538,9 +554,13 @@ export interface KubernetesClusterState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+     * @deprecated `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
      */
     roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
+    /**
+     * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    roleBasedAccessControlEnabled?: pulumi.Input<boolean>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
@@ -585,6 +605,10 @@ export interface KubernetesClusterArgs {
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
+    /**
+     * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+     */
+    azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
     /**
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
@@ -683,7 +707,7 @@ export interface KubernetesClusterArgs {
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favour of `private_cluster_enabled`
+     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
      */
     privateLinkEnabled?: pulumi.Input<boolean>;
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
@@ -692,9 +716,13 @@ export interface KubernetesClusterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+     * @deprecated `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
      */
     roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
+    /**
+     * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    roleBasedAccessControlEnabled?: pulumi.Input<boolean>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */

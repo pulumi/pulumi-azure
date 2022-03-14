@@ -245,7 +245,6 @@ func (o BackendAddressPoolTunnelInterfaceArrayOutput) Index(i pulumi.IntInput) B
 
 type LoadBalancerFrontendIpConfiguration struct {
 	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-	// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId *string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
@@ -288,7 +287,6 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
 	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-	// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
@@ -370,7 +368,6 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 }
 
 // A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
 func (o LoadBalancerFrontendIpConfigurationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }

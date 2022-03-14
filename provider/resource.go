@@ -1167,6 +1167,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_sql_function":         {Tok: azureResource(azureCosmosDB, "SqlFunction")},
 			"azurerm_cosmosdb_cassandra_cluster":    {Tok: azureResource(azureCosmosDB, "CassandraCluster")},
 			"azurerm_cosmosdb_cassandra_datacenter": {Tok: azureResource(azureCosmosDB, "CassandraDatacenter")},
+			"azurerm_cosmosdb_sql_role_assignment":  {Tok: azureResource(azureCosmosDB, "SqlRoleAssignment")},
+			"azurerm_cosmosdb_sql_role_definition":  {Tok: azureResource(azureCosmosDB, "SqlRoleDefinition")},
 
 			// Cost Management
 			"azurerm_cost_management_export_resource_group": {

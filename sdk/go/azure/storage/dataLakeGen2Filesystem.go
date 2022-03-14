@@ -71,8 +71,12 @@ type DataLakeGen2Filesystem struct {
 
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayOutput `pulumi:"aces"`
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+	Group pulumi.StringOutput `pulumi:"group"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+	Owner pulumi.StringOutput `pulumi:"owner"`
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
@@ -113,8 +117,12 @@ func GetDataLakeGen2Filesystem(ctx *pulumi.Context,
 type dataLakeGen2FilesystemState struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+	Group *string `pulumi:"group"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+	Owner *string `pulumi:"owner"`
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties map[string]string `pulumi:"properties"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
@@ -124,8 +132,12 @@ type dataLakeGen2FilesystemState struct {
 type DataLakeGen2FilesystemState struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayInput
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+	Group pulumi.StringPtrInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+	Owner pulumi.StringPtrInput
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties pulumi.StringMapInput
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
@@ -139,8 +151,12 @@ func (DataLakeGen2FilesystemState) ElementType() reflect.Type {
 type dataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+	Group *string `pulumi:"group"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+	Owner *string `pulumi:"owner"`
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties map[string]string `pulumi:"properties"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
@@ -151,8 +167,12 @@ type dataLakeGen2FilesystemArgs struct {
 type DataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayInput
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+	Group pulumi.StringPtrInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+	Owner pulumi.StringPtrInput
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties pulumi.StringMapInput
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.

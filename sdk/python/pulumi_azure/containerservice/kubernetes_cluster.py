@@ -22,6 +22,7 @@ class KubernetesClusterArgs:
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -49,6 +50,7 @@ class KubernetesClusterArgs:
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']] = None,
+                 role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -62,6 +64,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -85,7 +88,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs'] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -106,6 +109,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
         if automatic_channel_upgrade is not None:
             pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+        if azure_active_directory_role_based_access_control is not None:
+            pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if disk_encryption_set_id is not None:
@@ -155,14 +160,19 @@ class KubernetesClusterArgs:
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if private_link_enabled is not None:
-            warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
-            pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
+            warnings.warn("""`private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""private_link_enabled is deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""")
         if private_link_enabled is not None:
             pulumi.set(__self__, "private_link_enabled", private_link_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if role_based_access_control is not None:
+            warnings.warn("""`role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""role_based_access_control is deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider""")
+        if role_based_access_control is not None:
             pulumi.set(__self__, "role_based_access_control", role_based_access_control)
+        if role_based_access_control_enabled is not None:
+            pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
@@ -255,6 +265,18 @@ class KubernetesClusterArgs:
     @automatic_channel_upgrade.setter
     def automatic_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automatic_channel_upgrade", value)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
+    def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]:
+        """
+        - A `azure_active_directory_role_based_access_control` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_role_based_access_control")
+
+    @azure_active_directory_role_based_access_control.setter
+    def azure_active_directory_role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]):
+        pulumi.set(self, "azure_active_directory_role_based_access_control", value)
 
     @property
     @pulumi.getter(name="azurePolicyEnabled")
@@ -562,14 +584,23 @@ class KubernetesClusterArgs:
     @property
     @pulumi.getter(name="roleBasedAccessControl")
     def role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']]:
-        """
-        A `role_based_access_control` block. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "role_based_access_control")
 
     @role_based_access_control.setter
     def role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']]):
         pulumi.set(self, "role_based_access_control", value)
+
+    @property
+    @pulumi.getter(name="roleBasedAccessControlEnabled")
+    def role_based_access_control_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role_based_access_control_enabled")
+
+    @role_based_access_control_enabled.setter
+    def role_based_access_control_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "role_based_access_control_enabled", value)
 
     @property
     @pulumi.getter(name="servicePrincipal")
@@ -628,6 +659,7 @@ class _KubernetesClusterState:
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -665,6 +697,7 @@ class _KubernetesClusterState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']] = None,
+                 role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -676,6 +709,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -709,7 +743,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs'] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -728,6 +762,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
         if automatic_channel_upgrade is not None:
             pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+        if azure_active_directory_role_based_access_control is not None:
+            pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if default_node_pool is not None:
@@ -795,8 +831,8 @@ class _KubernetesClusterState:
         if private_fqdn is not None:
             pulumi.set(__self__, "private_fqdn", private_fqdn)
         if private_link_enabled is not None:
-            warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
-            pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
+            warnings.warn("""`private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""private_link_enabled is deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""")
         if private_link_enabled is not None:
             pulumi.set(__self__, "private_link_enabled", private_link_enabled)
         if public_network_access_enabled is not None:
@@ -804,7 +840,12 @@ class _KubernetesClusterState:
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if role_based_access_control is not None:
+            warnings.warn("""`role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""role_based_access_control is deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider""")
+        if role_based_access_control is not None:
             pulumi.set(__self__, "role_based_access_control", role_based_access_control)
+        if role_based_access_control_enabled is not None:
+            pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
@@ -873,6 +914,18 @@ class _KubernetesClusterState:
     @automatic_channel_upgrade.setter
     def automatic_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automatic_channel_upgrade", value)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
+    def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]:
+        """
+        - A `azure_active_directory_role_based_access_control` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_role_based_access_control")
+
+    @azure_active_directory_role_based_access_control.setter
+    def azure_active_directory_role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]):
+        pulumi.set(self, "azure_active_directory_role_based_access_control", value)
 
     @property
     @pulumi.getter(name="azurePolicyEnabled")
@@ -1300,14 +1353,23 @@ class _KubernetesClusterState:
     @property
     @pulumi.getter(name="roleBasedAccessControl")
     def role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']]:
-        """
-        A `role_based_access_control` block. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "role_based_access_control")
 
     @role_based_access_control.setter
     def role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']]):
         pulumi.set(self, "role_based_access_control", value)
+
+    @property
+    @pulumi.getter(name="roleBasedAccessControlEnabled")
+    def role_based_access_control_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role_based_access_control_enabled")
+
+    @role_based_access_control_enabled.setter
+    def role_based_access_control_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "role_based_access_control_enabled", value)
 
     @property
     @pulumi.getter(name="servicePrincipal")
@@ -1368,6 +1430,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1397,6 +1460,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
+                 role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1448,6 +1512,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -1473,7 +1538,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1544,6 +1609,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1573,6 +1639,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
+                 role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1597,6 +1664,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
             __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
             __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+            __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
@@ -1625,14 +1693,18 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
             if private_link_enabled is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
-                pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
+                warnings.warn("""`private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""", DeprecationWarning)
+                pulumi.log.warn("""private_link_enabled is deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""")
             __props__.__dict__["private_link_enabled"] = private_link_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if role_based_access_control is not None and not opts.urn:
+                warnings.warn("""`role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""role_based_access_control is deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider""")
             __props__.__dict__["role_based_access_control"] = role_based_access_control
+            __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
@@ -1660,6 +1732,7 @@ class KubernetesCluster(pulumi.CustomResource):
             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
             automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+            azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1697,6 +1770,7 @@ class KubernetesCluster(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
+            role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1713,6 +1787,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to allow for incoming traffic to the server nodes.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -1746,7 +1821,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1761,6 +1836,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
         __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
         __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+        __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
         __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
@@ -1798,6 +1874,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["role_based_access_control"] = role_based_access_control
+        __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
@@ -1843,6 +1920,14 @@ class KubernetesCluster(pulumi.CustomResource):
         The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
         """
         return pulumi.get(self, "automatic_channel_upgrade")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
+    def azure_active_directory_role_based_access_control(self) -> pulumi.Output['outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl']:
+        """
+        - A `azure_active_directory_role_based_access_control` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_role_based_access_control")
 
     @property
     @pulumi.getter(name="azurePolicyEnabled")
@@ -2126,10 +2211,15 @@ class KubernetesCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleBasedAccessControl")
     def role_based_access_control(self) -> pulumi.Output['outputs.KubernetesClusterRoleBasedAccessControl']:
-        """
-        A `role_based_access_control` block. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "role_based_access_control")
+
+    @property
+    @pulumi.getter(name="roleBasedAccessControlEnabled")
+    def role_based_access_control_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role_based_access_control_enabled")
 
     @property
     @pulumi.getter(name="servicePrincipal")

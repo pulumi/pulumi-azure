@@ -54,22 +54,36 @@ type LookupKubernetesClusterArgs struct {
 
 // A collection of values returned by getKubernetesCluster.
 type LookupKubernetesClusterResult struct {
-	// A `addonProfile` block as documented below.
+	// An `aciConnectorLinux` block as documented below.
+	AciConnectorLinuxes []GetKubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinuxes"`
+	// Deprecated: `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider
 	AddonProfiles []GetKubernetesClusterAddonProfile `pulumi:"addonProfiles"`
 	// An `agentPoolProfile` block as documented below.
 	AgentPoolProfiles []GetKubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the primaries.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
+	// An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
+	AzureActiveDirectoryRoleBasedAccessControls []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControls"`
+	// Is Azure Policy enabled on this managed Kubernetes Cluster?
+	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The DNS Prefix of the managed Kubernetes cluster.
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn string `pulumi:"fqdn"`
+	// Is HTTP Application Routing enabled for this managed Kubernetes Cluster?
+	HttpApplicationRoutingEnabled bool `pulumi:"httpApplicationRoutingEnabled"`
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName string `pulumi:"httpApplicationRoutingZoneName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `identity` block as documented below.
 	Identities []GetKubernetesClusterIdentity `pulumi:"identities"`
+	// An `ingressApplicationGateway` block as documented below.
+	IngressApplicationGateways []GetKubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateways"`
+	// A `keyVaultSecretsProvider` block as documented below.
+	KeyVaultSecretsProviders []GetKubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProviders"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
 	KubeAdminConfigRaw string `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
@@ -92,13 +106,20 @@ type LookupKubernetesClusterResult struct {
 	NetworkProfiles []GetKubernetesClusterNetworkProfile `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
+	// An `omsAgent` block as documented below.
+	OmsAgents []GetKubernetesClusterOmsAgent `pulumi:"omsAgents"`
+	// Is Open Service Mesh enabled for this managed Kubernetes Cluster?
+	OpenServiceMeshEnabled bool `pulumi:"openServiceMeshEnabled"`
 	// If the cluster has the Kubernetes API only exposed on internal IP addresses.
 	PrivateClusterEnabled bool `pulumi:"privateClusterEnabled"`
 	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
-	PrivateFqdn        string `pulumi:"privateFqdn"`
+	PrivateFqdn string `pulumi:"privateFqdn"`
+	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
 	PrivateLinkEnabled bool   `pulumi:"privateLinkEnabled"`
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
-	// A `roleBasedAccessControl` block as documented below.
+	// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+	RoleBasedAccessControlEnabled bool `pulumi:"roleBasedAccessControlEnabled"`
+	// Deprecated: `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.
 	RoleBasedAccessControls []GetKubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControls"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
@@ -144,7 +165,14 @@ func (o LookupKubernetesClusterResultOutput) ToLookupKubernetesClusterResultOutp
 	return o
 }
 
-// A `addonProfile` block as documented below.
+// An `aciConnectorLinux` block as documented below.
+func (o LookupKubernetesClusterResultOutput) AciConnectorLinuxes() GetKubernetesClusterAciConnectorLinuxArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAciConnectorLinux {
+		return v.AciConnectorLinuxes
+	}).(GetKubernetesClusterAciConnectorLinuxArrayOutput)
+}
+
+// Deprecated: `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider
 func (o LookupKubernetesClusterResultOutput) AddonProfiles() GetKubernetesClusterAddonProfileArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAddonProfile { return v.AddonProfiles }).(GetKubernetesClusterAddonProfileArrayOutput)
 }
@@ -159,6 +187,18 @@ func (o LookupKubernetesClusterResultOutput) AgentPoolProfiles() GetKubernetesCl
 // The IP ranges to whitelist for incoming traffic to the primaries.
 func (o LookupKubernetesClusterResultOutput) ApiServerAuthorizedIpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []string { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
+}
+
+// An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
+func (o LookupKubernetesClusterResultOutput) AzureActiveDirectoryRoleBasedAccessControls() GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
+		return v.AzureActiveDirectoryRoleBasedAccessControls
+	}).(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput)
+}
+
+// Is Azure Policy enabled on this managed Kubernetes Cluster?
+func (o LookupKubernetesClusterResultOutput) AzurePolicyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.AzurePolicyEnabled }).(pulumi.BoolOutput)
 }
 
 // The ID of the Disk Encryption Set used for the Nodes and Volumes.
@@ -176,6 +216,16 @@ func (o LookupKubernetesClusterResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
+// Is HTTP Application Routing enabled for this managed Kubernetes Cluster?
+func (o LookupKubernetesClusterResultOutput) HttpApplicationRoutingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.HttpApplicationRoutingEnabled }).(pulumi.BoolOutput)
+}
+
+// The Zone Name of the HTTP Application Routing.
+func (o LookupKubernetesClusterResultOutput) HttpApplicationRoutingZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupKubernetesClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Id }).(pulumi.StringOutput)
@@ -184,6 +234,20 @@ func (o LookupKubernetesClusterResultOutput) Id() pulumi.StringOutput {
 // A `identity` block as documented below.
 func (o LookupKubernetesClusterResultOutput) Identities() GetKubernetesClusterIdentityArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIdentity { return v.Identities }).(GetKubernetesClusterIdentityArrayOutput)
+}
+
+// An `ingressApplicationGateway` block as documented below.
+func (o LookupKubernetesClusterResultOutput) IngressApplicationGateways() GetKubernetesClusterIngressApplicationGatewayArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIngressApplicationGateway {
+		return v.IngressApplicationGateways
+	}).(GetKubernetesClusterIngressApplicationGatewayArrayOutput)
+}
+
+// A `keyVaultSecretsProvider` block as documented below.
+func (o LookupKubernetesClusterResultOutput) KeyVaultSecretsProviders() GetKubernetesClusterKeyVaultSecretsProviderArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterKeyVaultSecretsProvider {
+		return v.KeyVaultSecretsProviders
+	}).(GetKubernetesClusterKeyVaultSecretsProviderArrayOutput)
 }
 
 // Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
@@ -243,6 +307,16 @@ func (o LookupKubernetesClusterResultOutput) NodeResourceGroup() pulumi.StringOu
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.NodeResourceGroup }).(pulumi.StringOutput)
 }
 
+// An `omsAgent` block as documented below.
+func (o LookupKubernetesClusterResultOutput) OmsAgents() GetKubernetesClusterOmsAgentArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterOmsAgent { return v.OmsAgents }).(GetKubernetesClusterOmsAgentArrayOutput)
+}
+
+// Is Open Service Mesh enabled for this managed Kubernetes Cluster?
+func (o LookupKubernetesClusterResultOutput) OpenServiceMeshEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.OpenServiceMeshEnabled }).(pulumi.BoolOutput)
+}
+
 // If the cluster has the Kubernetes API only exposed on internal IP addresses.
 func (o LookupKubernetesClusterResultOutput) PrivateClusterEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.PrivateClusterEnabled }).(pulumi.BoolOutput)
@@ -253,6 +327,7 @@ func (o LookupKubernetesClusterResultOutput) PrivateFqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.PrivateFqdn }).(pulumi.StringOutput)
 }
 
+// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
 func (o LookupKubernetesClusterResultOutput) PrivateLinkEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.PrivateLinkEnabled }).(pulumi.BoolOutput)
 }
@@ -261,7 +336,12 @@ func (o LookupKubernetesClusterResultOutput) ResourceGroupName() pulumi.StringOu
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `roleBasedAccessControl` block as documented below.
+// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControlEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.RoleBasedAccessControlEnabled }).(pulumi.BoolOutput)
+}
+
+// Deprecated: `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.
 func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControls() GetKubernetesClusterRoleBasedAccessControlArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterRoleBasedAccessControl {
 		return v.RoleBasedAccessControls

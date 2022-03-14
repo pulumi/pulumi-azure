@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Iot
     ///         var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer("exampleEndpointStorageContainer", new Azure.Iot.EndpointStorageContainerArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
+    ///             IothubId = exampleIoTHub.Id,
     ///             ConnectionString = exampleAccount.PrimaryBlobConnectionString,
     ///             BatchFrequencyInSeconds = 60,
     ///             MaxChunkSizeInBytes = 10485760,

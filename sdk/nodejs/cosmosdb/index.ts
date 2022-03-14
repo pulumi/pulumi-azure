@@ -21,6 +21,8 @@ export * from "./notebookWorkspace";
 export * from "./sqlContainer";
 export * from "./sqlDatabase";
 export * from "./sqlFunction";
+export * from "./sqlRoleAssignment";
+export * from "./sqlRoleDefinition";
 export * from "./sqlStoredProcedure";
 export * from "./sqlTrigger";
 export * from "./table";
@@ -40,6 +42,8 @@ import { NotebookWorkspace } from "./notebookWorkspace";
 import { SqlContainer } from "./sqlContainer";
 import { SqlDatabase } from "./sqlDatabase";
 import { SqlFunction } from "./sqlFunction";
+import { SqlRoleAssignment } from "./sqlRoleAssignment";
+import { SqlRoleDefinition } from "./sqlRoleDefinition";
 import { SqlStoredProcedure } from "./sqlStoredProcedure";
 import { SqlTrigger } from "./sqlTrigger";
 import { Table } from "./table";
@@ -74,6 +78,10 @@ const _module = {
                 return new SqlDatabase(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlFunction:SqlFunction":
                 return new SqlFunction(name, <any>undefined, { urn })
+            case "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment":
+                return new SqlRoleAssignment(name, <any>undefined, { urn })
+            case "azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition":
+                return new SqlRoleDefinition(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure":
                 return new SqlStoredProcedure(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlTrigger:SqlTrigger":
@@ -98,6 +106,8 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/notebookWorkspace", _mo
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlFunction", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlRoleAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlRoleDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlStoredProcedure", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlTrigger", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/table", _module)

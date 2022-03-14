@@ -68,16 +68,16 @@ namespace Pulumi.Azure.MSSql
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// The administrator login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         /// </summary>
         [Output("administratorLoginPassword")]
-        public Output<string> AdministratorLoginPassword { get; private set; } = null!;
+        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
         /// An `azuread_administrator` block as defined below.
@@ -216,16 +216,16 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("administratorLogin", required: true)]
-        public Input<string> AdministratorLogin { get; set; } = null!;
+        [Input("administratorLogin")]
+        public Input<string>? AdministratorLogin { get; set; }
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         /// </summary>
-        [Input("administratorLoginPassword", required: true)]
-        public Input<string> AdministratorLoginPassword { get; set; } = null!;
+        [Input("administratorLoginPassword")]
+        public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
         /// An `azuread_administrator` block as defined below.
@@ -319,13 +319,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         /// </summary>
         [Input("administratorLoginPassword")]
         public Input<string>? AdministratorLoginPassword { get; set; }

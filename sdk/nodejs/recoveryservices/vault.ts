@@ -60,6 +60,10 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /**
+     * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+     */
+    public readonly crossRegionRestoreEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `encryption` block as defined below. Required with `identity`.
      */
     public readonly encryption!: pulumi.Output<outputs.recoveryservices.VaultEncryption | undefined>;
@@ -109,6 +113,7 @@ export class Vault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultState | undefined;
+            resourceInputs["crossRegionRestoreEnabled"] = state ? state.crossRegionRestoreEnabled : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -126,6 +131,7 @@ export class Vault extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["crossRegionRestoreEnabled"] = args ? args.crossRegionRestoreEnabled : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -145,6 +151,10 @@ export class Vault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vault resources.
  */
 export interface VaultState {
+    /**
+     * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+     */
+    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
      */
@@ -187,6 +197,10 @@ export interface VaultState {
  * The set of arguments for constructing a Vault resource.
  */
 export interface VaultArgs {
+    /**
+     * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+     */
+    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
      */

@@ -327,8 +327,6 @@ class FailoverGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a failover group of databases on a collection of Azure SQL servers.
-
         ## Example Usage
 
         ```python
@@ -391,8 +389,6 @@ class FailoverGroup(pulumi.CustomResource):
                  args: FailoverGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a failover group of databases on a collection of Azure SQL servers.
-
         ## Example Usage
 
         ```python

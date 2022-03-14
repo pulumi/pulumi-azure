@@ -13,13 +13,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterRoleBasedAccessControlResult
     {
-        /// <summary>
-        /// A `azure_active_directory` block as documented above.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult> AzureActiveDirectories;
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

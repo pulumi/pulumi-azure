@@ -71,6 +71,8 @@ type Account struct {
 
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
+	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	Encryption AccountEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -129,6 +131,8 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
+	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -156,6 +160,8 @@ type accountState struct {
 type AccountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringPtrInput
+	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -185,6 +191,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -207,6 +215,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.

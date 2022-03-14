@@ -13,16 +13,52 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class BlobInventoryPolicyRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `filter` block as defined above.
+        /// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         /// </summary>
-        [Input("filter", required: true)]
-        public Input<Inputs.BlobInventoryPolicyRuleFilterArgs> Filter { get; set; } = null!;
+        [Input("filter")]
+        public Input<Inputs.BlobInventoryPolicyRuleFilterArgs>? Filter { get; set; }
+
+        /// <summary>
+        /// The format of the inventory files. Possible values are `Csv` and `Parquet`.
+        /// </summary>
+        [Input("format", required: true)]
+        public Input<string> Format { get; set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Blob Inventory Policy Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+        /// </summary>
+        [Input("schedule", required: true)]
+        public Input<string> Schedule { get; set; } = null!;
+
+        [Input("schemaFields", required: true)]
+        private InputList<string>? _schemaFields;
+
+        /// <summary>
+        /// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        /// </summary>
+        public InputList<string> SchemaFields
+        {
+            get => _schemaFields ?? (_schemaFields = new InputList<string>());
+            set => _schemaFields = value;
+        }
+
+        /// <summary>
+        /// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// The storage container name to store the blob inventory files for this rule.
+        /// </summary>
+        [Input("storageContainerName", required: true)]
+        public Input<string> StorageContainerName { get; set; } = null!;
 
         public BlobInventoryPolicyRuleArgs()
         {

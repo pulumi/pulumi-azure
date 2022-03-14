@@ -1455,26 +1455,42 @@ class AccountStaticWebsiteArgs:
 @pulumi.input_type
 class BlobInventoryPolicyRuleArgs:
     def __init__(__self__, *,
-                 filter: pulumi.Input['BlobInventoryPolicyRuleFilterArgs'],
-                 name: pulumi.Input[str]):
+                 format: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input[str],
+                 schema_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 scope: pulumi.Input[str],
+                 storage_container_name: pulumi.Input[str],
+                 filter: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']] = None):
         """
-        :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above.
+        :param pulumi.Input[str] format: The format of the inventory files. Possible values are `Csv` and `Parquet`.
         :param pulumi.Input[str] name: The name which should be used for this Blob Inventory Policy Rule.
+        :param pulumi.Input[str] schedule: The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        :param pulumi.Input[str] scope: The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
+        :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         """
-        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "schema_fields", schema_fields)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "storage_container_name", storage_container_name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
-    def filter(self) -> pulumi.Input['BlobInventoryPolicyRuleFilterArgs']:
+    def format(self) -> pulumi.Input[str]:
         """
-        A `filter` block as defined above.
+        The format of the inventory files. Possible values are `Csv` and `Parquet`.
         """
-        return pulumi.get(self, "filter")
+        return pulumi.get(self, "format")
 
-    @filter.setter
-    def filter(self, value: pulumi.Input['BlobInventoryPolicyRuleFilterArgs']):
-        pulumi.set(self, "filter", value)
+    @format.setter
+    def format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "format", value)
 
     @property
     @pulumi.getter
@@ -1487,6 +1503,66 @@ class BlobInventoryPolicyRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[str]:
+        """
+        The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="schemaFields")
+    def schema_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        """
+        return pulumi.get(self, "schema_fields")
+
+    @schema_fields.setter
+    def schema_fields(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "schema_fields", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> pulumi.Input[str]:
+        """
+        The storage container name to store the blob inventory files for this rule.
+        """
+        return pulumi.get(self, "storage_container_name")
+
+    @storage_container_name.setter
+    def storage_container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_container_name", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]:
+        """
+        A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]):
+        pulumi.set(self, "filter", value)
 
 
 @pulumi.input_type

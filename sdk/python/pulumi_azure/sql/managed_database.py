@@ -131,8 +131,6 @@ class ManagedDatabase(pulumi.CustomResource):
                  sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a SQL Azure Managed Database
-
         ## Example Usage
 
         ```python
@@ -165,8 +163,6 @@ class ManagedDatabase(pulumi.CustomResource):
                  args: ManagedDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a SQL Azure Managed Database
-
         ## Example Usage
 
         ```python

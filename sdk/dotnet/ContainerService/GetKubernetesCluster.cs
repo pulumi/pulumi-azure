@@ -116,8 +116,9 @@ namespace Pulumi.Azure.ContainerService
     public sealed class GetKubernetesClusterResult
     {
         /// <summary>
-        /// A `addon_profile` block as documented below.
+        /// An `aci_connector_linux` block as documented below.
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAciConnectorLinuxResult> AciConnectorLinuxes;
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileResult> AddonProfiles;
         /// <summary>
         /// An `agent_pool_profile` block as documented below.
@@ -127,6 +128,14 @@ namespace Pulumi.Azure.ContainerService
         /// The IP ranges to whitelist for incoming traffic to the primaries.
         /// </summary>
         public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
+        /// <summary>
+        /// An `azure_active_directory_role_based_access_control` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult> AzureActiveDirectoryRoleBasedAccessControls;
+        /// <summary>
+        /// Is Azure Policy enabled on this managed Kubernetes Cluster?
+        /// </summary>
+        public readonly bool AzurePolicyEnabled;
         /// <summary>
         /// The ID of the Disk Encryption Set used for the Nodes and Volumes.
         /// </summary>
@@ -140,6 +149,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// Is HTTP Application Routing enabled for this managed Kubernetes Cluster?
+        /// </summary>
+        public readonly bool HttpApplicationRoutingEnabled;
+        /// <summary>
+        /// The Zone Name of the HTTP Application Routing.
+        /// </summary>
+        public readonly string HttpApplicationRoutingZoneName;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -147,6 +164,14 @@ namespace Pulumi.Azure.ContainerService
         /// A `identity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterIdentityResult> Identities;
+        /// <summary>
+        /// An `ingress_application_gateway` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterIngressApplicationGatewayResult> IngressApplicationGateways;
+        /// <summary>
+        /// A `key_vault_secrets_provider` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterKeyVaultSecretsProviderResult> KeyVaultSecretsProviders;
         /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
         /// </summary>
@@ -192,6 +217,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string NodeResourceGroup;
         /// <summary>
+        /// An `oms_agent` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterOmsAgentResult> OmsAgents;
+        /// <summary>
+        /// Is Open Service Mesh enabled for this managed Kubernetes Cluster?
+        /// </summary>
+        public readonly bool OpenServiceMeshEnabled;
+        /// <summary>
         /// If the cluster has the Kubernetes API only exposed on internal IP addresses.
         /// </summary>
         public readonly bool PrivateClusterEnabled;
@@ -202,8 +235,9 @@ namespace Pulumi.Azure.ContainerService
         public readonly bool PrivateLinkEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `role_based_access_control` block as documented below.
+        /// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
         /// </summary>
+        public readonly bool RoleBasedAccessControlEnabled;
         public readonly ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlResult> RoleBasedAccessControls;
         /// <summary>
         /// A `service_principal` block as documented below.
@@ -220,11 +254,17 @@ namespace Pulumi.Azure.ContainerService
 
         [OutputConstructor]
         private GetKubernetesClusterResult(
+            ImmutableArray<Outputs.GetKubernetesClusterAciConnectorLinuxResult> aciConnectorLinuxes,
+
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileResult> addonProfiles,
 
             ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileResult> agentPoolProfiles,
 
             ImmutableArray<string> apiServerAuthorizedIpRanges,
+
+            ImmutableArray<Outputs.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult> azureActiveDirectoryRoleBasedAccessControls,
+
+            bool azurePolicyEnabled,
 
             string diskEncryptionSetId,
 
@@ -232,9 +272,17 @@ namespace Pulumi.Azure.ContainerService
 
             string fqdn,
 
+            bool httpApplicationRoutingEnabled,
+
+            string httpApplicationRoutingZoneName,
+
             string id,
 
             ImmutableArray<Outputs.GetKubernetesClusterIdentityResult> identities,
+
+            ImmutableArray<Outputs.GetKubernetesClusterIngressApplicationGatewayResult> ingressApplicationGateways,
+
+            ImmutableArray<Outputs.GetKubernetesClusterKeyVaultSecretsProviderResult> keyVaultSecretsProviders,
 
             string kubeAdminConfigRaw,
 
@@ -258,6 +306,10 @@ namespace Pulumi.Azure.ContainerService
 
             string nodeResourceGroup,
 
+            ImmutableArray<Outputs.GetKubernetesClusterOmsAgentResult> omsAgents,
+
+            bool openServiceMeshEnabled,
+
             bool privateClusterEnabled,
 
             string privateFqdn,
@@ -265,6 +317,8 @@ namespace Pulumi.Azure.ContainerService
             bool privateLinkEnabled,
 
             string resourceGroupName,
+
+            bool roleBasedAccessControlEnabled,
 
             ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlResult> roleBasedAccessControls,
 
@@ -274,14 +328,21 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<Outputs.GetKubernetesClusterWindowsProfileResult> windowsProfiles)
         {
+            AciConnectorLinuxes = aciConnectorLinuxes;
             AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
+            AzureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
+            AzurePolicyEnabled = azurePolicyEnabled;
             DiskEncryptionSetId = diskEncryptionSetId;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;
+            HttpApplicationRoutingEnabled = httpApplicationRoutingEnabled;
+            HttpApplicationRoutingZoneName = httpApplicationRoutingZoneName;
             Id = id;
             Identities = identities;
+            IngressApplicationGateways = ingressApplicationGateways;
+            KeyVaultSecretsProviders = keyVaultSecretsProviders;
             KubeAdminConfigRaw = kubeAdminConfigRaw;
             KubeAdminConfigs = kubeAdminConfigs;
             KubeConfigRaw = kubeConfigRaw;
@@ -293,10 +354,13 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NetworkProfiles = networkProfiles;
             NodeResourceGroup = nodeResourceGroup;
+            OmsAgents = omsAgents;
+            OpenServiceMeshEnabled = openServiceMeshEnabled;
             PrivateClusterEnabled = privateClusterEnabled;
             PrivateFqdn = privateFqdn;
             PrivateLinkEnabled = privateLinkEnabled;
             ResourceGroupName = resourceGroupName;
+            RoleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
             RoleBasedAccessControls = roleBasedAccessControls;
             ServicePrincipals = servicePrincipals;
             Tags = tags;

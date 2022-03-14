@@ -199,6 +199,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.RegistryEncryption> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        /// </summary>
+        [Output("exportPolicyEnabled")]
+        public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Azure locations where the container registry should be geo-replicated.
         /// </summary>
         [Output("georeplicationLocations")]
@@ -367,6 +373,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("encryption")]
         public Input<Inputs.RegistryEncryptionArgs>? Encryption { get; set; }
 
+        /// <summary>
+        /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        /// </summary>
+        [Input("exportPolicyEnabled")]
+        public Input<bool>? ExportPolicyEnabled { get; set; }
+
         [Input("georeplicationLocations")]
         private InputList<string>? _georeplicationLocations;
 
@@ -521,6 +533,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.RegistryEncryptionGetArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+        /// </summary>
+        [Input("exportPolicyEnabled")]
+        public Input<bool>? ExportPolicyEnabled { get; set; }
 
         [Input("georeplicationLocations")]
         private InputList<string>? _georeplicationLocations;

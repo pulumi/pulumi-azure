@@ -12,8 +12,6 @@ namespace Pulumi.Azure.Sql
     public static class GetSqlManagedInstance
     {
         /// <summary>
-        /// Use this data source to access information about an existing SQL Managed Instance.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -90,8 +88,6 @@ namespace Pulumi.Azure.Sql
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing SQL Managed Instance.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

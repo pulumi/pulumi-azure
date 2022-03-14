@@ -262,7 +262,7 @@ class FallbackRoute(pulumi.CustomResource):
             })
         example_endpoint_storage_container = azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_account.primary_blob_connection_string,
             batch_frequency_in_seconds=60,
             max_chunk_size_in_bytes=10485760,
@@ -336,7 +336,7 @@ class FallbackRoute(pulumi.CustomResource):
             })
         example_endpoint_storage_container = azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_account.primary_blob_connection_string,
             batch_frequency_in_seconds=60,
             max_chunk_size_in_bytes=10485760,

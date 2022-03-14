@@ -718,7 +718,7 @@ class ServerAzureadAdministratorArgs:
         """
         :param pulumi.Input[str] login_username: The login username of the Azure AD Administrator of this SQL Server.
         :param pulumi.Input[str] object_id: The object id of the Azure AD Administrator of this SQL Server.
-        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
         pulumi.set(__self__, "login_username", login_username)
@@ -756,7 +756,7 @@ class ServerAzureadAdministratorArgs:
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         """
         return pulumi.get(self, "azuread_authentication_only")
 

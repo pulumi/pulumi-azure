@@ -94,20 +94,26 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
+
+        [Input("queueName")]
+        public string? QueueName { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the ServiceBus Namespace exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
+
+        [Input("topicId")]
+        public string? TopicId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic.
         /// </summary>
-        [Input("topicName", required: true)]
-        public string TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public string? TopicName { get; set; }
 
         public GetTopicAuthorizationRuleArgs()
         {
@@ -125,20 +131,26 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
+
+        [Input("queueName")]
+        public Input<string>? QueueName { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the ServiceBus Namespace exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("topicId")]
+        public Input<string>? TopicId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic.
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public GetTopicAuthorizationRuleInvokeArgs()
         {
@@ -156,7 +168,7 @@ namespace Pulumi.Azure.ServiceBus
         public readonly bool Listen;
         public readonly bool Manage;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceName;
         /// <summary>
         /// The Primary Connection String for the ServiceBus Topic authorization Rule.
         /// </summary>
@@ -169,7 +181,8 @@ namespace Pulumi.Azure.ServiceBus
         /// The Primary Key for the ServiceBus Topic authorization Rule.
         /// </summary>
         public readonly string PrimaryKey;
-        public readonly string ResourceGroupName;
+        public readonly string? QueueName;
+        public readonly string? ResourceGroupName;
         /// <summary>
         /// The Secondary Connection String for the ServiceBus Topic authorization Rule.
         /// </summary>
@@ -183,7 +196,8 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string SecondaryKey;
         public readonly bool Send;
-        public readonly string TopicName;
+        public readonly string? TopicId;
+        public readonly string? TopicName;
 
         [OutputConstructor]
         private GetTopicAuthorizationRuleResult(
@@ -195,7 +209,7 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceName,
 
             string primaryConnectionString,
 
@@ -203,7 +217,9 @@ namespace Pulumi.Azure.ServiceBus
 
             string primaryKey,
 
-            string resourceGroupName,
+            string? queueName,
+
+            string? resourceGroupName,
 
             string secondaryConnectionString,
 
@@ -213,7 +229,9 @@ namespace Pulumi.Azure.ServiceBus
 
             bool send,
 
-            string topicName)
+            string? topicId,
+
+            string? topicName)
         {
             Id = id;
             Listen = listen;
@@ -223,11 +241,13 @@ namespace Pulumi.Azure.ServiceBus
             PrimaryConnectionString = primaryConnectionString;
             PrimaryConnectionStringAlias = primaryConnectionStringAlias;
             PrimaryKey = primaryKey;
+            QueueName = queueName;
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryConnectionStringAlias = secondaryConnectionStringAlias;
             SecondaryKey = secondaryKey;
             Send = send;
+            TopicId = topicId;
             TopicName = topicName;
         }
     }

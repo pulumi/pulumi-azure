@@ -20,7 +20,7 @@ class GetAuthorizationRuleResult:
     """
     A collection of values returned by getAuthorizationRule.
     """
-    def __init__(__self__, eventhub_name=None, id=None, listen=None, location=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None):
+    def __init__(__self__, eventhub_name=None, id=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None):
         if eventhub_name and not isinstance(eventhub_name, str):
             raise TypeError("Expected argument 'eventhub_name' to be a str")
         pulumi.set(__self__, "eventhub_name", eventhub_name)
@@ -30,9 +30,6 @@ class GetAuthorizationRuleResult:
         if listen and not isinstance(listen, bool):
             raise TypeError("Expected argument 'listen' to be a bool")
         pulumi.set(__self__, "listen", listen)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if manage and not isinstance(manage, bool):
             raise TypeError("Expected argument 'manage' to be a bool")
         pulumi.set(__self__, "manage", manage)
@@ -84,11 +81,6 @@ class GetAuthorizationRuleResult:
     @pulumi.getter
     def listen(self) -> Optional[bool]:
         return pulumi.get(self, "listen")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -173,7 +165,6 @@ class AwaitableGetAuthorizationRuleResult(GetAuthorizationRuleResult):
             eventhub_name=self.eventhub_name,
             id=self.id,
             listen=self.listen,
-            location=self.location,
             manage=self.manage,
             name=self.name,
             namespace_name=self.namespace_name,
@@ -196,6 +187,18 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
                            send: Optional[bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationRuleResult:
     """
+    ## 
+
+    ***
+    subcategory: "Messaging"
+    layout: "azurerm"
+    page_title: "Azure Resource Manager: eventhub.AuthorizationRule"
+    description: |-
+      Gets information about an Event Hubs Authorization Rule within an Event Hub.
+    ---
+
+    # eventhub.AuthorizationRule
+
     Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 
     ## Example Usage
@@ -234,7 +237,6 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
         eventhub_name=__ret__.eventhub_name,
         id=__ret__.id,
         listen=__ret__.listen,
-        location=__ret__.location,
         manage=__ret__.manage,
         name=__ret__.name,
         namespace_name=__ret__.namespace_name,
@@ -258,6 +260,18 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
                                   send: Optional[pulumi.Input[Optional[bool]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationRuleResult]:
     """
+    ## 
+
+    ***
+    subcategory: "Messaging"
+    layout: "azurerm"
+    page_title: "Azure Resource Manager: eventhub.AuthorizationRule"
+    description: |-
+      Gets information about an Event Hubs Authorization Rule within an Event Hub.
+    ---
+
+    # eventhub.AuthorizationRule
+
     Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 
     ## Example Usage

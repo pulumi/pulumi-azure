@@ -12,6 +12,18 @@ namespace Pulumi.Azure.EventHub
     public static class GetAuthorizationRule
     {
         /// <summary>
+        /// ## 
+        /// 
+        /// ---
+        /// subcategory: "Messaging"
+        /// layout: "azurerm"
+        /// page_title: "Azure Resource Manager: azure.eventhub.AuthorizationRule"
+        /// description: |-
+        ///   Gets information about an Event Hubs Authorization Rule within an Event Hub.
+        /// ---
+        /// 
+        /// # azure.eventhub.AuthorizationRule
+        /// 
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
         /// {{% examples %}}
@@ -44,6 +56,18 @@ namespace Pulumi.Azure.EventHub
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
+        /// ## 
+        /// 
+        /// ---
+        /// subcategory: "Messaging"
+        /// layout: "azurerm"
+        /// page_title: "Azure Resource Manager: azure.eventhub.AuthorizationRule"
+        /// description: |-
+        ///   Gets information about an Event Hubs Authorization Rule within an Event Hub.
+        /// ---
+        /// 
+        /// # azure.eventhub.AuthorizationRule
+        /// 
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
         /// {{% examples %}}
@@ -167,7 +191,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string Id;
         public readonly bool? Listen;
-        public readonly string Location;
         public readonly bool? Manage;
         public readonly string Name;
         public readonly string NamespaceName;
@@ -206,8 +229,6 @@ namespace Pulumi.Azure.EventHub
 
             bool? listen,
 
-            string location,
-
             bool? manage,
 
             string name,
@@ -233,7 +254,6 @@ namespace Pulumi.Azure.EventHub
             EventhubName = eventhubName;
             Id = id;
             Listen = listen;
-            Location = location;
             Manage = manage;
             Name = name;
             NamespaceName = namespaceName;

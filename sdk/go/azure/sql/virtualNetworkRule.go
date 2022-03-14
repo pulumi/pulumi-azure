@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
-//
 // ## Example Usage
 //
 // ```go

@@ -10,6 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ##
+//
+// ***
+// subcategory: "Messaging"
+// layout: "azurerm"
+// page_title: "Azure Resource Manager: eventhub.AuthorizationRule"
+// description: |-
+//   Gets information about an Event Hubs Authorization Rule within an Event Hub.
+// ---
+//
+// # eventhub.AuthorizationRule
+//
 // Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 //
 // ## Example Usage
@@ -67,7 +79,6 @@ type LookupAuthorizationRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	Listen        *bool  `pulumi:"listen"`
-	Location      string `pulumi:"location"`
 	Manage        *bool  `pulumi:"manage"`
 	Name          string `pulumi:"name"`
 	NamespaceName string `pulumi:"namespaceName"`
@@ -141,10 +152,6 @@ func (o LookupAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupAuthorizationRuleResultOutput) Listen() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizationRuleResult) *bool { return v.Listen }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupAuthorizationRuleResultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAuthorizationRuleResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o LookupAuthorizationRuleResultOutput) Manage() pulumi.BoolPtrOutput {

@@ -86,7 +86,7 @@ namespace Pulumi.Azure.SignalR
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if Connectivity Logs are enabled or not.
+        /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Output("connectivityLogsEnabled")]
         public Output<bool> ConnectivityLogsEnabled { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Live Trace is enabled or not.
+        /// Specifies if Live Trace is enabled or not. Defaults to `false`.
         /// </summary>
         [Output("liveTraceEnabled")]
         public Output<bool> LiveTraceEnabled { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Messaging Logs are enabled or not.
+        /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Output("messagingLogsEnabled")]
         public Output<bool> MessagingLogsEnabled { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.SignalR
         public Output<int> ServerPort { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         /// </summary>
         [Output("serviceMode")]
         public Output<string> ServiceMode { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if Connectivity Logs are enabled or not.
+        /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Input("connectivityLogsEnabled")]
         public Input<bool>? ConnectivityLogsEnabled { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// Specifies if Live Trace is enabled or not.
+        /// Specifies if Live Trace is enabled or not. Defaults to `false`.
         /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies if Messaging Logs are enabled or not.
+        /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Input("messagingLogsEnabled")]
         public Input<bool>? MessagingLogsEnabled { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         /// </summary>
         [Input("serviceMode")]
         public Input<string>? ServiceMode { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if Connectivity Logs are enabled or not.
+        /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Input("connectivityLogsEnabled")]
         public Input<bool>? ConnectivityLogsEnabled { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// Specifies if Live Trace is enabled or not.
+        /// Specifies if Live Trace is enabled or not. Defaults to `false`.
         /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies if Messaging Logs are enabled or not.
+        /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Input("messagingLogsEnabled")]
         public Input<bool>? MessagingLogsEnabled { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Azure.SignalR
         public Input<int>? ServerPort { get; set; }
 
         /// <summary>
-        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         /// </summary>
         [Input("serviceMode")]
         public Input<string>? ServiceMode { get; set; }

@@ -85,7 +85,7 @@ type NatRule struct {
 	pulumi.CustomResourceState
 
 	BackendIpConfigurationId pulumi.StringOutput `pulumi:"backendIpConfigurationId"`
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
@@ -94,7 +94,7 @@ type NatRule struct {
 	FrontendIpConfigurationId pulumi.StringOutput  `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort pulumi.IntOutput `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
@@ -156,7 +156,7 @@ func GetNatRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NatRule resources.
 type natRuleState struct {
 	BackendIpConfigurationId *string `pulumi:"backendIpConfigurationId"`
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort *int `pulumi:"backendPort"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
@@ -165,7 +165,7 @@ type natRuleState struct {
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort *int `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
@@ -181,7 +181,7 @@ type natRuleState struct {
 
 type NatRuleState struct {
 	BackendIpConfigurationId pulumi.StringPtrInput
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntPtrInput
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
@@ -190,7 +190,7 @@ type NatRuleState struct {
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringPtrInput
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort pulumi.IntPtrInput
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
@@ -209,7 +209,7 @@ func (NatRuleState) ElementType() reflect.Type {
 }
 
 type natRuleArgs struct {
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
@@ -217,7 +217,7 @@ type natRuleArgs struct {
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort int `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
@@ -233,7 +233,7 @@ type natRuleArgs struct {
 
 // The set of arguments for constructing a NatRule resource.
 type NatRuleArgs struct {
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntInput
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
@@ -241,7 +241,7 @@ type NatRuleArgs struct {
 	EnableTcpReset pulumi.BoolPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringInput
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort pulumi.IntInput
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput

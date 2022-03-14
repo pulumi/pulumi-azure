@@ -277,6 +277,12 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `network_rule_set` block as defined below.
+        /// </summary>
+        [Output("networkRuleSets")]
+        public Output<ImmutableArray<Outputs.IoTHubNetworkRuleSet>> NetworkRuleSets { get; private set; } = null!;
+
+        /// <summary>
         /// Is the IotHub resource accessible from a public network?
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
@@ -430,6 +436,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// One or more `ip_filter_rule` blocks as defined below.
         /// </summary>
+        [Obsolete(@"This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.")]
         public InputList<Inputs.IoTHubIpFilterRuleArgs> IpFilterRules
         {
             get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IoTHubIpFilterRuleArgs>());
@@ -453,6 +460,18 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networkRuleSets")]
+        private InputList<Inputs.IoTHubNetworkRuleSetArgs>? _networkRuleSets;
+
+        /// <summary>
+        /// A `network_rule_set` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IoTHubNetworkRuleSetArgs> NetworkRuleSets
+        {
+            get => _networkRuleSets ?? (_networkRuleSets = new InputList<Inputs.IoTHubNetworkRuleSetArgs>());
+            set => _networkRuleSets = value;
+        }
 
         /// <summary>
         /// Is the IotHub resource accessible from a public network?
@@ -605,6 +624,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// One or more `ip_filter_rule` blocks as defined below.
         /// </summary>
+        [Obsolete(@"This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.")]
         public InputList<Inputs.IoTHubIpFilterRuleGetArgs> IpFilterRules
         {
             get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IoTHubIpFilterRuleGetArgs>());
@@ -628,6 +648,18 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networkRuleSets")]
+        private InputList<Inputs.IoTHubNetworkRuleSetGetArgs>? _networkRuleSets;
+
+        /// <summary>
+        /// A `network_rule_set` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IoTHubNetworkRuleSetGetArgs> NetworkRuleSets
+        {
+            get => _networkRuleSets ?? (_networkRuleSets = new InputList<Inputs.IoTHubNetworkRuleSetGetArgs>());
+            set => _networkRuleSets = value;
+        }
 
         /// <summary>
         /// Is the IotHub resource accessible from a public network?

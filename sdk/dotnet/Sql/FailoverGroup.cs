@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Create a failover group of databases on a collection of Azure SQL servers.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

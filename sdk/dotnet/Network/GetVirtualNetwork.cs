@@ -148,6 +148,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> Subnets;
         /// <summary>
+        /// A mapping of tags to assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// A mapping of name - virtual network id of the virtual network peerings.
         /// </summary>
         public readonly ImmutableDictionary<string, string> VnetPeerings;
@@ -170,6 +174,8 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> subnets,
 
+            ImmutableDictionary<string, string> tags,
+
             ImmutableDictionary<string, string> vnetPeerings)
         {
             AddressSpaces = addressSpaces;
@@ -180,6 +186,7 @@ namespace Pulumi.Azure.Network
             Name = name;
             ResourceGroupName = resourceGroupName;
             Subnets = subnets;
+            Tags = tags;
             VnetPeerings = vnetPeerings;
         }
     }

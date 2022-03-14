@@ -29,6 +29,7 @@ class IoTHubArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -48,6 +49,7 @@ class IoTHubArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -71,6 +73,9 @@ class IoTHubArgs:
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ip_filter_rules is not None:
+            warnings.warn("""This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""ip_filter_rules is deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.""")
+        if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -78,6 +83,8 @@ class IoTHubArgs:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_sets is not None:
+            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if routes is not None:
@@ -254,6 +261,18 @@ class IoTHubArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]]:
+        """
+        A `network_rule_set` block as defined below.
+        """
+        return pulumi.get(self, "network_rule_sets")
+
+    @network_rule_sets.setter
+    def network_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]]):
+        pulumi.set(self, "network_rule_sets", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -311,6 +330,7 @@ class _IoTHubState:
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]] = None,
@@ -338,6 +358,7 @@ class _IoTHubState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
@@ -375,6 +396,9 @@ class _IoTHubState:
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ip_filter_rules is not None:
+            warnings.warn("""This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""ip_filter_rules is deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.""")
+        if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -382,6 +406,8 @@ class _IoTHubState:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_sets is not None:
+            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -614,6 +640,18 @@ class _IoTHubState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]]:
+        """
+        A `network_rule_set` block as defined below.
+        """
+        return pulumi.get(self, "network_rule_sets")
+
+    @network_rule_sets.setter
+    def network_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]]):
+        pulumi.set(self, "network_rule_sets", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -715,6 +753,7 @@ class IoTHub(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
@@ -845,6 +884,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
@@ -994,6 +1034,7 @@ class IoTHub(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
@@ -1019,10 +1060,14 @@ class IoTHub(pulumi.CustomResource):
             __props__.__dict__["fallback_route"] = fallback_route
             __props__.__dict__["file_upload"] = file_upload
             __props__.__dict__["identity"] = identity
+            if ip_filter_rules is not None and not opts.urn:
+                warnings.warn("""This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""ip_filter_rules is deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.""")
             __props__.__dict__["ip_filter_rules"] = ip_filter_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["min_tls_version"] = min_tls_version
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_rule_sets"] = network_rule_sets
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1068,6 +1113,7 @@ class IoTHub(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
@@ -1100,6 +1146,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
@@ -1130,6 +1177,7 @@ class IoTHub(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["min_tls_version"] = min_tls_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_rule_sets"] = network_rule_sets
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["routes"] = routes
@@ -1282,6 +1330,14 @@ class IoTHub(pulumi.CustomResource):
         Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> pulumi.Output[Optional[Sequence['outputs.IoTHubNetworkRuleSet']]]:
+        """
+        A `network_rule_set` block as defined below.
+        """
+        return pulumi.get(self, "network_rule_sets")
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")

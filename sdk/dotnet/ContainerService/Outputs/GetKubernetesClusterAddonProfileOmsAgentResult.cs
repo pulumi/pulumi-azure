@@ -13,9 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAddonProfileOmsAgentResult
     {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
         public readonly bool Enabled;
         /// <summary>
         /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.

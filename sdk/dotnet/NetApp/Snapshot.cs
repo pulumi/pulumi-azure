@@ -225,7 +225,7 @@ namespace Pulumi.Azure.NetApp
 
         [Input("tags")]
         private InputMap<string>? _tags;
-        [Obsolete(@"This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")]
+        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")]
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.NetApp
 
         [Input("tags")]
         private InputMap<string>? _tags;
-        [Obsolete(@"This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")]
+        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")]
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

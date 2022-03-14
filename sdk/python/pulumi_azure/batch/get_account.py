@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetAccountResult',
@@ -21,10 +22,13 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, account_endpoint=None, id=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None):
+    def __init__(__self__, account_endpoint=None, encryption=None, id=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -63,6 +67,11 @@ class GetAccountResult:
         The account endpoint used to interact with the Batch service.
         """
         return pulumi.get(self, "account_endpoint")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.GetAccountEncryptionResult']:
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -149,6 +158,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             account_endpoint=self.account_endpoint,
+            encryption=self.encryption,
             id=self.id,
             key_vault_references=self.key_vault_references,
             location=self.location,
@@ -161,7 +171,8 @@ class AwaitableGetAccountResult(GetAccountResult):
             tags=self.tags)
 
 
-def get_account(name: Optional[str] = None,
+def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs']] = None,
+                name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
@@ -183,6 +194,7 @@ def get_account(name: Optional[str] = None,
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
     __args__ = dict()
+    __args__['encryption'] = encryption
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -193,6 +205,7 @@ def get_account(name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         account_endpoint=__ret__.account_endpoint,
+        encryption=__ret__.encryption,
         id=__ret__.id,
         key_vault_references=__ret__.key_vault_references,
         location=__ret__.location,
@@ -206,7 +219,8 @@ def get_account(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(name: Optional[pulumi.Input[str]] = None,
+def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputType['GetAccountEncryptionArgs']]]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """

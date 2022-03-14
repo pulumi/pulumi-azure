@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }

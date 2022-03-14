@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

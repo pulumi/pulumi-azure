@@ -4996,6 +4996,13 @@ export namespace backup {
 }
 
 export namespace batch {
+    export interface AccountEncryption {
+        /**
+         * The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+         */
+        keyVaultKeyId: string;
+    }
+
     export interface AccountIdentity {
         /**
          * Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
@@ -5024,6 +5031,10 @@ export namespace batch {
          * The HTTPS URL of the Azure KeyVault to use.
          */
         url: string;
+    }
+
+    export interface GetAccountEncryption {
+        keyVaultKeyId: string;
     }
 
     export interface GetAccountKeyVaultReference {
@@ -7737,7 +7748,7 @@ export namespace compute {
          */
         maxUnhealthyUpgradedInstancePercent?: number;
         /**
-         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
          */
         pauseTimeBetweenBatches?: string;
     }
@@ -9390,42 +9401,34 @@ export namespace containerservice {
         maxSurge: string;
     }
 
+    export interface GetKubernetesClusterAciConnectorLinux {
+        /**
+         * The subnet name for the virtual nodes to run.
+         */
+        subnetName: string;
+    }
+
     export interface GetKubernetesClusterAddonProfile {
-        /**
-         * An `azureKeyvaultSecretsProvider` block.
-         */
         azureKeyvaultSecretsProviders: outputs.containerservice.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider[];
-        /**
-         * A `azurePolicy` block.
-         */
         azurePolicies: outputs.containerservice.GetKubernetesClusterAddonProfileAzurePolicy[];
-        /**
-         * A `httpApplicationRouting` block.
-         */
         httpApplicationRoutings: outputs.containerservice.GetKubernetesClusterAddonProfileHttpApplicationRouting[];
         /**
-         * An `ingressApplicationGateway` block.
+         * An `ingressApplicationGateway` block as documented below.
          */
         ingressApplicationGateways: outputs.containerservice.GetKubernetesClusterAddonProfileIngressApplicationGateway[];
-        /**
-         * A `kubeDashboard` block.
-         */
         kubeDashboards: outputs.containerservice.GetKubernetesClusterAddonProfileKubeDashboard[];
         /**
-         * A `omsAgent` block.
+         * An `omsAgent` block as documented below.
          */
         omsAgents: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgent[];
-        /**
-         * An `openServiceMesh` block.
-         */
         openServiceMeshes: outputs.containerservice.GetKubernetesClusterAddonProfileOpenServiceMesh[];
     }
 
     export interface GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
+        /**
+         * A `secretIdentity` block as documented below.
+         */
         secretIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity[];
         /**
          * Is secret rotation enabled?
@@ -9453,16 +9456,10 @@ export namespace containerservice {
     }
 
     export interface GetKubernetesClusterAddonProfileAzurePolicy {
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
     }
 
     export interface GetKubernetesClusterAddonProfileHttpApplicationRouting {
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
         /**
          * The Zone Name of the HTTP Application Routing.
@@ -9475,9 +9472,6 @@ export namespace containerservice {
          * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
          */
         effectiveGatewayId: string;
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
         /**
          * The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
@@ -9513,16 +9507,10 @@ export namespace containerservice {
     }
 
     export interface GetKubernetesClusterAddonProfileKubeDashboard {
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
     }
 
     export interface GetKubernetesClusterAddonProfileOmsAgent {
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
         /**
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
@@ -9550,9 +9538,6 @@ export namespace containerservice {
     }
 
     export interface GetKubernetesClusterAddonProfileOpenServiceMesh {
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
     }
 
@@ -9637,6 +9622,33 @@ export namespace containerservice {
         maxSurge: string;
     }
 
+    export interface GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
+        /**
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+         */
+        adminGroupObjectIds: string[];
+        /**
+         * Is Role Based Access Control based on Azure AD enabled?
+         */
+        azureRbacEnabled: boolean;
+        /**
+         * The Client ID of an Azure Active Directory Application.
+         */
+        clientAppId: string;
+        /**
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         */
+        managed: boolean;
+        /**
+         * The Server ID of an Azure Active Directory Application.
+         */
+        serverAppId: string;
+        /**
+         * The tenant id of the system assigned identity which is used by primary components.
+         */
+        tenantId: string;
+    }
+
     export interface GetKubernetesClusterIdentity {
         /**
          * The principal id of the system assigned identity which is used by primary components.
@@ -9650,6 +9662,75 @@ export namespace containerservice {
          * The type of identity used for the managed cluster.
          */
         type: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface GetKubernetesClusterIngressApplicationGateway {
+        /**
+         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         */
+        effectiveGatewayId: string;
+        /**
+         * The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
+         */
+        gatewayId: string;
+        gatewayName: string;
+        /**
+         * An `ingressApplicationGatewayIdentity` block as defined below.
+         */
+        ingressApplicationGatewayIdentities: outputs.containerservice.GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity[];
+        /**
+         * The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
+         */
+        subnetCidr: string;
+        /**
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
+         */
+        subnetId: string;
+    }
+
+    export interface GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
+    }
+
+    export interface GetKubernetesClusterKeyVaultSecretsProvider {
+        /**
+         * A `secretIdentity` block as documented below.
+         */
+        secretIdentities: outputs.containerservice.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity[];
+        /**
+         * Is secret rotation enabled?
+         */
+        secretRotationEnabled: boolean;
+        /**
+         * The interval to poll for secret rotation.
+         */
+        secretRotationInterval: string;
+    }
+
+    export interface GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
         /**
          * The ID of the User Assigned Identity assigned to the Kubelets.
          */
@@ -9771,20 +9852,40 @@ export namespace containerservice {
         serviceCidr: string;
     }
 
+    export interface GetKubernetesClusterOmsAgent {
+        /**
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * An `omsAgentIdentity` block as defined below.
+         */
+        omsAgentIdentities: outputs.containerservice.GetKubernetesClusterOmsAgentOmsAgentIdentity[];
+    }
+
+    export interface GetKubernetesClusterOmsAgentOmsAgentIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
+    }
+
     export interface GetKubernetesClusterRoleBasedAccessControl {
-        /**
-         * A `azureActiveDirectory` block as documented above.
-         */
         azureActiveDirectories: outputs.containerservice.GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory[];
-        /**
-         * Is Role Based Access Control enabled?
-         */
         enabled: boolean;
     }
 
     export interface GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
         /**
-         * The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
          */
         adminGroupObjectIds: string[];
         /**
@@ -9792,7 +9893,7 @@ export namespace containerservice {
          */
         clientAppId: string;
         /**
-         * Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
          */
         managed: boolean;
         /**
@@ -10430,6 +10531,37 @@ export namespace containerservice {
          * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
          */
         skipNodesWithSystemPods?: boolean;
+    }
+
+    export interface KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
+        /**
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+         */
+        adminGroupObjectIds?: string[];
+        /**
+         * Is Role Based Access Control based on Azure AD enabled?
+         */
+        azureRbacEnabled?: boolean;
+        /**
+         * The Client ID of an Azure Active Directory Application.
+         */
+        clientAppId?: string;
+        /**
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         */
+        managed?: boolean;
+        /**
+         * The Server ID of an Azure Active Directory Application.
+         */
+        serverAppId?: string;
+        /**
+         * The Server Secret of an Azure Active Directory Application.
+         */
+        serverAppSecret?: string;
+        /**
+         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+         */
+        tenantId: string;
     }
 
     export interface KubernetesClusterDefaultNodePool {
@@ -11267,12 +11399,9 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
-        /**
-         * An `azureActiveDirectory` block.
-         */
         azureActiveDirectory?: outputs.containerservice.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory;
         /**
-         * Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+         * Is the Kubernetes Dashboard enabled?
          */
         enabled: boolean;
     }
@@ -11698,6 +11827,7 @@ export namespace containerservice {
          */
         enabled?: boolean;
     }
+
 }
 
 export namespace core {
@@ -12453,6 +12583,13 @@ export namespace cosmosdb {
          * The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
+    }
+
+    export interface SqlRoleDefinitionPermission {
+        /**
+         * A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+         */
+        dataActions: string[];
     }
 
     export interface TableAutoscaleSettings {
@@ -14651,7 +14788,7 @@ export namespace domainservices {
         certificateExpiry: string;
         certificateThumbprint: string;
         /**
-         * Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+         * Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
          */
         enabled: boolean;
         /**
@@ -19783,6 +19920,36 @@ export namespace iot {
         name: string;
     }
 
+    export interface IoTHubNetworkRuleSet {
+        /**
+         * Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+         */
+        applyToBuiltinEventhubEndpoint?: boolean;
+        /**
+         * Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         */
+        defaultAction?: string;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
+        ipRules?: outputs.iot.IoTHubNetworkRuleSetIpRule[];
+    }
+
+    export interface IoTHubNetworkRuleSetIpRule {
+        /**
+         * The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The IP address range in CIDR notation for the ip rule.
+         */
+        ipMask: string;
+        /**
+         * The name of the ip rule.
+         */
+        name: string;
+    }
+
     export interface IoTHubRoute {
         /**
          * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -20812,8 +20979,7 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`. 
-         * `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
          */
         availabilityZone: string;
         /**
@@ -24252,7 +24418,7 @@ export namespace mssql {
 
     export interface ServerAzureadAdministrator {
         /**
-         * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+         * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
          */
         azureadAuthenticationOnly: boolean;
         /**
@@ -28897,7 +29063,7 @@ export namespace postgresql {
          */
         geoRedundantBackup: string;
         /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
+         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
          *
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
@@ -29633,11 +29799,11 @@ export namespace sentinel {
          */
         enabled?: boolean;
         /**
-         * The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+         * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
          */
         entityMatchingMethod?: string;
         /**
-         * A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          */
         groupBies?: string[];
         /**
@@ -31162,13 +31328,33 @@ export namespace storage {
 
     export interface BlobInventoryPolicyRule {
         /**
-         * A `filter` block as defined above.
+         * A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
          */
-        filter: outputs.storage.BlobInventoryPolicyRuleFilter;
+        filter?: outputs.storage.BlobInventoryPolicyRuleFilter;
+        /**
+         * The format of the inventory files. Possible values are `Csv` and `Parquet`.
+         */
+        format: string;
         /**
          * The name which should be used for this Blob Inventory Policy Rule.
          */
         name: string;
+        /**
+         * The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+         */
+        schedule: string;
+        /**
+         * A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+         */
+        schemaFields: string[];
+        /**
+         * The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+         */
+        scope: string;
+        /**
+         * The storage container name to store the blob inventory files for this rule.
+         */
+        storageContainerName: string;
     }
 
     export interface BlobInventoryPolicyRuleFilter {

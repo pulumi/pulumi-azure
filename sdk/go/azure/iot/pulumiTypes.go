@@ -1374,6 +1374,236 @@ func (o IoTHubIpFilterRuleArrayOutput) Index(i pulumi.IntInput) IoTHubIpFilterRu
 	}).(IoTHubIpFilterRuleOutput)
 }
 
+type IoTHubNetworkRuleSet struct {
+	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+	ApplyToBuiltinEventhubEndpoint *bool `pulumi:"applyToBuiltinEventhubEndpoint"`
+	// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules []IoTHubNetworkRuleSetIpRule `pulumi:"ipRules"`
+}
+
+// IoTHubNetworkRuleSetInput is an input type that accepts IoTHubNetworkRuleSetArgs and IoTHubNetworkRuleSetOutput values.
+// You can construct a concrete instance of `IoTHubNetworkRuleSetInput` via:
+//
+//          IoTHubNetworkRuleSetArgs{...}
+type IoTHubNetworkRuleSetInput interface {
+	pulumi.Input
+
+	ToIoTHubNetworkRuleSetOutput() IoTHubNetworkRuleSetOutput
+	ToIoTHubNetworkRuleSetOutputWithContext(context.Context) IoTHubNetworkRuleSetOutput
+}
+
+type IoTHubNetworkRuleSetArgs struct {
+	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+	ApplyToBuiltinEventhubEndpoint pulumi.BoolPtrInput `pulumi:"applyToBuiltinEventhubEndpoint"`
+	// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules IoTHubNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
+}
+
+func (IoTHubNetworkRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubNetworkRuleSet)(nil)).Elem()
+}
+
+func (i IoTHubNetworkRuleSetArgs) ToIoTHubNetworkRuleSetOutput() IoTHubNetworkRuleSetOutput {
+	return i.ToIoTHubNetworkRuleSetOutputWithContext(context.Background())
+}
+
+func (i IoTHubNetworkRuleSetArgs) ToIoTHubNetworkRuleSetOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetOutput)
+}
+
+// IoTHubNetworkRuleSetArrayInput is an input type that accepts IoTHubNetworkRuleSetArray and IoTHubNetworkRuleSetArrayOutput values.
+// You can construct a concrete instance of `IoTHubNetworkRuleSetArrayInput` via:
+//
+//          IoTHubNetworkRuleSetArray{ IoTHubNetworkRuleSetArgs{...} }
+type IoTHubNetworkRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToIoTHubNetworkRuleSetArrayOutput() IoTHubNetworkRuleSetArrayOutput
+	ToIoTHubNetworkRuleSetArrayOutputWithContext(context.Context) IoTHubNetworkRuleSetArrayOutput
+}
+
+type IoTHubNetworkRuleSetArray []IoTHubNetworkRuleSetInput
+
+func (IoTHubNetworkRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHubNetworkRuleSet)(nil)).Elem()
+}
+
+func (i IoTHubNetworkRuleSetArray) ToIoTHubNetworkRuleSetArrayOutput() IoTHubNetworkRuleSetArrayOutput {
+	return i.ToIoTHubNetworkRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i IoTHubNetworkRuleSetArray) ToIoTHubNetworkRuleSetArrayOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetArrayOutput)
+}
+
+type IoTHubNetworkRuleSetOutput struct{ *pulumi.OutputState }
+
+func (IoTHubNetworkRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubNetworkRuleSet)(nil)).Elem()
+}
+
+func (o IoTHubNetworkRuleSetOutput) ToIoTHubNetworkRuleSetOutput() IoTHubNetworkRuleSetOutput {
+	return o
+}
+
+func (o IoTHubNetworkRuleSetOutput) ToIoTHubNetworkRuleSetOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetOutput {
+	return o
+}
+
+// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+func (o IoTHubNetworkRuleSetOutput) ApplyToBuiltinEventhubEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IoTHubNetworkRuleSet) *bool { return v.ApplyToBuiltinEventhubEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+func (o IoTHubNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipRule` blocks as defined below.
+func (o IoTHubNetworkRuleSetOutput) IpRules() IoTHubNetworkRuleSetIpRuleArrayOutput {
+	return o.ApplyT(func(v IoTHubNetworkRuleSet) []IoTHubNetworkRuleSetIpRule { return v.IpRules }).(IoTHubNetworkRuleSetIpRuleArrayOutput)
+}
+
+type IoTHubNetworkRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (IoTHubNetworkRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHubNetworkRuleSet)(nil)).Elem()
+}
+
+func (o IoTHubNetworkRuleSetArrayOutput) ToIoTHubNetworkRuleSetArrayOutput() IoTHubNetworkRuleSetArrayOutput {
+	return o
+}
+
+func (o IoTHubNetworkRuleSetArrayOutput) ToIoTHubNetworkRuleSetArrayOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetArrayOutput {
+	return o
+}
+
+func (o IoTHubNetworkRuleSetArrayOutput) Index(i pulumi.IntInput) IoTHubNetworkRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHubNetworkRuleSet {
+		return vs[0].([]IoTHubNetworkRuleSet)[vs[1].(int)]
+	}).(IoTHubNetworkRuleSetOutput)
+}
+
+type IoTHubNetworkRuleSetIpRule struct {
+	// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The IP address range in CIDR notation for the ip rule.
+	IpMask string `pulumi:"ipMask"`
+	// The name of the ip rule.
+	Name string `pulumi:"name"`
+}
+
+// IoTHubNetworkRuleSetIpRuleInput is an input type that accepts IoTHubNetworkRuleSetIpRuleArgs and IoTHubNetworkRuleSetIpRuleOutput values.
+// You can construct a concrete instance of `IoTHubNetworkRuleSetIpRuleInput` via:
+//
+//          IoTHubNetworkRuleSetIpRuleArgs{...}
+type IoTHubNetworkRuleSetIpRuleInput interface {
+	pulumi.Input
+
+	ToIoTHubNetworkRuleSetIpRuleOutput() IoTHubNetworkRuleSetIpRuleOutput
+	ToIoTHubNetworkRuleSetIpRuleOutputWithContext(context.Context) IoTHubNetworkRuleSetIpRuleOutput
+}
+
+type IoTHubNetworkRuleSetIpRuleArgs struct {
+	// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP address range in CIDR notation for the ip rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// The name of the ip rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IoTHubNetworkRuleSetIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (i IoTHubNetworkRuleSetIpRuleArgs) ToIoTHubNetworkRuleSetIpRuleOutput() IoTHubNetworkRuleSetIpRuleOutput {
+	return i.ToIoTHubNetworkRuleSetIpRuleOutputWithContext(context.Background())
+}
+
+func (i IoTHubNetworkRuleSetIpRuleArgs) ToIoTHubNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetIpRuleOutput)
+}
+
+// IoTHubNetworkRuleSetIpRuleArrayInput is an input type that accepts IoTHubNetworkRuleSetIpRuleArray and IoTHubNetworkRuleSetIpRuleArrayOutput values.
+// You can construct a concrete instance of `IoTHubNetworkRuleSetIpRuleArrayInput` via:
+//
+//          IoTHubNetworkRuleSetIpRuleArray{ IoTHubNetworkRuleSetIpRuleArgs{...} }
+type IoTHubNetworkRuleSetIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToIoTHubNetworkRuleSetIpRuleArrayOutput() IoTHubNetworkRuleSetIpRuleArrayOutput
+	ToIoTHubNetworkRuleSetIpRuleArrayOutputWithContext(context.Context) IoTHubNetworkRuleSetIpRuleArrayOutput
+}
+
+type IoTHubNetworkRuleSetIpRuleArray []IoTHubNetworkRuleSetIpRuleInput
+
+func (IoTHubNetworkRuleSetIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHubNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (i IoTHubNetworkRuleSetIpRuleArray) ToIoTHubNetworkRuleSetIpRuleArrayOutput() IoTHubNetworkRuleSetIpRuleArrayOutput {
+	return i.ToIoTHubNetworkRuleSetIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IoTHubNetworkRuleSetIpRuleArray) ToIoTHubNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetIpRuleArrayOutput)
+}
+
+type IoTHubNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
+
+func (IoTHubNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (o IoTHubNetworkRuleSetIpRuleOutput) ToIoTHubNetworkRuleSetIpRuleOutput() IoTHubNetworkRuleSetIpRuleOutput {
+	return o
+}
+
+func (o IoTHubNetworkRuleSetIpRuleOutput) ToIoTHubNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetIpRuleOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+func (o IoTHubNetworkRuleSetIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP address range in CIDR notation for the ip rule.
+func (o IoTHubNetworkRuleSetIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// The name of the ip rule.
+func (o IoTHubNetworkRuleSetIpRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IoTHubNetworkRuleSetIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IoTHubNetworkRuleSetIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHubNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (o IoTHubNetworkRuleSetIpRuleArrayOutput) ToIoTHubNetworkRuleSetIpRuleArrayOutput() IoTHubNetworkRuleSetIpRuleArrayOutput {
+	return o
+}
+
+func (o IoTHubNetworkRuleSetIpRuleArrayOutput) ToIoTHubNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetIpRuleArrayOutput {
+	return o
+}
+
+func (o IoTHubNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) IoTHubNetworkRuleSetIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHubNetworkRuleSetIpRule {
+		return vs[0].([]IoTHubNetworkRuleSetIpRule)[vs[1].(int)]
+	}).(IoTHubNetworkRuleSetIpRuleOutput)
+}
+
 type IoTHubRoute struct {
 	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 	Condition *string `pulumi:"condition"`
@@ -3382,6 +3612,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIdentityPtrInput)(nil)).Elem(), IoTHubIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIpFilterRuleInput)(nil)).Elem(), IoTHubIpFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIpFilterRuleArrayInput)(nil)).Elem(), IoTHubIpFilterRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetInput)(nil)).Elem(), IoTHubNetworkRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetArrayInput)(nil)).Elem(), IoTHubNetworkRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetIpRuleInput)(nil)).Elem(), IoTHubNetworkRuleSetIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetIpRuleArrayInput)(nil)).Elem(), IoTHubNetworkRuleSetIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubRouteInput)(nil)).Elem(), IoTHubRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubRouteArrayInput)(nil)).Elem(), IoTHubRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSharedAccessPolicyInput)(nil)).Elem(), IoTHubSharedAccessPolicyArgs{})
@@ -3422,6 +3656,10 @@ func init() {
 	pulumi.RegisterOutputType(IoTHubIdentityPtrOutput{})
 	pulumi.RegisterOutputType(IoTHubIpFilterRuleOutput{})
 	pulumi.RegisterOutputType(IoTHubIpFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(IoTHubNetworkRuleSetOutput{})
+	pulumi.RegisterOutputType(IoTHubNetworkRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(IoTHubNetworkRuleSetIpRuleOutput{})
+	pulumi.RegisterOutputType(IoTHubNetworkRuleSetIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubRouteOutput{})
 	pulumi.RegisterOutputType(IoTHubRouteArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubSharedAccessPolicyOutput{})

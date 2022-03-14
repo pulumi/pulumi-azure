@@ -81,6 +81,9 @@ export interface GetServiceResult {
      * A `notifications` block as defined below.
      */
     readonly notifications: outputs.domainservices.GetServiceNotification[];
+    /**
+     * One or more `replicaSet` blocks as defined below.
+     */
     readonly replicaSets: outputs.domainservices.GetServiceReplicaSet[];
     readonly resourceGroupName: string;
     readonly resourceId: string;

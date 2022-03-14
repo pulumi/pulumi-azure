@@ -73,6 +73,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
     /**
+     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     */
+    public readonly encryption!: pulumi.Output<outputs.batch.AccountEncryption | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.batch.AccountIdentity | undefined>;
@@ -131,6 +135,7 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -147,6 +152,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -173,6 +179,10 @@ export interface AccountState {
      * The account endpoint used to interact with the Batch service.
      */
     accountEndpoint?: pulumi.Input<string>;
+    /**
+     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     */
+    encryption?: pulumi.Input<inputs.batch.AccountEncryption>;
     /**
      * An `identity` block as defined below.
      */
@@ -223,6 +233,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     */
+    encryption?: pulumi.Input<inputs.batch.AccountEncryption>;
     /**
      * An `identity` block as defined below.
      */

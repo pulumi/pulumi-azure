@@ -39,6 +39,7 @@ __all__ = [
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity',
     'KubernetesClusterAddonProfileOpenServiceMesh',
     'KubernetesClusterAutoScalerProfile',
+    'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl',
     'KubernetesClusterDefaultNodePool',
     'KubernetesClusterDefaultNodePoolKubeletConfig',
     'KubernetesClusterDefaultNodePoolLinuxOsConfig',
@@ -93,6 +94,7 @@ __all__ = [
     'RegistryTaskTimerTrigger',
     'RegistryTrustPolicy',
     'GetClusterNodePoolUpgradeSettingResult',
+    'GetKubernetesClusterAciConnectorLinuxResult',
     'GetKubernetesClusterAddonProfileResult',
     'GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult',
     'GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityResult',
@@ -106,13 +108,20 @@ __all__ = [
     'GetKubernetesClusterAddonProfileOpenServiceMeshResult',
     'GetKubernetesClusterAgentPoolProfileResult',
     'GetKubernetesClusterAgentPoolProfileUpgradeSettingResult',
+    'GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult',
     'GetKubernetesClusterIdentityResult',
+    'GetKubernetesClusterIngressApplicationGatewayResult',
+    'GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult',
+    'GetKubernetesClusterKeyVaultSecretsProviderResult',
+    'GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult',
     'GetKubernetesClusterKubeAdminConfigResult',
     'GetKubernetesClusterKubeConfigResult',
     'GetKubernetesClusterKubeletIdentityResult',
     'GetKubernetesClusterLinuxProfileResult',
     'GetKubernetesClusterLinuxProfileSshKeyResult',
     'GetKubernetesClusterNetworkProfileResult',
+    'GetKubernetesClusterOmsAgentResult',
+    'GetKubernetesClusterOmsAgentOmsAgentIdentityResult',
     'GetKubernetesClusterRoleBasedAccessControlResult',
     'GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult',
     'GetKubernetesClusterServicePrincipalResult',
@@ -2165,6 +2174,124 @@ class KubernetesClusterAutoScalerProfile(dict):
         If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
+
+
+@pulumi.output_type
+class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminGroupObjectIds":
+            suggest = "admin_group_object_ids"
+        elif key == "azureRbacEnabled":
+            suggest = "azure_rbac_enabled"
+        elif key == "clientAppId":
+            suggest = "client_app_id"
+        elif key == "serverAppId":
+            suggest = "server_app_id"
+        elif key == "serverAppSecret":
+            suggest = "server_app_secret"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_group_object_ids: Optional[Sequence[str]] = None,
+                 azure_rbac_enabled: Optional[bool] = None,
+                 client_app_id: Optional[str] = None,
+                 managed: Optional[bool] = None,
+                 server_app_id: Optional[str] = None,
+                 server_app_secret: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param Sequence[str] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        :param bool azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
+        :param str client_app_id: The Client ID of an Azure Active Directory Application.
+        :param bool managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        :param str server_app_id: The Server ID of an Azure Active Directory Application.
+        :param str server_app_secret: The Server Secret of an Azure Active Directory Application.
+        :param str tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        """
+        if admin_group_object_ids is not None:
+            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if azure_rbac_enabled is not None:
+            pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
+        if client_app_id is not None:
+            pulumi.set(__self__, "client_app_id", client_app_id)
+        if managed is not None:
+            pulumi.set(__self__, "managed", managed)
+        if server_app_id is not None:
+            pulumi.set(__self__, "server_app_id", server_app_id)
+        if server_app_secret is not None:
+            pulumi.set(__self__, "server_app_secret", server_app_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @property
+    @pulumi.getter(name="azureRbacEnabled")
+    def azure_rbac_enabled(self) -> Optional[bool]:
+        """
+        Is Role Based Access Control based on Azure AD enabled?
+        """
+        return pulumi.get(self, "azure_rbac_enabled")
+
+    @property
+    @pulumi.getter(name="clientAppId")
+    def client_app_id(self) -> Optional[str]:
+        """
+        The Client ID of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "client_app_id")
+
+    @property
+    @pulumi.getter
+    def managed(self) -> Optional[bool]:
+        """
+        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        """
+        return pulumi.get(self, "managed")
+
+    @property
+    @pulumi.getter(name="serverAppId")
+    def server_app_id(self) -> Optional[str]:
+        """
+        The Server ID of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "server_app_id")
+
+    @property
+    @pulumi.getter(name="serverAppSecret")
+    def server_app_secret(self) -> Optional[str]:
+        """
+        The Server Secret of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "server_app_secret")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -5370,8 +5497,7 @@ class KubernetesClusterRoleBasedAccessControl(dict):
                  enabled: bool,
                  azure_active_directory: Optional['outputs.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory'] = None):
         """
-        :param bool enabled: Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
-        :param 'KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs' azure_active_directory: An `azure_active_directory` block.
+        :param bool enabled: Is the Kubernetes Dashboard enabled?
         """
         pulumi.set(__self__, "enabled", enabled)
         if azure_active_directory is not None:
@@ -5381,16 +5507,13 @@ class KubernetesClusterRoleBasedAccessControl(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional['outputs.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory']:
-        """
-        An `azure_active_directory` block.
-        """
         return pulumi.get(self, "azure_active_directory")
 
 
@@ -6982,6 +7105,24 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
 
 
 @pulumi.output_type
+class GetKubernetesClusterAciConnectorLinuxResult(dict):
+    def __init__(__self__, *,
+                 subnet_name: str):
+        """
+        :param str subnet_name: The subnet name for the virtual nodes to run.
+        """
+        pulumi.set(__self__, "subnet_name", subnet_name)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> str:
+        """
+        The subnet name for the virtual nodes to run.
+        """
+        return pulumi.get(self, "subnet_name")
+
+
+@pulumi.output_type
 class GetKubernetesClusterAddonProfileResult(dict):
     def __init__(__self__, *,
                  azure_keyvault_secrets_providers: Sequence['outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult'],
@@ -6992,13 +7133,8 @@ class GetKubernetesClusterAddonProfileResult(dict):
                  oms_agents: Sequence['outputs.GetKubernetesClusterAddonProfileOmsAgentResult'],
                  open_service_meshes: Sequence['outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult']):
         """
-        :param Sequence['GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs'] azure_keyvault_secrets_providers: An `azure_keyvault_secrets_provider` block.
-        :param Sequence['GetKubernetesClusterAddonProfileAzurePolicyArgs'] azure_policies: A `azure_policy` block.
-        :param Sequence['GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs'] http_application_routings: A `http_application_routing` block.
-        :param Sequence['GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs'] ingress_application_gateways: An `ingress_application_gateway` block.
-        :param Sequence['GetKubernetesClusterAddonProfileKubeDashboardArgs'] kube_dashboards: A `kube_dashboard` block.
-        :param Sequence['GetKubernetesClusterAddonProfileOmsAgentArgs'] oms_agents: A `oms_agent` block.
-        :param Sequence['GetKubernetesClusterAddonProfileOpenServiceMeshArgs'] open_service_meshes: An `open_service_mesh` block.
+        :param Sequence['GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs'] ingress_application_gateways: An `ingress_application_gateway` block as documented below.
+        :param Sequence['GetKubernetesClusterAddonProfileOmsAgentArgs'] oms_agents: An `oms_agent` block as documented below.
         """
         pulumi.set(__self__, "azure_keyvault_secrets_providers", azure_keyvault_secrets_providers)
         pulumi.set(__self__, "azure_policies", azure_policies)
@@ -7011,57 +7147,42 @@ class GetKubernetesClusterAddonProfileResult(dict):
     @property
     @pulumi.getter(name="azureKeyvaultSecretsProviders")
     def azure_keyvault_secrets_providers(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult']:
-        """
-        An `azure_keyvault_secrets_provider` block.
-        """
         return pulumi.get(self, "azure_keyvault_secrets_providers")
 
     @property
     @pulumi.getter(name="azurePolicies")
     def azure_policies(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileAzurePolicyResult']:
-        """
-        A `azure_policy` block.
-        """
         return pulumi.get(self, "azure_policies")
 
     @property
     @pulumi.getter(name="httpApplicationRoutings")
     def http_application_routings(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileHttpApplicationRoutingResult']:
-        """
-        A `http_application_routing` block.
-        """
         return pulumi.get(self, "http_application_routings")
 
     @property
     @pulumi.getter(name="ingressApplicationGateways")
     def ingress_application_gateways(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayResult']:
         """
-        An `ingress_application_gateway` block.
+        An `ingress_application_gateway` block as documented below.
         """
         return pulumi.get(self, "ingress_application_gateways")
 
     @property
     @pulumi.getter(name="kubeDashboards")
     def kube_dashboards(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileKubeDashboardResult']:
-        """
-        A `kube_dashboard` block.
-        """
         return pulumi.get(self, "kube_dashboards")
 
     @property
     @pulumi.getter(name="omsAgents")
     def oms_agents(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileOmsAgentResult']:
         """
-        A `oms_agent` block.
+        An `oms_agent` block as documented below.
         """
         return pulumi.get(self, "oms_agents")
 
     @property
     @pulumi.getter(name="openServiceMeshes")
     def open_service_meshes(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult']:
-        """
-        An `open_service_mesh` block.
-        """
         return pulumi.get(self, "open_service_meshes")
 
 
@@ -7073,7 +7194,7 @@ class GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult(dict):
                  secret_rotation_enabled: str,
                  secret_rotation_interval: str):
         """
-        :param bool enabled: Is Role Based Access Control enabled?
+        :param Sequence['GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs'] secret_identities: A `secret_identity` block as documented below.
         :param str secret_rotation_enabled: Is secret rotation enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation.
         """
@@ -7085,14 +7206,14 @@ class GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="secretIdentities")
     def secret_identities(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityResult']:
+        """
+        A `secret_identity` block as documented below.
+        """
         return pulumi.get(self, "secret_identities")
 
     @property
@@ -7156,17 +7277,11 @@ class GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity
 class GetKubernetesClusterAddonProfileAzurePolicyResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        """
-        :param bool enabled: Is Role Based Access Control enabled?
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -7176,7 +7291,6 @@ class GetKubernetesClusterAddonProfileHttpApplicationRoutingResult(dict):
                  enabled: bool,
                  http_application_routing_zone_name: str):
         """
-        :param bool enabled: Is Role Based Access Control enabled?
         :param str http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -7185,9 +7299,6 @@ class GetKubernetesClusterAddonProfileHttpApplicationRoutingResult(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -7210,7 +7321,6 @@ class GetKubernetesClusterAddonProfileIngressApplicationGatewayResult(dict):
                  subnet_id: str):
         """
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-        :param bool enabled: Is Role Based Access Control enabled?
         :param str gateway_id: The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
         :param Sequence['GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block as defined below.
         :param str subnet_cidr: The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
@@ -7234,9 +7344,6 @@ class GetKubernetesClusterAddonProfileIngressApplicationGatewayResult(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -7316,17 +7423,11 @@ class GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicatio
 class GetKubernetesClusterAddonProfileKubeDashboardResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        """
-        :param bool enabled: Is Role Based Access Control enabled?
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -7337,7 +7438,6 @@ class GetKubernetesClusterAddonProfileOmsAgentResult(dict):
                  log_analytics_workspace_id: str,
                  oms_agent_identities: Sequence['outputs.GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult']):
         """
-        :param bool enabled: Is Role Based Access Control enabled?
         :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param Sequence['GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block as defined below.
         """
@@ -7348,9 +7448,6 @@ class GetKubernetesClusterAddonProfileOmsAgentResult(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -7414,17 +7511,11 @@ class GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult(dict):
 class GetKubernetesClusterAddonProfileOpenServiceMeshResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        """
-        :param bool enabled: Is Role Based Access Control enabled?
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -7662,6 +7753,79 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
 
 
 @pulumi.output_type
+class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict):
+    def __init__(__self__, *,
+                 admin_group_object_ids: Sequence[str],
+                 azure_rbac_enabled: bool,
+                 client_app_id: str,
+                 managed: bool,
+                 server_app_id: str,
+                 tenant_id: str):
+        """
+        :param Sequence[str] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        :param bool azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
+        :param str client_app_id: The Client ID of an Azure Active Directory Application.
+        :param bool managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        :param str server_app_id: The Server ID of an Azure Active Directory Application.
+        :param str tenant_id: The tenant id of the system assigned identity which is used by primary components.
+        """
+        pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
+        pulumi.set(__self__, "client_app_id", client_app_id)
+        pulumi.set(__self__, "managed", managed)
+        pulumi.set(__self__, "server_app_id", server_app_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> Sequence[str]:
+        """
+        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @property
+    @pulumi.getter(name="azureRbacEnabled")
+    def azure_rbac_enabled(self) -> bool:
+        """
+        Is Role Based Access Control based on Azure AD enabled?
+        """
+        return pulumi.get(self, "azure_rbac_enabled")
+
+    @property
+    @pulumi.getter(name="clientAppId")
+    def client_app_id(self) -> str:
+        """
+        The Client ID of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "client_app_id")
+
+    @property
+    @pulumi.getter
+    def managed(self) -> bool:
+        """
+        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        """
+        return pulumi.get(self, "managed")
+
+    @property
+    @pulumi.getter(name="serverAppId")
+    def server_app_id(self) -> str:
+        """
+        The Server ID of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "server_app_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the system assigned identity which is used by primary components.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class GetKubernetesClusterIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
@@ -7702,6 +7866,195 @@ class GetKubernetesClusterIdentityResult(dict):
         The type of identity used for the managed cluster.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterIngressApplicationGatewayResult(dict):
+    def __init__(__self__, *,
+                 effective_gateway_id: str,
+                 gateway_id: str,
+                 gateway_name: str,
+                 ingress_application_gateway_identities: Sequence['outputs.GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult'],
+                 subnet_cidr: str,
+                 subnet_id: str):
+        """
+        :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        :param str gateway_id: The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
+        :param Sequence['GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block as defined below.
+        :param str subnet_cidr: The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
+        :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
+        """
+        pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
+        pulumi.set(__self__, "gateway_id", gateway_id)
+        pulumi.set(__self__, "gateway_name", gateway_name)
+        pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
+        pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="effectiveGatewayId")
+    def effective_gateway_id(self) -> str:
+        """
+        The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        """
+        return pulumi.get(self, "effective_gateway_id")
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> str:
+        """
+        The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> str:
+        return pulumi.get(self, "gateway_name")
+
+    @property
+    @pulumi.getter(name="ingressApplicationGatewayIdentities")
+    def ingress_application_gateway_identities(self) -> Sequence['outputs.GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult']:
+        """
+        An `ingress_application_gateway_identity` block as defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway_identities")
+
+    @property
+    @pulumi.getter(name="subnetCidr")
+    def subnet_cidr(self) -> str:
+        """
+        The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
+        """
+        return pulumi.get(self, "subnet_cidr")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 object_id: str,
+                 user_assigned_identity_id: str):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterKeyVaultSecretsProviderResult(dict):
+    def __init__(__self__, *,
+                 secret_identities: Sequence['outputs.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult'],
+                 secret_rotation_enabled: bool,
+                 secret_rotation_interval: str):
+        """
+        :param Sequence['GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: A `secret_identity` block as documented below.
+        :param bool secret_rotation_enabled: Is secret rotation enabled?
+        :param str secret_rotation_interval: The interval to poll for secret rotation.
+        """
+        pulumi.set(__self__, "secret_identities", secret_identities)
+        pulumi.set(__self__, "secret_rotation_enabled", secret_rotation_enabled)
+        pulumi.set(__self__, "secret_rotation_interval", secret_rotation_interval)
+
+    @property
+    @pulumi.getter(name="secretIdentities")
+    def secret_identities(self) -> Sequence['outputs.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult']:
+        """
+        A `secret_identity` block as documented below.
+        """
+        return pulumi.get(self, "secret_identities")
+
+    @property
+    @pulumi.getter(name="secretRotationEnabled")
+    def secret_rotation_enabled(self) -> bool:
+        """
+        Is secret rotation enabled?
+        """
+        return pulumi.get(self, "secret_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="secretRotationInterval")
+    def secret_rotation_interval(self) -> str:
+        """
+        The interval to poll for secret rotation.
+        """
+        return pulumi.get(self, "secret_rotation_interval")
+
+
+@pulumi.output_type
+class GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 object_id: str,
+                 user_assigned_identity_id: str):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "object_id")
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
@@ -8026,31 +8379,90 @@ class GetKubernetesClusterNetworkProfileResult(dict):
 
 
 @pulumi.output_type
+class GetKubernetesClusterOmsAgentResult(dict):
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 oms_agent_identities: Sequence['outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult']):
+        """
+        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+        :param Sequence['GetKubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block as defined below.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="omsAgentIdentities")
+    def oms_agent_identities(self) -> Sequence['outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult']:
+        """
+        An `oms_agent_identity` block as defined below.
+        """
+        return pulumi.get(self, "oms_agent_identities")
+
+
+@pulumi.output_type
+class GetKubernetesClusterOmsAgentOmsAgentIdentityResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 object_id: str,
+                 user_assigned_identity_id: str):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
 class GetKubernetesClusterRoleBasedAccessControlResult(dict):
     def __init__(__self__, *,
                  azure_active_directories: Sequence['outputs.GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult'],
                  enabled: bool):
-        """
-        :param Sequence['GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs'] azure_active_directories: A `azure_active_directory` block as documented above.
-        :param bool enabled: Is Role Based Access Control enabled?
-        """
         pulumi.set(__self__, "azure_active_directories", azure_active_directories)
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="azureActiveDirectories")
     def azure_active_directories(self) -> Sequence['outputs.GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult']:
-        """
-        A `azure_active_directory` block as documented above.
-        """
         return pulumi.get(self, "azure_active_directories")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Is Role Based Access Control enabled?
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -8063,9 +8475,9 @@ class GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult(dict)
                  server_app_id: str,
                  tenant_id: str):
         """
-        :param Sequence[str] admin_group_object_ids: The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+        :param Sequence[str] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         :param str client_app_id: The Client ID of an Azure Active Directory Application.
-        :param bool managed: Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+        :param bool managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         :param str server_app_id: The Server ID of an Azure Active Directory Application.
         :param str tenant_id: The tenant id of the system assigned identity which is used by primary components.
         """
@@ -8079,7 +8491,7 @@ class GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult(dict)
     @pulumi.getter(name="adminGroupObjectIds")
     def admin_group_object_ids(self) -> Sequence[str]:
         """
-        The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
 
@@ -8095,7 +8507,7 @@ class GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult(dict)
     @pulumi.getter
     def managed(self) -> bool:
         """
-        Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         """
         return pulumi.get(self, "managed")
 

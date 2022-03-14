@@ -94,20 +94,23 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
+
+        [Input("queueId")]
+        public string? QueueId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Queue.
         /// </summary>
-        [Input("queueName", required: true)]
-        public string QueueName { get; set; } = null!;
+        [Input("queueName")]
+        public string? QueueName { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetQueueAuthorizationRuleArgs()
         {
@@ -125,20 +128,23 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
+
+        [Input("queueId")]
+        public Input<string>? QueueId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Queue.
         /// </summary>
-        [Input("queueName", required: true)]
-        public Input<string> QueueName { get; set; } = null!;
+        [Input("queueName")]
+        public Input<string>? QueueName { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public GetQueueAuthorizationRuleInvokeArgs()
         {
@@ -156,7 +162,7 @@ namespace Pulumi.Azure.ServiceBus
         public readonly bool Listen;
         public readonly bool Manage;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceName;
         /// <summary>
         /// The Primary Connection String for the ServiceBus Queue authorization Rule.
         /// </summary>
@@ -169,8 +175,9 @@ namespace Pulumi.Azure.ServiceBus
         /// The Primary Key for the ServiceBus Queue authorization Rule.
         /// </summary>
         public readonly string PrimaryKey;
-        public readonly string QueueName;
-        public readonly string ResourceGroupName;
+        public readonly string? QueueId;
+        public readonly string? QueueName;
+        public readonly string? ResourceGroupName;
         /// <summary>
         /// The Secondary Connection String for the ServiceBus Queue authorization Rule.
         /// </summary>
@@ -195,7 +202,7 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceName,
 
             string primaryConnectionString,
 
@@ -203,9 +210,11 @@ namespace Pulumi.Azure.ServiceBus
 
             string primaryKey,
 
-            string queueName,
+            string? queueId,
 
-            string resourceGroupName,
+            string? queueName,
+
+            string? resourceGroupName,
 
             string secondaryConnectionString,
 
@@ -223,6 +232,7 @@ namespace Pulumi.Azure.ServiceBus
             PrimaryConnectionString = primaryConnectionString;
             PrimaryConnectionStringAlias = primaryConnectionStringAlias;
             PrimaryKey = primaryKey;
+            QueueId = queueId;
             QueueName = queueName;
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;

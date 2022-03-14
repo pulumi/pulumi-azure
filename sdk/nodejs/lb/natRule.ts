@@ -79,7 +79,7 @@ export class NatRule extends pulumi.CustomResource {
 
     public /*out*/ readonly backendIpConfigurationId!: pulumi.Output<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
@@ -96,7 +96,7 @@ export class NatRule extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurationName!: pulumi.Output<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
     public readonly frontendPort!: pulumi.Output<number>;
     /**
@@ -189,7 +189,7 @@ export class NatRule extends pulumi.CustomResource {
 export interface NatRuleState {
     backendIpConfigurationId?: pulumi.Input<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     backendPort?: pulumi.Input<number>;
     /**
@@ -206,7 +206,7 @@ export interface NatRuleState {
      */
     frontendIpConfigurationName?: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
     frontendPort?: pulumi.Input<number>;
     /**
@@ -236,7 +236,7 @@ export interface NatRuleState {
  */
 export interface NatRuleArgs {
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     backendPort: pulumi.Input<number>;
     /**
@@ -252,7 +252,7 @@ export interface NatRuleArgs {
      */
     frontendIpConfigurationName: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
     frontendPort: pulumi.Input<number>;
     /**

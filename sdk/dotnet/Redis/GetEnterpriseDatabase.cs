@@ -104,8 +104,8 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The name of the resource group the Redis Enterprise Database instance is located in.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetEnterpriseDatabaseArgs()
         {
@@ -129,8 +129,8 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The name of the resource group the Redis Enterprise Database instance is located in.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public GetEnterpriseDatabaseInvokeArgs()
         {

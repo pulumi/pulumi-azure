@@ -31,7 +31,9 @@ export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, o
     return pulumi.runtime.invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
         "name": args.name,
         "namespaceName": args.namespaceName,
+        "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,
+        "topicId": args.topicId,
         "topicName": args.topicName,
     }, opts);
 }
@@ -47,15 +49,17 @@ export interface GetTopicAuthorizationRuleArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: string;
+    namespaceName?: string;
+    queueName?: string;
     /**
      * The name of the resource group in which the ServiceBus Namespace exists.
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
+    topicId?: string;
     /**
      * The name of the ServiceBus Topic.
      */
-    topicName: string;
+    topicName?: string;
 }
 
 /**
@@ -69,7 +73,7 @@ export interface GetTopicAuthorizationRuleResult {
     readonly listen: boolean;
     readonly manage: boolean;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceName?: string;
     /**
      * The Primary Connection String for the ServiceBus Topic authorization Rule.
      */
@@ -82,7 +86,8 @@ export interface GetTopicAuthorizationRuleResult {
      * The Primary Key for the ServiceBus Topic authorization Rule.
      */
     readonly primaryKey: string;
-    readonly resourceGroupName: string;
+    readonly queueName?: string;
+    readonly resourceGroupName?: string;
     /**
      * The Secondary Connection String for the ServiceBus Topic authorization Rule.
      */
@@ -96,7 +101,8 @@ export interface GetTopicAuthorizationRuleResult {
      */
     readonly secondaryKey: string;
     readonly send: boolean;
-    readonly topicName: string;
+    readonly topicId?: string;
+    readonly topicName?: string;
 }
 
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
@@ -114,13 +120,15 @@ export interface GetTopicAuthorizationRuleOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
+    queueName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the ServiceBus Namespace exists.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
+    topicId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Topic.
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string>;
 }

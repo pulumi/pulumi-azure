@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Create a failover group of databases on a collection of Azure SQL servers.
- *
  * ## Example Usage
  *
  * ```typescript

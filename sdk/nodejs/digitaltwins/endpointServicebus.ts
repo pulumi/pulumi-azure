@@ -23,14 +23,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {namespaceId: exampleNamespace.id});
  * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     topicName: exampleTopic.name,
+ *     topicId: exampleTopic.id,
  *     listen: false,
  *     send: true,
  *     manage: false,

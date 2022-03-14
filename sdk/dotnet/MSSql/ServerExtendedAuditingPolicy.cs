@@ -185,6 +185,12 @@ namespace Pulumi.Azure.MSSql
     public partial class ServerExtendedAuditingPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>
         [Output("logMonitoringEnabled")]
@@ -273,6 +279,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>
         [Input("logMonitoringEnabled")]
@@ -321,6 +333,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ServerExtendedAuditingPolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         /// <summary>
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         /// </summary>

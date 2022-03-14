@@ -26,7 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := redis.LookupEnterpriseDatabase(ctx, &redis.LookupEnterpriseDatabaseArgs{
 // 			Name:              "default",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 			ResourceGroupName: pulumi.StringRef(azurerm_resource_group.Example.Name),
 // 			ClusterId:         azurerm_redis_enterprise_cluster.Example.Id,
 // 		}, nil)
 // 		if err != nil {
@@ -54,7 +54,9 @@ type LookupEnterpriseDatabaseArgs struct {
 	// The name of the Redis Enterprise Database.
 	Name string `pulumi:"name"`
 	// The name of the resource group the Redis Enterprise Database instance is located in.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	//
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getEnterpriseDatabase.
@@ -66,7 +68,8 @@ type LookupEnterpriseDatabaseResult struct {
 	// The Redis Enterprise Database name.
 	Name string `pulumi:"name"`
 	// The Primary Access Key for the Redis Enterprise Database instance.
-	PrimaryAccessKey  string `pulumi:"primaryAccessKey"`
+	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Enterprise Database instance.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
@@ -88,7 +91,9 @@ type LookupEnterpriseDatabaseOutputArgs struct {
 	// The name of the Redis Enterprise Database.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group the Redis Enterprise Database instance is located in.
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	//
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupEnterpriseDatabaseOutputArgs) ElementType() reflect.Type {
@@ -130,6 +135,7 @@ func (o LookupEnterpriseDatabaseResultOutput) PrimaryAccessKey() pulumi.StringOu
 	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
 }
 
+// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 func (o LookupEnterpriseDatabaseResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

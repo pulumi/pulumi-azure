@@ -21,6 +21,8 @@ from .notebook_workspace import *
 from .sql_container import *
 from .sql_database import *
 from .sql_function import *
+from .sql_role_assignment import *
+from .sql_role_definition import *
 from .sql_stored_procedure import *
 from .sql_trigger import *
 from .table import *

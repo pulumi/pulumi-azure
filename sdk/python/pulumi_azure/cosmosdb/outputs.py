@@ -49,6 +49,7 @@ __all__ = [
     'SqlContainerIndexingPolicySpatialIndex',
     'SqlContainerUniqueKey',
     'SqlDatabaseAutoscaleSettings',
+    'SqlRoleDefinitionPermission',
     'TableAutoscaleSettings',
     'GetAccountCapabilityResult',
     'GetAccountConsistencyPolicyResult',
@@ -1709,6 +1710,41 @@ class SqlDatabaseAutoscaleSettings(dict):
         The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
+
+
+@pulumi.output_type
+class SqlRoleDefinitionPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataActions":
+            suggest = "data_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlRoleDefinitionPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlRoleDefinitionPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlRoleDefinitionPermission.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_actions: Sequence[str]):
+        """
+        :param Sequence[str] data_actions: A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+        """
+        pulumi.set(__self__, "data_actions", data_actions)
+
+    @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Sequence[str]:
+        """
+        A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+        """
+        return pulumi.get(self, "data_actions")
 
 
 @pulumi.output_type

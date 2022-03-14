@@ -14,22 +14,57 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class BlobInventoryPolicyRule
     {
         /// <summary>
-        /// A `filter` block as defined above.
+        /// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         /// </summary>
-        public readonly Outputs.BlobInventoryPolicyRuleFilter Filter;
+        public readonly Outputs.BlobInventoryPolicyRuleFilter? Filter;
+        /// <summary>
+        /// The format of the inventory files. Possible values are `Csv` and `Parquet`.
+        /// </summary>
+        public readonly string Format;
         /// <summary>
         /// The name which should be used for this Blob Inventory Policy Rule.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+        /// </summary>
+        public readonly string Schedule;
+        /// <summary>
+        /// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        /// </summary>
+        public readonly ImmutableArray<string> SchemaFields;
+        /// <summary>
+        /// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+        /// </summary>
+        public readonly string Scope;
+        /// <summary>
+        /// The storage container name to store the blob inventory files for this rule.
+        /// </summary>
+        public readonly string StorageContainerName;
 
         [OutputConstructor]
         private BlobInventoryPolicyRule(
-            Outputs.BlobInventoryPolicyRuleFilter filter,
+            Outputs.BlobInventoryPolicyRuleFilter? filter,
 
-            string name)
+            string format,
+
+            string name,
+
+            string schedule,
+
+            ImmutableArray<string> schemaFields,
+
+            string scope,
+
+            string storageContainerName)
         {
             Filter = filter;
+            Format = format;
             Name = name;
+            Schedule = schedule;
+            SchemaFields = schemaFields;
+            Scope = scope;
+            StorageContainerName = storageContainerName;
         }
     }
 }

@@ -29,6 +29,7 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
+        "namespaceId": args.namespaceId,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -42,14 +43,15 @@ export interface GetNamespaceAuthorizationRuleArgs {
      * Specifies the name of the ServiceBus Namespace Authorization Rule.
      */
     name: string;
+    namespaceId?: string;
     /**
      * Specifies the name of the ServiceBus Namespace.
      */
-    namespaceName: string;
+    namespaceName?: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
 }
 
 /**
@@ -61,7 +63,8 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly id: string;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceId?: string;
+    readonly namespaceName?: string;
     /**
      * The primary connection string for the authorization rule.
      */
@@ -74,7 +77,7 @@ export interface GetNamespaceAuthorizationRuleResult {
      * The primary access key for the authorization rule.
      */
     readonly primaryKey: string;
-    readonly resourceGroupName: string;
+    readonly resourceGroupName?: string;
     /**
      * The secondary connection string for the authorization rule.
      */
@@ -101,12 +104,13 @@ export interface GetNamespaceAuthorizationRuleOutputArgs {
      * Specifies the name of the ServiceBus Namespace Authorization Rule.
      */
     name: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the ServiceBus Namespace.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

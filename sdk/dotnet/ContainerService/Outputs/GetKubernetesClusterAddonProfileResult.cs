@@ -13,33 +13,18 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAddonProfileResult
     {
-        /// <summary>
-        /// An `azure_keyvault_secrets_provider` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult> AzureKeyvaultSecretsProviders;
-        /// <summary>
-        /// A `azure_policy` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzurePolicyResult> AzurePolicies;
-        /// <summary>
-        /// A `http_application_routing` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileHttpApplicationRoutingResult> HttpApplicationRoutings;
         /// <summary>
-        /// An `ingress_application_gateway` block.
+        /// An `ingress_application_gateway` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayResult> IngressApplicationGateways;
-        /// <summary>
-        /// A `kube_dashboard` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileKubeDashboardResult> KubeDashboards;
         /// <summary>
-        /// A `oms_agent` block.
+        /// An `oms_agent` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentResult> OmsAgents;
-        /// <summary>
-        /// An `open_service_mesh` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult> OpenServiceMeshes;
 
         [OutputConstructor]

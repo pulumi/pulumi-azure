@@ -26,9 +26,7 @@ import * as utilities from "../utilities";
  *     namespaceName: exampleNamespace.name,
  * });
  * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     topicId: exampleTopic.id,
  *     listen: false,
  *     send: true,
  *     manage: false,
@@ -46,7 +44,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEndpointServicebusTopic = new azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
+ *     iothubId: exampleIoTHub.id,
  *     connectionString: exampleTopicAuthorizationRule.primaryConnectionString,
  * });
  * ```

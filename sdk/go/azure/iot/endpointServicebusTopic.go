@@ -51,12 +51,10 @@ import (
 // 			return err
 // 		}
 // 		exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			TopicName:         exampleTopic.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(false),
-// 			Send:              pulumi.Bool(true),
-// 			Manage:            pulumi.Bool(false),
+// 			TopicId: exampleTopic.ID(),
+// 			Listen:  pulumi.Bool(false),
+// 			Send:    pulumi.Bool(true),
+// 			Manage:  pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -77,7 +75,7 @@ import (
 // 		}
 // 		_, err = iot.NewEndpointServicebusTopic(ctx, "exampleEndpointServicebusTopic", &iot.EndpointServicebusTopicArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubName:        exampleIoTHub.Name,
+// 			IothubId:          exampleIoTHub.ID(),
 // 			ConnectionString:  exampleTopicAuthorizationRule.PrimaryConnectionString,
 // 		})
 // 		if err != nil {

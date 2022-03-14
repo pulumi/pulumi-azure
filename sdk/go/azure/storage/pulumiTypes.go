@@ -3905,10 +3905,20 @@ func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 }
 
 type BlobInventoryPolicyRule struct {
-	// A `filter` block as defined above.
-	Filter BlobInventoryPolicyRuleFilter `pulumi:"filter"`
+	// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+	Filter *BlobInventoryPolicyRuleFilter `pulumi:"filter"`
+	// The format of the inventory files. Possible values are `Csv` and `Parquet`.
+	Format string `pulumi:"format"`
 	// The name which should be used for this Blob Inventory Policy Rule.
 	Name string `pulumi:"name"`
+	// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+	Schedule string `pulumi:"schedule"`
+	// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+	SchemaFields []string `pulumi:"schemaFields"`
+	// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+	Scope string `pulumi:"scope"`
+	// The storage container name to store the blob inventory files for this rule.
+	StorageContainerName string `pulumi:"storageContainerName"`
 }
 
 // BlobInventoryPolicyRuleInput is an input type that accepts BlobInventoryPolicyRuleArgs and BlobInventoryPolicyRuleOutput values.
@@ -3923,10 +3933,20 @@ type BlobInventoryPolicyRuleInput interface {
 }
 
 type BlobInventoryPolicyRuleArgs struct {
-	// A `filter` block as defined above.
-	Filter BlobInventoryPolicyRuleFilterInput `pulumi:"filter"`
+	// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+	Filter BlobInventoryPolicyRuleFilterPtrInput `pulumi:"filter"`
+	// The format of the inventory files. Possible values are `Csv` and `Parquet`.
+	Format pulumi.StringInput `pulumi:"format"`
 	// The name which should be used for this Blob Inventory Policy Rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
+	// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+	SchemaFields pulumi.StringArrayInput `pulumi:"schemaFields"`
+	// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// The storage container name to store the blob inventory files for this rule.
+	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
 }
 
 func (BlobInventoryPolicyRuleArgs) ElementType() reflect.Type {
@@ -3980,14 +4000,39 @@ func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutputWithContex
 	return o
 }
 
-// A `filter` block as defined above.
-func (o BlobInventoryPolicyRuleOutput) Filter() BlobInventoryPolicyRuleFilterOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyRule) BlobInventoryPolicyRuleFilter { return v.Filter }).(BlobInventoryPolicyRuleFilterOutput)
+// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+func (o BlobInventoryPolicyRuleOutput) Filter() BlobInventoryPolicyRuleFilterPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) *BlobInventoryPolicyRuleFilter { return v.Filter }).(BlobInventoryPolicyRuleFilterPtrOutput)
+}
+
+// The format of the inventory files. Possible values are `Csv` and `Parquet`.
+func (o BlobInventoryPolicyRuleOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Format }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this Blob Inventory Policy Rule.
 func (o BlobInventoryPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+func (o BlobInventoryPolicyRuleOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+func (o BlobInventoryPolicyRuleOutput) SchemaFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) []string { return v.SchemaFields }).(pulumi.StringArrayOutput)
+}
+
+// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+func (o BlobInventoryPolicyRuleOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// The storage container name to store the blob inventory files for this rule.
+func (o BlobInventoryPolicyRuleOutput) StorageContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.StorageContainerName }).(pulumi.StringOutput)
 }
 
 type BlobInventoryPolicyRuleArrayOutput struct{ *pulumi.OutputState }
@@ -4055,6 +4100,47 @@ func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleFilterOutput)
 }
 
+func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterPtrOutput() BlobInventoryPolicyRuleFilterPtrOutput {
+	return i.ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleFilterOutput).ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx)
+}
+
+// BlobInventoryPolicyRuleFilterPtrInput is an input type that accepts BlobInventoryPolicyRuleFilterArgs, BlobInventoryPolicyRuleFilterPtr and BlobInventoryPolicyRuleFilterPtrOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleFilterPtrInput` via:
+//
+//          BlobInventoryPolicyRuleFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobInventoryPolicyRuleFilterPtrInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleFilterPtrOutput() BlobInventoryPolicyRuleFilterPtrOutput
+	ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(context.Context) BlobInventoryPolicyRuleFilterPtrOutput
+}
+
+type blobInventoryPolicyRuleFilterPtrType BlobInventoryPolicyRuleFilterArgs
+
+func BlobInventoryPolicyRuleFilterPtr(v *BlobInventoryPolicyRuleFilterArgs) BlobInventoryPolicyRuleFilterPtrInput {
+	return (*blobInventoryPolicyRuleFilterPtrType)(v)
+}
+
+func (*blobInventoryPolicyRuleFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicyRuleFilter)(nil)).Elem()
+}
+
+func (i *blobInventoryPolicyRuleFilterPtrType) ToBlobInventoryPolicyRuleFilterPtrOutput() BlobInventoryPolicyRuleFilterPtrOutput {
+	return i.ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *blobInventoryPolicyRuleFilterPtrType) ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleFilterPtrOutput)
+}
+
 type BlobInventoryPolicyRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyRuleFilterOutput) ElementType() reflect.Type {
@@ -4067,6 +4153,16 @@ func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterOutp
 
 func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterOutput {
 	return o
+}
+
+func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterPtrOutput() BlobInventoryPolicyRuleFilterPtrOutput {
+	return o.ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobInventoryPolicyRuleFilter) *BlobInventoryPolicyRuleFilter {
+		return &v
+	}).(BlobInventoryPolicyRuleFilterPtrOutput)
 }
 
 // A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
@@ -4087,6 +4183,70 @@ func (o BlobInventoryPolicyRuleFilterOutput) IncludeSnapshots() pulumi.BoolPtrOu
 // A set of strings for blob prefixes to be matched.
 func (o BlobInventoryPolicyRuleFilterOutput) PrefixMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+}
+
+type BlobInventoryPolicyRuleFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicyRuleFilter)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleFilterPtrOutput) ToBlobInventoryPolicyRuleFilterPtrOutput() BlobInventoryPolicyRuleFilterPtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleFilterPtrOutput) ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterPtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleFilterPtrOutput) Elem() BlobInventoryPolicyRuleFilterOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) BlobInventoryPolicyRuleFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BlobInventoryPolicyRuleFilter
+		return ret
+	}).(BlobInventoryPolicyRuleFilterOutput)
+}
+
+// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory or not? Defaults to `false`.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeBlobVersions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory or not? Defaults to `false`.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A set of strings for blob prefixes to be matched.
+func (o BlobInventoryPolicyRuleFilterPtrOutput) PrefixMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixMatches
+	}).(pulumi.StringArrayOutput)
 }
 
 type DataLakeGen2FilesystemAce struct {
@@ -7533,6 +7693,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleInput)(nil)).Elem(), BlobInventoryPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleArrayInput)(nil)).Elem(), BlobInventoryPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleFilterInput)(nil)).Elem(), BlobInventoryPolicyRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleFilterPtrInput)(nil)).Elem(), BlobInventoryPolicyRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemAceInput)(nil)).Elem(), DataLakeGen2FilesystemAceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemAceArrayInput)(nil)).Elem(), DataLakeGen2FilesystemAceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathAceInput)(nil)).Elem(), DataLakeGen2PathAceArgs{})
@@ -7633,6 +7794,7 @@ func init() {
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleFilterOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleFilterPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceOutput{})

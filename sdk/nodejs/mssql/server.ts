@@ -75,13 +75,13 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The administrator login name for the new server. Changing this forces a new resource to be created.
+     * The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string>;
+    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
      * An `azureadAdministrator` block as defined below.
      */
@@ -177,12 +177,6 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.administratorLogin === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administratorLogin'");
-            }
-            if ((!args || args.administratorLoginPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administratorLoginPassword'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -218,11 +212,11 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * The administrator login name for the new server. Changing this forces a new resource to be created.
+     * The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -293,13 +287,13 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * The administrator login name for the new server. Changing this forces a new resource to be created.
+     * The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      */
-    administratorLogin: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
-     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
      */
-    administratorLoginPassword: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * An `azureadAdministrator` block as defined below.
      */

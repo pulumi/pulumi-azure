@@ -64,7 +64,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the availability set. Changing this forces a new resource to be created.
+     * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export interface PlacementGroupState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the availability set. Changing this forces a new resource to be created.
+     * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -139,7 +139,7 @@ export interface PlacementGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the availability set. Changing this forces a new resource to be created.
+     * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

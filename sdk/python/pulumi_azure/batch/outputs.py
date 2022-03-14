@@ -10,6 +10,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountEncryption',
     'AccountIdentity',
     'AccountKeyVaultReference',
     'PoolAutoScale',
@@ -26,6 +27,7 @@ __all__ = [
     'PoolStartTaskUserIdentity',
     'PoolStartTaskUserIdentityAutoUser',
     'PoolStorageImageReference',
+    'GetAccountEncryptionResult',
     'GetAccountKeyVaultReferenceResult',
     'GetPoolAutoScaleResult',
     'GetPoolCertificateResult',
@@ -41,6 +43,41 @@ __all__ = [
     'GetPoolStartTaskUserIdentityAutoUserResult',
     'GetPoolStorageImageReferenceResult',
 ]
+
+@pulumi.output_type
+class AccountEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: str):
+        """
+        :param str key_vault_key_id: The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
 
 @pulumi.output_type
 class AccountIdentity(dict):
@@ -1115,6 +1152,18 @@ class PoolStorageImageReference(dict):
         Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetAccountEncryptionResult(dict):
+    def __init__(__self__, *,
+                 key_vault_key_id: str):
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        return pulumi.get(self, "key_vault_key_id")
 
 
 @pulumi.output_type

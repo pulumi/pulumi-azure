@@ -12,14 +12,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterRoleBasedAccessControlArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An `azure_active_directory` block.
-        /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
         /// <summary>
-        /// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        /// Is the Kubernetes Dashboard enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

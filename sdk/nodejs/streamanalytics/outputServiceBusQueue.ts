@@ -27,8 +27,7 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const exampleQueue = new azure.servicebus.Queue("exampleQueue", {
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", {

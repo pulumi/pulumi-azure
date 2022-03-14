@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a SQL Azure Managed Database
- *
  * ## Example Usage
  *
  * ```typescript

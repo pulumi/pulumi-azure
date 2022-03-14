@@ -74,9 +74,17 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
      */
     public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
     /**
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+     */
+    public readonly group!: pulumi.Output<string>;
+    /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+     */
+    public readonly owner!: pulumi.Output<string>;
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
@@ -100,7 +108,9 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DataLakeGen2FilesystemState | undefined;
             resourceInputs["aces"] = state ? state.aces : undefined;
+            resourceInputs["group"] = state ? state.group : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
@@ -109,7 +119,9 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             resourceInputs["aces"] = args ? args.aces : undefined;
+            resourceInputs["group"] = args ? args.group : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
@@ -127,9 +139,17 @@ export interface DataLakeGen2FilesystemState {
      */
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+     */
+    group?: pulumi.Input<string>;
+    /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+     */
+    owner?: pulumi.Input<string>;
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
@@ -149,9 +169,17 @@ export interface DataLakeGen2FilesystemArgs {
      */
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+     */
+    group?: pulumi.Input<string>;
+    /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+     */
+    owner?: pulumi.Input<string>;
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */

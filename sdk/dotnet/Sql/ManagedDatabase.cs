@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Manages a SQL Azure Managed Database
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

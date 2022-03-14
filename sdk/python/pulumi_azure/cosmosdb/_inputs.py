@@ -48,6 +48,7 @@ __all__ = [
     'SqlContainerIndexingPolicySpatialIndexArgs',
     'SqlContainerUniqueKeyArgs',
     'SqlDatabaseAutoscaleSettingsArgs',
+    'SqlRoleDefinitionPermissionArgs',
     'TableAutoscaleSettingsArgs',
 ]
 
@@ -1577,6 +1578,28 @@ class SqlDatabaseAutoscaleSettingsArgs:
     @max_throughput.setter
     def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class SqlRoleDefinitionPermissionArgs:
+    def __init__(__self__, *,
+                 data_actions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_actions: A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+        """
+        pulumi.set(__self__, "data_actions", data_actions)
+
+    @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @data_actions.setter
+    def data_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "data_actions", value)
 
 
 @pulumi.input_type

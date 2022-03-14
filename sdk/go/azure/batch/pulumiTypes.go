@@ -10,6 +10,143 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountEncryption struct {
+	// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
+// You can construct a concrete instance of `AccountEncryptionInput` via:
+//
+//          AccountEncryptionArgs{...}
+type AccountEncryptionInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionOutput() AccountEncryptionOutput
+	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
+}
+
+type AccountEncryptionArgs struct {
+	// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (AccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return i.ToAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput).ToAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionPtrInput` via:
+//
+//          AccountEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput
+	ToAccountEncryptionPtrOutputWithContext(context.Context) AccountEncryptionPtrOutput
+}
+
+type accountEncryptionPtrType AccountEncryptionArgs
+
+func AccountEncryptionPtr(v *AccountEncryptionArgs) AccountEncryptionPtrInput {
+	return (*accountEncryptionPtrType)(v)
+}
+
+func (*accountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
+}
+
+type AccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
+		return &v
+	}).(AccountEncryptionPtrOutput)
+}
+
+// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+func (o AccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type AccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
+}
+
+// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+func (o AccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountIdentity struct {
 	// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -2668,6 +2805,139 @@ func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAccountEncryption struct {
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// GetAccountEncryptionInput is an input type that accepts GetAccountEncryptionArgs and GetAccountEncryptionOutput values.
+// You can construct a concrete instance of `GetAccountEncryptionInput` via:
+//
+//          GetAccountEncryptionArgs{...}
+type GetAccountEncryptionInput interface {
+	pulumi.Input
+
+	ToGetAccountEncryptionOutput() GetAccountEncryptionOutput
+	ToGetAccountEncryptionOutputWithContext(context.Context) GetAccountEncryptionOutput
+}
+
+type GetAccountEncryptionArgs struct {
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (GetAccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountEncryption)(nil)).Elem()
+}
+
+func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutput() GetAccountEncryptionOutput {
+	return i.ToGetAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutputWithContext(ctx context.Context) GetAccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput)
+}
+
+func (i GetAccountEncryptionArgs) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
+	return i.ToGetAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i GetAccountEncryptionArgs) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput).ToGetAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// GetAccountEncryptionPtrInput is an input type that accepts GetAccountEncryptionArgs, GetAccountEncryptionPtr and GetAccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `GetAccountEncryptionPtrInput` via:
+//
+//          GetAccountEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type GetAccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput
+	ToGetAccountEncryptionPtrOutputWithContext(context.Context) GetAccountEncryptionPtrOutput
+}
+
+type getAccountEncryptionPtrType GetAccountEncryptionArgs
+
+func GetAccountEncryptionPtr(v *GetAccountEncryptionArgs) GetAccountEncryptionPtrInput {
+	return (*getAccountEncryptionPtrType)(v)
+}
+
+func (*getAccountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountEncryption)(nil)).Elem()
+}
+
+func (i *getAccountEncryptionPtrType) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
+	return i.ToGetAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *getAccountEncryptionPtrType) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionPtrOutput)
+}
+
+type GetAccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetAccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountEncryption)(nil)).Elem()
+}
+
+func (o GetAccountEncryptionOutput) ToGetAccountEncryptionOutput() GetAccountEncryptionOutput {
+	return o
+}
+
+func (o GetAccountEncryptionOutput) ToGetAccountEncryptionOutputWithContext(ctx context.Context) GetAccountEncryptionOutput {
+	return o
+}
+
+func (o GetAccountEncryptionOutput) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
+	return o.ToGetAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o GetAccountEncryptionOutput) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAccountEncryption) *GetAccountEncryption {
+		return &v
+	}).(GetAccountEncryptionPtrOutput)
+}
+
+func (o GetAccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type GetAccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountEncryption)(nil)).Elem()
+}
+
+func (o GetAccountEncryptionPtrOutput) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
+	return o
+}
+
+func (o GetAccountEncryptionPtrOutput) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
+	return o
+}
+
+func (o GetAccountEncryptionPtrOutput) Elem() GetAccountEncryptionOutput {
+	return o.ApplyT(func(v *GetAccountEncryption) GetAccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret GetAccountEncryption
+		return ret
+	}).(GetAccountEncryptionOutput)
+}
+
+func (o GetAccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAccountKeyVaultReference struct {
 	// The Azure identifier of the Azure KeyVault reference.
 	Id string `pulumi:"id"`
@@ -4261,6 +4531,8 @@ func (o GetPoolStorageImageReferenceArrayOutput) Index(i pulumi.IntInput) GetPoo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionInput)(nil)).Elem(), AccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionPtrInput)(nil)).Elem(), AccountEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountKeyVaultReferenceInput)(nil)).Elem(), AccountKeyVaultReferenceArgs{})
@@ -4293,6 +4565,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskUserIdentityAutoUserPtrInput)(nil)).Elem(), PoolStartTaskUserIdentityAutoUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStorageImageReferenceInput)(nil)).Elem(), PoolStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStorageImageReferencePtrInput)(nil)).Elem(), PoolStorageImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionInput)(nil)).Elem(), GetAccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionPtrInput)(nil)).Elem(), GetAccountEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceInput)(nil)).Elem(), GetAccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceArrayInput)(nil)).Elem(), GetAccountKeyVaultReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolAutoScaleInput)(nil)).Elem(), GetPoolAutoScaleArgs{})
@@ -4319,6 +4593,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskUserIdentityAutoUserArrayInput)(nil)).Elem(), GetPoolStartTaskUserIdentityAutoUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStorageImageReferenceInput)(nil)).Elem(), GetPoolStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStorageImageReferenceArrayInput)(nil)).Elem(), GetPoolStorageImageReferenceArray{})
+	pulumi.RegisterOutputType(AccountEncryptionOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountKeyVaultReferenceOutput{})
@@ -4351,6 +4627,8 @@ func init() {
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserPtrOutput{})
 	pulumi.RegisterOutputType(PoolStorageImageReferenceOutput{})
 	pulumi.RegisterOutputType(PoolStorageImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(GetAccountEncryptionOutput{})
+	pulumi.RegisterOutputType(GetAccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolAutoScaleOutput{})

@@ -31,14 +31,14 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
-        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]] features: A `features` block as documented below.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not.
+        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
@@ -96,7 +96,7 @@ class ServiceArgs:
     @pulumi.getter(name="connectivityLogsEnabled")
     def connectivity_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Connectivity Logs are enabled or not.
+        Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "connectivity_logs_enabled")
 
@@ -132,7 +132,7 @@ class ServiceArgs:
     @pulumi.getter(name="liveTraceEnabled")
     def live_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Live Trace is enabled or not.
+        Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "live_trace_enabled")
 
@@ -156,7 +156,7 @@ class ServiceArgs:
     @pulumi.getter(name="messagingLogsEnabled")
     def messaging_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Messaging Logs are enabled or not.
+        Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "messaging_logs_enabled")
 
@@ -180,7 +180,7 @@ class ServiceArgs:
     @pulumi.getter(name="serviceMode")
     def service_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         """
         return pulumi.get(self, "service_mode")
 
@@ -238,14 +238,14 @@ class _ServiceState:
                  upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
-        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not.
+        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
@@ -254,7 +254,7 @@ class _ServiceState:
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the SignalR service.
         :param pulumi.Input[int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
-        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
@@ -307,7 +307,7 @@ class _ServiceState:
     @pulumi.getter(name="connectivityLogsEnabled")
     def connectivity_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Connectivity Logs are enabled or not.
+        Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "connectivity_logs_enabled")
 
@@ -367,7 +367,7 @@ class _ServiceState:
     @pulumi.getter(name="liveTraceEnabled")
     def live_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Live Trace is enabled or not.
+        Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "live_trace_enabled")
 
@@ -391,7 +391,7 @@ class _ServiceState:
     @pulumi.getter(name="messagingLogsEnabled")
     def messaging_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Messaging Logs are enabled or not.
+        Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "messaging_logs_enabled")
 
@@ -499,7 +499,7 @@ class _ServiceState:
     @pulumi.getter(name="serviceMode")
     def service_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         """
         return pulumi.get(self, "service_mode")
 
@@ -606,15 +606,15 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not.
+        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
@@ -770,14 +770,14 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not.
+        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
@@ -786,7 +786,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the SignalR service.
         :param pulumi.Input[int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
-        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
@@ -821,7 +821,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="connectivityLogsEnabled")
     def connectivity_logs_enabled(self) -> pulumi.Output[bool]:
         """
-        Specifies if Connectivity Logs are enabled or not.
+        Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "connectivity_logs_enabled")
 
@@ -861,7 +861,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="liveTraceEnabled")
     def live_trace_enabled(self) -> pulumi.Output[bool]:
         """
-        Specifies if Live Trace is enabled or not.
+        Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "live_trace_enabled")
 
@@ -877,7 +877,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="messagingLogsEnabled")
     def messaging_logs_enabled(self) -> pulumi.Output[bool]:
         """
-        Specifies if Messaging Logs are enabled or not.
+        Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         """
         return pulumi.get(self, "messaging_logs_enabled")
 
@@ -949,7 +949,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="serviceMode")
     def service_mode(self) -> pulumi.Output[str]:
         """
-        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         """
         return pulumi.get(self, "service_mode")
 

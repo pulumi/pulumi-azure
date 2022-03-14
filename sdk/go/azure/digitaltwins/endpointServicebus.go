@@ -49,19 +49,16 @@ import (
 // 			return err
 // 		}
 // 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			NamespaceId: exampleNamespace.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TopicName:         exampleTopic.Name,
-// 			Listen:            pulumi.Bool(false),
-// 			Send:              pulumi.Bool(true),
-// 			Manage:            pulumi.Bool(false),
+// 			TopicId: exampleTopic.ID(),
+// 			Listen:  pulumi.Bool(false),
+// 			Send:    pulumi.Bool(true),
+// 			Manage:  pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err

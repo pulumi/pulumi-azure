@@ -77,7 +77,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies if Connectivity Logs are enabled or not.
+     * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
     public readonly connectivityLogsEnabled!: pulumi.Output<boolean>;
     /**
@@ -99,7 +99,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * Specifies if Live Trace is enabled or not.
+     * Specifies if Live Trace is enabled or not. Defaults to `false`.
      */
     public readonly liveTraceEnabled!: pulumi.Output<boolean>;
     /**
@@ -107,7 +107,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies if Messaging Logs are enabled or not.
+     * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
     public readonly messagingLogsEnabled!: pulumi.Output<boolean>;
     /**
@@ -143,7 +143,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
-     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
     public readonly serviceMode!: pulumi.Output<string>;
     /**
@@ -231,7 +231,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * Specifies if Connectivity Logs are enabled or not.
+     * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
     connectivityLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -253,7 +253,7 @@ export interface ServiceState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Specifies if Live Trace is enabled or not.
+     * Specifies if Live Trace is enabled or not. Defaults to `false`.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
     /**
@@ -261,7 +261,7 @@ export interface ServiceState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies if Messaging Logs are enabled or not.
+     * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
     messagingLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -297,7 +297,7 @@ export interface ServiceState {
      */
     serverPort?: pulumi.Input<number>;
     /**
-     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
     serviceMode?: pulumi.Input<string>;
     /**
@@ -319,7 +319,7 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
-     * Specifies if Connectivity Logs are enabled or not.
+     * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
     connectivityLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -333,7 +333,7 @@ export interface ServiceArgs {
      */
     features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
-     * Specifies if Live Trace is enabled or not.
+     * Specifies if Live Trace is enabled or not. Defaults to `false`.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
     /**
@@ -341,7 +341,7 @@ export interface ServiceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies if Messaging Logs are enabled or not.
+     * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
     messagingLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -353,7 +353,7 @@ export interface ServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
     serviceMode?: pulumi.Input<string>;
     /**

@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Batch
         public Output<string> AccountEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.AccountEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -179,6 +185,12 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -250,6 +262,12 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
+
+        /// <summary>
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.AccountEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

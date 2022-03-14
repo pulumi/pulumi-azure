@@ -115,7 +115,7 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+     * A JSON mapping of any Parameters for this Policy.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface GroupPolicyAssignmentState {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+     * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
     /**
@@ -273,7 +273,7 @@ export interface GroupPolicyAssignmentArgs {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+     * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
     /**

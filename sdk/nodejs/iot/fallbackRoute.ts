@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
+ *     iothubId: exampleIoTHub.id,
  *     connectionString: exampleAccount.primaryBlobConnectionString,
  *     batchFrequencyInSeconds: 60,
  *     maxChunkSizeInBytes: 10485760,

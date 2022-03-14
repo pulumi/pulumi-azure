@@ -26,9 +26,9 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := servicebus.LookupQueueAuthorizationRule(ctx, &servicebus.LookupQueueAuthorizationRuleArgs{
 // 			Name:              "example-tfex_name",
-// 			ResourceGroupName: "example-resources",
-// 			QueueName:         "example-servicebus_queue",
-// 			NamespaceName:     "example-namespace",
+// 			ResourceGroupName: pulumi.StringRef("example-resources"),
+// 			QueueName:         pulumi.StringRef("example-servicebus_queue"),
+// 			NamespaceName:     pulumi.StringRef("example-namespace"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -52,29 +52,31 @@ type LookupQueueAuthorizationRuleArgs struct {
 	// The name of this ServiceBus Queue Authorisation Rule.
 	Name string `pulumi:"name"`
 	// The name of the ServiceBus Namespace.
-	NamespaceName string `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
+	QueueId       *string `pulumi:"queueId"`
 	// The name of the ServiceBus Queue.
-	QueueName string `pulumi:"queueName"`
+	QueueName *string `pulumi:"queueName"`
 	// The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getQueueAuthorizationRule.
 type LookupQueueAuthorizationRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	Listen        bool   `pulumi:"listen"`
-	Manage        bool   `pulumi:"manage"`
-	Name          string `pulumi:"name"`
-	NamespaceName string `pulumi:"namespaceName"`
+	Id            string  `pulumi:"id"`
+	Listen        bool    `pulumi:"listen"`
+	Manage        bool    `pulumi:"manage"`
+	Name          string  `pulumi:"name"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Queue authorization Rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
 	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Queue authorization Rule.
-	PrimaryKey        string `pulumi:"primaryKey"`
-	QueueName         string `pulumi:"queueName"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrimaryKey        string  `pulumi:"primaryKey"`
+	QueueId           *string `pulumi:"queueId"`
+	QueueName         *string `pulumi:"queueName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Queue authorization Rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The alias Secondary Connection String for the ServiceBus Namespace
@@ -98,11 +100,12 @@ type LookupQueueAuthorizationRuleOutputArgs struct {
 	// The name of this ServiceBus Queue Authorisation Rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace.
-	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
+	QueueId       pulumi.StringPtrInput `pulumi:"queueId"`
 	// The name of the ServiceBus Queue.
-	QueueName pulumi.StringInput `pulumi:"queueName"`
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
 	// The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupQueueAuthorizationRuleOutputArgs) ElementType() reflect.Type {
@@ -141,8 +144,8 @@ func (o LookupQueueAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupQueueAuthorizationRuleResultOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o LookupQueueAuthorizationRuleResultOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
 // The Primary Connection String for the ServiceBus Queue authorization Rule.
@@ -160,12 +163,16 @@ func (o LookupQueueAuthorizationRuleResultOutput) PrimaryKey() pulumi.StringOutp
 	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-func (o LookupQueueAuthorizationRuleResultOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.QueueName }).(pulumi.StringOutput)
+func (o LookupQueueAuthorizationRuleResultOutput) QueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupQueueAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o LookupQueueAuthorizationRuleResultOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) *string { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupQueueAuthorizationRuleResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueAuthorizationRuleResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The Secondary Connection String for the ServiceBus Queue authorization Rule.

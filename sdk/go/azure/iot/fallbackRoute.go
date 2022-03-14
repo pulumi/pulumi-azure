@@ -71,7 +71,7 @@ import (
 // 		}
 // 		exampleEndpointStorageContainer, err := iot.NewEndpointStorageContainer(ctx, "exampleEndpointStorageContainer", &iot.EndpointStorageContainerArgs{
 // 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			IothubName:              exampleIoTHub.Name,
+// 			IothubId:                exampleIoTHub.ID(),
 // 			ConnectionString:        exampleAccount.PrimaryBlobConnectionString,
 // 			BatchFrequencyInSeconds: pulumi.Int(60),
 // 			MaxChunkSizeInBytes:     pulumi.Int(10485760),

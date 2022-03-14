@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance
-//
 // ## Example Usage
 //
 // ```go

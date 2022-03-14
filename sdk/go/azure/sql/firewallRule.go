@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to manage an Azure SQL Firewall Rule
-//
 // ## Example Usage
 //
 // ```go

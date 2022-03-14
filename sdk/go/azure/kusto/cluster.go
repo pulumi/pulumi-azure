@@ -95,7 +95,8 @@ type Cluster struct {
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku                       ClusterSkuOutput  `pulumi:"sku"`
+	Sku ClusterSkuOutput `pulumi:"sku"`
+	// Specifies if the streaming ingest is enabled.
 	StreamingIngestionEnabled pulumi.BoolOutput `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -178,8 +179,9 @@ type clusterState struct {
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku                       *ClusterSku `pulumi:"sku"`
-	StreamingIngestionEnabled *bool       `pulumi:"streamingIngestionEnabled"`
+	Sku *ClusterSku `pulumi:"sku"`
+	// Specifies if the streaming ingest is enabled.
+	StreamingIngestionEnabled *bool `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -227,7 +229,8 @@ type ClusterState struct {
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `sku` block as defined below.
-	Sku                       ClusterSkuPtrInput
+	Sku ClusterSkuPtrInput
+	// Specifies if the streaming ingest is enabled.
 	StreamingIngestionEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -278,8 +281,9 @@ type clusterArgs struct {
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku                       ClusterSku `pulumi:"sku"`
-	StreamingIngestionEnabled *bool      `pulumi:"streamingIngestionEnabled"`
+	Sku ClusterSku `pulumi:"sku"`
+	// Specifies if the streaming ingest is enabled.
+	StreamingIngestionEnabled *bool `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -324,7 +328,8 @@ type ClusterArgs struct {
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `sku` block as defined below.
-	Sku                       ClusterSkuInput
+	Sku ClusterSkuInput
+	// Specifies if the streaming ingest is enabled.
 	StreamingIngestionEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

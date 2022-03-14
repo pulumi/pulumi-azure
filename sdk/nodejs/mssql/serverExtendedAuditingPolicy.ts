@@ -153,6 +153,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
      */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
@@ -194,6 +198,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerExtendedAuditingPolicyState | undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
@@ -206,6 +211,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
@@ -223,6 +229,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
  */
 export interface ServerExtendedAuditingPolicyState {
+    /**
+     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
      */
@@ -257,6 +267,10 @@ export interface ServerExtendedAuditingPolicyState {
  * The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
  */
 export interface ServerExtendedAuditingPolicyArgs {
+    /**
+     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
      */

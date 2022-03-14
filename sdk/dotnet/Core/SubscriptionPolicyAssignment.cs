@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Core
     ///         var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new Azure.Core.SubscriptionPolicyAssignmentArgs
     ///         {
     ///             PolicyDefinitionId = exampleDefinition.Id,
-    ///             SubscriptionId = azurerm_subscription.Current.Id,
+    ///             SubscriptionId = current.Apply(current =&gt; current.Id),
     ///         });
     ///     }
     /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }

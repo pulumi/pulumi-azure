@@ -26,9 +26,9 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := servicebus.LookupSubscription(ctx, &servicebus.LookupSubscriptionArgs{
 // 			Name:              "examplesubscription",
-// 			ResourceGroupName: "exampleresources",
-// 			NamespaceName:     "examplenamespace",
-// 			TopicName:         "exampletopic",
+// 			ResourceGroupName: pulumi.StringRef("exampleresources"),
+// 			NamespaceName:     pulumi.StringRef("examplenamespace"),
+// 			TopicName:         pulumi.StringRef("exampletopic"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -52,11 +52,12 @@ type LookupSubscriptionArgs struct {
 	// Specifies the name of the ServiceBus Subscription.
 	Name string `pulumi:"name"`
 	// The name of the ServiceBus Namespace.
-	NamespaceName string `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	TopicId           *string `pulumi:"topicId"`
 	// The name of the ServiceBus Topic.
-	TopicName string `pulumi:"topicName"`
+	TopicName *string `pulumi:"topicName"`
 }
 
 // A collection of values returned by getSubscription.
@@ -80,13 +81,14 @@ type LookupSubscriptionResult struct {
 	// The lock duration for the subscription.
 	LockDuration string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
-	MaxDeliveryCount int    `pulumi:"maxDeliveryCount"`
-	Name             string `pulumi:"name"`
-	NamespaceName    string `pulumi:"namespaceName"`
+	MaxDeliveryCount int     `pulumi:"maxDeliveryCount"`
+	Name             string  `pulumi:"name"`
+	NamespaceName    *string `pulumi:"namespaceName"`
 	// Whether or not this ServiceBus Subscription supports session.
-	RequiresSession   bool   `pulumi:"requiresSession"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	TopicName         string `pulumi:"topicName"`
+	RequiresSession   bool    `pulumi:"requiresSession"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	TopicId           *string `pulumi:"topicId"`
+	TopicName         *string `pulumi:"topicName"`
 }
 
 func LookupSubscriptionOutput(ctx *pulumi.Context, args LookupSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionResultOutput {
@@ -103,11 +105,12 @@ type LookupSubscriptionOutputArgs struct {
 	// Specifies the name of the ServiceBus Subscription.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace.
-	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	TopicId           pulumi.StringPtrInput `pulumi:"topicId"`
 	// The name of the ServiceBus Topic.
-	TopicName pulumi.StringInput `pulumi:"topicName"`
+	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
 }
 
 func (LookupSubscriptionOutputArgs) ElementType() reflect.Type {
@@ -183,8 +186,8 @@ func (o LookupSubscriptionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupSubscriptionResultOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o LookupSubscriptionResultOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not this ServiceBus Subscription supports session.
@@ -192,12 +195,16 @@ func (o LookupSubscriptionResultOutput) RequiresSession() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) bool { return v.RequiresSession }).(pulumi.BoolOutput)
 }
 
-func (o LookupSubscriptionResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o LookupSubscriptionResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSubscriptionResultOutput) TopicName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.TopicName }).(pulumi.StringOutput)
+func (o LookupSubscriptionResultOutput) TopicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.TopicId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSubscriptionResultOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.TopicName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

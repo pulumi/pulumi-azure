@@ -78,6 +78,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> DatabaseId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Enable audit events to Azure Monitor?
         /// </summary>
         [Output("logMonitoringEnabled")]
@@ -160,6 +166,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string> DatabaseId { get; set; } = null!;
 
         /// <summary>
+        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Enable audit events to Azure Monitor?
         /// </summary>
         [Input("logMonitoringEnabled")]
@@ -201,6 +213,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("databaseId")]
         public Input<string>? DatabaseId { get; set; }
+
+        /// <summary>
+        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// Enable audit events to Azure Monitor?

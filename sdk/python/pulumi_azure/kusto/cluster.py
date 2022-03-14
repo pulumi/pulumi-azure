@@ -51,6 +51,7 @@ class ClusterArgs:
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
+        :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTentantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
@@ -303,6 +304,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="streamingIngestionEnabled")
     def streaming_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the streaming ingest is enabled.
+        """
         return pulumi.get(self, "streaming_ingestion_enabled")
 
     @streaming_ingestion_enabled.setter
@@ -400,6 +404,7 @@ class _ClusterState:
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTentantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
@@ -671,6 +676,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="streamingIngestionEnabled")
     def streaming_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the streaming ingest is enabled.
+        """
         return pulumi.get(self, "streaming_ingestion_enabled")
 
     @streaming_ingestion_enabled.setter
@@ -810,6 +818,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTentantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
         :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
@@ -994,6 +1003,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTentantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
@@ -1162,6 +1172,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="streamingIngestionEnabled")
     def streaming_ingestion_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the streaming ingest is enabled.
+        """
         return pulumi.get(self, "streaming_ingestion_enabled")
 
     @property

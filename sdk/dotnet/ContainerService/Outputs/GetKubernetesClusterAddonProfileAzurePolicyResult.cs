@@ -13,9 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAddonProfileAzurePolicyResult
     {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

@@ -4013,6 +4013,13 @@ export namespace backup {
 }
 
 export namespace batch {
+    export interface AccountEncryption {
+        /**
+         * The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+    }
+
     export interface AccountIdentity {
         /**
          * Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
@@ -4041,6 +4048,14 @@ export namespace batch {
          * The HTTPS URL of the Azure KeyVault to use.
          */
         url: pulumi.Input<string>;
+    }
+
+    export interface GetAccountEncryptionArgs {
+        keyVaultKeyId: pulumi.Input<string>;
+    }
+
+    export interface GetAccountEncryption {
+        keyVaultKeyId: string;
     }
 
     export interface PoolAutoScale {
@@ -4297,6 +4312,7 @@ export namespace batch {
          */
         version?: pulumi.Input<string>;
     }
+
 }
 
 export namespace blueprint {
@@ -6190,7 +6206,7 @@ export namespace compute {
          */
         maxUnhealthyUpgradedInstancePercent?: pulumi.Input<number>;
         /**
-         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
          */
         pauseTimeBetweenBatches?: pulumi.Input<string>;
     }
@@ -8146,6 +8162,37 @@ export namespace containerservice {
         skipNodesWithSystemPods?: pulumi.Input<boolean>;
     }
 
+    export interface KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
+        /**
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+         */
+        adminGroupObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is Role Based Access Control based on Azure AD enabled?
+         */
+        azureRbacEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Client ID of an Azure Active Directory Application.
+         */
+        clientAppId?: pulumi.Input<string>;
+        /**
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         */
+        managed?: pulumi.Input<boolean>;
+        /**
+         * The Server ID of an Azure Active Directory Application.
+         */
+        serverAppId?: pulumi.Input<string>;
+        /**
+         * The Server Secret of an Azure Active Directory Application.
+         */
+        serverAppSecret?: pulumi.Input<string>;
+        /**
+         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterDefaultNodePool {
         /**
          * A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
@@ -8981,12 +9028,9 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
-        /**
-         * An `azureActiveDirectory` block.
-         */
         azureActiveDirectory?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory>;
         /**
-         * Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+         * Is the Kubernetes Dashboard enabled?
          */
         enabled: pulumi.Input<boolean>;
     }
@@ -10021,6 +10065,13 @@ export namespace cosmosdb {
          * The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface SqlRoleDefinitionPermission {
+        /**
+         * A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+         */
+        dataActions: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface TableAutoscaleSettings {
@@ -11948,7 +11999,7 @@ export namespace domainservices {
         certificateExpiry?: pulumi.Input<string>;
         certificateThumbprint?: pulumi.Input<string>;
         /**
-         * Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+         * Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -16974,6 +17025,36 @@ export namespace iot {
         name: pulumi.Input<string>;
     }
 
+    export interface IoTHubNetworkRuleSet {
+        /**
+         * Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+         */
+        applyToBuiltinEventhubEndpoint?: pulumi.Input<boolean>;
+        /**
+         * Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSetIpRule>[]>;
+    }
+
+    export interface IoTHubNetworkRuleSetIpRule {
+        /**
+         * The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP address range in CIDR notation for the ip rule.
+         */
+        ipMask: pulumi.Input<string>;
+        /**
+         * The name of the ip rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface IoTHubRoute {
         /**
          * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -17229,6 +17310,7 @@ export namespace iot {
          */
         type: pulumi.Input<string>;
     }
+
 }
 
 export namespace keyvault {
@@ -17763,8 +17845,7 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`. 
-         * `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
          */
         availabilityZone?: pulumi.Input<string>;
         /**
@@ -20830,7 +20911,7 @@ export namespace mssql {
 
     export interface ServerAzureadAdministrator {
         /**
-         * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+         * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
          */
         azureadAuthenticationOnly?: pulumi.Input<boolean>;
         /**
@@ -24588,7 +24669,7 @@ export namespace postgresql {
          */
         geoRedundantBackup?: pulumi.Input<string>;
         /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
+         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
          *
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
@@ -25131,11 +25212,11 @@ export namespace sentinel {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+         * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
          */
         entityMatchingMethod?: pulumi.Input<string>;
         /**
-         * A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          */
         groupBies?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -26589,13 +26670,33 @@ export namespace storage {
 
     export interface BlobInventoryPolicyRule {
         /**
-         * A `filter` block as defined above.
+         * A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
          */
-        filter: pulumi.Input<inputs.storage.BlobInventoryPolicyRuleFilter>;
+        filter?: pulumi.Input<inputs.storage.BlobInventoryPolicyRuleFilter>;
+        /**
+         * The format of the inventory files. Possible values are `Csv` and `Parquet`.
+         */
+        format: pulumi.Input<string>;
         /**
          * The name which should be used for this Blob Inventory Policy Rule.
          */
         name: pulumi.Input<string>;
+        /**
+         * The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+         */
+        schedule: pulumi.Input<string>;
+        /**
+         * A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+         */
+        schemaFields: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+         */
+        scope: pulumi.Input<string>;
+        /**
+         * The storage container name to store the blob inventory files for this rule.
+         */
+        storageContainerName: pulumi.Input<string>;
     }
 
     export interface BlobInventoryPolicyRuleFilter {

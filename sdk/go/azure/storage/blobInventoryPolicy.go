@@ -52,20 +52,17 @@ import (
 // 			return err
 // 		}
 // 		_, err = storage.NewBlobInventoryPolicy(ctx, "exampleBlobInventoryPolicy", &storage.BlobInventoryPolicyArgs{
-// 			StorageAccountId:     exampleAccount.ID(),
-// 			StorageContainerName: exampleContainer.Name,
+// 			StorageAccountId: exampleAccount.ID(),
 // 			Rules: storage.BlobInventoryPolicyRuleArray{
 // 				&storage.BlobInventoryPolicyRuleArgs{
-// 					Name: pulumi.String("rule1"),
-// 					Filter: &storage.BlobInventoryPolicyRuleFilterArgs{
-// 						BlobTypes: pulumi.StringArray{
-// 							pulumi.String("blockBlob"),
-// 						},
-// 						IncludeBlobVersions: pulumi.Bool(true),
-// 						IncludeSnapshots:    pulumi.Bool(true),
-// 						PrefixMatches: pulumi.StringArray{
-// 							pulumi.String("*/example"),
-// 						},
+// 					Name:                 pulumi.String("rule1"),
+// 					StorageContainerName: exampleContainer.Name,
+// 					Format:               pulumi.String("Csv"),
+// 					Schedule:             pulumi.String("Daily"),
+// 					Scope:                pulumi.String("Container"),
+// 					SchemaFields: pulumi.StringArray{
+// 						pulumi.String("Name"),
+// 						pulumi.String("Last-Modified"),
 // 					},
 // 				},
 // 			},
@@ -92,8 +89,10 @@ type BlobInventoryPolicy struct {
 	Rules BlobInventoryPolicyRuleArrayOutput `pulumi:"rules"`
 	// The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
-	// The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
-	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
+	// The storage container name to store the blob inventory files for this rule.
+	//
+	// Deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
+	StorageContainerName pulumi.StringPtrOutput `pulumi:"storageContainerName"`
 }
 
 // NewBlobInventoryPolicy registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +107,6 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	}
 	if args.StorageAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
-	}
-	if args.StorageContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageContainerName'")
 	}
 	var resource BlobInventoryPolicy
 	err := ctx.RegisterResource("azure:storage/blobInventoryPolicy:BlobInventoryPolicy", name, args, &resource, opts...)
@@ -138,7 +134,9 @@ type blobInventoryPolicyState struct {
 	Rules []BlobInventoryPolicyRule `pulumi:"rules"`
 	// The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+	// The storage container name to store the blob inventory files for this rule.
+	//
+	// Deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
 	StorageContainerName *string `pulumi:"storageContainerName"`
 }
 
@@ -147,7 +145,9 @@ type BlobInventoryPolicyState struct {
 	Rules BlobInventoryPolicyRuleArrayInput
 	// The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
 	StorageAccountId pulumi.StringPtrInput
-	// The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+	// The storage container name to store the blob inventory files for this rule.
+	//
+	// Deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
 	StorageContainerName pulumi.StringPtrInput
 }
 
@@ -160,8 +160,10 @@ type blobInventoryPolicyArgs struct {
 	Rules []BlobInventoryPolicyRule `pulumi:"rules"`
 	// The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
-	// The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
-	StorageContainerName string `pulumi:"storageContainerName"`
+	// The storage container name to store the blob inventory files for this rule.
+	//
+	// Deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
+	StorageContainerName *string `pulumi:"storageContainerName"`
 }
 
 // The set of arguments for constructing a BlobInventoryPolicy resource.
@@ -170,8 +172,10 @@ type BlobInventoryPolicyArgs struct {
 	Rules BlobInventoryPolicyRuleArrayInput
 	// The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
 	StorageAccountId pulumi.StringInput
-	// The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
-	StorageContainerName pulumi.StringInput
+	// The storage container name to store the blob inventory files for this rule.
+	//
+	// Deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
+	StorageContainerName pulumi.StringPtrInput
 }
 
 func (BlobInventoryPolicyArgs) ElementType() reflect.Type {

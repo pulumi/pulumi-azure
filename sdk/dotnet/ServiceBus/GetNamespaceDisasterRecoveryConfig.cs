@@ -24,11 +24,14 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public string? NamespaceId { get; set; }
 
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
+
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetNamespaceDisasterRecoveryConfigArgs()
         {
@@ -40,11 +43,14 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
 
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
+
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public GetNamespaceDisasterRecoveryConfigInvokeArgs()
         {
@@ -62,10 +68,11 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceId;
+        public readonly string? NamespaceName;
         public readonly string PartnerNamespaceId;
         public readonly string PrimaryConnectionStringAlias;
-        public readonly string ResourceGroupName;
+        public readonly string? ResourceGroupName;
         public readonly string SecondaryConnectionStringAlias;
 
         [OutputConstructor]
@@ -78,13 +85,15 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceId,
+
+            string? namespaceName,
 
             string partnerNamespaceId,
 
             string primaryConnectionStringAlias,
 
-            string resourceGroupName,
+            string? resourceGroupName,
 
             string secondaryConnectionStringAlias)
         {
@@ -92,6 +101,7 @@ namespace Pulumi.Azure.ServiceBus
             DefaultSecondaryKey = defaultSecondaryKey;
             Id = id;
             Name = name;
+            NamespaceId = namespaceId;
             NamespaceName = namespaceName;
             PartnerNamespaceId = partnerNamespaceId;
             PrimaryConnectionStringAlias = primaryConnectionStringAlias;

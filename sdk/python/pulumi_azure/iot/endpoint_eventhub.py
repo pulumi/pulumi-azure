@@ -374,7 +374,7 @@ class EndpointEventhub(pulumi.CustomResource):
             })
         example_endpoint_eventhub = azure.iot.EndpointEventhub("exampleEndpointEventhub",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_authorization_rule.primary_connection_string)
         ```
 
@@ -444,7 +444,7 @@ class EndpointEventhub(pulumi.CustomResource):
             })
         example_endpoint_eventhub = azure.iot.EndpointEventhub("exampleEndpointEventhub",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_authorization_rule.primary_connection_string)
         ```
 

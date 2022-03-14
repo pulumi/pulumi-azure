@@ -56,6 +56,8 @@ import (
 type Vault struct {
 	pulumi.CustomResourceState
 
+	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	CrossRegionRestoreEnabled pulumi.BoolPtrOutput `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
 	Encryption VaultEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -111,6 +113,8 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
+	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -132,6 +136,8 @@ type vaultState struct {
 }
 
 type VaultState struct {
+	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
@@ -157,6 +163,8 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
+	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -179,6 +187,8 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
+	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.

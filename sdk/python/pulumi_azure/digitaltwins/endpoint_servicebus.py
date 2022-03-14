@@ -211,13 +211,9 @@ class EndpointServicebus(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name)
+        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
         example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            topic_name=example_topic.name,
+            topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
@@ -266,13 +262,9 @@ class EndpointServicebus(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name)
+        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
         example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            topic_name=example_topic.name,
+            topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)

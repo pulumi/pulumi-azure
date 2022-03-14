@@ -40,7 +40,7 @@ class ResourcePolicyAssignmentArgs:
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -201,7 +201,7 @@ class ResourcePolicyAssignmentArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
         """
-        A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        A JSON mapping of any Parameters for this Policy.
         """
         return pulumi.get(self, "parameters")
 
@@ -236,7 +236,7 @@ class _ResourcePolicyAssignmentState:
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
         """
@@ -377,7 +377,7 @@ class _ResourcePolicyAssignmentState:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
         """
-        A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        A JSON mapping of any Parameters for this Policy.
         """
         return pulumi.get(self, "parameters")
 
@@ -480,7 +480,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
         """
@@ -624,7 +624,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
         """
@@ -722,7 +722,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[str]]:
         """
-        A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+        A JSON mapping of any Parameters for this Policy.
         """
         return pulumi.get(self, "parameters")
 

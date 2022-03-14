@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.LookupSubscription(ctx, nil, nil)
+// 		current, err := core.LookupSubscription(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -42,7 +42,7 @@ import (
 // 		}
 // 		_, err = core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
 // 			PolicyDefinitionId: exampleDefinition.ID(),
-// 			SubscriptionId:     pulumi.Any(azurerm_subscription.Current.Id),
+// 			SubscriptionId:     pulumi.String(current.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -80,7 +80,7 @@ type SubscriptionPolicyAssignment struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
-	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
@@ -141,7 +141,7 @@ type subscriptionPolicyAssignmentState struct {
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
-	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+	// A JSON mapping of any Parameters for this Policy.
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
@@ -168,7 +168,7 @@ type SubscriptionPolicyAssignmentState struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
-	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type subscriptionPolicyAssignmentArgs struct {
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
-	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+	// A JSON mapping of any Parameters for this Policy.
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
@@ -227,7 +227,7 @@ type SubscriptionPolicyAssignmentArgs struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
-	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringInput

@@ -38,8 +38,8 @@ class SnapshotArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
-            warnings.warn("""This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
+            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -155,8 +155,8 @@ class _SnapshotState:
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            warnings.warn("""This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
+            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if volume_name is not None:
@@ -442,8 +442,8 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if tags is not None and not opts.urn:
-                warnings.warn("""This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""tags is deprecated: This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
+                warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
             __props__.__dict__["tags"] = tags
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")

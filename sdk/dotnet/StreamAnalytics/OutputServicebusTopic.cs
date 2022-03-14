@@ -39,8 +39,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///         var exampleOutputServicebusTopic = new Azure.StreamAnalytics.OutputServicebusTopic("exampleOutputServicebusTopic", new Azure.StreamAnalytics.OutputServicebusTopicArgs

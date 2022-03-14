@@ -21,7 +21,7 @@ class PlacementGroupArgs:
         The set of arguments for constructing a PlacementGroup resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -60,7 +60,7 @@ class PlacementGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the availability set. Changing this forces a new resource to be created.
+        Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -91,7 +91,7 @@ class _PlacementGroupState:
         """
         Input properties used for looking up and filtering PlacementGroup resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -120,7 +120,7 @@ class _PlacementGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the availability set. Changing this forces a new resource to be created.
+        Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -192,7 +192,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -287,7 +287,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -313,7 +313,7 @@ class PlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the availability set. Changing this forces a new resource to be created.
+        Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

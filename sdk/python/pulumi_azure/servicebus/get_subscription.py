@@ -20,7 +20,7 @@ class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_error=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None):
+    def __init__(__self__, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_error=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_id=None, topic_name=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -63,6 +63,9 @@ class GetSubscriptionResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if topic_id and not isinstance(topic_id, str):
+            raise TypeError("Expected argument 'topic_id' to be a str")
+        pulumi.set(__self__, "topic_id", topic_id)
         if topic_name and not isinstance(topic_name, str):
             raise TypeError("Expected argument 'topic_name' to be a str")
         pulumi.set(__self__, "topic_name", topic_name)
@@ -154,7 +157,7 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -167,12 +170,17 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="topicId")
+    def topic_id(self) -> Optional[str]:
+        return pulumi.get(self, "topic_id")
+
+    @property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> str:
+    def topic_name(self) -> Optional[str]:
         return pulumi.get(self, "topic_name")
 
 
@@ -196,12 +204,14 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             namespace_name=self.namespace_name,
             requires_session=self.requires_session,
             resource_group_name=self.resource_group_name,
+            topic_id=self.topic_id,
             topic_name=self.topic_name)
 
 
 def get_subscription(name: Optional[str] = None,
                      namespace_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
+                     topic_id: Optional[str] = None,
                      topic_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
@@ -230,6 +240,7 @@ def get_subscription(name: Optional[str] = None,
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['topicId'] = topic_id
     __args__['topicName'] = topic_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -252,14 +263,16 @@ def get_subscription(name: Optional[str] = None,
         namespace_name=__ret__.namespace_name,
         requires_session=__ret__.requires_session,
         resource_group_name=__ret__.resource_group_name,
+        topic_id=__ret__.topic_id,
         topic_name=__ret__.topic_name)
 
 
 @_utilities.lift_output_func(get_subscription)
 def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
-                            namespace_name: Optional[pulumi.Input[str]] = None,
-                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                            topic_name: Optional[pulumi.Input[str]] = None,
+                            namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
+                            resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                            topic_id: Optional[pulumi.Input[Optional[str]]] = None,
+                            topic_name: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Use this data source to access information about an existing ServiceBus Subscription.

@@ -29,6 +29,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getQueue:getQueue", {
         "name": args.name,
+        "namespaceId": args.namespaceId,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -42,14 +43,15 @@ export interface GetQueueArgs {
      * The name of this Service Bus Queue.
      */
     name: string;
+    namespaceId?: string;
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: string;
+    namespaceName?: string;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
 }
 
 /**
@@ -109,7 +111,8 @@ export interface GetQueueResult {
      */
     readonly maxSizeInMegabytes: number;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceId?: string;
+    readonly namespaceName?: string;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection.
      */
@@ -118,7 +121,7 @@ export interface GetQueueResult {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
      */
     readonly requiresSession: boolean;
-    readonly resourceGroupName: string;
+    readonly resourceGroupName?: string;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
      */
@@ -137,12 +140,13 @@ export interface GetQueueOutputArgs {
      * The name of this Service Bus Queue.
      */
     name: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
