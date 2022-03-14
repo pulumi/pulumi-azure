@@ -71,6 +71,11 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
+
+    /**
+    * When set, it customizes the feed poll delay (in miliseconds) between polling a partition for new changes on the feed. Default is 5000 ms or 5 seconds.
+    */
+    feedPollDelay?: number;
 }
 
 /**
@@ -120,6 +125,11 @@ export interface GetCosmosDBFunctionArgs extends appservice.CallbackFunctionArgs
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
+
+    /**
+     * When set, it customizes the feed poll delay (in miliseconds) between polling a partition for new changes on the feed. Default is 5000 ms or 5 seconds.
+     */
+    feedPollDelay?: number;
 }
 
 export interface CosmosDBFunctionArgs extends GetCosmosDBFunctionArgs {
@@ -202,6 +212,7 @@ export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContex
             collectionName: args.collectionName,
             maxItemsPerInvocation: args.maxItemsPerInvocation,
             startFromBeginning: args.startFromBeginning,
+            feedPollDelay: args.feedPollDelay,
 
             // We take an opiniated approach here: use the default "leases" collection as
             // a shared lease collection for all Cosmos DB triggered functions. With multiple
