@@ -198,8 +198,6 @@ class FirewallRule(pulumi.CustomResource):
                  start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Allows you to manage an Azure SQL Firewall Rule
-
         ## Example Usage
 
         ```python
@@ -244,8 +242,6 @@ class FirewallRule(pulumi.CustomResource):
                  args: FirewallRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to manage an Azure SQL Firewall Rule
-
         ## Example Usage
 
         ```python

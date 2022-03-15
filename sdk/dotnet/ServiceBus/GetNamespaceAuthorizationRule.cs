@@ -89,17 +89,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("namespaceId")]
+        public string? NamespaceId { get; set; }
+
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetNamespaceAuthorizationRuleArgs()
         {
@@ -114,17 +117,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public GetNamespaceAuthorizationRuleInvokeArgs()
         {
@@ -140,7 +146,8 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceId;
+        public readonly string? NamespaceName;
         /// <summary>
         /// The primary connection string for the authorization rule.
         /// </summary>
@@ -153,7 +160,7 @@ namespace Pulumi.Azure.ServiceBus
         /// The primary access key for the authorization rule.
         /// </summary>
         public readonly string PrimaryKey;
-        public readonly string ResourceGroupName;
+        public readonly string? ResourceGroupName;
         /// <summary>
         /// The secondary connection string for the authorization rule.
         /// </summary>
@@ -173,7 +180,9 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceId,
+
+            string? namespaceName,
 
             string primaryConnectionString,
 
@@ -181,7 +190,7 @@ namespace Pulumi.Azure.ServiceBus
 
             string primaryKey,
 
-            string resourceGroupName,
+            string? resourceGroupName,
 
             string secondaryConnectionString,
 
@@ -191,6 +200,7 @@ namespace Pulumi.Azure.ServiceBus
         {
             Id = id;
             Name = name;
+            NamespaceId = namespaceId;
             NamespaceName = namespaceName;
             PrimaryConnectionString = primaryConnectionString;
             PrimaryConnectionStringAlias = primaryConnectionStringAlias;

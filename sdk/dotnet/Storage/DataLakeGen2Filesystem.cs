@@ -68,10 +68,22 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.DataLakeGen2FilesystemAce>> Aces { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        /// </summary>
+        [Output("group")]
+        public Output<string> Group { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        /// </summary>
+        [Output("owner")]
+        public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -144,10 +156,22 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        /// </summary>
+        [Input("group")]
+        public Input<string>? Group { get; set; }
+
+        /// <summary>
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -187,10 +211,22 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        /// </summary>
+        [Input("group")]
+        public Input<string>? Group { get; set; }
+
+        /// <summary>
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;

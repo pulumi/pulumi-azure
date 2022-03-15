@@ -148,7 +148,6 @@ namespace Pulumi.Azure.EventHub
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string Location;
         public readonly string Name;
         public readonly string NamespaceName;
         public readonly string ResourceGroupName;
@@ -163,8 +162,6 @@ namespace Pulumi.Azure.EventHub
 
             string id,
 
-            string location,
-
             string name,
 
             string namespaceName,
@@ -175,7 +172,6 @@ namespace Pulumi.Azure.EventHub
         {
             EventhubName = eventhubName;
             Id = id;
-            Location = location;
             Name = name;
             NamespaceName = namespaceName;
             ResourceGroupName = resourceGroupName;

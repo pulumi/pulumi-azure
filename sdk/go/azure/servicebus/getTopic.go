@@ -26,8 +26,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := servicebus.LookupTopic(ctx, &servicebus.LookupTopicArgs{
 // 			Name:              "existing",
-// 			ResourceGroupName: "existing",
-// 			NamespaceName:     "existing",
+// 			ResourceGroupName: pulumi.StringRef("existing"),
+// 			NamespaceName:     pulumi.StringRef("existing"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -49,11 +49,12 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
 	// The name of this Service Bus Topic.
-	Name string `pulumi:"name"`
+	Name        string  `pulumi:"name"`
+	NamespaceId *string `pulumi:"namespaceId"`
 	// The name of the Service Bus Namespace.
-	NamespaceName string `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Topic exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getTopic.
@@ -73,12 +74,13 @@ type LookupTopicResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes int    `pulumi:"maxSizeInMegabytes"`
-	Name               string `pulumi:"name"`
-	NamespaceName      string `pulumi:"namespaceName"`
+	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
+	Name               string  `pulumi:"name"`
+	NamespaceId        *string `pulumi:"namespaceId"`
+	NamespaceName      *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether the Topic requires duplicate detection.
-	RequiresDuplicateDetection bool   `pulumi:"requiresDuplicateDetection"`
-	ResourceGroupName          string `pulumi:"resourceGroupName"`
+	RequiresDuplicateDetection bool    `pulumi:"requiresDuplicateDetection"`
+	ResourceGroupName          *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
 	Status string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic supports ordering.
@@ -97,11 +99,12 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
 	// The name of this Service Bus Topic.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
 	// The name of the Service Bus Namespace.
-	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Topic exists.
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {
@@ -167,8 +170,12 @@ func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupTopicResultOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTopicResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o LookupTopicResultOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTopicResultOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
 // Boolean flag which controls whether the Topic requires duplicate detection.
@@ -176,8 +183,8 @@ func (o LookupTopicResultOutput) RequiresDuplicateDetection() pulumi.BoolOutput 
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.RequiresDuplicateDetection }).(pulumi.BoolOutput)
 }
 
-func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTopicResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The Status of the Service Bus Topic. Acceptable values are Active or Disabled.

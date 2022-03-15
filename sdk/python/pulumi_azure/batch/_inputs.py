@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountEncryptionArgs',
     'AccountIdentityArgs',
     'AccountKeyVaultReferenceArgs',
     'PoolAutoScaleArgs',
@@ -25,7 +26,30 @@ __all__ = [
     'PoolStartTaskUserIdentityArgs',
     'PoolStartTaskUserIdentityAutoUserArgs',
     'PoolStorageImageReferenceArgs',
+    'GetAccountEncryptionArgs',
 ]
+
+@pulumi.input_type
+class AccountEncryptionArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_vault_key_id: The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[str]:
+        """
+        The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -1052,5 +1076,21 @@ class PoolStorageImageReferenceArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class GetAccountEncryptionArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: str):
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: str):
+        pulumi.set(self, "key_vault_key_id", value)
 
 

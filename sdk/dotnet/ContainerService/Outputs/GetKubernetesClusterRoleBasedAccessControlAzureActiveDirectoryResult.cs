@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryResult
     {
         /// <summary>
-        /// The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         /// </summary>
         public readonly ImmutableArray<string> AdminGroupObjectIds;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ClientAppId;
         /// <summary>
-        /// Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         /// </summary>
         public readonly bool Managed;
         /// <summary>

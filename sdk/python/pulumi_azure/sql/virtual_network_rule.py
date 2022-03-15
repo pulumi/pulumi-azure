@@ -195,8 +195,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
-
         ## Example Usage
 
         ```python
@@ -248,8 +246,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  args: VirtualNetworkRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
-
         ## Example Usage
 
         ```python

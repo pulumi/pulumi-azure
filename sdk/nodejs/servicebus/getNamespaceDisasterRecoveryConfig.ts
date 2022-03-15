@@ -12,6 +12,7 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
         "name": args.name,
+        "namespaceId": args.namespaceId,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -22,8 +23,9 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
  */
 export interface GetNamespaceDisasterRecoveryConfigArgs {
     name: string;
-    namespaceName: string;
-    resourceGroupName: string;
+    namespaceId?: string;
+    namespaceName?: string;
+    resourceGroupName?: string;
 }
 
 /**
@@ -37,10 +39,11 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
      */
     readonly id: string;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceId?: string;
+    readonly namespaceName?: string;
     readonly partnerNamespaceId: string;
     readonly primaryConnectionStringAlias: string;
-    readonly resourceGroupName: string;
+    readonly resourceGroupName?: string;
     readonly secondaryConnectionStringAlias: string;
 }
 
@@ -53,6 +56,7 @@ export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisas
  */
 export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
     name: pulumi.Input<string>;
-    namespaceName: pulumi.Input<string>;
-    resourceGroupName: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

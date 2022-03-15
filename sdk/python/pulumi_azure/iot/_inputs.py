@@ -17,6 +17,8 @@ __all__ = [
     'IoTHubFileUploadArgs',
     'IoTHubIdentityArgs',
     'IoTHubIpFilterRuleArgs',
+    'IoTHubNetworkRuleSetArgs',
+    'IoTHubNetworkRuleSetIpRuleArgs',
     'IoTHubRouteArgs',
     'IoTHubSharedAccessPolicyArgs',
     'IoTHubSkuArgs',
@@ -714,6 +716,114 @@ class IoTHubIpFilterRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class IoTHubNetworkRuleSetArgs:
+    def __init__(__self__, *,
+                 apply_to_builtin_eventhub_endpoint: Optional[pulumi.Input[bool]] = None,
+                 default_action: Optional[pulumi.Input[str]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] apply_to_builtin_eventhub_endpoint: Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        :param pulumi.Input[str] default_action: Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        """
+        if apply_to_builtin_eventhub_endpoint is not None:
+            pulumi.set(__self__, "apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter(name="applyToBuiltinEventhubEndpoint")
+    def apply_to_builtin_eventhub_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        """
+        return pulumi.get(self, "apply_to_builtin_eventhub_endpoint")
+
+    @apply_to_builtin_eventhub_endpoint.setter
+    def apply_to_builtin_eventhub_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_to_builtin_eventhub_endpoint", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]]:
+        """
+        One or more `ip_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
+
+
+@pulumi.input_type
+class IoTHubNetworkRuleSetIpRuleArgs:
+    def __init__(__self__, *,
+                 ip_mask: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ip_mask: The IP address range in CIDR notation for the ip rule.
+        :param pulumi.Input[str] name: The name of the ip rule.
+        :param pulumi.Input[str] action: The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        pulumi.set(__self__, "name", name)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        The IP address range in CIDR notation for the ip rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the ip rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
 
 
 @pulumi.input_type

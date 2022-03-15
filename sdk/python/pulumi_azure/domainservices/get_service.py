@@ -141,6 +141,9 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="replicaSets")
     def replica_sets(self) -> Sequence['outputs.GetServiceReplicaSetResult']:
+        """
+        One or more `replica_set` blocks as defined below.
+        """
         return pulumi.get(self, "replica_sets")
 
     @property

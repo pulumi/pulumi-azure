@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", {
  *     policyDefinitionId: exampleDefinition.id,
- *     subscriptionId: azurerm_subscription.current.id,
+ *     subscriptionId: current.then(current => current.id),
  * });
  * ```
  *
@@ -110,7 +110,7 @@ export class SubscriptionPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+     * A JSON mapping of any Parameters for this Policy.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface SubscriptionPolicyAssignmentState {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+     * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface SubscriptionPolicyAssignmentArgs {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
+     * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
     /**

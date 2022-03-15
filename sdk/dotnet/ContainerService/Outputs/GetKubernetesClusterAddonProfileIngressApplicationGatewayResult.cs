@@ -17,9 +17,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         /// </summary>
         public readonly string EffectiveGatewayId;
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
         public readonly bool Enabled;
         /// <summary>
         /// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.

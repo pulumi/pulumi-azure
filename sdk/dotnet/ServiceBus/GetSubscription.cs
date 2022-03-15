@@ -94,20 +94,23 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
+
+        [Input("topicId")]
+        public string? TopicId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic.
         /// </summary>
-        [Input("topicName", required: true)]
-        public string TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public string? TopicName { get; set; }
 
         public GetSubscriptionArgs()
         {
@@ -125,20 +128,23 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("topicId")]
+        public Input<string>? TopicId { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic.
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public GetSubscriptionInvokeArgs()
         {
@@ -190,13 +196,14 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly int MaxDeliveryCount;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceName;
         /// <summary>
         /// Whether or not this ServiceBus Subscription supports session.
         /// </summary>
         public readonly bool RequiresSession;
-        public readonly string ResourceGroupName;
-        public readonly string TopicName;
+        public readonly string? ResourceGroupName;
+        public readonly string? TopicId;
+        public readonly string? TopicName;
 
         [OutputConstructor]
         private GetSubscriptionResult(
@@ -222,13 +229,15 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceName,
 
             bool requiresSession,
 
-            string resourceGroupName,
+            string? resourceGroupName,
 
-            string topicName)
+            string? topicId,
+
+            string? topicName)
         {
             AutoDeleteOnIdle = autoDeleteOnIdle;
             DeadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
@@ -244,6 +253,7 @@ namespace Pulumi.Azure.ServiceBus
             NamespaceName = namespaceName;
             RequiresSession = requiresSession;
             ResourceGroupName = resourceGroupName;
+            TopicId = topicId;
             TopicName = topicName;
         }
     }

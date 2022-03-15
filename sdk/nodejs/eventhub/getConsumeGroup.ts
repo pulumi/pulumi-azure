@@ -66,7 +66,6 @@ export interface GetConsumeGroupResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly location: string;
     readonly name: string;
     readonly namespaceName: string;
     readonly resourceGroupName: string;

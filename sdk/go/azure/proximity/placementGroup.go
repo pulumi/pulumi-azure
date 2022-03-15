@@ -59,7 +59,7 @@ type PlacementGroup struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the availability set. Changing this forces a new resource to be created.
+	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -101,7 +101,7 @@ func GetPlacementGroup(ctx *pulumi.Context,
 type placementGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the availability set. Changing this forces a new resource to be created.
+	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -112,7 +112,7 @@ type placementGroupState struct {
 type PlacementGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the availability set. Changing this forces a new resource to be created.
+	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -127,7 +127,7 @@ func (PlacementGroupState) ElementType() reflect.Type {
 type placementGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the availability set. Changing this forces a new resource to be created.
+	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -139,7 +139,7 @@ type placementGroupArgs struct {
 type PlacementGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the availability set. Changing this forces a new resource to be created.
+	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

@@ -21,9 +21,10 @@ func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupName
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigArgs struct {
-	Name              string `pulumi:"name"`
-	NamespaceName     string `pulumi:"namespaceName"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name              string  `pulumi:"name"`
+	NamespaceId       *string `pulumi:"namespaceId"`
+	NamespaceName     *string `pulumi:"namespaceName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespaceDisasterRecoveryConfig.
@@ -31,13 +32,14 @@ type LookupNamespaceDisasterRecoveryConfigResult struct {
 	DefaultPrimaryKey   string `pulumi:"defaultPrimaryKey"`
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                             string `pulumi:"id"`
-	Name                           string `pulumi:"name"`
-	NamespaceName                  string `pulumi:"namespaceName"`
-	PartnerNamespaceId             string `pulumi:"partnerNamespaceId"`
-	PrimaryConnectionStringAlias   string `pulumi:"primaryConnectionStringAlias"`
-	ResourceGroupName              string `pulumi:"resourceGroupName"`
-	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
+	Id                             string  `pulumi:"id"`
+	Name                           string  `pulumi:"name"`
+	NamespaceId                    *string `pulumi:"namespaceId"`
+	NamespaceName                  *string `pulumi:"namespaceName"`
+	PartnerNamespaceId             string  `pulumi:"partnerNamespaceId"`
+	PrimaryConnectionStringAlias   string  `pulumi:"primaryConnectionStringAlias"`
+	ResourceGroupName              *string `pulumi:"resourceGroupName"`
+	SecondaryConnectionStringAlias string  `pulumi:"secondaryConnectionStringAlias"`
 }
 
 func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args LookupNamespaceDisasterRecoveryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceDisasterRecoveryConfigResultOutput {
@@ -51,9 +53,10 @@ func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args Looku
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigOutputArgs struct {
-	Name              pulumi.StringInput `pulumi:"name"`
-	NamespaceName     pulumi.StringInput `pulumi:"namespaceName"`
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+	NamespaceId       pulumi.StringPtrInput `pulumi:"namespaceId"`
+	NamespaceName     pulumi.StringPtrInput `pulumi:"namespaceName"`
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupNamespaceDisasterRecoveryConfigOutputArgs) ElementType() reflect.Type {
@@ -92,8 +95,12 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) Name() pulumi.StringO
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) PartnerNamespaceId() pulumi.StringOutput {
@@ -104,8 +111,8 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) PrimaryConnectionStri
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.PrimaryConnectionStringAlias }).(pulumi.StringOutput)
 }
 
-func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) SecondaryConnectionStringAlias() pulumi.StringOutput {

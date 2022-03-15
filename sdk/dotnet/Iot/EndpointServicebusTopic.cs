@@ -41,9 +41,7 @@ namespace Pulumi.Azure.Iot
     ///         });
     ///         var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new Azure.ServiceBus.TopicAuthorizationRuleArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TopicId = exampleTopic.Id,
     ///             Listen = false,
     ///             Send = true,
     ///             Manage = false,
@@ -65,7 +63,7 @@ namespace Pulumi.Azure.Iot
     ///         var exampleEndpointServicebusTopic = new Azure.Iot.EndpointServicebusTopic("exampleEndpointServicebusTopic", new Azure.Iot.EndpointServicebusTopicArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
+    ///             IothubId = exampleIoTHub.Id,
     ///             ConnectionString = exampleTopicAuthorizationRule.PrimaryConnectionString,
     ///         });
     ///     }

@@ -47,6 +47,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SqlDatabase{}
 	case "azure:cosmosdb/sqlFunction:SqlFunction":
 		r = &SqlFunction{}
+	case "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment":
+		r = &SqlRoleAssignment{}
+	case "azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition":
+		r = &SqlRoleDefinition{}
 	case "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure":
 		r = &SqlStoredProcedure{}
 	case "azure:cosmosdb/sqlTrigger:SqlTrigger":
@@ -129,6 +133,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/sqlFunction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/sqlRoleAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/sqlRoleDefinition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

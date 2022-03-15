@@ -20,7 +20,7 @@ class GetNamespaceDisasterRecoveryConfigResult:
     """
     A collection of values returned by getNamespaceDisasterRecoveryConfig.
     """
-    def __init__(__self__, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_name=None, partner_namespace_id=None, primary_connection_string_alias=None, resource_group_name=None, secondary_connection_string_alias=None):
+    def __init__(__self__, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_id=None, namespace_name=None, partner_namespace_id=None, primary_connection_string_alias=None, resource_group_name=None, secondary_connection_string_alias=None):
         if default_primary_key and not isinstance(default_primary_key, str):
             raise TypeError("Expected argument 'default_primary_key' to be a str")
         pulumi.set(__self__, "default_primary_key", default_primary_key)
@@ -33,6 +33,9 @@ class GetNamespaceDisasterRecoveryConfigResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if namespace_id and not isinstance(namespace_id, str):
+            raise TypeError("Expected argument 'namespace_id' to be a str")
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -73,8 +76,13 @@ class GetNamespaceDisasterRecoveryConfigResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[str]:
+        return pulumi.get(self, "namespace_id")
+
+    @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -89,7 +97,7 @@ class GetNamespaceDisasterRecoveryConfigResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -108,6 +116,7 @@ class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterReco
             default_secondary_key=self.default_secondary_key,
             id=self.id,
             name=self.name,
+            namespace_id=self.namespace_id,
             namespace_name=self.namespace_name,
             partner_namespace_id=self.partner_namespace_id,
             primary_connection_string_alias=self.primary_connection_string_alias,
@@ -116,6 +125,7 @@ class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterReco
 
 
 def get_namespace_disaster_recovery_config(name: Optional[str] = None,
+                                           namespace_id: Optional[str] = None,
                                            namespace_name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceDisasterRecoveryConfigResult:
@@ -124,6 +134,7 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -137,6 +148,7 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
         default_secondary_key=__ret__.default_secondary_key,
         id=__ret__.id,
         name=__ret__.name,
+        namespace_id=__ret__.namespace_id,
         namespace_name=__ret__.namespace_name,
         partner_namespace_id=__ret__.partner_namespace_id,
         primary_connection_string_alias=__ret__.primary_connection_string_alias,
@@ -146,8 +158,9 @@ def get_namespace_disaster_recovery_config(name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_namespace_disaster_recovery_config)
 def get_namespace_disaster_recovery_config_output(name: Optional[pulumi.Input[str]] = None,
-                                                  namespace_name: Optional[pulumi.Input[str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                                  namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                  namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
     """
     Use this data source to access information about an existing resource.

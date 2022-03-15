@@ -47,6 +47,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountArgs struct {
+	Encryption *GetAccountEncryption `pulumi:"encryption"`
 	// The name of the Batch account.
 	Name string `pulumi:"name"`
 	// The Name of the Resource Group where this Batch account exists.
@@ -56,7 +57,8 @@ type LookupAccountArgs struct {
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
-	AccountEndpoint string `pulumi:"accountEndpoint"`
+	AccountEndpoint string                `pulumi:"accountEndpoint"`
+	Encryption      *GetAccountEncryption `pulumi:"encryption"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -89,6 +91,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountOutputArgs struct {
+	Encryption GetAccountEncryptionPtrInput `pulumi:"encryption"`
 	// The name of the Batch account.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Name of the Resource Group where this Batch account exists.
@@ -117,6 +120,10 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 // The account endpoint used to interact with the Batch service.
 func (o LookupAccountResultOutput) AccountEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountEndpoint }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) Encryption() GetAccountEncryptionPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *GetAccountEncryption { return v.Encryption }).(GetAccountEncryptionPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

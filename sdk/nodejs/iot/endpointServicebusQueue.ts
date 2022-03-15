@@ -27,9 +27,7 @@ import * as utilities from "../utilities";
  *     enablePartitioning: true,
  * });
  * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule", {
- *     namespaceName: exampleNamespace.name,
- *     queueName: exampleQueue.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     queueId: exampleQueue.id,
  *     listen: false,
  *     send: true,
  *     manage: false,
@@ -47,7 +45,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEndpointServicebusQueue = new azure.iot.EndpointServicebusQueue("exampleEndpointServicebusQueue", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
+ *     iothubId: exampleIoTHub.id,
  *     connectionString: exampleQueueAuthorizationRule.primaryConnectionString,
  * });
  * ```

@@ -181,8 +181,6 @@ def get_database(name: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Use this data source to access information about an existing SQL Azure Database.
-
     ## Example Usage
 
     ```python
@@ -234,8 +232,6 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Use this data source to access information about an existing SQL Azure Database.
-
     ## Example Usage
 
     ```python

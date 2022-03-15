@@ -226,8 +226,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Allows you to set a user or group as the AD administrator for an Azure SQL server
-
         ## Example Usage
 
         ```python
@@ -274,8 +272,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  args: ActiveDirectoryAdministratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to set a user or group as the AD administrator for an Azure SQL server
-
         ## Example Usage
 
         ```python

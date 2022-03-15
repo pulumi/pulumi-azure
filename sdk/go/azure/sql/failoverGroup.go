@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Create a failover group of databases on a collection of Azure SQL servers.
-//
 // ## Example Usage
 //
 // ```go

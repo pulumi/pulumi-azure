@@ -26,8 +26,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := servicebus.LookupQueue(ctx, &servicebus.LookupQueueArgs{
 // 			Name:              "existing",
-// 			ResourceGroupName: "existing",
-// 			NamespaceName:     "existing",
+// 			ResourceGroupName: pulumi.StringRef("existing"),
+// 			NamespaceName:     pulumi.StringRef("existing"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -49,11 +49,12 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
 	// The name of this Service Bus Queue.
-	Name string `pulumi:"name"`
+	Name        string  `pulumi:"name"`
+	NamespaceId *string `pulumi:"namespaceId"`
 	// The name of the ServiceBus Namespace.
-	NamespaceName string `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Queue exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getQueue.
@@ -83,14 +84,15 @@ type LookupQueueResult struct {
 	// Integer value which controls when a message is automatically dead lettered.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes int    `pulumi:"maxSizeInMegabytes"`
-	Name               string `pulumi:"name"`
-	NamespaceName      string `pulumi:"namespaceName"`
+	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
+	Name               string  `pulumi:"name"`
+	NamespaceId        *string `pulumi:"namespaceId"`
+	NamespaceName      *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether the Queue requires duplicate detection.
 	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
-	RequiresSession   bool   `pulumi:"requiresSession"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	RequiresSession   bool    `pulumi:"requiresSession"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
 	Status string `pulumi:"status"`
 }
@@ -107,11 +109,12 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 // A collection of arguments for invoking getQueue.
 type LookupQueueOutputArgs struct {
 	// The name of this Service Bus Queue.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
 	// The name of the ServiceBus Namespace.
-	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Queue exists.
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupQueueOutputArgs) ElementType() reflect.Type {
@@ -202,8 +205,12 @@ func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupQueueResultOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupQueueResultOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
 // Boolean flag which controls whether the Queue requires duplicate detection.
@@ -216,8 +223,8 @@ func (o LookupQueueResultOutput) RequiresSession() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.RequiresSession }).(pulumi.BoolOutput)
 }
 
-func (o LookupQueueResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupQueueResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o LookupQueueResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.

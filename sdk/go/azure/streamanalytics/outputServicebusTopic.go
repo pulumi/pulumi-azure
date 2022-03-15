@@ -49,8 +49,7 @@ import (
 // 			return err
 // 		}
 // 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			ResourceGroupName:  pulumi.String(exampleResourceGroup.Name),
-// 			NamespaceName:      exampleNamespace.Name,
+// 			NamespaceId:        exampleNamespace.ID(),
 // 			EnablePartitioning: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

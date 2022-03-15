@@ -10,11 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Manages a SQL Azure Managed Instance.
-    /// 
-    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

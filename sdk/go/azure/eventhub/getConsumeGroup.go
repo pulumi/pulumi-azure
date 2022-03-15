@@ -63,7 +63,6 @@ type GetConsumeGroupResult struct {
 	EventhubName string `pulumi:"eventhubName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
-	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -118,10 +117,6 @@ func (o GetConsumeGroupResultOutput) EventhubName() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetConsumeGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConsumeGroupResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o GetConsumeGroupResultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConsumeGroupResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o GetConsumeGroupResultOutput) Name() pulumi.StringOutput {

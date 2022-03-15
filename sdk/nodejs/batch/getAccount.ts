@@ -28,6 +28,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:batch/getAccount:getAccount", {
+        "encryption": args.encryption,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -37,6 +38,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountArgs {
+    encryption?: inputs.batch.GetAccountEncryption;
     /**
      * The name of the Batch account.
      */
@@ -55,6 +57,7 @@ export interface GetAccountResult {
      * The account endpoint used to interact with the Batch service.
      */
     readonly accountEndpoint: string;
+    readonly encryption?: outputs.batch.GetAccountEncryption;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -102,6 +105,7 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountOutputArgs {
+    encryption?: pulumi.Input<inputs.batch.GetAccountEncryptionArgs>;
     /**
      * The name of the Batch account.
      */

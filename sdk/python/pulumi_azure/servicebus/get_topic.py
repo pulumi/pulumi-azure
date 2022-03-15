@@ -20,7 +20,7 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, id=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None):
+    def __init__(__self__, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, id=None, max_size_in_megabytes=None, name=None, namespace_id=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -48,6 +48,9 @@ class GetTopicResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if namespace_id and not isinstance(namespace_id, str):
+            raise TypeError("Expected argument 'namespace_id' to be a str")
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -134,8 +137,13 @@ class GetTopicResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[str]:
+        return pulumi.get(self, "namespace_id")
+
+    @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -148,7 +156,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -183,6 +191,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             id=self.id,
             max_size_in_megabytes=self.max_size_in_megabytes,
             name=self.name,
+            namespace_id=self.namespace_id,
             namespace_name=self.namespace_name,
             requires_duplicate_detection=self.requires_duplicate_detection,
             resource_group_name=self.resource_group_name,
@@ -191,6 +200,7 @@ class AwaitableGetTopicResult(GetTopicResult):
 
 
 def get_topic(name: Optional[str] = None,
+              namespace_id: Optional[str] = None,
               namespace_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
@@ -216,6 +226,7 @@ def get_topic(name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -234,6 +245,7 @@ def get_topic(name: Optional[str] = None,
         id=__ret__.id,
         max_size_in_megabytes=__ret__.max_size_in_megabytes,
         name=__ret__.name,
+        namespace_id=__ret__.namespace_id,
         namespace_name=__ret__.namespace_name,
         requires_duplicate_detection=__ret__.requires_duplicate_detection,
         resource_group_name=__ret__.resource_group_name,
@@ -243,8 +255,9 @@ def get_topic(name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_topic)
 def get_topic_output(name: Optional[pulumi.Input[str]] = None,
-                     namespace_name: Optional[pulumi.Input[str]] = None,
-                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                     namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
+                     resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Use this data source to access information about an existing Service Bus Topic.

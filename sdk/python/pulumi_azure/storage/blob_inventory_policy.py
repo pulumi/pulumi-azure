@@ -17,16 +17,20 @@ class BlobInventoryPolicyArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]],
                  storage_account_id: pulumi.Input[str],
-                 storage_container_name: pulumi.Input[str]):
+                 storage_container_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BlobInventoryPolicy resource.
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
-        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
         """
         pulumi.set(__self__, "rules", rules)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
+        if storage_container_name is not None:
+            warnings.warn("""The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.""", DeprecationWarning)
+            pulumi.log.warn("""storage_container_name is deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.""")
+        if storage_container_name is not None:
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
 
     @property
     @pulumi.getter
@@ -54,14 +58,14 @@ class BlobInventoryPolicyArgs:
 
     @property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> pulumi.Input[str]:
+    def storage_container_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        The storage container name to store the blob inventory files for this rule.
         """
         return pulumi.get(self, "storage_container_name")
 
     @storage_container_name.setter
-    def storage_container_name(self, value: pulumi.Input[str]):
+    def storage_container_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_container_name", value)
 
 
@@ -75,12 +79,15 @@ class _BlobInventoryPolicyState:
         Input properties used for looking up and filtering BlobInventoryPolicy resources.
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
-        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_container_name is not None:
+            warnings.warn("""The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.""", DeprecationWarning)
+            pulumi.log.warn("""storage_container_name is deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.""")
         if storage_container_name is not None:
             pulumi.set(__self__, "storage_container_name", storage_container_name)
 
@@ -112,7 +119,7 @@ class _BlobInventoryPolicyState:
     @pulumi.getter(name="storageContainerName")
     def storage_container_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        The storage container name to store the blob inventory files for this rule.
         """
         return pulumi.get(self, "storage_container_name")
 
@@ -153,15 +160,16 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             container_access_type="private")
         example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("exampleBlobInventoryPolicy",
             storage_account_id=example_account.id,
-            storage_container_name=example_container.name,
             rules=[azure.storage.BlobInventoryPolicyRuleArgs(
                 name="rule1",
-                filter=azure.storage.BlobInventoryPolicyRuleFilterArgs(
-                    blob_types=["blockBlob"],
-                    include_blob_versions=True,
-                    include_snapshots=True,
-                    prefix_matches=["*/example"],
-                ),
+                storage_container_name=example_container.name,
+                format="Csv",
+                schedule="Daily",
+                scope="Container",
+                schema_fields=[
+                    "Name",
+                    "Last-Modified",
+                ],
             )])
         ```
 
@@ -177,7 +185,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
-        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
         """
         ...
     @overload
@@ -208,15 +216,16 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             container_access_type="private")
         example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("exampleBlobInventoryPolicy",
             storage_account_id=example_account.id,
-            storage_container_name=example_container.name,
             rules=[azure.storage.BlobInventoryPolicyRuleArgs(
                 name="rule1",
-                filter=azure.storage.BlobInventoryPolicyRuleFilterArgs(
-                    blob_types=["blockBlob"],
-                    include_blob_versions=True,
-                    include_snapshots=True,
-                    prefix_matches=["*/example"],
-                ),
+                storage_container_name=example_container.name,
+                format="Csv",
+                schedule="Daily",
+                scope="Container",
+                schema_fields=[
+                    "Name",
+                    "Last-Modified",
+                ],
             )])
         ```
 
@@ -264,8 +273,9 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
-            if storage_container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_container_name'")
+            if storage_container_name is not None and not opts.urn:
+                warnings.warn("""The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.""", DeprecationWarning)
+                pulumi.log.warn("""storage_container_name is deprecated: The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.""")
             __props__.__dict__["storage_container_name"] = storage_container_name
         super(BlobInventoryPolicy, __self__).__init__(
             'azure:storage/blobInventoryPolicy:BlobInventoryPolicy',
@@ -289,7 +299,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlobInventoryPolicyRuleArgs']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
-        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -318,9 +328,9 @@ class BlobInventoryPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> pulumi.Output[str]:
+    def storage_container_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+        The storage container name to store the blob inventory files for this rule.
         """
         return pulumi.get(self, "storage_container_name")
 

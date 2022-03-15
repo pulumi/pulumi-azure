@@ -138,8 +138,6 @@ def get_server(name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Use this data source to access information about an existing SQL Azure Database Server.
-
     ## Example Usage
 
     ```python
@@ -181,8 +179,6 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
-    Use this data source to access information about an existing SQL Azure Database Server.
-
     ## Example Usage
 
     ```python

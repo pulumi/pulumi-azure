@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
+ *     iothubId: exampleIoTHub.id,
  *     containerName: "acctestcont",
  *     connectionString: exampleAccount.primaryBlobConnectionString,
  *     fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",

@@ -308,8 +308,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_queue = azure.servicebus.Queue("exampleQueue",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue",
             stream_analytics_job_name=example_job.name,
@@ -365,8 +364,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_queue = azure.servicebus.Queue("exampleQueue",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue",
             stream_analytics_job_name=example_job.name,

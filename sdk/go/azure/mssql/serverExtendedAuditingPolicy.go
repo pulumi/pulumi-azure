@@ -216,6 +216,8 @@ import (
 type ServerExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
@@ -264,6 +266,8 @@ func GetServerExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
 type serverExtendedAuditingPolicyState struct {
+	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
@@ -281,6 +285,8 @@ type serverExtendedAuditingPolicyState struct {
 }
 
 type ServerExtendedAuditingPolicyState struct {
+	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
@@ -302,6 +308,8 @@ func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type serverExtendedAuditingPolicyArgs struct {
+	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
@@ -320,6 +328,8 @@ type serverExtendedAuditingPolicyArgs struct {
 
 // The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
 type ServerExtendedAuditingPolicyArgs struct {
+	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.

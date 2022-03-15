@@ -101,6 +101,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> AutomaticChannelUpgrade { get; private set; } = null!;
 
         /// <summary>
+        /// - A `azure_active_directory_role_based_access_control` block as defined below.
+        /// </summary>
+        [Output("azureActiveDirectoryRoleBasedAccessControl")]
+        public Output<Outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> AzureActiveDirectoryRoleBasedAccessControl { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         /// </summary>
         [Output("azurePolicyEnabled")]
@@ -307,11 +313,14 @@ namespace Pulumi.Azure.ContainerService
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("roleBasedAccessControl")]
         public Output<Outputs.KubernetesClusterRoleBasedAccessControl> RoleBasedAccessControl { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("roleBasedAccessControlEnabled")]
+        public Output<bool> RoleBasedAccessControlEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -418,6 +427,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }
+
+        /// <summary>
+        /// - A `azure_active_directory_role_based_access_control` block as defined below.
+        /// </summary>
+        [Input("azureActiveDirectoryRoleBasedAccessControl")]
+        public Input<Inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
 
         /// <summary>
         /// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -584,11 +599,14 @@ namespace Pulumi.Azure.ContainerService
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlArgs>? RoleBasedAccessControl { get; set; }
+
+        /// <summary>
+        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("roleBasedAccessControlEnabled")]
+        public Input<bool>? RoleBasedAccessControlEnabled { get; set; }
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -662,6 +680,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }
+
+        /// <summary>
+        /// - A `azure_active_directory_role_based_access_control` block as defined below.
+        /// </summary>
+        [Input("azureActiveDirectoryRoleBasedAccessControl")]
+        public Input<Inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
 
         /// <summary>
         /// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -888,11 +912,14 @@ namespace Pulumi.Azure.ContainerService
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlGetArgs>? RoleBasedAccessControl { get; set; }
+
+        /// <summary>
+        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("roleBasedAccessControlEnabled")]
+        public Input<bool>? RoleBasedAccessControlEnabled { get; set; }
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.

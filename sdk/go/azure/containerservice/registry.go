@@ -199,6 +199,8 @@ type Registry struct {
 	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
+	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+	ExportPolicyEnabled pulumi.BoolPtrOutput `pulumi:"exportPolicyEnabled"`
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
@@ -281,6 +283,8 @@ type registryState struct {
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
+	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
@@ -332,6 +336,8 @@ type RegistryState struct {
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
+	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+	ExportPolicyEnabled pulumi.BoolPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
@@ -383,6 +389,8 @@ type registryArgs struct {
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
+	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
@@ -429,6 +437,8 @@ type RegistryArgs struct {
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
+	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+	ExportPolicyEnabled pulumi.BoolPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`

@@ -341,8 +341,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_topic = azure.servicebus.Topic("exampleTopic",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_servicebus_topic = azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic",
             stream_analytics_job_name=example_job.name,
@@ -403,8 +402,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_topic = azure.servicebus.Topic("exampleTopic",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_servicebus_topic = azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic",
             stream_analytics_job_name=example_job.name,

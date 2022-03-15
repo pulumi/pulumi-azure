@@ -20,13 +20,16 @@ class GetNamespaceAuthorizationRuleResult:
     """
     A collection of values returned by getNamespaceAuthorizationRule.
     """
-    def __init__(__self__, id=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None):
+    def __init__(__self__, id=None, name=None, namespace_id=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if namespace_id and not isinstance(namespace_id, str):
+            raise TypeError("Expected argument 'namespace_id' to be a str")
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -66,8 +69,13 @@ class GetNamespaceAuthorizationRuleResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[str]:
+        return pulumi.get(self, "namespace_id")
+
+    @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -96,7 +104,7 @@ class GetNamespaceAuthorizationRuleResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -132,6 +140,7 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
         return GetNamespaceAuthorizationRuleResult(
             id=self.id,
             name=self.name,
+            namespace_id=self.namespace_id,
             namespace_name=self.namespace_name,
             primary_connection_string=self.primary_connection_string,
             primary_connection_string_alias=self.primary_connection_string_alias,
@@ -143,6 +152,7 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
 
 
 def get_namespace_authorization_rule(name: Optional[str] = None,
+                                     namespace_id: Optional[str] = None,
                                      namespace_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
@@ -168,6 +178,7 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -179,6 +190,7 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
     return AwaitableGetNamespaceAuthorizationRuleResult(
         id=__ret__.id,
         name=__ret__.name,
+        namespace_id=__ret__.namespace_id,
         namespace_name=__ret__.namespace_name,
         primary_connection_string=__ret__.primary_connection_string,
         primary_connection_string_alias=__ret__.primary_connection_string_alias,
@@ -191,8 +203,9 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_namespace_authorization_rule)
 def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
-                                            namespace_name: Optional[pulumi.Input[str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                            namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                            resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
     Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.

@@ -1985,6 +1985,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cosmosdb/sqlRoleAssignment",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment": "SqlRoleAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/sqlRoleDefinition",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition": "SqlRoleDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cosmosdb/sqlStoredProcedure",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {

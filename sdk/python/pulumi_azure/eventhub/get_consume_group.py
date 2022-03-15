@@ -20,16 +20,13 @@ class GetConsumeGroupResult:
     """
     A collection of values returned by getConsumeGroup.
     """
-    def __init__(__self__, eventhub_name=None, id=None, location=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None):
+    def __init__(__self__, eventhub_name=None, id=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None):
         if eventhub_name and not isinstance(eventhub_name, str):
             raise TypeError("Expected argument 'eventhub_name' to be a str")
         pulumi.set(__self__, "eventhub_name", eventhub_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -55,11 +52,6 @@ class GetConsumeGroupResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -93,7 +85,6 @@ class AwaitableGetConsumeGroupResult(GetConsumeGroupResult):
         return GetConsumeGroupResult(
             eventhub_name=self.eventhub_name,
             id=self.id,
-            location=self.location,
             name=self.name,
             namespace_name=self.namespace_name,
             resource_group_name=self.resource_group_name,
@@ -140,7 +131,6 @@ def get_consume_group(eventhub_name: Optional[str] = None,
     return AwaitableGetConsumeGroupResult(
         eventhub_name=__ret__.eventhub_name,
         id=__ret__.id,
-        location=__ret__.location,
         name=__ret__.name,
         namespace_name=__ret__.namespace_name,
         resource_group_name=__ret__.resource_group_name,

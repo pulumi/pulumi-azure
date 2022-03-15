@@ -149,6 +149,9 @@ namespace Pulumi.Azure.Kusto
         [Output("sku")]
         public Output<Outputs.ClusterSku> Sku { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies if the streaming ingest is enabled.
+        /// </summary>
         [Output("streamingIngestionEnabled")]
         public Output<bool> StreamingIngestionEnabled { get; private set; } = null!;
 
@@ -321,6 +324,9 @@ namespace Pulumi.Azure.Kusto
         [Input("sku", required: true)]
         public Input<Inputs.ClusterSkuArgs> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies if the streaming ingest is enabled.
+        /// </summary>
         [Input("streamingIngestionEnabled")]
         public Input<bool>? StreamingIngestionEnabled { get; set; }
 
@@ -472,6 +478,9 @@ namespace Pulumi.Azure.Kusto
         [Input("sku")]
         public Input<Inputs.ClusterSkuGetArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// Specifies if the streaming ingest is enabled.
+        /// </summary>
         [Input("streamingIngestionEnabled")]
         public Input<bool>? StreamingIngestionEnabled { get; set; }
 

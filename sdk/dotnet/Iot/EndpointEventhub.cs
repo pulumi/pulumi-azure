@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Iot
     ///         var exampleEndpointEventhub = new Azure.Iot.EndpointEventhub("exampleEndpointEventhub", new Azure.Iot.EndpointEventhubArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
+    ///             IothubId = exampleIoTHub.Id,
     ///             ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///         });
     ///     }

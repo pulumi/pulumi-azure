@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> BackendIpConfigurationId { get; private set; } = null!;
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         /// </summary>
         [Output("backendPort")]
         public Output<int> BackendPort { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> FrontendIpConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         /// </summary>
         [Output("frontendPort")]
         public Output<int> FrontendPort { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Lb
     public sealed class NatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Lb
         public Input<string> FrontendIpConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         /// </summary>
         [Input("frontendPort", required: true)]
         public Input<int> FrontendPort { get; set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? BackendIpConfigurationId { get; set; }
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         /// </summary>
         [Input("backendPort")]
         public Input<int>? BackendPort { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? FrontendIpConfigurationName { get; set; }
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         /// </summary>
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }

@@ -5110,6 +5110,103 @@ func (o SqlDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+type SqlRoleDefinitionPermission struct {
+	// A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+	DataActions []string `pulumi:"dataActions"`
+}
+
+// SqlRoleDefinitionPermissionInput is an input type that accepts SqlRoleDefinitionPermissionArgs and SqlRoleDefinitionPermissionOutput values.
+// You can construct a concrete instance of `SqlRoleDefinitionPermissionInput` via:
+//
+//          SqlRoleDefinitionPermissionArgs{...}
+type SqlRoleDefinitionPermissionInput interface {
+	pulumi.Input
+
+	ToSqlRoleDefinitionPermissionOutput() SqlRoleDefinitionPermissionOutput
+	ToSqlRoleDefinitionPermissionOutputWithContext(context.Context) SqlRoleDefinitionPermissionOutput
+}
+
+type SqlRoleDefinitionPermissionArgs struct {
+	// A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+}
+
+func (SqlRoleDefinitionPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i SqlRoleDefinitionPermissionArgs) ToSqlRoleDefinitionPermissionOutput() SqlRoleDefinitionPermissionOutput {
+	return i.ToSqlRoleDefinitionPermissionOutputWithContext(context.Background())
+}
+
+func (i SqlRoleDefinitionPermissionArgs) ToSqlRoleDefinitionPermissionOutputWithContext(ctx context.Context) SqlRoleDefinitionPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlRoleDefinitionPermissionOutput)
+}
+
+// SqlRoleDefinitionPermissionArrayInput is an input type that accepts SqlRoleDefinitionPermissionArray and SqlRoleDefinitionPermissionArrayOutput values.
+// You can construct a concrete instance of `SqlRoleDefinitionPermissionArrayInput` via:
+//
+//          SqlRoleDefinitionPermissionArray{ SqlRoleDefinitionPermissionArgs{...} }
+type SqlRoleDefinitionPermissionArrayInput interface {
+	pulumi.Input
+
+	ToSqlRoleDefinitionPermissionArrayOutput() SqlRoleDefinitionPermissionArrayOutput
+	ToSqlRoleDefinitionPermissionArrayOutputWithContext(context.Context) SqlRoleDefinitionPermissionArrayOutput
+}
+
+type SqlRoleDefinitionPermissionArray []SqlRoleDefinitionPermissionInput
+
+func (SqlRoleDefinitionPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i SqlRoleDefinitionPermissionArray) ToSqlRoleDefinitionPermissionArrayOutput() SqlRoleDefinitionPermissionArrayOutput {
+	return i.ToSqlRoleDefinitionPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i SqlRoleDefinitionPermissionArray) ToSqlRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) SqlRoleDefinitionPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlRoleDefinitionPermissionArrayOutput)
+}
+
+type SqlRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
+
+func (SqlRoleDefinitionPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o SqlRoleDefinitionPermissionOutput) ToSqlRoleDefinitionPermissionOutput() SqlRoleDefinitionPermissionOutput {
+	return o
+}
+
+func (o SqlRoleDefinitionPermissionOutput) ToSqlRoleDefinitionPermissionOutputWithContext(ctx context.Context) SqlRoleDefinitionPermissionOutput {
+	return o
+}
+
+// A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+func (o SqlRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+}
+
+type SqlRoleDefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o SqlRoleDefinitionPermissionArrayOutput) ToSqlRoleDefinitionPermissionArrayOutput() SqlRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o SqlRoleDefinitionPermissionArrayOutput) ToSqlRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) SqlRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o SqlRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) SqlRoleDefinitionPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlRoleDefinitionPermission {
+		return vs[0].([]SqlRoleDefinitionPermission)[vs[1].(int)]
+	}).(SqlRoleDefinitionPermissionOutput)
+}
+
 type TableAutoscaleSettings struct {
 	// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -6008,6 +6105,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerUniqueKeyArrayInput)(nil)).Elem(), SqlContainerUniqueKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlDatabaseAutoscaleSettingsInput)(nil)).Elem(), SqlDatabaseAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlDatabaseAutoscaleSettingsPtrInput)(nil)).Elem(), SqlDatabaseAutoscaleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlRoleDefinitionPermissionInput)(nil)).Elem(), SqlRoleDefinitionPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlRoleDefinitionPermissionArrayInput)(nil)).Elem(), SqlRoleDefinitionPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoscaleSettingsInput)(nil)).Elem(), TableAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoscaleSettingsPtrInput)(nil)).Elem(), TableAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCapabilityInput)(nil)).Elem(), GetAccountCapabilityArgs{})
@@ -6100,6 +6199,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlRoleDefinitionPermissionOutput{})
+	pulumi.RegisterOutputType(SqlRoleDefinitionPermissionArrayOutput{})
 	pulumi.RegisterOutputType(TableAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(TableAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountCapabilityOutput{})

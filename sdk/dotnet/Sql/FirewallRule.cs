@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Allows you to manage an Azure SQL Firewall Rule
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

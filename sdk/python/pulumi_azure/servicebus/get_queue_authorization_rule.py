@@ -20,7 +20,7 @@ class GetQueueAuthorizationRuleResult:
     """
     A collection of values returned by getQueueAuthorizationRule.
     """
-    def __init__(__self__, id=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, queue_name=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None):
+    def __init__(__self__, id=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, queue_id=None, queue_name=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +45,9 @@ class GetQueueAuthorizationRuleResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
+        if queue_id and not isinstance(queue_id, str):
+            raise TypeError("Expected argument 'queue_id' to be a str")
+        pulumi.set(__self__, "queue_id", queue_id)
         if queue_name and not isinstance(queue_name, str):
             raise TypeError("Expected argument 'queue_name' to be a str")
         pulumi.set(__self__, "queue_name", queue_name)
@@ -89,7 +92,7 @@ class GetQueueAuthorizationRuleResult:
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -117,13 +120,18 @@ class GetQueueAuthorizationRuleResult:
         return pulumi.get(self, "primary_key")
 
     @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> Optional[str]:
+        return pulumi.get(self, "queue_id")
+
+    @property
     @pulumi.getter(name="queueName")
-    def queue_name(self) -> str:
+    def queue_name(self) -> Optional[str]:
         return pulumi.get(self, "queue_name")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -170,6 +178,7 @@ class AwaitableGetQueueAuthorizationRuleResult(GetQueueAuthorizationRuleResult):
             primary_connection_string=self.primary_connection_string,
             primary_connection_string_alias=self.primary_connection_string_alias,
             primary_key=self.primary_key,
+            queue_id=self.queue_id,
             queue_name=self.queue_name,
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
@@ -180,6 +189,7 @@ class AwaitableGetQueueAuthorizationRuleResult(GetQueueAuthorizationRuleResult):
 
 def get_queue_authorization_rule(name: Optional[str] = None,
                                  namespace_name: Optional[str] = None,
+                                 queue_id: Optional[str] = None,
                                  queue_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueAuthorizationRuleResult:
@@ -208,6 +218,7 @@ def get_queue_authorization_rule(name: Optional[str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
+    __args__['queueId'] = queue_id
     __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -225,6 +236,7 @@ def get_queue_authorization_rule(name: Optional[str] = None,
         primary_connection_string=__ret__.primary_connection_string,
         primary_connection_string_alias=__ret__.primary_connection_string_alias,
         primary_key=__ret__.primary_key,
+        queue_id=__ret__.queue_id,
         queue_name=__ret__.queue_name,
         resource_group_name=__ret__.resource_group_name,
         secondary_connection_string=__ret__.secondary_connection_string,
@@ -235,9 +247,10 @@ def get_queue_authorization_rule(name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_queue_authorization_rule)
 def get_queue_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
-                                        namespace_name: Optional[pulumi.Input[str]] = None,
-                                        queue_name: Optional[pulumi.Input[str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                        queue_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                        queue_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                        resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
     """
     Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.

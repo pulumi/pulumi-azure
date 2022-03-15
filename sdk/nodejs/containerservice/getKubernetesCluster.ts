@@ -51,7 +51,11 @@ export interface GetKubernetesClusterArgs {
  */
 export interface GetKubernetesClusterResult {
     /**
-     * A `addonProfile` block as documented below.
+     * An `aciConnectorLinux` block as documented below.
+     */
+    readonly aciConnectorLinuxes: outputs.containerservice.GetKubernetesClusterAciConnectorLinux[];
+    /**
+     * @deprecated `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider
      */
     readonly addonProfiles: outputs.containerservice.GetKubernetesClusterAddonProfile[];
     /**
@@ -62,6 +66,14 @@ export interface GetKubernetesClusterResult {
      * The IP ranges to whitelist for incoming traffic to the primaries.
      */
     readonly apiServerAuthorizedIpRanges: string[];
+    /**
+     * An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
+     */
+    readonly azureActiveDirectoryRoleBasedAccessControls: outputs.containerservice.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl[];
+    /**
+     * Is Azure Policy enabled on this managed Kubernetes Cluster?
+     */
+    readonly azurePolicyEnabled: boolean;
     /**
      * The ID of the Disk Encryption Set used for the Nodes and Volumes.
      */
@@ -75,6 +87,14 @@ export interface GetKubernetesClusterResult {
      */
     readonly fqdn: string;
     /**
+     * Is HTTP Application Routing enabled for this managed Kubernetes Cluster?
+     */
+    readonly httpApplicationRoutingEnabled: boolean;
+    /**
+     * The Zone Name of the HTTP Application Routing.
+     */
+    readonly httpApplicationRoutingZoneName: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -82,6 +102,14 @@ export interface GetKubernetesClusterResult {
      * A `identity` block as documented below.
      */
     readonly identities: outputs.containerservice.GetKubernetesClusterIdentity[];
+    /**
+     * An `ingressApplicationGateway` block as documented below.
+     */
+    readonly ingressApplicationGateways: outputs.containerservice.GetKubernetesClusterIngressApplicationGateway[];
+    /**
+     * A `keyVaultSecretsProvider` block as documented below.
+     */
+    readonly keyVaultSecretsProviders: outputs.containerservice.GetKubernetesClusterKeyVaultSecretsProvider[];
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      */
@@ -127,6 +155,14 @@ export interface GetKubernetesClusterResult {
      */
     readonly nodeResourceGroup: string;
     /**
+     * An `omsAgent` block as documented below.
+     */
+    readonly omsAgents: outputs.containerservice.GetKubernetesClusterOmsAgent[];
+    /**
+     * Is Open Service Mesh enabled for this managed Kubernetes Cluster?
+     */
+    readonly openServiceMeshEnabled: boolean;
+    /**
      * If the cluster has the Kubernetes API only exposed on internal IP addresses.
      */
     readonly privateClusterEnabled: boolean;
@@ -134,10 +170,17 @@ export interface GetKubernetesClusterResult {
      * The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
      */
     readonly privateFqdn: string;
+    /**
+     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
+     */
     readonly privateLinkEnabled: boolean;
     readonly resourceGroupName: string;
     /**
-     * A `roleBasedAccessControl` block as documented below.
+     * Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+     */
+    readonly roleBasedAccessControlEnabled: boolean;
+    /**
+     * @deprecated `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.
      */
     readonly roleBasedAccessControls: outputs.containerservice.GetKubernetesClusterRoleBasedAccessControl[];
     /**

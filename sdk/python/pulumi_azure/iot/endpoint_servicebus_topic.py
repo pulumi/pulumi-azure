@@ -354,9 +354,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             namespace_name=example_namespace.name)
         example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            namespace_name=example_namespace.name,
-            topic_name=example_topic.name,
-            resource_group_name=example_resource_group.name,
+            topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
@@ -372,7 +370,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             })
         example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
 
@@ -422,9 +420,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             namespace_name=example_namespace.name)
         example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            namespace_name=example_namespace.name,
-            topic_name=example_topic.name,
-            resource_group_name=example_resource_group.name,
+            topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
@@ -440,7 +436,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             })
         example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
 

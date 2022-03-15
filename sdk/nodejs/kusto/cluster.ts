@@ -133,6 +133,9 @@ export class Cluster extends pulumi.CustomResource {
      * A `sku` block as defined below.
      */
     public readonly sku!: pulumi.Output<outputs.kusto.ClusterSku>;
+    /**
+     * Specifies if the streaming ingest is enabled.
+     */
     public readonly streamingIngestionEnabled!: pulumi.Output<boolean>;
     /**
      * A mapping of tags to assign to the resource.
@@ -303,6 +306,9 @@ export interface ClusterState {
      * A `sku` block as defined below.
      */
     sku?: pulumi.Input<inputs.kusto.ClusterSku>;
+    /**
+     * Specifies if the streaming ingest is enabled.
+     */
     streamingIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
@@ -395,6 +401,9 @@ export interface ClusterArgs {
      * A `sku` block as defined below.
      */
     sku: pulumi.Input<inputs.kusto.ClusterSku>;
+    /**
+     * Specifies if the streaming ingest is enabled.
+     */
     streamingIngestionEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.

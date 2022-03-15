@@ -98,7 +98,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      *
-     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+     * @deprecated This property is no longer configurable in the service and has been deprecated.
      */
     public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
@@ -291,7 +291,7 @@ export interface FunctionAppSlotState {
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      *
-     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+     * @deprecated This property is no longer configurable in the service and has been deprecated.
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
@@ -399,7 +399,7 @@ export interface FunctionAppSlotArgs {
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      *
-     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+     * @deprecated This property is no longer configurable in the service and has been deprecated.
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
     /**

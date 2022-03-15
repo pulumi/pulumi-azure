@@ -68,8 +68,8 @@ class FunctionAppSlotArgs:
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
-            warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
+            warnings.warn("""This property is no longer configurable in the service and has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated.""")
         if client_affinity_enabled is not None:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if connection_strings is not None:
@@ -401,8 +401,8 @@ class _FunctionAppSlotState:
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
-            warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
+            warnings.warn("""This property is no longer configurable in the service and has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated.""")
         if client_affinity_enabled is not None:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if connection_strings is not None:
@@ -949,8 +949,8 @@ class FunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
             if client_affinity_enabled is not None and not opts.urn:
-                warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
+                warnings.warn("""This property is no longer configurable in the service and has been deprecated.""", DeprecationWarning)
+                pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated.""")
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota

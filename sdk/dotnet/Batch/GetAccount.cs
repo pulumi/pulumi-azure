@@ -81,6 +81,9 @@ namespace Pulumi.Azure.Batch
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
+        [Input("encryption")]
+        public Inputs.GetAccountEncryptionArgs? Encryption { get; set; }
+
         /// <summary>
         /// The name of the Batch account.
         /// </summary>
@@ -100,6 +103,9 @@ namespace Pulumi.Azure.Batch
 
     public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
     {
+        [Input("encryption")]
+        public Input<Inputs.GetAccountEncryptionInputArgs>? Encryption { get; set; }
+
         /// <summary>
         /// The name of the Batch account.
         /// </summary>
@@ -125,6 +131,7 @@ namespace Pulumi.Azure.Batch
         /// The account endpoint used to interact with the Batch service.
         /// </summary>
         public readonly string AccountEndpoint;
+        public readonly Outputs.GetAccountEncryptionResult? Encryption;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -167,6 +174,8 @@ namespace Pulumi.Azure.Batch
         private GetAccountResult(
             string accountEndpoint,
 
+            Outputs.GetAccountEncryptionResult? encryption,
+
             string id,
 
             ImmutableArray<Outputs.GetAccountKeyVaultReferenceResult> keyVaultReferences,
@@ -188,6 +197,7 @@ namespace Pulumi.Azure.Batch
             ImmutableDictionary<string, string> tags)
         {
             AccountEndpoint = accountEndpoint;
+            Encryption = encryption;
             Id = id;
             KeyVaultReferences = keyVaultReferences;
             Location = location;

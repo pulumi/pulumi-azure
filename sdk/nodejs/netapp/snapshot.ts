@@ -121,7 +121,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * @deprecated This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
+     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface SnapshotState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * @deprecated This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
+     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -235,7 +235,7 @@ export interface SnapshotArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * @deprecated This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
+     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

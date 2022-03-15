@@ -89,17 +89,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("namespaceId")]
+        public string? NamespaceId { get; set; }
+
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Service Bus Queue exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetQueueArgs()
         {
@@ -114,17 +117,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         /// <summary>
         /// The name of the ServiceBus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Service Bus Queue exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public GetQueueInvokeArgs()
         {
@@ -188,7 +194,8 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly int MaxSizeInMegabytes;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceId;
+        public readonly string? NamespaceName;
         /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection.
         /// </summary>
@@ -197,7 +204,7 @@ namespace Pulumi.Azure.ServiceBus
         /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
         /// </summary>
         public readonly bool RequiresSession;
-        public readonly string ResourceGroupName;
+        public readonly string? ResourceGroupName;
         /// <summary>
         /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
         /// </summary>
@@ -233,13 +240,15 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceId,
+
+            string? namespaceName,
 
             bool requiresDuplicateDetection,
 
             bool requiresSession,
 
-            string resourceGroupName,
+            string? resourceGroupName,
 
             string status)
         {
@@ -257,6 +266,7 @@ namespace Pulumi.Azure.ServiceBus
             MaxDeliveryCount = maxDeliveryCount;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             Name = name;
+            NamespaceId = namespaceId;
             NamespaceName = namespaceName;
             RequiresDuplicateDetection = requiresDuplicateDetection;
             RequiresSession = requiresSession;

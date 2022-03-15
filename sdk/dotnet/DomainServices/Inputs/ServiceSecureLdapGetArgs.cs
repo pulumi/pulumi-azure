@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public Input<string>? CertificateThumbprint { get; set; }
 
         /// <summary>
-        /// Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+        /// Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

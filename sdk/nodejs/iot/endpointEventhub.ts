@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEndpointEventhub = new azure.iot.EndpointEventhub("exampleEndpointEventhub", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     iothubName: exampleIoTHub.name,
+ *     iothubId: exampleIoTHub.id,
  *     connectionString: exampleAuthorizationRule.primaryConnectionString,
  * });
  * ```

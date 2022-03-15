@@ -13,10 +13,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult
     {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// A `secret_identity` block as documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityResult> SecretIdentities;
         /// <summary>
         /// Is secret rotation enabled?

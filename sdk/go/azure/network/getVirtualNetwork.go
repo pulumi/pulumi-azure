@@ -69,6 +69,8 @@ type LookupVirtualNetworkResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of name of the subnets that are attached to this virtual network.
 	Subnets []string `pulumi:"subnets"`
+	// A mapping of tags to assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// A mapping of name - virtual network id of the virtual network peerings.
 	VnetPeerings map[string]string `pulumi:"vnetPeerings"`
 }
@@ -145,6 +147,11 @@ func (o LookupVirtualNetworkResultOutput) ResourceGroupName() pulumi.StringOutpu
 // The list of name of the subnets that are attached to this virtual network.
 func (o LookupVirtualNetworkResultOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// A mapping of tags to assigned to the resource.
+func (o LookupVirtualNetworkResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A mapping of name - virtual network id of the virtual network peerings.

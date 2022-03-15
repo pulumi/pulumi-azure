@@ -207,6 +207,8 @@ export class IoTHub extends pulumi.CustomResource {
     public readonly identity!: pulumi.Output<outputs.iot.IoTHubIdentity | undefined>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
+     *
+     * @deprecated This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
      */
     public readonly ipFilterRules!: pulumi.Output<outputs.iot.IoTHubIpFilterRule[] | undefined>;
     /**
@@ -221,6 +223,10 @@ export class IoTHub extends pulumi.CustomResource {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A `networkRuleSet` block as defined below.
+     */
+    public readonly networkRuleSets!: pulumi.Output<outputs.iot.IoTHubNetworkRuleSet[] | undefined>;
     /**
      * Is the IotHub resource accessible from a public network?
      */
@@ -281,6 +287,7 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkRuleSets"] = state ? state.networkRuleSets : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
@@ -308,6 +315,7 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkRuleSets"] = args ? args.networkRuleSets : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routes"] = args ? args.routes : undefined;
@@ -389,6 +397,8 @@ export interface IoTHubState {
     identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
+     *
+     * @deprecated This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
      */
     ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
@@ -403,6 +413,10 @@ export interface IoTHubState {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkRuleSet` block as defined below.
+     */
+    networkRuleSets?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSet>[]>;
     /**
      * Is the IotHub resource accessible from a public network?
      */
@@ -471,6 +485,8 @@ export interface IoTHubArgs {
     identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
+     *
+     * @deprecated This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
      */
     ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
@@ -485,6 +501,10 @@ export interface IoTHubArgs {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkRuleSet` block as defined below.
+     */
+    networkRuleSets?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSet>[]>;
     /**
      * Is the IotHub resource accessible from a public network?
      */

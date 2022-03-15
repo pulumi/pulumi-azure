@@ -96,6 +96,8 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+     *
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -130,9 +132,6 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             const args = argsOrState as EnterpriseDatabaseArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
@@ -188,6 +187,8 @@ export interface EnterpriseDatabaseState {
     primaryAccessKey?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+     *
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -230,6 +231,8 @@ export interface EnterpriseDatabaseArgs {
     port?: pulumi.Input<number>;
     /**
      * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+     *
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

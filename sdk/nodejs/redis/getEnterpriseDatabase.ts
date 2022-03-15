@@ -49,8 +49,10 @@ export interface GetEnterpriseDatabaseArgs {
     name: string;
     /**
      * The name of the resource group the Redis Enterprise Database instance is located in.
+     *
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
 }
 
 /**
@@ -73,6 +75,9 @@ export interface GetEnterpriseDatabaseResult {
      * The Primary Access Key for the Redis Enterprise Database instance.
      */
     readonly primaryAccessKey: string;
+    /**
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
+     */
     readonly resourceGroupName: string;
     /**
      * The Secondary Access Key for the Redis Enterprise Database instance.
@@ -98,6 +103,8 @@ export interface GetEnterpriseDatabaseOutputArgs {
     name: pulumi.Input<string>;
     /**
      * The name of the resource group the Redis Enterprise Database instance is located in.
+     *
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

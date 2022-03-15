@@ -89,17 +89,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("namespaceId")]
+        public string? NamespaceId { get; set; }
+
         /// <summary>
         /// The name of the Service Bus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public string NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public string? NamespaceName { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Service Bus Topic exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetTopicArgs()
         {
@@ -114,17 +117,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         /// <summary>
         /// The name of the Service Bus Namespace.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Service Bus Topic exists.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public GetTopicInvokeArgs()
         {
@@ -168,12 +174,13 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly int MaxSizeInMegabytes;
         public readonly string Name;
-        public readonly string NamespaceName;
+        public readonly string? NamespaceId;
+        public readonly string? NamespaceName;
         /// <summary>
         /// Boolean flag which controls whether the Topic requires duplicate detection.
         /// </summary>
         public readonly bool RequiresDuplicateDetection;
-        public readonly string ResourceGroupName;
+        public readonly string? ResourceGroupName;
         /// <summary>
         /// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
         /// </summary>
@@ -203,11 +210,13 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string namespaceName,
+            string? namespaceId,
+
+            string? namespaceName,
 
             bool requiresDuplicateDetection,
 
-            string resourceGroupName,
+            string? resourceGroupName,
 
             string status,
 
@@ -222,6 +231,7 @@ namespace Pulumi.Azure.ServiceBus
             Id = id;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             Name = name;
+            NamespaceId = namespaceId;
             NamespaceName = namespaceName;
             RequiresDuplicateDetection = requiresDuplicateDetection;
             ResourceGroupName = resourceGroupName;

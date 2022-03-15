@@ -137,8 +137,8 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
                  reopen_closed_incidents: Optional[bool] = None):
         """
         :param bool enabled: Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
-        :param str entity_matching_method: The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
-        :param Sequence[str] group_bies: A list of entity types to group by, only when the `entity_matching_method` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+        :param str entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+        :param Sequence[str] group_bies: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         :param str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         :param bool reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
         """
@@ -165,7 +165,7 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
     @pulumi.getter(name="entityMatchingMethod")
     def entity_matching_method(self) -> Optional[str]:
         """
-        The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+        The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
         """
         return pulumi.get(self, "entity_matching_method")
 
@@ -173,7 +173,7 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
-        A list of entity types to group by, only when the `entity_matching_method` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+        A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         """
         return pulumi.get(self, "group_bies")
 

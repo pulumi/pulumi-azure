@@ -20,7 +20,7 @@ class GetTopicAuthorizationRuleResult:
     """
     A collection of values returned by getTopicAuthorizationRule.
     """
-    def __init__(__self__, id=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None, topic_name=None):
+    def __init__(__self__, id=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, queue_name=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None, topic_id=None, topic_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +45,9 @@ class GetTopicAuthorizationRuleResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
+        if queue_name and not isinstance(queue_name, str):
+            raise TypeError("Expected argument 'queue_name' to be a str")
+        pulumi.set(__self__, "queue_name", queue_name)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -60,6 +63,9 @@ class GetTopicAuthorizationRuleResult:
         if send and not isinstance(send, bool):
             raise TypeError("Expected argument 'send' to be a bool")
         pulumi.set(__self__, "send", send)
+        if topic_id and not isinstance(topic_id, str):
+            raise TypeError("Expected argument 'topic_id' to be a str")
+        pulumi.set(__self__, "topic_id", topic_id)
         if topic_name and not isinstance(topic_name, str):
             raise TypeError("Expected argument 'topic_name' to be a str")
         pulumi.set(__self__, "topic_name", topic_name)
@@ -89,7 +95,7 @@ class GetTopicAuthorizationRuleResult:
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -117,8 +123,13 @@ class GetTopicAuthorizationRuleResult:
         return pulumi.get(self, "primary_key")
 
     @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        return pulumi.get(self, "queue_name")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -151,8 +162,13 @@ class GetTopicAuthorizationRuleResult:
         return pulumi.get(self, "send")
 
     @property
+    @pulumi.getter(name="topicId")
+    def topic_id(self) -> Optional[str]:
+        return pulumi.get(self, "topic_id")
+
+    @property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> str:
+    def topic_name(self) -> Optional[str]:
         return pulumi.get(self, "topic_name")
 
 
@@ -170,17 +186,21 @@ class AwaitableGetTopicAuthorizationRuleResult(GetTopicAuthorizationRuleResult):
             primary_connection_string=self.primary_connection_string,
             primary_connection_string_alias=self.primary_connection_string_alias,
             primary_key=self.primary_key,
+            queue_name=self.queue_name,
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
             secondary_connection_string_alias=self.secondary_connection_string_alias,
             secondary_key=self.secondary_key,
             send=self.send,
+            topic_id=self.topic_id,
             topic_name=self.topic_name)
 
 
 def get_topic_authorization_rule(name: Optional[str] = None,
                                  namespace_name: Optional[str] = None,
+                                 queue_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
+                                 topic_id: Optional[str] = None,
                                  topic_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicAuthorizationRuleResult:
     """
@@ -208,7 +228,9 @@ def get_topic_authorization_rule(name: Optional[str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
+    __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['topicId'] = topic_id
     __args__['topicName'] = topic_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -225,19 +247,23 @@ def get_topic_authorization_rule(name: Optional[str] = None,
         primary_connection_string=__ret__.primary_connection_string,
         primary_connection_string_alias=__ret__.primary_connection_string_alias,
         primary_key=__ret__.primary_key,
+        queue_name=__ret__.queue_name,
         resource_group_name=__ret__.resource_group_name,
         secondary_connection_string=__ret__.secondary_connection_string,
         secondary_connection_string_alias=__ret__.secondary_connection_string_alias,
         secondary_key=__ret__.secondary_key,
         send=__ret__.send,
+        topic_id=__ret__.topic_id,
         topic_name=__ret__.topic_name)
 
 
 @_utilities.lift_output_func(get_topic_authorization_rule)
 def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
-                                        namespace_name: Optional[pulumi.Input[str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        topic_name: Optional[pulumi.Input[str]] = None,
+                                        namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                        queue_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                        resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                        topic_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                        topic_name: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicAuthorizationRuleResult]:
     """
     Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.

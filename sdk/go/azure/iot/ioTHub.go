@@ -202,6 +202,8 @@ type IoTHub struct {
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrOutput `pulumi:"identity"`
 	// One or more `ipFilterRule` blocks as defined below.
+	//
+	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
 	IpFilterRules IoTHubIpFilterRuleArrayOutput `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -209,6 +211,8 @@ type IoTHub struct {
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `networkRuleSet` block as defined below.
+	NetworkRuleSets IoTHubNetworkRuleSetArrayOutput `pulumi:"networkRuleSets"`
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -289,6 +293,8 @@ type ioTHubState struct {
 	// An `identity` block as defined below.
 	Identity *IoTHubIdentity `pulumi:"identity"`
 	// One or more `ipFilterRule` blocks as defined below.
+	//
+	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
 	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -296,6 +302,8 @@ type ioTHubState struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkRuleSet` block as defined below.
+	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -342,6 +350,8 @@ type IoTHubState struct {
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrInput
 	// One or more `ipFilterRule` blocks as defined below.
+	//
+	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
 	IpFilterRules IoTHubIpFilterRuleArrayInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -349,6 +359,8 @@ type IoTHubState struct {
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkRuleSet` block as defined below.
+	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -387,6 +399,8 @@ type ioTHubArgs struct {
 	// An `identity` block as defined below.
 	Identity *IoTHubIdentity `pulumi:"identity"`
 	// One or more `ipFilterRule` blocks as defined below.
+	//
+	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
 	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -394,6 +408,8 @@ type ioTHubArgs struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkRuleSet` block as defined below.
+	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -425,6 +441,8 @@ type IoTHubArgs struct {
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrInput
 	// One or more `ipFilterRule` blocks as defined below.
+	//
+	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
 	IpFilterRules IoTHubIpFilterRuleArrayInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -432,6 +450,8 @@ type IoTHubArgs struct {
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkRuleSet` block as defined below.
+	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.

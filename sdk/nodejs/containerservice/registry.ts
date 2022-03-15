@@ -160,6 +160,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.containerservice.RegistryEncryption>;
     /**
+     * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+     */
+    public readonly exportPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
      * @deprecated Deprecated in favour of `georeplications`
@@ -249,6 +253,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["anonymousPullEnabled"] = state ? state.anonymousPullEnabled : undefined;
             resourceInputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
+            resourceInputs["exportPolicyEnabled"] = state ? state.exportPolicyEnabled : undefined;
             resourceInputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
             resourceInputs["georeplications"] = state ? state.georeplications : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -275,6 +280,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
             resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["exportPolicyEnabled"] = args ? args.exportPolicyEnabled : undefined;
             resourceInputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
             resourceInputs["georeplications"] = args ? args.georeplications : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -328,6 +334,10 @@ export interface RegistryState {
      * An `encryption` block as documented below.
      */
     encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    /**
+     * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+     */
+    exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
@@ -420,6 +430,10 @@ export interface RegistryArgs {
      * An `encryption` block as documented below.
      */
     encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    /**
+     * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
+     */
+    exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *

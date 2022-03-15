@@ -77,6 +77,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly subnets: string[];
     /**
+     * A mapping of tags to assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * A mapping of name - virtual network id of the virtual network peerings.
      */
     readonly vnetPeerings: {[key: string]: string};

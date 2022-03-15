@@ -79,7 +79,7 @@ import (
 // 		}
 // 		_, err = iot.NewEndpointEventhub(ctx, "exampleEndpointEventhub", &iot.EndpointEventhubArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubName:        exampleIoTHub.Name,
+// 			IothubId:          exampleIoTHub.ID(),
 // 			ConnectionString:  exampleAuthorizationRule.PrimaryConnectionString,
 // 		})
 // 		if err != nil {

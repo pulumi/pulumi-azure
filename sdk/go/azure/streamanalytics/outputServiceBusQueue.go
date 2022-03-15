@@ -49,8 +49,7 @@ import (
 // 			return err
 // 		}
 // 		exampleQueue, err := servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
-// 			ResourceGroupName:  pulumi.String(exampleResourceGroup.Name),
-// 			NamespaceName:      exampleNamespace.Name,
+// 			NamespaceId:        exampleNamespace.ID(),
 // 			EnablePartitioning: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

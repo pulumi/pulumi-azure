@@ -20,7 +20,7 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None):
+    def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, vnet_peerings=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         pulumi.set(__self__, "address_spaces", address_spaces)
@@ -45,6 +45,9 @@ class GetVirtualNetworkResult:
         if subnets and not isinstance(subnets, list):
             raise TypeError("Expected argument 'subnets' to be a list")
         pulumi.set(__self__, "subnets", subnets)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if vnet_peerings and not isinstance(vnet_peerings, dict):
             raise TypeError("Expected argument 'vnet_peerings' to be a dict")
         pulumi.set(__self__, "vnet_peerings", vnet_peerings)
@@ -108,6 +111,14 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "subnets")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags to assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="vnetPeerings")
     def vnet_peerings(self) -> Mapping[str, str]:
         """
@@ -130,6 +141,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             subnets=self.subnets,
+            tags=self.tags,
             vnet_peerings=self.vnet_peerings)
 
 
@@ -172,6 +184,7 @@ def get_virtual_network(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         subnets=__ret__.subnets,
+        tags=__ret__.tags,
         vnet_peerings=__ret__.vnet_peerings)
 
 

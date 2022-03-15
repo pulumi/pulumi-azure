@@ -334,6 +334,8 @@
         "cosmosdb/sqlContainer.ts",
         "cosmosdb/sqlDatabase.ts",
         "cosmosdb/sqlFunction.ts",
+        "cosmosdb/sqlRoleAssignment.ts",
+        "cosmosdb/sqlRoleDefinition.ts",
         "cosmosdb/sqlStoredProcedure.ts",
         "cosmosdb/sqlTrigger.ts",
         "cosmosdb/table.ts",

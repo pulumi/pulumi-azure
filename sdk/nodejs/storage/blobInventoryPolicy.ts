@@ -30,15 +30,16 @@ import * as utilities from "../utilities";
  * });
  * const exampleBlobInventoryPolicy = new azure.storage.BlobInventoryPolicy("exampleBlobInventoryPolicy", {
  *     storageAccountId: exampleAccount.id,
- *     storageContainerName: exampleContainer.name,
  *     rules: [{
  *         name: "rule1",
- *         filter: {
- *             blobTypes: ["blockBlob"],
- *             includeBlobVersions: true,
- *             includeSnapshots: true,
- *             prefixMatches: ["*&#47;example"],
- *         },
+ *         storageContainerName: exampleContainer.name,
+ *         format: "Csv",
+ *         schedule: "Daily",
+ *         scope: "Container",
+ *         schemaFields: [
+ *             "Name",
+ *             "Last-Modified",
+ *         ],
  *     }],
  * });
  * ```
@@ -88,9 +89,11 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
      */
     public readonly storageAccountId!: pulumi.Output<string>;
     /**
-     * The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+     * The storage container name to store the blob inventory files for this rule.
+     *
+     * @deprecated The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
      */
-    public readonly storageContainerName!: pulumi.Output<string>;
+    public readonly storageContainerName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BlobInventoryPolicy resource with the given unique name, arguments, and options.
@@ -116,9 +119,6 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageContainerName'");
-            }
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
@@ -141,7 +141,9 @@ export interface BlobInventoryPolicyState {
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+     * The storage container name to store the blob inventory files for this rule.
+     *
+     * @deprecated The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
      */
     storageContainerName?: pulumi.Input<string>;
 }
@@ -159,7 +161,9 @@ export interface BlobInventoryPolicyArgs {
      */
     storageAccountId: pulumi.Input<string>;
     /**
-     * The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
+     * The storage container name to store the blob inventory files for this rule.
+     *
+     * @deprecated The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
      */
-    storageContainerName: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string>;
 }

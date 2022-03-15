@@ -75,10 +75,10 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator ServerAzureadAdministratorPtrOutput `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -119,12 +119,6 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AdministratorLogin == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorLogin'")
-	}
-	if args.AdministratorLoginPassword == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorLoginPassword'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -153,9 +147,9 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
@@ -191,9 +185,9 @@ type serverState struct {
 }
 
 type ServerState struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator ServerAzureadAdministratorPtrInput
@@ -233,10 +227,10 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
-	AdministratorLogin string `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -268,10 +262,10 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
-	AdministratorLogin pulumi.StringInput
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword pulumi.StringInput
+	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
+	AdministratorLogin pulumi.StringPtrInput
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	AdministratorLoginPassword pulumi.StringPtrInput
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.

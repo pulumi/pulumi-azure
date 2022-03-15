@@ -308,9 +308,9 @@ func (o AlertRuleScheduledIncidentConfigurationPtrOutput) Grouping() AlertRuleSc
 type AlertRuleScheduledIncidentConfigurationGrouping struct {
 	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
-	// A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
 	GroupBies []string `pulumi:"groupBies"`
 	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
 	LookbackDuration *string `pulumi:"lookbackDuration"`
@@ -332,9 +332,9 @@ type AlertRuleScheduledIncidentConfigurationGroupingInput interface {
 type AlertRuleScheduledIncidentConfigurationGroupingArgs struct {
 	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
-	// A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
 	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
 	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
 	LookbackDuration pulumi.StringPtrInput `pulumi:"lookbackDuration"`
@@ -424,12 +424,12 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) Enabled() pulumi.
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) EntityMatchingMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
 }
 
-// A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
@@ -478,7 +478,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) EntityMatchingMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) *string {
 		if v == nil {
@@ -488,7 +488,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) EntityMatching
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {

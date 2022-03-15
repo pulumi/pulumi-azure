@@ -98,7 +98,7 @@ type FunctionAppSlot struct {
 	AuthSettings FunctionAppSlotAuthSettingsOutput `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+	// Deprecated: This property is no longer configurable in the service and has been deprecated.
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -196,7 +196,7 @@ type functionAppSlotState struct {
 	AuthSettings *FunctionAppSlotAuthSettings `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+	// Deprecated: This property is no longer configurable in the service and has been deprecated.
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -251,7 +251,7 @@ type FunctionAppSlotState struct {
 	AuthSettings FunctionAppSlotAuthSettingsPtrInput
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+	// Deprecated: This property is no longer configurable in the service and has been deprecated.
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput
@@ -310,7 +310,7 @@ type functionAppSlotArgs struct {
 	AuthSettings *FunctionAppSlotAuthSettings `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+	// Deprecated: This property is no longer configurable in the service and has been deprecated.
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -356,7 +356,7 @@ type FunctionAppSlotArgs struct {
 	AuthSettings FunctionAppSlotAuthSettingsPtrInput
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
+	// Deprecated: This property is no longer configurable in the service and has been deprecated.
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput

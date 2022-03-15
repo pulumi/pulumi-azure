@@ -80,6 +80,10 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     public readonly databaseId!: pulumi.Output<string>;
     /**
+     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable audit events to Azure Monitor?
      */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
@@ -114,6 +118,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DatabaseExtendedAuditingPolicyState | undefined;
             resourceInputs["databaseId"] = state ? state.databaseId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
@@ -125,6 +130,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'databaseId'");
             }
             resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
@@ -144,6 +150,10 @@ export interface DatabaseExtendedAuditingPolicyState {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     databaseId?: pulumi.Input<string>;
+    /**
+     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * Enable audit events to Azure Monitor?
      */
@@ -174,6 +184,10 @@ export interface DatabaseExtendedAuditingPolicyArgs {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     databaseId: pulumi.Input<string>;
+    /**
+     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * Enable audit events to Azure Monitor?
      */

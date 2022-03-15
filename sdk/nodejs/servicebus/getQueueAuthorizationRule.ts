@@ -31,6 +31,7 @@ export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, o
     return pulumi.runtime.invoke("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", {
         "name": args.name,
         "namespaceName": args.namespaceName,
+        "queueId": args.queueId,
         "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -47,15 +48,16 @@ export interface GetQueueAuthorizationRuleArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: string;
+    namespaceName?: string;
+    queueId?: string;
     /**
      * The name of the ServiceBus Queue.
      */
-    queueName: string;
+    queueName?: string;
     /**
      * The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
      */
-    resourceGroupName: string;
+    resourceGroupName?: string;
 }
 
 /**
@@ -69,7 +71,7 @@ export interface GetQueueAuthorizationRuleResult {
     readonly listen: boolean;
     readonly manage: boolean;
     readonly name: string;
-    readonly namespaceName: string;
+    readonly namespaceName?: string;
     /**
      * The Primary Connection String for the ServiceBus Queue authorization Rule.
      */
@@ -82,8 +84,9 @@ export interface GetQueueAuthorizationRuleResult {
      * The Primary Key for the ServiceBus Queue authorization Rule.
      */
     readonly primaryKey: string;
-    readonly queueName: string;
-    readonly resourceGroupName: string;
+    readonly queueId?: string;
+    readonly queueName?: string;
+    readonly resourceGroupName?: string;
     /**
      * The Secondary Connection String for the ServiceBus Queue authorization Rule.
      */
@@ -114,13 +117,14 @@ export interface GetQueueAuthorizationRuleOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
+    queueId?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Queue.
      */
-    queueName: pulumi.Input<string>;
+    queueName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

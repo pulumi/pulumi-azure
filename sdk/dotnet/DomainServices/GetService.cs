@@ -148,6 +148,9 @@ namespace Pulumi.Azure.DomainServices
         /// A `notifications` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceNotificationResult> Notifications;
+        /// <summary>
+        /// One or more `replica_set` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceReplicaSetResult> ReplicaSets;
         public readonly string ResourceGroupName;
         public readonly string ResourceId;

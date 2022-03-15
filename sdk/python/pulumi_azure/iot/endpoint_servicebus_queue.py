@@ -355,9 +355,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             namespace_name=example_namespace.name,
             enable_partitioning=True)
         example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
-            namespace_name=example_namespace.name,
-            queue_name=example_queue.name,
-            resource_group_name=example_resource_group.name,
+            queue_id=example_queue.id,
             listen=False,
             send=True,
             manage=False)
@@ -373,7 +371,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             })
         example_endpoint_servicebus_queue = azure.iot.EndpointServicebusQueue("exampleEndpointServicebusQueue",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
 
@@ -424,9 +422,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             namespace_name=example_namespace.name,
             enable_partitioning=True)
         example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
-            namespace_name=example_namespace.name,
-            queue_name=example_queue.name,
-            resource_group_name=example_resource_group.name,
+            queue_id=example_queue.id,
             listen=False,
             send=True,
             manage=False)
@@ -442,7 +438,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             })
         example_endpoint_servicebus_queue = azure.iot.EndpointServicebusQueue("exampleEndpointServicebusQueue",
             resource_group_name=example_resource_group.name,
-            iothub_name=example_io_t_hub.name,
+            iothub_id=example_io_t_hub.id,
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
 

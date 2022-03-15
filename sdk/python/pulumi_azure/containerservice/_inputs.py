@@ -38,6 +38,7 @@ __all__ = [
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterAddonProfileOpenServiceMeshArgs',
     'KubernetesClusterAutoScalerProfileArgs',
+    'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs',
     'KubernetesClusterDefaultNodePoolArgs',
     'KubernetesClusterDefaultNodePoolKubeletConfigArgs',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
@@ -2266,6 +2267,125 @@ class KubernetesClusterAutoScalerProfileArgs:
     @skip_nodes_with_system_pods.setter
     def skip_nodes_with_system_pods(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_nodes_with_system_pods", value)
+
+
+@pulumi.input_type
+class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
+    def __init__(__self__, *,
+                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_rbac_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_app_id: Optional[pulumi.Input[str]] = None,
+                 managed: Optional[pulumi.Input[bool]] = None,
+                 server_app_id: Optional[pulumi.Input[str]] = None,
+                 server_app_secret: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        :param pulumi.Input[bool] azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
+        :param pulumi.Input[str] client_app_id: The Client ID of an Azure Active Directory Application.
+        :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        :param pulumi.Input[str] server_app_id: The Server ID of an Azure Active Directory Application.
+        :param pulumi.Input[str] server_app_secret: The Server Secret of an Azure Active Directory Application.
+        :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        """
+        if admin_group_object_ids is not None:
+            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if azure_rbac_enabled is not None:
+            pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
+        if client_app_id is not None:
+            pulumi.set(__self__, "client_app_id", client_app_id)
+        if managed is not None:
+            pulumi.set(__self__, "managed", managed)
+        if server_app_id is not None:
+            pulumi.set(__self__, "server_app_id", server_app_id)
+        if server_app_secret is not None:
+            pulumi.set(__self__, "server_app_secret", server_app_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @admin_group_object_ids.setter
+    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "admin_group_object_ids", value)
+
+    @property
+    @pulumi.getter(name="azureRbacEnabled")
+    def azure_rbac_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Role Based Access Control based on Azure AD enabled?
+        """
+        return pulumi.get(self, "azure_rbac_enabled")
+
+    @azure_rbac_enabled.setter
+    def azure_rbac_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_rbac_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientAppId")
+    def client_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "client_app_id")
+
+    @client_app_id.setter
+    def client_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_app_id", value)
+
+    @property
+    @pulumi.getter
+    def managed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        """
+        return pulumi.get(self, "managed")
+
+    @managed.setter
+    def managed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed", value)
+
+    @property
+    @pulumi.getter(name="serverAppId")
+    def server_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Server ID of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "server_app_id")
+
+    @server_app_id.setter
+    def server_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_app_id", value)
+
+    @property
+    @pulumi.getter(name="serverAppSecret")
+    def server_app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Server Secret of an Azure Active Directory Application.
+        """
+        return pulumi.get(self, "server_app_secret")
+
+    @server_app_secret.setter
+    def server_app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_app_secret", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -5472,8 +5592,7 @@ class KubernetesClusterRoleBasedAccessControlArgs:
                  enabled: pulumi.Input[bool],
                  azure_active_directory: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs']] = None):
         """
-        :param pulumi.Input[bool] enabled: Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block.
+        :param pulumi.Input[bool] enabled: Is the Kubernetes Dashboard enabled?
         """
         pulumi.set(__self__, "enabled", enabled)
         if azure_active_directory is not None:
@@ -5483,7 +5602,7 @@ class KubernetesClusterRoleBasedAccessControlArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        Is the Kubernetes Dashboard enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -5494,9 +5613,6 @@ class KubernetesClusterRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs']]:
-        """
-        An `azure_active_directory` block.
-        """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter

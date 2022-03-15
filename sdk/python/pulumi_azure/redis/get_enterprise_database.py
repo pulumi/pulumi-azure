@@ -35,6 +35,10 @@ class GetEnterpriseDatabaseResult:
         pulumi.set(__self__, "primary_access_key", primary_access_key)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
+        if resource_group_name is not None:
+            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
+
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key and not isinstance(secondary_access_key, str):
             raise TypeError("Expected argument 'secondary_access_key' to be a str")
@@ -147,7 +151,7 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
 @_utilities.lift_output_func(get_enterprise_database)
 def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
     """
     Use this data source to access information about an existing Redis Enterprise Database

@@ -39,14 +39,11 @@ namespace Pulumi.Azure.DigitalTwins
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///         });
     ///         var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new Azure.ServiceBus.TopicAuthorizationRuleArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TopicName = exampleTopic.Name,
+    ///             TopicId = exampleTopic.Id,
     ///             Listen = false,
     ///             Send = true,
     ///             Manage = false,

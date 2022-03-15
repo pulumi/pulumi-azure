@@ -420,7 +420,7 @@ func (o ServiceNotificationsPtrOutput) NotifyGlobalAdmins() pulumi.BoolPtrOutput
 type ServiceSecureLdap struct {
 	CertificateExpiry     *string `pulumi:"certificateExpiry"`
 	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
-	// Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+	// Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
 	Enabled bool `pulumi:"enabled"`
 	// Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
 	ExternalAccessEnabled *bool `pulumi:"externalAccessEnabled"`
@@ -445,7 +445,7 @@ type ServiceSecureLdapInput interface {
 type ServiceSecureLdapArgs struct {
 	CertificateExpiry     pulumi.StringPtrInput `pulumi:"certificateExpiry"`
 	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
-	// Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+	// Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
 	ExternalAccessEnabled pulumi.BoolPtrInput `pulumi:"externalAccessEnabled"`
@@ -541,7 +541,7 @@ func (o ServiceSecureLdapOutput) CertificateThumbprint() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ServiceSecureLdap) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+// Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
 func (o ServiceSecureLdapOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceSecureLdap) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -607,7 +607,7 @@ func (o ServiceSecureLdapPtrOutput) CertificateThumbprint() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable secure LDAP for the managed domain. Defaults to `false`.
+// Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
 func (o ServiceSecureLdapPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecureLdap) *bool {
 		if v == nil {

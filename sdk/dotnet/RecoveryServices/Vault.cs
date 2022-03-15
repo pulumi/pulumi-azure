@@ -50,6 +50,12 @@ namespace Pulumi.Azure.RecoveryServices
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>
+        /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// </summary>
+        [Output("crossRegionRestoreEnabled")]
+        public Output<bool?> CrossRegionRestoreEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An `encryption` block as defined below. Required with `identity`.
         /// </summary>
         [Output("encryption")]
@@ -150,6 +156,12 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// </summary>
+        [Input("crossRegionRestoreEnabled")]
+        public Input<bool>? CrossRegionRestoreEnabled { get; set; }
+
+        /// <summary>
         /// An `encryption` block as defined below. Required with `identity`.
         /// </summary>
         [Input("encryption")]
@@ -216,6 +228,12 @@ namespace Pulumi.Azure.RecoveryServices
 
     public sealed class VaultState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// </summary>
+        [Input("crossRegionRestoreEnabled")]
+        public Input<bool>? CrossRegionRestoreEnabled { get; set; }
+
         /// <summary>
         /// An `encryption` block as defined below. Required with `identity`.
         /// </summary>
