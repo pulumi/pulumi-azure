@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         /// </summary>
         public InputList<string> IdentityIds
         {

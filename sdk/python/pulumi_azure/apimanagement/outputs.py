@@ -51,9 +51,9 @@ __all__ = [
     'BackendServiceFabricClusterServerX509Name',
     'BackendTls',
     'CustomDomainDeveloperPortal',
+    'CustomDomainGateway',
     'CustomDomainManagement',
     'CustomDomainPortal',
-    'CustomDomainProxy',
     'CustomDomainScm',
     'DiagnosticBackendRequest',
     'DiagnosticBackendRequestDataMasking',
@@ -1278,14 +1278,12 @@ class ApiOperationRequestRepresentation(dict):
                  content_type: str,
                  examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationExample']] = None,
                  form_parameters: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameter']] = None,
-                 sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         :param str content_type: The Content Type of this representation, such as `application/json`.
         :param Sequence['ApiOperationRequestRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
         :param Sequence['ApiOperationRequestRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
-        :param str sample: An example of this representation.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
         :param str type_name: The Type Name defined by the Schema.
         """
@@ -1294,8 +1292,6 @@ class ApiOperationRequestRepresentation(dict):
             pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
-        if sample is not None:
-            pulumi.set(__self__, "sample", sample)
         if schema_id is not None:
             pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
@@ -1324,14 +1320,6 @@ class ApiOperationRequestRepresentation(dict):
         One or more `form_parameter` block as defined above.
         """
         return pulumi.get(self, "form_parameters")
-
-    @property
-    @pulumi.getter
-    def sample(self) -> Optional[str]:
-        """
-        An example of this representation.
-        """
-        return pulumi.get(self, "sample")
 
     @property
     @pulumi.getter(name="schemaId")
@@ -1719,14 +1707,12 @@ class ApiOperationResponseRepresentation(dict):
                  content_type: str,
                  examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationExample']] = None,
                  form_parameters: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameter']] = None,
-                 sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         :param str content_type: The Content Type of this representation, such as `application/json`.
         :param Sequence['ApiOperationResponseRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
         :param Sequence['ApiOperationResponseRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
-        :param str sample: An example of this representation.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
         :param str type_name: The Type Name defined by the Schema.
         """
@@ -1735,8 +1721,6 @@ class ApiOperationResponseRepresentation(dict):
             pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
-        if sample is not None:
-            pulumi.set(__self__, "sample", sample)
         if schema_id is not None:
             pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
@@ -1765,14 +1749,6 @@ class ApiOperationResponseRepresentation(dict):
         One or more `form_parameter` block as defined above.
         """
         return pulumi.get(self, "form_parameters")
-
-    @property
-    @pulumi.getter
-    def sample(self) -> Optional[str]:
-        """
-        An example of this representation.
-        """
-        return pulumi.get(self, "sample")
 
     @property
     @pulumi.getter(name="schemaId")
@@ -2569,6 +2545,143 @@ class CustomDomainDeveloperPortal(dict):
 
 
 @pulumi.output_type
+class CustomDomainGateway(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "certificatePassword":
+            suggest = "certificate_password"
+        elif key == "defaultSslBinding":
+            suggest = "default_ssl_binding"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "negotiateClientCertificate":
+            suggest = "negotiate_client_certificate"
+        elif key == "sslKeyvaultIdentityClientId":
+            suggest = "ssl_keyvault_identity_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainGateway. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainGateway.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainGateway.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_name: str,
+                 certificate: Optional[str] = None,
+                 certificate_password: Optional[str] = None,
+                 default_ssl_binding: Optional[bool] = None,
+                 expiry: Optional[str] = None,
+                 key_vault_id: Optional[str] = None,
+                 negotiate_client_certificate: Optional[bool] = None,
+                 ssl_keyvault_identity_client_id: Optional[str] = None,
+                 subject: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        :param str host_name: The Hostname to use for the API Proxy Endpoint.
+        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
+        :param str certificate_password: The password associated with the certificate provided above.
+        :param bool default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if default_ssl_binding is not None:
+            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if ssl_keyvault_identity_client_id is not None:
+            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        The Hostname to use for the API Proxy Endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[str]:
+        """
+        The password associated with the certificate provided above.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="defaultSslBinding")
+    def default_ssl_binding(self) -> Optional[bool]:
+        """
+        Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        """
+        return pulumi.get(self, "default_ssl_binding")
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[bool]:
+        """
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @property
+    @pulumi.getter(name="sslKeyvaultIdentityClientId")
+    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_keyvault_identity_client_id")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
 class CustomDomainManagement(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2776,143 +2889,6 @@ class CustomDomainPortal(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
-
-    @property
-    @pulumi.getter
-    def expiry(self) -> Optional[str]:
-        return pulumi.get(self, "expiry")
-
-    @property
-    @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[str]:
-        """
-        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        """
-        return pulumi.get(self, "key_vault_id")
-
-    @property
-    @pulumi.getter(name="negotiateClientCertificate")
-    def negotiate_client_certificate(self) -> Optional[bool]:
-        """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-        """
-        return pulumi.get(self, "negotiate_client_certificate")
-
-    @property
-    @pulumi.getter(name="sslKeyvaultIdentityClientId")
-    def ssl_keyvault_identity_client_id(self) -> Optional[str]:
-        return pulumi.get(self, "ssl_keyvault_identity_client_id")
-
-    @property
-    @pulumi.getter
-    def subject(self) -> Optional[str]:
-        return pulumi.get(self, "subject")
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
-        return pulumi.get(self, "thumbprint")
-
-
-@pulumi.output_type
-class CustomDomainProxy(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "hostName":
-            suggest = "host_name"
-        elif key == "certificatePassword":
-            suggest = "certificate_password"
-        elif key == "defaultSslBinding":
-            suggest = "default_ssl_binding"
-        elif key == "keyVaultId":
-            suggest = "key_vault_id"
-        elif key == "negotiateClientCertificate":
-            suggest = "negotiate_client_certificate"
-        elif key == "sslKeyvaultIdentityClientId":
-            suggest = "ssl_keyvault_identity_client_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomDomainProxy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CustomDomainProxy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CustomDomainProxy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 host_name: str,
-                 certificate: Optional[str] = None,
-                 certificate_password: Optional[str] = None,
-                 default_ssl_binding: Optional[bool] = None,
-                 expiry: Optional[str] = None,
-                 key_vault_id: Optional[str] = None,
-                 negotiate_client_certificate: Optional[bool] = None,
-                 ssl_keyvault_identity_client_id: Optional[str] = None,
-                 subject: Optional[str] = None,
-                 thumbprint: Optional[str] = None):
-        """
-        :param str host_name: The Hostname to use for the API Proxy Endpoint.
-        :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
-        :param str certificate_password: The password associated with the certificate provided above.
-        :param bool default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-        :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-        """
-        pulumi.set(__self__, "host_name", host_name)
-        if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
-        if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
-        if default_ssl_binding is not None:
-            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
-        if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
-        if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
-        if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
-        if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
-        if subject is not None:
-            pulumi.set(__self__, "subject", subject)
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
-
-    @property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
-        """
-        The Hostname to use for the API Proxy Endpoint.
-        """
-        return pulumi.get(self, "host_name")
-
-    @property
-    @pulumi.getter
-    def certificate(self) -> Optional[str]:
-        """
-        The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
-        """
-        return pulumi.get(self, "certificate")
-
-    @property
-    @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> Optional[str]:
-        """
-        The password associated with the certificate provided above.
-        """
-        return pulumi.get(self, "certificate_password")
-
-    @property
-    @pulumi.getter(name="defaultSslBinding")
-    def default_ssl_binding(self) -> Optional[bool]:
-        """
-        Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-        """
-        return pulumi.get(self, "default_ssl_binding")
 
     @property
     @pulumi.getter
@@ -4611,7 +4587,7 @@ class ServiceHostnameConfigurationProxy(dict):
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-        :param str ssl_keyvault_identity_client_id: The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        :param str ssl_keyvault_identity_client_id: The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -4695,7 +4671,7 @@ class ServiceHostnameConfigurationProxy(dict):
     @pulumi.getter(name="sslKeyvaultIdentityClientId")
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
-        The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+        The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -4885,7 +4861,7 @@ class ServiceIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The identifier for the tenant access information contract.
         """
@@ -4909,7 +4885,7 @@ class ServiceIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -5033,8 +5009,6 @@ class ServiceSecurity(dict):
             suggest = "enable_frontend_tls10"
         elif key == "enableFrontendTls11":
             suggest = "enable_frontend_tls11"
-        elif key == "enableTripleDesCiphers":
-            suggest = "enable_triple_des_ciphers"
         elif key == "tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled":
             suggest = "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled"
         elif key == "tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled":
@@ -5074,7 +5048,6 @@ class ServiceSecurity(dict):
                  enable_frontend_ssl30: Optional[bool] = None,
                  enable_frontend_tls10: Optional[bool] = None,
                  enable_frontend_tls11: Optional[bool] = None,
-                 enable_triple_des_ciphers: Optional[bool] = None,
                  tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
                  tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
                  tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
@@ -5092,7 +5065,6 @@ class ServiceSecurity(dict):
         :param bool enable_frontend_ssl30: Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
         :param bool enable_frontend_tls10: Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
         :param bool enable_frontend_tls11: Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
-        :param bool enable_triple_des_ciphers: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
         :param bool tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
         :param bool tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
         :param bool tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
@@ -5114,8 +5086,6 @@ class ServiceSecurity(dict):
             pulumi.set(__self__, "enable_frontend_tls10", enable_frontend_tls10)
         if enable_frontend_tls11 is not None:
             pulumi.set(__self__, "enable_frontend_tls11", enable_frontend_tls11)
-        if enable_triple_des_ciphers is not None:
-            pulumi.set(__self__, "enable_triple_des_ciphers", enable_triple_des_ciphers)
         if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is not None:
             pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled is not None:
@@ -5184,14 +5154,6 @@ class ServiceSecurity(dict):
         Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
         """
         return pulumi.get(self, "enable_frontend_tls11")
-
-    @property
-    @pulumi.getter(name="enableTripleDesCiphers")
-    def enable_triple_des_ciphers(self) -> Optional[bool]:
-        """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_triple_des_ciphers")
 
     @property
     @pulumi.getter(name="tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled")
@@ -5941,10 +5903,10 @@ class GetServiceIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
-        :param str principal_id: Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
-        :param str tenant_id: Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
-        :param str type: Specifies the type of Managed Service Identity that is configured on this API Management Service.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str type: The type of Managed Service Identity that is configured on this API Management Service.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -5955,7 +5917,7 @@ class GetServiceIdentityResult(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        The list of User Assigned Managed Identity IDs assigned to this API Management Service.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -5963,7 +5925,7 @@ class GetServiceIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "principal_id")
 
@@ -5971,7 +5933,7 @@ class GetServiceIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -5979,7 +5941,7 @@ class GetServiceIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that is configured on this API Management Service.
+        The type of Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "type")
 

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.DataShare.Outputs
     public sealed class GetAccountIdentityResult
     {
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type of the Data Share Account.
+        /// The identity type of this Managed Service Identity.
         /// </summary>
         public readonly string Type;
 

@@ -48,7 +48,6 @@ from .product import *
 from .product_api import *
 from .product_group import *
 from .product_policy import *
-from .property import *
 from .redis_cache import *
 from .service import *
 from .subscription import *

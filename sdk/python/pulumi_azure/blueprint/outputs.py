@@ -35,7 +35,8 @@ class AssignmentIdentity(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param str type: The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -43,13 +44,16 @@ class AssignmentIdentity(dict):
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+        Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 

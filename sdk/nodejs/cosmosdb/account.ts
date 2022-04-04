@@ -211,17 +211,9 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
-     * @deprecated This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    public /*out*/ readonly primaryMasterKey!: pulumi.Output<string>;
-    /**
      * The Primary read-only Key for the CosmosDB Account.
      */
     public /*out*/ readonly primaryReadonlyKey!: pulumi.Output<string>;
-    /**
-     * @deprecated This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    public /*out*/ readonly primaryReadonlyMasterKey!: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for this CosmosDB account.
      */
@@ -243,17 +235,9 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
-     * @deprecated This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    public /*out*/ readonly secondaryMasterKey!: pulumi.Output<string>;
-    /**
      * The Secondary read-only key for the CosmosDB Account.
      */
     public /*out*/ readonly secondaryReadonlyKey!: pulumi.Output<string>;
-    /**
-     * @deprecated This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    public /*out*/ readonly secondaryReadonlyMasterKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -309,17 +293,13 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["networkAclBypassIds"] = state ? state.networkAclBypassIds : undefined;
             resourceInputs["offerType"] = state ? state.offerType : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["primaryMasterKey"] = state ? state.primaryMasterKey : undefined;
             resourceInputs["primaryReadonlyKey"] = state ? state.primaryReadonlyKey : undefined;
-            resourceInputs["primaryReadonlyMasterKey"] = state ? state.primaryReadonlyMasterKey : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["readEndpoints"] = state ? state.readEndpoints : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restore"] = state ? state.restore : undefined;
             resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["secondaryMasterKey"] = state ? state.secondaryMasterKey : undefined;
             resourceInputs["secondaryReadonlyKey"] = state ? state.secondaryReadonlyKey : undefined;
-            resourceInputs["secondaryReadonlyMasterKey"] = state ? state.secondaryReadonlyMasterKey : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkRules"] = state ? state.virtualNetworkRules : undefined;
             resourceInputs["writeEndpoints"] = state ? state.writeEndpoints : undefined;
@@ -371,14 +351,10 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["connectionStrings"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
-            resourceInputs["primaryMasterKey"] = undefined /*out*/;
             resourceInputs["primaryReadonlyKey"] = undefined /*out*/;
-            resourceInputs["primaryReadonlyMasterKey"] = undefined /*out*/;
             resourceInputs["readEndpoints"] = undefined /*out*/;
             resourceInputs["secondaryKey"] = undefined /*out*/;
-            resourceInputs["secondaryMasterKey"] = undefined /*out*/;
             resourceInputs["secondaryReadonlyKey"] = undefined /*out*/;
-            resourceInputs["secondaryReadonlyMasterKey"] = undefined /*out*/;
             resourceInputs["writeEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -507,17 +483,9 @@ export interface AccountState {
      */
     primaryKey?: pulumi.Input<string>;
     /**
-     * @deprecated This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    primaryMasterKey?: pulumi.Input<string>;
-    /**
      * The Primary read-only Key for the CosmosDB Account.
      */
     primaryReadonlyKey?: pulumi.Input<string>;
-    /**
-     * @deprecated This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    primaryReadonlyMasterKey?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this CosmosDB account.
      */
@@ -539,17 +507,9 @@ export interface AccountState {
      */
     secondaryKey?: pulumi.Input<string>;
     /**
-     * @deprecated This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    secondaryMasterKey?: pulumi.Input<string>;
-    /**
      * The Secondary read-only key for the CosmosDB Account.
      */
     secondaryReadonlyKey?: pulumi.Input<string>;
-    /**
-     * @deprecated This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    secondaryReadonlyMasterKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

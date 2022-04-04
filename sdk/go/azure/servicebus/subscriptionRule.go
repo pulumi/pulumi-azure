@@ -20,8 +20,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -76,8 +76,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -151,18 +151,10 @@ type SubscriptionRule struct {
 	FilterType pulumi.StringOutput `pulumi:"filterType"`
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter pulumi.StringPtrOutput `pulumi:"sqlFilter"`
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
 // NewSubscriptionRule registers a new resource with the given unique name, arguments, and options.
@@ -174,6 +166,9 @@ func NewSubscriptionRule(ctx *pulumi.Context,
 
 	if args.FilterType == nil {
 		return nil, errors.New("invalid value for required argument 'FilterType'")
+	}
+	if args.SubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'SubscriptionId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -211,18 +206,10 @@ type subscriptionRuleState struct {
 	FilterType *string `pulumi:"filterType"`
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter *string `pulumi:"sqlFilter"`
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	SubscriptionName *string `pulumi:"subscriptionName"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	TopicName *string `pulumi:"topicName"`
 }
 
 type SubscriptionRuleState struct {
@@ -234,18 +221,10 @@ type SubscriptionRuleState struct {
 	FilterType pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	NamespaceName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter pulumi.StringPtrInput
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	SubscriptionName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	TopicName pulumi.StringPtrInput
 }
 
 func (SubscriptionRuleState) ElementType() reflect.Type {
@@ -261,18 +240,10 @@ type subscriptionRuleArgs struct {
 	FilterType string `pulumi:"filterType"`
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter *string `pulumi:"sqlFilter"`
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	SubscriptionName *string `pulumi:"subscriptionName"`
-	// Deprecated: Deprecated in favor of "subscription_id"
-	TopicName *string `pulumi:"topicName"`
+	SubscriptionId string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a SubscriptionRule resource.
@@ -285,18 +256,10 @@ type SubscriptionRuleArgs struct {
 	FilterType pulumi.StringInput
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	NamespaceName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter pulumi.StringPtrInput
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-	SubscriptionId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	SubscriptionName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "subscription_id"
-	TopicName pulumi.StringPtrInput
+	SubscriptionId pulumi.StringInput
 }
 
 func (SubscriptionRuleArgs) ElementType() reflect.Type {

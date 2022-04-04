@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Function App deployment Slot.
- *
  * ## Example Usage
  * ### With App Service Plan)
  *
@@ -96,12 +94,6 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly authSettings!: pulumi.Output<outputs.appservice.FunctionAppSlotAuthSettings>;
     /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     *
-     * @deprecated This property is no longer configurable in the service and has been deprecated.
-     */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
-    /**
      * A `connectionString` block as defined below.
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.FunctionAppSlotConnectionString[]>;
@@ -132,7 +124,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppSlotIdentity>;
+    public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppSlotIdentity | undefined>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
@@ -202,7 +194,6 @@ export class FunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             resourceInputs["appSettings"] = state ? state.appSettings : undefined;
             resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
@@ -244,7 +235,6 @@ export class FunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             resourceInputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
@@ -288,12 +278,6 @@ export interface FunctionAppSlotState {
      * An `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettings>;
-    /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     *
-     * @deprecated This property is no longer configurable in the service and has been deprecated.
-     */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * A `connectionString` block as defined below.
      */
@@ -396,12 +380,6 @@ export interface FunctionAppSlotArgs {
      * An `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettings>;
-    /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     *
-     * @deprecated This property is no longer configurable in the service and has been deprecated.
-     */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * A `connectionString` block as defined below.
      */

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceSftp = new azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Basic",
  *     host: "http://www.bing.com",
@@ -82,12 +81,6 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -121,10 +114,6 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      */
     public readonly skipHostKeyValidation!: pulumi.Output<boolean | undefined>;
@@ -150,7 +139,6 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["hostKeyFingerprint"] = state ? state.hostKeyFingerprint : undefined;
@@ -159,13 +147,15 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skipHostKeyValidation"] = state ? state.skipHostKeyValidation : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as LinkedServiceSftpArgs | undefined;
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
+            }
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             if ((!args || args.host === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'host'");
@@ -176,9 +166,6 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             if ((!args || args.port === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
@@ -186,7 +173,6 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["hostKeyFingerprint"] = args ? args.hostKeyFingerprint : undefined;
@@ -195,7 +181,6 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skipHostKeyValidation"] = args ? args.skipHostKeyValidation : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
@@ -224,12 +209,6 @@ export interface LinkedServiceSftpState {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
@@ -264,10 +243,6 @@ export interface LinkedServiceSftpState {
      */
     port?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      */
     skipHostKeyValidation?: pulumi.Input<boolean>;
@@ -296,13 +271,7 @@ export interface LinkedServiceSftpArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
@@ -336,10 +305,6 @@ export interface LinkedServiceSftpArgs {
      * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
      */
     port: pulumi.Input<number>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      */

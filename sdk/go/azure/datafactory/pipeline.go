@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,8 +40,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
+// 			DataFactoryId: exampleFactory.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -58,15 +57,14 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
+// 			DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
 // 			Variables: pulumi.StringMap{
 // 				"bob": pulumi.String("item1"),
 // 			},
@@ -98,10 +96,6 @@ type Pipeline struct {
 	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
@@ -112,8 +106,6 @@ type Pipeline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A map of variables to associate with the Data Factory Pipeline.
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
 }
@@ -125,8 +117,8 @@ func NewPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource Pipeline
 	err := ctx.RegisterResource("azure:datafactory/pipeline:Pipeline", name, args, &resource, opts...)
@@ -158,10 +150,6 @@ type pipelineState struct {
 	Concurrency *int `pulumi:"concurrency"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
@@ -172,8 +160,6 @@ type pipelineState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A map of variables to associate with the Data Factory Pipeline.
 	Variables map[string]string `pulumi:"variables"`
 }
@@ -187,10 +173,6 @@ type PipelineState struct {
 	Concurrency pulumi.IntPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
@@ -201,8 +183,6 @@ type PipelineState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A map of variables to associate with the Data Factory Pipeline.
 	Variables pulumi.StringMapInput
 }
@@ -219,11 +199,7 @@ type pipelineArgs struct {
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency *int `pulumi:"concurrency"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
@@ -234,8 +210,6 @@ type pipelineArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A map of variables to associate with the Data Factory Pipeline.
 	Variables map[string]string `pulumi:"variables"`
 }
@@ -249,11 +223,7 @@ type PipelineArgs struct {
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency pulumi.IntPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
@@ -264,8 +234,6 @@ type PipelineArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A map of variables to associate with the Data Factory Pipeline.
 	Variables pulumi.StringMapInput
 }

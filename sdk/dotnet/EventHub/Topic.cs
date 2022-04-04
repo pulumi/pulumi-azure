@@ -169,7 +169,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Topic(string name, TopicArgs? args = null, CustomResourceOptions? options = null)
+        public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
             : base("azure:eventhub/topic:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -278,11 +278,8 @@ namespace Pulumi.Azure.EventHub
         /// The ID of the ServiceBus Namespace to create
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether
@@ -291,9 +288,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.

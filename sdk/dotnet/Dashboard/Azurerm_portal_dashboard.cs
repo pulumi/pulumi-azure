@@ -9,10 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Dashboard
 {
+    [Obsolete(@"azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard")]
     public static class Azurerm_portal_dashboard
     {
         /// <summary>
-        /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.dashboard.Dashboard` resource.
+        /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -26,7 +27,7 @@ namespace Pulumi.Azure.Dashboard
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Azure.Dashboard.Azurerm_portal_dashboard.InvokeAsync(new Azure.Dashboard.Azurerm_portal_dashboardArgs
+        ///         var example = Output.Create(Azure.Portal.GetDashboard.InvokeAsync(new Azure.Portal.GetDashboardArgs
         ///         {
         ///             Name = "existing-dashboard",
         ///             ResourceGroupName = "dashboard-rg",
@@ -45,7 +46,7 @@ namespace Pulumi.Azure.Dashboard
             => Pulumi.Deployment.Instance.InvokeAsync<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.dashboard.Dashboard` resource.
+        /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.Dashboard
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Azure.Dashboard.Azurerm_portal_dashboard.InvokeAsync(new Azure.Dashboard.Azurerm_portal_dashboardArgs
+        ///         var example = Output.Create(Azure.Portal.GetDashboard.InvokeAsync(new Azure.Portal.GetDashboardArgs
         ///         {
         ///             Name = "existing-dashboard",
         ///             ResourceGroupName = "dashboard-rg",

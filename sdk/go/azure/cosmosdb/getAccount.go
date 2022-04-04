@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -84,23 +84,15 @@ type LookupAccountResult struct {
 	OfferType string `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey string `pulumi:"primaryKey"`
-	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryMasterKey string `pulumi:"primaryMasterKey"`
 	// The Primary read-only Key for the CosmosDB Account.
 	PrimaryReadonlyKey string `pulumi:"primaryReadonlyKey"`
-	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryReadonlyMasterKey string `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints     []string `pulumi:"readEndpoints"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey string `pulumi:"secondaryKey"`
-	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryMasterKey string `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only key for the CosmosDB Account.
 	SecondaryReadonlyKey string `pulumi:"secondaryReadonlyKey"`
-	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryReadonlyMasterKey string `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Subnets that are allowed to access this CosmosDB account.
@@ -222,19 +214,9 @@ func (o LookupAccountResultOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o LookupAccountResultOutput) PrimaryMasterKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryMasterKey }).(pulumi.StringOutput)
-}
-
 // The Primary read-only Key for the CosmosDB Account.
 func (o LookupAccountResultOutput) PrimaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyKey }).(pulumi.StringOutput)
-}
-
-// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o LookupAccountResultOutput) PrimaryReadonlyMasterKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyMasterKey }).(pulumi.StringOutput)
 }
 
 // A list of read endpoints available for this CosmosDB account.
@@ -251,19 +233,9 @@ func (o LookupAccountResultOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o LookupAccountResultOutput) SecondaryMasterKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryMasterKey }).(pulumi.StringOutput)
-}
-
 // The Secondary read-only key for the CosmosDB Account.
 func (o LookupAccountResultOutput) SecondaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyKey }).(pulumi.StringOutput)
-}
-
-// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o LookupAccountResultOutput) SecondaryReadonlyMasterKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyMasterKey }).(pulumi.StringOutput)
 }
 
 // A mapping of tags assigned to the resource.

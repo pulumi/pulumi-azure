@@ -151,7 +151,6 @@ namespace Pulumi.Azure.ContainerService
         /// The SKU of this Container Registry, such as `Basic`.
         /// </summary>
         public readonly string Sku;
-        public readonly string StorageAccountId;
         /// <summary>
         /// A map of tags assigned to the Container Registry.
         /// </summary>
@@ -177,8 +176,6 @@ namespace Pulumi.Azure.ContainerService
 
             string sku,
 
-            string storageAccountId,
-
             ImmutableDictionary<string, string> tags)
         {
             AdminEnabled = adminEnabled;
@@ -190,7 +187,6 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
-            StorageAccountId = storageAccountId;
             Tags = tags;
         }
     }

@@ -22,9 +22,9 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+        /// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private WorkspaceIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Synapse.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -302,8 +302,6 @@ class HybridConnection(pulumi.CustomResource):
                  send_key_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
-
         ## Example Usage
 
         This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
@@ -365,8 +363,6 @@ class HybridConnection(pulumi.CustomResource):
                  args: HybridConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
-
         ## Example Usage
 
         This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.

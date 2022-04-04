@@ -24,15 +24,6 @@ namespace Pulumi.Azure.NetApp.Inputs
             set => _allowedClients = value;
         }
 
-        [Input("cifsEnabled")]
-        public Input<bool>? CifsEnabled { get; set; }
-
-        [Input("nfsv3Enabled")]
-        public Input<bool>? Nfsv3Enabled { get; set; }
-
-        [Input("nfsv4Enabled")]
-        public Input<bool>? Nfsv4Enabled { get; set; }
-
         /// <summary>
         /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         /// </summary>

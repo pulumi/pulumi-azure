@@ -117,13 +117,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> PreferredAppGroupType { get; private set; } = null!;
 
         /// <summary>
-        /// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-        /// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-        /// </summary>
-        [Output("registrationInfo")]
-        public Output<Outputs.HostPoolRegistrationInfo?> RegistrationInfo { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource group in which to
         /// create the Virtual Desktop Host Pool. Changing the resource group name forces
         /// a new resource to be created.
@@ -264,13 +257,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? PreferredAppGroupType { get; set; }
 
         /// <summary>
-        /// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-        /// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-        /// </summary>
-        [Input("registrationInfo")]
-        public Input<Inputs.HostPoolRegistrationInfoArgs>? RegistrationInfo { get; set; }
-
-        /// <summary>
         /// The name of the resource group in which to
         /// create the Virtual Desktop Host Pool. Changing the resource group name forces
         /// a new resource to be created.
@@ -376,13 +362,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
-
-        /// <summary>
-        /// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-        /// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-        /// </summary>
-        [Input("registrationInfo")]
-        public Input<Inputs.HostPoolRegistrationInfoGetArgs>? RegistrationInfo { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to

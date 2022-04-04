@@ -19,12 +19,12 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/machinelearning"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/synapse"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

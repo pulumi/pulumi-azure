@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     sku: "Premium",
  *     adminEnabled: false,
- *     georeplicationLocations: [
+ *     georeplications: [
  *         "East US",
  *         "West Europe",
  *     ],

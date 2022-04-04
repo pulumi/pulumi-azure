@@ -84,6 +84,10 @@ export interface GetVirtualNetworkResult {
      * A mapping of name - virtual network id of the virtual network peerings.
      */
     readonly vnetPeerings: {[key: string]: string};
+    /**
+     * A list of virtual network peerings IP addresses.
+     */
+    readonly vnetPeeringsAddresses: string[];
 }
 
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {

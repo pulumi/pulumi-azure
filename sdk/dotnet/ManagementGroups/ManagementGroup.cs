@@ -69,12 +69,6 @@ namespace Pulumi.Azure.ManagementGroups
         /// <summary>
         /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         /// </summary>
-        [Output("groupId")]
-        public Output<string> GroupId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -145,12 +139,6 @@ namespace Pulumi.Azure.ManagementGroups
         /// <summary>
         /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
-
-        /// <summary>
-        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -184,12 +172,6 @@ namespace Pulumi.Azure.ManagementGroups
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
 
         /// <summary>
         /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.

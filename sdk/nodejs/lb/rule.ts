@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleRule = new azure.lb.Rule("exampleRule", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     loadbalancerId: exampleLoadBalancer.id,
  *     protocol: "Tcp",
  *     frontendPort: 3389,
@@ -76,13 +75,9 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-     */
-    public readonly backendAddressPoolId!: pulumi.Output<string>;
-    /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      */
-    public readonly backendAddressPoolIds!: pulumi.Output<string[]>;
+    public readonly backendAddressPoolIds!: pulumi.Output<string[] | undefined>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
@@ -132,10 +127,6 @@ export class Rule extends pulumi.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
     public readonly protocol!: pulumi.Output<string>;
-    /**
-     * The name of the resource group in which to create the resource.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -150,7 +141,6 @@ export class Rule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             resourceInputs["backendAddressPoolIds"] = state ? state.backendAddressPoolIds : undefined;
             resourceInputs["backendPort"] = state ? state.backendPort : undefined;
             resourceInputs["disableOutboundSnat"] = state ? state.disableOutboundSnat : undefined;
@@ -165,7 +155,6 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["probeId"] = state ? state.probeId : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if ((!args || args.backendPort === undefined) && !opts.urn) {
@@ -183,10 +172,6 @@ export class Rule extends pulumi.CustomResource {
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
             resourceInputs["backendAddressPoolIds"] = args ? args.backendAddressPoolIds : undefined;
             resourceInputs["backendPort"] = args ? args.backendPort : undefined;
             resourceInputs["disableOutboundSnat"] = args ? args.disableOutboundSnat : undefined;
@@ -200,7 +185,6 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["probeId"] = args ? args.probeId : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -212,10 +196,6 @@ export class Rule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Rule resources.
  */
 export interface RuleState {
-    /**
-     * @deprecated This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-     */
-    backendAddressPoolId?: pulumi.Input<string>;
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      */
@@ -269,20 +249,12 @@ export interface RuleState {
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
     protocol?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the resource.
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
-    /**
-     * @deprecated This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-     */
-    backendAddressPoolId?: pulumi.Input<string>;
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      */
@@ -335,8 +307,4 @@ export interface RuleArgs {
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
     protocol: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the resource.
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

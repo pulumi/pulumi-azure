@@ -147,9 +147,6 @@ namespace Pulumi.Azure.ApiManagement
         [Output("backendResponse")]
         public Output<Outputs.DiagnosticBackendResponse> BackendResponse { get; private set; } = null!;
 
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
         /// <summary>
         /// A `frontend_request` block as defined below.
         /// </summary>
@@ -280,9 +277,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("backendResponse")]
         public Input<Inputs.DiagnosticBackendResponseArgs>? BackendResponse { get; set; }
 
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
         /// <summary>
         /// A `frontend_request` block as defined below.
         /// </summary>
@@ -373,9 +367,6 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("backendResponse")]
         public Input<Inputs.DiagnosticBackendResponseGetArgs>? BackendResponse { get; set; }
-
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// A `frontend_request` block as defined below.

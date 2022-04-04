@@ -15,73 +15,6 @@ import (
 //
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-// 				&lb.LoadBalancerFrontendIpConfigurationArgs{
-// 					Name:              pulumi.String("PublicIPAddress"),
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "exampleBackendAddressPool", &lb.BackendAddressPoolArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			LoadbalancerId:    exampleLoadBalancer.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewOutboundRule(ctx, "exampleOutboundRule", &lb.OutboundRuleArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			LoadbalancerId:       exampleLoadBalancer.ID(),
-// 			Protocol:             pulumi.String("Tcp"),
-// 			BackendAddressPoolId: exampleBackendAddressPool.ID(),
-// 			FrontendIpConfigurations: lb.OutboundRuleFrontendIpConfigurationArray{
-// 				&lb.OutboundRuleFrontendIpConfigurationArgs{
-// 					Name: pulumi.String("PublicIPAddress"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Load Balancer Outbound Rules can be imported using the `resource id`, e.g.
@@ -108,8 +41,6 @@ type OutboundRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewOutboundRule registers a new resource with the given unique name, arguments, and options.
@@ -127,9 +58,6 @@ func NewOutboundRule(ctx *pulumi.Context,
 	}
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource OutboundRule
 	err := ctx.RegisterResource("azure:lb/outboundRule:OutboundRule", name, args, &resource, opts...)
@@ -169,8 +97,6 @@ type outboundRuleState struct {
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol *string `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type OutboundRuleState struct {
@@ -190,8 +116,6 @@ type OutboundRuleState struct {
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (OutboundRuleState) ElementType() reflect.Type {
@@ -215,8 +139,6 @@ type outboundRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol string `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a OutboundRule resource.
@@ -237,8 +159,6 @@ type OutboundRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringInput
-	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 }
 
 func (OutboundRuleArgs) ElementType() reflect.Type {

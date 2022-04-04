@@ -93,13 +93,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
-    /**
-     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_id`
-     */
-    public readonly managementGroupName!: pulumi.Output<string>;
+    public readonly managementGroupId!: pulumi.Output<string | undefined>;
     /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
@@ -121,12 +115,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly policyDefinitionReferences!: pulumi.Output<outputs.policy.PolicySetDefinitionPolicyDefinitionReference[]>;
     /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-     *
-     * @deprecated Deprecated in favour of `policy_definition_reference`
-     */
-    public readonly policyDefinitions!: pulumi.Output<string>;
-    /**
      * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
      */
     public readonly policyType!: pulumi.Output<string>;
@@ -147,18 +135,19 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["managementGroupName"] = state ? state.managementGroupName : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["policyDefinitionGroups"] = state ? state.policyDefinitionGroups : undefined;
             resourceInputs["policyDefinitionReferences"] = state ? state.policyDefinitionReferences : undefined;
-            resourceInputs["policyDefinitions"] = state ? state.policyDefinitions : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
         } else {
             const args = argsOrState as PolicySetDefinitionArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if ((!args || args.policyDefinitionReferences === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'policyDefinitionReferences'");
             }
             if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
@@ -166,13 +155,11 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
             resourceInputs["policyDefinitionReferences"] = args ? args.policyDefinitionReferences : undefined;
-            resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -197,12 +184,6 @@ export interface PolicySetDefinitionState {
      */
     managementGroupId?: pulumi.Input<string>;
     /**
-     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_id`
-     */
-    managementGroupName?: pulumi.Input<string>;
-    /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
     metadata?: pulumi.Input<string>;
@@ -222,12 +203,6 @@ export interface PolicySetDefinitionState {
      * One or more `policyDefinitionReference` blocks as defined below.
      */
     policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
-    /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-     *
-     * @deprecated Deprecated in favour of `policy_definition_reference`
-     */
-    policyDefinitions?: pulumi.Input<string>;
     /**
      * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
      */
@@ -251,12 +226,6 @@ export interface PolicySetDefinitionArgs {
      */
     managementGroupId?: pulumi.Input<string>;
     /**
-     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_id`
-     */
-    managementGroupName?: pulumi.Input<string>;
-    /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
     metadata?: pulumi.Input<string>;
@@ -275,13 +244,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */
-    policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
-    /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-     *
-     * @deprecated Deprecated in favour of `policy_definition_reference`
-     */
-    policyDefinitions?: pulumi.Input<string>;
+    policyDefinitionReferences: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
     /**
      * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
      */

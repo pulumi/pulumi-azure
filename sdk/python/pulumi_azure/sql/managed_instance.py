@@ -785,7 +785,7 @@ class ManagedInstance(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.0.0/24",
+            address_prefixes=["10.0.0.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
                 name="managedinstancedelegation",
                 service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
@@ -976,7 +976,7 @@ class ManagedInstance(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.0.0/24",
+            address_prefixes=["10.0.0.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
                 name="managedinstancedelegation",
                 service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(

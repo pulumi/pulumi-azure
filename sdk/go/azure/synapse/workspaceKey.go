@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Synapse Workspace.
+// Manages Synapse Workspace keys
+//
+// > **Note:** Keys that are actively protecting a workspace cannot be deleted. When the keys resource is deleted, if the key is inactive it will be deleted, if it is active it will not be deleted.
 //
 // ## Example Usage
 //
@@ -19,9 +21,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/synapse"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -50,67 +53,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			Location:                        exampleResourceGroup.Location,
-// 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-// 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-// 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			AadAdmin: &synapse.WorkspaceAadAdminArgs{
-// 				Login:    pulumi.String("AzureAD Admin"),
-// 				ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Env": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			IsHnsEnabled:           pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -171,11 +114,11 @@ import (
 // 		}
 // 		workspacePolicy, err := keyvault.NewAccessPolicy(ctx, "workspacePolicy", &keyvault.AccessPolicyArgs{
 // 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId: exampleWorkspace.Identities.ApplyT(func(identities []synapse.WorkspaceIdentity) (string, error) {
-// 				return identities[0].TenantId, nil
+// 			TenantId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (string, error) {
+// 				return identity.TenantId, nil
 // 			}).(pulumi.StringOutput),
-// 			ObjectId: exampleWorkspace.Identities.ApplyT(func(identities []synapse.WorkspaceIdentity) (string, error) {
-// 				return identities[0].PrincipalId, nil
+// 			ObjectId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
 // 			}).(pulumi.StringOutput),
 // 			KeyPermissions: pulumi.StringArray{
 // 				pulumi.String("Get"),
@@ -186,24 +129,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleWorkspaceKey, err := synapse.NewWorkspaceKey(ctx, "exampleWorkspaceKey", &synapse.WorkspaceKeyArgs{
+// 		_, err = synapse.NewWorkspaceKey(ctx, "exampleWorkspaceKey", &synapse.WorkspaceKeyArgs{
 // 			CustomerManagedKeyVersionlessId: exampleKey.VersionlessId,
 // 			SynapseWorkspaceId:              exampleWorkspace.ID(),
 // 			Active:                          pulumi.Bool(true),
 // 			CustomerManagedKeyName:          pulumi.String("enckey"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			workspacePolicy,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewWorkspaceAadAdmin(ctx, "exampleWorkspaceAadAdmin", &synapse.WorkspaceAadAdminArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			Login:              pulumi.String("AzureAD Admin"),
-// 			ObjectId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			TenantId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleWorkspaceKey,
 // 		}))
 // 		if err != nil {
 // 			return err
@@ -215,20 +147,22 @@ import (
 //
 // ## Import
 //
-// Synapse Workspace can be imported using the `resource id`, e.g.
+// Synapse Workspace Keys can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
+//  $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
 // ```
 type WorkspaceKey struct {
 	pulumi.CustomResourceState
 
+	// Specifies if the workspace should be encrypted with this key.
 	Active pulumi.BoolOutput `pulumi:"active"`
-	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
-	CusomterManagedKeyName          pulumi.StringOutput    `pulumi:"cusomterManagedKeyName"`
-	CustomerManagedKeyName          pulumi.StringOutput    `pulumi:"customerManagedKeyName"`
+	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+	CustomerManagedKeyName pulumi.StringOutput `pulumi:"customerManagedKeyName"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
 	CustomerManagedKeyVersionlessId pulumi.StringPtrOutput `pulumi:"customerManagedKeyVersionlessId"`
-	SynapseWorkspaceId              pulumi.StringOutput    `pulumi:"synapseWorkspaceId"`
+	// The ID of the Synapse Workspace where the encryption key should be configured.
+	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
 }
 
 // NewWorkspaceKey registers a new resource with the given unique name, arguments, and options.
@@ -240,6 +174,9 @@ func NewWorkspaceKey(ctx *pulumi.Context,
 
 	if args.Active == nil {
 		return nil, errors.New("invalid value for required argument 'Active'")
+	}
+	if args.CustomerManagedKeyName == nil {
+		return nil, errors.New("invalid value for required argument 'CustomerManagedKeyName'")
 	}
 	if args.SynapseWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
@@ -266,21 +203,25 @@ func GetWorkspaceKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceKey resources.
 type workspaceKeyState struct {
+	// Specifies if the workspace should be encrypted with this key.
 	Active *bool `pulumi:"active"`
-	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
-	CusomterManagedKeyName          *string `pulumi:"cusomterManagedKeyName"`
-	CustomerManagedKeyName          *string `pulumi:"customerManagedKeyName"`
+	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+	CustomerManagedKeyName *string `pulumi:"customerManagedKeyName"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
 	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
-	SynapseWorkspaceId              *string `pulumi:"synapseWorkspaceId"`
+	// The ID of the Synapse Workspace where the encryption key should be configured.
+	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
 }
 
 type WorkspaceKeyState struct {
+	// Specifies if the workspace should be encrypted with this key.
 	Active pulumi.BoolPtrInput
-	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
-	CusomterManagedKeyName          pulumi.StringPtrInput
-	CustomerManagedKeyName          pulumi.StringPtrInput
+	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+	CustomerManagedKeyName pulumi.StringPtrInput
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
 	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
-	SynapseWorkspaceId              pulumi.StringPtrInput
+	// The ID of the Synapse Workspace where the encryption key should be configured.
+	SynapseWorkspaceId pulumi.StringPtrInput
 }
 
 func (WorkspaceKeyState) ElementType() reflect.Type {
@@ -288,22 +229,26 @@ func (WorkspaceKeyState) ElementType() reflect.Type {
 }
 
 type workspaceKeyArgs struct {
+	// Specifies if the workspace should be encrypted with this key.
 	Active bool `pulumi:"active"`
-	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
-	CusomterManagedKeyName          *string `pulumi:"cusomterManagedKeyName"`
-	CustomerManagedKeyName          *string `pulumi:"customerManagedKeyName"`
+	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+	CustomerManagedKeyName string `pulumi:"customerManagedKeyName"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
 	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
-	SynapseWorkspaceId              string  `pulumi:"synapseWorkspaceId"`
+	// The ID of the Synapse Workspace where the encryption key should be configured.
+	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceKey resource.
 type WorkspaceKeyArgs struct {
+	// Specifies if the workspace should be encrypted with this key.
 	Active pulumi.BoolInput
-	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
-	CusomterManagedKeyName          pulumi.StringPtrInput
-	CustomerManagedKeyName          pulumi.StringPtrInput
+	// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+	CustomerManagedKeyName pulumi.StringInput
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
 	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
-	SynapseWorkspaceId              pulumi.StringInput
+	// The ID of the Synapse Workspace where the encryption key should be configured.
+	SynapseWorkspaceId pulumi.StringInput
 }
 
 func (WorkspaceKeyArgs) ElementType() reflect.Type {

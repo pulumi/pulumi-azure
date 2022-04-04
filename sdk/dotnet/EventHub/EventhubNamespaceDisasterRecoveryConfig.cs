@@ -60,9 +60,6 @@ namespace Pulumi.Azure.EventHub
     [AzureResourceType("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig")]
     public partial class EventhubNamespaceDisasterRecoveryConfig : Pulumi.CustomResource
     {
-        [Output("alternateName")]
-        public Output<string?> AlternateName { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         /// </summary>
@@ -133,9 +130,6 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventhubNamespaceDisasterRecoveryConfigArgs : Pulumi.ResourceArgs
     {
-        [Input("alternateName")]
-        public Input<string>? AlternateName { get; set; }
-
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         /// </summary>
@@ -167,9 +161,6 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventhubNamespaceDisasterRecoveryConfigState : Pulumi.ResourceArgs
     {
-        [Input("alternateName")]
-        public Input<string>? AlternateName { get; set; }
-
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         /// </summary>

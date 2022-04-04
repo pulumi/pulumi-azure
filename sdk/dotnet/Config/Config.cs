@@ -135,16 +135,6 @@ namespace Pulumi.Azure
             set => _metadataHost.Set(value);
         }
 
-        private static readonly __Value<string?> _metadataUrl = new __Value<string?>(() => __config.Get("metadataUrl") ?? Utilities.GetEnv("ARM_METADATA_URL"));
-        /// <summary>
-        /// Deprecated - replaced by `metadata_host`.
-        /// </summary>
-        public static string? MetadataUrl
-        {
-            get => _metadataUrl.Get();
-            set => _metadataUrl.Set(value);
-        }
-
         private static readonly __Value<string?> _msiEndpoint = new __Value<string?>(() => __config.Get("msiEndpoint"));
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -164,16 +154,6 @@ namespace Pulumi.Azure
         {
             get => _partnerId.Get();
             set => _partnerId.Set(value);
-        }
-
-        private static readonly __Value<bool?> _skipCredentialsValidation = new __Value<bool?>(() => __config.GetBoolean("skipCredentialsValidation"));
-        /// <summary>
-        /// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-        /// </summary>
-        public static bool? SkipCredentialsValidation
-        {
-            get => _skipCredentialsValidation.Get();
-            set => _skipCredentialsValidation.Set(value);
         }
 
         private static readonly __Value<bool?> _skipProviderRegistration = new __Value<bool?>(() => __config.GetBoolean("skipProviderRegistration") ?? Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false);
@@ -217,16 +197,6 @@ namespace Pulumi.Azure
             set => _tenantId.Set(value);
         }
 
-        private static readonly __Value<bool?> _useMsal = new __Value<bool?>(() => __config.GetBoolean("useMsal"));
-        /// <summary>
-        /// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-        /// </summary>
-        public static bool? UseMsal
-        {
-            get => _useMsal.Get();
-            set => _useMsal.Set(value);
-        }
-
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
         /// <summary>
         /// Allowed Managed Service Identity be used for Authentication.
@@ -243,6 +213,7 @@ namespace Pulumi.Azure
              public class Features
              {
                 public Pulumi.Azure.Config.Types.FeaturesApiManagement? ApiManagement { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesApplicationInsights? ApplicationInsights { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesCognitiveAccount? CognitiveAccount { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
@@ -256,6 +227,12 @@ namespace Pulumi.Azure
              public class FeaturesApiManagement
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
+                public bool? RecoverSoftDeleted { get; set; }
+            }
+
+             public class FeaturesApplicationInsights
+             {
+                public bool? DisableGeneratedRule { get; set; }
             }
 
              public class FeaturesCognitiveAccount
@@ -266,12 +243,18 @@ namespace Pulumi.Azure
              public class FeaturesKeyVault
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
+                public bool? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
+                public bool? PurgeSoftDeletedKeysOnDestroy { get; set; }
+                public bool? PurgeSoftDeletedSecretsOnDestroy { get; set; }
+                public bool? RecoverSoftDeletedCertificates { get; set; }
                 public bool? RecoverSoftDeletedKeyVaults { get; set; }
+                public bool? RecoverSoftDeletedKeys { get; set; }
+                public bool? RecoverSoftDeletedSecrets { get; set; }
             }
 
              public class FeaturesLogAnalyticsWorkspace
              {
-                public bool PermanentlyDeleteOnDestroy { get; set; }
+                public bool? PermanentlyDeleteOnDestroy { get; set; }
             }
 
              public class FeaturesNetwork

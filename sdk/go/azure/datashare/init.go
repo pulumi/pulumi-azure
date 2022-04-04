@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Account{}
 	case "azure:datashare/datasetBlobStorage:DatasetBlobStorage":
 		r = &DatasetBlobStorage{}
-	case "azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1":
-		r = &DatasetDataLakeGen1{}
 	case "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2":
 		r = &DatasetDataLakeGen2{}
 	case "azure:datashare/datasetKustoCluster:DatasetKustoCluster":
@@ -56,11 +54,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datashare/datasetBlobStorage",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"datashare/datasetDataLakeGen1",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

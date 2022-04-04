@@ -76,10 +76,6 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     }
 
     /**
-     * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-     */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
-    /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
@@ -215,6 +211,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      */
     public readonly workloadRuntime!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a KubernetesClusterNodePool resource with the given unique name, arguments, and options.
@@ -229,7 +229,6 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KubernetesClusterNodePoolState | undefined;
-            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["enableAutoScaling"] = state ? state.enableAutoScaling : undefined;
             resourceInputs["enableHostEncryption"] = state ? state.enableHostEncryption : undefined;
             resourceInputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
@@ -264,6 +263,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = state ? state.vmSize : undefined;
             resourceInputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
             resourceInputs["workloadRuntime"] = state ? state.workloadRuntime : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as KubernetesClusterNodePoolArgs | undefined;
             if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
@@ -272,7 +272,6 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
             resourceInputs["enableHostEncryption"] = args ? args.enableHostEncryption : undefined;
             resourceInputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
@@ -307,6 +306,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
             resourceInputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
             resourceInputs["workloadRuntime"] = args ? args.workloadRuntime : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KubernetesClusterNodePool.__pulumiType, name, resourceInputs, opts);
@@ -317,10 +317,6 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KubernetesClusterNodePool resources.
  */
 export interface KubernetesClusterNodePoolState {
-    /**
-     * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-     */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
@@ -457,16 +453,16 @@ export interface KubernetesClusterNodePoolState {
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      */
     workloadRuntime?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
  * The set of arguments for constructing a KubernetesClusterNodePool resource.
  */
 export interface KubernetesClusterNodePoolArgs {
-    /**
-     * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-     */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
@@ -603,4 +599,8 @@ export interface KubernetesClusterNodePoolArgs {
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      */
     workloadRuntime?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

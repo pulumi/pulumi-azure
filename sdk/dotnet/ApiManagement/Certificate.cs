@@ -88,7 +88,6 @@ namespace Pulumi.Azure.ApiManagement
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SoftDeleteEnabled = true,
     ///             TenantId = data.Azurerm_client_config.Example.Tenant_id,
     ///             SkuName = "standard",
     ///         });

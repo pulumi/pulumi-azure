@@ -73,10 +73,28 @@ namespace Pulumi.Azure.Sentinel
     public partial class AlertRuleScheduled : Pulumi.CustomResource
     {
         /// <summary>
+        /// An `alert_details_override` block as defined below.
+        /// </summary>
+        [Output("alertDetailsOverrides")]
+        public Output<ImmutableArray<Outputs.AlertRuleScheduledAlertDetailsOverride>> AlertDetailsOverrides { get; private set; } = null!;
+
+        /// <summary>
         /// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         /// </summary>
         [Output("alertRuleTemplateGuid")]
         public Output<string?> AlertRuleTemplateGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// </summary>
+        [Output("alertRuleTemplateVersion")]
+        public Output<string?> AlertRuleTemplateVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+        /// </summary>
+        [Output("customDetails")]
+        public Output<ImmutableDictionary<string, string>?> CustomDetails { get; private set; } = null!;
 
         /// <summary>
         /// The description of this Sentinel Scheduled Alert Rule.
@@ -95,6 +113,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of `entity_mapping` blocks as defined below.
+        /// </summary>
+        [Output("entityMappings")]
+        public Output<ImmutableArray<Outputs.AlertRuleScheduledEntityMapping>> EntityMappings { get; private set; } = null!;
 
         /// <summary>
         /// A `event_grouping` block as defined below.
@@ -220,11 +244,41 @@ namespace Pulumi.Azure.Sentinel
 
     public sealed class AlertRuleScheduledArgs : Pulumi.ResourceArgs
     {
+        [Input("alertDetailsOverrides")]
+        private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideArgs>? _alertDetailsOverrides;
+
+        /// <summary>
+        /// An `alert_details_override` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideArgs> AlertDetailsOverrides
+        {
+            get => _alertDetailsOverrides ?? (_alertDetailsOverrides = new InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideArgs>());
+            set => _alertDetailsOverrides = value;
+        }
+
         /// <summary>
         /// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         /// </summary>
         [Input("alertRuleTemplateGuid")]
         public Input<string>? AlertRuleTemplateGuid { get; set; }
+
+        /// <summary>
+        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// </summary>
+        [Input("alertRuleTemplateVersion")]
+        public Input<string>? AlertRuleTemplateVersion { get; set; }
+
+        [Input("customDetails")]
+        private InputMap<string>? _customDetails;
+
+        /// <summary>
+        /// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+        /// </summary>
+        public InputMap<string> CustomDetails
+        {
+            get => _customDetails ?? (_customDetails = new InputMap<string>());
+            set => _customDetails = value;
+        }
 
         /// <summary>
         /// The description of this Sentinel Scheduled Alert Rule.
@@ -243,6 +297,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("entityMappings")]
+        private InputList<Inputs.AlertRuleScheduledEntityMappingArgs>? _entityMappings;
+
+        /// <summary>
+        /// A list of `entity_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledEntityMappingArgs> EntityMappings
+        {
+            get => _entityMappings ?? (_entityMappings = new InputList<Inputs.AlertRuleScheduledEntityMappingArgs>());
+            set => _entityMappings = value;
+        }
 
         /// <summary>
         /// A `event_grouping` block as defined below.
@@ -335,11 +401,41 @@ namespace Pulumi.Azure.Sentinel
 
     public sealed class AlertRuleScheduledState : Pulumi.ResourceArgs
     {
+        [Input("alertDetailsOverrides")]
+        private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideGetArgs>? _alertDetailsOverrides;
+
+        /// <summary>
+        /// An `alert_details_override` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideGetArgs> AlertDetailsOverrides
+        {
+            get => _alertDetailsOverrides ?? (_alertDetailsOverrides = new InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideGetArgs>());
+            set => _alertDetailsOverrides = value;
+        }
+
         /// <summary>
         /// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         /// </summary>
         [Input("alertRuleTemplateGuid")]
         public Input<string>? AlertRuleTemplateGuid { get; set; }
+
+        /// <summary>
+        /// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// </summary>
+        [Input("alertRuleTemplateVersion")]
+        public Input<string>? AlertRuleTemplateVersion { get; set; }
+
+        [Input("customDetails")]
+        private InputMap<string>? _customDetails;
+
+        /// <summary>
+        /// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+        /// </summary>
+        public InputMap<string> CustomDetails
+        {
+            get => _customDetails ?? (_customDetails = new InputMap<string>());
+            set => _customDetails = value;
+        }
 
         /// <summary>
         /// The description of this Sentinel Scheduled Alert Rule.
@@ -358,6 +454,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("entityMappings")]
+        private InputList<Inputs.AlertRuleScheduledEntityMappingGetArgs>? _entityMappings;
+
+        /// <summary>
+        /// A list of `entity_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AlertRuleScheduledEntityMappingGetArgs> EntityMappings
+        {
+            get => _entityMappings ?? (_entityMappings = new InputList<Inputs.AlertRuleScheduledEntityMappingGetArgs>());
+            set => _entityMappings = value;
+        }
 
         /// <summary>
         /// A `event_grouping` block as defined below.

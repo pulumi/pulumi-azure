@@ -19,10 +19,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -88,8 +88,6 @@ type StorageInsights struct {
 	StorageAccountKey pulumi.StringOutput `pulumi:"storageAccountKey"`
 	// The names of the Azure tables that the workspace should read.
 	TableNames pulumi.StringArrayOutput `pulumi:"tableNames"`
-	// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -147,8 +145,6 @@ type storageInsightsState struct {
 	StorageAccountKey *string `pulumi:"storageAccountKey"`
 	// The names of the Azure tables that the workspace should read.
 	TableNames []string `pulumi:"tableNames"`
-	// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -166,8 +162,6 @@ type StorageInsightsState struct {
 	StorageAccountKey pulumi.StringPtrInput
 	// The names of the Azure tables that the workspace should read.
 	TableNames pulumi.StringArrayInput
-	// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-	Tags pulumi.StringMapInput
 	// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
@@ -189,8 +183,6 @@ type storageInsightsArgs struct {
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The names of the Azure tables that the workspace should read.
 	TableNames []string `pulumi:"tableNames"`
-	// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -209,8 +201,6 @@ type StorageInsightsArgs struct {
 	StorageAccountKey pulumi.StringInput
 	// The names of the Azure tables that the workspace should read.
 	TableNames pulumi.StringArrayInput
-	// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-	Tags pulumi.StringMapInput
 	// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
 	WorkspaceId pulumi.StringInput
 }

@@ -66,7 +66,6 @@ from .network_security_group import *
 from .network_security_rule import *
 from .network_watcher import *
 from .network_watcher_flow_log import *
-from .packet_capture import *
 from .point_to_point_vpn_gateway import *
 from .profile import *
 from .public_ip import *
@@ -81,7 +80,6 @@ from .subnet_network_security_group_association import *
 from .subnet_route_table_association import *
 from .subnet_service_endpoint_storage_policy import *
 from .traffic_manager_azure_endpoint import *
-from .traffic_manager_endpoint import *
 from .traffic_manager_external_endpoint import *
 from .traffic_manager_nested_endpoint import *
 from .traffic_manager_profile import *

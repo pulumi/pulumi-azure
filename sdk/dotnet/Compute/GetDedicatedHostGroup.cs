@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Availability Zones in which this Dedicated Host Group is located.
+        /// A list of Availability Zones in which this Dedicated Host Group is located.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 

@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -46,7 +46,7 @@ import (
 // 			WorkspaceName:     exampleAnalyticsWorkspace.Name,
 // 			EventLogName:      pulumi.String("Application"),
 // 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("error"),
+// 				pulumi.String("Error"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -69,7 +69,7 @@ type DataSourceWindowsEvent struct {
 
 	// Specifies the name of the Windows Event Log to collect events from.
 	EventLogName pulumi.StringOutput `pulumi:"eventLogName"`
-	// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+	// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -122,7 +122,7 @@ func GetDataSourceWindowsEvent(ctx *pulumi.Context,
 type dataSourceWindowsEventState struct {
 	// Specifies the name of the Windows Event Log to collect events from.
 	EventLogName *string `pulumi:"eventLogName"`
-	// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+	// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
 	EventTypes []string `pulumi:"eventTypes"`
 	// The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
 	Name *string `pulumi:"name"`
@@ -135,7 +135,7 @@ type dataSourceWindowsEventState struct {
 type DataSourceWindowsEventState struct {
 	// Specifies the name of the Windows Event Log to collect events from.
 	EventLogName pulumi.StringPtrInput
-	// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+	// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
 	EventTypes pulumi.StringArrayInput
 	// The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
 	Name pulumi.StringPtrInput
@@ -152,7 +152,7 @@ func (DataSourceWindowsEventState) ElementType() reflect.Type {
 type dataSourceWindowsEventArgs struct {
 	// Specifies the name of the Windows Event Log to collect events from.
 	EventLogName string `pulumi:"eventLogName"`
-	// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+	// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
 	EventTypes []string `pulumi:"eventTypes"`
 	// The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
 	Name *string `pulumi:"name"`
@@ -166,7 +166,7 @@ type dataSourceWindowsEventArgs struct {
 type DataSourceWindowsEventArgs struct {
 	// Specifies the name of the Windows Event Log to collect events from.
 	EventLogName pulumi.StringInput
-	// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+	// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
 	EventTypes pulumi.StringArrayInput
 	// The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
 	Name pulumi.StringPtrInput

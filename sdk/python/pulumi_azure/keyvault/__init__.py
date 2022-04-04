@@ -13,6 +13,7 @@ from .get_access_policy import *
 from .get_certificate import *
 from .get_certificate_data import *
 from .get_certificate_issuer import *
+from .get_encrypted_value import *
 from .get_key import *
 from .get_key_vault import *
 from .get_managed_hardware_security_module import *

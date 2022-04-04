@@ -1749,9 +1749,9 @@ func (o ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) Index
 }
 
 type ApplicationGatewayIdentity struct {
-	// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1767,9 +1767,9 @@ type ApplicationGatewayIdentityInput interface {
 }
 
 type ApplicationGatewayIdentityArgs struct {
-	// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1850,12 +1850,12 @@ func (o ApplicationGatewayIdentityOutput) ToApplicationGatewayIdentityPtrOutputW
 	}).(ApplicationGatewayIdentityPtrOutput)
 }
 
-// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 func (o ApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 func (o ApplicationGatewayIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1884,7 +1884,7 @@ func (o ApplicationGatewayIdentityPtrOutput) Elem() ApplicationGatewayIdentityOu
 	}).(ApplicationGatewayIdentityOutput)
 }
 
-// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationGatewayIdentity) []string {
 		if v == nil {
@@ -1894,7 +1894,7 @@ func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
 func (o ApplicationGatewayIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
 		if v == nil {
@@ -2459,8 +2459,8 @@ func (o ApplicationGatewayProbeArrayOutput) Index(i pulumi.IntInput) Application
 }
 
 type ApplicationGatewayProbeMatch struct {
-	// A snippet from the Response Body which must be present in the Response..
-	Body *string `pulumi:"body"`
+	// A snippet from the Response Body which must be present in the Response.
+	Body string `pulumi:"body"`
 	// A list of allowed status codes for this Health Probe.
 	StatusCodes []string `pulumi:"statusCodes"`
 }
@@ -2477,8 +2477,8 @@ type ApplicationGatewayProbeMatchInput interface {
 }
 
 type ApplicationGatewayProbeMatchArgs struct {
-	// A snippet from the Response Body which must be present in the Response..
-	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A snippet from the Response Body which must be present in the Response.
+	Body pulumi.StringInput `pulumi:"body"`
 	// A list of allowed status codes for this Health Probe.
 	StatusCodes pulumi.StringArrayInput `pulumi:"statusCodes"`
 }
@@ -2560,9 +2560,9 @@ func (o ApplicationGatewayProbeMatchOutput) ToApplicationGatewayProbeMatchPtrOut
 	}).(ApplicationGatewayProbeMatchPtrOutput)
 }
 
-// A snippet from the Response Body which must be present in the Response..
-func (o ApplicationGatewayProbeMatchOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayProbeMatch) *string { return v.Body }).(pulumi.StringPtrOutput)
+// A snippet from the Response Body which must be present in the Response.
+func (o ApplicationGatewayProbeMatchOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayProbeMatch) string { return v.Body }).(pulumi.StringOutput)
 }
 
 // A list of allowed status codes for this Health Probe.
@@ -2594,13 +2594,13 @@ func (o ApplicationGatewayProbeMatchPtrOutput) Elem() ApplicationGatewayProbeMat
 	}).(ApplicationGatewayProbeMatchOutput)
 }
 
-// A snippet from the Response Body which must be present in the Response..
+// A snippet from the Response Body which must be present in the Response.
 func (o ApplicationGatewayProbeMatchPtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayProbeMatch) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Body
+		return &v.Body
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4157,29 +4157,45 @@ func (i ApplicationGatewaySslPolicyArgs) ToApplicationGatewaySslPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslPolicyOutput)
 }
 
-// ApplicationGatewaySslPolicyArrayInput is an input type that accepts ApplicationGatewaySslPolicyArray and ApplicationGatewaySslPolicyArrayOutput values.
-// You can construct a concrete instance of `ApplicationGatewaySslPolicyArrayInput` via:
+func (i ApplicationGatewaySslPolicyArgs) ToApplicationGatewaySslPolicyPtrOutput() ApplicationGatewaySslPolicyPtrOutput {
+	return i.ToApplicationGatewaySslPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewaySslPolicyArgs) ToApplicationGatewaySslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslPolicyOutput).ToApplicationGatewaySslPolicyPtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewaySslPolicyPtrInput is an input type that accepts ApplicationGatewaySslPolicyArgs, ApplicationGatewaySslPolicyPtr and ApplicationGatewaySslPolicyPtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewaySslPolicyPtrInput` via:
 //
-//          ApplicationGatewaySslPolicyArray{ ApplicationGatewaySslPolicyArgs{...} }
-type ApplicationGatewaySslPolicyArrayInput interface {
+//          ApplicationGatewaySslPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewaySslPolicyPtrInput interface {
 	pulumi.Input
 
-	ToApplicationGatewaySslPolicyArrayOutput() ApplicationGatewaySslPolicyArrayOutput
-	ToApplicationGatewaySslPolicyArrayOutputWithContext(context.Context) ApplicationGatewaySslPolicyArrayOutput
+	ToApplicationGatewaySslPolicyPtrOutput() ApplicationGatewaySslPolicyPtrOutput
+	ToApplicationGatewaySslPolicyPtrOutputWithContext(context.Context) ApplicationGatewaySslPolicyPtrOutput
 }
 
-type ApplicationGatewaySslPolicyArray []ApplicationGatewaySslPolicyInput
+type applicationGatewaySslPolicyPtrType ApplicationGatewaySslPolicyArgs
 
-func (ApplicationGatewaySslPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewaySslPolicy)(nil)).Elem()
+func ApplicationGatewaySslPolicyPtr(v *ApplicationGatewaySslPolicyArgs) ApplicationGatewaySslPolicyPtrInput {
+	return (*applicationGatewaySslPolicyPtrType)(v)
 }
 
-func (i ApplicationGatewaySslPolicyArray) ToApplicationGatewaySslPolicyArrayOutput() ApplicationGatewaySslPolicyArrayOutput {
-	return i.ToApplicationGatewaySslPolicyArrayOutputWithContext(context.Background())
+func (*applicationGatewaySslPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewaySslPolicy)(nil)).Elem()
 }
 
-func (i ApplicationGatewaySslPolicyArray) ToApplicationGatewaySslPolicyArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslPolicyArrayOutput)
+func (i *applicationGatewaySslPolicyPtrType) ToApplicationGatewaySslPolicyPtrOutput() ApplicationGatewaySslPolicyPtrOutput {
+	return i.ToApplicationGatewaySslPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewaySslPolicyPtrType) ToApplicationGatewaySslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslPolicyPtrOutput)
 }
 
 type ApplicationGatewaySslPolicyOutput struct{ *pulumi.OutputState }
@@ -4194,6 +4210,16 @@ func (o ApplicationGatewaySslPolicyOutput) ToApplicationGatewaySslPolicyOutput()
 
 func (o ApplicationGatewaySslPolicyOutput) ToApplicationGatewaySslPolicyOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyOutput {
 	return o
+}
+
+func (o ApplicationGatewaySslPolicyOutput) ToApplicationGatewaySslPolicyPtrOutput() ApplicationGatewaySslPolicyPtrOutput {
+	return o.ToApplicationGatewaySslPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewaySslPolicyOutput) ToApplicationGatewaySslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewaySslPolicy) *ApplicationGatewaySslPolicy {
+		return &v
+	}).(ApplicationGatewaySslPolicyPtrOutput)
 }
 
 // A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
@@ -4222,24 +4248,79 @@ func (o ApplicationGatewaySslPolicyOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationGatewaySslPolicyArrayOutput struct{ *pulumi.OutputState }
+type ApplicationGatewaySslPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationGatewaySslPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewaySslPolicy)(nil)).Elem()
+func (ApplicationGatewaySslPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewaySslPolicy)(nil)).Elem()
 }
 
-func (o ApplicationGatewaySslPolicyArrayOutput) ToApplicationGatewaySslPolicyArrayOutput() ApplicationGatewaySslPolicyArrayOutput {
+func (o ApplicationGatewaySslPolicyPtrOutput) ToApplicationGatewaySslPolicyPtrOutput() ApplicationGatewaySslPolicyPtrOutput {
 	return o
 }
 
-func (o ApplicationGatewaySslPolicyArrayOutput) ToApplicationGatewaySslPolicyArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyArrayOutput {
+func (o ApplicationGatewaySslPolicyPtrOutput) ToApplicationGatewaySslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslPolicyPtrOutput {
 	return o
 }
 
-func (o ApplicationGatewaySslPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationGatewaySslPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewaySslPolicy {
-		return vs[0].([]ApplicationGatewaySslPolicy)[vs[1].(int)]
+func (o ApplicationGatewaySslPolicyPtrOutput) Elem() ApplicationGatewaySslPolicyOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) ApplicationGatewaySslPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewaySslPolicy
+		return ret
 	}).(ApplicationGatewaySslPolicyOutput)
+}
+
+// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+func (o ApplicationGatewaySslPolicyPtrOutput) CipherSuites() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CipherSuites
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+func (o ApplicationGatewaySslPolicyPtrOutput) DisabledProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledProtocols
+	}).(pulumi.StringArrayOutput)
+}
+
+// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+func (o ApplicationGatewaySslPolicyPtrOutput) MinProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinProtocolVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+func (o ApplicationGatewaySslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+func (o ApplicationGatewaySslPolicyPtrOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyType
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewaySslProfile struct {
@@ -4248,7 +4329,7 @@ type ApplicationGatewaySslProfile struct {
 	// The name of the SSL Profile that is unique within this Application Gateway.
 	Name string `pulumi:"name"`
 	// a `ssl policy` block as defined below.
-	SslPolicies []ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicies"`
+	SslPolicy *ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
 	// Should client certificate issuer DN be verified?  Defaults to `false`.
@@ -4272,7 +4353,7 @@ type ApplicationGatewaySslProfileArgs struct {
 	// The name of the SSL Profile that is unique within this Application Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
 	// a `ssl policy` block as defined below.
-	SslPolicies ApplicationGatewaySslProfileSslPolicyArrayInput `pulumi:"sslPolicies"`
+	SslPolicy ApplicationGatewaySslProfileSslPolicyPtrInput `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
 	// Should client certificate issuer DN be verified?  Defaults to `false`.
@@ -4341,8 +4422,8 @@ func (o ApplicationGatewaySslProfileOutput) Name() pulumi.StringOutput {
 }
 
 // a `ssl policy` block as defined below.
-func (o ApplicationGatewaySslProfileOutput) SslPolicies() ApplicationGatewaySslProfileSslPolicyArrayOutput {
-	return o.ApplyT(func(v ApplicationGatewaySslProfile) []ApplicationGatewaySslProfileSslPolicy { return v.SslPolicies }).(ApplicationGatewaySslProfileSslPolicyArrayOutput)
+func (o ApplicationGatewaySslProfileOutput) SslPolicy() ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) *ApplicationGatewaySslProfileSslPolicy { return v.SslPolicy }).(ApplicationGatewaySslProfileSslPolicyPtrOutput)
 }
 
 // The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
@@ -4426,29 +4507,45 @@ func (i ApplicationGatewaySslProfileSslPolicyArgs) ToApplicationGatewaySslProfil
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileSslPolicyOutput)
 }
 
-// ApplicationGatewaySslProfileSslPolicyArrayInput is an input type that accepts ApplicationGatewaySslProfileSslPolicyArray and ApplicationGatewaySslProfileSslPolicyArrayOutput values.
-// You can construct a concrete instance of `ApplicationGatewaySslProfileSslPolicyArrayInput` via:
+func (i ApplicationGatewaySslProfileSslPolicyArgs) ToApplicationGatewaySslProfileSslPolicyPtrOutput() ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return i.ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewaySslProfileSslPolicyArgs) ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileSslPolicyOutput).ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewaySslProfileSslPolicyPtrInput is an input type that accepts ApplicationGatewaySslProfileSslPolicyArgs, ApplicationGatewaySslProfileSslPolicyPtr and ApplicationGatewaySslProfileSslPolicyPtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewaySslProfileSslPolicyPtrInput` via:
 //
-//          ApplicationGatewaySslProfileSslPolicyArray{ ApplicationGatewaySslProfileSslPolicyArgs{...} }
-type ApplicationGatewaySslProfileSslPolicyArrayInput interface {
+//          ApplicationGatewaySslProfileSslPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewaySslProfileSslPolicyPtrInput interface {
 	pulumi.Input
 
-	ToApplicationGatewaySslProfileSslPolicyArrayOutput() ApplicationGatewaySslProfileSslPolicyArrayOutput
-	ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(context.Context) ApplicationGatewaySslProfileSslPolicyArrayOutput
+	ToApplicationGatewaySslProfileSslPolicyPtrOutput() ApplicationGatewaySslProfileSslPolicyPtrOutput
+	ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(context.Context) ApplicationGatewaySslProfileSslPolicyPtrOutput
 }
 
-type ApplicationGatewaySslProfileSslPolicyArray []ApplicationGatewaySslProfileSslPolicyInput
+type applicationGatewaySslProfileSslPolicyPtrType ApplicationGatewaySslProfileSslPolicyArgs
 
-func (ApplicationGatewaySslProfileSslPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+func ApplicationGatewaySslProfileSslPolicyPtr(v *ApplicationGatewaySslProfileSslPolicyArgs) ApplicationGatewaySslProfileSslPolicyPtrInput {
+	return (*applicationGatewaySslProfileSslPolicyPtrType)(v)
 }
 
-func (i ApplicationGatewaySslProfileSslPolicyArray) ToApplicationGatewaySslProfileSslPolicyArrayOutput() ApplicationGatewaySslProfileSslPolicyArrayOutput {
-	return i.ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(context.Background())
+func (*applicationGatewaySslProfileSslPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
 }
 
-func (i ApplicationGatewaySslProfileSslPolicyArray) ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileSslPolicyArrayOutput)
+func (i *applicationGatewaySslProfileSslPolicyPtrType) ToApplicationGatewaySslProfileSslPolicyPtrOutput() ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return i.ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewaySslProfileSslPolicyPtrType) ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewaySslProfileSslPolicyPtrOutput)
 }
 
 type ApplicationGatewaySslProfileSslPolicyOutput struct{ *pulumi.OutputState }
@@ -4463,6 +4560,16 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) ToApplicationGatewaySslProf
 
 func (o ApplicationGatewaySslProfileSslPolicyOutput) ToApplicationGatewaySslProfileSslPolicyOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyOutput {
 	return o
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyOutput) ToApplicationGatewaySslProfileSslPolicyPtrOutput() ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return o.ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewaySslProfileSslPolicyOutput) ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewaySslProfileSslPolicy) *ApplicationGatewaySslProfileSslPolicy {
+		return &v
+	}).(ApplicationGatewaySslProfileSslPolicyPtrOutput)
 }
 
 // A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
@@ -4491,24 +4598,79 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyType() pulumi.StringP
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationGatewaySslProfileSslPolicyArrayOutput struct{ *pulumi.OutputState }
+type ApplicationGatewaySslProfileSslPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationGatewaySslProfileSslPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+func (ApplicationGatewaySslProfileSslPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
 }
 
-func (o ApplicationGatewaySslProfileSslPolicyArrayOutput) ToApplicationGatewaySslProfileSslPolicyArrayOutput() ApplicationGatewaySslProfileSslPolicyArrayOutput {
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) ToApplicationGatewaySslProfileSslPolicyPtrOutput() ApplicationGatewaySslProfileSslPolicyPtrOutput {
 	return o
 }
 
-func (o ApplicationGatewaySslProfileSslPolicyArrayOutput) ToApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyArrayOutput {
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) ToApplicationGatewaySslProfileSslPolicyPtrOutputWithContext(ctx context.Context) ApplicationGatewaySslProfileSslPolicyPtrOutput {
 	return o
 }
 
-func (o ApplicationGatewaySslProfileSslPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationGatewaySslProfileSslPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewaySslProfileSslPolicy {
-		return vs[0].([]ApplicationGatewaySslProfileSslPolicy)[vs[1].(int)]
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) Elem() ApplicationGatewaySslProfileSslPolicyOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) ApplicationGatewaySslProfileSslPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewaySslProfileSslPolicy
+		return ret
 	}).(ApplicationGatewaySslProfileSslPolicyOutput)
+}
+
+// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) CipherSuites() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CipherSuites
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) DisabledProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledProtocols
+	}).(pulumi.StringArrayOutput)
+}
+
+// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) MinProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinProtocolVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyType
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayTrustedClientCertificate struct {
@@ -6661,9 +6823,9 @@ func (o ExpressRouteConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableId
 }
 
 type ExpressRoutePortIdentity struct {
-	// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -6679,9 +6841,9 @@ type ExpressRoutePortIdentityInput interface {
 }
 
 type ExpressRoutePortIdentityArgs struct {
-	// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6762,12 +6924,12 @@ func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityPtrOutputWithC
 	}).(ExpressRoutePortIdentityPtrOutput)
 }
 
-// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 func (o ExpressRoutePortIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRoutePortIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 func (o ExpressRoutePortIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressRoutePortIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6796,7 +6958,7 @@ func (o ExpressRoutePortIdentityPtrOutput) Elem() ExpressRoutePortIdentityOutput
 	}).(ExpressRoutePortIdentityOutput)
 }
 
-// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 func (o ExpressRoutePortIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExpressRoutePortIdentity) []string {
 		if v == nil {
@@ -6806,7 +6968,7 @@ func (o ExpressRoutePortIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
 func (o ExpressRoutePortIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortIdentity) *string {
 		if v == nil {
@@ -8348,10 +8510,6 @@ func (o FirewallNetworkRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FirewallPolicyDns struct {
-	// Should the network rule fqdn be enabled?
-	//
-	// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
-	NetworkRuleFqdnEnabled *bool `pulumi:"networkRuleFqdnEnabled"`
 	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
 	ProxyEnabled *bool `pulumi:"proxyEnabled"`
 	// A list of custom DNS servers' IP addresses.
@@ -8370,10 +8528,6 @@ type FirewallPolicyDnsInput interface {
 }
 
 type FirewallPolicyDnsArgs struct {
-	// Should the network rule fqdn be enabled?
-	//
-	// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
-	NetworkRuleFqdnEnabled pulumi.BoolPtrInput `pulumi:"networkRuleFqdnEnabled"`
 	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
 	ProxyEnabled pulumi.BoolPtrInput `pulumi:"proxyEnabled"`
 	// A list of custom DNS servers' IP addresses.
@@ -8457,13 +8611,6 @@ func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx con
 	}).(FirewallPolicyDnsPtrOutput)
 }
 
-// Should the network rule fqdn be enabled?
-//
-// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
-func (o FirewallPolicyDnsOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyDns) *bool { return v.NetworkRuleFqdnEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
 func (o FirewallPolicyDnsOutput) ProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyDns) *bool { return v.ProxyEnabled }).(pulumi.BoolPtrOutput)
@@ -8498,18 +8645,6 @@ func (o FirewallPolicyDnsPtrOutput) Elem() FirewallPolicyDnsOutput {
 	}).(FirewallPolicyDnsOutput)
 }
 
-// Should the network rule fqdn be enabled?
-//
-// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
-func (o FirewallPolicyDnsPtrOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyDns) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkRuleFqdnEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
 func (o FirewallPolicyDnsPtrOutput) ProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyDns) *bool {
@@ -8531,12 +8666,10 @@ func (o FirewallPolicyDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 }
 
 type FirewallPolicyIdentity struct {
-	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
-	// Specifies a list of user assigned managed identities.
-	UserAssignedIdentityIds []string `pulumi:"userAssignedIdentityIds"`
 }
 
 // FirewallPolicyIdentityInput is an input type that accepts FirewallPolicyIdentityArgs and FirewallPolicyIdentityOutput values.
@@ -8551,12 +8684,10 @@ type FirewallPolicyIdentityInput interface {
 }
 
 type FirewallPolicyIdentityArgs struct {
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies a list of user assigned managed identities.
-	UserAssignedIdentityIds pulumi.StringArrayInput `pulumi:"userAssignedIdentityIds"`
 }
 
 func (FirewallPolicyIdentityArgs) ElementType() reflect.Type {
@@ -8636,22 +8767,14 @@ func (o FirewallPolicyIdentityOutput) ToFirewallPolicyIdentityPtrOutputWithConte
 	}).(FirewallPolicyIdentityPtrOutput)
 }
 
-func (o FirewallPolicyIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+func (o FirewallPolicyIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-func (o FirewallPolicyIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 func (o FirewallPolicyIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies a list of user assigned managed identities.
-func (o FirewallPolicyIdentityOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyIdentity) []string { return v.UserAssignedIdentityIds }).(pulumi.StringArrayOutput)
 }
 
 type FirewallPolicyIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -8678,25 +8801,17 @@ func (o FirewallPolicyIdentityPtrOutput) Elem() FirewallPolicyIdentityOutput {
 	}).(FirewallPolicyIdentityOutput)
 }
 
-func (o FirewallPolicyIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+func (o FirewallPolicyIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) []string {
 		if v == nil {
 			return nil
 		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
-func (o FirewallPolicyIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 func (o FirewallPolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
 		if v == nil {
@@ -8704,16 +8819,6 @@ func (o FirewallPolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies a list of user assigned managed identities.
-func (o FirewallPolicyIdentityPtrOutput) UserAssignedIdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyIdentity) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentityIds
-	}).(pulumi.StringArrayOutput)
 }
 
 type FirewallPolicyInsights struct {
@@ -11172,205 +11277,6 @@ func (o LocalNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-type NetworkConnectionMonitorDestination struct {
-	// The IP address or domain name of the Network Connection Monitor endpoint.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	Address *string `pulumi:"address"`
-	// The port for the HTTP connection.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	Port *int `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-}
-
-// NetworkConnectionMonitorDestinationInput is an input type that accepts NetworkConnectionMonitorDestinationArgs and NetworkConnectionMonitorDestinationOutput values.
-// You can construct a concrete instance of `NetworkConnectionMonitorDestinationInput` via:
-//
-//          NetworkConnectionMonitorDestinationArgs{...}
-type NetworkConnectionMonitorDestinationInput interface {
-	pulumi.Input
-
-	ToNetworkConnectionMonitorDestinationOutput() NetworkConnectionMonitorDestinationOutput
-	ToNetworkConnectionMonitorDestinationOutputWithContext(context.Context) NetworkConnectionMonitorDestinationOutput
-}
-
-type NetworkConnectionMonitorDestinationArgs struct {
-	// The IP address or domain name of the Network Connection Monitor endpoint.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The port for the HTTP connection.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-}
-
-func (NetworkConnectionMonitorDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkConnectionMonitorDestination)(nil)).Elem()
-}
-
-func (i NetworkConnectionMonitorDestinationArgs) ToNetworkConnectionMonitorDestinationOutput() NetworkConnectionMonitorDestinationOutput {
-	return i.ToNetworkConnectionMonitorDestinationOutputWithContext(context.Background())
-}
-
-func (i NetworkConnectionMonitorDestinationArgs) ToNetworkConnectionMonitorDestinationOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorDestinationOutput)
-}
-
-func (i NetworkConnectionMonitorDestinationArgs) ToNetworkConnectionMonitorDestinationPtrOutput() NetworkConnectionMonitorDestinationPtrOutput {
-	return i.ToNetworkConnectionMonitorDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkConnectionMonitorDestinationArgs) ToNetworkConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorDestinationOutput).ToNetworkConnectionMonitorDestinationPtrOutputWithContext(ctx)
-}
-
-// NetworkConnectionMonitorDestinationPtrInput is an input type that accepts NetworkConnectionMonitorDestinationArgs, NetworkConnectionMonitorDestinationPtr and NetworkConnectionMonitorDestinationPtrOutput values.
-// You can construct a concrete instance of `NetworkConnectionMonitorDestinationPtrInput` via:
-//
-//          NetworkConnectionMonitorDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkConnectionMonitorDestinationPtrInput interface {
-	pulumi.Input
-
-	ToNetworkConnectionMonitorDestinationPtrOutput() NetworkConnectionMonitorDestinationPtrOutput
-	ToNetworkConnectionMonitorDestinationPtrOutputWithContext(context.Context) NetworkConnectionMonitorDestinationPtrOutput
-}
-
-type networkConnectionMonitorDestinationPtrType NetworkConnectionMonitorDestinationArgs
-
-func NetworkConnectionMonitorDestinationPtr(v *NetworkConnectionMonitorDestinationArgs) NetworkConnectionMonitorDestinationPtrInput {
-	return (*networkConnectionMonitorDestinationPtrType)(v)
-}
-
-func (*networkConnectionMonitorDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkConnectionMonitorDestination)(nil)).Elem()
-}
-
-func (i *networkConnectionMonitorDestinationPtrType) ToNetworkConnectionMonitorDestinationPtrOutput() NetworkConnectionMonitorDestinationPtrOutput {
-	return i.ToNetworkConnectionMonitorDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *networkConnectionMonitorDestinationPtrType) ToNetworkConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorDestinationPtrOutput)
-}
-
-type NetworkConnectionMonitorDestinationOutput struct{ *pulumi.OutputState }
-
-func (NetworkConnectionMonitorDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkConnectionMonitorDestination)(nil)).Elem()
-}
-
-func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDestinationOutput() NetworkConnectionMonitorDestinationOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDestinationOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDestinationPtrOutput() NetworkConnectionMonitorDestinationPtrOutput {
-	return o.ToNetworkConnectionMonitorDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorDestination) *NetworkConnectionMonitorDestination {
-		return &v
-	}).(NetworkConnectionMonitorDestinationPtrOutput)
-}
-
-// The IP address or domain name of the Network Connection Monitor endpoint.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorDestinationOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.Address }).(pulumi.StringPtrOutput)
-}
-
-// The port for the HTTP connection.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorDestinationOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorDestinationOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
-}
-
-type NetworkConnectionMonitorDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkConnectionMonitorDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkConnectionMonitorDestination)(nil)).Elem()
-}
-
-func (o NetworkConnectionMonitorDestinationPtrOutput) ToNetworkConnectionMonitorDestinationPtrOutput() NetworkConnectionMonitorDestinationPtrOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorDestinationPtrOutput) ToNetworkConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorDestinationPtrOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorDestinationPtrOutput) Elem() NetworkConnectionMonitorDestinationOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) NetworkConnectionMonitorDestination {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkConnectionMonitorDestination
-		return ret
-	}).(NetworkConnectionMonitorDestinationOutput)
-}
-
-// The IP address or domain name of the Network Connection Monitor endpoint.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Address
-	}).(pulumi.StringPtrOutput)
-}
-
-// The port for the HTTP connection.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineId
-	}).(pulumi.StringPtrOutput)
-}
-
 type NetworkConnectionMonitorEndpoint struct {
 	// The IP address or domain name of the Network Connection Monitor endpoint.
 	Address *string `pulumi:"address"`
@@ -11388,10 +11294,6 @@ type NetworkConnectionMonitorEndpoint struct {
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
 	TargetResourceType *string `pulumi:"targetResourceType"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-	//
-	// Deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
 // NetworkConnectionMonitorEndpointInput is an input type that accepts NetworkConnectionMonitorEndpointArgs and NetworkConnectionMonitorEndpointOutput values.
@@ -11422,10 +11324,6 @@ type NetworkConnectionMonitorEndpointArgs struct {
 	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
 	// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
 	TargetResourceType pulumi.StringPtrInput `pulumi:"targetResourceType"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-	//
-	// Deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
 func (NetworkConnectionMonitorEndpointArgs) ElementType() reflect.Type {
@@ -11517,13 +11415,6 @@ func (o NetworkConnectionMonitorEndpointOutput) TargetResourceId() pulumi.String
 // The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
 func (o NetworkConnectionMonitorEndpointOutput) TargetResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.TargetResourceType }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-//
-// Deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
-func (o NetworkConnectionMonitorEndpointOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
 type NetworkConnectionMonitorEndpointArrayOutput struct{ *pulumi.OutputState }
@@ -11808,178 +11699,6 @@ func (o NetworkConnectionMonitorEndpointFilterItemArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectionMonitorEndpointFilterItem {
 		return vs[0].([]NetworkConnectionMonitorEndpointFilterItem)[vs[1].(int)]
 	}).(NetworkConnectionMonitorEndpointFilterItemOutput)
-}
-
-type NetworkConnectionMonitorSource struct {
-	// The port for the HTTP connection.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	Port *int `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-}
-
-// NetworkConnectionMonitorSourceInput is an input type that accepts NetworkConnectionMonitorSourceArgs and NetworkConnectionMonitorSourceOutput values.
-// You can construct a concrete instance of `NetworkConnectionMonitorSourceInput` via:
-//
-//          NetworkConnectionMonitorSourceArgs{...}
-type NetworkConnectionMonitorSourceInput interface {
-	pulumi.Input
-
-	ToNetworkConnectionMonitorSourceOutput() NetworkConnectionMonitorSourceOutput
-	ToNetworkConnectionMonitorSourceOutputWithContext(context.Context) NetworkConnectionMonitorSourceOutput
-}
-
-type NetworkConnectionMonitorSourceArgs struct {
-	// The port for the HTTP connection.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-	//
-	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-}
-
-func (NetworkConnectionMonitorSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkConnectionMonitorSource)(nil)).Elem()
-}
-
-func (i NetworkConnectionMonitorSourceArgs) ToNetworkConnectionMonitorSourceOutput() NetworkConnectionMonitorSourceOutput {
-	return i.ToNetworkConnectionMonitorSourceOutputWithContext(context.Background())
-}
-
-func (i NetworkConnectionMonitorSourceArgs) ToNetworkConnectionMonitorSourceOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorSourceOutput)
-}
-
-func (i NetworkConnectionMonitorSourceArgs) ToNetworkConnectionMonitorSourcePtrOutput() NetworkConnectionMonitorSourcePtrOutput {
-	return i.ToNetworkConnectionMonitorSourcePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkConnectionMonitorSourceArgs) ToNetworkConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorSourceOutput).ToNetworkConnectionMonitorSourcePtrOutputWithContext(ctx)
-}
-
-// NetworkConnectionMonitorSourcePtrInput is an input type that accepts NetworkConnectionMonitorSourceArgs, NetworkConnectionMonitorSourcePtr and NetworkConnectionMonitorSourcePtrOutput values.
-// You can construct a concrete instance of `NetworkConnectionMonitorSourcePtrInput` via:
-//
-//          NetworkConnectionMonitorSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkConnectionMonitorSourcePtrInput interface {
-	pulumi.Input
-
-	ToNetworkConnectionMonitorSourcePtrOutput() NetworkConnectionMonitorSourcePtrOutput
-	ToNetworkConnectionMonitorSourcePtrOutputWithContext(context.Context) NetworkConnectionMonitorSourcePtrOutput
-}
-
-type networkConnectionMonitorSourcePtrType NetworkConnectionMonitorSourceArgs
-
-func NetworkConnectionMonitorSourcePtr(v *NetworkConnectionMonitorSourceArgs) NetworkConnectionMonitorSourcePtrInput {
-	return (*networkConnectionMonitorSourcePtrType)(v)
-}
-
-func (*networkConnectionMonitorSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkConnectionMonitorSource)(nil)).Elem()
-}
-
-func (i *networkConnectionMonitorSourcePtrType) ToNetworkConnectionMonitorSourcePtrOutput() NetworkConnectionMonitorSourcePtrOutput {
-	return i.ToNetworkConnectionMonitorSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *networkConnectionMonitorSourcePtrType) ToNetworkConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorSourcePtrOutput)
-}
-
-type NetworkConnectionMonitorSourceOutput struct{ *pulumi.OutputState }
-
-func (NetworkConnectionMonitorSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkConnectionMonitorSource)(nil)).Elem()
-}
-
-func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourceOutput() NetworkConnectionMonitorSourceOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourceOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourceOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourcePtrOutput() NetworkConnectionMonitorSourcePtrOutput {
-	return o.ToNetworkConnectionMonitorSourcePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConnectionMonitorSource) *NetworkConnectionMonitorSource {
-		return &v
-	}).(NetworkConnectionMonitorSourcePtrOutput)
-}
-
-// The port for the HTTP connection.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorSourceOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorSource) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
-}
-
-type NetworkConnectionMonitorSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkConnectionMonitorSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkConnectionMonitorSource)(nil)).Elem()
-}
-
-func (o NetworkConnectionMonitorSourcePtrOutput) ToNetworkConnectionMonitorSourcePtrOutput() NetworkConnectionMonitorSourcePtrOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorSourcePtrOutput) ToNetworkConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorSourcePtrOutput {
-	return o
-}
-
-func (o NetworkConnectionMonitorSourcePtrOutput) Elem() NetworkConnectionMonitorSourceOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorSource) NetworkConnectionMonitorSource {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkConnectionMonitorSource
-		return ret
-	}).(NetworkConnectionMonitorSourceOutput)
-}
-
-// The port for the HTTP connection.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-//
-// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineId
-	}).(pulumi.StringPtrOutput)
 }
 
 type NetworkConnectionMonitorTestConfiguration struct {
@@ -14164,314 +13883,6 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceResourceId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-type PacketCaptureFilter struct {
-	// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalIpAddress *string `pulumi:"localIpAddress"`
-	// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalPort *string `pulumi:"localPort"`
-	// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-	Protocol string `pulumi:"protocol"`
-	// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-	RemoteIpAddress *string `pulumi:"remoteIpAddress"`
-	// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	RemotePort *string `pulumi:"remotePort"`
-}
-
-// PacketCaptureFilterInput is an input type that accepts PacketCaptureFilterArgs and PacketCaptureFilterOutput values.
-// You can construct a concrete instance of `PacketCaptureFilterInput` via:
-//
-//          PacketCaptureFilterArgs{...}
-type PacketCaptureFilterInput interface {
-	pulumi.Input
-
-	ToPacketCaptureFilterOutput() PacketCaptureFilterOutput
-	ToPacketCaptureFilterOutputWithContext(context.Context) PacketCaptureFilterOutput
-}
-
-type PacketCaptureFilterArgs struct {
-	// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalIpAddress pulumi.StringPtrInput `pulumi:"localIpAddress"`
-	// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalPort pulumi.StringPtrInput `pulumi:"localPort"`
-	// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-	RemoteIpAddress pulumi.StringPtrInput `pulumi:"remoteIpAddress"`
-	// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	RemotePort pulumi.StringPtrInput `pulumi:"remotePort"`
-}
-
-func (PacketCaptureFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCaptureFilter)(nil)).Elem()
-}
-
-func (i PacketCaptureFilterArgs) ToPacketCaptureFilterOutput() PacketCaptureFilterOutput {
-	return i.ToPacketCaptureFilterOutputWithContext(context.Background())
-}
-
-func (i PacketCaptureFilterArgs) ToPacketCaptureFilterOutputWithContext(ctx context.Context) PacketCaptureFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureFilterOutput)
-}
-
-// PacketCaptureFilterArrayInput is an input type that accepts PacketCaptureFilterArray and PacketCaptureFilterArrayOutput values.
-// You can construct a concrete instance of `PacketCaptureFilterArrayInput` via:
-//
-//          PacketCaptureFilterArray{ PacketCaptureFilterArgs{...} }
-type PacketCaptureFilterArrayInput interface {
-	pulumi.Input
-
-	ToPacketCaptureFilterArrayOutput() PacketCaptureFilterArrayOutput
-	ToPacketCaptureFilterArrayOutputWithContext(context.Context) PacketCaptureFilterArrayOutput
-}
-
-type PacketCaptureFilterArray []PacketCaptureFilterInput
-
-func (PacketCaptureFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PacketCaptureFilter)(nil)).Elem()
-}
-
-func (i PacketCaptureFilterArray) ToPacketCaptureFilterArrayOutput() PacketCaptureFilterArrayOutput {
-	return i.ToPacketCaptureFilterArrayOutputWithContext(context.Background())
-}
-
-func (i PacketCaptureFilterArray) ToPacketCaptureFilterArrayOutputWithContext(ctx context.Context) PacketCaptureFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureFilterArrayOutput)
-}
-
-type PacketCaptureFilterOutput struct{ *pulumi.OutputState }
-
-func (PacketCaptureFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCaptureFilter)(nil)).Elem()
-}
-
-func (o PacketCaptureFilterOutput) ToPacketCaptureFilterOutput() PacketCaptureFilterOutput {
-	return o
-}
-
-func (o PacketCaptureFilterOutput) ToPacketCaptureFilterOutputWithContext(ctx context.Context) PacketCaptureFilterOutput {
-	return o
-}
-
-// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-func (o PacketCaptureFilterOutput) LocalIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureFilter) *string { return v.LocalIpAddress }).(pulumi.StringPtrOutput)
-}
-
-// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-func (o PacketCaptureFilterOutput) LocalPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureFilter) *string { return v.LocalPort }).(pulumi.StringPtrOutput)
-}
-
-// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-func (o PacketCaptureFilterOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v PacketCaptureFilter) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-func (o PacketCaptureFilterOutput) RemoteIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureFilter) *string { return v.RemoteIpAddress }).(pulumi.StringPtrOutput)
-}
-
-// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-func (o PacketCaptureFilterOutput) RemotePort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureFilter) *string { return v.RemotePort }).(pulumi.StringPtrOutput)
-}
-
-type PacketCaptureFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (PacketCaptureFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PacketCaptureFilter)(nil)).Elem()
-}
-
-func (o PacketCaptureFilterArrayOutput) ToPacketCaptureFilterArrayOutput() PacketCaptureFilterArrayOutput {
-	return o
-}
-
-func (o PacketCaptureFilterArrayOutput) ToPacketCaptureFilterArrayOutputWithContext(ctx context.Context) PacketCaptureFilterArrayOutput {
-	return o
-}
-
-func (o PacketCaptureFilterArrayOutput) Index(i pulumi.IntInput) PacketCaptureFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PacketCaptureFilter {
-		return vs[0].([]PacketCaptureFilter)[vs[1].(int)]
-	}).(PacketCaptureFilterOutput)
-}
-
-type PacketCaptureStorageLocation struct {
-	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-	FilePath *string `pulumi:"filePath"`
-	// The ID of the storage account to save the packet capture session
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The URI of the storage path to save the packet capture.
-	StoragePath *string `pulumi:"storagePath"`
-}
-
-// PacketCaptureStorageLocationInput is an input type that accepts PacketCaptureStorageLocationArgs and PacketCaptureStorageLocationOutput values.
-// You can construct a concrete instance of `PacketCaptureStorageLocationInput` via:
-//
-//          PacketCaptureStorageLocationArgs{...}
-type PacketCaptureStorageLocationInput interface {
-	pulumi.Input
-
-	ToPacketCaptureStorageLocationOutput() PacketCaptureStorageLocationOutput
-	ToPacketCaptureStorageLocationOutputWithContext(context.Context) PacketCaptureStorageLocationOutput
-}
-
-type PacketCaptureStorageLocationArgs struct {
-	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
-	// The ID of the storage account to save the packet capture session
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// The URI of the storage path to save the packet capture.
-	StoragePath pulumi.StringPtrInput `pulumi:"storagePath"`
-}
-
-func (PacketCaptureStorageLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (i PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationOutput() PacketCaptureStorageLocationOutput {
-	return i.ToPacketCaptureStorageLocationOutputWithContext(context.Background())
-}
-
-func (i PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationOutputWithContext(ctx context.Context) PacketCaptureStorageLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureStorageLocationOutput)
-}
-
-func (i PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationPtrOutput() PacketCaptureStorageLocationPtrOutput {
-	return i.ToPacketCaptureStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) PacketCaptureStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureStorageLocationOutput).ToPacketCaptureStorageLocationPtrOutputWithContext(ctx)
-}
-
-// PacketCaptureStorageLocationPtrInput is an input type that accepts PacketCaptureStorageLocationArgs, PacketCaptureStorageLocationPtr and PacketCaptureStorageLocationPtrOutput values.
-// You can construct a concrete instance of `PacketCaptureStorageLocationPtrInput` via:
-//
-//          PacketCaptureStorageLocationArgs{...}
-//
-//  or:
-//
-//          nil
-type PacketCaptureStorageLocationPtrInput interface {
-	pulumi.Input
-
-	ToPacketCaptureStorageLocationPtrOutput() PacketCaptureStorageLocationPtrOutput
-	ToPacketCaptureStorageLocationPtrOutputWithContext(context.Context) PacketCaptureStorageLocationPtrOutput
-}
-
-type packetCaptureStorageLocationPtrType PacketCaptureStorageLocationArgs
-
-func PacketCaptureStorageLocationPtr(v *PacketCaptureStorageLocationArgs) PacketCaptureStorageLocationPtrInput {
-	return (*packetCaptureStorageLocationPtrType)(v)
-}
-
-func (*packetCaptureStorageLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (i *packetCaptureStorageLocationPtrType) ToPacketCaptureStorageLocationPtrOutput() PacketCaptureStorageLocationPtrOutput {
-	return i.ToPacketCaptureStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *packetCaptureStorageLocationPtrType) ToPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) PacketCaptureStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureStorageLocationPtrOutput)
-}
-
-type PacketCaptureStorageLocationOutput struct{ *pulumi.OutputState }
-
-func (PacketCaptureStorageLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationOutput() PacketCaptureStorageLocationOutput {
-	return o
-}
-
-func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationOutputWithContext(ctx context.Context) PacketCaptureStorageLocationOutput {
-	return o
-}
-
-func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationPtrOutput() PacketCaptureStorageLocationPtrOutput {
-	return o.ToPacketCaptureStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) PacketCaptureStorageLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PacketCaptureStorageLocation) *PacketCaptureStorageLocation {
-		return &v
-	}).(PacketCaptureStorageLocationPtrOutput)
-}
-
-// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-func (o PacketCaptureStorageLocationOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.FilePath }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the storage account to save the packet capture session
-func (o PacketCaptureStorageLocationOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The URI of the storage path to save the packet capture.
-func (o PacketCaptureStorageLocationOutput) StoragePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.StoragePath }).(pulumi.StringPtrOutput)
-}
-
-type PacketCaptureStorageLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (PacketCaptureStorageLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (o PacketCaptureStorageLocationPtrOutput) ToPacketCaptureStorageLocationPtrOutput() PacketCaptureStorageLocationPtrOutput {
-	return o
-}
-
-func (o PacketCaptureStorageLocationPtrOutput) ToPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) PacketCaptureStorageLocationPtrOutput {
-	return o
-}
-
-func (o PacketCaptureStorageLocationPtrOutput) Elem() PacketCaptureStorageLocationOutput {
-	return o.ApplyT(func(v *PacketCaptureStorageLocation) PacketCaptureStorageLocation {
-		if v != nil {
-			return *v
-		}
-		var ret PacketCaptureStorageLocation
-		return ret
-	}).(PacketCaptureStorageLocationOutput)
-}
-
-// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-func (o PacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FilePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the storage account to save the packet capture session
-func (o PacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URI of the storage path to save the packet capture.
-func (o PacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StoragePath
-	}).(pulumi.StringPtrOutput)
-}
-
 type PointToPointVpnGatewayConnectionConfiguration struct {
 	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
@@ -16268,227 +15679,6 @@ func (o TrafficManagerAzureEndpointSubnetArrayOutput) Index(i pulumi.IntInput) T
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerAzureEndpointSubnet {
 		return vs[0].([]TrafficManagerAzureEndpointSubnet)[vs[1].(int)]
 	}).(TrafficManagerAzureEndpointSubnetOutput)
-}
-
-type TrafficManagerEndpointCustomHeader struct {
-	// The name of the custom header.
-	Name string `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
-	Value string `pulumi:"value"`
-}
-
-// TrafficManagerEndpointCustomHeaderInput is an input type that accepts TrafficManagerEndpointCustomHeaderArgs and TrafficManagerEndpointCustomHeaderOutput values.
-// You can construct a concrete instance of `TrafficManagerEndpointCustomHeaderInput` via:
-//
-//          TrafficManagerEndpointCustomHeaderArgs{...}
-type TrafficManagerEndpointCustomHeaderInput interface {
-	pulumi.Input
-
-	ToTrafficManagerEndpointCustomHeaderOutput() TrafficManagerEndpointCustomHeaderOutput
-	ToTrafficManagerEndpointCustomHeaderOutputWithContext(context.Context) TrafficManagerEndpointCustomHeaderOutput
-}
-
-type TrafficManagerEndpointCustomHeaderArgs struct {
-	// The name of the custom header.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TrafficManagerEndpointCustomHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficManagerEndpointCustomHeader)(nil)).Elem()
-}
-
-func (i TrafficManagerEndpointCustomHeaderArgs) ToTrafficManagerEndpointCustomHeaderOutput() TrafficManagerEndpointCustomHeaderOutput {
-	return i.ToTrafficManagerEndpointCustomHeaderOutputWithContext(context.Background())
-}
-
-func (i TrafficManagerEndpointCustomHeaderArgs) ToTrafficManagerEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerEndpointCustomHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointCustomHeaderOutput)
-}
-
-// TrafficManagerEndpointCustomHeaderArrayInput is an input type that accepts TrafficManagerEndpointCustomHeaderArray and TrafficManagerEndpointCustomHeaderArrayOutput values.
-// You can construct a concrete instance of `TrafficManagerEndpointCustomHeaderArrayInput` via:
-//
-//          TrafficManagerEndpointCustomHeaderArray{ TrafficManagerEndpointCustomHeaderArgs{...} }
-type TrafficManagerEndpointCustomHeaderArrayInput interface {
-	pulumi.Input
-
-	ToTrafficManagerEndpointCustomHeaderArrayOutput() TrafficManagerEndpointCustomHeaderArrayOutput
-	ToTrafficManagerEndpointCustomHeaderArrayOutputWithContext(context.Context) TrafficManagerEndpointCustomHeaderArrayOutput
-}
-
-type TrafficManagerEndpointCustomHeaderArray []TrafficManagerEndpointCustomHeaderInput
-
-func (TrafficManagerEndpointCustomHeaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficManagerEndpointCustomHeader)(nil)).Elem()
-}
-
-func (i TrafficManagerEndpointCustomHeaderArray) ToTrafficManagerEndpointCustomHeaderArrayOutput() TrafficManagerEndpointCustomHeaderArrayOutput {
-	return i.ToTrafficManagerEndpointCustomHeaderArrayOutputWithContext(context.Background())
-}
-
-func (i TrafficManagerEndpointCustomHeaderArray) ToTrafficManagerEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerEndpointCustomHeaderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointCustomHeaderArrayOutput)
-}
-
-type TrafficManagerEndpointCustomHeaderOutput struct{ *pulumi.OutputState }
-
-func (TrafficManagerEndpointCustomHeaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficManagerEndpointCustomHeader)(nil)).Elem()
-}
-
-func (o TrafficManagerEndpointCustomHeaderOutput) ToTrafficManagerEndpointCustomHeaderOutput() TrafficManagerEndpointCustomHeaderOutput {
-	return o
-}
-
-func (o TrafficManagerEndpointCustomHeaderOutput) ToTrafficManagerEndpointCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerEndpointCustomHeaderOutput {
-	return o
-}
-
-// The name of the custom header.
-func (o TrafficManagerEndpointCustomHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TrafficManagerEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The value of custom header. Applicable for Http and Https protocol.
-func (o TrafficManagerEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v TrafficManagerEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TrafficManagerEndpointCustomHeaderArrayOutput struct{ *pulumi.OutputState }
-
-func (TrafficManagerEndpointCustomHeaderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficManagerEndpointCustomHeader)(nil)).Elem()
-}
-
-func (o TrafficManagerEndpointCustomHeaderArrayOutput) ToTrafficManagerEndpointCustomHeaderArrayOutput() TrafficManagerEndpointCustomHeaderArrayOutput {
-	return o
-}
-
-func (o TrafficManagerEndpointCustomHeaderArrayOutput) ToTrafficManagerEndpointCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerEndpointCustomHeaderArrayOutput {
-	return o
-}
-
-func (o TrafficManagerEndpointCustomHeaderArrayOutput) Index(i pulumi.IntInput) TrafficManagerEndpointCustomHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerEndpointCustomHeader {
-		return vs[0].([]TrafficManagerEndpointCustomHeader)[vs[1].(int)]
-	}).(TrafficManagerEndpointCustomHeaderOutput)
-}
-
-type TrafficManagerEndpointSubnet struct {
-	// The First IP....
-	First string `pulumi:"first"`
-	// The Last IP...
-	Last *string `pulumi:"last"`
-	// The Scope...
-	Scope *int `pulumi:"scope"`
-}
-
-// TrafficManagerEndpointSubnetInput is an input type that accepts TrafficManagerEndpointSubnetArgs and TrafficManagerEndpointSubnetOutput values.
-// You can construct a concrete instance of `TrafficManagerEndpointSubnetInput` via:
-//
-//          TrafficManagerEndpointSubnetArgs{...}
-type TrafficManagerEndpointSubnetInput interface {
-	pulumi.Input
-
-	ToTrafficManagerEndpointSubnetOutput() TrafficManagerEndpointSubnetOutput
-	ToTrafficManagerEndpointSubnetOutputWithContext(context.Context) TrafficManagerEndpointSubnetOutput
-}
-
-type TrafficManagerEndpointSubnetArgs struct {
-	// The First IP....
-	First pulumi.StringInput `pulumi:"first"`
-	// The Last IP...
-	Last pulumi.StringPtrInput `pulumi:"last"`
-	// The Scope...
-	Scope pulumi.IntPtrInput `pulumi:"scope"`
-}
-
-func (TrafficManagerEndpointSubnetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficManagerEndpointSubnet)(nil)).Elem()
-}
-
-func (i TrafficManagerEndpointSubnetArgs) ToTrafficManagerEndpointSubnetOutput() TrafficManagerEndpointSubnetOutput {
-	return i.ToTrafficManagerEndpointSubnetOutputWithContext(context.Background())
-}
-
-func (i TrafficManagerEndpointSubnetArgs) ToTrafficManagerEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerEndpointSubnetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointSubnetOutput)
-}
-
-// TrafficManagerEndpointSubnetArrayInput is an input type that accepts TrafficManagerEndpointSubnetArray and TrafficManagerEndpointSubnetArrayOutput values.
-// You can construct a concrete instance of `TrafficManagerEndpointSubnetArrayInput` via:
-//
-//          TrafficManagerEndpointSubnetArray{ TrafficManagerEndpointSubnetArgs{...} }
-type TrafficManagerEndpointSubnetArrayInput interface {
-	pulumi.Input
-
-	ToTrafficManagerEndpointSubnetArrayOutput() TrafficManagerEndpointSubnetArrayOutput
-	ToTrafficManagerEndpointSubnetArrayOutputWithContext(context.Context) TrafficManagerEndpointSubnetArrayOutput
-}
-
-type TrafficManagerEndpointSubnetArray []TrafficManagerEndpointSubnetInput
-
-func (TrafficManagerEndpointSubnetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficManagerEndpointSubnet)(nil)).Elem()
-}
-
-func (i TrafficManagerEndpointSubnetArray) ToTrafficManagerEndpointSubnetArrayOutput() TrafficManagerEndpointSubnetArrayOutput {
-	return i.ToTrafficManagerEndpointSubnetArrayOutputWithContext(context.Background())
-}
-
-func (i TrafficManagerEndpointSubnetArray) ToTrafficManagerEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerEndpointSubnetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointSubnetArrayOutput)
-}
-
-type TrafficManagerEndpointSubnetOutput struct{ *pulumi.OutputState }
-
-func (TrafficManagerEndpointSubnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficManagerEndpointSubnet)(nil)).Elem()
-}
-
-func (o TrafficManagerEndpointSubnetOutput) ToTrafficManagerEndpointSubnetOutput() TrafficManagerEndpointSubnetOutput {
-	return o
-}
-
-func (o TrafficManagerEndpointSubnetOutput) ToTrafficManagerEndpointSubnetOutputWithContext(ctx context.Context) TrafficManagerEndpointSubnetOutput {
-	return o
-}
-
-// The First IP....
-func (o TrafficManagerEndpointSubnetOutput) First() pulumi.StringOutput {
-	return o.ApplyT(func(v TrafficManagerEndpointSubnet) string { return v.First }).(pulumi.StringOutput)
-}
-
-// The Last IP...
-func (o TrafficManagerEndpointSubnetOutput) Last() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TrafficManagerEndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
-}
-
-// The Scope...
-func (o TrafficManagerEndpointSubnetOutput) Scope() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficManagerEndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
-}
-
-type TrafficManagerEndpointSubnetArrayOutput struct{ *pulumi.OutputState }
-
-func (TrafficManagerEndpointSubnetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficManagerEndpointSubnet)(nil)).Elem()
-}
-
-func (o TrafficManagerEndpointSubnetArrayOutput) ToTrafficManagerEndpointSubnetArrayOutput() TrafficManagerEndpointSubnetArrayOutput {
-	return o
-}
-
-func (o TrafficManagerEndpointSubnetArrayOutput) ToTrafficManagerEndpointSubnetArrayOutputWithContext(ctx context.Context) TrafficManagerEndpointSubnetArrayOutput {
-	return o
-}
-
-func (o TrafficManagerEndpointSubnetArrayOutput) Index(i pulumi.IntInput) TrafficManagerEndpointSubnetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerEndpointSubnet {
-		return vs[0].([]TrafficManagerEndpointSubnet)[vs[1].(int)]
-	}).(TrafficManagerEndpointSubnetOutput)
 }
 
 type TrafficManagerExternalEndpointCustomHeader struct {
@@ -18318,8 +17508,6 @@ type VirtualNetworkGatewayBgpSettings struct {
 	// The weight added to routes which have been learned
 	// through BGP peering. Valid values can be between `0` and `100`.
 	PeerWeight *int `pulumi:"peerWeight"`
-	// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
-	PeeringAddress *string `pulumi:"peeringAddress"`
 	// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 	PeeringAddresses []VirtualNetworkGatewayBgpSettingsPeeringAddress `pulumi:"peeringAddresses"`
 }
@@ -18341,8 +17529,6 @@ type VirtualNetworkGatewayBgpSettingsArgs struct {
 	// The weight added to routes which have been learned
 	// through BGP peering. Valid values can be between `0` and `100`.
 	PeerWeight pulumi.IntPtrInput `pulumi:"peerWeight"`
-	// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
-	PeeringAddress pulumi.StringPtrInput `pulumi:"peeringAddress"`
 	// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 	PeeringAddresses VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput `pulumi:"peeringAddresses"`
 }
@@ -18435,11 +17621,6 @@ func (o VirtualNetworkGatewayBgpSettingsOutput) PeerWeight() pulumi.IntPtrOutput
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *int { return v.PeerWeight }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
-func (o VirtualNetworkGatewayBgpSettingsOutput) PeeringAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *string { return v.PeeringAddress }).(pulumi.StringPtrOutput)
-}
-
 // A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 func (o VirtualNetworkGatewayBgpSettingsOutput) PeeringAddresses() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) []VirtualNetworkGatewayBgpSettingsPeeringAddress {
@@ -18490,16 +17671,6 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOut
 		}
 		return v.PeerWeight
 	}).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
-func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PeeringAddress
-	}).(pulumi.StringPtrOutput)
 }
 
 // A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
@@ -20689,8 +19860,6 @@ type VpnGatewayConnectionRouting struct {
 	AssociatedRouteTable string `pulumi:"associatedRouteTable"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable *VpnGatewayConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
-	// Deprecated: Deprecated in favour of `propagated_route_table`
-	PropagatedRouteTables []string `pulumi:"propagatedRouteTables"`
 }
 
 // VpnGatewayConnectionRoutingInput is an input type that accepts VpnGatewayConnectionRoutingArgs and VpnGatewayConnectionRoutingOutput values.
@@ -20709,8 +19878,6 @@ type VpnGatewayConnectionRoutingArgs struct {
 	AssociatedRouteTable pulumi.StringInput `pulumi:"associatedRouteTable"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
-	// Deprecated: Deprecated in favour of `propagated_route_table`
-	PropagatedRouteTables pulumi.StringArrayInput `pulumi:"propagatedRouteTables"`
 }
 
 func (VpnGatewayConnectionRoutingArgs) ElementType() reflect.Type {
@@ -20725,29 +19892,45 @@ func (i VpnGatewayConnectionRoutingArgs) ToVpnGatewayConnectionRoutingOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingOutput)
 }
 
-// VpnGatewayConnectionRoutingArrayInput is an input type that accepts VpnGatewayConnectionRoutingArray and VpnGatewayConnectionRoutingArrayOutput values.
-// You can construct a concrete instance of `VpnGatewayConnectionRoutingArrayInput` via:
+func (i VpnGatewayConnectionRoutingArgs) ToVpnGatewayConnectionRoutingPtrOutput() VpnGatewayConnectionRoutingPtrOutput {
+	return i.ToVpnGatewayConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionRoutingArgs) ToVpnGatewayConnectionRoutingPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingOutput).ToVpnGatewayConnectionRoutingPtrOutputWithContext(ctx)
+}
+
+// VpnGatewayConnectionRoutingPtrInput is an input type that accepts VpnGatewayConnectionRoutingArgs, VpnGatewayConnectionRoutingPtr and VpnGatewayConnectionRoutingPtrOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionRoutingPtrInput` via:
 //
-//          VpnGatewayConnectionRoutingArray{ VpnGatewayConnectionRoutingArgs{...} }
-type VpnGatewayConnectionRoutingArrayInput interface {
+//          VpnGatewayConnectionRoutingArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnGatewayConnectionRoutingPtrInput interface {
 	pulumi.Input
 
-	ToVpnGatewayConnectionRoutingArrayOutput() VpnGatewayConnectionRoutingArrayOutput
-	ToVpnGatewayConnectionRoutingArrayOutputWithContext(context.Context) VpnGatewayConnectionRoutingArrayOutput
+	ToVpnGatewayConnectionRoutingPtrOutput() VpnGatewayConnectionRoutingPtrOutput
+	ToVpnGatewayConnectionRoutingPtrOutputWithContext(context.Context) VpnGatewayConnectionRoutingPtrOutput
 }
 
-type VpnGatewayConnectionRoutingArray []VpnGatewayConnectionRoutingInput
+type vpnGatewayConnectionRoutingPtrType VpnGatewayConnectionRoutingArgs
 
-func (VpnGatewayConnectionRoutingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnGatewayConnectionRouting)(nil)).Elem()
+func VpnGatewayConnectionRoutingPtr(v *VpnGatewayConnectionRoutingArgs) VpnGatewayConnectionRoutingPtrInput {
+	return (*vpnGatewayConnectionRoutingPtrType)(v)
 }
 
-func (i VpnGatewayConnectionRoutingArray) ToVpnGatewayConnectionRoutingArrayOutput() VpnGatewayConnectionRoutingArrayOutput {
-	return i.ToVpnGatewayConnectionRoutingArrayOutputWithContext(context.Background())
+func (*vpnGatewayConnectionRoutingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayConnectionRouting)(nil)).Elem()
 }
 
-func (i VpnGatewayConnectionRoutingArray) ToVpnGatewayConnectionRoutingArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingArrayOutput)
+func (i *vpnGatewayConnectionRoutingPtrType) ToVpnGatewayConnectionRoutingPtrOutput() VpnGatewayConnectionRoutingPtrOutput {
+	return i.ToVpnGatewayConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnGatewayConnectionRoutingPtrType) ToVpnGatewayConnectionRoutingPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingPtrOutput)
 }
 
 type VpnGatewayConnectionRoutingOutput struct{ *pulumi.OutputState }
@@ -20764,6 +19947,16 @@ func (o VpnGatewayConnectionRoutingOutput) ToVpnGatewayConnectionRoutingOutputWi
 	return o
 }
 
+func (o VpnGatewayConnectionRoutingOutput) ToVpnGatewayConnectionRoutingPtrOutput() VpnGatewayConnectionRoutingPtrOutput {
+	return o.ToVpnGatewayConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayConnectionRoutingOutput) ToVpnGatewayConnectionRoutingPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGatewayConnectionRouting) *VpnGatewayConnectionRouting {
+		return &v
+	}).(VpnGatewayConnectionRoutingPtrOutput)
+}
+
 // The ID of the Route Table associated with this VPN Connection.
 func (o VpnGatewayConnectionRoutingOutput) AssociatedRouteTable() pulumi.StringOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionRouting) string { return v.AssociatedRouteTable }).(pulumi.StringOutput)
@@ -20776,29 +19969,48 @@ func (o VpnGatewayConnectionRoutingOutput) PropagatedRouteTable() VpnGatewayConn
 	}).(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput)
 }
 
-// Deprecated: Deprecated in favour of `propagated_route_table`
-func (o VpnGatewayConnectionRoutingOutput) PropagatedRouteTables() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VpnGatewayConnectionRouting) []string { return v.PropagatedRouteTables }).(pulumi.StringArrayOutput)
+type VpnGatewayConnectionRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayConnectionRouting)(nil)).Elem()
 }
 
-type VpnGatewayConnectionRoutingArrayOutput struct{ *pulumi.OutputState }
-
-func (VpnGatewayConnectionRoutingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnGatewayConnectionRouting)(nil)).Elem()
-}
-
-func (o VpnGatewayConnectionRoutingArrayOutput) ToVpnGatewayConnectionRoutingArrayOutput() VpnGatewayConnectionRoutingArrayOutput {
+func (o VpnGatewayConnectionRoutingPtrOutput) ToVpnGatewayConnectionRoutingPtrOutput() VpnGatewayConnectionRoutingPtrOutput {
 	return o
 }
 
-func (o VpnGatewayConnectionRoutingArrayOutput) ToVpnGatewayConnectionRoutingArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingArrayOutput {
+func (o VpnGatewayConnectionRoutingPtrOutput) ToVpnGatewayConnectionRoutingPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPtrOutput {
 	return o
 }
 
-func (o VpnGatewayConnectionRoutingArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionRoutingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionRouting {
-		return vs[0].([]VpnGatewayConnectionRouting)[vs[1].(int)]
+func (o VpnGatewayConnectionRoutingPtrOutput) Elem() VpnGatewayConnectionRoutingOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRouting) VpnGatewayConnectionRouting {
+		if v != nil {
+			return *v
+		}
+		var ret VpnGatewayConnectionRouting
+		return ret
 	}).(VpnGatewayConnectionRoutingOutput)
+}
+
+// The ID of the Route Table associated with this VPN Connection.
+func (o VpnGatewayConnectionRoutingPtrOutput) AssociatedRouteTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssociatedRouteTable
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o VpnGatewayConnectionRoutingPtrOutput) PropagatedRouteTable() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRouting) *VpnGatewayConnectionRoutingPropagatedRouteTable {
+		if v == nil {
+			return nil
+		}
+		return v.PropagatedRouteTable
+	}).(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput)
 }
 
 type VpnGatewayConnectionRoutingPropagatedRouteTable struct {
@@ -22322,12 +21534,10 @@ func (o VpnServerConfigurationRadiusClientRootCertificateArrayOutput) Index(i pu
 type VpnServerConfigurationRadiusServer struct {
 	// The Address of the Radius Server.
 	Address string `pulumi:"address"`
-	// One or more `clientRootCertificate` blocks as defined above.
-	ClientRootCertificates []VpnServerConfigurationRadiusServerClientRootCertificate `pulumi:"clientRootCertificates"`
+	// The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
+	Score int `pulumi:"score"`
 	// The Secret used to communicate with the Radius Server.
 	Secret string `pulumi:"secret"`
-	// One or more `serverRootCertificate` blocks as defined below.
-	ServerRootCertificates []VpnServerConfigurationRadiusServerServerRootCertificate `pulumi:"serverRootCertificates"`
 }
 
 // VpnServerConfigurationRadiusServerInput is an input type that accepts VpnServerConfigurationRadiusServerArgs and VpnServerConfigurationRadiusServerOutput values.
@@ -22344,12 +21554,10 @@ type VpnServerConfigurationRadiusServerInput interface {
 type VpnServerConfigurationRadiusServerArgs struct {
 	// The Address of the Radius Server.
 	Address pulumi.StringInput `pulumi:"address"`
-	// One or more `clientRootCertificate` blocks as defined above.
-	ClientRootCertificates VpnServerConfigurationRadiusServerClientRootCertificateArrayInput `pulumi:"clientRootCertificates"`
+	// The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
+	Score pulumi.IntInput `pulumi:"score"`
 	// The Secret used to communicate with the Radius Server.
 	Secret pulumi.StringInput `pulumi:"secret"`
-	// One or more `serverRootCertificate` blocks as defined below.
-	ServerRootCertificates VpnServerConfigurationRadiusServerServerRootCertificateArrayInput `pulumi:"serverRootCertificates"`
 }
 
 func (VpnServerConfigurationRadiusServerArgs) ElementType() reflect.Type {
@@ -22362,47 +21570,6 @@ func (i VpnServerConfigurationRadiusServerArgs) ToVpnServerConfigurationRadiusSe
 
 func (i VpnServerConfigurationRadiusServerArgs) ToVpnServerConfigurationRadiusServerOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerOutput)
-}
-
-func (i VpnServerConfigurationRadiusServerArgs) ToVpnServerConfigurationRadiusServerPtrOutput() VpnServerConfigurationRadiusServerPtrOutput {
-	return i.ToVpnServerConfigurationRadiusServerPtrOutputWithContext(context.Background())
-}
-
-func (i VpnServerConfigurationRadiusServerArgs) ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerOutput).ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx)
-}
-
-// VpnServerConfigurationRadiusServerPtrInput is an input type that accepts VpnServerConfigurationRadiusServerArgs, VpnServerConfigurationRadiusServerPtr and VpnServerConfigurationRadiusServerPtrOutput values.
-// You can construct a concrete instance of `VpnServerConfigurationRadiusServerPtrInput` via:
-//
-//          VpnServerConfigurationRadiusServerArgs{...}
-//
-//  or:
-//
-//          nil
-type VpnServerConfigurationRadiusServerPtrInput interface {
-	pulumi.Input
-
-	ToVpnServerConfigurationRadiusServerPtrOutput() VpnServerConfigurationRadiusServerPtrOutput
-	ToVpnServerConfigurationRadiusServerPtrOutputWithContext(context.Context) VpnServerConfigurationRadiusServerPtrOutput
-}
-
-type vpnServerConfigurationRadiusServerPtrType VpnServerConfigurationRadiusServerArgs
-
-func VpnServerConfigurationRadiusServerPtr(v *VpnServerConfigurationRadiusServerArgs) VpnServerConfigurationRadiusServerPtrInput {
-	return (*vpnServerConfigurationRadiusServerPtrType)(v)
-}
-
-func (*vpnServerConfigurationRadiusServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnServerConfigurationRadiusServer)(nil)).Elem()
-}
-
-func (i *vpnServerConfigurationRadiusServerPtrType) ToVpnServerConfigurationRadiusServerPtrOutput() VpnServerConfigurationRadiusServerPtrOutput {
-	return i.ToVpnServerConfigurationRadiusServerPtrOutputWithContext(context.Background())
-}
-
-func (i *vpnServerConfigurationRadiusServerPtrType) ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerPtrOutput)
 }
 
 // VpnServerConfigurationRadiusServerArrayInput is an input type that accepts VpnServerConfigurationRadiusServerArray and VpnServerConfigurationRadiusServerArrayOutput values.
@@ -22444,102 +21611,19 @@ func (o VpnServerConfigurationRadiusServerOutput) ToVpnServerConfigurationRadius
 	return o
 }
 
-func (o VpnServerConfigurationRadiusServerOutput) ToVpnServerConfigurationRadiusServerPtrOutput() VpnServerConfigurationRadiusServerPtrOutput {
-	return o.ToVpnServerConfigurationRadiusServerPtrOutputWithContext(context.Background())
-}
-
-func (o VpnServerConfigurationRadiusServerOutput) ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnServerConfigurationRadiusServer) *VpnServerConfigurationRadiusServer {
-		return &v
-	}).(VpnServerConfigurationRadiusServerPtrOutput)
-}
-
 // The Address of the Radius Server.
 func (o VpnServerConfigurationRadiusServerOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// One or more `clientRootCertificate` blocks as defined above.
-func (o VpnServerConfigurationRadiusServerOutput) ClientRootCertificates() VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerClientRootCertificate {
-		return v.ClientRootCertificates
-	}).(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput)
+// The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
+func (o VpnServerConfigurationRadiusServerOutput) Score() pulumi.IntOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) int { return v.Score }).(pulumi.IntOutput)
 }
 
 // The Secret used to communicate with the Radius Server.
 func (o VpnServerConfigurationRadiusServerOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) string { return v.Secret }).(pulumi.StringOutput)
-}
-
-// One or more `serverRootCertificate` blocks as defined below.
-func (o VpnServerConfigurationRadiusServerOutput) ServerRootCertificates() VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerServerRootCertificate {
-		return v.ServerRootCertificates
-	}).(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput)
-}
-
-type VpnServerConfigurationRadiusServerPtrOutput struct{ *pulumi.OutputState }
-
-func (VpnServerConfigurationRadiusServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnServerConfigurationRadiusServer)(nil)).Elem()
-}
-
-func (o VpnServerConfigurationRadiusServerPtrOutput) ToVpnServerConfigurationRadiusServerPtrOutput() VpnServerConfigurationRadiusServerPtrOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerPtrOutput) ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerPtrOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerPtrOutput) Elem() VpnServerConfigurationRadiusServerOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) VpnServerConfigurationRadiusServer {
-		if v != nil {
-			return *v
-		}
-		var ret VpnServerConfigurationRadiusServer
-		return ret
-	}).(VpnServerConfigurationRadiusServerOutput)
-}
-
-// The Address of the Radius Server.
-func (o VpnServerConfigurationRadiusServerPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Address
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more `clientRootCertificate` blocks as defined above.
-func (o VpnServerConfigurationRadiusServerPtrOutput) ClientRootCertificates() VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerClientRootCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.ClientRootCertificates
-	}).(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput)
-}
-
-// The Secret used to communicate with the Radius Server.
-func (o VpnServerConfigurationRadiusServerPtrOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Secret
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more `serverRootCertificate` blocks as defined below.
-func (o VpnServerConfigurationRadiusServerPtrOutput) ServerRootCertificates() VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerServerRootCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.ServerRootCertificates
-	}).(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput)
 }
 
 type VpnServerConfigurationRadiusServerArrayOutput struct{ *pulumi.OutputState }
@@ -22560,112 +21644,6 @@ func (o VpnServerConfigurationRadiusServerArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServer {
 		return vs[0].([]VpnServerConfigurationRadiusServer)[vs[1].(int)]
 	}).(VpnServerConfigurationRadiusServerOutput)
-}
-
-type VpnServerConfigurationRadiusServerClientRootCertificate struct {
-	// A name used to uniquely identify this certificate.
-	Name string `pulumi:"name"`
-	// The Thumbprint of the Certificate.
-	Thumbprint string `pulumi:"thumbprint"`
-}
-
-// VpnServerConfigurationRadiusServerClientRootCertificateInput is an input type that accepts VpnServerConfigurationRadiusServerClientRootCertificateArgs and VpnServerConfigurationRadiusServerClientRootCertificateOutput values.
-// You can construct a concrete instance of `VpnServerConfigurationRadiusServerClientRootCertificateInput` via:
-//
-//          VpnServerConfigurationRadiusServerClientRootCertificateArgs{...}
-type VpnServerConfigurationRadiusServerClientRootCertificateInput interface {
-	pulumi.Input
-
-	ToVpnServerConfigurationRadiusServerClientRootCertificateOutput() VpnServerConfigurationRadiusServerClientRootCertificateOutput
-	ToVpnServerConfigurationRadiusServerClientRootCertificateOutputWithContext(context.Context) VpnServerConfigurationRadiusServerClientRootCertificateOutput
-}
-
-type VpnServerConfigurationRadiusServerClientRootCertificateArgs struct {
-	// A name used to uniquely identify this certificate.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Thumbprint of the Certificate.
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-}
-
-func (VpnServerConfigurationRadiusServerClientRootCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfigurationRadiusServerClientRootCertificate)(nil)).Elem()
-}
-
-func (i VpnServerConfigurationRadiusServerClientRootCertificateArgs) ToVpnServerConfigurationRadiusServerClientRootCertificateOutput() VpnServerConfigurationRadiusServerClientRootCertificateOutput {
-	return i.ToVpnServerConfigurationRadiusServerClientRootCertificateOutputWithContext(context.Background())
-}
-
-func (i VpnServerConfigurationRadiusServerClientRootCertificateArgs) ToVpnServerConfigurationRadiusServerClientRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerClientRootCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerClientRootCertificateOutput)
-}
-
-// VpnServerConfigurationRadiusServerClientRootCertificateArrayInput is an input type that accepts VpnServerConfigurationRadiusServerClientRootCertificateArray and VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput values.
-// You can construct a concrete instance of `VpnServerConfigurationRadiusServerClientRootCertificateArrayInput` via:
-//
-//          VpnServerConfigurationRadiusServerClientRootCertificateArray{ VpnServerConfigurationRadiusServerClientRootCertificateArgs{...} }
-type VpnServerConfigurationRadiusServerClientRootCertificateArrayInput interface {
-	pulumi.Input
-
-	ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutput() VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput
-	ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutputWithContext(context.Context) VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput
-}
-
-type VpnServerConfigurationRadiusServerClientRootCertificateArray []VpnServerConfigurationRadiusServerClientRootCertificateInput
-
-func (VpnServerConfigurationRadiusServerClientRootCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServerClientRootCertificate)(nil)).Elem()
-}
-
-func (i VpnServerConfigurationRadiusServerClientRootCertificateArray) ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutput() VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return i.ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i VpnServerConfigurationRadiusServerClientRootCertificateArray) ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput)
-}
-
-type VpnServerConfigurationRadiusServerClientRootCertificateOutput struct{ *pulumi.OutputState }
-
-func (VpnServerConfigurationRadiusServerClientRootCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfigurationRadiusServerClientRootCertificate)(nil)).Elem()
-}
-
-func (o VpnServerConfigurationRadiusServerClientRootCertificateOutput) ToVpnServerConfigurationRadiusServerClientRootCertificateOutput() VpnServerConfigurationRadiusServerClientRootCertificateOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerClientRootCertificateOutput) ToVpnServerConfigurationRadiusServerClientRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerClientRootCertificateOutput {
-	return o
-}
-
-// A name used to uniquely identify this certificate.
-func (o VpnServerConfigurationRadiusServerClientRootCertificateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServerClientRootCertificate) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Thumbprint of the Certificate.
-func (o VpnServerConfigurationRadiusServerClientRootCertificateOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServerClientRootCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
-}
-
-type VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServerClientRootCertificate)(nil)).Elem()
-}
-
-func (o VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput) ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutput() VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput) ToVpnServerConfigurationRadiusServerClientRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationRadiusServerClientRootCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServerClientRootCertificate {
-		return vs[0].([]VpnServerConfigurationRadiusServerClientRootCertificate)[vs[1].(int)]
-	}).(VpnServerConfigurationRadiusServerClientRootCertificateOutput)
 }
 
 type VpnServerConfigurationRadiusServerRootCertificate struct {
@@ -22772,112 +21750,6 @@ func (o VpnServerConfigurationRadiusServerRootCertificateArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServerRootCertificate {
 		return vs[0].([]VpnServerConfigurationRadiusServerRootCertificate)[vs[1].(int)]
 	}).(VpnServerConfigurationRadiusServerRootCertificateOutput)
-}
-
-type VpnServerConfigurationRadiusServerServerRootCertificate struct {
-	// A name used to uniquely identify this certificate.
-	Name string `pulumi:"name"`
-	// The Public Key Data associated with the Certificate.
-	PublicCertData string `pulumi:"publicCertData"`
-}
-
-// VpnServerConfigurationRadiusServerServerRootCertificateInput is an input type that accepts VpnServerConfigurationRadiusServerServerRootCertificateArgs and VpnServerConfigurationRadiusServerServerRootCertificateOutput values.
-// You can construct a concrete instance of `VpnServerConfigurationRadiusServerServerRootCertificateInput` via:
-//
-//          VpnServerConfigurationRadiusServerServerRootCertificateArgs{...}
-type VpnServerConfigurationRadiusServerServerRootCertificateInput interface {
-	pulumi.Input
-
-	ToVpnServerConfigurationRadiusServerServerRootCertificateOutput() VpnServerConfigurationRadiusServerServerRootCertificateOutput
-	ToVpnServerConfigurationRadiusServerServerRootCertificateOutputWithContext(context.Context) VpnServerConfigurationRadiusServerServerRootCertificateOutput
-}
-
-type VpnServerConfigurationRadiusServerServerRootCertificateArgs struct {
-	// A name used to uniquely identify this certificate.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Public Key Data associated with the Certificate.
-	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
-}
-
-func (VpnServerConfigurationRadiusServerServerRootCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfigurationRadiusServerServerRootCertificate)(nil)).Elem()
-}
-
-func (i VpnServerConfigurationRadiusServerServerRootCertificateArgs) ToVpnServerConfigurationRadiusServerServerRootCertificateOutput() VpnServerConfigurationRadiusServerServerRootCertificateOutput {
-	return i.ToVpnServerConfigurationRadiusServerServerRootCertificateOutputWithContext(context.Background())
-}
-
-func (i VpnServerConfigurationRadiusServerServerRootCertificateArgs) ToVpnServerConfigurationRadiusServerServerRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerServerRootCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerServerRootCertificateOutput)
-}
-
-// VpnServerConfigurationRadiusServerServerRootCertificateArrayInput is an input type that accepts VpnServerConfigurationRadiusServerServerRootCertificateArray and VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput values.
-// You can construct a concrete instance of `VpnServerConfigurationRadiusServerServerRootCertificateArrayInput` via:
-//
-//          VpnServerConfigurationRadiusServerServerRootCertificateArray{ VpnServerConfigurationRadiusServerServerRootCertificateArgs{...} }
-type VpnServerConfigurationRadiusServerServerRootCertificateArrayInput interface {
-	pulumi.Input
-
-	ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutput() VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput
-	ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutputWithContext(context.Context) VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput
-}
-
-type VpnServerConfigurationRadiusServerServerRootCertificateArray []VpnServerConfigurationRadiusServerServerRootCertificateInput
-
-func (VpnServerConfigurationRadiusServerServerRootCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServerServerRootCertificate)(nil)).Elem()
-}
-
-func (i VpnServerConfigurationRadiusServerServerRootCertificateArray) ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutput() VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return i.ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i VpnServerConfigurationRadiusServerServerRootCertificateArray) ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput)
-}
-
-type VpnServerConfigurationRadiusServerServerRootCertificateOutput struct{ *pulumi.OutputState }
-
-func (VpnServerConfigurationRadiusServerServerRootCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfigurationRadiusServerServerRootCertificate)(nil)).Elem()
-}
-
-func (o VpnServerConfigurationRadiusServerServerRootCertificateOutput) ToVpnServerConfigurationRadiusServerServerRootCertificateOutput() VpnServerConfigurationRadiusServerServerRootCertificateOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerServerRootCertificateOutput) ToVpnServerConfigurationRadiusServerServerRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerServerRootCertificateOutput {
-	return o
-}
-
-// A name used to uniquely identify this certificate.
-func (o VpnServerConfigurationRadiusServerServerRootCertificateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServerServerRootCertificate) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Public Key Data associated with the Certificate.
-func (o VpnServerConfigurationRadiusServerServerRootCertificateOutput) PublicCertData() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServerServerRootCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
-}
-
-type VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServerServerRootCertificate)(nil)).Elem()
-}
-
-func (o VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput) ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutput() VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput) ToVpnServerConfigurationRadiusServerServerRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return o
-}
-
-func (o VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationRadiusServerServerRootCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServerServerRootCertificate {
-		return vs[0].([]VpnServerConfigurationRadiusServerServerRootCertificate)[vs[1].(int)]
-	}).(VpnServerConfigurationRadiusServerServerRootCertificateOutput)
 }
 
 type VpnSiteLink struct {
@@ -23188,7 +22060,7 @@ func (o VpnSiteLinkBgpPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
 }
 
 type GetApplicationGatewayIdentity struct {
-	// A list of Managed Identity ID's assigned to this Application Gateway.
+	// A list of Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The type of Managed Identity assigned to this Application Gateway.
 	Type string `pulumi:"type"`
@@ -23206,7 +22078,7 @@ type GetApplicationGatewayIdentityInput interface {
 }
 
 type GetApplicationGatewayIdentityArgs struct {
-	// A list of Managed Identity ID's assigned to this Application Gateway.
+	// A list of Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The type of Managed Identity assigned to this Application Gateway.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -23263,7 +22135,7 @@ func (o GetApplicationGatewayIdentityOutput) ToGetApplicationGatewayIdentityOutp
 	return o
 }
 
-// A list of Managed Identity ID's assigned to this Application Gateway.
+// A list of Managed Identity IDs assigned to this Application Gateway.
 func (o GetApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -27024,11 +25896,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslCertificateInput)(nil)).Elem(), ApplicationGatewaySslCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslCertificateArrayInput)(nil)).Elem(), ApplicationGatewaySslCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslPolicyInput)(nil)).Elem(), ApplicationGatewaySslPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslPolicyArrayInput)(nil)).Elem(), ApplicationGatewaySslPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslPolicyPtrInput)(nil)).Elem(), ApplicationGatewaySslPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslProfileInput)(nil)).Elem(), ApplicationGatewaySslProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslProfileArrayInput)(nil)).Elem(), ApplicationGatewaySslProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslProfileSslPolicyInput)(nil)).Elem(), ApplicationGatewaySslProfileSslPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslProfileSslPolicyArrayInput)(nil)).Elem(), ApplicationGatewaySslProfileSslPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslProfileSslPolicyPtrInput)(nil)).Elem(), ApplicationGatewaySslProfileSslPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayTrustedClientCertificateInput)(nil)).Elem(), ApplicationGatewayTrustedClientCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayTrustedClientCertificateArrayInput)(nil)).Elem(), ApplicationGatewayTrustedClientCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayTrustedRootCertificateInput)(nil)).Elem(), ApplicationGatewayTrustedRootCertificateArgs{})
@@ -27109,16 +25981,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallVirtualHubPtrInput)(nil)).Elem(), FirewallVirtualHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayBgpSettingsInput)(nil)).Elem(), LocalNetworkGatewayBgpSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayBgpSettingsPtrInput)(nil)).Elem(), LocalNetworkGatewayBgpSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorDestinationInput)(nil)).Elem(), NetworkConnectionMonitorDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorDestinationPtrInput)(nil)).Elem(), NetworkConnectionMonitorDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorEndpointInput)(nil)).Elem(), NetworkConnectionMonitorEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorEndpointArrayInput)(nil)).Elem(), NetworkConnectionMonitorEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorEndpointFilterInput)(nil)).Elem(), NetworkConnectionMonitorEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorEndpointFilterPtrInput)(nil)).Elem(), NetworkConnectionMonitorEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorEndpointFilterItemInput)(nil)).Elem(), NetworkConnectionMonitorEndpointFilterItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorEndpointFilterItemArrayInput)(nil)).Elem(), NetworkConnectionMonitorEndpointFilterItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorSourceInput)(nil)).Elem(), NetworkConnectionMonitorSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorSourcePtrInput)(nil)).Elem(), NetworkConnectionMonitorSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationInput)(nil)).Elem(), NetworkConnectionMonitorTestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationArrayInput)(nil)).Elem(), NetworkConnectionMonitorTestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationHttpConfigurationInput)(nil)).Elem(), NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs{})
@@ -27145,10 +26013,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogRetentionPolicyPtrInput)(nil)).Elem(), NetworkWatcherFlowLogRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogTrafficAnalyticsInput)(nil)).Elem(), NetworkWatcherFlowLogTrafficAnalyticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogTrafficAnalyticsPtrInput)(nil)).Elem(), NetworkWatcherFlowLogTrafficAnalyticsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureFilterInput)(nil)).Elem(), PacketCaptureFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureFilterArrayInput)(nil)).Elem(), PacketCaptureFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureStorageLocationInput)(nil)).Elem(), PacketCaptureStorageLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureStorageLocationPtrInput)(nil)).Elem(), PacketCaptureStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationPtrInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRouteInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationRouteArgs{})
@@ -27174,10 +26038,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointSubnetInput)(nil)).Elem(), TrafficManagerAzureEndpointSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointSubnetArrayInput)(nil)).Elem(), TrafficManagerAzureEndpointSubnetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerEndpointCustomHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerEndpointCustomHeaderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointSubnetInput)(nil)).Elem(), TrafficManagerEndpointSubnetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointSubnetArrayInput)(nil)).Elem(), TrafficManagerEndpointSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerExternalEndpointCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerExternalEndpointCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerExternalEndpointSubnetInput)(nil)).Elem(), TrafficManagerExternalEndpointSubnetArgs{})
@@ -27231,7 +26091,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayBgpSettingsInstance1BgpPeeringAddressInput)(nil)).Elem(), VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput)(nil)).Elem(), VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingInput)(nil)).Elem(), VpnGatewayConnectionRoutingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingArrayInput)(nil)).Elem(), VpnGatewayConnectionRoutingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingPtrInput)(nil)).Elem(), VpnGatewayConnectionRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingPropagatedRouteTableInput)(nil)).Elem(), VpnGatewayConnectionRoutingPropagatedRouteTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput)(nil)).Elem(), VpnGatewayConnectionRoutingPropagatedRouteTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionTrafficSelectorPolicyInput)(nil)).Elem(), VpnGatewayConnectionTrafficSelectorPolicyArgs{})
@@ -27253,14 +26113,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusClientRootCertificateInput)(nil)).Elem(), VpnServerConfigurationRadiusClientRootCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusClientRootCertificateArrayInput)(nil)).Elem(), VpnServerConfigurationRadiusClientRootCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerInput)(nil)).Elem(), VpnServerConfigurationRadiusServerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerPtrInput)(nil)).Elem(), VpnServerConfigurationRadiusServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerArrayInput)(nil)).Elem(), VpnServerConfigurationRadiusServerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerClientRootCertificateInput)(nil)).Elem(), VpnServerConfigurationRadiusServerClientRootCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerClientRootCertificateArrayInput)(nil)).Elem(), VpnServerConfigurationRadiusServerClientRootCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerRootCertificateInput)(nil)).Elem(), VpnServerConfigurationRadiusServerRootCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerRootCertificateArrayInput)(nil)).Elem(), VpnServerConfigurationRadiusServerRootCertificateArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerServerRootCertificateInput)(nil)).Elem(), VpnServerConfigurationRadiusServerServerRootCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusServerServerRootCertificateArrayInput)(nil)).Elem(), VpnServerConfigurationRadiusServerServerRootCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteLinkInput)(nil)).Elem(), VpnSiteLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteLinkArrayInput)(nil)).Elem(), VpnSiteLinkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteLinkBgpInput)(nil)).Elem(), VpnSiteLinkBgpArgs{})
@@ -27379,11 +26234,11 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewaySslCertificateOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslPolicyOutput{})
-	pulumi.RegisterOutputType(ApplicationGatewaySslPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewaySslPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslProfileOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslProfileArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslProfileSslPolicyOutput{})
-	pulumi.RegisterOutputType(ApplicationGatewaySslProfileSslPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewaySslProfileSslPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayTrustedClientCertificateOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayTrustedClientCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayTrustedRootCertificateOutput{})
@@ -27464,16 +26319,12 @@ func init() {
 	pulumi.RegisterOutputType(FirewallVirtualHubPtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsPtrOutput{})
-	pulumi.RegisterOutputType(NetworkConnectionMonitorDestinationOutput{})
-	pulumi.RegisterOutputType(NetworkConnectionMonitorDestinationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointArrayOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterItemOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterItemArrayOutput{})
-	pulumi.RegisterOutputType(NetworkConnectionMonitorSourceOutput{})
-	pulumi.RegisterOutputType(NetworkConnectionMonitorSourcePtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput{})
@@ -27500,10 +26351,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogTrafficAnalyticsOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogTrafficAnalyticsPtrOutput{})
-	pulumi.RegisterOutputType(PacketCaptureFilterOutput{})
-	pulumi.RegisterOutputType(PacketCaptureFilterArrayOutput{})
-	pulumi.RegisterOutputType(PacketCaptureStorageLocationOutput{})
-	pulumi.RegisterOutputType(PacketCaptureStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRouteOutput{})
@@ -27529,10 +26376,6 @@ func init() {
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointSubnetOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointSubnetArrayOutput{})
-	pulumi.RegisterOutputType(TrafficManagerEndpointCustomHeaderOutput{})
-	pulumi.RegisterOutputType(TrafficManagerEndpointCustomHeaderArrayOutput{})
-	pulumi.RegisterOutputType(TrafficManagerEndpointSubnetOutput{})
-	pulumi.RegisterOutputType(TrafficManagerEndpointSubnetArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerExternalEndpointCustomHeaderOutput{})
 	pulumi.RegisterOutputType(TrafficManagerExternalEndpointCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerExternalEndpointSubnetOutput{})
@@ -27586,7 +26429,7 @@ func init() {
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput{})
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingOutput{})
-	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingPropagatedRouteTableOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionTrafficSelectorPolicyOutput{})
@@ -27608,14 +26451,9 @@ func init() {
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusClientRootCertificateOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerOutput{})
-	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerPtrOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerArrayOutput{})
-	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerClientRootCertificateOutput{})
-	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerRootCertificateOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerRootCertificateArrayOutput{})
-	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerServerRootCertificateOutput{})
-	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkBgpOutput{})

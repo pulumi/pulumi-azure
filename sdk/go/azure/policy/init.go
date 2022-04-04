@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,14 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure:policy/assignment:Assignment":
-		r = &Assignment{}
 	case "azure:policy/definition:Definition":
 		r = &Definition{}
 	case "azure:policy/policySetDefinition:PolicySetDefinition":
 		r = &PolicySetDefinition{}
-	case "azure:policy/remediation:Remediation":
-		r = &Remediation{}
 	case "azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment":
 		r = &VirtualMachineConfigurationAssignment{}
 	default:
@@ -46,22 +42,12 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
-		"policy/assignment",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
 		"policy/definition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"policy/policySetDefinition",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"policy/remediation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

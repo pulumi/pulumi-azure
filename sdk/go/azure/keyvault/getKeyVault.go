@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -76,8 +76,6 @@ type LookupKeyVaultResult struct {
 	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault.
 	SkuName string `pulumi:"skuName"`
-	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.
-	SoftDeleteEnabled bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags assigned to the Key Vault.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
@@ -177,11 +175,6 @@ func (o LookupKeyVaultResultOutput) ResourceGroupName() pulumi.StringOutput {
 // The Name of the SKU used for this Key Vault.
 func (o LookupKeyVaultResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) string { return v.SkuName }).(pulumi.StringOutput)
-}
-
-// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.
-func (o LookupKeyVaultResultOutput) SoftDeleteEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.SoftDeleteEnabled }).(pulumi.BoolOutput)
 }
 
 // A mapping of tags assigned to the Key Vault.

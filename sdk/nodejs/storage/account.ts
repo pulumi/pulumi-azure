@@ -115,9 +115,9 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountTier!: pulumi.Output<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+     * Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
      */
-    public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
+    public readonly allowNestedItemsToBePublic!: pulumi.Output<boolean | undefined>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
@@ -133,7 +133,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * A `customerManagedKey` block as documented below.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.storage.AccountCustomerManagedKey>;
+    public readonly customerManagedKey!: pulumi.Output<outputs.storage.AccountCustomerManagedKey | undefined>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
@@ -354,11 +358,12 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accountKind"] = state ? state.accountKind : undefined;
             resourceInputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
             resourceInputs["accountTier"] = state ? state.accountTier : undefined;
-            resourceInputs["allowBlobPublicAccess"] = state ? state.allowBlobPublicAccess : undefined;
+            resourceInputs["allowNestedItemsToBePublic"] = state ? state.allowNestedItemsToBePublic : undefined;
             resourceInputs["azureFilesAuthentication"] = state ? state.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = state ? state.blobProperties : undefined;
             resourceInputs["customDomain"] = state ? state.customDomain : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
@@ -425,11 +430,12 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accountKind"] = args ? args.accountKind : undefined;
             resourceInputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
             resourceInputs["accountTier"] = args ? args.accountTier : undefined;
-            resourceInputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
+            resourceInputs["allowNestedItemsToBePublic"] = args ? args.allowNestedItemsToBePublic : undefined;
             resourceInputs["azureFilesAuthentication"] = args ? args.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = args ? args.blobProperties : undefined;
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
@@ -508,9 +514,9 @@ export interface AccountState {
      */
     accountTier?: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+     * Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
      */
-    allowBlobPublicAccess?: pulumi.Input<boolean>;
+    allowNestedItemsToBePublic?: pulumi.Input<boolean>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
@@ -527,6 +533,10 @@ export interface AccountState {
      * A `customerManagedKey` block as documented below.
      */
     customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
@@ -752,9 +762,9 @@ export interface AccountArgs {
      */
     accountTier: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+     * Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
      */
-    allowBlobPublicAccess?: pulumi.Input<boolean>;
+    allowNestedItemsToBePublic?: pulumi.Input<boolean>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
@@ -771,6 +781,10 @@ export interface AccountArgs {
      * A `customerManagedKey` block as documented below.
      */
     customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.

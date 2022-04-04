@@ -257,6 +257,10 @@ export class ReplicatedVM extends pulumi.CustomResource {
      * Id of resource group where the VM should be created when a failover is done.
      */
     public readonly targetResourceGroupId!: pulumi.Output<string>;
+    /**
+     * Specifies the Availability Zone where the Failover VM should exist.
+     */
+    public readonly targetZone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ReplicatedVM resource with the given unique name, arguments, and options.
@@ -285,6 +289,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             resourceInputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
             resourceInputs["targetRecoveryProtectionContainerId"] = state ? state.targetRecoveryProtectionContainerId : undefined;
             resourceInputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
+            resourceInputs["targetZone"] = state ? state.targetZone : undefined;
         } else {
             const args = argsOrState as ReplicatedVMArgs | undefined;
             if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
@@ -328,6 +333,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             resourceInputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
             resourceInputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
             resourceInputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
+            resourceInputs["targetZone"] = args ? args.targetZone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicatedVM.__pulumiType, name, resourceInputs, opts);
@@ -391,6 +397,10 @@ export interface ReplicatedVMState {
      * Id of resource group where the VM should be created when a failover is done.
      */
     targetResourceGroupId?: pulumi.Input<string>;
+    /**
+     * Specifies the Availability Zone where the Failover VM should exist.
+     */
+    targetZone?: pulumi.Input<string>;
 }
 
 /**
@@ -450,4 +460,8 @@ export interface ReplicatedVMArgs {
      * Id of resource group where the VM should be created when a failover is done.
      */
     targetResourceGroupId: pulumi.Input<string>;
+    /**
+     * Specifies the Availability Zone where the Failover VM should exist.
+     */
+    targetZone?: pulumi.Input<string>;
 }

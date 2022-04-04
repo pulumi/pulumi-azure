@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * });
  * const msiLinked = new azure.datafactory.LinkedServiceAzureDatabricks("msiLinked", {
  *     dataFactoryId: exampleFactory.id,
- *     resourceGroupName: exampleResourceGroup.name,
  *     description: "ADB Linked Service via MSI",
  *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
  *     msiWorkSpaceResourceId: exampleWorkspace.id,
@@ -82,7 +81,6 @@ import * as utilities from "../utilities";
  * });
  * const atLinked = new azure.datafactory.LinkedServiceAzureDatabricks("atLinked", {
  *     dataFactoryId: exampleFactory.id,
- *     resourceGroupName: exampleResourceGroup.name,
  *     description: "ADB Linked Service via Access Token",
  *     existingClusterId: "0308-201146-sly615",
  *     accessToken: "SomeDatabricksAccessToken",
@@ -147,12 +145,6 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -188,10 +180,6 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a LinkedServiceAzureDatabricks resource with the given unique name, arguments, and options.
@@ -211,7 +199,6 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["existingClusterId"] = state ? state.existingClusterId : undefined;
             resourceInputs["instancePool"] = state ? state.instancePool : undefined;
@@ -221,21 +208,19 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["newClusterConfig"] = state ? state.newClusterConfig : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureDatabricksArgs | undefined;
             if ((!args || args.adbDomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adbDomain'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["accessToken"] = args ? args.accessToken : undefined;
             resourceInputs["adbDomain"] = args ? args.adbDomain : undefined;
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["existingClusterId"] = args ? args.existingClusterId : undefined;
             resourceInputs["instancePool"] = args ? args.instancePool : undefined;
@@ -245,7 +230,6 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["newClusterConfig"] = args ? args.newClusterConfig : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedServiceAzureDatabricks.__pulumiType, name, resourceInputs, opts);
@@ -277,12 +261,6 @@ export interface LinkedServiceAzureDatabricksState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     description?: pulumi.Input<string>;
@@ -318,10 +296,6 @@ export interface LinkedServiceAzureDatabricksState {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -347,13 +321,7 @@ export interface LinkedServiceAzureDatabricksArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
@@ -390,8 +358,4 @@ export interface LinkedServiceAzureDatabricksArgs {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

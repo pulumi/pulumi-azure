@@ -21,9 +21,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -57,9 +57,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewProbe(ctx, "exampleProbe", &lb.ProbeArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			LoadbalancerId:    exampleLoadBalancer.ID(),
-// 			Port:              pulumi.Int(22),
+// 			LoadbalancerId: exampleLoadBalancer.ID(),
+// 			Port:           pulumi.Int(22),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -94,8 +93,6 @@ type Probe struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrOutput `pulumi:"requestPath"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewProbe registers a new resource with the given unique name, arguments, and options.
@@ -110,9 +107,6 @@ func NewProbe(ctx *pulumi.Context,
 	}
 	if args.Port == nil {
 		return nil, errors.New("invalid value for required argument 'Port'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Probe
 	err := ctx.RegisterResource("azure:lb/probe:Probe", name, args, &resource, opts...)
@@ -151,8 +145,6 @@ type probeState struct {
 	Protocol *string `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath *string `pulumi:"requestPath"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type ProbeState struct {
@@ -171,8 +163,6 @@ type ProbeState struct {
 	Protocol pulumi.StringPtrInput
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (ProbeState) ElementType() reflect.Type {
@@ -194,8 +184,6 @@ type probeArgs struct {
 	Protocol *string `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath *string `pulumi:"requestPath"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Probe resource.
@@ -214,8 +202,6 @@ type ProbeArgs struct {
 	Protocol pulumi.StringPtrInput
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringInput
 }
 
 func (ProbeArgs) ElementType() reflect.Type {

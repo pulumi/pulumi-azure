@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF":
 		r = &FunctionJavaScriptUDF{}
+	case "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda":
+		r = &FunctionJavascriptUda{}
 	case "azure:streamanalytics/job:Job":
 		r = &Job{}
 	case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"streamanalytics/functionJavaScriptUDF",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"streamanalytics/functionJavascriptUda",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

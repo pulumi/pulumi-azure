@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,8 +89,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkWatcher{}
 	case "azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog":
 		r = &NetworkWatcherFlowLog{}
-	case "azure:network/packetCapture:PacketCapture":
-		r = &PacketCapture{}
 	case "azure:network/pointToPointVpnGateway:PointToPointVpnGateway":
 		r = &PointToPointVpnGateway{}
 	case "azure:network/profile:Profile":
@@ -119,8 +117,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubnetServiceEndpointStoragePolicy{}
 	case "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint":
 		r = &TrafficManagerAzureEndpoint{}
-	case "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
-		r = &TrafficManagerEndpoint{}
 	case "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint":
 		r = &TrafficManagerExternalEndpoint{}
 	case "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint":
@@ -344,11 +340,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
-		"network/packetCapture",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
 		"network/pointToPointVpnGateway",
 		&module{version},
 	)
@@ -415,11 +406,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/trafficManagerAzureEndpoint",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"network/trafficManagerEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -62,6 +62,12 @@ namespace Pulumi.Azure.Lb
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// One or multiple `frontend_ip_configuration` blocks as documented below.
         /// </summary>
         [Output("frontendIpConfigurations")]
@@ -105,6 +111,7 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// *
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -161,6 +168,12 @@ namespace Pulumi.Azure.Lb
 
     public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
         [Input("frontendIpConfigurations")]
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
@@ -199,6 +212,7 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// *
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -222,6 +236,12 @@ namespace Pulumi.Azure.Lb
 
     public sealed class LoadBalancerState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
         [Input("frontendIpConfigurations")]
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
@@ -278,6 +298,7 @@ namespace Pulumi.Azure.Lb
 
         /// <summary>
         /// `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// *
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

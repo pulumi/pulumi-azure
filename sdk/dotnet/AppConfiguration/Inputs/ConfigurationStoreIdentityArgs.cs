@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         }
 
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

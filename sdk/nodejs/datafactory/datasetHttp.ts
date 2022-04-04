@@ -20,13 +20,11 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetHttp = new azure.datafactory.DatasetHttp("exampleDatasetHttp", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     relativeUrl: "http://www.bing.com",
@@ -84,12 +82,6 @@ export class DatasetHttp extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Dataset.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -122,10 +114,6 @@ export class DatasetHttp extends pulumi.CustomResource {
      */
     public readonly requestMethod!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetHttpSchemaColumn[] | undefined>;
@@ -146,7 +134,6 @@ export class DatasetHttp extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["folder"] = state ? state.folder : undefined;
             resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
@@ -155,20 +142,18 @@ export class DatasetHttp extends pulumi.CustomResource {
             resourceInputs["relativeUrl"] = state ? state.relativeUrl : undefined;
             resourceInputs["requestBody"] = state ? state.requestBody : undefined;
             resourceInputs["requestMethod"] = state ? state.requestMethod : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetHttpArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
@@ -177,7 +162,6 @@ export class DatasetHttp extends pulumi.CustomResource {
             resourceInputs["relativeUrl"] = args ? args.relativeUrl : undefined;
             resourceInputs["requestBody"] = args ? args.requestBody : undefined;
             resourceInputs["requestMethod"] = args ? args.requestMethod : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -201,12 +185,6 @@ export interface DatasetHttpState {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -240,10 +218,6 @@ export interface DatasetHttpState {
      */
     requestMethod?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetHttpSchemaColumn>[]>;
@@ -264,13 +238,7 @@ export interface DatasetHttpArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -303,10 +271,6 @@ export interface DatasetHttpArgs {
      * The HTTP method for the HTTP request. (e.g. GET, POST)
      */
     requestMethod?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */

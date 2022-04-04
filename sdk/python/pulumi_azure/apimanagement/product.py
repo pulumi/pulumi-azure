@@ -18,9 +18,9 @@ class ProductArgs:
                  product_id: pulumi.Input[str],
                  published: pulumi.Input[bool],
                  resource_group_name: pulumi.Input[str],
-                 subscription_required: pulumi.Input[bool],
                  approval_required: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 subscription_required: Optional[pulumi.Input[bool]] = None,
                  subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None):
         """
@@ -30,9 +30,9 @@ class ProductArgs:
         :param pulumi.Input[str] product_id: The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] published: Is this Product Published?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
         :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
         :param pulumi.Input[str] description: A description of this Product, which may include HTML formatting tags.
+        :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
         :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
@@ -41,11 +41,12 @@ class ProductArgs:
         pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "published", published)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subscription_required", subscription_required)
         if approval_required is not None:
             pulumi.set(__self__, "approval_required", approval_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if subscription_required is not None:
+            pulumi.set(__self__, "subscription_required", subscription_required)
         if subscriptions_limit is not None:
             pulumi.set(__self__, "subscriptions_limit", subscriptions_limit)
         if terms is not None:
@@ -112,18 +113,6 @@ class ProductArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> pulumi.Input[bool]:
-        """
-        Is a Subscription required to access API's included in this Product?
-        """
-        return pulumi.get(self, "subscription_required")
-
-    @subscription_required.setter
-    def subscription_required(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "subscription_required", value)
-
-    @property
     @pulumi.getter(name="approvalRequired")
     def approval_required(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -146,6 +135,18 @@ class ProductArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="subscriptionRequired")
+    def subscription_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is a Subscription required to access API's included in this Product?
+        """
+        return pulumi.get(self, "subscription_required")
+
+    @subscription_required.setter
+    def subscription_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "subscription_required", value)
 
     @property
     @pulumi.getter(name="subscriptionsLimit")
@@ -497,8 +498,6 @@ class Product(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if subscription_required is None and not opts.urn:
-                raise TypeError("Missing required property 'subscription_required'")
             __props__.__dict__["subscription_required"] = subscription_required
             __props__.__dict__["subscriptions_limit"] = subscriptions_limit
             __props__.__dict__["terms"] = terms
@@ -614,7 +613,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> pulumi.Output[bool]:
+    def subscription_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Is a Subscription required to access API's included in this Product?
         """

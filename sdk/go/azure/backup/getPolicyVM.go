@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -62,8 +62,6 @@ type LookupPolicyVMResult struct {
 	Name              string `pulumi:"name"`
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupPolicyVMOutput(ctx *pulumi.Context, args LookupPolicyVMOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyVMResultOutput {
@@ -119,11 +117,6 @@ func (o LookupPolicyVMResultOutput) RecoveryVaultName() pulumi.StringOutput {
 
 func (o LookupPolicyVMResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyVMResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
-}
-
-// A mapping of tags assigned to the resource.
-func (o LookupPolicyVMResultOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupPolicyVMResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

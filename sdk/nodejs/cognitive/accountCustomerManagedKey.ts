@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
- *     softDeleteEnabled: true,
  *     purgeProtectionEnabled: true,
  *     accessPolicies: [
  *         {

@@ -25,9 +25,6 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("peerWeight")]
         public Input<int>? PeerWeight { get; set; }
 
-        [Input("peeringAddress")]
-        public Input<string>? PeeringAddress { get; set; }
-
         [Input("peeringAddresses")]
         private InputList<Inputs.VirtualNetworkGatewayBgpSettingsPeeringAddressGetArgs>? _peeringAddresses;
 

@@ -117,11 +117,13 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
             spring_cloud_app_id=example_spring_cloud_app.id,
-            cpu=2,
-            memory_in_gb=4,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
+            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
+                cpu="2",
+                memory="4Gi",
+            ),
             environment_variables={
                 "Env": "Staging",
             })
@@ -170,11 +172,13 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
             spring_cloud_app_id=example_spring_cloud_app.id,
-            cpu=2,
-            memory_in_gb=4,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
+            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
+                cpu="2",
+                memory="4Gi",
+            ),
             environment_variables={
                 "Env": "Staging",
             })

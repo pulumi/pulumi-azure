@@ -130,10 +130,6 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         public readonly int BackupRetentionDays;
         /// <summary>
-        /// The status showing whether the data encryption is enabled with a customer-managed key.
-        /// </summary>
-        public readonly string CmkEnabled;
-        /// <summary>
         /// The ID of the virtual network subnet to create the PostgreSQL Flexible Server.
         /// </summary>
         public readonly string DelegatedSubnetId;
@@ -178,8 +174,6 @@ namespace Pulumi.Azure.PostgreSql
 
             int backupRetentionDays,
 
-            string cmkEnabled,
-
             string delegatedSubnetId,
 
             string fqdn,
@@ -204,7 +198,6 @@ namespace Pulumi.Azure.PostgreSql
         {
             AdministratorLogin = administratorLogin;
             BackupRetentionDays = backupRetentionDays;
-            CmkEnabled = cmkEnabled;
             DelegatedSubnetId = delegatedSubnetId;
             Fqdn = fqdn;
             Id = id;

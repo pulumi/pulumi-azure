@@ -94,7 +94,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
     /**
-     * The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface ConfigurationStoreState {
      */
     secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[]>;
     /**
-     * The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface ConfigurationStoreArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
      */
     sku?: pulumi.Input<string>;
     /**

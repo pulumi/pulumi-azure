@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.WebPubSub
 {
     /// <summary>
-    /// Manages an Azure Web Pubsub Service.
+    /// Manages an Azure Web PubSub Service.
     /// 
     /// ## Example Usage
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// ## Import
     /// 
-    /// Web Pubsub services can be imported using the `resource id`, e.g.
+    /// Web PubSub services can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<bool?> AadAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are:
         /// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         /// </summary>
         [Output("capacity")]
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string> ExternalIp { get; private set; } = null!;
 
         /// <summary>
-        /// The FQDN of the Web Pubsub service.
+        /// The FQDN of the Web PubSub service.
         /// </summary>
         [Output("hostname")]
         public Output<string> Hostname { get; private set; } = null!;
@@ -101,26 +101,26 @@ namespace Pulumi.Azure.WebPubSub
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this
         /// forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        /// The name of the Web PubSub service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The primary access key for the Web Pubsub service.
+        /// The primary access key for the Web PubSub service.
         /// </summary>
         [Output("primaryAccessKey")]
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The primary connection string for the Web Pubsub service.
+        /// The primary connection string for the Web PubSub service.
         /// </summary>
         [Output("primaryConnectionString")]
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
@@ -132,32 +132,32 @@ namespace Pulumi.Azure.WebPubSub
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+        /// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
         /// </summary>
         [Output("publicPort")]
         public Output<int> PublicPort { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Web Pubsub service. Changing
+        /// The name of the resource group in which to create the Web PubSub service. Changing
         /// this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary access key for the Web Pubsub service.
+        /// The secondary access key for the Web PubSub service.
         /// </summary>
         [Output("secondaryAccessKey")]
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary connection string for the Web Pubsub service.
+        /// The secondary connection string for the Web PubSub service.
         /// </summary>
         [Output("secondaryConnectionString")]
         public Output<string> SecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+        /// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         /// </summary>
         [Output("serverPort")]
         public Output<int> ServerPort { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are:
         /// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         /// </summary>
         [Input("capacity")]
@@ -262,14 +262,14 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this
         /// forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        /// The name of the Web PubSub service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Web Pubsub service. Changing
+        /// The name of the resource group in which to create the Web PubSub service. Changing
         /// this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are:
         /// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         /// </summary>
         [Input("capacity")]
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? ExternalIp { get; set; }
 
         /// <summary>
-        /// The FQDN of the Web Pubsub service.
+        /// The FQDN of the Web PubSub service.
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
@@ -360,26 +360,26 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        /// Specifies the supported Azure location where the Web PubSub service exists. Changing this
         /// forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        /// The name of the Web PubSub service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The primary access key for the Web Pubsub service.
+        /// The primary access key for the Web PubSub service.
         /// </summary>
         [Input("primaryAccessKey")]
         public Input<string>? PrimaryAccessKey { get; set; }
 
         /// <summary>
-        /// The primary connection string for the Web Pubsub service.
+        /// The primary connection string for the Web PubSub service.
         /// </summary>
         [Input("primaryConnectionString")]
         public Input<string>? PrimaryConnectionString { get; set; }
@@ -391,32 +391,32 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+        /// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
         /// </summary>
         [Input("publicPort")]
         public Input<int>? PublicPort { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Web Pubsub service. Changing
+        /// The name of the resource group in which to create the Web PubSub service. Changing
         /// this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The secondary access key for the Web Pubsub service.
+        /// The secondary access key for the Web PubSub service.
         /// </summary>
         [Input("secondaryAccessKey")]
         public Input<string>? SecondaryAccessKey { get; set; }
 
         /// <summary>
-        /// The secondary connection string for the Web Pubsub service.
+        /// The secondary connection string for the Web PubSub service.
         /// </summary>
         [Input("secondaryConnectionString")]
         public Input<string>? SecondaryConnectionString { get; set; }
 
         /// <summary>
-        /// The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+        /// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         /// </summary>
         [Input("serverPort")]
         public Input<int>? ServerPort { get; set; }

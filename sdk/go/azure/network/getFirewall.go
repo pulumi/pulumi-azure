@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -79,7 +79,7 @@ type LookupFirewallResult struct {
 	ThreatIntelMode string `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as defined below.
 	VirtualHubs []GetFirewallVirtualHub `pulumi:"virtualHubs"`
-	// The availability zones in which the Azure Firewall is created.
+	// A list of Availability Zones in which this Azure Firewall is located.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -184,7 +184,7 @@ func (o LookupFirewallResultOutput) VirtualHubs() GetFirewallVirtualHubArrayOutp
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallVirtualHub { return v.VirtualHubs }).(GetFirewallVirtualHubArrayOutput)
 }
 
-// The availability zones in which the Azure Firewall is created.
+// A list of Availability Zones in which this Azure Firewall is located.
 func (o LookupFirewallResultOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -13,21 +13,22 @@ __all__ = ['VirtualHubIpArgs', 'VirtualHubIp']
 @pulumi.input_type
 class VirtualHubIpArgs:
     def __init__(__self__, *,
+                 public_ip_address_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  virtual_hub_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[str]] = None):
+                 private_ip_allocation_method: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualHubIp resource.
+        :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
-        :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         """
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
         if name is not None:
@@ -36,8 +37,18 @@ class VirtualHubIpArgs:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "public_ip_address_id", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -98,18 +109,6 @@ class VirtualHubIpArgs:
     @private_ip_allocation_method.setter
     def private_ip_allocation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
-
-    @property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "public_ip_address_id")
-
-    @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "public_ip_address_id", value)
 
 
 @pulumi.input_type
@@ -255,7 +254,7 @@ class VirtualHubIp(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.5.1.0/24")
+            address_prefixes=["10.5.1.0/24"])
         example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
             virtual_hub_id=example_virtual_hub.id,
             private_ip_address="10.5.1.18",
@@ -314,7 +313,7 @@ class VirtualHubIp(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.5.1.0/24")
+            address_prefixes=["10.5.1.0/24"])
         example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
             virtual_hub_id=example_virtual_hub.id,
             private_ip_address="10.5.1.18",
@@ -367,6 +366,8 @@ class VirtualHubIp(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["private_ip_allocation_method"] = private_ip_allocation_method
+            if public_ip_address_id is None and not opts.urn:
+                raise TypeError("Missing required property 'public_ip_address_id'")
             __props__.__dict__["public_ip_address_id"] = public_ip_address_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
@@ -442,7 +443,7 @@ class VirtualHubIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> pulumi.Output[Optional[str]]:
+    def public_ip_address_id(self) -> pulumi.Output[str]:
         """
         The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         """

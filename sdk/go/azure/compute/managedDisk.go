@@ -20,8 +20,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -56,8 +56,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -127,6 +127,8 @@ type ManagedDisk struct {
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
@@ -167,8 +169,8 @@ type ManagedDisk struct {
 	Tier pulumi.StringOutput `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
-	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones pulumi.StringPtrOutput `pulumi:"zones"`
+	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewManagedDisk registers a new resource with the given unique name, arguments, and options.
@@ -225,6 +227,8 @@ type managedDiskState struct {
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
@@ -265,8 +269,8 @@ type managedDiskState struct {
 	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
-	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones *string `pulumi:"zones"`
+	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	Zone *string `pulumi:"zone"`
 }
 
 type ManagedDiskState struct {
@@ -286,6 +290,8 @@ type ManagedDiskState struct {
 	DiskMbpsReadWrite pulumi.IntPtrInput
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
@@ -326,8 +332,8 @@ type ManagedDiskState struct {
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
-	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones pulumi.StringPtrInput
+	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	Zone pulumi.StringPtrInput
 }
 
 func (ManagedDiskState) ElementType() reflect.Type {
@@ -351,6 +357,8 @@ type managedDiskArgs struct {
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
@@ -391,8 +399,8 @@ type managedDiskArgs struct {
 	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
-	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones *string `pulumi:"zones"`
+	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a ManagedDisk resource.
@@ -413,6 +421,8 @@ type ManagedDiskArgs struct {
 	DiskMbpsReadWrite pulumi.IntPtrInput
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
@@ -453,8 +463,8 @@ type ManagedDiskArgs struct {
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
-	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones pulumi.StringPtrInput
+	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	Zone pulumi.StringPtrInput
 }
 
 func (ManagedDiskArgs) ElementType() reflect.Type {

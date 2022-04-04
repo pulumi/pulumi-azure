@@ -98,6 +98,10 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly deliveryIdentity!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity | undefined>;
     /**
+     * A `deliveryProperty` block as defined below.
+     */
+    public readonly deliveryProperties!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty[] | undefined>;
+    /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
@@ -180,6 +184,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
             resourceInputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
             resourceInputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
+            resourceInputs["deliveryProperties"] = state ? state.deliveryProperties : undefined;
             resourceInputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             resourceInputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
             resourceInputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
@@ -209,6 +214,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
             resourceInputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
             resourceInputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
+            resourceInputs["deliveryProperties"] = args ? args.deliveryProperties : undefined;
             resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             resourceInputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
             resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
@@ -255,6 +261,10 @@ export interface SystemTopicEventSubscriptionState {
      * A `deliveryIdentity` block as defined below.
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity>;
+    /**
+     * A `deliveryProperty` block as defined below.
+     */
+    deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty>[]>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
@@ -345,6 +355,10 @@ export interface SystemTopicEventSubscriptionArgs {
      * A `deliveryIdentity` block as defined below.
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity>;
+    /**
+     * A `deliveryProperty` block as defined below.
+     */
+    deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty>[]>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */

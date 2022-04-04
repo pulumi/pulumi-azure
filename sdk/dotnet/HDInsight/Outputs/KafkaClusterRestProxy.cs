@@ -20,13 +20,13 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string? SecurityGroupName;
+        public readonly string SecurityGroupName;
 
         [OutputConstructor]
         private KafkaClusterRestProxy(
             string securityGroupId,
 
-            string? securityGroupName)
+            string securityGroupName)
         {
             SecurityGroupId = securityGroupId;
             SecurityGroupName = securityGroupName;

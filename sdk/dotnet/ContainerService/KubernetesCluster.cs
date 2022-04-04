@@ -74,13 +74,7 @@ namespace Pulumi.Azure.ContainerService
         /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Output("aciConnectorLinux")]
-        public Output<Outputs.KubernetesClusterAciConnectorLinux> AciConnectorLinux { get; private set; } = null!;
-
-        /// <summary>
-        /// An `addon_profile` block as defined below.
-        /// </summary>
-        [Output("addonProfile")]
-        public Output<Outputs.KubernetesClusterAddonProfile> AddonProfile { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterAciConnectorLinux?> AciConnectorLinux { get; private set; } = null!;
 
         /// <summary>
         /// The IP ranges to allow for incoming traffic to the server nodes.
@@ -104,13 +98,13 @@ namespace Pulumi.Azure.ContainerService
         /// - A `azure_active_directory_role_based_access_control` block as defined below.
         /// </summary>
         [Output("azureActiveDirectoryRoleBasedAccessControl")]
-        public Output<Outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> AzureActiveDirectoryRoleBasedAccessControl { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl?> AzureActiveDirectoryRoleBasedAccessControl { get; private set; } = null!;
 
         /// <summary>
         /// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         /// </summary>
         [Output("azurePolicyEnabled")]
-        public Output<bool> AzurePolicyEnabled { get; private set; } = null!;
+        public Output<bool?> AzurePolicyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `default_node_pool` block as defined below.
@@ -149,7 +143,7 @@ namespace Pulumi.Azure.ContainerService
         /// Should HTTP Application Routing be enabled?
         /// </summary>
         [Output("httpApplicationRoutingEnabled")]
-        public Output<bool> HttpApplicationRoutingEnabled { get; private set; } = null!;
+        public Output<bool?> HttpApplicationRoutingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The Zone Name of the HTTP Application Routing.
@@ -173,13 +167,13 @@ namespace Pulumi.Azure.ContainerService
         /// A `ingress_application_gateway` block as defined below.
         /// </summary>
         [Output("ingressApplicationGateway")]
-        public Output<Outputs.KubernetesClusterIngressApplicationGateway> IngressApplicationGateway { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterIngressApplicationGateway?> IngressApplicationGateway { get; private set; } = null!;
 
         /// <summary>
         /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Output("keyVaultSecretsProvider")]
-        public Output<Outputs.KubernetesClusterKeyVaultSecretsProvider> KeyVaultSecretsProvider { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterKeyVaultSecretsProvider?> KeyVaultSecretsProvider { get; private set; } = null!;
 
         /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -208,8 +202,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        [Output("kubeletIdentities")]
-        public Output<ImmutableArray<Outputs.KubernetesClusterKubeletIdentity>> KubeletIdentities { get; private set; } = null!;
+        [Output("kubeletIdentity")]
+        public Output<Outputs.KubernetesClusterKubeletIdentity> KubeletIdentity { get; private set; } = null!;
 
         /// <summary>
         /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -263,13 +257,13 @@ namespace Pulumi.Azure.ContainerService
         /// A `oms_agent` block as defined below.
         /// </summary>
         [Output("omsAgent")]
-        public Output<Outputs.KubernetesClusterOmsAgent> OmsAgent { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterOmsAgent?> OmsAgent { get; private set; } = null!;
 
         /// <summary>
         /// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         /// </summary>
         [Output("openServiceMeshEnabled")]
-        public Output<bool> OpenServiceMeshEnabled { get; private set; } = null!;
+        public Output<bool?> OpenServiceMeshEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -281,7 +275,7 @@ namespace Pulumi.Azure.ContainerService
         /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateClusterEnabled")]
-        public Output<bool> PrivateClusterEnabled { get; private set; } = null!;
+        public Output<bool?> PrivateClusterEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
@@ -301,9 +295,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("privateFqdn")]
         public Output<string> PrivateFqdn { get; private set; } = null!;
 
-        [Output("privateLinkEnabled")]
-        public Output<bool> PrivateLinkEnabled { get; private set; } = null!;
-
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -313,14 +304,11 @@ namespace Pulumi.Azure.ContainerService
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        [Output("roleBasedAccessControl")]
-        public Output<Outputs.KubernetesClusterRoleBasedAccessControl> RoleBasedAccessControl { get; private set; } = null!;
-
         /// <summary>
         /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("roleBasedAccessControlEnabled")]
-        public Output<bool> RoleBasedAccessControlEnabled { get; private set; } = null!;
+        public Output<bool?> RoleBasedAccessControlEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -397,12 +385,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
-
-        /// <summary>
-        /// An `addon_profile` block as defined below.
-        /// </summary>
-        [Input("addonProfile")]
-        public Input<Inputs.KubernetesClusterAddonProfileArgs>? AddonProfile { get; set; }
 
         [Input("apiServerAuthorizedIpRanges")]
         private InputList<string>? _apiServerAuthorizedIpRanges;
@@ -497,17 +479,11 @@ namespace Pulumi.Azure.ContainerService
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderArgs>? KeyVaultSecretsProvider { get; set; }
 
-        [Input("kubeletIdentities")]
-        private InputList<Inputs.KubernetesClusterKubeletIdentityArgs>? _kubeletIdentities;
-
         /// <summary>
         /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.KubernetesClusterKubeletIdentityArgs> KubeletIdentities
-        {
-            get => _kubeletIdentities ?? (_kubeletIdentities = new InputList<Inputs.KubernetesClusterKubeletIdentityArgs>());
-            set => _kubeletIdentities = value;
-        }
+        [Input("kubeletIdentity")]
+        public Input<Inputs.KubernetesClusterKubeletIdentityArgs>? KubeletIdentity { get; set; }
 
         /// <summary>
         /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -587,9 +563,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
 
-        [Input("privateLinkEnabled")]
-        public Input<bool>? PrivateLinkEnabled { get; set; }
-
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -598,9 +571,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("roleBasedAccessControl")]
-        public Input<Inputs.KubernetesClusterRoleBasedAccessControlArgs>? RoleBasedAccessControl { get; set; }
 
         /// <summary>
         /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -650,12 +620,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
-
-        /// <summary>
-        /// An `addon_profile` block as defined below.
-        /// </summary>
-        [Input("addonProfile")]
-        public Input<Inputs.KubernetesClusterAddonProfileGetArgs>? AddonProfile { get; set; }
 
         [Input("apiServerAuthorizedIpRanges")]
         private InputList<string>? _apiServerAuthorizedIpRanges;
@@ -798,17 +762,11 @@ namespace Pulumi.Azure.ContainerService
             set => _kubeConfigs = value;
         }
 
-        [Input("kubeletIdentities")]
-        private InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs>? _kubeletIdentities;
-
         /// <summary>
         /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs> KubeletIdentities
-        {
-            get => _kubeletIdentities ?? (_kubeletIdentities = new InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs>());
-            set => _kubeletIdentities = value;
-        }
+        [Input("kubeletIdentity")]
+        public Input<Inputs.KubernetesClusterKubeletIdentityGetArgs>? KubeletIdentity { get; set; }
 
         /// <summary>
         /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -900,9 +858,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("privateFqdn")]
         public Input<string>? PrivateFqdn { get; set; }
 
-        [Input("privateLinkEnabled")]
-        public Input<bool>? PrivateLinkEnabled { get; set; }
-
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -911,9 +866,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        [Input("roleBasedAccessControl")]
-        public Input<Inputs.KubernetesClusterRoleBasedAccessControlGetArgs>? RoleBasedAccessControl { get; set; }
 
         /// <summary>
         /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.

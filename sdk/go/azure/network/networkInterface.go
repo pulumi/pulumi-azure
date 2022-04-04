@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -85,6 +85,8 @@ type NetworkInterface struct {
 	AppliedDnsServers pulumi.StringArrayOutput `pulumi:"appliedDnsServers"`
 	// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Should Accelerated Networking be enabled? Defaults to `false`.
 	EnableAcceleratedNetworking pulumi.BoolPtrOutput `pulumi:"enableAcceleratedNetworking"`
 	// Should IP Forwarding be enabled? Defaults to `false`.
@@ -152,6 +154,8 @@ type networkInterfaceState struct {
 	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
 	// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Should Accelerated Networking be enabled? Defaults to `false`.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Should IP Forwarding be enabled? Defaults to `false`.
@@ -185,6 +189,8 @@ type NetworkInterfaceState struct {
 	AppliedDnsServers pulumi.StringArrayInput
 	// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 	DnsServers pulumi.StringArrayInput
+	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Should Accelerated Networking be enabled? Defaults to `false`.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput
 	// Should IP Forwarding be enabled? Defaults to `false`.
@@ -220,6 +226,8 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 type networkInterfaceArgs struct {
 	// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Should Accelerated Networking be enabled? Defaults to `false`.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Should IP Forwarding be enabled? Defaults to `false`.
@@ -242,6 +250,8 @@ type networkInterfaceArgs struct {
 type NetworkInterfaceArgs struct {
 	// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 	DnsServers pulumi.StringArrayInput
+	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Should Accelerated Networking be enabled? Defaults to `false`.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput
 	// Should IP Forwarding be enabled? Defaults to `false`.

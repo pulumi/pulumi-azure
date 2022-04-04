@@ -74,6 +74,10 @@ export class SharedImage extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly acceleratedNetworkSupportEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A description of this Shared Image.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -147,6 +151,7 @@ export class SharedImage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageState | undefined;
+            resourceInputs["acceleratedNetworkSupportEnabled"] = state ? state.acceleratedNetworkSupportEnabled : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["eula"] = state ? state.eula : undefined;
             resourceInputs["galleryName"] = state ? state.galleryName : undefined;
@@ -176,6 +181,7 @@ export class SharedImage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["acceleratedNetworkSupportEnabled"] = args ? args.acceleratedNetworkSupportEnabled : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eula"] = args ? args.eula : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
@@ -201,6 +207,10 @@ export class SharedImage extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SharedImage resources.
  */
 export interface SharedImageState {
+    /**
+     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
     /**
      * A description of this Shared Image.
      */
@@ -267,6 +277,10 @@ export interface SharedImageState {
  * The set of arguments for constructing a SharedImage resource.
  */
 export interface SharedImageArgs {
+    /**
+     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
     /**
      * A description of this Shared Image.
      */

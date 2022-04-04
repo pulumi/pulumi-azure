@@ -40,7 +40,6 @@ __all__ = [
     'DatasetParquetSchemaColumn',
     'DatasetPostgresqlSchemaColumn',
     'DatasetSnowflakeSchemaColumn',
-    'DatasetSnowflakeStructureColumn',
     'DatasetSqlServerTableSchemaColumn',
     'FactoryGithubConfiguration',
     'FactoryGlobalParameter',
@@ -1726,48 +1725,6 @@ class DatasetSnowflakeSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetSnowflakeStructureColumn(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 description: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        :param str name: The name of the column.
-        :param str description: The description of the column.
-        :param str type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        """
-        pulumi.set(__self__, "name", name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the column.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the column.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class DatasetSqlServerTableSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
@@ -1965,9 +1922,9 @@ class FactoryIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
-        :param Sequence[str] identity_ids: Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
-        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: Specifies the Tenant ID associated with the VSTS account.
         """
         pulumi.set(__self__, "type", type)
@@ -1982,7 +1939,7 @@ class FactoryIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -1990,7 +1947,7 @@ class FactoryIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1998,7 +1955,7 @@ class FactoryIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The ID of the Principal (Client) in Azure Active Directory
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -4167,9 +4124,10 @@ class GetFactoryIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Data Factory.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
         :param str tenant_id: The Tenant ID associated with the VSTS account.
-        :param str type: The identity type of the Data Factory.
+        :param str type: The type of Managed Service Identity that is configured on this Data Factory.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -4179,13 +4137,16 @@ class GetFactoryIdentityResult(dict):
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Data Factory.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The ID of the Principal (Client) in Azure Active Directory.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
         """
         return pulumi.get(self, "principal_id")
 
@@ -4201,7 +4162,7 @@ class GetFactoryIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type of the Data Factory.
+        The type of Managed Service Identity that is configured on this Data Factory.
         """
         return pulumi.get(self, "type")
 

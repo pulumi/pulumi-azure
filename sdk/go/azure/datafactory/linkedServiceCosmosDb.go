@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -48,11 +48,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			AccountEndpoint:   pulumi.Any(azurerm_cosmosdb_account.Example.Endpoint),
-// 			AccountKey:        pulumi.String(exampleAccount.PrimaryKey),
-// 			Database:          pulumi.String("foo"),
+// 			DataFactoryId:   exampleFactory.ID(),
+// 			AccountEndpoint: pulumi.Any(azurerm_cosmosdb_account.Example.Endpoint),
+// 			AccountKey:      pulumi.String(exampleAccount.PrimaryKey),
+// 			Database:        pulumi.String("foo"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -84,10 +83,6 @@ type LinkedServiceCosmosDb struct {
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database pulumi.StringPtrOutput `pulumi:"database"`
 	// The description for the Data Factory Linked Service.
@@ -99,8 +94,6 @@ type LinkedServiceCosmosDb struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewLinkedServiceCosmosDb registers a new resource with the given unique name, arguments, and options.
@@ -110,8 +103,8 @@ func NewLinkedServiceCosmosDb(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource LinkedServiceCosmosDb
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb", name, args, &resource, opts...)
@@ -147,10 +140,6 @@ type linkedServiceCosmosDbState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database *string `pulumi:"database"`
 	// The description for the Data Factory Linked Service.
@@ -162,8 +151,6 @@ type linkedServiceCosmosDbState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type LinkedServiceCosmosDbState struct {
@@ -179,10 +166,6 @@ type LinkedServiceCosmosDbState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
@@ -194,8 +177,6 @@ type LinkedServiceCosmosDbState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (LinkedServiceCosmosDbState) ElementType() reflect.Type {
@@ -214,11 +195,7 @@ type linkedServiceCosmosDbArgs struct {
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database *string `pulumi:"database"`
 	// The description for the Data Factory Linked Service.
@@ -230,8 +207,6 @@ type linkedServiceCosmosDbArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a LinkedServiceCosmosDb resource.
@@ -247,11 +222,7 @@ type LinkedServiceCosmosDbArgs struct {
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
@@ -263,8 +234,6 @@ type LinkedServiceCosmosDbArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 }
 
 func (LinkedServiceCosmosDbArgs) ElementType() reflect.Type {

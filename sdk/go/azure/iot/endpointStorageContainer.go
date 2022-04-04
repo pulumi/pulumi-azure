@@ -21,9 +21,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -108,10 +108,6 @@ type EndpointStorageContainer struct {
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName pulumi.StringOutput `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrOutput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -129,6 +125,9 @@ func NewEndpointStorageContainer(ctx *pulumi.Context,
 
 	if args.ContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerName'")
+	}
+	if args.IothubId == nil {
+		return nil, errors.New("invalid value for required argument 'IothubId'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -173,10 +172,6 @@ type endpointStorageContainerState struct {
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName *string `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -204,10 +199,6 @@ type EndpointStorageContainerState struct {
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName pulumi.StringPtrInput
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -238,11 +229,7 @@ type endpointStorageContainerArgs struct {
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
-	IothubId *string `pulumi:"iothubId"`
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName *string `pulumi:"iothubName"`
+	IothubId string `pulumi:"iothubId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -270,11 +257,7 @@ type EndpointStorageContainerArgs struct {
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
-	IothubId pulumi.StringPtrInput
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName pulumi.StringPtrInput
+	IothubId pulumi.StringInput
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.

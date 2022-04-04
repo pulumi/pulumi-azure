@@ -147,6 +147,12 @@ namespace Pulumi.Azure.Compute
         public Output<int> DiskSizeGb { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// A `encryption_settings` block as defined below.
         /// </summary>
         [Output("encryptionSettings")]
@@ -267,10 +273,10 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Managed Disk in.
+        /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         /// </summary>
-        [Output("zones")]
-        public Output<string?> Zones { get; private set; } = null!;
+        [Output("zone")]
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -365,6 +371,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
@@ -493,10 +505,10 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Managed Disk in.
+        /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         /// </summary>
-        [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public ManagedDiskArgs()
         {
@@ -552,6 +564,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
@@ -680,10 +698,10 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Managed Disk in.
+        /// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         /// </summary>
-        [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public ManagedDiskState()
         {

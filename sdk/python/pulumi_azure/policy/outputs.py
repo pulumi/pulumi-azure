@@ -10,7 +10,6 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'AssignmentIdentity',
     'PolicySetDefinitionPolicyDefinitionGroup',
     'PolicySetDefinitionPolicyDefinitionReference',
     'VirtualMachineConfigurationAssignmentConfiguration',
@@ -18,68 +17,6 @@ __all__ = [
     'GetPolicySetDefinitionPolicyDefinitionGroupResult',
     'GetPolicySetDefinitionPolicyDefinitionReferenceResult',
 ]
-
-@pulumi.output_type
-class AssignmentIdentity(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssignmentIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssignmentIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssignmentIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        :param str principal_id: The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        :param str tenant_id: The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        :param str type: The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-        """
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        """
-        The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-        """
-        return pulumi.get(self, "type")
-
 
 @pulumi.output_type
 class PolicySetDefinitionPolicyDefinitionGroup(dict):
@@ -194,21 +131,17 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
     def __init__(__self__, *,
                  policy_definition_id: str,
                  parameter_values: Optional[str] = None,
-                 parameters: Optional[Mapping[str, str]] = None,
                  policy_group_names: Optional[Sequence[str]] = None,
                  reference_id: Optional[str] = None):
         """
         :param str policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
         :param str parameter_values: Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
-        :param Mapping[str, str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         :param Sequence[str] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
         if policy_group_names is not None:
             pulumi.set(__self__, "policy_group_names", policy_group_names)
         if reference_id is not None:
@@ -229,14 +162,6 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
         """
         return pulumi.get(self, "parameter_values")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
-        """
-        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-        """
-        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="policyGroupNames")
@@ -282,14 +207,12 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
                  assignment_type: Optional[str] = None,
                  content_hash: Optional[str] = None,
                  content_uri: Optional[str] = None,
-                 name: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
                  version: Optional[str] = None):
         """
         :param str assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param str content_hash: The content hash for the Guest Configuration package.
         :param str content_uri: The content URI where the Guest Configuration package is stored.
-        :param str name: This field is no longer used and will be removed in the next major version of the Azure Provider.
         :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
@@ -299,8 +222,6 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
             pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
             pulumi.set(__self__, "content_uri", content_uri)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if version is not None:
@@ -329,14 +250,6 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         The content URI where the Guest Configuration package is stored.
         """
         return pulumi.get(self, "content_uri")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        This field is no longer used and will be removed in the next major version of the Azure Provider.
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

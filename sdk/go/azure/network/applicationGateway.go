@@ -21,8 +21,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -200,7 +200,7 @@ type ApplicationGateway struct {
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates ApplicationGatewaySslCertificateArrayOutput `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
-	SslPolicies ApplicationGatewaySslPolicyArrayOutput `pulumi:"sslPolicies"`
+	SslPolicy ApplicationGatewaySslPolicyOutput `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles ApplicationGatewaySslProfileArrayOutput `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
@@ -213,7 +213,7 @@ type ApplicationGateway struct {
 	UrlPathMaps ApplicationGatewayUrlPathMapArrayOutput `pulumi:"urlPathMaps"`
 	// A `wafConfiguration` block as defined below.
 	WafConfiguration ApplicationGatewayWafConfigurationPtrOutput `pulumi:"wafConfiguration"`
-	// A collection of availability zones to spread the Application Gateway over.
+	// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -324,7 +324,7 @@ type applicationGatewayState struct {
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
-	SslPolicies []ApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
+	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
@@ -337,7 +337,7 @@ type applicationGatewayState struct {
 	UrlPathMaps []ApplicationGatewayUrlPathMap `pulumi:"urlPathMaps"`
 	// A `wafConfiguration` block as defined below.
 	WafConfiguration *ApplicationGatewayWafConfiguration `pulumi:"wafConfiguration"`
-	// A collection of availability zones to spread the Application Gateway over.
+	// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -393,7 +393,7 @@ type ApplicationGatewayState struct {
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates ApplicationGatewaySslCertificateArrayInput
 	// a `ssl policy` block as defined below.
-	SslPolicies ApplicationGatewaySslPolicyArrayInput
+	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles ApplicationGatewaySslProfileArrayInput
 	// A mapping of tags to assign to the resource.
@@ -406,7 +406,7 @@ type ApplicationGatewayState struct {
 	UrlPathMaps ApplicationGatewayUrlPathMapArrayInput
 	// A `wafConfiguration` block as defined below.
 	WafConfiguration ApplicationGatewayWafConfigurationPtrInput
-	// A collection of availability zones to spread the Application Gateway over.
+	// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -464,7 +464,7 @@ type applicationGatewayArgs struct {
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
-	SslPolicies []ApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
+	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
@@ -477,7 +477,7 @@ type applicationGatewayArgs struct {
 	UrlPathMaps []ApplicationGatewayUrlPathMap `pulumi:"urlPathMaps"`
 	// A `wafConfiguration` block as defined below.
 	WafConfiguration *ApplicationGatewayWafConfiguration `pulumi:"wafConfiguration"`
-	// A collection of availability zones to spread the Application Gateway over.
+	// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -532,7 +532,7 @@ type ApplicationGatewayArgs struct {
 	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates ApplicationGatewaySslCertificateArrayInput
 	// a `ssl policy` block as defined below.
-	SslPolicies ApplicationGatewaySslPolicyArrayInput
+	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// One or more `sslProfile` blocks as defined below.
 	SslProfiles ApplicationGatewaySslProfileArrayInput
 	// A mapping of tags to assign to the resource.
@@ -545,7 +545,7 @@ type ApplicationGatewayArgs struct {
 	UrlPathMaps ApplicationGatewayUrlPathMapArrayInput
 	// A `wafConfiguration` block as defined below.
 	WafConfiguration ApplicationGatewayWafConfigurationPtrInput
-	// A collection of availability zones to spread the Application Gateway over.
+	// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
 	Zones pulumi.StringArrayInput
 }
 

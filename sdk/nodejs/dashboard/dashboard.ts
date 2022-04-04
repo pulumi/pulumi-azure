@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a shared dashboard in the Azure Portal.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -18,7 +16,7 @@ import * as utilities from "../utilities";
  * const videoLink = config.get("videoLink") || "https://www.youtube.com/watch?v=......";
  * const current = azure.core.getSubscription({});
  * const my_group = new azure.core.ResourceGroup("my-group", {location: "West Europe"});
- * const my_board = new azure.dashboard.Dashboard("my-board", {
+ * const my_board = new azure.portal.Dashboard("my-board", {
  *     resourceGroupName: my_group.name,
  *     location: my_group.location,
  *     tags: {
@@ -148,6 +146,8 @@ import * as utilities from "../utilities";
  * ```
  *
  *  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+ *
+ * @deprecated azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard
  */
 export class Dashboard extends pulumi.CustomResource {
     /**
@@ -160,6 +160,7 @@ export class Dashboard extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DashboardState, opts?: pulumi.CustomResourceOptions): Dashboard {
+        pulumi.log.warn("Dashboard is deprecated: azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard")
         return new Dashboard(name, <any>state, { ...opts, id: id });
     }
 
@@ -186,12 +187,11 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+     * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the dashboard.
+     * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -206,8 +206,11 @@ export class Dashboard extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard */
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Dashboard is deprecated: azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -246,12 +249,11 @@ export interface DashboardState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+     * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the dashboard.
+     * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -273,12 +275,11 @@ export interface DashboardArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+     * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the dashboard.
+     * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

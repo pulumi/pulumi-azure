@@ -80,11 +80,9 @@ __all__ = [
     'FirewallPolicyTlsCertificateArgs',
     'FirewallVirtualHubArgs',
     'LocalNetworkGatewayBgpSettingsArgs',
-    'NetworkConnectionMonitorDestinationArgs',
     'NetworkConnectionMonitorEndpointArgs',
     'NetworkConnectionMonitorEndpointFilterArgs',
     'NetworkConnectionMonitorEndpointFilterItemArgs',
-    'NetworkConnectionMonitorSourceArgs',
     'NetworkConnectionMonitorTestConfigurationArgs',
     'NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs',
     'NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs',
@@ -98,8 +96,6 @@ __all__ = [
     'NetworkSecurityGroupSecurityRuleArgs',
     'NetworkWatcherFlowLogRetentionPolicyArgs',
     'NetworkWatcherFlowLogTrafficAnalyticsArgs',
-    'PacketCaptureFilterArgs',
-    'PacketCaptureStorageLocationArgs',
     'PointToPointVpnGatewayConnectionConfigurationArgs',
     'PointToPointVpnGatewayConnectionConfigurationRouteArgs',
     'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs',
@@ -113,8 +109,6 @@ __all__ = [
     'SubnetServiceEndpointStoragePolicyDefinitionArgs',
     'TrafficManagerAzureEndpointCustomHeaderArgs',
     'TrafficManagerAzureEndpointSubnetArgs',
-    'TrafficManagerEndpointCustomHeaderArgs',
-    'TrafficManagerEndpointSubnetArgs',
     'TrafficManagerExternalEndpointCustomHeaderArgs',
     'TrafficManagerExternalEndpointSubnetArgs',
     'TrafficManagerNestedEndpointCustomHeaderArgs',
@@ -153,9 +147,7 @@ __all__ = [
     'VpnServerConfigurationRadiusArgs',
     'VpnServerConfigurationRadiusClientRootCertificateArgs',
     'VpnServerConfigurationRadiusServerArgs',
-    'VpnServerConfigurationRadiusServerClientRootCertificateArgs',
     'VpnServerConfigurationRadiusServerRootCertificateArgs',
-    'VpnServerConfigurationRadiusServerServerRootCertificateArgs',
     'VpnSiteLinkArgs',
     'VpnSiteLinkBgpArgs',
 ]
@@ -1250,8 +1242,8 @@ class ApplicationGatewayIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-        :param pulumi.Input[str] type: The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -1260,7 +1252,7 @@ class ApplicationGatewayIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1272,7 +1264,7 @@ class ApplicationGatewayIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -1652,39 +1644,37 @@ class ApplicationGatewayProbeArgs:
 @pulumi.input_type
 class ApplicationGatewayProbeMatchArgs:
     def __init__(__self__, *,
-                 body: Optional[pulumi.Input[str]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 body: pulumi.Input[str],
+                 status_codes: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[str] body: A snippet from the Response Body which must be present in the Response..
+        :param pulumi.Input[str] body: A snippet from the Response Body which must be present in the Response.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] status_codes: A list of allowed status codes for this Health Probe.
         """
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "status_codes", status_codes)
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[str]]:
+    def body(self) -> pulumi.Input[str]:
         """
-        A snippet from the Response Body which must be present in the Response..
+        A snippet from the Response Body which must be present in the Response.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[str]]):
+    def body(self, value: pulumi.Input[str]):
         pulumi.set(self, "body", value)
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def status_codes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of allowed status codes for this Health Probe.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def status_codes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "status_codes", value)
 
 
@@ -2679,21 +2669,21 @@ class ApplicationGatewaySslProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
-                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]]] = None,
+                 ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']] = None,
                  trusted_client_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verify_client_cert_issuer_dn: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name of the SSL Profile that is unique within this Application Gateway.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs'] ssl_policy: a `ssl policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param pulumi.Input[bool] verify_client_cert_issuer_dn: Should client certificate issuer DN be verified?  Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if ssl_policies is not None:
-            pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
         if trusted_client_certificate_names is not None:
             pulumi.set(__self__, "trusted_client_certificate_names", trusted_client_certificate_names)
         if verify_client_cert_issuer_dn is not None:
@@ -2724,16 +2714,16 @@ class ApplicationGatewaySslProfileArgs:
         pulumi.set(self, "id", value)
 
     @property
-    @pulumi.getter(name="sslPolicies")
-    def ssl_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]]]:
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]:
         """
         a `ssl policy` block as defined below.
         """
-        return pulumi.get(self, "ssl_policies")
+        return pulumi.get(self, "ssl_policy")
 
-    @ssl_policies.setter
-    def ssl_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]]]):
-        pulumi.set(self, "ssl_policies", value)
+    @ssl_policy.setter
+    def ssl_policy(self, value: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]):
+        pulumi.set(self, "ssl_policy", value)
 
     @property
     @pulumi.getter(name="trustedClientCertificateNames")
@@ -3884,8 +3874,8 @@ class ExpressRoutePortIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
-        :param pulumi.Input[str] type: The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -3894,7 +3884,7 @@ class ExpressRoutePortIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3906,7 +3896,7 @@ class ExpressRoutePortIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -4837,35 +4827,16 @@ class FirewallNetworkRuleCollectionRuleArgs:
 @pulumi.input_type
 class FirewallPolicyDnsArgs:
     def __init__(__self__, *,
-                 network_rule_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[bool] network_rule_fqdn_enabled: Should the network rule fqdn be enabled?
         :param pulumi.Input[bool] proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: A list of custom DNS servers' IP addresses.
         """
-        if network_rule_fqdn_enabled is not None:
-            warnings.warn("""This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""network_rule_fqdn_enabled is deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.""")
-        if network_rule_fqdn_enabled is not None:
-            pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
         if proxy_enabled is not None:
             pulumi.set(__self__, "proxy_enabled", proxy_enabled)
         if servers is not None:
             pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter(name="networkRuleFqdnEnabled")
-    def network_rule_fqdn_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the network rule fqdn be enabled?
-        """
-        return pulumi.get(self, "network_rule_fqdn_enabled")
-
-    @network_rule_fqdn_enabled.setter
-    def network_rule_fqdn_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "network_rule_fqdn_enabled", value)
 
     @property
     @pulumi.getter(name="proxyEnabled")
@@ -4895,63 +4866,38 @@ class FirewallPolicyDnsArgs:
 @pulumi.input_type
 class FirewallPolicyIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None,
-                 user_assigned_identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identity_ids: Specifies a list of user assigned managed identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if user_assigned_identity_ids is not None:
-            pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+        Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentityIds")
-    def user_assigned_identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of user assigned managed identities.
-        """
-        return pulumi.get(self, "user_assigned_identity_ids")
-
-    @user_assigned_identity_ids.setter
-    def user_assigned_identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_assigned_identity_ids", value)
 
 
 @pulumi.input_type
@@ -6191,70 +6137,6 @@ class LocalNetworkGatewayBgpSettingsArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorDestinationArgs:
-    def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] address: The IP address or domain name of the Network Connection Monitor endpoint.
-        :param pulumi.Input[int] port: The port for the HTTP connection.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        if address is not None:
-            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("""address is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if port is not None:
-            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("""port is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if virtual_machine_id is not None:
-            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("""virtual_machine_id is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP address or domain name of the Network Connection Monitor endpoint.
-        """
-        return pulumi.get(self, "address")
-
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The port for the HTTP connection.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-    @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_machine_id", value)
-
-
-@pulumi.input_type
 class NetworkConnectionMonitorEndpointArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -6264,8 +6146,7 @@ class NetworkConnectionMonitorEndpointArgs:
                  filter: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']] = None,
                  included_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 target_resource_type: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
+                 target_resource_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the endpoint for the Network Connection Monitor .
         :param pulumi.Input[str] address: The IP address or domain name of the Network Connection Monitor endpoint.
@@ -6275,7 +6156,6 @@ class NetworkConnectionMonitorEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
         :param pulumi.Input[str] target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
         :param pulumi.Input[str] target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         pulumi.set(__self__, "name", name)
         if address is not None:
@@ -6292,11 +6172,6 @@ class NetworkConnectionMonitorEndpointArgs:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
         if target_resource_type is not None:
             pulumi.set(__self__, "target_resource_type", target_resource_type)
-        if virtual_machine_id is not None:
-            warnings.warn("""This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""virtual_machine_id is deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.""")
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -6394,18 +6269,6 @@ class NetworkConnectionMonitorEndpointArgs:
     def target_resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_resource_type", value)
 
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-    @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_machine_id", value)
-
 
 @pulumi.input_type
 class NetworkConnectionMonitorEndpointFilterArgs:
@@ -6483,51 +6346,6 @@ class NetworkConnectionMonitorEndpointFilterItemArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class NetworkConnectionMonitorSourceArgs:
-    def __init__(__self__, *,
-                 port: Optional[pulumi.Input[int]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] port: The port for the HTTP connection.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        if port is not None:
-            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("""port is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if virtual_machine_id is not None:
-            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("""virtual_machine_id is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The port for the HTTP connection.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-    @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_machine_id", value)
 
 
 @pulumi.input_type
@@ -7655,147 +7473,6 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
 
 
 @pulumi.input_type
-class PacketCaptureFilterArgs:
-    def __init__(__self__, *,
-                 protocol: pulumi.Input[str],
-                 local_ip_address: Optional[pulumi.Input[str]] = None,
-                 local_port: Optional[pulumi.Input[str]] = None,
-                 remote_ip_address: Optional[pulumi.Input[str]] = None,
-                 remote_port: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] protocol: The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] local_ip_address: The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] local_port: The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] remote_ip_address: The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] remote_port: The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "protocol", protocol)
-        if local_ip_address is not None:
-            pulumi.set(__self__, "local_ip_address", local_ip_address)
-        if local_port is not None:
-            pulumi.set(__self__, "local_port", local_port)
-        if remote_ip_address is not None:
-            pulumi.set(__self__, "remote_ip_address", remote_ip_address)
-        if remote_port is not None:
-            pulumi.set(__self__, "remote_port", remote_port)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
-        """
-        The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
-        pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="localIpAddress")
-    def local_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "local_ip_address")
-
-    @local_ip_address.setter
-    def local_ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "local_ip_address", value)
-
-    @property
-    @pulumi.getter(name="localPort")
-    def local_port(self) -> Optional[pulumi.Input[str]]:
-        """
-        The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "local_port")
-
-    @local_port.setter
-    def local_port(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "local_port", value)
-
-    @property
-    @pulumi.getter(name="remoteIpAddress")
-    def remote_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "remote_ip_address")
-
-    @remote_ip_address.setter
-    def remote_ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "remote_ip_address", value)
-
-    @property
-    @pulumi.getter(name="remotePort")
-    def remote_port(self) -> Optional[pulumi.Input[str]]:
-        """
-        The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "remote_port")
-
-    @remote_port.setter
-    def remote_port(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "remote_port", value)
-
-
-@pulumi.input_type
-class PacketCaptureStorageLocationArgs:
-    def __init__(__self__, *,
-                 file_path: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
-                 storage_path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-        :param pulumi.Input[str] storage_account_id: The ID of the storage account to save the packet capture session
-        :param pulumi.Input[str] storage_path: The URI of the storage path to save the packet capture.
-        """
-        if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
-        if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
-        if storage_path is not None:
-            pulumi.set(__self__, "storage_path", storage_path)
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-        """
-        return pulumi.get(self, "file_path")
-
-    @file_path.setter
-    def file_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "file_path", value)
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the storage account to save the packet capture session
-        """
-        return pulumi.get(self, "storage_account_id")
-
-    @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_id", value)
-
-    @property
-    @pulumi.getter(name="storagePath")
-    def storage_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URI of the storage path to save the packet capture.
-        """
-        return pulumi.get(self, "storage_path")
-
-    @storage_path.setter
-    def storage_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_path", value)
-
-
-@pulumi.input_type
 class PointToPointVpnGatewayConnectionConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -8382,97 +8059,6 @@ class TrafficManagerAzureEndpointSubnetArgs:
     def scope(self) -> Optional[pulumi.Input[int]]:
         """
         The block size (number of leading bits in the subnet mask).
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "scope", value)
-
-
-@pulumi.input_type
-class TrafficManagerEndpointCustomHeaderArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the custom header.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value of custom header. Applicable for Http and Https protocol.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class TrafficManagerEndpointSubnetArgs:
-    def __init__(__self__, *,
-                 first: pulumi.Input[str],
-                 last: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] first: The First IP....
-        :param pulumi.Input[str] last: The Last IP...
-        :param pulumi.Input[int] scope: The Scope...
-        """
-        pulumi.set(__self__, "first", first)
-        if last is not None:
-            pulumi.set(__self__, "last", last)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter
-    def first(self) -> pulumi.Input[str]:
-        """
-        The First IP....
-        """
-        return pulumi.get(self, "first")
-
-    @first.setter
-    def first(self, value: pulumi.Input[str]):
-        pulumi.set(self, "first", value)
-
-    @property
-    @pulumi.getter
-    def last(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Last IP...
-        """
-        return pulumi.get(self, "last")
-
-    @last.setter
-    def last(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[int]]:
-        """
-        The Scope...
         """
         return pulumi.get(self, "scope")
 
@@ -9181,7 +8767,6 @@ class VirtualNetworkGatewayBgpSettingsArgs:
     def __init__(__self__, *,
                  asn: Optional[pulumi.Input[int]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None,
-                 peering_address: Optional[pulumi.Input[str]] = None,
                  peering_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]] = None):
         """
         :param pulumi.Input[int] asn: The Autonomous System Number (ASN) to use as part of the BGP.
@@ -9193,11 +8778,6 @@ class VirtualNetworkGatewayBgpSettingsArgs:
             pulumi.set(__self__, "asn", asn)
         if peer_weight is not None:
             pulumi.set(__self__, "peer_weight", peer_weight)
-        if peering_address is not None:
-            warnings.warn("""Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`""", DeprecationWarning)
-            pulumi.log.warn("""peering_address is deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`""")
-        if peering_address is not None:
-            pulumi.set(__self__, "peering_address", peering_address)
         if peering_addresses is not None:
             pulumi.set(__self__, "peering_addresses", peering_addresses)
 
@@ -9225,15 +8805,6 @@ class VirtualNetworkGatewayBgpSettingsArgs:
     @peer_weight.setter
     def peer_weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "peer_weight", value)
-
-    @property
-    @pulumi.getter(name="peeringAddress")
-    def peering_address(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "peering_address")
-
-    @peering_address.setter
-    def peering_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "peering_address", value)
 
     @property
     @pulumi.getter(name="peeringAddresses")
@@ -10167,8 +9738,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
 class VpnGatewayConnectionRoutingArgs:
     def __init__(__self__, *,
                  associated_route_table: pulumi.Input[str],
-                 propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table: The ID of the Route Table associated with this VPN Connection.
         :param pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
@@ -10176,11 +9746,6 @@ class VpnGatewayConnectionRoutingArgs:
         pulumi.set(__self__, "associated_route_table", associated_route_table)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
-        if propagated_route_tables is not None:
-            warnings.warn("""Deprecated in favour of `propagated_route_table`""", DeprecationWarning)
-            pulumi.log.warn("""propagated_route_tables is deprecated: Deprecated in favour of `propagated_route_table`""")
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
 
     @property
     @pulumi.getter(name="associatedRouteTable")
@@ -10205,15 +9770,6 @@ class VpnGatewayConnectionRoutingArgs:
     @propagated_route_table.setter
     def propagated_route_table(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]):
         pulumi.set(self, "propagated_route_table", value)
-
-    @property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "propagated_route_tables", value)
 
 
 @pulumi.input_type
@@ -10995,20 +10551,16 @@ class VpnServerConfigurationRadiusClientRootCertificateArgs:
 class VpnServerConfigurationRadiusServerArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
-                 secret: pulumi.Input[str],
-                 server_root_certificates: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerServerRootCertificateArgs']]],
-                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerClientRootCertificateArgs']]]] = None):
+                 score: pulumi.Input[int],
+                 secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] address: The Address of the Radius Server.
+        :param pulumi.Input[int] score: The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
         :param pulumi.Input[str] secret: The Secret used to communicate with the Radius Server.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerServerRootCertificateArgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
         """
         pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "score", score)
         pulumi.set(__self__, "secret", secret)
-        pulumi.set(__self__, "server_root_certificates", server_root_certificates)
-        if client_root_certificates is not None:
-            pulumi.set(__self__, "client_root_certificates", client_root_certificates)
 
     @property
     @pulumi.getter
@@ -11024,6 +10576,18 @@ class VpnServerConfigurationRadiusServerArgs:
 
     @property
     @pulumi.getter
+    def score(self) -> pulumi.Input[int]:
+        """
+        The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
+        """
+        return pulumi.get(self, "score")
+
+    @score.setter
+    def score(self, value: pulumi.Input[int]):
+        pulumi.set(self, "score", value)
+
+    @property
+    @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
         The Secret used to communicate with the Radius Server.
@@ -11034,107 +10598,9 @@ class VpnServerConfigurationRadiusServerArgs:
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
-    @property
-    @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerServerRootCertificateArgs']]]:
-        """
-        One or more `server_root_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "server_root_certificates")
-
-    @server_root_certificates.setter
-    def server_root_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerServerRootCertificateArgs']]]):
-        pulumi.set(self, "server_root_certificates", value)
-
-    @property
-    @pulumi.getter(name="clientRootCertificates")
-    def client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerClientRootCertificateArgs']]]]:
-        """
-        One or more `client_root_certificate` blocks as defined above.
-        """
-        return pulumi.get(self, "client_root_certificates")
-
-    @client_root_certificates.setter
-    def client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerClientRootCertificateArgs']]]]):
-        pulumi.set(self, "client_root_certificates", value)
-
-
-@pulumi.input_type
-class VpnServerConfigurationRadiusServerClientRootCertificateArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 thumbprint: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: A name used to uniquely identify this certificate.
-        :param pulumi.Input[str] thumbprint: The Thumbprint of the Certificate.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A name used to uniquely identify this certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> pulumi.Input[str]:
-        """
-        The Thumbprint of the Certificate.
-        """
-        return pulumi.get(self, "thumbprint")
-
-    @thumbprint.setter
-    def thumbprint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "thumbprint", value)
-
 
 @pulumi.input_type
 class VpnServerConfigurationRadiusServerRootCertificateArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 public_cert_data: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: A name used to uniquely identify this certificate.
-        :param pulumi.Input[str] public_cert_data: The Public Key Data associated with the Certificate.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "public_cert_data", public_cert_data)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A name used to uniquely identify this certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="publicCertData")
-    def public_cert_data(self) -> pulumi.Input[str]:
-        """
-        The Public Key Data associated with the Certificate.
-        """
-        return pulumi.get(self, "public_cert_data")
-
-    @public_cert_data.setter
-    def public_cert_data(self, value: pulumi.Input[str]):
-        pulumi.set(self, "public_cert_data", value)
-
-
-@pulumi.input_type
-class VpnServerConfigurationRadiusServerServerRootCertificateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  public_cert_data: pulumi.Input[str]):

@@ -20,7 +20,7 @@ class VpnGatewayConnectionArgs:
                  vpn_links: pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]],
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]] = None,
+                 routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a VpnGatewayConnection resource.
@@ -29,7 +29,7 @@ class VpnGatewayConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]] vpn_links: One or more `vpn_link` blocks as defined below.
         :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]] routings: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        :param pulumi.Input['VpnGatewayConnectionRoutingArgs'] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         """
         pulumi.set(__self__, "remote_vpn_site_id", remote_vpn_site_id)
@@ -39,8 +39,8 @@ class VpnGatewayConnectionArgs:
             pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if routings is not None:
-            pulumi.set(__self__, "routings", routings)
+        if routing is not None:
+            pulumi.set(__self__, "routing", routing)
         if traffic_selector_policies is not None:
             pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
 
@@ -106,15 +106,15 @@ class VpnGatewayConnectionArgs:
 
     @property
     @pulumi.getter
-    def routings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]:
+    def routing(self) -> Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']]:
         """
         A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         """
-        return pulumi.get(self, "routings")
+        return pulumi.get(self, "routing")
 
-    @routings.setter
-    def routings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]):
-        pulumi.set(self, "routings", value)
+    @routing.setter
+    def routing(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']]):
+        pulumi.set(self, "routing", value)
 
     @property
     @pulumi.getter(name="trafficSelectorPolicies")
@@ -135,7 +135,7 @@ class _VpnGatewayConnectionState:
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-                 routings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]] = None,
+                 routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None):
@@ -144,7 +144,7 @@ class _VpnGatewayConnectionState:
         :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]] routings: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        :param pulumi.Input['VpnGatewayConnectionRoutingArgs'] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]] vpn_links: One or more `vpn_link` blocks as defined below.
@@ -155,8 +155,8 @@ class _VpnGatewayConnectionState:
             pulumi.set(__self__, "name", name)
         if remote_vpn_site_id is not None:
             pulumi.set(__self__, "remote_vpn_site_id", remote_vpn_site_id)
-        if routings is not None:
-            pulumi.set(__self__, "routings", routings)
+        if routing is not None:
+            pulumi.set(__self__, "routing", routing)
         if traffic_selector_policies is not None:
             pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
         if vpn_gateway_id is not None:
@@ -202,15 +202,15 @@ class _VpnGatewayConnectionState:
 
     @property
     @pulumi.getter
-    def routings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]:
+    def routing(self) -> Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']]:
         """
         A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         """
-        return pulumi.get(self, "routings")
+        return pulumi.get(self, "routing")
 
-    @routings.setter
-    def routings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]):
-        pulumi.set(self, "routings", value)
+    @routing.setter
+    def routing(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']]):
+        pulumi.set(self, "routing", value)
 
     @property
     @pulumi.getter(name="trafficSelectorPolicies")
@@ -257,7 +257,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-                 routings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
@@ -326,7 +326,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]] routings: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        :param pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]] vpn_links: One or more `vpn_link` blocks as defined below.
@@ -414,7 +414,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-                 routings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]] = None,
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
@@ -435,7 +435,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
             if remote_vpn_site_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_vpn_site_id'")
             __props__.__dict__["remote_vpn_site_id"] = remote_vpn_site_id
-            __props__.__dict__["routings"] = routings
+            __props__.__dict__["routing"] = routing
             __props__.__dict__["traffic_selector_policies"] = traffic_selector_policies
             if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
@@ -456,7 +456,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-            routings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]]] = None,
+            routing: Optional[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]] = None,
             traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]]] = None,
             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
             vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None) -> 'VpnGatewayConnection':
@@ -470,7 +470,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]] routings: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        :param pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]] vpn_links: One or more `vpn_link` blocks as defined below.
@@ -482,7 +482,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["internet_security_enabled"] = internet_security_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["remote_vpn_site_id"] = remote_vpn_site_id
-        __props__.__dict__["routings"] = routings
+        __props__.__dict__["routing"] = routing
         __props__.__dict__["traffic_selector_policies"] = traffic_selector_policies
         __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
         __props__.__dict__["vpn_links"] = vpn_links
@@ -514,11 +514,11 @@ class VpnGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routings(self) -> pulumi.Output[Sequence['outputs.VpnGatewayConnectionRouting']]:
+    def routing(self) -> pulumi.Output['outputs.VpnGatewayConnectionRouting']:
         """
         A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         """
-        return pulumi.get(self, "routings")
+        return pulumi.get(self, "routing")
 
     @property
     @pulumi.getter(name="trafficSelectorPolicies")

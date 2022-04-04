@@ -66,7 +66,6 @@ export * from "./networkSecurityGroup";
 export * from "./networkSecurityRule";
 export * from "./networkWatcher";
 export * from "./networkWatcherFlowLog";
-export * from "./packetCapture";
 export * from "./pointToPointVpnGateway";
 export * from "./profile";
 export * from "./publicIp";
@@ -81,7 +80,6 @@ export * from "./subnetNetworkSecurityGroupAssociation";
 export * from "./subnetRouteTableAssociation";
 export * from "./subnetServiceEndpointStoragePolicy";
 export * from "./trafficManagerAzureEndpoint";
-export * from "./trafficManagerEndpoint";
 export * from "./trafficManagerExternalEndpoint";
 export * from "./trafficManagerNestedEndpoint";
 export * from "./trafficManagerProfile";
@@ -137,7 +135,6 @@ import { NetworkSecurityGroup } from "./networkSecurityGroup";
 import { NetworkSecurityRule } from "./networkSecurityRule";
 import { NetworkWatcher } from "./networkWatcher";
 import { NetworkWatcherFlowLog } from "./networkWatcherFlowLog";
-import { PacketCapture } from "./packetCapture";
 import { PointToPointVpnGateway } from "./pointToPointVpnGateway";
 import { Profile } from "./profile";
 import { PublicIp } from "./publicIp";
@@ -152,7 +149,6 @@ import { SubnetNetworkSecurityGroupAssociation } from "./subnetNetworkSecurityGr
 import { SubnetRouteTableAssociation } from "./subnetRouteTableAssociation";
 import { SubnetServiceEndpointStoragePolicy } from "./subnetServiceEndpointStoragePolicy";
 import { TrafficManagerAzureEndpoint } from "./trafficManagerAzureEndpoint";
-import { TrafficManagerEndpoint } from "./trafficManagerEndpoint";
 import { TrafficManagerExternalEndpoint } from "./trafficManagerExternalEndpoint";
 import { TrafficManagerNestedEndpoint } from "./trafficManagerNestedEndpoint";
 import { TrafficManagerProfile } from "./trafficManagerProfile";
@@ -245,8 +241,6 @@ const _module = {
                 return new NetworkWatcher(name, <any>undefined, { urn })
             case "azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog":
                 return new NetworkWatcherFlowLog(name, <any>undefined, { urn })
-            case "azure:network/packetCapture:PacketCapture":
-                return new PacketCapture(name, <any>undefined, { urn })
             case "azure:network/pointToPointVpnGateway:PointToPointVpnGateway":
                 return new PointToPointVpnGateway(name, <any>undefined, { urn })
             case "azure:network/profile:Profile":
@@ -275,8 +269,6 @@ const _module = {
                 return new SubnetServiceEndpointStoragePolicy(name, <any>undefined, { urn })
             case "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint":
                 return new TrafficManagerAzureEndpoint(name, <any>undefined, { urn })
-            case "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
-                return new TrafficManagerEndpoint(name, <any>undefined, { urn })
             case "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint":
                 return new TrafficManagerExternalEndpoint(name, <any>undefined, { urn })
             case "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint":
@@ -354,7 +346,6 @@ pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkWatcher", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkWatcherFlowLog", _module)
-pulumi.runtime.registerResourceModule("azure", "network/packetCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "network/pointToPointVpnGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/profile", _module)
 pulumi.runtime.registerResourceModule("azure", "network/publicIp", _module)
@@ -369,7 +360,6 @@ pulumi.runtime.registerResourceModule("azure", "network/subnetNetworkSecurityGro
 pulumi.runtime.registerResourceModule("azure", "network/subnetRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetServiceEndpointStoragePolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerAzureEndpoint", _module)
-pulumi.runtime.registerResourceModule("azure", "network/trafficManagerEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerExternalEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerNestedEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerProfile", _module)

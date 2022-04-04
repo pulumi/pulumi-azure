@@ -90,12 +90,6 @@ namespace Pulumi.Azure.Storage
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The storage container name to store the blob inventory files for this rule.
-        /// </summary>
-        [Output("storageContainerName")]
-        public Output<string?> StorageContainerName { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a BlobInventoryPolicy resource with the given unique name, arguments, and options.
@@ -160,12 +154,6 @@ namespace Pulumi.Azure.Storage
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The storage container name to store the blob inventory files for this rule.
-        /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
-
         public BlobInventoryPolicyArgs()
         {
         }
@@ -190,12 +178,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The storage container name to store the blob inventory files for this rule.
-        /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
 
         public BlobInventoryPolicyState()
         {

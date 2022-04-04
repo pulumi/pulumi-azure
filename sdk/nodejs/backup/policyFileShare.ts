@@ -128,7 +128,6 @@ export class PolicyFileShare extends pulumi.CustomResource {
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionYearly | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
@@ -155,7 +154,6 @@ export class PolicyFileShare extends pulumi.CustomResource {
             resourceInputs["retentionMonthly"] = state ? state.retentionMonthly : undefined;
             resourceInputs["retentionWeekly"] = state ? state.retentionWeekly : undefined;
             resourceInputs["retentionYearly"] = state ? state.retentionYearly : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as PolicyFileShareArgs | undefined;
@@ -179,7 +177,6 @@ export class PolicyFileShare extends pulumi.CustomResource {
             resourceInputs["retentionMonthly"] = args ? args.retentionMonthly : undefined;
             resourceInputs["retentionWeekly"] = args ? args.retentionWeekly : undefined;
             resourceInputs["retentionYearly"] = args ? args.retentionYearly : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -223,7 +220,6 @@ export interface PolicyFileShareState {
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
@@ -266,7 +262,6 @@ export interface PolicyFileShareArgs {
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */

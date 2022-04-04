@@ -10,7 +10,6 @@ export * from "./cluster";
 export * from "./clusterCustomerManagedKey";
 export * from "./clusterPrincipalAssignment";
 export * from "./database";
-export * from "./databasePrincipal";
 export * from "./databasePrincipalAssignment";
 export * from "./eventGridDataConnection";
 export * from "./eventhubDataConnection";
@@ -24,7 +23,6 @@ import { Cluster } from "./cluster";
 import { ClusterCustomerManagedKey } from "./clusterCustomerManagedKey";
 import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
 import { Database } from "./database";
-import { DatabasePrincipal } from "./databasePrincipal";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { EventGridDataConnection } from "./eventGridDataConnection";
 import { EventhubDataConnection } from "./eventhubDataConnection";
@@ -45,8 +43,6 @@ const _module = {
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
             case "azure:kusto/database:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure:kusto/databasePrincipal:DatabasePrincipal":
-                return new DatabasePrincipal(name, <any>undefined, { urn })
             case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure:kusto/eventGridDataConnection:EventGridDataConnection":
@@ -67,7 +63,6 @@ pulumi.runtime.registerResourceModule("azure", "kusto/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterPrincipalAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/database", _module)
-pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipal", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipalAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/eventGridDataConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/eventhubDataConnection", _module)

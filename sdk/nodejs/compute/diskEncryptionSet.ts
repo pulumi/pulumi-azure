@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     enabledForDiskEncryption: true,
- *     softDeleteEnabled: true,
  *     purgeProtectionEnabled: true,
  * });
  * const example_user = new azure.keyvault.AccessPolicy("example-user", {

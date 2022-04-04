@@ -11,11 +11,11 @@ import (
 )
 
 type ServiceIdentity struct {
-	// The (Client) ID of the Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Tenant the Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -31,11 +31,11 @@ type ServiceIdentityInput interface {
 }
 
 type ServiceIdentityArgs struct {
-	// The (Client) ID of the Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Tenant the Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -116,17 +116,17 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	}).(ServiceIdentityPtrOutput)
 }
 
-// The (Client) ID of the Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o ServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
 func (o ServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -155,7 +155,7 @@ func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 	}).(ServiceIdentityOutput)
 }
 
-// The (Client) ID of the Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o ServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIdentity) *string {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o ServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIdentity) *string {
 		if v == nil {
@@ -175,7 +175,7 @@ func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
 func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIdentity) *string {
 		if v == nil {
@@ -296,7 +296,7 @@ type GetServiceIdentity struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId string `pulumi:"tenantId"`
-	// The Type of Managed Identity which is used for the Search Service.
+	// The identity type of this Managed Service Identity.
 	Type string `pulumi:"type"`
 }
 
@@ -316,7 +316,7 @@ type GetServiceIdentityArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The Type of Managed Identity which is used for the Search Service.
+	// The identity type of this Managed Service Identity.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -381,7 +381,7 @@ func (o GetServiceIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The Type of Managed Identity which is used for the Search Service.
+// The identity type of this Managed Service Identity.
 func (o GetServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

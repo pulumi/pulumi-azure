@@ -12,8 +12,6 @@ namespace Pulumi.Azure.AppService
     public static class GetAppService
     {
         /// <summary>
-        /// Use this data source to access information about an existing App Service.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -45,8 +43,6 @@ namespace Pulumi.Azure.AppService
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing App Service.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

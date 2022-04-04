@@ -103,12 +103,6 @@ namespace Pulumi.Azure.Backup
         [Output("sourceVmId")]
         public Output<string> SourceVmId { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a ProtectedVM resource with the given unique name, arguments, and options.
@@ -203,18 +197,6 @@ namespace Pulumi.Azure.Backup
         [Input("sourceVmId", required: true)]
         public Input<string> SourceVmId { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         public ProtectedVMArgs()
         {
         }
@@ -269,18 +251,6 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("sourceVmId")]
         public Input<string>? SourceVmId { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public ProtectedVMState()
         {

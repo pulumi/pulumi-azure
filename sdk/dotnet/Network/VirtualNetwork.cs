@@ -111,6 +111,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         /// </summary>
         [Output("flowTimeoutInMinutes")]
@@ -151,9 +157,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        [Output("vmProtectionEnabled")]
-        public Output<bool?> VmProtectionEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -238,6 +241,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
+        /// <summary>
         /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         /// </summary>
         [Input("flowTimeoutInMinutes")]
@@ -285,9 +294,6 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
-        [Input("vmProtectionEnabled")]
-        public Input<bool>? VmProtectionEnabled { get; set; }
-
         public VirtualNetworkArgs()
         {
         }
@@ -330,6 +336,12 @@ namespace Pulumi.Azure.Network
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
@@ -384,9 +396,6 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        [Input("vmProtectionEnabled")]
-        public Input<bool>? VmProtectionEnabled { get; set; }
 
         public VirtualNetworkState()
         {

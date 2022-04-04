@@ -13,17 +13,20 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetWorkflowIdentityResult
     {
+        /// <summary>
+        /// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The Type of Managed Identity assigned to this Logic App Workflow.
+        /// The type of Managed Service Identity that is configured on this API Management Service.
         /// </summary>
         public readonly string Type;
 

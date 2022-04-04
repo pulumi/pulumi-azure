@@ -39,7 +39,7 @@ class ApplicationGatewayArgs:
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
-                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]] = None,
+                 ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']] = None,
                  ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]] = None,
@@ -73,14 +73,14 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Application Gateway over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         pulumi.set(__self__, "backend_http_settings", backend_http_settings)
@@ -121,8 +121,8 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
         if ssl_certificates is not None:
             pulumi.set(__self__, "ssl_certificates", ssl_certificates)
-        if ssl_policies is not None:
-            pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
         if ssl_profiles is not None:
             pulumi.set(__self__, "ssl_profiles", ssl_profiles)
         if tags is not None:
@@ -427,16 +427,16 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "ssl_certificates", value)
 
     @property
-    @pulumi.getter(name="sslPolicies")
-    def ssl_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]]:
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']]:
         """
         a `ssl policy` block as defined below.
         """
-        return pulumi.get(self, "ssl_policies")
+        return pulumi.get(self, "ssl_policy")
 
-    @ssl_policies.setter
-    def ssl_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]]):
-        pulumi.set(self, "ssl_policies", value)
+    @ssl_policy.setter
+    def ssl_policy(self, value: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']]):
+        pulumi.set(self, "ssl_policy", value)
 
     @property
     @pulumi.getter(name="sslProfiles")
@@ -514,7 +514,7 @@ class ApplicationGatewayArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A collection of availability zones to spread the Application Gateway over.
+        Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -551,7 +551,7 @@ class _ApplicationGatewayState:
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
                  sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
-                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]] = None,
+                 ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']] = None,
                  ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]]] = None,
@@ -586,14 +586,14 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Application Gateway over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         if authentication_certificates is not None:
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -645,8 +645,8 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "sku", sku)
         if ssl_certificates is not None:
             pulumi.set(__self__, "ssl_certificates", ssl_certificates)
-        if ssl_policies is not None:
-            pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
         if ssl_profiles is not None:
             pulumi.set(__self__, "ssl_profiles", ssl_profiles)
         if tags is not None:
@@ -963,16 +963,16 @@ class _ApplicationGatewayState:
         pulumi.set(self, "ssl_certificates", value)
 
     @property
-    @pulumi.getter(name="sslPolicies")
-    def ssl_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]]:
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']]:
         """
         a `ssl policy` block as defined below.
         """
-        return pulumi.get(self, "ssl_policies")
+        return pulumi.get(self, "ssl_policy")
 
-    @ssl_policies.setter
-    def ssl_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]]):
-        pulumi.set(self, "ssl_policies", value)
+    @ssl_policy.setter
+    def ssl_policy(self, value: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']]):
+        pulumi.set(self, "ssl_policy", value)
 
     @property
     @pulumi.getter(name="sslProfiles")
@@ -1050,7 +1050,7 @@ class _ApplicationGatewayState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A collection of availability zones to spread the Application Gateway over.
+        Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -1088,7 +1088,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
-                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+                 ssl_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]] = None,
                  ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]]] = None,
@@ -1210,14 +1210,14 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Application Gateway over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         ...
     @overload
@@ -1351,7 +1351,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
-                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+                 ssl_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]] = None,
                  ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]]] = None,
@@ -1413,7 +1413,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["ssl_certificates"] = ssl_certificates
-            __props__.__dict__["ssl_policies"] = ssl_policies
+            __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["ssl_profiles"] = ssl_profiles
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_client_certificates"] = trusted_client_certificates
@@ -1457,7 +1457,7 @@ class ApplicationGateway(pulumi.CustomResource):
             rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
             ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
-            ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+            ssl_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]] = None,
             ssl_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trusted_client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]]] = None,
@@ -1497,14 +1497,14 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Application Gateway over.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1535,7 +1535,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["rewrite_rule_sets"] = rewrite_rule_sets
         __props__.__dict__["sku"] = sku
         __props__.__dict__["ssl_certificates"] = ssl_certificates
-        __props__.__dict__["ssl_policies"] = ssl_policies
+        __props__.__dict__["ssl_policy"] = ssl_policy
         __props__.__dict__["ssl_profiles"] = ssl_profiles
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trusted_client_certificates"] = trusted_client_certificates
@@ -1746,12 +1746,12 @@ class ApplicationGateway(pulumi.CustomResource):
         return pulumi.get(self, "ssl_certificates")
 
     @property
-    @pulumi.getter(name="sslPolicies")
-    def ssl_policies(self) -> pulumi.Output[Sequence['outputs.ApplicationGatewaySslPolicy']]:
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> pulumi.Output['outputs.ApplicationGatewaySslPolicy']:
         """
         a `ssl policy` block as defined below.
         """
-        return pulumi.get(self, "ssl_policies")
+        return pulumi.get(self, "ssl_policy")
 
     @property
     @pulumi.getter(name="sslProfiles")
@@ -1805,7 +1805,7 @@ class ApplicationGateway(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A collection of availability zones to spread the Application Gateway over.
+        Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         """
         return pulumi.get(self, "zones")
 

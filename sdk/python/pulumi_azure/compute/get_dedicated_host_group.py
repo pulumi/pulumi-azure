@@ -100,7 +100,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter
     def zones(self) -> Sequence[str]:
         """
-        The Availability Zones in which this Dedicated Host Group is located.
+        A list of Availability Zones in which this Dedicated Host Group is located.
         """
         return pulumi.get(self, "zones")
 

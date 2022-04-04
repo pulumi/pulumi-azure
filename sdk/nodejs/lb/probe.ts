@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleProbe = new azure.lb.Probe("exampleProbe", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     loadbalancerId: exampleLoadBalancer.id,
  *     port: 22,
  * });
@@ -101,10 +100,6 @@ export class Probe extends pulumi.CustomResource {
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
     public readonly requestPath!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the resource group in which to create the resource.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a Probe resource with the given unique name, arguments, and options.
@@ -127,7 +122,6 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["requestPath"] = state ? state.requestPath : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProbeArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
@@ -136,9 +130,6 @@ export class Probe extends pulumi.CustomResource {
             if ((!args || args.port === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             resourceInputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -146,7 +137,6 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["requestPath"] = args ? args.requestPath : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["loadBalancerRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -187,10 +177,6 @@ export interface ProbeState {
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
     requestPath?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the resource.
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -225,8 +211,4 @@ export interface ProbeArgs {
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
     requestPath?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the resource.
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

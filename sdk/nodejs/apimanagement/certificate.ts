@@ -51,7 +51,6 @@ import * as utilities from "../utilities";
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     softDeleteEnabled: true,
  *     tenantId: data.azurerm_client_config.example.tenant_id,
  *     skuName: "standard",
  * });

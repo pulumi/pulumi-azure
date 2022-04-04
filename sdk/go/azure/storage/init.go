@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,8 +37,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataLakeGen2Filesystem{}
 	case "azure:storage/dataLakeGen2Path:DataLakeGen2Path":
 		r = &DataLakeGen2Path{}
-	case "azure:storage/disksPool:DisksPool":
-		r = &DisksPool{}
 	case "azure:storage/encryptionScope:EncryptionScope":
 		r = &EncryptionScope{}
 	case "azure:storage/managementPolicy:ManagementPolicy":
@@ -116,11 +114,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/dataLakeGen2Path",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"storage/disksPool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

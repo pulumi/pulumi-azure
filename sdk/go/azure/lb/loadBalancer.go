@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -69,6 +69,8 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
+	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
@@ -84,6 +86,7 @@ type LoadBalancer struct {
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// *
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -121,6 +124,8 @@ func GetLoadBalancer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type loadBalancerState struct {
+	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
@@ -136,12 +141,15 @@ type loadBalancerState struct {
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
 	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// *
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type LoadBalancerState struct {
+	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+	EdgeZone pulumi.StringPtrInput
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
 	// Specifies the supported Azure Region where the Load Balancer should be created.
@@ -157,6 +165,7 @@ type LoadBalancerState struct {
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
 	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// *
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -167,6 +176,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
+	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
@@ -178,6 +189,7 @@ type loadBalancerArgs struct {
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
 	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// *
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -185,6 +197,8 @@ type loadBalancerArgs struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
+	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+	EdgeZone pulumi.StringPtrInput
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
 	// Specifies the supported Azure Region where the Load Balancer should be created.
@@ -196,6 +210,7 @@ type LoadBalancerArgs struct {
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
 	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// *
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

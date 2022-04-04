@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,8 +40,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &datafactory.IntegrationRuntimeSelfHostedArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
+// 			DataFactoryId: exampleFactory.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -61,24 +60,18 @@ import (
 type IntegrationRuntimeSelfHosted struct {
 	pulumi.CustomResourceState
 
-	// The primary integration runtime authentication key.
-	AuthKey1 pulumi.StringOutput `pulumi:"authKey1"`
-	// The secondary integration runtime authentication key.
-	AuthKey2 pulumi.StringOutput `pulumi:"authKey2"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The primary integration runtime authentication key.
+	PrimaryAuthorizationKey pulumi.StringOutput `pulumi:"primaryAuthorizationKey"`
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput `pulumi:"rbacAuthorizations"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The secondary integration runtime authentication key.
+	SecondaryAuthorizationKey pulumi.StringOutput `pulumi:"secondaryAuthorizationKey"`
 }
 
 // NewIntegrationRuntimeSelfHosted registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +81,8 @@ func NewIntegrationRuntimeSelfHosted(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource IntegrationRuntimeSelfHosted
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, args, &resource, opts...)
@@ -113,45 +106,33 @@ func GetIntegrationRuntimeSelfHosted(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationRuntimeSelfHosted resources.
 type integrationRuntimeSelfHostedState struct {
-	// The primary integration runtime authentication key.
-	AuthKey1 *string `pulumi:"authKey1"`
-	// The secondary integration runtime authentication key.
-	AuthKey2 *string `pulumi:"authKey2"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name *string `pulumi:"name"`
+	// The primary integration runtime authentication key.
+	PrimaryAuthorizationKey *string `pulumi:"primaryAuthorizationKey"`
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The secondary integration runtime authentication key.
+	SecondaryAuthorizationKey *string `pulumi:"secondaryAuthorizationKey"`
 }
 
 type IntegrationRuntimeSelfHostedState struct {
-	// The primary integration runtime authentication key.
-	AuthKey1 pulumi.StringPtrInput
-	// The secondary integration runtime authentication key.
-	AuthKey2 pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringPtrInput
+	// The primary integration runtime authentication key.
+	PrimaryAuthorizationKey pulumi.StringPtrInput
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	ResourceGroupName pulumi.StringPtrInput
+	// The secondary integration runtime authentication key.
+	SecondaryAuthorizationKey pulumi.StringPtrInput
 }
 
 func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
@@ -160,37 +141,25 @@ func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
 
 type integrationRuntimeSelfHostedArgs struct {
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name *string `pulumi:"name"`
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
 type IntegrationRuntimeSelfHostedArgs struct {
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringPtrInput
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	ResourceGroupName pulumi.StringInput
 }
 
 func (IntegrationRuntimeSelfHostedArgs) ElementType() reflect.Type {

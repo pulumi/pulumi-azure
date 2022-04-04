@@ -29,6 +29,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         /// </summary>
         public readonly string? AppCommandLine;
+        /// <summary>
+        /// The name of the slot to automatically swap to during deployment
+        /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
         /// A `cors` block as defined below.

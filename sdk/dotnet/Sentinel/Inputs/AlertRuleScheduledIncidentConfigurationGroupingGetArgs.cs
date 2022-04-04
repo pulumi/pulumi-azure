@@ -24,16 +24,32 @@ namespace Pulumi.Azure.Sentinel.Inputs
         [Input("entityMatchingMethod")]
         public Input<string>? EntityMatchingMethod { get; set; }
 
-        [Input("groupBies")]
-        private InputList<string>? _groupBies;
+        [Input("groupByAlertDetails")]
+        private InputList<string>? _groupByAlertDetails;
+        public InputList<string> GroupByAlertDetails
+        {
+            get => _groupByAlertDetails ?? (_groupByAlertDetails = new InputList<string>());
+            set => _groupByAlertDetails = value;
+        }
+
+        [Input("groupByCustomDetails")]
+        private InputList<string>? _groupByCustomDetails;
+        public InputList<string> GroupByCustomDetails
+        {
+            get => _groupByCustomDetails ?? (_groupByCustomDetails = new InputList<string>());
+            set => _groupByCustomDetails = value;
+        }
+
+        [Input("groupByEntities")]
+        private InputList<string>? _groupByEntities;
 
         /// <summary>
         /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         /// </summary>
-        public InputList<string> GroupBies
+        public InputList<string> GroupByEntities
         {
-            get => _groupBies ?? (_groupBies = new InputList<string>());
-            set => _groupBies = value;
+            get => _groupByEntities ?? (_groupByEntities = new InputList<string>());
+            set => _groupByEntities = value;
         }
 
         /// <summary>

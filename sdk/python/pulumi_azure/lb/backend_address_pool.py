@@ -16,9 +16,7 @@ __all__ = ['BackendAddressPoolArgs', 'BackendAddressPool']
 class BackendAddressPoolArgs:
     def __init__(__self__, *,
                  loadbalancer_id: pulumi.Input[str],
-                 backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolBackendAddressArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None):
         """
         The set of arguments for constructing a BackendAddressPool resource.
@@ -27,18 +25,8 @@ class BackendAddressPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         """
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
-        if backend_addresses is not None:
-            warnings.warn("""This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""backend_addresses is deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""")
-        if backend_addresses is not None:
-            pulumi.set(__self__, "backend_addresses", backend_addresses)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_group_name is not None:
-            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tunnel_interfaces is not None:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
 
@@ -55,15 +43,6 @@ class BackendAddressPoolArgs:
         pulumi.set(self, "loadbalancer_id", value)
 
     @property
-    @pulumi.getter(name="backendAddresses")
-    def backend_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolBackendAddressArgs']]]]:
-        return pulumi.get(self, "backend_addresses")
-
-    @backend_addresses.setter
-    def backend_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolBackendAddressArgs']]]]):
-        pulumi.set(self, "backend_addresses", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -74,15 +53,6 @@ class BackendAddressPoolArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="tunnelInterfaces")
@@ -100,13 +70,11 @@ class BackendAddressPoolArgs:
 @pulumi.input_type
 class _BackendAddressPoolState:
     def __init__(__self__, *,
-                 backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolBackendAddressArgs']]]] = None,
                  backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None):
         """
         Input properties used for looking up and filtering BackendAddressPool resources.
@@ -117,11 +85,6 @@ class _BackendAddressPoolState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_rules: An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         """
-        if backend_addresses is not None:
-            warnings.warn("""This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""backend_addresses is deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""")
-        if backend_addresses is not None:
-            pulumi.set(__self__, "backend_addresses", backend_addresses)
         if backend_ip_configurations is not None:
             pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
         if load_balancing_rules is not None:
@@ -132,22 +95,8 @@ class _BackendAddressPoolState:
             pulumi.set(__self__, "name", name)
         if outbound_rules is not None:
             pulumi.set(__self__, "outbound_rules", outbound_rules)
-        if resource_group_name is not None:
-            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tunnel_interfaces is not None:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
-
-    @property
-    @pulumi.getter(name="backendAddresses")
-    def backend_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolBackendAddressArgs']]]]:
-        return pulumi.get(self, "backend_addresses")
-
-    @backend_addresses.setter
-    def backend_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolBackendAddressArgs']]]]):
-        pulumi.set(self, "backend_addresses", value)
 
     @property
     @pulumi.getter(name="backendIpConfigurations")
@@ -210,15 +159,6 @@ class _BackendAddressPoolState:
         pulumi.set(self, "outbound_rules", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="tunnelInterfaces")
     def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
         """
@@ -236,10 +176,8 @@ class BackendAddressPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolBackendAddressArgs']]]]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]]] = None,
                  __props__=None):
         """
@@ -337,10 +275,8 @@ class BackendAddressPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolBackendAddressArgs']]]]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -354,18 +290,10 @@ class BackendAddressPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackendAddressPoolArgs.__new__(BackendAddressPoolArgs)
 
-            if backend_addresses is not None and not opts.urn:
-                warnings.warn("""This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""", DeprecationWarning)
-                pulumi.log.warn("""backend_addresses is deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""")
-            __props__.__dict__["backend_addresses"] = backend_addresses
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__.__dict__["loadbalancer_id"] = loadbalancer_id
             __props__.__dict__["name"] = name
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
             __props__.__dict__["backend_ip_configurations"] = None
             __props__.__dict__["load_balancing_rules"] = None
@@ -380,13 +308,11 @@ class BackendAddressPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolBackendAddressArgs']]]]] = None,
             backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]]] = None) -> 'BackendAddressPool':
         """
         Get an existing BackendAddressPool resource's state with the given name, id, and optional extra
@@ -406,20 +332,13 @@ class BackendAddressPool(pulumi.CustomResource):
 
         __props__ = _BackendAddressPoolState.__new__(_BackendAddressPoolState)
 
-        __props__.__dict__["backend_addresses"] = backend_addresses
         __props__.__dict__["backend_ip_configurations"] = backend_ip_configurations
         __props__.__dict__["load_balancing_rules"] = load_balancing_rules
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
         __props__.__dict__["outbound_rules"] = outbound_rules
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
         return BackendAddressPool(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="backendAddresses")
-    def backend_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.BackendAddressPoolBackendAddress']]]:
-        return pulumi.get(self, "backend_addresses")
 
     @property
     @pulumi.getter(name="backendIpConfigurations")
@@ -460,11 +379,6 @@ class BackendAddressPool(pulumi.CustomResource):
         An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         """
         return pulumi.get(self, "outbound_rules")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="tunnelInterfaces")

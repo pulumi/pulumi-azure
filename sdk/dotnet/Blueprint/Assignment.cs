@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<string> TargetSubscriptionId { get; private set; } = null!;
 
         /// <summary>
-        /// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -417,7 +417,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? TargetSubscriptionId { get; set; }
 
         /// <summary>
-        /// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

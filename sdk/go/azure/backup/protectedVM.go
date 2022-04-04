@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/backup"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -90,8 +90,6 @@ type ProtectedVM struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewProtectedVM registers a new resource with the given unique name, arguments, and options.
@@ -147,8 +145,6 @@ type protectedVMState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId *string `pulumi:"sourceVmId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 type ProtectedVMState struct {
@@ -164,8 +160,6 @@ type ProtectedVMState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
 }
 
 func (ProtectedVMState) ElementType() reflect.Type {
@@ -185,8 +179,6 @@ type protectedVMArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId string `pulumi:"sourceVmId"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProtectedVM resource.
@@ -203,8 +195,6 @@ type ProtectedVMArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
 }
 
 func (ProtectedVMArgs) ElementType() reflect.Type {

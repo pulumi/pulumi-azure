@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? ObjectId;
         /// <summary>
-        /// The ID of a user assigned identity.
+        /// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         /// </summary>
         public readonly string? UserAssignedIdentityId;
 

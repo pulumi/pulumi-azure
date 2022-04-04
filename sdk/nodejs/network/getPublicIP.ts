@@ -142,6 +142,9 @@ export interface GetPublicIPResult {
      * A mapping of tags to assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * A list of Availability Zones in which this Public IP is located.
+     */
     readonly zones: string[];
 }
 

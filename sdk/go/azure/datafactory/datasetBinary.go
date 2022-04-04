@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceSftp, err := datafactory.NewLinkedServiceSftp(ctx, "exampleLinkedServiceSftp", &datafactory.LinkedServiceSftpArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Basic"),
 // 			Host:               pulumi.String("http://www.bing.com"),
@@ -52,7 +51,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetBinary(ctx, "exampleDatasetBinary", &datafactory.DatasetBinaryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceSftp.Name,
 // 			SftpServerLocation: &datafactory.DatasetBinarySftpServerLocationArgs{
@@ -88,10 +86,6 @@ type DatasetBinary struct {
 	Compression DatasetBinaryCompressionPtrOutput `pulumi:"compression"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -104,8 +98,6 @@ type DatasetBinary struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Binary Dataset to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sftpServerLocation` block as defined below.
 	// ---
 	SftpServerLocation DatasetBinarySftpServerLocationPtrOutput `pulumi:"sftpServerLocation"`
@@ -118,11 +110,11 @@ func NewDatasetBinary(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetBinary
 	err := ctx.RegisterResource("azure:datafactory/datasetBinary:DatasetBinary", name, args, &resource, opts...)
@@ -156,10 +148,6 @@ type datasetBinaryState struct {
 	Compression *DatasetBinaryCompression `pulumi:"compression"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -172,8 +160,6 @@ type datasetBinaryState struct {
 	Name *string `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Binary Dataset to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `sftpServerLocation` block as defined below.
 	// ---
 	SftpServerLocation *DatasetBinarySftpServerLocation `pulumi:"sftpServerLocation"`
@@ -190,10 +176,6 @@ type DatasetBinaryState struct {
 	Compression DatasetBinaryCompressionPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -206,8 +188,6 @@ type DatasetBinaryState struct {
 	Name pulumi.StringPtrInput
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapInput
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Binary Dataset to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A `sftpServerLocation` block as defined below.
 	// ---
 	SftpServerLocation DatasetBinarySftpServerLocationPtrInput
@@ -227,11 +207,7 @@ type datasetBinaryArgs struct {
 	// A `compression` block as defined below.
 	Compression *DatasetBinaryCompression `pulumi:"compression"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -244,8 +220,6 @@ type datasetBinaryArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Binary Dataset to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sftpServerLocation` block as defined below.
 	// ---
 	SftpServerLocation *DatasetBinarySftpServerLocation `pulumi:"sftpServerLocation"`
@@ -262,11 +236,7 @@ type DatasetBinaryArgs struct {
 	// A `compression` block as defined below.
 	Compression DatasetBinaryCompressionPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -279,8 +249,6 @@ type DatasetBinaryArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapInput
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Binary Dataset to be created.
-	ResourceGroupName pulumi.StringInput
 	// A `sftpServerLocation` block as defined below.
 	// ---
 	SftpServerLocation DatasetBinarySftpServerLocationPtrInput

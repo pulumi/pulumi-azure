@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure:trafficmanager/endpoint:Endpoint":
-		r = &Endpoint{}
 	case "azure:trafficmanager/profile:Profile":
 		r = &Profile{}
 	default:
@@ -38,11 +36,6 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
-	pulumi.RegisterResourceModule(
-		"azure",
-		"trafficmanager/endpoint",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"trafficmanager/profile",

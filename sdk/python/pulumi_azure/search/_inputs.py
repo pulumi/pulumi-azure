@@ -20,9 +20,9 @@ class ServiceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
-        :param pulumi.Input[str] principal_id: The (Client) ID of the Service Principal.
-        :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -34,7 +34,7 @@ class ServiceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -46,7 +46,7 @@ class ServiceIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The (Client) ID of the Service Principal.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -58,7 +58,7 @@ class ServiceIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Tenant the Service Principal is assigned in.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 

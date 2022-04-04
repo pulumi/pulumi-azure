@@ -53,12 +53,6 @@ namespace Pulumi.Azure.Network
     public partial class PublicIpPrefix : Pulumi.CustomResource
     {
         /// <summary>
-        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        /// </summary>
-        [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
-
-        /// <summary>
         /// The IP address prefix value that was allocated.
         /// </summary>
         [Output("ipPrefix")]
@@ -106,8 +100,11 @@ namespace Pulumi.Azure.Network
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
+        /// </summary>
         [Output("zones")]
-        public Output<string> Zones { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -155,12 +152,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class PublicIpPrefixArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
         /// <summary>
         /// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         /// </summary>
@@ -210,7 +201,16 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public PublicIpPrefixArgs()
         {
@@ -219,12 +219,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class PublicIpPrefixState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
         /// <summary>
         /// The IP address prefix value that was allocated.
         /// </summary>
@@ -280,7 +274,16 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public PublicIpPrefixState()
         {

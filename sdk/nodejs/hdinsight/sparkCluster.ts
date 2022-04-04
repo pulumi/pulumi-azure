@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  *         spark: "2.3",
  *     },
  *     gateway: {
- *         enabled: true,
  *         username: "acctestusrgw",
  *         password: "Password123!",
  *     },

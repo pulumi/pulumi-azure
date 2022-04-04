@@ -28,7 +28,6 @@ class CacheArgs:
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ntp_server: Optional[pulumi.Input[str]] = None,
-                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
@@ -45,7 +44,6 @@ class CacheArgs:
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
         pulumi.set(__self__, "cache_size_in_gb", cache_size_in_gb)
@@ -70,11 +68,6 @@ class CacheArgs:
             pulumi.set(__self__, "name", name)
         if ntp_server is not None:
             pulumi.set(__self__, "ntp_server", ntp_server)
-        if root_squash_enabled is not None:
-            warnings.warn("""This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""", DeprecationWarning)
-            pulumi.log.warn("""root_squash_enabled is deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""")
-        if root_squash_enabled is not None:
-            pulumi.set(__self__, "root_squash_enabled", root_squash_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -235,18 +228,6 @@ class CacheArgs:
         pulumi.set(self, "ntp_server", value)
 
     @property
-    @pulumi.getter(name="rootSquashEnabled")
-    def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        """
-        return pulumi.get(self, "root_squash_enabled")
-
-    @root_squash_enabled.setter
-    def root_squash_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "root_squash_enabled", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -274,7 +255,6 @@ class _CacheState:
                  name: Optional[pulumi.Input[str]] = None,
                  ntp_server: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -292,7 +272,6 @@ class _CacheState:
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
@@ -321,11 +300,6 @@ class _CacheState:
             pulumi.set(__self__, "ntp_server", ntp_server)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if root_squash_enabled is not None:
-            warnings.warn("""This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""", DeprecationWarning)
-            pulumi.log.warn("""root_squash_enabled is deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""")
-        if root_squash_enabled is not None:
-            pulumi.set(__self__, "root_squash_enabled", root_squash_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if subnet_id is not None:
@@ -478,18 +452,6 @@ class _CacheState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="rootSquashEnabled")
-    def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        """
-        return pulumi.get(self, "root_squash_enabled")
-
-    @root_squash_enabled.setter
-    def root_squash_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "root_squash_enabled", value)
-
-    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -542,7 +504,6 @@ class Cache(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ntp_server: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -598,7 +559,6 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
@@ -673,7 +633,6 @@ class Cache(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ntp_server: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -704,10 +663,6 @@ class Cache(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if root_squash_enabled is not None and not opts.urn:
-                warnings.warn("""This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""", DeprecationWarning)
-                pulumi.log.warn("""root_squash_enabled is deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""")
-            __props__.__dict__["root_squash_enabled"] = root_squash_enabled
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
@@ -738,7 +693,6 @@ class Cache(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             ntp_server: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            root_squash_enabled: Optional[pulumi.Input[bool]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cache':
@@ -761,7 +715,6 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
@@ -782,7 +735,6 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["ntp_server"] = ntp_server
         __props__.__dict__["resource_group_name"] = resource_group_name
-        __props__.__dict__["root_squash_enabled"] = root_squash_enabled
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -883,14 +835,6 @@ class Cache(pulumi.CustomResource):
         The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="rootSquashEnabled")
-    def root_squash_enabled(self) -> pulumi.Output[bool]:
-        """
-        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        """
-        return pulumi.get(self, "root_squash_enabled")
 
     @property
     @pulumi.getter(name="skuName")

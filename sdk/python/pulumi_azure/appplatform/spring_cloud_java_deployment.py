@@ -16,42 +16,29 @@ __all__ = ['SpringCloudJavaDeploymentArgs', 'SpringCloudJavaDeployment']
 class SpringCloudJavaDeploymentArgs:
     def __init__(__self__, *,
                  spring_cloud_app_id: pulumi.Input[str],
-                 cpu: Optional[pulumi.Input[int]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
-                 memory_in_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudJavaDeployment resource.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudJavaDeploymentQuotaArgs'] quota: A `quota` block as defined below.
-        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         """
         pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
-        if cpu is not None:
-            warnings.warn("""This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""cpu is deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider""")
-        if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
         if jvm_options is not None:
             pulumi.set(__self__, "jvm_options", jvm_options)
-        if memory_in_gb is not None:
-            warnings.warn("""This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""memory_in_gb is deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider""")
-        if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if quota is not None:
@@ -72,18 +59,6 @@ class SpringCloudJavaDeploymentArgs:
         pulumi.set(self, "spring_cloud_app_id", value)
 
     @property
-    @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
-        """
-        return pulumi.get(self, "cpu")
-
-    @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "cpu", value)
-
-    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -120,15 +95,6 @@ class SpringCloudJavaDeploymentArgs:
         pulumi.set(self, "jvm_options", value)
 
     @property
-    @pulumi.getter(name="memoryInGb")
-    def memory_in_gb(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "memory_in_gb")
-
-    @memory_in_gb.setter
-    def memory_in_gb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "memory_in_gb", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -156,7 +122,7 @@ class SpringCloudJavaDeploymentArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -168,42 +134,29 @@ class SpringCloudJavaDeploymentArgs:
 @pulumi.input_type
 class _SpringCloudJavaDeploymentState:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[int]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
-                 memory_in_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudJavaDeployment resources.
-        :param pulumi.Input[int] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudJavaDeploymentQuotaArgs'] quota: A `quota` block as defined below.
-        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """
-        if cpu is not None:
-            warnings.warn("""This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""cpu is deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider""")
-        if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
         if jvm_options is not None:
             pulumi.set(__self__, "jvm_options", jvm_options)
-        if memory_in_gb is not None:
-            warnings.warn("""This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""memory_in_gb is deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider""")
-        if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if quota is not None:
@@ -212,18 +165,6 @@ class _SpringCloudJavaDeploymentState:
             pulumi.set(__self__, "runtime_version", runtime_version)
         if spring_cloud_app_id is not None:
             pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
-
-    @property
-    @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
-        """
-        return pulumi.get(self, "cpu")
-
-    @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "cpu", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -262,15 +203,6 @@ class _SpringCloudJavaDeploymentState:
         pulumi.set(self, "jvm_options", value)
 
     @property
-    @pulumi.getter(name="memoryInGb")
-    def memory_in_gb(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "memory_in_gb")
-
-    @memory_in_gb.setter
-    def memory_in_gb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "memory_in_gb", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -298,7 +230,7 @@ class _SpringCloudJavaDeploymentState:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -324,11 +256,9 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu: Optional[pulumi.Input[int]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
-                 memory_in_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
@@ -378,13 +308,12 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']] quota: A `quota` block as defined below.
-        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """
         ...
@@ -450,11 +379,9 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu: Optional[pulumi.Input[int]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
-                 memory_in_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
@@ -471,17 +398,9 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudJavaDeploymentArgs.__new__(SpringCloudJavaDeploymentArgs)
 
-            if cpu is not None and not opts.urn:
-                warnings.warn("""This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider""", DeprecationWarning)
-                pulumi.log.warn("""cpu is deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider""")
-            __props__.__dict__["cpu"] = cpu
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["jvm_options"] = jvm_options
-            if memory_in_gb is not None and not opts.urn:
-                warnings.warn("""This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider""", DeprecationWarning)
-                pulumi.log.warn("""memory_in_gb is deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider""")
-            __props__.__dict__["memory_in_gb"] = memory_in_gb
             __props__.__dict__["name"] = name
             __props__.__dict__["quota"] = quota
             __props__.__dict__["runtime_version"] = runtime_version
@@ -498,11 +417,9 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cpu: Optional[pulumi.Input[int]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
             jvm_options: Optional[pulumi.Input[str]] = None,
-            memory_in_gb: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']]] = None,
             runtime_version: Optional[pulumi.Input[str]] = None,
@@ -514,37 +431,26 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']] quota: A `quota` block as defined below.
-        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _SpringCloudJavaDeploymentState.__new__(_SpringCloudJavaDeploymentState)
 
-        __props__.__dict__["cpu"] = cpu
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["instance_count"] = instance_count
         __props__.__dict__["jvm_options"] = jvm_options
-        __props__.__dict__["memory_in_gb"] = memory_in_gb
         __props__.__dict__["name"] = name
         __props__.__dict__["quota"] = quota
         __props__.__dict__["runtime_version"] = runtime_version
         __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
         return SpringCloudJavaDeployment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def cpu(self) -> pulumi.Output[int]:
-        """
-        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
-        """
-        return pulumi.get(self, "cpu")
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -571,11 +477,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         return pulumi.get(self, "jvm_options")
 
     @property
-    @pulumi.getter(name="memoryInGb")
-    def memory_in_gb(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "memory_in_gb")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -595,7 +496,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
+        Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         """
         return pulumi.get(self, "runtime_version")
 

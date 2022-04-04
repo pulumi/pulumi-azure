@@ -59,16 +59,16 @@ namespace Pulumi.Azure.Network
         public Output<string> AllocationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        /// </summary>
-        [Output("availabilityZone")]
-        public Output<string> AvailabilityZone { get; private set; } = null!;
-
-        /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Output("domainNameLabel")]
         public Output<string?> DomainNameLabel { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
         /// Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
@@ -101,14 +101,13 @@ namespace Pulumi.Azure.Network
         public Output<string?> IpVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Public IP resource . Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,8 +119,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> PublicIpPrefixId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the public ip.
+        /// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -150,8 +148,11 @@ namespace Pulumi.Azure.Network
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection containing the availability zone to allocate the Public IP in.
+        /// </summary>
         [Output("zones")]
-        public Output<string> Zones { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,16 +207,16 @@ namespace Pulumi.Azure.Network
         public Input<string> AllocationMethod { get; set; } = null!;
 
         /// <summary>
-        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -242,14 +243,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? IpVersion { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Public IP resource . Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -261,8 +261,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PublicIpPrefixId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the public ip.
+        /// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -298,7 +297,16 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A collection containing the availability zone to allocate the Public IP in.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public PublicIpArgs()
         {
@@ -314,16 +322,16 @@ namespace Pulumi.Azure.Network
         public Input<string>? AllocationMethod { get; set; }
 
         /// <summary>
-        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
@@ -362,14 +370,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? IpVersion { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Public IP resource . Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -381,8 +388,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PublicIpPrefixId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the public ip.
+        /// The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -418,7 +424,16 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A collection containing the availability zone to allocate the Public IP in.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public PublicIpState()
         {

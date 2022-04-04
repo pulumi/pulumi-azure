@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        /// The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         /// </summary>
         public readonly string Value;
 

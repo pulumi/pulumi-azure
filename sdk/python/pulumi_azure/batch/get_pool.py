@@ -21,7 +21,7 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, id=None, max_tasks_per_node=None, metadata=None, name=None, network_configuration=None, node_agent_sku_id=None, resource_group_name=None, start_tasks=None, storage_image_references=None, vm_size=None):
+    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, id=None, max_tasks_per_node=None, metadata=None, name=None, network_configurations=None, node_agent_sku_id=None, resource_group_name=None, start_tasks=None, storage_image_references=None, vm_size=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -52,9 +52,9 @@ class GetPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if network_configuration and not isinstance(network_configuration, dict):
-            raise TypeError("Expected argument 'network_configuration' to be a dict")
-        pulumi.set(__self__, "network_configuration", network_configuration)
+        if network_configurations and not isinstance(network_configurations, list):
+            raise TypeError("Expected argument 'network_configurations' to be a list")
+        pulumi.set(__self__, "network_configurations", network_configurations)
         if node_agent_sku_id and not isinstance(node_agent_sku_id, str):
             raise TypeError("Expected argument 'node_agent_sku_id' to be a str")
         pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
@@ -146,9 +146,9 @@ class GetPoolResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> 'outputs.GetPoolNetworkConfigurationResult':
-        return pulumi.get(self, "network_configuration")
+    @pulumi.getter(name="networkConfigurations")
+    def network_configurations(self) -> Sequence['outputs.GetPoolNetworkConfigurationResult']:
+        return pulumi.get(self, "network_configurations")
 
     @property
     @pulumi.getter(name="nodeAgentSkuId")
@@ -204,7 +204,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             max_tasks_per_node=self.max_tasks_per_node,
             metadata=self.metadata,
             name=self.name,
-            network_configuration=self.network_configuration,
+            network_configurations=self.network_configurations,
             node_agent_sku_id=self.node_agent_sku_id,
             resource_group_name=self.resource_group_name,
             start_tasks=self.start_tasks,
@@ -255,7 +255,7 @@ def get_pool(account_name: Optional[str] = None,
         max_tasks_per_node=__ret__.max_tasks_per_node,
         metadata=__ret__.metadata,
         name=__ret__.name,
-        network_configuration=__ret__.network_configuration,
+        network_configurations=__ret__.network_configurations,
         node_agent_sku_id=__ret__.node_agent_sku_id,
         resource_group_name=__ret__.resource_group_name,
         start_tasks=__ret__.start_tasks,

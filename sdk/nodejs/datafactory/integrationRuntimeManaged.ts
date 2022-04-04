@@ -22,8 +22,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleIntegrationRuntimeManaged = new azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged", {
- *     dataFactoryName: exampleFactory.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryId: exampleFactory.id,
  *     location: exampleResourceGroup.location,
  *     nodeSize: "Standard_D8_v3",
  * });
@@ -74,9 +73,9 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
      */
     public readonly customSetupScript!: pulumi.Output<outputs.datafactory.IntegrationRuntimeManagedCustomSetupScript | undefined>;
     /**
-     * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryName!: pulumi.Output<string>;
+    public readonly dataFactoryId!: pulumi.Output<string>;
     /**
      * Integration runtime description.
      */
@@ -110,10 +109,6 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
      */
     public readonly numberOfNodes!: pulumi.Output<number | undefined>;
     /**
-     * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `vnetIntegration` block as defined below.
      */
     public readonly vnetIntegration!: pulumi.Output<outputs.datafactory.IntegrationRuntimeManagedVnetIntegration | undefined>;
@@ -133,7 +128,7 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             const state = argsOrState as IntegrationRuntimeManagedState | undefined;
             resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
             resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
@@ -142,22 +137,18 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeSize"] = state ? state.nodeSize : undefined;
             resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeManagedArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             if ((!args || args.nodeSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeSize'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
             resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
@@ -166,7 +157,6 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -187,9 +177,9 @@ export interface IntegrationRuntimeManagedState {
      */
     customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCustomSetupScript>;
     /**
-     * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -223,10 +213,6 @@ export interface IntegrationRuntimeManagedState {
      */
     numberOfNodes?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * A `vnetIntegration` block as defined below.
      */
     vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedVnetIntegration>;
@@ -245,9 +231,9 @@ export interface IntegrationRuntimeManagedArgs {
      */
     customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCustomSetupScript>;
     /**
-     * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -280,10 +266,6 @@ export interface IntegrationRuntimeManagedArgs {
      * Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
      */
     numberOfNodes?: pulumi.Input<number>;
-    /**
-     * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `vnetIntegration` block as defined below.
      */

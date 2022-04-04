@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -99,15 +100,13 @@ type Topic struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	ResourceGroupName          pulumi.StringOutput  `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Boolean flag which controls whether the Topic
@@ -119,9 +118,12 @@ type Topic struct {
 func NewTopic(ctx *pulumi.Context,
 	name string, args *TopicArgs, opts ...pulumi.ResourceOption) (*Topic, error) {
 	if args == nil {
-		args = &TopicArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NamespaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceId'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure:eventhub/topic:Topic"),
@@ -183,15 +185,13 @@ type topicState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceId   *string `pulumi:"namespaceId"`
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
-	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	RequiresDuplicateDetection *bool   `pulumi:"requiresDuplicateDetection"`
+	ResourceGroupName          *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic
@@ -233,15 +233,13 @@ type TopicState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceId   pulumi.StringPtrInput
 	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 	// Boolean flag which controls whether the Topic
@@ -287,15 +285,11 @@ type topicArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName *string `pulumi:"namespaceName"`
+	NamespaceId string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic
@@ -338,15 +332,11 @@ type TopicArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName pulumi.StringPtrInput
+	NamespaceId pulumi.StringInput
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 	// Boolean flag which controls whether the Topic

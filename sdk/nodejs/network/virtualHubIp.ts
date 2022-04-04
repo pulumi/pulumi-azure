@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.5.1.0/24",
+ *     addressPrefixes: ["10.5.1.0/24"],
  * });
  * const exampleVirtualHubIp = new azure.network.VirtualHubIp("exampleVirtualHubIp", {
  *     virtualHubId: exampleVirtualHub.id,
@@ -96,7 +96,7 @@ export class VirtualHubIp extends pulumi.CustomResource {
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
-    public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
+    public readonly publicIpAddressId!: pulumi.Output<string>;
     /**
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      */
@@ -127,6 +127,9 @@ export class VirtualHubIp extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VirtualHubIpArgs | undefined;
+            if ((!args || args.publicIpAddressId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'publicIpAddressId'");
+            }
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
@@ -194,7 +197,7 @@ export interface VirtualHubIpArgs {
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId: pulumi.Input<string>;
     /**
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      */

@@ -264,9 +264,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
         const resourceGroupName = appservice.getResourceGroupName(args, topic.resourceGroupName);
 
         const subscription = args.subscription || new Subscription(name, {
-            resourceGroupName,
-            namespaceName: topic.namespaceName,
-            topicName: topic.name,
+            topicId: topic.id,
             maxDeliveryCount: pulumi.output(args.maxDeliveryCount).apply(c => c === undefined ? 10 : c),
         }, opts);
 

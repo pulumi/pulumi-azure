@@ -10,181 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AssignmentIdentity struct {
-	// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-	Type *string `pulumi:"type"`
-}
-
-// AssignmentIdentityInput is an input type that accepts AssignmentIdentityArgs and AssignmentIdentityOutput values.
-// You can construct a concrete instance of `AssignmentIdentityInput` via:
-//
-//          AssignmentIdentityArgs{...}
-type AssignmentIdentityInput interface {
-	pulumi.Input
-
-	ToAssignmentIdentityOutput() AssignmentIdentityOutput
-	ToAssignmentIdentityOutputWithContext(context.Context) AssignmentIdentityOutput
-}
-
-type AssignmentIdentityArgs struct {
-	// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (AssignmentIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentIdentity)(nil)).Elem()
-}
-
-func (i AssignmentIdentityArgs) ToAssignmentIdentityOutput() AssignmentIdentityOutput {
-	return i.ToAssignmentIdentityOutputWithContext(context.Background())
-}
-
-func (i AssignmentIdentityArgs) ToAssignmentIdentityOutputWithContext(ctx context.Context) AssignmentIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentIdentityOutput)
-}
-
-func (i AssignmentIdentityArgs) ToAssignmentIdentityPtrOutput() AssignmentIdentityPtrOutput {
-	return i.ToAssignmentIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i AssignmentIdentityArgs) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentIdentityOutput).ToAssignmentIdentityPtrOutputWithContext(ctx)
-}
-
-// AssignmentIdentityPtrInput is an input type that accepts AssignmentIdentityArgs, AssignmentIdentityPtr and AssignmentIdentityPtrOutput values.
-// You can construct a concrete instance of `AssignmentIdentityPtrInput` via:
-//
-//          AssignmentIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type AssignmentIdentityPtrInput interface {
-	pulumi.Input
-
-	ToAssignmentIdentityPtrOutput() AssignmentIdentityPtrOutput
-	ToAssignmentIdentityPtrOutputWithContext(context.Context) AssignmentIdentityPtrOutput
-}
-
-type assignmentIdentityPtrType AssignmentIdentityArgs
-
-func AssignmentIdentityPtr(v *AssignmentIdentityArgs) AssignmentIdentityPtrInput {
-	return (*assignmentIdentityPtrType)(v)
-}
-
-func (*assignmentIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignmentIdentity)(nil)).Elem()
-}
-
-func (i *assignmentIdentityPtrType) ToAssignmentIdentityPtrOutput() AssignmentIdentityPtrOutput {
-	return i.ToAssignmentIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *assignmentIdentityPtrType) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentIdentityPtrOutput)
-}
-
-type AssignmentIdentityOutput struct{ *pulumi.OutputState }
-
-func (AssignmentIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentIdentity)(nil)).Elem()
-}
-
-func (o AssignmentIdentityOutput) ToAssignmentIdentityOutput() AssignmentIdentityOutput {
-	return o
-}
-
-func (o AssignmentIdentityOutput) ToAssignmentIdentityOutputWithContext(ctx context.Context) AssignmentIdentityOutput {
-	return o
-}
-
-func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutput() AssignmentIdentityPtrOutput {
-	return o.ToAssignmentIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentIdentity) *AssignmentIdentity {
-		return &v
-	}).(AssignmentIdentityPtrOutput)
-}
-
-// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-func (o AssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-func (o AssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-func (o AssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type AssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (AssignmentIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignmentIdentity)(nil)).Elem()
-}
-
-func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutput() AssignmentIdentityPtrOutput {
-	return o
-}
-
-func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
-	return o
-}
-
-func (o AssignmentIdentityPtrOutput) Elem() AssignmentIdentityOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) AssignmentIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret AssignmentIdentity
-		return ret
-	}).(AssignmentIdentityOutput)
-}
-
-// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-func (o AssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-func (o AssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssignmentIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 type PolicySetDefinitionPolicyDefinitionGroup struct {
 	// The ID of a resource that contains additional metadata about this policy definition group.
 	AdditionalMetadataResourceId *string `pulumi:"additionalMetadataResourceId"`
@@ -321,10 +146,6 @@ func (o PolicySetDefinitionPolicyDefinitionGroupArrayOutput) Index(i pulumi.IntI
 type PolicySetDefinitionPolicyDefinitionReference struct {
 	// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
 	ParameterValues *string `pulumi:"parameterValues"`
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-	//
-	// Deprecated: Deprecated in favour of `parameter_values`
-	Parameters map[string]string `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// A list of names of the policy definition groups that this policy definition reference belongs to.
@@ -347,10 +168,6 @@ type PolicySetDefinitionPolicyDefinitionReferenceInput interface {
 type PolicySetDefinitionPolicyDefinitionReferenceArgs struct {
 	// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
 	ParameterValues pulumi.StringPtrInput `pulumi:"parameterValues"`
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-	//
-	// Deprecated: Deprecated in favour of `parameter_values`
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
 	// A list of names of the policy definition groups that this policy definition reference belongs to.
@@ -415,13 +232,6 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pu
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.ParameterValues }).(pulumi.StringPtrOutput)
 }
 
-// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-//
-// Deprecated: Deprecated in favour of `parameter_values`
-func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
-}
-
 // The ID of the policy definition or policy set definition that will be included in this policy set definition.
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
@@ -464,10 +274,6 @@ type VirtualMachineConfigurationAssignmentConfiguration struct {
 	ContentHash *string `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	ContentUri *string `pulumi:"contentUri"`
-	// This field is no longer used and will be removed in the next major version of the Azure Provider.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	Name *string `pulumi:"name"`
 	// One or more `parameter` blocks which define what configuration parameters and values against.
 	Parameters []VirtualMachineConfigurationAssignmentConfigurationParameter `pulumi:"parameters"`
 	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
@@ -492,10 +298,6 @@ type VirtualMachineConfigurationAssignmentConfigurationArgs struct {
 	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
-	// This field is no longer used and will be removed in the next major version of the Azure Provider.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	Name pulumi.StringPtrInput `pulumi:"name"`
 	// One or more `parameter` blocks which define what configuration parameters and values against.
 	Parameters VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput `pulumi:"parameters"`
 	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
@@ -594,13 +396,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentUri() p
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
-// This field is no longer used and will be removed in the next major version of the Azure Provider.
-//
-// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
 // One or more `parameter` blocks which define what configuration parameters and values against.
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Parameters() VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) []VirtualMachineConfigurationAssignmentConfigurationParameter {
@@ -664,18 +459,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentUri(
 			return nil
 		}
 		return v.ContentUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is no longer used and will be removed in the next major version of the Azure Provider.
-//
-// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1072,8 +855,6 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulu
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentIdentityInput)(nil)).Elem(), AssignmentIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentIdentityPtrInput)(nil)).Elem(), AssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionGroupInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionGroupArrayInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionReferenceArgs{})
@@ -1086,8 +867,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionGroupArrayInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionReferenceArray{})
-	pulumi.RegisterOutputType(AssignmentIdentityOutput{})
-	pulumi.RegisterOutputType(AssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionGroupOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionGroupArrayOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionReferenceOutput{})

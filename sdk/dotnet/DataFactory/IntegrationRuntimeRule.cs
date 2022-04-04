@@ -34,7 +34,6 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleIntegrationRuntimeRule = new Azure.DataFactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", new Azure.DataFactory.IntegrationRuntimeRuleArgs
     ///         {
     ///             DataFactoryId = exampleFactory.Id,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///         });
     ///     }
@@ -78,12 +77,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
-
-        /// <summary>
         /// Integration runtime description.
         /// </summary>
         [Output("description")]
@@ -100,12 +93,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
@@ -186,14 +173,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -212,12 +193,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
         /// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
@@ -263,12 +238,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
-
-        /// <summary>
         /// Integration runtime description.
         /// </summary>
         [Input("description")]
@@ -285,12 +254,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.

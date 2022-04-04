@@ -5,7 +5,6 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from .endpoint import *
 from .get_geographical_location import *
 from .profile import *
 from ._inputs import *

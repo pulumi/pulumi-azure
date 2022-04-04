@@ -45,8 +45,10 @@ class AccountIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -60,7 +62,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -68,18 +70,24 @@ class AccountIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
         """
         return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
 
@@ -94,8 +102,6 @@ class AccountNetworkAcls(dict):
             suggest = "ip_rules"
         elif key == "virtualNetworkRules":
             suggest = "virtual_network_rules"
-        elif key == "virtualNetworkSubnetIds":
-            suggest = "virtual_network_subnet_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountNetworkAcls. Access the value via the '{suggest}' property getter instead.")
@@ -111,10 +117,9 @@ class AccountNetworkAcls(dict):
     def __init__(__self__, *,
                  default_action: str,
                  ip_rules: Optional[Sequence[str]] = None,
-                 virtual_network_rules: Optional[Sequence['outputs.AccountNetworkAclsVirtualNetworkRule']] = None,
-                 virtual_network_subnet_ids: Optional[Sequence[str]] = None):
+                 virtual_network_rules: Optional[Sequence['outputs.AccountNetworkAclsVirtualNetworkRule']] = None):
         """
-        :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param Sequence['AccountNetworkAclsVirtualNetworkRuleArgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
@@ -123,14 +128,12 @@ class AccountNetworkAcls(dict):
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
-        if virtual_network_subnet_ids is not None:
-            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
 
     @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> str:
         """
-        The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         """
         return pulumi.get(self, "default_action")
 
@@ -149,11 +152,6 @@ class AccountNetworkAcls(dict):
         A `virtual_network_rules` block as defined below.
         """
         return pulumi.get(self, "virtual_network_rules")
-
-    @property
-    @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "virtual_network_subnet_ids")
 
 
 @pulumi.output_type

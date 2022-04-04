@@ -21,8 +21,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -37,8 +37,8 @@ import (
 // 		_, err = network.NewVpnServerConfiguration(ctx, "test", &network.VpnServerConfigurationArgs{
 // 			ResourceGroupName: example.Name,
 // 			Location:          example.Location,
-// 			VpnAuthenticationTypes: pulumi.String{
-// 				"Certificate",
+// 			VpnAuthenticationTypes: pulumi.StringArray{
+// 				pulumi.String("Certificate"),
 // 			},
 // 			ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
 // 				&network.VpnServerConfigurationClientRootCertificateArgs{
@@ -79,16 +79,12 @@ type VpnServerConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `radius` block as defined below.
 	Radius VpnServerConfigurationRadiusPtrOutput `pulumi:"radius"`
-	// A `radiusServer` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `radius`
-	RadiusServer VpnServerConfigurationRadiusServerPtrOutput `pulumi:"radiusServer"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-	VpnAuthenticationTypes pulumi.StringOutput `pulumi:"vpnAuthenticationTypes"`
+	VpnAuthenticationTypes pulumi.StringArrayOutput `pulumi:"vpnAuthenticationTypes"`
 	// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
 	VpnProtocols pulumi.StringArrayOutput `pulumi:"vpnProtocols"`
 }
@@ -142,16 +138,12 @@ type vpnServerConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// A `radius` block as defined below.
 	Radius *VpnServerConfigurationRadius `pulumi:"radius"`
-	// A `radiusServer` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `radius`
-	RadiusServer *VpnServerConfigurationRadiusServer `pulumi:"radiusServer"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-	VpnAuthenticationTypes *string `pulumi:"vpnAuthenticationTypes"`
+	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
 	// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
 	VpnProtocols []string `pulumi:"vpnProtocols"`
 }
@@ -171,16 +163,12 @@ type VpnServerConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// A `radius` block as defined below.
 	Radius VpnServerConfigurationRadiusPtrInput
-	// A `radiusServer` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `radius`
-	RadiusServer VpnServerConfigurationRadiusServerPtrInput
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-	VpnAuthenticationTypes pulumi.StringPtrInput
+	VpnAuthenticationTypes pulumi.StringArrayInput
 	// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
 	VpnProtocols pulumi.StringArrayInput
 }
@@ -204,16 +192,12 @@ type vpnServerConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// A `radius` block as defined below.
 	Radius *VpnServerConfigurationRadius `pulumi:"radius"`
-	// A `radiusServer` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `radius`
-	RadiusServer *VpnServerConfigurationRadiusServer `pulumi:"radiusServer"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-	VpnAuthenticationTypes string `pulumi:"vpnAuthenticationTypes"`
+	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
 	// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
 	VpnProtocols []string `pulumi:"vpnProtocols"`
 }
@@ -234,16 +218,12 @@ type VpnServerConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// A `radius` block as defined below.
 	Radius VpnServerConfigurationRadiusPtrInput
-	// A `radiusServer` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `radius`
-	RadiusServer VpnServerConfigurationRadiusServerPtrInput
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-	VpnAuthenticationTypes pulumi.StringInput
+	VpnAuthenticationTypes pulumi.StringArrayInput
 	// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
 	VpnProtocols pulumi.StringArrayInput
 }

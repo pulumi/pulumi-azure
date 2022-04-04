@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceIdentity
     {
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

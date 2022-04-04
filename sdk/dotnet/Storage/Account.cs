@@ -142,10 +142,10 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccountTier { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        /// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         /// </summary>
-        [Output("allowBlobPublicAccess")]
-        public Output<bool?> AllowBlobPublicAccess { get; private set; } = null!;
+        [Output("allowNestedItemsToBePublic")]
+        public Output<bool?> AllowNestedItemsToBePublic { get; private set; } = null!;
 
         /// <summary>
         /// A `azure_files_authentication` block as defined below.
@@ -169,7 +169,13 @@ namespace Pulumi.Azure.Storage
         /// A `customer_managed_key` block as documented below.
         /// </summary>
         [Output("customerManagedKey")]
-        public Output<Outputs.AccountCustomerManagedKey> CustomerManagedKey { get; private set; } = null!;
+        public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -546,10 +552,10 @@ namespace Pulumi.Azure.Storage
         public Input<string> AccountTier { get; set; } = null!;
 
         /// <summary>
-        /// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        /// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         /// </summary>
-        [Input("allowBlobPublicAccess")]
-        public Input<bool>? AllowBlobPublicAccess { get; set; }
+        [Input("allowNestedItemsToBePublic")]
+        public Input<bool>? AllowNestedItemsToBePublic { get; set; }
 
         /// <summary>
         /// A `azure_files_authentication` block as defined below.
@@ -574,6 +580,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -725,10 +737,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountTier { get; set; }
 
         /// <summary>
-        /// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        /// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         /// </summary>
-        [Input("allowBlobPublicAccess")]
-        public Input<bool>? AllowBlobPublicAccess { get; set; }
+        [Input("allowNestedItemsToBePublic")]
+        public Input<bool>? AllowNestedItemsToBePublic { get; set; }
 
         /// <summary>
         /// A `azure_files_authentication` block as defined below.
@@ -753,6 +765,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)

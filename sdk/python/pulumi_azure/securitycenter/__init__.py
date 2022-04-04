@@ -7,12 +7,12 @@ import typing
 # Export this package's modules as members:
 from .advanced_threat_protection import *
 from .assessment import *
-from .assessment_metadata import *
 from .assessment_policy import *
 from .auto_provisioning import *
 from .automation import *
 from .contact import *
 from .server_vulnerability_assessment import *
+from .server_vulnerability_assessment_virtual_machine import *
 from .setting import *
 from .subscription_pricing import *
 from .workspace import *

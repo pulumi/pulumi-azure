@@ -76,13 +76,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
      */
-    public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux>;
-    /**
-     * An `addonProfile` block as defined below.
-     *
-     * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-     */
-    public readonly addonProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAddonProfile>;
+    public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux | undefined>;
     /**
      * The IP ranges to allow for incoming traffic to the server nodes.
      */
@@ -98,11 +92,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
-    public readonly azureActiveDirectoryRoleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
+    public readonly azureActiveDirectoryRoleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
-    public readonly azurePolicyEnabled!: pulumi.Output<boolean>;
+    public readonly azurePolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -127,7 +121,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Should HTTP Application Routing be enabled?
      */
-    public readonly httpApplicationRoutingEnabled!: pulumi.Output<boolean>;
+    public readonly httpApplicationRoutingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Zone Name of the HTTP Application Routing.
      */
@@ -143,11 +137,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `ingressApplicationGateway` block as defined below.
      */
-    public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway>;
+    public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
      * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
      */
-    public readonly keyVaultSecretsProvider!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyVaultSecretsProvider>;
+    public readonly keyVaultSecretsProvider!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyVaultSecretsProvider | undefined>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      */
@@ -167,7 +161,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly kubeletIdentities!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity[]>;
+    public readonly kubeletIdentity!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
@@ -203,11 +197,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `omsAgent` block as defined below.
      */
-    public readonly omsAgent!: pulumi.Output<outputs.containerservice.KubernetesClusterOmsAgent>;
+    public readonly omsAgent!: pulumi.Output<outputs.containerservice.KubernetesClusterOmsAgent | undefined>;
     /**
      * Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
      */
-    public readonly openServiceMeshEnabled!: pulumi.Output<boolean>;
+    public readonly openServiceMeshEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
@@ -215,7 +209,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly privateClusterEnabled!: pulumi.Output<boolean>;
+    public readonly privateClusterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      */
@@ -228,23 +222,15 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
-    /**
-     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-     */
-    public readonly privateLinkEnabled!: pulumi.Output<boolean>;
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * @deprecated `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly roleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
-    /**
      * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    public readonly roleBasedAccessControlEnabled!: pulumi.Output<boolean>;
+    public readonly roleBasedAccessControlEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
@@ -276,7 +262,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
             resourceInputs["aciConnectorLinux"] = state ? state.aciConnectorLinux : undefined;
-            resourceInputs["addonProfile"] = state ? state.addonProfile : undefined;
             resourceInputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
@@ -298,7 +283,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
             resourceInputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
             resourceInputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
-            resourceInputs["kubeletIdentities"] = state ? state.kubeletIdentities : undefined;
+            resourceInputs["kubeletIdentity"] = state ? state.kubeletIdentity : undefined;
             resourceInputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
             resourceInputs["linuxProfile"] = state ? state.linuxProfile : undefined;
             resourceInputs["localAccountDisabled"] = state ? state.localAccountDisabled : undefined;
@@ -314,10 +299,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["privateClusterPublicFqdnEnabled"] = state ? state.privateClusterPublicFqdnEnabled : undefined;
             resourceInputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
             resourceInputs["privateFqdn"] = state ? state.privateFqdn : undefined;
-            resourceInputs["privateLinkEnabled"] = state ? state.privateLinkEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["roleBasedAccessControl"] = state ? state.roleBasedAccessControl : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = state ? state.roleBasedAccessControlEnabled : undefined;
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
@@ -332,7 +315,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["aciConnectorLinux"] = args ? args.aciConnectorLinux : undefined;
-            resourceInputs["addonProfile"] = args ? args.addonProfile : undefined;
             resourceInputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
@@ -348,7 +330,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ingressApplicationGateway"] = args ? args.ingressApplicationGateway : undefined;
             resourceInputs["keyVaultSecretsProvider"] = args ? args.keyVaultSecretsProvider : undefined;
-            resourceInputs["kubeletIdentities"] = args ? args.kubeletIdentities : undefined;
+            resourceInputs["kubeletIdentity"] = args ? args.kubeletIdentity : undefined;
             resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             resourceInputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             resourceInputs["localAccountDisabled"] = args ? args.localAccountDisabled : undefined;
@@ -362,10 +344,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["privateClusterEnabled"] = args ? args.privateClusterEnabled : undefined;
             resourceInputs["privateClusterPublicFqdnEnabled"] = args ? args.privateClusterPublicFqdnEnabled : undefined;
             resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
-            resourceInputs["privateLinkEnabled"] = args ? args.privateLinkEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleBasedAccessControl"] = args ? args.roleBasedAccessControl : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = args ? args.roleBasedAccessControlEnabled : undefined;
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
@@ -393,12 +373,6 @@ export interface KubernetesClusterState {
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
-    /**
-     * An `addonProfile` block as defined below.
-     *
-     * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-     */
-    addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
      * The IP ranges to allow for incoming traffic to the server nodes.
      */
@@ -483,7 +457,7 @@ export interface KubernetesClusterState {
     /**
      * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
      */
-    kubeletIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>[]>;
+    kubeletIdentity?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
@@ -544,19 +518,11 @@ export interface KubernetesClusterState {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     privateFqdn?: pulumi.Input<string>;
-    /**
-     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-     */
-    privateLinkEnabled?: pulumi.Input<boolean>;
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
-    /**
-     * @deprecated `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-     */
-    roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
      * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
      */
@@ -587,12 +553,6 @@ export interface KubernetesClusterArgs {
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
-    /**
-     * An `addonProfile` block as defined below.
-     *
-     * @deprecated `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-     */
-    addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
      * The IP ranges to allow for incoming traffic to the server nodes.
      */
@@ -653,7 +613,7 @@ export interface KubernetesClusterArgs {
     /**
      * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
      */
-    kubeletIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>[]>;
+    kubeletIdentity?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
@@ -706,19 +666,11 @@ export interface KubernetesClusterArgs {
      * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
-    /**
-     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-     */
-    privateLinkEnabled?: pulumi.Input<boolean>;
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * @deprecated `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-     */
-    roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
      * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
      */

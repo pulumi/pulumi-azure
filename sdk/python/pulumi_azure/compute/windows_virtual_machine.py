@@ -30,6 +30,7 @@ class WindowsVirtualMachineArgs:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class WindowsVirtualMachineArgs:
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_notification: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
@@ -74,6 +76,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -95,12 +98,13 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
-        :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -126,6 +130,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
@@ -168,6 +174,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "source_image_reference", source_image_reference)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if termination_notification is not None:
+            pulumi.set(__self__, "termination_notification", termination_notification)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
         if user_data is not None:
@@ -360,6 +368,18 @@ class WindowsVirtualMachineArgs:
     @dedicated_host_id.setter
     def dedicated_host_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dedicated_host_id", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -614,6 +634,18 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="terminationNotification")
+    def termination_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]:
+        """
+        A `termination_notification` block as defined below.
+        """
+        return pulumi.get(self, "termination_notification")
+
+    @termination_notification.setter
+    def termination_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]):
+        pulumi.set(self, "termination_notification", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -677,7 +709,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "zone")
 
@@ -700,6 +732,7 @@ class _WindowsVirtualMachineState:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -729,6 +762,7 @@ class _WindowsVirtualMachineState:
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_notification: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
@@ -749,6 +783,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -778,13 +813,14 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
-        :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -808,6 +844,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
@@ -866,6 +904,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "source_image_reference", source_image_reference)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if termination_notification is not None:
+            pulumi.set(__self__, "termination_notification", termination_notification)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
         if user_data is not None:
@@ -1012,6 +1052,18 @@ class _WindowsVirtualMachineState:
     @dedicated_host_id.setter
     def dedicated_host_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dedicated_host_id", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -1362,6 +1414,18 @@ class _WindowsVirtualMachineState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="terminationNotification")
+    def termination_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]:
+        """
+        A `termination_notification` block as defined below.
+        """
+        return pulumi.get(self, "termination_notification")
+
+    @termination_notification.setter
+    def termination_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]):
+        pulumi.set(self, "termination_notification", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1437,7 +1501,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "zone")
 
@@ -1462,6 +1526,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1487,6 +1552,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
@@ -1574,6 +1640,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -1599,12 +1666,13 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
-        :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         ...
     @overload
@@ -1705,6 +1773,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1730,6 +1799,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
@@ -1763,6 +1833,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["custom_data"] = custom_data
             __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
             __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
@@ -1796,6 +1867,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["source_image_id"] = source_image_id
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
@@ -1828,6 +1900,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             custom_data: Optional[pulumi.Input[str]] = None,
             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1857,6 +1930,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             source_image_id: Optional[pulumi.Input[str]] = None,
             source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            termination_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
@@ -1882,6 +1956,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
@@ -1911,13 +1986,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
-        :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1934,6 +2010,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["custom_data"] = custom_data
         __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
         __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
@@ -1963,6 +2040,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["source_image_id"] = source_image_id
         __props__.__dict__["source_image_reference"] = source_image_reference
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["termination_notification"] = termination_notification
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["user_data"] = user_data
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
@@ -2059,6 +2137,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -2293,6 +2379,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="terminationNotification")
+    def termination_notification(self) -> pulumi.Output['outputs.WindowsVirtualMachineTerminationNotification']:
+        """
+        A `termination_notification` block as defined below.
+        """
+        return pulumi.get(self, "termination_notification")
+
+    @property
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2342,9 +2436,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zone(self) -> pulumi.Output[str]:
+    def zone(self) -> pulumi.Output[Optional[str]]:
         """
-        The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "zone")
 

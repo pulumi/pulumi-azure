@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -71,8 +71,6 @@ type LookupRegistryResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of this Container Registry, such as `Basic`.
 	Sku string `pulumi:"sku"`
-	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-	StorageAccountId string `pulumi:"storageAccountId"`
 	// A map of tags assigned to the Container Registry.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -154,11 +152,6 @@ func (o LookupRegistryResultOutput) ResourceGroupName() pulumi.StringOutput {
 // The SKU of this Container Registry, such as `Basic`.
 func (o LookupRegistryResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Sku }).(pulumi.StringOutput)
-}
-
-// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-func (o LookupRegistryResultOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRegistryResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to the Container Registry.

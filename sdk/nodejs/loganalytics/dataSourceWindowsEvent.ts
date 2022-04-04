@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  *     eventLogName: "Application",
- *     eventTypes: ["error"],
+ *     eventTypes: ["Error"],
  * });
  * ```
  *
@@ -68,7 +68,7 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
      */
     public readonly eventLogName!: pulumi.Output<string>;
     /**
-     * Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+     * Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
@@ -136,7 +136,7 @@ export interface DataSourceWindowsEventState {
      */
     eventLogName?: pulumi.Input<string>;
     /**
-     * Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+     * Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -162,7 +162,7 @@ export interface DataSourceWindowsEventArgs {
      */
     eventLogName: pulumi.Input<string>;
     /**
-     * Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+     * Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

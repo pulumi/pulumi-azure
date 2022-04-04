@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "B_Gen5_2",
- *     storageProfile: {
+ *     storageProfile: [{
  *         storageMb: 5120,
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",
- *     },
+ *     }],
  *     administratorLogin: "mariadbadmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "10.2",

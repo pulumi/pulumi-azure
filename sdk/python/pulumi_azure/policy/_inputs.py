@@ -9,67 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AssignmentIdentityArgs',
     'PolicySetDefinitionPolicyDefinitionGroupArgs',
     'PolicySetDefinitionPolicyDefinitionReferenceArgs',
     'VirtualMachineConfigurationAssignmentConfigurationArgs',
     'VirtualMachineConfigurationAssignmentConfigurationParameterArgs',
 ]
-
-@pulumi.input_type
-class AssignmentIdentityArgs:
-    def __init__(__self__, *,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] principal_id: The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        :param pulumi.Input[str] tenant_id: The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        :param pulumi.Input[str] type: The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-        """
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class PolicySetDefinitionPolicyDefinitionGroupArgs:
@@ -162,24 +106,17 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[str],
                  parameter_values: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reference_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
         :param pulumi.Input[str] parameter_values: Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param pulumi.Input[str] reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
-        if parameters is not None:
-            warnings.warn("""Deprecated in favour of `parameter_values`""", DeprecationWarning)
-            pulumi.log.warn("""parameters is deprecated: Deprecated in favour of `parameter_values`""")
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
         if policy_group_names is not None:
             pulumi.set(__self__, "policy_group_names", policy_group_names)
         if reference_id is not None:
@@ -208,18 +145,6 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     @parameter_values.setter
     def parameter_values(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_values", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "parameters", value)
 
     @property
     @pulumi.getter(name="policyGroupNames")
@@ -252,14 +177,12 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
                  assignment_type: Optional[pulumi.Input[str]] = None,
                  content_hash: Optional[pulumi.Input[str]] = None,
                  content_uri: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param pulumi.Input[str] content_hash: The content hash for the Guest Configuration package.
         :param pulumi.Input[str] content_uri: The content URI where the Guest Configuration package is stored.
-        :param pulumi.Input[str] name: This field is no longer used and will be removed in the next major version of the Azure Provider.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
         :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
@@ -269,11 +192,6 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
             pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
             pulumi.set(__self__, "content_uri", content_uri)
-        if name is not None:
-            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if version is not None:
@@ -314,18 +232,6 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
     @content_uri.setter
     def content_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_uri", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        This field is no longer used and will be removed in the next major version of the Azure Provider.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

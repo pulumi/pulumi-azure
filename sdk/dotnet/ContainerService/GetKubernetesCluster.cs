@@ -119,7 +119,6 @@ namespace Pulumi.Azure.ContainerService
         /// An `aci_connector_linux` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAciConnectorLinuxResult> AciConnectorLinuxes;
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileResult> AddonProfiles;
         /// <summary>
         /// An `agent_pool_profile` block as documented below.
         /// </summary>
@@ -161,7 +160,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as documented below.
+        /// An `identity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterIdentityResult> Identities;
         /// <summary>
@@ -232,13 +231,11 @@ namespace Pulumi.Azure.ContainerService
         /// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
         /// </summary>
         public readonly string PrivateFqdn;
-        public readonly bool PrivateLinkEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
         /// </summary>
         public readonly bool RoleBasedAccessControlEnabled;
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlResult> RoleBasedAccessControls;
         /// <summary>
         /// A `service_principal` block as documented below.
         /// </summary>
@@ -255,8 +252,6 @@ namespace Pulumi.Azure.ContainerService
         [OutputConstructor]
         private GetKubernetesClusterResult(
             ImmutableArray<Outputs.GetKubernetesClusterAciConnectorLinuxResult> aciConnectorLinuxes,
-
-            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileResult> addonProfiles,
 
             ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileResult> agentPoolProfiles,
 
@@ -314,13 +309,9 @@ namespace Pulumi.Azure.ContainerService
 
             string privateFqdn,
 
-            bool privateLinkEnabled,
-
             string resourceGroupName,
 
             bool roleBasedAccessControlEnabled,
-
-            ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlResult> roleBasedAccessControls,
 
             ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> servicePrincipals,
 
@@ -329,7 +320,6 @@ namespace Pulumi.Azure.ContainerService
             ImmutableArray<Outputs.GetKubernetesClusterWindowsProfileResult> windowsProfiles)
         {
             AciConnectorLinuxes = aciConnectorLinuxes;
-            AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             AzureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
@@ -358,10 +348,8 @@ namespace Pulumi.Azure.ContainerService
             OpenServiceMeshEnabled = openServiceMeshEnabled;
             PrivateClusterEnabled = privateClusterEnabled;
             PrivateFqdn = privateFqdn;
-            PrivateLinkEnabled = privateLinkEnabled;
             ResourceGroupName = resourceGroupName;
             RoleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
-            RoleBasedAccessControls = roleBasedAccessControls;
             ServicePrincipals = servicePrincipals;
             Tags = tags;
             WindowsProfiles = windowsProfiles;

@@ -99,7 +99,7 @@ export class Product extends pulumi.CustomResource {
     /**
      * Is a Subscription required to access API's included in this Product?
      */
-    public readonly subscriptionRequired!: pulumi.Output<boolean>;
+    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      */
@@ -148,9 +148,6 @@ export class Product extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.subscriptionRequired === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionRequired'");
             }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["approvalRequired"] = args ? args.approvalRequired : undefined;
@@ -249,7 +246,7 @@ export interface ProductArgs {
     /**
      * Is a Subscription required to access API's included in this Product?
      */
-    subscriptionRequired: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      */

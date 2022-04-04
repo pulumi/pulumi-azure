@@ -6,7 +6,7 @@ resource_group = core.ResourceGroup('eventhub-py-example')
 
 namespace = eventhub.EventHubNamespace('eventhub-py-eg',
     resource_group_name=resource_group.name,
-    sku="standard")
+    sku="Standard")
 
 eventhub = eventhub.EventHub('eventhub-py-eg',
     resource_group_name=resource_group.name,

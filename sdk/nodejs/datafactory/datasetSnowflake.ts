@@ -20,12 +20,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
  * const exampleDatasetSnowflake = new azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake", {
- *     resourceGroupName: azurerm_resource_group.test.name,
  *     dataFactoryId: azurerm_data_factory.test.id,
  *     linkedServiceName: azurerm_data_factory_linked_service_snowflake.test.name,
  *     schemaName: "foo_schema",
@@ -84,12 +82,6 @@ export class DatasetSnowflake extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Dataset Snowflake.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -110,10 +102,6 @@ export class DatasetSnowflake extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetSnowflakeSchemaColumn[] | undefined>;
@@ -121,10 +109,6 @@ export class DatasetSnowflake extends pulumi.CustomResource {
      * The schema name of the Data Factory Dataset Snowflake.
      */
     public readonly schemaName!: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated This block has been deprecated in favour of `schema_column` and will be removed.
-     */
-    public readonly structureColumns!: pulumi.Output<outputs.datafactory.DatasetSnowflakeStructureColumn[] | undefined>;
     /**
      * The table name of the Data Factory Dataset Snowflake.
      */
@@ -146,38 +130,32 @@ export class DatasetSnowflake extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["folder"] = state ? state.folder : undefined;
             resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
             resourceInputs["schemaName"] = state ? state.schemaName : undefined;
-            resourceInputs["structureColumns"] = state ? state.structureColumns : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as DatasetSnowflakeArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["structureColumns"] = args ? args.structureColumns : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -202,12 +180,6 @@ export interface DatasetSnowflakeState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Dataset Snowflake.
      */
     description?: pulumi.Input<string>;
@@ -228,10 +200,6 @@ export interface DatasetSnowflakeState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeSchemaColumn>[]>;
@@ -239,10 +207,6 @@ export interface DatasetSnowflakeState {
      * The schema name of the Data Factory Dataset Snowflake.
      */
     schemaName?: pulumi.Input<string>;
-    /**
-     * @deprecated This block has been deprecated in favour of `schema_column` and will be removed.
-     */
-    structureColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeStructureColumn>[]>;
     /**
      * The table name of the Data Factory Dataset Snowflake.
      */
@@ -264,13 +228,7 @@ export interface DatasetSnowflakeArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset Snowflake.
      */
@@ -292,10 +250,6 @@ export interface DatasetSnowflakeArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeSchemaColumn>[]>;
@@ -303,10 +257,6 @@ export interface DatasetSnowflakeArgs {
      * The schema name of the Data Factory Dataset Snowflake.
      */
     schemaName?: pulumi.Input<string>;
-    /**
-     * @deprecated This block has been deprecated in favour of `schema_column` and will be removed.
-     */
-    structureColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetSnowflakeStructureColumn>[]>;
     /**
      * The table name of the Data Factory Dataset Snowflake.
      */

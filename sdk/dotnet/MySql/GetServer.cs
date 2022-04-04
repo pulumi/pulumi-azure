@@ -146,7 +146,7 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block for this MySQL server as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServerIdentityResult> Identities;
         /// <summary>

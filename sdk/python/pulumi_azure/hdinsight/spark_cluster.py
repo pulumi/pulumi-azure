@@ -640,7 +640,6 @@ class SparkCluster(pulumi.CustomResource):
                 spark="2.3",
             ),
             gateway=azure.hdinsight.SparkClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password123!",
             ),
@@ -729,7 +728,6 @@ class SparkCluster(pulumi.CustomResource):
                 spark="2.3",
             ),
             gateway=azure.hdinsight.SparkClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password123!",
             ),

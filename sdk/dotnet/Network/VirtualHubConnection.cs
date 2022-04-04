@@ -68,9 +68,6 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/virtualHubConnection:VirtualHubConnection")]
     public partial class VirtualHubConnection : Pulumi.CustomResource
     {
-        [Output("hubToVitualNetworkTrafficAllowed")]
-        public Output<bool?> HubToVitualNetworkTrafficAllowed { get; private set; } = null!;
-
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
@@ -100,9 +97,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("virtualHubId")]
         public Output<string> VirtualHubId { get; private set; } = null!;
-
-        [Output("vitualNetworkToHubGatewaysTrafficAllowed")]
-        public Output<bool?> VitualNetworkToHubGatewaysTrafficAllowed { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,9 +144,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualHubConnectionArgs : Pulumi.ResourceArgs
     {
-        [Input("hubToVitualNetworkTrafficAllowed")]
-        public Input<bool>? HubToVitualNetworkTrafficAllowed { get; set; }
-
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
@@ -183,9 +174,6 @@ namespace Pulumi.Azure.Network
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
 
-        [Input("vitualNetworkToHubGatewaysTrafficAllowed")]
-        public Input<bool>? VitualNetworkToHubGatewaysTrafficAllowed { get; set; }
-
         public VirtualHubConnectionArgs()
         {
         }
@@ -193,9 +181,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualHubConnectionState : Pulumi.ResourceArgs
     {
-        [Input("hubToVitualNetworkTrafficAllowed")]
-        public Input<bool>? HubToVitualNetworkTrafficAllowed { get; set; }
-
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
@@ -225,9 +210,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("virtualHubId")]
         public Input<string>? VirtualHubId { get; set; }
-
-        [Input("vitualNetworkToHubGatewaysTrafficAllowed")]
-        public Input<bool>? VitualNetworkToHubGatewaysTrafficAllowed { get; set; }
 
         public VirtualHubConnectionState()
         {

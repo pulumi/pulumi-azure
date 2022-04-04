@@ -14,19 +14,19 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class GetServiceIdentityResult
     {
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+        /// The type of Managed Service Identity that is configured on this API Management Service.
         /// </summary>
         public readonly string Type;
 

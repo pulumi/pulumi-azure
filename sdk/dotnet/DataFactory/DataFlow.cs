@@ -49,8 +49,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var example1 = new Azure.DataFactory.DatasetJson("example1", new Azure.DataFactory.DatasetJsonArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedCustomService.Name,
     ///             AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
     ///             {
@@ -62,8 +61,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var example2 = new Azure.DataFactory.DatasetJson("example2", new Azure.DataFactory.DatasetJsonArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedCustomService.Name,
     ///             AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
     ///             {

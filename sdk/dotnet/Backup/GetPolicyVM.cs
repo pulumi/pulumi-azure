@@ -136,10 +136,6 @@ namespace Pulumi.Azure.Backup
         public readonly string Name;
         public readonly string RecoveryVaultName;
         public readonly string ResourceGroupName;
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetPolicyVMResult(
@@ -149,15 +145,12 @@ namespace Pulumi.Azure.Backup
 
             string recoveryVaultName,
 
-            string resourceGroupName,
-
-            ImmutableDictionary<string, string> tags)
+            string resourceGroupName)
         {
             Id = id;
             Name = name;
             RecoveryVaultName = recoveryVaultName;
             ResourceGroupName = resourceGroupName;
-            Tags = tags;
         }
     }
 }

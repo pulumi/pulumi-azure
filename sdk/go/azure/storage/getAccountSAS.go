@@ -23,8 +23,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -74,6 +74,8 @@ import (
 // 				Create:  pulumi.Bool(true),
 // 				Update:  pulumi.Bool(false),
 // 				Process: pulumi.Bool(false),
+// 				Tag:     pulumi.Bool(false),
+// 				Filter:  pulumi.Bool(false),
 // 			},
 // 		}, nil)
 // 		ctx.Export("sasUrlQueryString", exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (string, error) {

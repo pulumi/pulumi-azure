@@ -12,7 +12,6 @@ __all__ = [
     'FlexibleServerHighAvailabilityArgs',
     'FlexibleServerMaintenanceWindowArgs',
     'ServerIdentityArgs',
-    'ServerStorageProfileArgs',
     'ServerThreatDetectionPolicyArgs',
 ]
 
@@ -23,7 +22,7 @@ class FlexibleServerHighAvailabilityArgs:
                  standby_availability_zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mode: The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
-        :param pulumi.Input[str] standby_availability_zone: The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        :param pulumi.Input[str] standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -45,7 +44,7 @@ class FlexibleServerHighAvailabilityArgs:
     @pulumi.getter(name="standbyAvailabilityZone")
     def standby_availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        Specifies the Availability Zone in which the standby Flexible Server should be located.
         """
         return pulumi.get(self, "standby_availability_zone")
 
@@ -116,9 +115,9 @@ class ServerIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
-        :param pulumi.Input[str] principal_id: The Client ID of the Service Principal assigned to this PostgreSQL Server.
-        :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -130,7 +129,7 @@ class ServerIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -142,7 +141,7 @@ class ServerIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID of the Service Principal assigned to this PostgreSQL Server.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -154,88 +153,13 @@ class ServerIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Tenant the Service Principal is assigned in.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
-
-
-@pulumi.input_type
-class ServerStorageProfileArgs:
-    def __init__(__self__, *,
-                 auto_grow: Optional[pulumi.Input[str]] = None,
-                 backup_retention_days: Optional[pulumi.Input[int]] = None,
-                 geo_redundant_backup: Optional[pulumi.Input[str]] = None,
-                 storage_mb: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
-        :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-        """
-        if auto_grow is not None:
-            warnings.warn("""this has been moved to the top level and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""auto_grow is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.""")
-        if auto_grow is not None:
-            pulumi.set(__self__, "auto_grow", auto_grow)
-        if backup_retention_days is not None:
-            warnings.warn("""this has been moved to the top level and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""backup_retention_days is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.""")
-        if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if geo_redundant_backup is not None:
-            warnings.warn("""this has been moved to the top level and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""geo_redundant_backup is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.""")
-        if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
-        if storage_mb is not None:
-            warnings.warn("""this has been moved to the top level and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""storage_mb is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.""")
-        if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
-
-    @property
-    @pulumi.getter(name="autoGrow")
-    def auto_grow(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "auto_grow")
-
-    @auto_grow.setter
-    def auto_grow(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "auto_grow", value)
-
-    @property
-    @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Backup retention days for the server, supported values are between `7` and `35` days.
-        """
-        return pulumi.get(self, "backup_retention_days")
-
-    @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "backup_retention_days", value)
-
-    @property
-    @pulumi.getter(name="geoRedundantBackup")
-    def geo_redundant_backup(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "geo_redundant_backup")
-
-    @geo_redundant_backup.setter
-    def geo_redundant_backup(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "geo_redundant_backup", value)
-
-    @property
-    @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> Optional[pulumi.Input[int]]:
-        """
-        Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-        """
-        return pulumi.get(self, "storage_mb")
-
-    @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "storage_mb", value)
 
 
 @pulumi.input_type

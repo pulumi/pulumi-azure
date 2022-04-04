@@ -126,7 +126,6 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            soft_delete_enabled=True,
             purge_protection_enabled=True)
         example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
             key_vault_id=example_key_vault.id,
@@ -219,7 +218,6 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            soft_delete_enabled=True,
             purge_protection_enabled=True)
         example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
             key_vault_id=example_key_vault.id,

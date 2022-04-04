@@ -80,9 +80,21 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     }
 
     /**
+     * An `alertDetailsOverride` block as defined below.
+     */
+    public readonly alertDetailsOverrides!: pulumi.Output<outputs.sentinel.AlertRuleScheduledAlertDetailsOverride[] | undefined>;
+    /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
     public readonly alertRuleTemplateGuid!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     */
+    public readonly alertRuleTemplateVersion!: pulumi.Output<string | undefined>;
+    /**
+     * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+     */
+    public readonly customDetails!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
@@ -95,6 +107,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of `entityMapping` blocks as defined below.
+     */
+    public readonly entityMappings!: pulumi.Output<outputs.sentinel.AlertRuleScheduledEntityMapping[] | undefined>;
     /**
      * A `eventGrouping` block as defined below.
      */
@@ -161,10 +177,14 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleScheduledState | undefined;
+            resourceInputs["alertDetailsOverrides"] = state ? state.alertDetailsOverrides : undefined;
             resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
+            resourceInputs["alertRuleTemplateVersion"] = state ? state.alertRuleTemplateVersion : undefined;
+            resourceInputs["customDetails"] = state ? state.customDetails : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["entityMappings"] = state ? state.entityMappings : undefined;
             resourceInputs["eventGrouping"] = state ? state.eventGrouping : undefined;
             resourceInputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
@@ -192,10 +212,14 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
+            resourceInputs["alertDetailsOverrides"] = args ? args.alertDetailsOverrides : undefined;
             resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
+            resourceInputs["alertRuleTemplateVersion"] = args ? args.alertRuleTemplateVersion : undefined;
+            resourceInputs["customDetails"] = args ? args.customDetails : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
             resourceInputs["eventGrouping"] = args ? args.eventGrouping : undefined;
             resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
@@ -220,9 +244,21 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
  */
 export interface AlertRuleScheduledState {
     /**
+     * An `alertDetailsOverride` block as defined below.
+     */
+    alertDetailsOverrides?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverride>[]>;
+    /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
     alertRuleTemplateGuid?: pulumi.Input<string>;
+    /**
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     */
+    alertRuleTemplateVersion?: pulumi.Input<string>;
+    /**
+     * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+     */
+    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
@@ -235,6 +271,10 @@ export interface AlertRuleScheduledState {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * A list of `entityMapping` blocks as defined below.
+     */
+    entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMapping>[]>;
     /**
      * A `eventGrouping` block as defined below.
      */
@@ -294,9 +334,21 @@ export interface AlertRuleScheduledState {
  */
 export interface AlertRuleScheduledArgs {
     /**
+     * An `alertDetailsOverride` block as defined below.
+     */
+    alertDetailsOverrides?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverride>[]>;
+    /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
     alertRuleTemplateGuid?: pulumi.Input<string>;
+    /**
+     * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     */
+    alertRuleTemplateVersion?: pulumi.Input<string>;
+    /**
+     * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+     */
+    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
@@ -309,6 +361,10 @@ export interface AlertRuleScheduledArgs {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * A list of `entityMapping` blocks as defined below.
+     */
+    entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMapping>[]>;
     /**
      * A `eventGrouping` block as defined below.
      */

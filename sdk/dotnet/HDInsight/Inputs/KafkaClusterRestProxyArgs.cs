@@ -21,8 +21,8 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("securityGroupName")]
-        public Input<string>? SecurityGroupName { get; set; }
+        [Input("securityGroupName", required: true)]
+        public Input<string> SecurityGroupName { get; set; } = null!;
 
         public KafkaClusterRestProxyArgs()
         {

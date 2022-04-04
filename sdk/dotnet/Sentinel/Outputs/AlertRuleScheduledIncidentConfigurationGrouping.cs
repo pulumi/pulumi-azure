@@ -21,10 +21,12 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
         /// </summary>
         public readonly string? EntityMatchingMethod;
+        public readonly ImmutableArray<string> GroupByAlertDetails;
+        public readonly ImmutableArray<string> GroupByCustomDetails;
         /// <summary>
         /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         /// </summary>
-        public readonly ImmutableArray<string> GroupBies;
+        public readonly ImmutableArray<string> GroupByEntities;
         /// <summary>
         /// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         /// </summary>
@@ -40,7 +42,11 @@ namespace Pulumi.Azure.Sentinel.Outputs
 
             string? entityMatchingMethod,
 
-            ImmutableArray<string> groupBies,
+            ImmutableArray<string> groupByAlertDetails,
+
+            ImmutableArray<string> groupByCustomDetails,
+
+            ImmutableArray<string> groupByEntities,
 
             string? lookbackDuration,
 
@@ -48,7 +54,9 @@ namespace Pulumi.Azure.Sentinel.Outputs
         {
             Enabled = enabled;
             EntityMatchingMethod = entityMatchingMethod;
-            GroupBies = groupBies;
+            GroupByAlertDetails = groupByAlertDetails;
+            GroupByCustomDetails = groupByCustomDetails;
+            GroupByEntities = groupByEntities;
             LookbackDuration = lookbackDuration;
             ReopenClosedIncidents = reopenClosedIncidents;
         }

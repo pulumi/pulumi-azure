@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewaySslProfileSslPolicy> SslPolicies;
+        public readonly Outputs.ApplicationGatewaySslProfileSslPolicy? SslPolicy;
         /// <summary>
         /// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string name,
 
-            ImmutableArray<Outputs.ApplicationGatewaySslProfileSslPolicy> sslPolicies,
+            Outputs.ApplicationGatewaySslProfileSslPolicy? sslPolicy,
 
             ImmutableArray<string> trustedClientCertificateNames,
 
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network.Outputs
         {
             Id = id;
             Name = name;
-            SslPolicies = sslPolicies;
+            SslPolicy = sslPolicy;
             TrustedClientCertificateNames = trustedClientCertificateNames;
             VerifyClientCertIssuerDn = verifyClientCertIssuerDn;
         }

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         /// </summary>
-        public readonly Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult EndpointConfiguration;
+        public readonly ImmutableArray<Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult> EndpointConfigurations;
         /// <summary>
         /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.Azure.Batch.Outputs
 
         [OutputConstructor]
         private GetPoolNetworkConfigurationResult(
-            Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult endpointConfiguration,
+            ImmutableArray<Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult> endpointConfigurations,
 
             string subnetId)
         {
-            EndpointConfiguration = endpointConfiguration;
+            EndpointConfigurations = endpointConfigurations;
             SubnetId = subnetId;
         }
     }

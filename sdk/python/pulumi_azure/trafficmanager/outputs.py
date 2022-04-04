@@ -10,83 +10,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'EndpointCustomHeader',
-    'EndpointSubnet',
     'ProfileDnsConfig',
     'ProfileMonitorConfig',
     'ProfileMonitorConfigCustomHeader',
 ]
-
-@pulumi.output_type
-class EndpointCustomHeader(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        """
-        :param str name: The name of the custom header.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the custom header.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value of custom header. Applicable for Http and Https protocol.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EndpointSubnet(dict):
-    def __init__(__self__, *,
-                 first: str,
-                 last: Optional[str] = None,
-                 scope: Optional[int] = None):
-        """
-        :param str first: The First IP....
-        :param str last: The Last IP...
-        :param int scope: The Scope...
-        """
-        pulumi.set(__self__, "first", first)
-        if last is not None:
-            pulumi.set(__self__, "last", last)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter
-    def first(self) -> str:
-        """
-        The First IP....
-        """
-        return pulumi.get(self, "first")
-
-    @property
-    @pulumi.getter
-    def last(self) -> Optional[str]:
-        """
-        The Last IP...
-        """
-        return pulumi.get(self, "last")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[int]:
-        """
-        The Scope...
-        """
-        return pulumi.get(self, "scope")
-
 
 @pulumi.output_type
 class ProfileDnsConfig(dict):

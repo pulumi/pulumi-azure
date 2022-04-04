@@ -73,10 +73,6 @@ export class VirtualHubConnection extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
-     */
-    public readonly hubToVitualNetworkTrafficAllowed!: pulumi.Output<boolean | undefined>;
-    /**
      * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly internetSecurityEnabled!: pulumi.Output<boolean | undefined>;
@@ -96,10 +92,6 @@ export class VirtualHubConnection extends pulumi.CustomResource {
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualHubId!: pulumi.Output<string>;
-    /**
-     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
-     */
-    public readonly vitualNetworkToHubGatewaysTrafficAllowed!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualHubConnection resource with the given unique name, arguments, and options.
@@ -114,13 +106,11 @@ export class VirtualHubConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubConnectionState | undefined;
-            resourceInputs["hubToVitualNetworkTrafficAllowed"] = state ? state.hubToVitualNetworkTrafficAllowed : undefined;
             resourceInputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
             resourceInputs["routing"] = state ? state.routing : undefined;
             resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
-            resourceInputs["vitualNetworkToHubGatewaysTrafficAllowed"] = state ? state.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         } else {
             const args = argsOrState as VirtualHubConnectionArgs | undefined;
             if ((!args || args.remoteVirtualNetworkId === undefined) && !opts.urn) {
@@ -129,13 +119,11 @@ export class VirtualHubConnection extends pulumi.CustomResource {
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["hubToVitualNetworkTrafficAllowed"] = args ? args.hubToVitualNetworkTrafficAllowed : undefined;
             resourceInputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
             resourceInputs["routing"] = args ? args.routing : undefined;
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
-            resourceInputs["vitualNetworkToHubGatewaysTrafficAllowed"] = args ? args.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualHubConnection.__pulumiType, name, resourceInputs, opts);
@@ -146,10 +134,6 @@ export class VirtualHubConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualHubConnection resources.
  */
 export interface VirtualHubConnectionState {
-    /**
-     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
-     */
-    hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
     /**
      * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -170,20 +154,12 @@ export interface VirtualHubConnectionState {
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
     virtualHubId?: pulumi.Input<string>;
-    /**
-     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
-     */
-    vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
 }
 
 /**
  * The set of arguments for constructing a VirtualHubConnection resource.
  */
 export interface VirtualHubConnectionArgs {
-    /**
-     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
-     */
-    hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
     /**
      * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -204,8 +180,4 @@ export interface VirtualHubConnectionArgs {
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
     virtualHubId: pulumi.Input<string>;
-    /**
-     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
-     */
-    vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
 }

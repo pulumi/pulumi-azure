@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cluster";
 export * from "./functionJavaScriptUDF";
+export * from "./functionJavascriptUda";
 export * from "./getJob";
 export * from "./job";
 export * from "./managedPrivateEndpoint";
@@ -27,6 +28,7 @@ export * from "./streamInputIotHub";
 // Import resources to register:
 import { Cluster } from "./cluster";
 import { FunctionJavaScriptUDF } from "./functionJavaScriptUDF";
+import { FunctionJavascriptUda } from "./functionJavascriptUda";
 import { Job } from "./job";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { OutputBlob } from "./outputBlob";
@@ -51,6 +53,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF":
                 return new FunctionJavaScriptUDF(name, <any>undefined, { urn })
+            case "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda":
+                return new FunctionJavascriptUda(name, <any>undefined, { urn })
             case "azure:streamanalytics/job:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
@@ -88,6 +92,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavaScriptUDF", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavascriptUda", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/job", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputBlob", _module)

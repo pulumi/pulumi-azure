@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/synapse"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -61,6 +61,9 @@ import (
 // 				ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 				TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("production"),
 // 			},
@@ -78,10 +81,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/synapse"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -162,6 +165,9 @@ import (
 // 				KeyVersionlessId: exampleKey.VersionlessId,
 // 				KeyName:          pulumi.String("enckey"),
 // 			},
+// 			Identity: &synapse.WorkspaceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("production"),
 // 			},
@@ -171,11 +177,11 @@ import (
 // 		}
 // 		workspacePolicy, err := keyvault.NewAccessPolicy(ctx, "workspacePolicy", &keyvault.AccessPolicyArgs{
 // 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId: exampleWorkspace.Identities.ApplyT(func(identities []synapse.WorkspaceIdentity) (string, error) {
-// 				return identities[0].TenantId, nil
+// 			TenantId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (string, error) {
+// 				return identity.TenantId, nil
 // 			}).(pulumi.StringOutput),
-// 			ObjectId: exampleWorkspace.Identities.ApplyT(func(identities []synapse.WorkspaceIdentity) (string, error) {
-// 				return identities[0].PrincipalId, nil
+// 			ObjectId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
 // 			}).(pulumi.StringOutput),
 // 			KeyPermissions: pulumi.StringArray{
 // 				pulumi.String("Get"),
@@ -237,8 +243,8 @@ type Workspace struct {
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
-	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
-	Identities WorkspaceIdentityArrayOutput `pulumi:"identities"`
+	// An `identity` block as defined below.
+	Identity WorkspaceIdentityOutput `pulumi:"identity"`
 	// Allowed Aad Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayOutput `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -276,6 +282,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -324,8 +333,8 @@ type workspaceState struct {
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
-	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
-	Identities []WorkspaceIdentity `pulumi:"identities"`
+	// An `identity` block as defined below.
+	Identity *WorkspaceIdentity `pulumi:"identity"`
 	// Allowed Aad Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -371,8 +380,8 @@ type WorkspaceState struct {
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
-	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
-	Identities WorkspaceIdentityArrayInput
+	// An `identity` block as defined below.
+	Identity WorkspaceIdentityPtrInput
 	// Allowed Aad Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -420,6 +429,8 @@ type workspaceArgs struct {
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
+	// An `identity` block as defined below.
+	Identity WorkspaceIdentity `pulumi:"identity"`
 	// Allowed Aad Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -464,6 +475,8 @@ type WorkspaceArgs struct {
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
+	// An `identity` block as defined below.
+	Identity WorkspaceIdentityInput
 	// Allowed Aad Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.

@@ -159,12 +159,6 @@ namespace Pulumi.Azure.Backup
         public Output<Outputs.PolicyVMRetentionYearly?> RetentionYearly { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Output("timezone")]
@@ -270,18 +264,6 @@ namespace Pulumi.Azure.Backup
         [Input("retentionYearly")]
         public Input<Inputs.PolicyVMRetentionYearlyArgs>? RetentionYearly { get; set; }
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
@@ -348,18 +330,6 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyVMRetentionYearlyGetArgs>? RetentionYearly { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

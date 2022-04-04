@@ -123,17 +123,6 @@ Object.defineProperty(exports, "metadataHost", {
 });
 
 /**
- * Deprecated - replaced by `metadata_host`.
- */
-export declare const metadataUrl: string | undefined;
-Object.defineProperty(exports, "metadataUrl", {
-    get() {
-        return __config.get("metadataUrl") ?? utilities.getEnv("ARM_METADATA_URL");
-    },
-    enumerable: true,
-});
-
-/**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.
  */
@@ -152,17 +141,6 @@ export declare const partnerId: string | undefined;
 Object.defineProperty(exports, "partnerId", {
     get() {
         return __config.get("partnerId");
-    },
-    enumerable: true,
-});
-
-/**
- * [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
- */
-export declare const skipCredentialsValidation: boolean | undefined;
-Object.defineProperty(exports, "skipCredentialsValidation", {
-    get() {
-        return __config.getObject<boolean>("skipCredentialsValidation");
     },
     enumerable: true,
 });
@@ -208,17 +186,6 @@ export declare const tenantId: string | undefined;
 Object.defineProperty(exports, "tenantId", {
     get() {
         return __config.get("tenantId");
-    },
-    enumerable: true,
-});
-
-/**
- * Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
- */
-export declare const useMsal: boolean | undefined;
-Object.defineProperty(exports, "useMsal", {
-    get() {
-        return __config.getObject<boolean>("useMsal");
     },
     enumerable: true,
 });

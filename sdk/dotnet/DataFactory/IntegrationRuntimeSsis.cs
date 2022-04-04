@@ -34,7 +34,6 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleIntegrationRuntimeSsis = new Azure.DataFactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", new Azure.DataFactory.IntegrationRuntimeSsisArgs
     ///         {
     ///             DataFactoryId = exampleFactory.Id,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///             NodeSize = "Standard_D8_v3",
     ///         });
@@ -71,12 +70,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("dataFactoryId")]
         public Output<string> DataFactoryId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -145,12 +138,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeSsisProxy?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
         /// A `vnet_integration` block as defined below.
         /// </summary>
         [Output("vnetIntegration")]
@@ -217,14 +204,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -299,12 +280,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeSsisProxyArgs>? Proxy { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
         /// A `vnet_integration` block as defined below.
         /// </summary>
         [Input("vnetIntegration")]
@@ -334,12 +309,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// Integration runtime description.
@@ -412,12 +381,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.IntegrationRuntimeSsisProxyGetArgs>? Proxy { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// A `vnet_integration` block as defined below.

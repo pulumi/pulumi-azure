@@ -148,13 +148,13 @@ func (o AccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 }
 
 type AccountIdentity struct {
-	// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -170,13 +170,13 @@ type AccountIdentityInput interface {
 }
 
 type AccountIdentityArgs struct {
-	// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -257,22 +257,22 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	}).(AccountIdentityPtrOutput)
 }
 
-// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+// The Principal ID associated with this Managed Service Identity.
 func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+// The Tenant ID associated with this Managed Service Identity.
 func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -301,7 +301,7 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 	}).(AccountIdentityOutput)
 }
 
-// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -311,7 +311,7 @@ func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+// The Principal ID associated with this Managed Service Identity.
 func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -321,7 +321,7 @@ func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+// The Tenant ID associated with this Managed Service Identity.
 func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -331,7 +331,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -1245,9 +1245,9 @@ func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
 }
 
 type PoolIdentity struct {
-	// Specifies a list of user assigned identity ids.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1263,9 +1263,9 @@ type PoolIdentityInput interface {
 }
 
 type PoolIdentityArgs struct {
-	// Specifies a list of user assigned identity ids.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1346,12 +1346,12 @@ func (o PoolIdentityOutput) ToPoolIdentityPtrOutputWithContext(ctx context.Conte
 	}).(PoolIdentityPtrOutput)
 }
 
-// Specifies a list of user assigned identity ids.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 func (o PoolIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
 func (o PoolIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1380,7 +1380,7 @@ func (o PoolIdentityPtrOutput) Elem() PoolIdentityOutput {
 	}).(PoolIdentityOutput)
 }
 
-// Specifies a list of user assigned identity ids.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 func (o PoolIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PoolIdentity) []string {
 		if v == nil {
@@ -1390,7 +1390,7 @@ func (o PoolIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
 func (o PoolIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolIdentity) *string {
 		if v == nil {
@@ -1853,14 +1853,6 @@ type PoolStartTask struct {
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
-	// A map of strings (key,value) that represents the environment variables to set in the start task.
-	//
-	// Deprecated: Deprecated in favour of `common_environment_properties`
-	Environment map[string]string `pulumi:"environment"`
-	// The number of retry count. Defaults to `1`.
-	//
-	// Deprecated: Deprecated in favour of `task_retry_maximum`
-	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// The number of retry count. Defaults to `1`.
@@ -1887,14 +1879,6 @@ type PoolStartTaskArgs struct {
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
-	// A map of strings (key,value) that represents the environment variables to set in the start task.
-	//
-	// Deprecated: Deprecated in favour of `common_environment_properties`
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The number of retry count. Defaults to `1`.
-	//
-	// Deprecated: Deprecated in favour of `task_retry_maximum`
-	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// The number of retry count. Defaults to `1`.
@@ -1992,20 +1976,6 @@ func (o PoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOutpu
 	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
 }
 
-// A map of strings (key,value) that represents the environment variables to set in the start task.
-//
-// Deprecated: Deprecated in favour of `common_environment_properties`
-func (o PoolStartTaskOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
-}
-
-// The number of retry count. Defaults to `1`.
-//
-// Deprecated: Deprecated in favour of `task_retry_maximum`
-func (o PoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
-}
-
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
@@ -2068,30 +2038,6 @@ func (o PoolStartTaskPtrOutput) CommonEnvironmentProperties() pulumi.StringMapOu
 		}
 		return v.CommonEnvironmentProperties
 	}).(pulumi.StringMapOutput)
-}
-
-// A map of strings (key,value) that represents the environment variables to set in the start task.
-//
-// Deprecated: Deprecated in favour of `common_environment_properties`
-func (o PoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PoolStartTask) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(pulumi.StringMapOutput)
-}
-
-// The number of retry count. Defaults to `1`.
-//
-// Deprecated: Deprecated in favour of `task_retry_maximum`
-func (o PoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PoolStartTask) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxTaskRetryCount
-	}).(pulumi.IntPtrOutput)
 }
 
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
@@ -3623,7 +3569,7 @@ func (o GetPoolFixedScaleArrayOutput) Index(i pulumi.IntInput) GetPoolFixedScale
 
 type GetPoolNetworkConfiguration struct {
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-	EndpointConfiguration GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfiguration"`
+	EndpointConfigurations []GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -3641,7 +3587,7 @@ type GetPoolNetworkConfigurationInput interface {
 
 type GetPoolNetworkConfigurationArgs struct {
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-	EndpointConfiguration GetPoolNetworkConfigurationEndpointConfigurationInput `pulumi:"endpointConfiguration"`
+	EndpointConfigurations GetPoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -3656,6 +3602,31 @@ func (i GetPoolNetworkConfigurationArgs) ToGetPoolNetworkConfigurationOutput() G
 
 func (i GetPoolNetworkConfigurationArgs) ToGetPoolNetworkConfigurationOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationOutput)
+}
+
+// GetPoolNetworkConfigurationArrayInput is an input type that accepts GetPoolNetworkConfigurationArray and GetPoolNetworkConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetPoolNetworkConfigurationArrayInput` via:
+//
+//          GetPoolNetworkConfigurationArray{ GetPoolNetworkConfigurationArgs{...} }
+type GetPoolNetworkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolNetworkConfigurationArrayOutput() GetPoolNetworkConfigurationArrayOutput
+	ToGetPoolNetworkConfigurationArrayOutputWithContext(context.Context) GetPoolNetworkConfigurationArrayOutput
+}
+
+type GetPoolNetworkConfigurationArray []GetPoolNetworkConfigurationInput
+
+func (GetPoolNetworkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetPoolNetworkConfigurationArray) ToGetPoolNetworkConfigurationArrayOutput() GetPoolNetworkConfigurationArrayOutput {
+	return i.ToGetPoolNetworkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolNetworkConfigurationArray) ToGetPoolNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationArrayOutput)
 }
 
 type GetPoolNetworkConfigurationOutput struct{ *pulumi.OutputState }
@@ -3673,15 +3644,35 @@ func (o GetPoolNetworkConfigurationOutput) ToGetPoolNetworkConfigurationOutputWi
 }
 
 // The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-func (o GetPoolNetworkConfigurationOutput) EndpointConfiguration() GetPoolNetworkConfigurationEndpointConfigurationOutput {
-	return o.ApplyT(func(v GetPoolNetworkConfiguration) GetPoolNetworkConfigurationEndpointConfiguration {
-		return v.EndpointConfiguration
-	}).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
+func (o GetPoolNetworkConfigurationOutput) EndpointConfigurations() GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) []GetPoolNetworkConfigurationEndpointConfiguration {
+		return v.EndpointConfigurations
+	}).(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
 // The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 func (o GetPoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetPoolNetworkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolNetworkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetPoolNetworkConfigurationArrayOutput) ToGetPoolNetworkConfigurationArrayOutput() GetPoolNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolNetworkConfigurationArrayOutput) ToGetPoolNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolNetworkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolNetworkConfiguration {
+		return vs[0].([]GetPoolNetworkConfiguration)[vs[1].(int)]
+	}).(GetPoolNetworkConfigurationOutput)
 }
 
 type GetPoolNetworkConfigurationEndpointConfiguration struct {
@@ -3733,6 +3724,31 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationArgs) ToGetPoolNetworkCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
+// GetPoolNetworkConfigurationEndpointConfigurationArrayInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationArray and GetPoolNetworkConfigurationEndpointConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetPoolNetworkConfigurationEndpointConfigurationArrayInput` via:
+//
+//          GetPoolNetworkConfigurationEndpointConfigurationArray{ GetPoolNetworkConfigurationEndpointConfigurationArgs{...} }
+type GetPoolNetworkConfigurationEndpointConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutput() GetPoolNetworkConfigurationEndpointConfigurationArrayOutput
+	ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(context.Context) GetPoolNetworkConfigurationEndpointConfigurationArrayOutput
+}
+
+type GetPoolNetworkConfigurationEndpointConfigurationArray []GetPoolNetworkConfigurationEndpointConfigurationInput
+
+func (GetPoolNetworkConfigurationEndpointConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolNetworkConfigurationEndpointConfiguration)(nil)).Elem()
+}
+
+func (i GetPoolNetworkConfigurationEndpointConfigurationArray) ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutput() GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
+	return i.ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolNetworkConfigurationEndpointConfigurationArray) ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput)
+}
+
 type GetPoolNetworkConfigurationEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -3772,6 +3788,26 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) NetworkSecurityG
 // The protocol of the endpoint.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetPoolNetworkConfigurationEndpointConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolNetworkConfigurationEndpointConfiguration)(nil)).Elem()
+}
+
+func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutput() GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolNetworkConfigurationEndpointConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolNetworkConfigurationEndpointConfiguration {
+		return vs[0].([]GetPoolNetworkConfigurationEndpointConfiguration)[vs[1].(int)]
+	}).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
 type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struct {
@@ -3900,10 +3936,6 @@ type GetPoolStartTask struct {
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
-	// A map of strings (key,value) that represents the environment variables to set in the start task.
-	Environment map[string]string `pulumi:"environment"`
-	// The number of retry count.
-	MaxTaskRetryCount int `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []GetPoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// The number of retry count
@@ -3930,10 +3962,6 @@ type GetPoolStartTaskArgs struct {
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
-	// A map of strings (key,value) that represents the environment variables to set in the start task.
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The number of retry count.
-	MaxTaskRetryCount pulumi.IntInput `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles GetPoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// The number of retry count
@@ -4003,16 +4031,6 @@ func (o GetPoolStartTaskOutput) CommandLine() pulumi.StringOutput {
 // A map of strings (key,value) that represents the environment variables to set in the start task.
 func (o GetPoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetPoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
-}
-
-// A map of strings (key,value) that represents the environment variables to set in the start task.
-func (o GetPoolStartTaskOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetPoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
-}
-
-// The number of retry count.
-func (o GetPoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetPoolStartTask) int { return v.MaxTaskRetryCount }).(pulumi.IntOutput)
 }
 
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
@@ -4580,7 +4598,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolFixedScaleInput)(nil)).Elem(), GetPoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolFixedScaleArrayInput)(nil)).Elem(), GetPoolFixedScaleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationInput)(nil)).Elem(), GetPoolNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskInput)(nil)).Elem(), GetPoolStartTaskArgs{})
@@ -4642,7 +4662,9 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolFixedScaleOutput{})
 	pulumi.RegisterOutputType(GetPoolFixedScaleArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPoolNetworkConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskOutput{})

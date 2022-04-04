@@ -120,20 +120,14 @@ export class Topic extends pulumi.CustomResource {
      * this topic in. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
+    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      */
     public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */
@@ -151,7 +145,7 @@ export class Topic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TopicArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -174,6 +168,9 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["supportOrdering"] = state ? state.supportOrdering : undefined;
         } else {
             const args = argsOrState as TopicArgs | undefined;
+            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'namespaceId'");
+            }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
@@ -184,11 +181,11 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            resourceInputs["namespaceName"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/topic:Topic" }] };
@@ -255,9 +252,6 @@ export interface TopicState {
      * this topic in. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
     namespaceName?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether
@@ -265,9 +259,6 @@ export interface TopicState {
      * a new resource to be created.
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -337,21 +328,13 @@ export interface TopicArgs {
      * The ID of the ServiceBus Namespace to create
      * this topic in. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    namespaceName?: pulumi.Input<string>;
+    namespaceId: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */

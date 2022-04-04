@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolIdentity
     {
         /// <summary>
-        /// Specifies a list of user assigned identity ids.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The identity type of the Batch Account. Only possible values is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

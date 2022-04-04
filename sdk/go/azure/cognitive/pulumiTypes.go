@@ -11,11 +11,13 @@ import (
 )
 
 type AccountIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -31,11 +33,13 @@ type AccountIdentityInput interface {
 }
 
 type AccountIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -116,20 +120,22 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	}).(AccountIdentityPtrOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -158,7 +164,7 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 	}).(AccountIdentityOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -168,6 +174,7 @@ func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -177,6 +184,7 @@ func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -186,7 +194,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -197,14 +205,12 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type AccountNetworkAcls struct {
-	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
 	IpRules []string `pulumi:"ipRules"`
 	// A `virtualNetworkRules` block as defined below.
 	VirtualNetworkRules []AccountNetworkAclsVirtualNetworkRule `pulumi:"virtualNetworkRules"`
-	// Deprecated: Deprecated in favour of `virtual_network_rules`
-	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
 // AccountNetworkAclsInput is an input type that accepts AccountNetworkAclsArgs and AccountNetworkAclsOutput values.
@@ -219,14 +225,12 @@ type AccountNetworkAclsInput interface {
 }
 
 type AccountNetworkAclsArgs struct {
-	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// A `virtualNetworkRules` block as defined below.
 	VirtualNetworkRules AccountNetworkAclsVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
-	// Deprecated: Deprecated in favour of `virtual_network_rules`
-	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
 }
 
 func (AccountNetworkAclsArgs) ElementType() reflect.Type {
@@ -306,7 +310,7 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx c
 	}).(AccountNetworkAclsPtrOutput)
 }
 
-// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 func (o AccountNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
@@ -319,11 +323,6 @@ func (o AccountNetworkAclsOutput) IpRules() pulumi.StringArrayOutput {
 // A `virtualNetworkRules` block as defined below.
 func (o AccountNetworkAclsOutput) VirtualNetworkRules() AccountNetworkAclsVirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v AccountNetworkAcls) []AccountNetworkAclsVirtualNetworkRule { return v.VirtualNetworkRules }).(AccountNetworkAclsVirtualNetworkRuleArrayOutput)
-}
-
-// Deprecated: Deprecated in favour of `virtual_network_rules`
-func (o AccountNetworkAclsOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AccountNetworkAcls) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
 
 type AccountNetworkAclsPtrOutput struct{ *pulumi.OutputState }
@@ -350,7 +349,7 @@ func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
 	}).(AccountNetworkAclsOutput)
 }
 
-// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 func (o AccountNetworkAclsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountNetworkAcls) *string {
 		if v == nil {
@@ -378,16 +377,6 @@ func (o AccountNetworkAclsPtrOutput) VirtualNetworkRules() AccountNetworkAclsVir
 		}
 		return v.VirtualNetworkRules
 	}).(AccountNetworkAclsVirtualNetworkRuleArrayOutput)
-}
-
-// Deprecated: Deprecated in favour of `virtual_network_rules`
-func (o AccountNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AccountNetworkAcls) []string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkSubnetIds
-	}).(pulumi.StringArrayOutput)
 }
 
 type AccountNetworkAclsVirtualNetworkRule struct {

@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceAzureFileStorage = new azure.datafactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: exampleAccount.apply(exampleAccount => exampleAccount.primaryConnectionString),
  * });
@@ -83,12 +82,6 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -115,10 +108,6 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly userId!: pulumi.Output<string | undefined>;
 
     /**
@@ -138,7 +127,6 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["connectionString"] = state ? state.connectionString : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["fileShare"] = state ? state.fileShare : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
@@ -147,21 +135,19 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureFileStorageArgs | undefined;
             if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["connectionString"] = args ? args.connectionString : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["fileShare"] = args ? args.fileShare : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
@@ -170,7 +156,6 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -199,12 +184,6 @@ export interface LinkedServiceAzureFileStorageState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     description?: pulumi.Input<string>;
@@ -231,10 +210,6 @@ export interface LinkedServiceAzureFileStorageState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     password?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     userId?: pulumi.Input<string>;
 }
 
@@ -257,13 +232,7 @@ export interface LinkedServiceAzureFileStorageArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
@@ -291,9 +260,5 @@ export interface LinkedServiceAzureFileStorageArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     password?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     userId?: pulumi.Input<string>;
 }

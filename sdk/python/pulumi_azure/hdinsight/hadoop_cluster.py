@@ -607,7 +607,6 @@ class HadoopCluster(pulumi.CustomResource):
                 hadoop="2.7",
             ),
             gateway=azure.hdinsight.HadoopClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="PAssword123!",
             ),
@@ -695,7 +694,6 @@ class HadoopCluster(pulumi.CustomResource):
                 hadoop="2.7",
             ),
             gateway=azure.hdinsight.HadoopClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="PAssword123!",
             ),

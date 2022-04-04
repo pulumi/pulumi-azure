@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/desktopvirtualization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -87,9 +87,6 @@ type HostPool struct {
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType pulumi.StringPtrOutput `pulumi:"preferredAppGroupType"`
-	// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-	// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-	RegistrationInfo HostPoolRegistrationInfoPtrOutput `pulumi:"registrationInfo"`
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
@@ -168,9 +165,6 @@ type hostPoolState struct {
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
-	// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-	// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-	RegistrationInfo *HostPoolRegistrationInfo `pulumi:"registrationInfo"`
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
@@ -212,9 +206,6 @@ type HostPoolState struct {
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType pulumi.StringPtrInput
-	// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-	// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-	RegistrationInfo HostPoolRegistrationInfoPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
@@ -260,9 +251,6 @@ type hostPoolArgs struct {
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
-	// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-	// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-	RegistrationInfo *HostPoolRegistrationInfo `pulumi:"registrationInfo"`
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
@@ -305,9 +293,6 @@ type HostPoolArgs struct {
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
 	PreferredAppGroupType pulumi.StringPtrInput
-	// This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-	// `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-	RegistrationInfo HostPoolRegistrationInfoPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.

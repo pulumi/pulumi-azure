@@ -5,20 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./endpoint";
 export * from "./getGeographicalLocation";
 export * from "./profile";
 
 // Import resources to register:
-import { Endpoint } from "./endpoint";
 import { Profile } from "./profile";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:trafficmanager/endpoint:Endpoint":
-                return new Endpoint(name, <any>undefined, { urn })
             case "azure:trafficmanager/profile:Profile":
                 return new Profile(name, <any>undefined, { urn })
             default:
@@ -26,5 +22,4 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "trafficmanager/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "trafficmanager/profile", _module)

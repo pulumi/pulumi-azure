@@ -30,12 +30,6 @@ namespace Pulumi.Azure.Policy.Inputs
         [Input("contentUri")]
         public Input<string>? ContentUri { get; set; }
 
-        /// <summary>
-        /// This field is no longer used and will be removed in the next major version of the Azure Provider.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
         [Input("parameters")]
         private InputList<Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs>? _parameters;
 

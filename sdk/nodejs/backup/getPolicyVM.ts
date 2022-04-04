@@ -62,10 +62,6 @@ export interface GetPolicyVMResult {
     readonly name: string;
     readonly recoveryVaultName: string;
     readonly resourceGroupName: string;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
-    readonly tags: {[key: string]: string};
 }
 
 export function getPolicyVMOutput(args: GetPolicyVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyVMResult> {

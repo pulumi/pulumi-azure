@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -103,7 +103,7 @@ type DiskPool struct {
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Disk Pool.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+	// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -160,7 +160,7 @@ type diskPoolState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Disk Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+	// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -177,7 +177,7 @@ type DiskPoolState struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Disk Pool.
 	Tags pulumi.StringMapInput
-	// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+	// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -198,7 +198,7 @@ type diskPoolArgs struct {
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Disk Pool.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+	// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -216,7 +216,7 @@ type DiskPoolArgs struct {
 	SubnetId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Disk Pool.
 	Tags pulumi.StringMapInput
-	// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+	// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
 	Zones pulumi.StringArrayInput
 }
 

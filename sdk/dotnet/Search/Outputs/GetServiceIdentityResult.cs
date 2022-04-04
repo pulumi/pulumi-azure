@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Search.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The Type of Managed Identity which is used for the Search Service.
+        /// The identity type of this Managed Service Identity.
         /// </summary>
         public readonly string Type;
 

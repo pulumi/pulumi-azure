@@ -123,12 +123,6 @@ namespace Pulumi.Azure.Iot
         public Output<string> IothubId { get; private set; } = null!;
 
         /// <summary>
-        /// The IoTHub name for the endpoint.
-        /// </summary>
-        [Output("iothubName")]
-        public Output<string> IothubName { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         [Output("name")]
@@ -219,14 +213,8 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The IoTHub ID for the endpoint.
         /// </summary>
-        [Input("iothubId")]
-        public Input<string>? IothubId { get; set; }
-
-        /// <summary>
-        /// The IoTHub name for the endpoint.
-        /// </summary>
-        [Input("iothubName")]
-        public Input<string>? IothubName { get; set; }
+        [Input("iothubId", required: true)]
+        public Input<string> IothubId { get; set; } = null!;
 
         /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -282,12 +270,6 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("iothubId")]
         public Input<string>? IothubId { get; set; }
-
-        /// <summary>
-        /// The IoTHub name for the endpoint.
-        /// </summary>
-        [Input("iothubName")]
-        public Input<string>? IothubName { get; set; }
 
         /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.

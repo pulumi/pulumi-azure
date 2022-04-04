@@ -91,13 +91,7 @@ namespace Pulumi.Azure.Policy
         /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managementGroupId")]
-        public Output<string> ManagementGroupId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("managementGroupName")]
-        public Output<string> ManagementGroupName { get; private set; } = null!;
+        public Output<string?> ManagementGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
@@ -128,12 +122,6 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Output("policyDefinitionReferences")]
         public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionReference>> PolicyDefinitionReferences { get; private set; } = null!;
-
-        /// <summary>
-        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-        /// </summary>
-        [Output("policyDefinitions")]
-        public Output<string> PolicyDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
@@ -206,12 +194,6 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("managementGroupName")]
-        public Input<string>? ManagementGroupName { get; set; }
-
-        /// <summary>
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Input("metadata")]
@@ -241,7 +223,7 @@ namespace Pulumi.Azure.Policy
             set => _policyDefinitionGroups = value;
         }
 
-        [Input("policyDefinitionReferences")]
+        [Input("policyDefinitionReferences", required: true)]
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs>? _policyDefinitionReferences;
 
         /// <summary>
@@ -252,12 +234,6 @@ namespace Pulumi.Azure.Policy
             get => _policyDefinitionReferences ?? (_policyDefinitionReferences = new InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs>());
             set => _policyDefinitionReferences = value;
         }
-
-        /// <summary>
-        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-        /// </summary>
-        [Input("policyDefinitions")]
-        public Input<string>? PolicyDefinitions { get; set; }
 
         /// <summary>
         /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
@@ -289,12 +265,6 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
-
-        /// <summary>
-        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("managementGroupName")]
-        public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
@@ -337,12 +307,6 @@ namespace Pulumi.Azure.Policy
             get => _policyDefinitionReferences ?? (_policyDefinitionReferences = new InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs>());
             set => _policyDefinitionReferences = value;
         }
-
-        /// <summary>
-        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-        /// </summary>
-        [Input("policyDefinitions")]
-        public Input<string>? PolicyDefinitions { get; set; }
 
         /// <summary>
         /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.

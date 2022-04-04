@@ -96,6 +96,14 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The Autonomous System Number of the Virtual Hub BGP router.
+     */
+    public /*out*/ readonly virtualRouterAsn!: pulumi.Output<number>;
+    /**
+     * The IP addresses of the Virtual Hub BGP router.
+     */
+    public /*out*/ readonly virtualRouterIps!: pulumi.Output<string[]>;
+    /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualWanId!: pulumi.Output<string | undefined>;
@@ -121,6 +129,8 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["routes"] = state ? state.routes : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualRouterAsn"] = state ? state.virtualRouterAsn : undefined;
+            resourceInputs["virtualRouterIps"] = state ? state.virtualRouterIps : undefined;
             resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VirtualHubArgs | undefined;
@@ -136,6 +146,8 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
             resourceInputs["defaultRouteTableId"] = undefined /*out*/;
+            resourceInputs["virtualRouterAsn"] = undefined /*out*/;
+            resourceInputs["virtualRouterIps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualHub.__pulumiType, name, resourceInputs, opts);
@@ -178,6 +190,14 @@ export interface VirtualHubState {
      * A mapping of tags to assign to the Virtual Hub.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Autonomous System Number of the Virtual Hub BGP router.
+     */
+    virtualRouterAsn?: pulumi.Input<number>;
+    /**
+     * The IP addresses of the Virtual Hub BGP router.
+     */
+    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */

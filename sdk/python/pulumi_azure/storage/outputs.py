@@ -585,8 +585,8 @@ class AccountIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
@@ -602,7 +602,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -610,7 +610,7 @@ class AccountIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2662,27 +2662,33 @@ class GetAccountSASPermissionsResult(dict):
                  add: bool,
                  create: bool,
                  delete: bool,
+                 filter: bool,
                  list: bool,
                  process: bool,
                  read: bool,
+                 tag: bool,
                  update: bool,
                  write: bool):
         """
         :param bool add: Should Add permissions be enabled for this SAS?
         :param bool create: Should Create permissions be enabled for this SAS?
         :param bool delete: Should Delete permissions be enabled for this SAS?
+        :param bool filter: Should Filter by Index Tags permissions be enabled for this SAS?
         :param bool list: Should List permissions be enabled for this SAS?
         :param bool process: Should Process permissions be enabled for this SAS?
         :param bool read: Should Read permissions be enabled for this SAS?
+        :param bool tag: Should Get / Set Index Tags permissions be enabled for this SAS?
         :param bool update: Should Update permissions be enabled for this SAS?
         :param bool write: Should Write permissions be enabled for this SAS?
         """
         pulumi.set(__self__, "add", add)
         pulumi.set(__self__, "create", create)
         pulumi.set(__self__, "delete", delete)
+        pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "list", list)
         pulumi.set(__self__, "process", process)
         pulumi.set(__self__, "read", read)
+        pulumi.set(__self__, "tag", tag)
         pulumi.set(__self__, "update", update)
         pulumi.set(__self__, "write", write)
 
@@ -2712,6 +2718,14 @@ class GetAccountSASPermissionsResult(dict):
 
     @property
     @pulumi.getter
+    def filter(self) -> bool:
+        """
+        Should Filter by Index Tags permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
     def list(self) -> bool:
         """
         Should List permissions be enabled for this SAS?
@@ -2733,6 +2747,14 @@ class GetAccountSASPermissionsResult(dict):
         Should Read permissions be enabled for this SAS?
         """
         return pulumi.get(self, "read")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> bool:
+        """
+        Should Get / Set Index Tags permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "tag")
 
     @property
     @pulumi.getter

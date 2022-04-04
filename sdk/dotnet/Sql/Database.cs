@@ -10,61 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "West US",
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "production" },
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new Azure.Sql.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "West US",
-    ///             ServerName = exampleSqlServer.Name,
-    ///             ExtendedAuditingPolicy = new Azure.Sql.Inputs.DatabaseExtendedAuditingPolicyArgs
-    ///             {
-    ///                 StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///                 StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///                 StorageAccountAccessKeyIsSecondary = true,
-    ///                 RetentionInDays = 6,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "production" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Databases can be imported using the `resource id`, e.g.
@@ -114,12 +59,6 @@ namespace Pulumi.Azure.Sql
 
         [Output("encryption")]
         public Output<string> Encryption { get; private set; } = null!;
-
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
-        [Output("extendedAuditingPolicy")]
-        public Output<Outputs.DatabaseExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.
@@ -286,12 +225,6 @@ namespace Pulumi.Azure.Sql
         public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.DatabaseExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
-
-        /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Input("import")]
@@ -436,12 +369,6 @@ namespace Pulumi.Azure.Sql
 
         [Input("encryption")]
         public Input<string>? Encryption { get; set; }
-
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.DatabaseExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
 
         /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.

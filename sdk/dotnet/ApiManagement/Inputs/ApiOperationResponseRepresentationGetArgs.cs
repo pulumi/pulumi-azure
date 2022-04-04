@@ -43,12 +43,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         }
 
         /// <summary>
-        /// An example of this representation.
-        /// </summary>
-        [Input("sample")]
-        public Input<string>? Sample { get; set; }
-
-        /// <summary>
         /// The ID of an API Management Schema which represents this Response.
         /// </summary>
         [Input("schemaId")]

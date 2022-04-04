@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/signalr"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/signalr"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -84,23 +84,19 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-	ConnectivityLogsEnabled pulumi.BoolOutput `pulumi:"connectivityLogsEnabled"`
+	ConnectivityLogsEnabled pulumi.BoolPtrOutput `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayOutput `pulumi:"cors"`
-	// A `features` block as documented below.
-	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-	Features ServiceFeatureArrayOutput `pulumi:"features"`
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
-	LiveTraceEnabled pulumi.BoolOutput `pulumi:"liveTraceEnabled"`
+	LiveTraceEnabled pulumi.BoolPtrOutput `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
-	MessagingLogsEnabled pulumi.BoolOutput `pulumi:"messagingLogsEnabled"`
+	MessagingLogsEnabled pulumi.BoolPtrOutput `pulumi:"messagingLogsEnabled"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary access key for the SignalR service.
@@ -118,7 +114,7 @@ type Service struct {
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
-	ServiceMode pulumi.StringOutput `pulumi:"serviceMode"`
+	ServiceMode pulumi.StringPtrOutput `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku ServiceSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
@@ -166,10 +162,6 @@ type serviceState struct {
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
-	// A `features` block as documented below.
-	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-	Features []ServiceFeature `pulumi:"features"`
 	// The FQDN of the SignalR service.
 	Hostname *string `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
@@ -211,10 +203,6 @@ type ServiceState struct {
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
-	// A `features` block as documented below.
-	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-	Features ServiceFeatureArrayInput
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringPtrInput
 	// The publicly accessible IP of the SignalR service.
@@ -260,10 +248,6 @@ type serviceArgs struct {
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
-	// A `features` block as documented below.
-	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-	Features []ServiceFeature `pulumi:"features"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -290,10 +274,6 @@ type ServiceArgs struct {
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
-	// A `features` block as documented below.
-	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-	Features ServiceFeatureArrayInput
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	LiveTraceEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.

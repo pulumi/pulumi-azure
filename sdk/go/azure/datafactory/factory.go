@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -56,12 +56,14 @@ type Factory struct {
 
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId pulumi.StringPtrOutput `pulumi:"customerManagedKeyId"`
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	CustomerManagedKeyIdentityId pulumi.StringPtrOutput `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrOutput `pulumi:"githubConfiguration"`
 	// A list of `globalParameter` blocks as defined above.
 	GlobalParameters FactoryGlobalParameterArrayOutput `pulumi:"globalParameters"`
 	// An `identity` block as defined below.
-	Identity FactoryIdentityOutput `pulumi:"identity"`
+	Identity FactoryIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Is Managed Virtual Network enabled?
@@ -112,6 +114,8 @@ func GetFactory(ctx *pulumi.Context,
 type factoryState struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	CustomerManagedKeyIdentityId *string `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
 	// A list of `globalParameter` blocks as defined above.
@@ -137,6 +141,8 @@ type factoryState struct {
 type FactoryState struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId pulumi.StringPtrInput
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	CustomerManagedKeyIdentityId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
 	// A list of `globalParameter` blocks as defined above.
@@ -166,6 +172,8 @@ func (FactoryState) ElementType() reflect.Type {
 type factoryArgs struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	CustomerManagedKeyIdentityId *string `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
 	// A list of `globalParameter` blocks as defined above.
@@ -192,6 +200,8 @@ type factoryArgs struct {
 type FactoryArgs struct {
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
 	CustomerManagedKeyId pulumi.StringPtrInput
+	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+	CustomerManagedKeyIdentityId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
 	// A list of `globalParameter` blocks as defined above.

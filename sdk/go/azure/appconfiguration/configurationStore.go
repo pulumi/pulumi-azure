@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appconfiguration"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -72,7 +72,7 @@ type ConfigurationStore struct {
 	SecondaryReadKeys ConfigurationStoreSecondaryReadKeyArrayOutput `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayOutput `pulumi:"secondaryWriteKeys"`
-	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -128,7 +128,7 @@ type configurationStoreState struct {
 	SecondaryReadKeys []ConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys []ConfigurationStoreSecondaryWriteKey `pulumi:"secondaryWriteKeys"`
-	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +153,7 @@ type ConfigurationStoreState struct {
 	SecondaryReadKeys ConfigurationStoreSecondaryReadKeyArrayInput
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayInput
-	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -172,7 +172,7 @@ type configurationStoreArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -188,7 +188,7 @@ type ConfigurationStoreArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

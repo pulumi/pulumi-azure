@@ -402,6 +402,112 @@ func (o ServiceCorsConfigurationPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+type WorkspacePrivateEndpointConnection struct {
+	// The ID of the Healthcare Workspace.
+	Id *string `pulumi:"id"`
+	// Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+	Name *string `pulumi:"name"`
+}
+
+// WorkspacePrivateEndpointConnectionInput is an input type that accepts WorkspacePrivateEndpointConnectionArgs and WorkspacePrivateEndpointConnectionOutput values.
+// You can construct a concrete instance of `WorkspacePrivateEndpointConnectionInput` via:
+//
+//          WorkspacePrivateEndpointConnectionArgs{...}
+type WorkspacePrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToWorkspacePrivateEndpointConnectionOutput() WorkspacePrivateEndpointConnectionOutput
+	ToWorkspacePrivateEndpointConnectionOutputWithContext(context.Context) WorkspacePrivateEndpointConnectionOutput
+}
+
+type WorkspacePrivateEndpointConnectionArgs struct {
+	// The ID of the Healthcare Workspace.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WorkspacePrivateEndpointConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i WorkspacePrivateEndpointConnectionArgs) ToWorkspacePrivateEndpointConnectionOutput() WorkspacePrivateEndpointConnectionOutput {
+	return i.ToWorkspacePrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i WorkspacePrivateEndpointConnectionArgs) ToWorkspacePrivateEndpointConnectionOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePrivateEndpointConnectionOutput)
+}
+
+// WorkspacePrivateEndpointConnectionArrayInput is an input type that accepts WorkspacePrivateEndpointConnectionArray and WorkspacePrivateEndpointConnectionArrayOutput values.
+// You can construct a concrete instance of `WorkspacePrivateEndpointConnectionArrayInput` via:
+//
+//          WorkspacePrivateEndpointConnectionArray{ WorkspacePrivateEndpointConnectionArgs{...} }
+type WorkspacePrivateEndpointConnectionArrayInput interface {
+	pulumi.Input
+
+	ToWorkspacePrivateEndpointConnectionArrayOutput() WorkspacePrivateEndpointConnectionArrayOutput
+	ToWorkspacePrivateEndpointConnectionArrayOutputWithContext(context.Context) WorkspacePrivateEndpointConnectionArrayOutput
+}
+
+type WorkspacePrivateEndpointConnectionArray []WorkspacePrivateEndpointConnectionInput
+
+func (WorkspacePrivateEndpointConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspacePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i WorkspacePrivateEndpointConnectionArray) ToWorkspacePrivateEndpointConnectionArrayOutput() WorkspacePrivateEndpointConnectionArrayOutput {
+	return i.ToWorkspacePrivateEndpointConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspacePrivateEndpointConnectionArray) ToWorkspacePrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePrivateEndpointConnectionArrayOutput)
+}
+
+type WorkspacePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o WorkspacePrivateEndpointConnectionOutput) ToWorkspacePrivateEndpointConnectionOutput() WorkspacePrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o WorkspacePrivateEndpointConnectionOutput) ToWorkspacePrivateEndpointConnectionOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionOutput {
+	return o
+}
+
+// The ID of the Healthcare Workspace.
+func (o WorkspacePrivateEndpointConnectionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePrivateEndpointConnection) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+func (o WorkspacePrivateEndpointConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePrivateEndpointConnection) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspacePrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o WorkspacePrivateEndpointConnectionArrayOutput) ToWorkspacePrivateEndpointConnectionArrayOutput() WorkspacePrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o WorkspacePrivateEndpointConnectionArrayOutput) ToWorkspacePrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o WorkspacePrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) WorkspacePrivateEndpointConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspacePrivateEndpointConnection {
+		return vs[0].([]WorkspacePrivateEndpointConnection)[vs[1].(int)]
+	}).(WorkspacePrivateEndpointConnectionOutput)
+}
+
 type GetServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service.
 	Audience string `pulumi:"audience"`
@@ -655,6 +761,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationPtrInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionArrayInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationArrayInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationInput)(nil)).Elem(), GetServiceCorsConfigurationArgs{})
@@ -663,6 +771,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceCorsConfigurationOutput{})

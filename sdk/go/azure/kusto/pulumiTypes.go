@@ -243,7 +243,7 @@ func (o AttachedDatabaseConfigurationSharingPtrOutput) TablesToIncludes() pulumi
 }
 
 type ClusterIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -265,7 +265,7 @@ type ClusterIdentityInput interface {
 }
 
 type ClusterIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -352,7 +352,7 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 	}).(ClusterIdentityPtrOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 func (o ClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -396,7 +396,7 @@ func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
 	}).(ClusterIdentityOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 func (o ClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterIdentity) []string {
 		if v == nil {

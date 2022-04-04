@@ -17,31 +17,28 @@ class CustomDomainArgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[str],
                  developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
                  managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
                  portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]] = None,
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]] gateways: One or more `gateway` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]] managements: One or more `management` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]] portals: One or more `portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]] proxies: One or more `proxy` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]] scms: One or more `scm` blocks as defined below.
         """
         pulumi.set(__self__, "api_management_id", api_management_id)
         if developer_portals is not None:
             pulumi.set(__self__, "developer_portals", developer_portals)
+        if gateways is not None:
+            pulumi.set(__self__, "gateways", gateways)
         if managements is not None:
             pulumi.set(__self__, "managements", managements)
         if portals is not None:
             pulumi.set(__self__, "portals", portals)
-        if proxies is not None:
-            warnings.warn("""`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""proxies is deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""")
-        if proxies is not None:
-            pulumi.set(__self__, "proxies", proxies)
         if scms is not None:
             pulumi.set(__self__, "scms", scms)
 
@@ -71,6 +68,18 @@ class CustomDomainArgs:
 
     @property
     @pulumi.getter
+    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]:
+        """
+        One or more `gateway` blocks as defined below.
+        """
+        return pulumi.get(self, "gateways")
+
+    @gateways.setter
+    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]):
+        pulumi.set(self, "gateways", value)
+
+    @property
+    @pulumi.getter
     def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
         """
         One or more `management` blocks as defined below.
@@ -95,18 +104,6 @@ class CustomDomainArgs:
 
     @property
     @pulumi.getter
-    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]]:
-        """
-        One or more `proxy` blocks as defined below.
-        """
-        return pulumi.get(self, "proxies")
-
-    @proxies.setter
-    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]]):
-        pulumi.set(self, "proxies", value)
-
-    @property
-    @pulumi.getter
     def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
         """
         One or more `scm` blocks as defined below.
@@ -123,32 +120,29 @@ class _CustomDomainState:
     def __init__(__self__, *,
                  api_management_id: Optional[pulumi.Input[str]] = None,
                  developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
                  managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
                  portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]] = None,
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]] gateways: One or more `gateway` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]] managements: One or more `management` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]] portals: One or more `portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]] proxies: One or more `proxy` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]] scms: One or more `scm` blocks as defined below.
         """
         if api_management_id is not None:
             pulumi.set(__self__, "api_management_id", api_management_id)
         if developer_portals is not None:
             pulumi.set(__self__, "developer_portals", developer_portals)
+        if gateways is not None:
+            pulumi.set(__self__, "gateways", gateways)
         if managements is not None:
             pulumi.set(__self__, "managements", managements)
         if portals is not None:
             pulumi.set(__self__, "portals", portals)
-        if proxies is not None:
-            warnings.warn("""`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""proxies is deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""")
-        if proxies is not None:
-            pulumi.set(__self__, "proxies", proxies)
         if scms is not None:
             pulumi.set(__self__, "scms", scms)
 
@@ -178,6 +172,18 @@ class _CustomDomainState:
 
     @property
     @pulumi.getter
+    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]:
+        """
+        One or more `gateway` blocks as defined below.
+        """
+        return pulumi.get(self, "gateways")
+
+    @gateways.setter
+    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]):
+        pulumi.set(self, "gateways", value)
+
+    @property
+    @pulumi.getter
     def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
         """
         One or more `management` blocks as defined below.
@@ -202,18 +208,6 @@ class _CustomDomainState:
 
     @property
     @pulumi.getter
-    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]]:
-        """
-        One or more `proxy` blocks as defined below.
-        """
-        return pulumi.get(self, "proxies")
-
-    @proxies.setter
-    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]]):
-        pulumi.set(self, "proxies", value)
-
-    @property
-    @pulumi.getter
     def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
         """
         One or more `scm` blocks as defined below.
@@ -232,9 +226,9 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_id: Optional[pulumi.Input[str]] = None,
                  developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]]] = None,
                  managements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]]] = None,
                  portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]]] = None,
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None,
                  __props__=None):
         """
@@ -301,7 +295,7 @@ class CustomDomain(pulumi.CustomResource):
             ))
         example_custom_domain = azure.apimanagement.CustomDomain("exampleCustomDomain",
             api_management_id=example_service.id,
-            proxies=[azure.apimanagement.CustomDomainProxyArgs(
+            gateways=[azure.apimanagement.CustomDomainGatewayArgs(
                 host_name="api.example.com",
                 key_vault_id=azurerm_key_vault_certificate["test"]["secret_id"],
             )],
@@ -323,9 +317,9 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]] gateways: One or more `gateway` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]] managements: One or more `management` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]] portals: One or more `portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]] proxies: One or more `proxy` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]] scms: One or more `scm` blocks as defined below.
         """
         ...
@@ -398,7 +392,7 @@ class CustomDomain(pulumi.CustomResource):
             ))
         example_custom_domain = azure.apimanagement.CustomDomain("exampleCustomDomain",
             api_management_id=example_service.id,
-            proxies=[azure.apimanagement.CustomDomainProxyArgs(
+            gateways=[azure.apimanagement.CustomDomainGatewayArgs(
                 host_name="api.example.com",
                 key_vault_id=azurerm_key_vault_certificate["test"]["secret_id"],
             )],
@@ -433,9 +427,9 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_id: Optional[pulumi.Input[str]] = None,
                  developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]]] = None,
                  managements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]]] = None,
                  portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]]] = None,
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -453,12 +447,9 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_management_id'")
             __props__.__dict__["api_management_id"] = api_management_id
             __props__.__dict__["developer_portals"] = developer_portals
+            __props__.__dict__["gateways"] = gateways
             __props__.__dict__["managements"] = managements
             __props__.__dict__["portals"] = portals
-            if proxies is not None and not opts.urn:
-                warnings.warn("""`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""proxies is deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["proxies"] = proxies
             __props__.__dict__["scms"] = scms
         super(CustomDomain, __self__).__init__(
             'azure:apimanagement/customDomain:CustomDomain',
@@ -472,9 +463,9 @@ class CustomDomain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_id: Optional[pulumi.Input[str]] = None,
             developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]]] = None,
+            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]]] = None,
             managements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]]] = None,
             portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
-            proxies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]]] = None,
             scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None) -> 'CustomDomain':
         """
         Get an existing CustomDomain resource's state with the given name, id, and optional extra
@@ -485,9 +476,9 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]] gateways: One or more `gateway` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]] managements: One or more `management` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]] portals: One or more `portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]] proxies: One or more `proxy` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]] scms: One or more `scm` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -496,9 +487,9 @@ class CustomDomain(pulumi.CustomResource):
 
         __props__.__dict__["api_management_id"] = api_management_id
         __props__.__dict__["developer_portals"] = developer_portals
+        __props__.__dict__["gateways"] = gateways
         __props__.__dict__["managements"] = managements
         __props__.__dict__["portals"] = portals
-        __props__.__dict__["proxies"] = proxies
         __props__.__dict__["scms"] = scms
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
 
@@ -520,6 +511,14 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def gateways(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDomainGateway']]]:
+        """
+        One or more `gateway` blocks as defined below.
+        """
+        return pulumi.get(self, "gateways")
+
+    @property
+    @pulumi.getter
     def managements(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDomainManagement']]]:
         """
         One or more `management` blocks as defined below.
@@ -533,14 +532,6 @@ class CustomDomain(pulumi.CustomResource):
         One or more `portal` blocks as defined below.
         """
         return pulumi.get(self, "portals")
-
-    @property
-    @pulumi.getter
-    def proxies(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDomainProxy']]]:
-        """
-        One or more `proxy` blocks as defined below.
-        """
-        return pulumi.get(self, "proxies")
 
     @property
     @pulumi.getter

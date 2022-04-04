@@ -67,6 +67,10 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * One or multiple `frontendIpConfiguration` blocks as documented below.
      */
     public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.LoadBalancerFrontendIpConfiguration[] | undefined>;
@@ -96,6 +100,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * *
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -116,6 +121,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -130,6 +136,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -149,6 +156,10 @@ export class LoadBalancer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancer resources.
  */
 export interface LoadBalancerState {
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * One or multiple `frontendIpConfiguration` blocks as documented below.
      */
@@ -179,6 +190,7 @@ export interface LoadBalancerState {
     sku?: pulumi.Input<string>;
     /**
      * `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * *
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -191,6 +203,10 @@ export interface LoadBalancerState {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * One or multiple `frontendIpConfiguration` blocks as documented below.
      */
@@ -213,6 +229,7 @@ export interface LoadBalancerArgs {
     sku?: pulumi.Input<string>;
     /**
      * `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * *
      */
     skuTier?: pulumi.Input<string>;
     /**

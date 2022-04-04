@@ -340,13 +340,13 @@ func (o ConfigurationFeatureTimewindowFilterArrayOutput) Index(i pulumi.IntInput
 }
 
 type ConfigurationStoreIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -362,13 +362,13 @@ type ConfigurationStoreIdentityInput interface {
 }
 
 type ConfigurationStoreIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -449,22 +449,22 @@ func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputW
 	}).(ConfigurationStoreIdentityPtrOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 func (o ConfigurationStoreIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o ConfigurationStoreIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ConfigurationStoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -493,7 +493,7 @@ func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOu
 	}).(ConfigurationStoreIdentityOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 func (o ConfigurationStoreIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) []string {
 		if v == nil {
@@ -503,7 +503,7 @@ func (o ConfigurationStoreIdentityPtrOutput) IdentityIds() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o ConfigurationStoreIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
 		if v == nil {
@@ -513,7 +513,7 @@ func (o ConfigurationStoreIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ConfigurationStoreIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
 		if v == nil {
@@ -523,7 +523,7 @@ func (o ConfigurationStoreIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
 		if v == nil {

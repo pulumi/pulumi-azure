@@ -21,9 +21,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -45,7 +45,6 @@ import (
 // 			TenantId:                 pulumi.String(current.TenantId),
 // 			SkuName:                  pulumi.String("premium"),
 // 			EnabledForDiskEncryption: pulumi.Bool(true),
-// 			SoftDeleteEnabled:        pulumi.Bool(true),
 // 			PurgeProtectionEnabled:   pulumi.Bool(true),
 // 		})
 // 		if err != nil {

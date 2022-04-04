@@ -122,12 +122,6 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.VpnServerConfigurationRadius?> Radius { get; private set; } = null!;
 
         /// <summary>
-        /// A `radius_server` block as defined below.
-        /// </summary>
-        [Output("radiusServer")]
-        public Output<Outputs.VpnServerConfigurationRadiusServer?> RadiusServer { get; private set; } = null!;
-
-        /// <summary>
         /// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -143,7 +137,7 @@ namespace Pulumi.Azure.Network
         /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         /// </summary>
         [Output("vpnAuthenticationTypes")]
-        public Output<string> VpnAuthenticationTypes { get; private set; } = null!;
+        public Output<ImmutableArray<string>> VpnAuthenticationTypes { get; private set; } = null!;
 
         /// <summary>
         /// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
@@ -258,12 +252,6 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VpnServerConfigurationRadiusArgs>? Radius { get; set; }
 
         /// <summary>
-        /// A `radius_server` block as defined below.
-        /// </summary>
-        [Input("radiusServer")]
-        public Input<Inputs.VpnServerConfigurationRadiusServerArgs>? RadiusServer { get; set; }
-
-        /// <summary>
         /// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -281,11 +269,17 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
+        [Input("vpnAuthenticationTypes", required: true)]
+        private InputList<string>? _vpnAuthenticationTypes;
+
         /// <summary>
         /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         /// </summary>
-        [Input("vpnAuthenticationTypes", required: true)]
-        public Input<string> VpnAuthenticationTypes { get; set; } = null!;
+        public InputList<string> VpnAuthenticationTypes
+        {
+            get => _vpnAuthenticationTypes ?? (_vpnAuthenticationTypes = new InputList<string>());
+            set => _vpnAuthenticationTypes = value;
+        }
 
         [Input("vpnProtocols")]
         private InputList<string>? _vpnProtocols;
@@ -367,12 +361,6 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VpnServerConfigurationRadiusGetArgs>? Radius { get; set; }
 
         /// <summary>
-        /// A `radius_server` block as defined below.
-        /// </summary>
-        [Input("radiusServer")]
-        public Input<Inputs.VpnServerConfigurationRadiusServerGetArgs>? RadiusServer { get; set; }
-
-        /// <summary>
         /// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
@@ -390,11 +378,17 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
+        [Input("vpnAuthenticationTypes")]
+        private InputList<string>? _vpnAuthenticationTypes;
+
         /// <summary>
         /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         /// </summary>
-        [Input("vpnAuthenticationTypes")]
-        public Input<string>? VpnAuthenticationTypes { get; set; }
+        public InputList<string> VpnAuthenticationTypes
+        {
+            get => _vpnAuthenticationTypes ?? (_vpnAuthenticationTypes = new InputList<string>());
+            set => _vpnAuthenticationTypes = value;
+        }
 
         [Input("vpnProtocols")]
         private InputList<string>? _vpnProtocols;

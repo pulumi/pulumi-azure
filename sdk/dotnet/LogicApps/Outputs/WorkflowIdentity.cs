@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class WorkflowIdentity
     {
         /// <summary>
-        /// A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

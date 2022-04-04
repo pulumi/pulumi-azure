@@ -109,17 +109,9 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
-    /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly requiresSession!: pulumi.Output<boolean | undefined>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
@@ -128,10 +120,6 @@ export class Subscription extends pulumi.CustomResource {
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
     public readonly topicId!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    public readonly topicName!: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -156,16 +144,16 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["lockDuration"] = state ? state.lockDuration : undefined;
             resourceInputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["requiresSession"] = state ? state.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["topicId"] = state ? state.topicId : undefined;
-            resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
             if ((!args || args.maxDeliveryCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxDeliveryCount'");
+            }
+            if ((!args || args.topicId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'topicId'");
             }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             resourceInputs["deadLetteringOnFilterEvaluationError"] = args ? args.deadLetteringOnFilterEvaluationError : undefined;
@@ -177,12 +165,9 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
             resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["topicId"] = args ? args.topicId : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/subscription:Subscription" }] };
@@ -236,17 +221,9 @@ export interface SubscriptionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
      */
     requiresSession?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
@@ -255,10 +232,6 @@ export interface SubscriptionState {
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
     topicId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    topicName?: pulumi.Input<string>;
 }
 
 /**
@@ -306,17 +279,9 @@ export interface SubscriptionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
      */
     requiresSession?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
@@ -324,9 +289,5 @@ export interface SubscriptionArgs {
     /**
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
-    topicId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    topicName?: pulumi.Input<string>;
+    topicId: pulumi.Input<string>;
 }

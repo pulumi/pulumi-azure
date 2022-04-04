@@ -43,7 +43,7 @@ class RegistryTaskArgs:
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input['RegistryTaskEncodedStepArgs'] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input['RegistryTaskFileStepArgs'] file_step: A `file_step` block as defined below.
-        :param pulumi.Input['RegistryTaskIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -190,7 +190,7 @@ class RegistryTaskArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['RegistryTaskIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -338,7 +338,7 @@ class _RegistryTaskState:
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input['RegistryTaskEncodedStepArgs'] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input['RegistryTaskFileStepArgs'] file_step: A `file_step` block as defined below.
-        :param pulumi.Input['RegistryTaskIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -486,7 +486,7 @@ class _RegistryTaskState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['RegistryTaskIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -672,7 +672,7 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']] file_step: A `file_step` block as defined below.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -832,7 +832,7 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['RegistryTaskEncodedStepArgs']] encoded_step: A `encoded_step` block as defined below.
         :param pulumi.Input[pulumi.InputType['RegistryTaskFileStepArgs']] file_step: A `file_step` block as defined below.
-        :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
         :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -935,7 +935,7 @@ class RegistryTask(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.RegistryTaskIdentity']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

@@ -103,7 +103,7 @@ export class RegistryTask extends pulumi.CustomResource {
      */
     public readonly fileStep!: pulumi.Output<outputs.containerservice.RegistryTaskFileStep | undefined>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.RegistryTaskIdentity | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface RegistryTaskState {
      */
     fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.containerservice.RegistryTaskIdentity>;
     /**
@@ -318,7 +318,7 @@ export interface RegistryTaskArgs {
      */
     fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.containerservice.RegistryTaskIdentity>;
     /**

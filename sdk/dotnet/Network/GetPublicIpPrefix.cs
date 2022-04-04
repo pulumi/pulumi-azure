@@ -152,6 +152,9 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// A list of Availability Zones in which this Public IP Prefix is located.
+        /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]

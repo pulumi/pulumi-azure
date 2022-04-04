@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/netapp"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -130,8 +130,6 @@ type Snapshot struct {
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringOutput `pulumi:"volumeName"`
 }
@@ -187,8 +185,6 @@ type snapshotState struct {
 	PoolName *string `pulumi:"poolName"`
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-	Tags map[string]string `pulumi:"tags"`
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName *string `pulumi:"volumeName"`
 }
@@ -204,8 +200,6 @@ type SnapshotState struct {
 	PoolName pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-	Tags pulumi.StringMapInput
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringPtrInput
 }
@@ -225,8 +219,6 @@ type snapshotArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-	Tags map[string]string `pulumi:"tags"`
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -243,8 +235,6 @@ type SnapshotArgs struct {
 	PoolName pulumi.StringInput
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-	Tags pulumi.StringMapInput
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringInput
 }

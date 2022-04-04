@@ -12,8 +12,8 @@ namespace Pulumi.Azure.Inputs
 
     public sealed class ProviderFeaturesLogAnalyticsWorkspaceArgs : Pulumi.ResourceArgs
     {
-        [Input("permanentlyDeleteOnDestroy", required: true)]
-        public Input<bool> PermanentlyDeleteOnDestroy { get; set; } = null!;
+        [Input("permanentlyDeleteOnDestroy")]
+        public Input<bool>? PermanentlyDeleteOnDestroy { get; set; }
 
         public ProviderFeaturesLogAnalyticsWorkspaceArgs()
         {

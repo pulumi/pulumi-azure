@@ -31,10 +31,6 @@ type Provider struct {
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrOutput `pulumi:"metadataHost"`
-	// Deprecated - replaced by `metadata_host`.
-	//
-	// Deprecated: use `metadata_host` instead
-	MetadataUrl pulumi.StringPtrOutput `pulumi:"metadataUrl"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrOutput `pulumi:"msiEndpoint"`
@@ -58,9 +54,6 @@ func NewProvider(ctx *pulumi.Context,
 	}
 	if isZero(args.MetadataHost) {
 		args.MetadataHost = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string))
-	}
-	if isZero(args.MetadataUrl) {
-		args.MetadataUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_URL").(string))
 	}
 	if isZero(args.SkipProviderRegistration) {
 		args.SkipProviderRegistration = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool))
@@ -100,19 +93,11 @@ type providerArgs struct {
 	Features    *ProviderFeatures `pulumi:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost *string `pulumi:"metadataHost"`
-	// Deprecated - replaced by `metadata_host`.
-	//
-	// Deprecated: use `metadata_host` instead
-	MetadataUrl *string `pulumi:"metadataUrl"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId *string `pulumi:"partnerId"`
-	// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-	//
-	// Deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider
-	SkipCredentialsValidation *bool `pulumi:"skipCredentialsValidation"`
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
 	SkipProviderRegistration *bool `pulumi:"skipProviderRegistration"`
@@ -122,8 +107,6 @@ type providerArgs struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
 	TenantId *string `pulumi:"tenantId"`
-	// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-	UseMsal *bool `pulumi:"useMsal"`
 	// Allowed Managed Service Identity be used for Authentication.
 	UseMsi *bool `pulumi:"useMsi"`
 }
@@ -150,19 +133,11 @@ type ProviderArgs struct {
 	Features    ProviderFeaturesPtrInput
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrInput
-	// Deprecated - replaced by `metadata_host`.
-	//
-	// Deprecated: use `metadata_host` instead
-	MetadataUrl pulumi.StringPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrInput
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrInput
-	// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-	//
-	// Deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider
-	SkipCredentialsValidation pulumi.BoolPtrInput
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
 	SkipProviderRegistration pulumi.BoolPtrInput
@@ -172,8 +147,6 @@ type ProviderArgs struct {
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.
 	TenantId pulumi.StringPtrInput
-	// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-	UseMsal pulumi.BoolPtrInput
 	// Allowed Managed Service Identity be used for Authentication.
 	UseMsi pulumi.BoolPtrInput
 }

@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/redis"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -94,7 +94,8 @@ type LookupCacheResult struct {
 	SslPort  int               `pulumi:"sslPort"`
 	SubnetId string            `pulumi:"subnetId"`
 	Tags     map[string]string `pulumi:"tags"`
-	Zones    []string          `pulumi:"zones"`
+	// A list of Availability Zones in which this Redis Cache is located.
+	Zones []string `pulumi:"zones"`
 }
 
 func LookupCacheOutput(ctx *pulumi.Context, args LookupCacheOutputArgs, opts ...pulumi.InvokeOption) LookupCacheResultOutput {
@@ -237,6 +238,7 @@ func (o LookupCacheResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCacheResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A list of Availability Zones in which this Redis Cache is located.
 func (o LookupCacheResultOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCacheResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

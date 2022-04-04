@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/policy"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -48,8 +48,6 @@ func GetPolicyDefintion(ctx *pulumi.Context, args *GetPolicyDefintionArgs, opts 
 type GetPolicyDefintionArgs struct {
 	// Specifies the display name of the Policy Definition. Conflicts with `name`.
 	DisplayName *string `pulumi:"displayName"`
-	// Deprecated: Deprecated in favour of `management_group_name`
-	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Only retrieve Policy Definitions from this Management Group.
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// Specifies the name of the Policy Definition. Conflicts with `displayName`.
@@ -62,9 +60,7 @@ type GetPolicyDefintionResult struct {
 	Description string `pulumi:"description"`
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Deprecated: Deprecated in favour of `management_group_name`
-	ManagementGroupId   *string `pulumi:"managementGroupId"`
+	Id                  string  `pulumi:"id"`
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// Any Metadata defined in the Policy.
 	Metadata string `pulumi:"metadata"`
@@ -92,8 +88,6 @@ func GetPolicyDefintionOutput(ctx *pulumi.Context, args GetPolicyDefintionOutput
 type GetPolicyDefintionOutputArgs struct {
 	// Specifies the display name of the Policy Definition. Conflicts with `name`.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Deprecated: Deprecated in favour of `management_group_name`
-	ManagementGroupId pulumi.StringPtrInput `pulumi:"managementGroupId"`
 	// Only retrieve Policy Definitions from this Management Group.
 	ManagementGroupName pulumi.StringPtrInput `pulumi:"managementGroupName"`
 	// Specifies the name of the Policy Definition. Conflicts with `displayName`.
@@ -131,11 +125,6 @@ func (o GetPolicyDefintionResultOutput) DisplayName() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetPolicyDefintionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDefintionResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Deprecated: Deprecated in favour of `management_group_name`
-func (o GetPolicyDefintionResultOutput) ManagementGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetPolicyDefintionResult) *string { return v.ManagementGroupId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetPolicyDefintionResultOutput) ManagementGroupName() pulumi.StringPtrOutput {

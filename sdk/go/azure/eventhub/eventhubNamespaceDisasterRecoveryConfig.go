@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/eventhub"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -71,8 +71,6 @@ import (
 type EventhubNamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
-	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
@@ -121,8 +119,6 @@ func GetEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
 type eventhubNamespaceDisasterRecoveryConfigState struct {
-	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-	AlternateName *string `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
@@ -134,8 +130,6 @@ type eventhubNamespaceDisasterRecoveryConfigState struct {
 }
 
 type EventhubNamespaceDisasterRecoveryConfigState struct {
-	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-	AlternateName pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
@@ -151,8 +145,6 @@ func (EventhubNamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type eventhubNamespaceDisasterRecoveryConfigArgs struct {
-	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-	AlternateName *string `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
@@ -165,8 +157,6 @@ type eventhubNamespaceDisasterRecoveryConfigArgs struct {
 
 // The set of arguments for constructing a EventhubNamespaceDisasterRecoveryConfig resource.
 type EventhubNamespaceDisasterRecoveryConfigArgs struct {
-	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-	AlternateName pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.

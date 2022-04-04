@@ -104,7 +104,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1/CMK
+    ///  $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey")]

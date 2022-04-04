@@ -24,17 +24,11 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("sslPolicies")]
-        private InputList<Inputs.ApplicationGatewaySslProfileSslPolicyArgs>? _sslPolicies;
-
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslProfileSslPolicyArgs> SslPolicies
-        {
-            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslProfileSslPolicyArgs>());
-            set => _sslPolicies = value;
-        }
+        [Input("sslPolicy")]
+        public Input<Inputs.ApplicationGatewaySslProfileSslPolicyArgs>? SslPolicy { get; set; }
 
         [Input("trustedClientCertificateNames")]
         private InputList<string>? _trustedClientCertificateNames;

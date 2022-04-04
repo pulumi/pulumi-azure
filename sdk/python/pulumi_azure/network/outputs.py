@@ -81,11 +81,9 @@ __all__ = [
     'FirewallPolicyTlsCertificate',
     'FirewallVirtualHub',
     'LocalNetworkGatewayBgpSettings',
-    'NetworkConnectionMonitorDestination',
     'NetworkConnectionMonitorEndpoint',
     'NetworkConnectionMonitorEndpointFilter',
     'NetworkConnectionMonitorEndpointFilterItem',
-    'NetworkConnectionMonitorSource',
     'NetworkConnectionMonitorTestConfiguration',
     'NetworkConnectionMonitorTestConfigurationHttpConfiguration',
     'NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader',
@@ -99,8 +97,6 @@ __all__ = [
     'NetworkSecurityGroupSecurityRule',
     'NetworkWatcherFlowLogRetentionPolicy',
     'NetworkWatcherFlowLogTrafficAnalytics',
-    'PacketCaptureFilter',
-    'PacketCaptureStorageLocation',
     'PointToPointVpnGatewayConnectionConfiguration',
     'PointToPointVpnGatewayConnectionConfigurationRoute',
     'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable',
@@ -114,8 +110,6 @@ __all__ = [
     'SubnetServiceEndpointStoragePolicyDefinition',
     'TrafficManagerAzureEndpointCustomHeader',
     'TrafficManagerAzureEndpointSubnet',
-    'TrafficManagerEndpointCustomHeader',
-    'TrafficManagerEndpointSubnet',
     'TrafficManagerExternalEndpointCustomHeader',
     'TrafficManagerExternalEndpointSubnet',
     'TrafficManagerNestedEndpointCustomHeader',
@@ -154,9 +148,7 @@ __all__ = [
     'VpnServerConfigurationRadius',
     'VpnServerConfigurationRadiusClientRootCertificate',
     'VpnServerConfigurationRadiusServer',
-    'VpnServerConfigurationRadiusServerClientRootCertificate',
     'VpnServerConfigurationRadiusServerRootCertificate',
-    'VpnServerConfigurationRadiusServerServerRootCertificate',
     'VpnSiteLink',
     'VpnSiteLinkBgp',
     'GetApplicationGatewayIdentityResult',
@@ -1252,8 +1244,8 @@ class ApplicationGatewayIdentity(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param Sequence[str] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-        :param str type: The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -1262,7 +1254,7 @@ class ApplicationGatewayIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1270,7 +1262,7 @@ class ApplicationGatewayIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -1634,28 +1626,26 @@ class ApplicationGatewayProbeMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 body: Optional[str] = None,
-                 status_codes: Optional[Sequence[str]] = None):
+                 body: str,
+                 status_codes: Sequence[str]):
         """
-        :param str body: A snippet from the Response Body which must be present in the Response..
+        :param str body: A snippet from the Response Body which must be present in the Response.
         :param Sequence[str] status_codes: A list of allowed status codes for this Health Probe.
         """
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "status_codes", status_codes)
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[str]:
+    def body(self) -> str:
         """
-        A snippet from the Response Body which must be present in the Response..
+        A snippet from the Response Body which must be present in the Response.
         """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[Sequence[str]]:
+    def status_codes(self) -> Sequence[str]:
         """
         A list of allowed status codes for this Health Probe.
         """
@@ -2643,8 +2633,8 @@ class ApplicationGatewaySslProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sslPolicies":
-            suggest = "ssl_policies"
+        if key == "sslPolicy":
+            suggest = "ssl_policy"
         elif key == "trustedClientCertificateNames":
             suggest = "trusted_client_certificate_names"
         elif key == "verifyClientCertIssuerDn":
@@ -2664,21 +2654,21 @@ class ApplicationGatewaySslProfile(dict):
     def __init__(__self__, *,
                  name: str,
                  id: Optional[str] = None,
-                 ssl_policies: Optional[Sequence['outputs.ApplicationGatewaySslProfileSslPolicy']] = None,
+                 ssl_policy: Optional['outputs.ApplicationGatewaySslProfileSslPolicy'] = None,
                  trusted_client_certificate_names: Optional[Sequence[str]] = None,
                  verify_client_cert_issuer_dn: Optional[bool] = None):
         """
         :param str name: The name of the SSL Profile that is unique within this Application Gateway.
         :param str id: The ID of the Rewrite Rule Set
-        :param Sequence['ApplicationGatewaySslProfileSslPolicyArgs'] ssl_policies: a `ssl policy` block as defined below.
+        :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl policy` block as defined below.
         :param Sequence[str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified?  Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if ssl_policies is not None:
-            pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
         if trusted_client_certificate_names is not None:
             pulumi.set(__self__, "trusted_client_certificate_names", trusted_client_certificate_names)
         if verify_client_cert_issuer_dn is not None:
@@ -2701,12 +2691,12 @@ class ApplicationGatewaySslProfile(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="sslPolicies")
-    def ssl_policies(self) -> Optional[Sequence['outputs.ApplicationGatewaySslProfileSslPolicy']]:
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional['outputs.ApplicationGatewaySslProfileSslPolicy']:
         """
         a `ssl policy` block as defined below.
         """
-        return pulumi.get(self, "ssl_policies")
+        return pulumi.get(self, "ssl_policy")
 
     @property
     @pulumi.getter(name="trustedClientCertificateNames")
@@ -3880,8 +3870,8 @@ class ExpressRoutePortIdentity(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param Sequence[str] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
-        :param str type: The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -3890,7 +3880,7 @@ class ExpressRoutePortIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3898,7 +3888,7 @@ class ExpressRoutePortIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -4792,9 +4782,7 @@ class FirewallPolicyDns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "networkRuleFqdnEnabled":
-            suggest = "network_rule_fqdn_enabled"
-        elif key == "proxyEnabled":
+        if key == "proxyEnabled":
             suggest = "proxy_enabled"
 
         if suggest:
@@ -4809,28 +4797,16 @@ class FirewallPolicyDns(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 network_rule_fqdn_enabled: Optional[bool] = None,
                  proxy_enabled: Optional[bool] = None,
                  servers: Optional[Sequence[str]] = None):
         """
-        :param bool network_rule_fqdn_enabled: Should the network rule fqdn be enabled?
         :param bool proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         :param Sequence[str] servers: A list of custom DNS servers' IP addresses.
         """
-        if network_rule_fqdn_enabled is not None:
-            pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
         if proxy_enabled is not None:
             pulumi.set(__self__, "proxy_enabled", proxy_enabled)
         if servers is not None:
             pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter(name="networkRuleFqdnEnabled")
-    def network_rule_fqdn_enabled(self) -> Optional[bool]:
-        """
-        Should the network rule fqdn be enabled?
-        """
-        return pulumi.get(self, "network_rule_fqdn_enabled")
 
     @property
     @pulumi.getter(name="proxyEnabled")
@@ -4854,12 +4830,8 @@ class FirewallPolicyIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentityIds":
-            suggest = "user_assigned_identity_ids"
+        if key == "identityIds":
+            suggest = "identity_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -4873,47 +4845,30 @@ class FirewallPolicyIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: str,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 user_assigned_identity_ids: Optional[Sequence[str]] = None):
+                 identity_ids: Sequence[str],
+                 type: str):
         """
-        :param str type: Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
-        :param Sequence[str] user_assigned_identity_ids: Specifies a list of user assigned managed identities.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if user_assigned_identity_ids is not None:
-            pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+        Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentityIds")
-    def user_assigned_identity_ids(self) -> Optional[Sequence[str]]:
-        """
-        Specifies a list of user assigned managed identities.
-        """
-        return pulumi.get(self, "user_assigned_identity_ids")
 
 
 @pulumi.output_type
@@ -6110,66 +6065,6 @@ class LocalNetworkGatewayBgpSettings(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorDestination(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualMachineId":
-            suggest = "virtual_machine_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkConnectionMonitorDestination. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkConnectionMonitorDestination.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkConnectionMonitorDestination.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 address: Optional[str] = None,
-                 port: Optional[int] = None,
-                 virtual_machine_id: Optional[str] = None):
-        """
-        :param str address: The IP address or domain name of the Network Connection Monitor endpoint.
-        :param int port: The port for the HTTP connection.
-        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[str]:
-        """
-        The IP address or domain name of the Network Connection Monitor endpoint.
-        """
-        return pulumi.get(self, "address")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        """
-        The port for the HTTP connection.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-
-@pulumi.output_type
 class NetworkConnectionMonitorEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6184,8 +6079,6 @@ class NetworkConnectionMonitorEndpoint(dict):
             suggest = "target_resource_id"
         elif key == "targetResourceType":
             suggest = "target_resource_type"
-        elif key == "virtualMachineId":
-            suggest = "virtual_machine_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkConnectionMonitorEndpoint. Access the value via the '{suggest}' property getter instead.")
@@ -6206,8 +6099,7 @@ class NetworkConnectionMonitorEndpoint(dict):
                  filter: Optional['outputs.NetworkConnectionMonitorEndpointFilter'] = None,
                  included_ip_addresses: Optional[Sequence[str]] = None,
                  target_resource_id: Optional[str] = None,
-                 target_resource_type: Optional[str] = None,
-                 virtual_machine_id: Optional[str] = None):
+                 target_resource_type: Optional[str] = None):
         """
         :param str name: The name of the endpoint for the Network Connection Monitor .
         :param str address: The IP address or domain name of the Network Connection Monitor endpoint.
@@ -6217,7 +6109,6 @@ class NetworkConnectionMonitorEndpoint(dict):
         :param Sequence[str] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
         :param str target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
         :param str target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
-        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         pulumi.set(__self__, "name", name)
         if address is not None:
@@ -6234,8 +6125,6 @@ class NetworkConnectionMonitorEndpoint(dict):
             pulumi.set(__self__, "target_resource_id", target_resource_id)
         if target_resource_type is not None:
             pulumi.set(__self__, "target_resource_type", target_resource_type)
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -6301,14 +6190,6 @@ class NetworkConnectionMonitorEndpoint(dict):
         """
         return pulumi.get(self, "target_resource_type")
 
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
 
 @pulumi.output_type
 class NetworkConnectionMonitorEndpointFilter(dict):
@@ -6370,54 +6251,6 @@ class NetworkConnectionMonitorEndpointFilterItem(dict):
         The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class NetworkConnectionMonitorSource(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualMachineId":
-            suggest = "virtual_machine_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkConnectionMonitorSource. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkConnectionMonitorSource.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkConnectionMonitorSource.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 port: Optional[int] = None,
-                 virtual_machine_id: Optional[str] = None):
-        """
-        :param int port: The port for the HTTP connection.
-        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        """
-        The port for the HTTP connection.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        """
-        return pulumi.get(self, "virtual_machine_id")
 
 
 @pulumi.output_type
@@ -7534,159 +7367,6 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
 
 
 @pulumi.output_type
-class PacketCaptureFilter(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "localIpAddress":
-            suggest = "local_ip_address"
-        elif key == "localPort":
-            suggest = "local_port"
-        elif key == "remoteIpAddress":
-            suggest = "remote_ip_address"
-        elif key == "remotePort":
-            suggest = "remote_port"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PacketCaptureFilter. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PacketCaptureFilter.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PacketCaptureFilter.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 protocol: str,
-                 local_ip_address: Optional[str] = None,
-                 local_port: Optional[str] = None,
-                 remote_ip_address: Optional[str] = None,
-                 remote_port: Optional[str] = None):
-        """
-        :param str protocol: The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param str local_ip_address: The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        :param str local_port: The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        :param str remote_ip_address: The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-        :param str remote_port: The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "protocol", protocol)
-        if local_ip_address is not None:
-            pulumi.set(__self__, "local_ip_address", local_ip_address)
-        if local_port is not None:
-            pulumi.set(__self__, "local_port", local_port)
-        if remote_ip_address is not None:
-            pulumi.set(__self__, "remote_ip_address", remote_ip_address)
-        if remote_port is not None:
-            pulumi.set(__self__, "remote_port", remote_port)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> str:
-        """
-        The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="localIpAddress")
-    def local_ip_address(self) -> Optional[str]:
-        """
-        The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "local_ip_address")
-
-    @property
-    @pulumi.getter(name="localPort")
-    def local_port(self) -> Optional[str]:
-        """
-        The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "local_port")
-
-    @property
-    @pulumi.getter(name="remoteIpAddress")
-    def remote_ip_address(self) -> Optional[str]:
-        """
-        The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "remote_ip_address")
-
-    @property
-    @pulumi.getter(name="remotePort")
-    def remote_port(self) -> Optional[str]:
-        """
-        The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "remote_port")
-
-
-@pulumi.output_type
-class PacketCaptureStorageLocation(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filePath":
-            suggest = "file_path"
-        elif key == "storageAccountId":
-            suggest = "storage_account_id"
-        elif key == "storagePath":
-            suggest = "storage_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PacketCaptureStorageLocation. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PacketCaptureStorageLocation.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PacketCaptureStorageLocation.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 file_path: Optional[str] = None,
-                 storage_account_id: Optional[str] = None,
-                 storage_path: Optional[str] = None):
-        """
-        :param str file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-        :param str storage_account_id: The ID of the storage account to save the packet capture session
-        :param str storage_path: The URI of the storage path to save the packet capture.
-        """
-        if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
-        if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
-        if storage_path is not None:
-            pulumi.set(__self__, "storage_path", storage_path)
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[str]:
-        """
-        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-        """
-        return pulumi.get(self, "file_path")
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
-        """
-        The ID of the storage account to save the packet capture session
-        """
-        return pulumi.get(self, "storage_account_id")
-
-    @property
-    @pulumi.getter(name="storagePath")
-    def storage_path(self) -> Optional[str]:
-        """
-        The URI of the storage path to save the packet capture.
-        """
-        return pulumi.get(self, "storage_path")
-
-
-@pulumi.output_type
 class PointToPointVpnGatewayConnectionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8306,77 +7986,6 @@ class TrafficManagerAzureEndpointSubnet(dict):
     def scope(self) -> Optional[int]:
         """
         The block size (number of leading bits in the subnet mask).
-        """
-        return pulumi.get(self, "scope")
-
-
-@pulumi.output_type
-class TrafficManagerEndpointCustomHeader(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        """
-        :param str name: The name of the custom header.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the custom header.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value of custom header. Applicable for Http and Https protocol.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TrafficManagerEndpointSubnet(dict):
-    def __init__(__self__, *,
-                 first: str,
-                 last: Optional[str] = None,
-                 scope: Optional[int] = None):
-        """
-        :param str first: The First IP....
-        :param str last: The Last IP...
-        :param int scope: The Scope...
-        """
-        pulumi.set(__self__, "first", first)
-        if last is not None:
-            pulumi.set(__self__, "last", last)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter
-    def first(self) -> str:
-        """
-        The First IP....
-        """
-        return pulumi.get(self, "first")
-
-    @property
-    @pulumi.getter
-    def last(self) -> Optional[str]:
-        """
-        The Last IP...
-        """
-        return pulumi.get(self, "last")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[int]:
-        """
-        The Scope...
         """
         return pulumi.get(self, "scope")
 
@@ -9066,8 +8675,6 @@ class VirtualNetworkGatewayBgpSettings(dict):
         suggest = None
         if key == "peerWeight":
             suggest = "peer_weight"
-        elif key == "peeringAddress":
-            suggest = "peering_address"
         elif key == "peeringAddresses":
             suggest = "peering_addresses"
 
@@ -9085,7 +8692,6 @@ class VirtualNetworkGatewayBgpSettings(dict):
     def __init__(__self__, *,
                  asn: Optional[int] = None,
                  peer_weight: Optional[int] = None,
-                 peering_address: Optional[str] = None,
                  peering_addresses: Optional[Sequence['outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress']] = None):
         """
         :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
@@ -9097,8 +8703,6 @@ class VirtualNetworkGatewayBgpSettings(dict):
             pulumi.set(__self__, "asn", asn)
         if peer_weight is not None:
             pulumi.set(__self__, "peer_weight", peer_weight)
-        if peering_address is not None:
-            pulumi.set(__self__, "peering_address", peering_address)
         if peering_addresses is not None:
             pulumi.set(__self__, "peering_addresses", peering_addresses)
 
@@ -9118,11 +8722,6 @@ class VirtualNetworkGatewayBgpSettings(dict):
         through BGP peering. Valid values can be between `0` and `100`.
         """
         return pulumi.get(self, "peer_weight")
-
-    @property
-    @pulumi.getter(name="peeringAddress")
-    def peering_address(self) -> Optional[str]:
-        return pulumi.get(self, "peering_address")
 
     @property
     @pulumi.getter(name="peeringAddresses")
@@ -10108,8 +9707,6 @@ class VpnGatewayConnectionRouting(dict):
             suggest = "associated_route_table"
         elif key == "propagatedRouteTable":
             suggest = "propagated_route_table"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpnGatewayConnectionRouting. Access the value via the '{suggest}' property getter instead.")
@@ -10124,8 +9721,7 @@ class VpnGatewayConnectionRouting(dict):
 
     def __init__(__self__, *,
                  associated_route_table: str,
-                 propagated_route_table: Optional['outputs.VpnGatewayConnectionRoutingPropagatedRouteTable'] = None,
-                 propagated_route_tables: Optional[Sequence[str]] = None):
+                 propagated_route_table: Optional['outputs.VpnGatewayConnectionRoutingPropagatedRouteTable'] = None):
         """
         :param str associated_route_table: The ID of the Route Table associated with this VPN Connection.
         :param 'VpnGatewayConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
@@ -10133,8 +9729,6 @@ class VpnGatewayConnectionRouting(dict):
         pulumi.set(__self__, "associated_route_table", associated_route_table)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
 
     @property
     @pulumi.getter(name="associatedRouteTable")
@@ -10151,11 +9745,6 @@ class VpnGatewayConnectionRouting(dict):
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
-
-    @property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "propagated_route_tables")
 
 
 @pulumi.output_type
@@ -10924,41 +10513,18 @@ class VpnServerConfigurationRadiusClientRootCertificate(dict):
 
 @pulumi.output_type
 class VpnServerConfigurationRadiusServer(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serverRootCertificates":
-            suggest = "server_root_certificates"
-        elif key == "clientRootCertificates":
-            suggest = "client_root_certificates"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigurationRadiusServer. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VpnServerConfigurationRadiusServer.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VpnServerConfigurationRadiusServer.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  address: str,
-                 secret: str,
-                 server_root_certificates: Sequence['outputs.VpnServerConfigurationRadiusServerServerRootCertificate'],
-                 client_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusServerClientRootCertificate']] = None):
+                 score: int,
+                 secret: str):
         """
         :param str address: The Address of the Radius Server.
+        :param int score: The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
         :param str secret: The Secret used to communicate with the Radius Server.
-        :param Sequence['VpnServerConfigurationRadiusServerServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
-        :param Sequence['VpnServerConfigurationRadiusServerClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
         """
         pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "score", score)
         pulumi.set(__self__, "secret", secret)
-        pulumi.set(__self__, "server_root_certificates", server_root_certificates)
-        if client_root_certificates is not None:
-            pulumi.set(__self__, "client_root_certificates", client_root_certificates)
 
     @property
     @pulumi.getter
@@ -10970,56 +10536,19 @@ class VpnServerConfigurationRadiusServer(dict):
 
     @property
     @pulumi.getter
+    def score(self) -> int:
+        """
+        The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
+        """
+        return pulumi.get(self, "score")
+
+    @property
+    @pulumi.getter
     def secret(self) -> str:
         """
         The Secret used to communicate with the Radius Server.
         """
         return pulumi.get(self, "secret")
-
-    @property
-    @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> Sequence['outputs.VpnServerConfigurationRadiusServerServerRootCertificate']:
-        """
-        One or more `server_root_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "server_root_certificates")
-
-    @property
-    @pulumi.getter(name="clientRootCertificates")
-    def client_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigurationRadiusServerClientRootCertificate']]:
-        """
-        One or more `client_root_certificate` blocks as defined above.
-        """
-        return pulumi.get(self, "client_root_certificates")
-
-
-@pulumi.output_type
-class VpnServerConfigurationRadiusServerClientRootCertificate(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 thumbprint: str):
-        """
-        :param str name: A name used to uniquely identify this certificate.
-        :param str thumbprint: The Thumbprint of the Certificate.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        A name used to uniquely identify this certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> str:
-        """
-        The Thumbprint of the Certificate.
-        """
-        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -11039,52 +10568,6 @@ class VpnServerConfigurationRadiusServerRootCertificate(dict):
 
     def get(self, key: str, default = None) -> Any:
         VpnServerConfigurationRadiusServerRootCertificate.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 public_cert_data: str):
-        """
-        :param str name: A name used to uniquely identify this certificate.
-        :param str public_cert_data: The Public Key Data associated with the Certificate.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "public_cert_data", public_cert_data)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        A name used to uniquely identify this certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="publicCertData")
-    def public_cert_data(self) -> str:
-        """
-        The Public Key Data associated with the Certificate.
-        """
-        return pulumi.get(self, "public_cert_data")
-
-
-@pulumi.output_type
-class VpnServerConfigurationRadiusServerServerRootCertificate(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "publicCertData":
-            suggest = "public_cert_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigurationRadiusServerServerRootCertificate. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VpnServerConfigurationRadiusServerServerRootCertificate.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VpnServerConfigurationRadiusServerServerRootCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -11277,7 +10760,7 @@ class GetApplicationGatewayIdentityResult(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param Sequence[str] identity_ids: A list of Managed Identity ID's assigned to this Application Gateway.
+        :param Sequence[str] identity_ids: A list of Managed Identity IDs assigned to this Application Gateway.
         :param str type: The type of Managed Identity assigned to this Application Gateway.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
@@ -11287,7 +10770,7 @@ class GetApplicationGatewayIdentityResult(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        A list of Managed Identity ID's assigned to this Application Gateway.
+        A list of Managed Identity IDs assigned to this Application Gateway.
         """
         return pulumi.get(self, "identity_ids")
 

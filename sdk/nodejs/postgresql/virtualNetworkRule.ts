@@ -31,15 +31,13 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "GP_Gen5_2",
- *     storageProfile: {
- *         storageMb: 5120,
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *     },
+ *     storageMb: 5120,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackup: "Disabled",
  *     administratorLogin: "psqladmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "9.5",
- *     sslEnforcement: "Enabled",
+ *     sslEnforcementEnabled: true,
  * });
  * const exampleVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule", {
  *     resourceGroupName: exampleResourceGroup.name,

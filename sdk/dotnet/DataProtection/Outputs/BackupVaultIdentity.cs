@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

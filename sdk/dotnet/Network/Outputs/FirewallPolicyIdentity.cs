@@ -13,31 +13,23 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class FirewallPolicyIdentity
     {
-        public readonly string? PrincipalId;
-        public readonly string? TenantId;
         /// <summary>
-        /// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies a list of user assigned managed identities.
-        /// </summary>
-        public readonly ImmutableArray<string> UserAssignedIdentityIds;
 
         [OutputConstructor]
         private FirewallPolicyIdentity(
-            string? principalId,
+            ImmutableArray<string> identityIds,
 
-            string? tenantId,
-
-            string type,
-
-            ImmutableArray<string> userAssignedIdentityIds)
+            string type)
         {
-            PrincipalId = principalId;
-            TenantId = tenantId;
+            IdentityIds = identityIds;
             Type = type;
-            UserAssignedIdentityIds = userAssignedIdentityIds;
         }
     }
 }

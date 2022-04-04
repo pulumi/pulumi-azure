@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,10 +40,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewIntegrationRuntimeSsis(ctx, "exampleIntegrationRuntimeSsis", &datafactory.IntegrationRuntimeSsisArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			NodeSize:          pulumi.String("Standard_D8_v3"),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Location:      exampleResourceGroup.Location,
+// 			NodeSize:      pulumi.String("Standard_D8_v3"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -69,10 +68,6 @@ type IntegrationRuntimeSsis struct {
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -95,8 +90,6 @@ type IntegrationRuntimeSsis struct {
 	PackageStores IntegrationRuntimeSsisPackageStoreArrayOutput `pulumi:"packageStores"`
 	// A `proxy` block as defined below.
 	Proxy IntegrationRuntimeSsisProxyPtrOutput `pulumi:"proxy"`
-	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration IntegrationRuntimeSsisVnetIntegrationPtrOutput `pulumi:"vnetIntegration"`
 }
@@ -108,11 +101,11 @@ func NewIntegrationRuntimeSsis(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.NodeSize == nil {
 		return nil, errors.New("invalid value for required argument 'NodeSize'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IntegrationRuntimeSsis
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", name, args, &resource, opts...)
@@ -142,10 +135,6 @@ type integrationRuntimeSsisState struct {
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -168,8 +157,6 @@ type integrationRuntimeSsisState struct {
 	PackageStores []IntegrationRuntimeSsisPackageStore `pulumi:"packageStores"`
 	// A `proxy` block as defined below.
 	Proxy *IntegrationRuntimeSsisProxy `pulumi:"proxy"`
-	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration *IntegrationRuntimeSsisVnetIntegration `pulumi:"vnetIntegration"`
 }
@@ -181,10 +168,6 @@ type IntegrationRuntimeSsisState struct {
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -207,8 +190,6 @@ type IntegrationRuntimeSsisState struct {
 	PackageStores IntegrationRuntimeSsisPackageStoreArrayInput
 	// A `proxy` block as defined below.
 	Proxy IntegrationRuntimeSsisProxyPtrInput
-	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration IntegrationRuntimeSsisVnetIntegrationPtrInput
 }
@@ -223,11 +204,7 @@ type integrationRuntimeSsisArgs struct {
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -250,8 +227,6 @@ type integrationRuntimeSsisArgs struct {
 	PackageStores []IntegrationRuntimeSsisPackageStore `pulumi:"packageStores"`
 	// A `proxy` block as defined below.
 	Proxy *IntegrationRuntimeSsisProxy `pulumi:"proxy"`
-	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration *IntegrationRuntimeSsisVnetIntegration `pulumi:"vnetIntegration"`
 }
@@ -263,11 +238,7 @@ type IntegrationRuntimeSsisArgs struct {
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -290,8 +261,6 @@ type IntegrationRuntimeSsisArgs struct {
 	PackageStores IntegrationRuntimeSsisPackageStoreArrayInput
 	// A `proxy` block as defined below.
 	Proxy IntegrationRuntimeSsisProxyPtrInput
-	// The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration IntegrationRuntimeSsisVnetIntegrationPtrInput
 }

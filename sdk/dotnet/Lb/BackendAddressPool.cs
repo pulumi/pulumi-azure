@@ -67,9 +67,6 @@ namespace Pulumi.Azure.Lb
     [AzureResourceType("azure:lb/backendAddressPool:BackendAddressPool")]
     public partial class BackendAddressPool : Pulumi.CustomResource
     {
-        [Output("backendAddresses")]
-        public Output<ImmutableArray<Outputs.BackendAddressPoolBackendAddress>> BackendAddresses { get; private set; } = null!;
-
         /// <summary>
         /// The Backend IP Configurations associated with this Backend Address Pool.
         /// </summary>
@@ -99,9 +96,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("outboundRules")]
         public Output<ImmutableArray<string>> OutboundRules { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// One or more `tunnel_interface` blocks as defined below.
@@ -155,15 +149,6 @@ namespace Pulumi.Azure.Lb
 
     public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
     {
-        [Input("backendAddresses")]
-        private InputList<Inputs.BackendAddressPoolBackendAddressArgs>? _backendAddresses;
-        [Obsolete(@"This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.")]
-        public InputList<Inputs.BackendAddressPoolBackendAddressArgs> BackendAddresses
-        {
-            get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.BackendAddressPoolBackendAddressArgs>());
-            set => _backendAddresses = value;
-        }
-
         /// <summary>
         /// The ID of the Load Balancer in which to create the Backend Address Pool.
         /// </summary>
@@ -175,9 +160,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tunnelInterfaces")]
         private InputList<Inputs.BackendAddressPoolTunnelInterfaceArgs>? _tunnelInterfaces;
@@ -198,15 +180,6 @@ namespace Pulumi.Azure.Lb
 
     public sealed class BackendAddressPoolState : Pulumi.ResourceArgs
     {
-        [Input("backendAddresses")]
-        private InputList<Inputs.BackendAddressPoolBackendAddressGetArgs>? _backendAddresses;
-        [Obsolete(@"This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.")]
-        public InputList<Inputs.BackendAddressPoolBackendAddressGetArgs> BackendAddresses
-        {
-            get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.BackendAddressPoolBackendAddressGetArgs>());
-            set => _backendAddresses = value;
-        }
-
         [Input("backendIpConfigurations")]
         private InputList<string>? _backendIpConfigurations;
 
@@ -254,9 +227,6 @@ namespace Pulumi.Azure.Lb
             get => _outboundRules ?? (_outboundRules = new InputList<string>());
             set => _outboundRules = value;
         }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tunnelInterfaces")]
         private InputList<Inputs.BackendAddressPoolTunnelInterfaceGetArgs>? _tunnelInterfaces;

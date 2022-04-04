@@ -81,9 +81,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
-
         /// <summary>
         /// The Primary Connection String for the ServiceBus Topic authorization Rule.
         /// </summary>
@@ -101,9 +98,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The Secondary Connection String for the ServiceBus Topic authorization Rule.
@@ -135,9 +129,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("topicId")]
         public Output<string> TopicId { get; private set; } = null!;
 
-        [Output("topicName")]
-        public Output<string> TopicName { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a TopicAuthorizationRule resource with the given unique name, arguments, and options.
@@ -146,7 +137,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TopicAuthorizationRule(string name, TopicAuthorizationRuleArgs? args = null, CustomResourceOptions? options = null)
+        public TopicAuthorizationRule(string name, TopicAuthorizationRuleArgs args, CustomResourceOptions? options = null)
             : base("azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule", name, args ?? new TopicAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -206,12 +197,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// Grants send access to this this Authorization Rule. Defaults to `false`.
         /// </summary>
@@ -221,11 +206,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("topicId")]
-        public Input<string>? TopicId { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
+        [Input("topicId", required: true)]
+        public Input<string> TopicId { get; set; } = null!;
 
         public TopicAuthorizationRuleArgs()
         {
@@ -252,9 +234,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         /// <summary>
         /// The Primary Connection String for the ServiceBus Topic authorization Rule.
         /// </summary>
@@ -272,9 +251,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The Secondary Connection String for the ServiceBus Topic authorization Rule.
@@ -305,9 +281,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
 
         public TopicAuthorizationRuleState()
         {

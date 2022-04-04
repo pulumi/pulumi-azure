@@ -114,12 +114,6 @@ export class EndpointEventhub extends pulumi.CustomResource {
      */
     public readonly iothubId!: pulumi.Output<string>;
     /**
-     * The IoTHub name for the endpoint.
-     *
-     * @deprecated Deprecated in favour of `iothub_id`
-     */
-    public readonly iothubName!: pulumi.Output<string>;
-    /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     public readonly name!: pulumi.Output<string>;
@@ -147,11 +141,13 @@ export class EndpointEventhub extends pulumi.CustomResource {
             resourceInputs["entityPath"] = state ? state.entityPath : undefined;
             resourceInputs["identityId"] = state ? state.identityId : undefined;
             resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointEventhubArgs | undefined;
+            if ((!args || args.iothubId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'iothubId'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -161,7 +157,6 @@ export class EndpointEventhub extends pulumi.CustomResource {
             resourceInputs["entityPath"] = args ? args.entityPath : undefined;
             resourceInputs["identityId"] = args ? args.identityId : undefined;
             resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
@@ -199,12 +194,6 @@ export interface EndpointEventhubState {
      */
     iothubId?: pulumi.Input<string>;
     /**
-     * The IoTHub name for the endpoint.
-     *
-     * @deprecated Deprecated in favour of `iothub_id`
-     */
-    iothubName?: pulumi.Input<string>;
-    /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     name?: pulumi.Input<string>;
@@ -241,13 +230,7 @@ export interface EndpointEventhubArgs {
     /**
      * The IoTHub ID for the endpoint.
      */
-    iothubId?: pulumi.Input<string>;
-    /**
-     * The IoTHub name for the endpoint.
-     *
-     * @deprecated Deprecated in favour of `iothub_id`
-     */
-    iothubName?: pulumi.Input<string>;
+    iothubId: pulumi.Input<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */

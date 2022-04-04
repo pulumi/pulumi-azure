@@ -20,7 +20,7 @@ class GetAnalyticsWorkspaceResult:
     """
     A collection of values returned by getAnalyticsWorkspace.
     """
-    def __init__(__self__, daily_quota_gb=None, id=None, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
+    def __init__(__self__, daily_quota_gb=None, id=None, location=None, name=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
         if daily_quota_gb and not isinstance(daily_quota_gb, float):
             raise TypeError("Expected argument 'daily_quota_gb' to be a float")
         pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
@@ -33,13 +33,6 @@ class GetAnalyticsWorkspaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if portal_url and not isinstance(portal_url, str):
-            raise TypeError("Expected argument 'portal_url' to be a str")
-        if portal_url is not None:
-            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""portal_url is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-
-        pulumi.set(__self__, "portal_url", portal_url)
         if primary_shared_key and not isinstance(primary_shared_key, str):
             raise TypeError("Expected argument 'primary_shared_key' to be a str")
         pulumi.set(__self__, "primary_shared_key", primary_shared_key)
@@ -87,11 +80,6 @@ class GetAnalyticsWorkspaceResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> str:
-        return pulumi.get(self, "portal_url")
 
     @property
     @pulumi.getter(name="primarySharedKey")
@@ -157,7 +145,6 @@ class AwaitableGetAnalyticsWorkspaceResult(GetAnalyticsWorkspaceResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            portal_url=self.portal_url,
             primary_shared_key=self.primary_shared_key,
             resource_group_name=self.resource_group_name,
             retention_in_days=self.retention_in_days,
@@ -202,7 +189,6 @@ def get_analytics_workspace(name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        portal_url=__ret__.portal_url,
         primary_shared_key=__ret__.primary_shared_key,
         resource_group_name=__ret__.resource_group_name,
         retention_in_days=__ret__.retention_in_days,

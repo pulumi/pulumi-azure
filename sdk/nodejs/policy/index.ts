@@ -5,34 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignment";
 export * from "./definition";
 export * from "./getPolicyDefintion";
 export * from "./getPolicySetDefinition";
 export * from "./getVirtualMachineConfigurationAssignment";
 export * from "./policySetDefinition";
-export * from "./remediation";
 export * from "./virtualMachineConfigurationAssignment";
 
 // Import resources to register:
-import { Assignment } from "./assignment";
 import { Definition } from "./definition";
 import { PolicySetDefinition } from "./policySetDefinition";
-import { Remediation } from "./remediation";
 import { VirtualMachineConfigurationAssignment } from "./virtualMachineConfigurationAssignment";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:policy/assignment:Assignment":
-                return new Assignment(name, <any>undefined, { urn })
             case "azure:policy/definition:Definition":
                 return new Definition(name, <any>undefined, { urn })
             case "azure:policy/policySetDefinition:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
-            case "azure:policy/remediation:Remediation":
-                return new Remediation(name, <any>undefined, { urn })
             case "azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment":
                 return new VirtualMachineConfigurationAssignment(name, <any>undefined, { urn })
             default:
@@ -40,8 +32,6 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "policy/assignment", _module)
 pulumi.runtime.registerResourceModule("azure", "policy/definition", _module)
 pulumi.runtime.registerResourceModule("azure", "policy/policySetDefinition", _module)
-pulumi.runtime.registerResourceModule("azure", "policy/remediation", _module)
 pulumi.runtime.registerResourceModule("azure", "policy/virtualMachineConfigurationAssignment", _module)

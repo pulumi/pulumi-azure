@@ -20,8 +20,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -70,10 +70,6 @@ type ManagementGroup struct {
 	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId pulumi.StringOutput `pulumi:"parentManagementGroupId"`
@@ -113,10 +109,6 @@ type managementGroupState struct {
 	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId *string `pulumi:"groupId"`
-	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
@@ -127,10 +119,6 @@ type managementGroupState struct {
 type ManagementGroupState struct {
 	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName pulumi.StringPtrInput
-	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId pulumi.StringPtrInput
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -147,10 +135,6 @@ type managementGroupArgs struct {
 	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId *string `pulumi:"groupId"`
-	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
@@ -162,10 +146,6 @@ type managementGroupArgs struct {
 type ManagementGroupArgs struct {
 	// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
 	DisplayName pulumi.StringPtrInput
-	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId pulumi.StringPtrInput
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.

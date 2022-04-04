@@ -111,9 +111,8 @@ class GatewayApi(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_service.resource_group_name,
             revision="2")
-        example_gateway = azure.apimanagement.get_gateway(gateway_id="my-gateway",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
+        example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
+            api_management_id=azurerm_api_management["example"]["id"])
         example_gateway_api = azure.apimanagement.GatewayApi("exampleGatewayApi",
             gateway_id=example_gateway.id,
             api_id=example_api.id)
@@ -153,9 +152,8 @@ class GatewayApi(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_service.resource_group_name,
             revision="2")
-        example_gateway = azure.apimanagement.get_gateway(gateway_id="my-gateway",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
+        example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
+            api_management_id=azurerm_api_management["example"]["id"])
         example_gateway_api = azure.apimanagement.GatewayApi("exampleGatewayApi",
             gateway_id=example_gateway.id,
             api_id=example_api.id)

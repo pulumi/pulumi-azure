@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -61,8 +61,6 @@ type LookupAnalyticsWorkspaceResult struct {
 	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	PortalUrl string `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey  string `pulumi:"primarySharedKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -130,11 +128,6 @@ func (o LookupAnalyticsWorkspaceResultOutput) Location() pulumi.StringOutput {
 
 func (o LookupAnalyticsWorkspaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-func (o LookupAnalyticsWorkspaceResultOutput) PortalUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.PortalUrl }).(pulumi.StringOutput)
 }
 
 // The Primary shared key for the Log Analytics Workspace.

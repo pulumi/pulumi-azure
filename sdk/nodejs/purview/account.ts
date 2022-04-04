@@ -18,6 +18,9 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.purview.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * ```
  *
@@ -74,9 +77,9 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly guardianEndpoint!: pulumi.Output<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
-    public /*out*/ readonly identities!: pulumi.Output<outputs.purview.AccountIdentity[]>;
+    public readonly identity!: pulumi.Output<outputs.purview.AccountIdentity>;
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
@@ -106,10 +109,6 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly scanEndpoint!: pulumi.Output<string>;
     /**
-     * @deprecated This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-     */
-    public readonly skuName!: pulumi.Output<string | undefined>;
-    /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -131,7 +130,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = state ? state.atlasKafkaEndpointSecondaryConnectionString : undefined;
             resourceInputs["catalogEndpoint"] = state ? state.catalogEndpoint : undefined;
             resourceInputs["guardianEndpoint"] = state ? state.guardianEndpoint : undefined;
-            resourceInputs["identities"] = state ? state.identities : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             resourceInputs["managedResources"] = state ? state.managedResources : undefined;
@@ -139,25 +138,26 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scanEndpoint"] = state ? state.scanEndpoint : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
+            if ((!args || args.identity === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'identity'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["atlasKafkaEndpointPrimaryConnectionString"] = undefined /*out*/;
             resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = undefined /*out*/;
             resourceInputs["catalogEndpoint"] = undefined /*out*/;
             resourceInputs["guardianEndpoint"] = undefined /*out*/;
-            resourceInputs["identities"] = undefined /*out*/;
             resourceInputs["managedResources"] = undefined /*out*/;
             resourceInputs["scanEndpoint"] = undefined /*out*/;
         }
@@ -187,9 +187,9 @@ export interface AccountState {
      */
     guardianEndpoint?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
-    identities?: pulumi.Input<pulumi.Input<inputs.purview.AccountIdentity>[]>;
+    identity?: pulumi.Input<inputs.purview.AccountIdentity>;
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
@@ -219,10 +219,6 @@ export interface AccountState {
      */
     scanEndpoint?: pulumi.Input<string>;
     /**
-     * @deprecated This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-     */
-    skuName?: pulumi.Input<string>;
-    /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -232,6 +228,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity: pulumi.Input<inputs.purview.AccountIdentity>;
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
@@ -252,10 +252,6 @@ export interface AccountArgs {
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * @deprecated This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-     */
-    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */

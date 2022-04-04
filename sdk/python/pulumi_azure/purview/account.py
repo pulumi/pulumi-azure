@@ -15,15 +15,16 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
+                 identity: pulumi.Input['AccountIdentityArgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
-                 sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -31,6 +32,7 @@ class AccountArgs:
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
+        pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -40,13 +42,20 @@ class AccountArgs:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
             pulumi.set(__self__, "public_network_enabled", public_network_enabled)
-        if sku_name is not None:
-            warnings.warn("""This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""", DeprecationWarning)
-            pulumi.log.warn("""sku_name is deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""")
-        if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['AccountIdentityArgs']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['AccountIdentityArgs']):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -109,15 +118,6 @@ class AccountArgs:
         pulumi.set(self, "public_network_enabled", value)
 
     @property
-    @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "sku_name")
-
-    @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sku_name", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -137,7 +137,7 @@ class _AccountState:
                  atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  catalog_endpoint: Optional[pulumi.Input[str]] = None,
                  guardian_endpoint: Optional[pulumi.Input[str]] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountIdentityArgs']]]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]] = None,
@@ -145,7 +145,6 @@ class _AccountState:
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scan_endpoint: Optional[pulumi.Input[str]] = None,
-                 sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
@@ -153,7 +152,7 @@ class _AccountState:
         :param pulumi.Input[str] atlas_kafka_endpoint_secondary_connection_string: Atlas Kafka endpoint secondary connection string.
         :param pulumi.Input[str] catalog_endpoint: Catalog endpoint.
         :param pulumi.Input[str] guardian_endpoint: Guardian endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountIdentityArgs']]] identities: A `identity` block as defined below.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]] managed_resources: A `managed_resources` block as defined below.
@@ -171,8 +170,8 @@ class _AccountState:
             pulumi.set(__self__, "catalog_endpoint", catalog_endpoint)
         if guardian_endpoint is not None:
             pulumi.set(__self__, "guardian_endpoint", guardian_endpoint)
-        if identities is not None:
-            pulumi.set(__self__, "identities", identities)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
@@ -187,11 +186,6 @@ class _AccountState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scan_endpoint is not None:
             pulumi.set(__self__, "scan_endpoint", scan_endpoint)
-        if sku_name is not None:
-            warnings.warn("""This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""", DeprecationWarning)
-            pulumi.log.warn("""sku_name is deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""")
-        if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -245,15 +239,15 @@ class _AccountState:
 
     @property
     @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountIdentityArgs']]]]:
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
-        return pulumi.get(self, "identities")
+        return pulumi.get(self, "identity")
 
-    @identities.setter
-    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountIdentityArgs']]]]):
-        pulumi.set(self, "identities", value)
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -340,15 +334,6 @@ class _AccountState:
         pulumi.set(self, "scan_endpoint", value)
 
     @property
-    @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "sku_name")
-
-    @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sku_name", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -366,12 +351,12 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -386,7 +371,10 @@ class Account(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.purview.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+            location=example_resource_group.location,
+            identity=azure.purview.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
         ```
 
         ## Import
@@ -399,6 +387,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
@@ -424,7 +413,10 @@ class Account(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.purview.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+            location=example_resource_group.location,
+            identity=azure.purview.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
         ```
 
         ## Import
@@ -450,12 +442,12 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -469,6 +461,9 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            if identity is None and not opts.urn:
+                raise TypeError("Missing required property 'identity'")
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["name"] = name
@@ -476,16 +471,11 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sku_name is not None and not opts.urn:
-                warnings.warn("""This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""", DeprecationWarning)
-                pulumi.log.warn("""sku_name is deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""")
-            __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["atlas_kafka_endpoint_primary_connection_string"] = None
             __props__.__dict__["atlas_kafka_endpoint_secondary_connection_string"] = None
             __props__.__dict__["catalog_endpoint"] = None
             __props__.__dict__["guardian_endpoint"] = None
-            __props__.__dict__["identities"] = None
             __props__.__dict__["managed_resources"] = None
             __props__.__dict__["scan_endpoint"] = None
         super(Account, __self__).__init__(
@@ -502,7 +492,7 @@ class Account(pulumi.CustomResource):
             atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[str]] = None,
             catalog_endpoint: Optional[pulumi.Input[str]] = None,
             guardian_endpoint: Optional[pulumi.Input[str]] = None,
-            identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
             managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountManagedResourceArgs']]]]] = None,
@@ -510,7 +500,6 @@ class Account(pulumi.CustomResource):
             public_network_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scan_endpoint: Optional[pulumi.Input[str]] = None,
-            sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -523,7 +512,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] atlas_kafka_endpoint_secondary_connection_string: Atlas Kafka endpoint secondary connection string.
         :param pulumi.Input[str] catalog_endpoint: Catalog endpoint.
         :param pulumi.Input[str] guardian_endpoint: Guardian endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]]] identities: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountManagedResourceArgs']]]] managed_resources: A `managed_resources` block as defined below.
@@ -541,7 +530,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["atlas_kafka_endpoint_secondary_connection_string"] = atlas_kafka_endpoint_secondary_connection_string
         __props__.__dict__["catalog_endpoint"] = catalog_endpoint
         __props__.__dict__["guardian_endpoint"] = guardian_endpoint
-        __props__.__dict__["identities"] = identities
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
         __props__.__dict__["managed_resources"] = managed_resources
@@ -549,7 +538,6 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["public_network_enabled"] = public_network_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scan_endpoint"] = scan_endpoint
-        __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -587,11 +575,11 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> pulumi.Output[Sequence['outputs.AccountIdentity']]:
+    def identity(self) -> pulumi.Output['outputs.AccountIdentity']:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
-        return pulumi.get(self, "identities")
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -648,11 +636,6 @@ class Account(pulumi.CustomResource):
         Scan endpoint.
         """
         return pulumi.get(self, "scan_endpoint")
-
-    @property
-    @pulumi.getter(name="skuName")
-    def sku_name(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "sku_name")
 
     @property
     @pulumi.getter

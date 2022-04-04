@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,8 +93,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductGroup{}
 	case "azure:apimanagement/productPolicy:ProductPolicy":
 		r = &ProductPolicy{}
-	case "azure:apimanagement/property:Property":
-		r = &Property{}
 	case "azure:apimanagement/redisCache:RedisCache":
 		r = &RedisCache{}
 	case "azure:apimanagement/service:Service":
@@ -296,11 +294,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/productPolicy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"apimanagement/property",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class GetBackupVaultIdentityResult
     {
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Specifies the identity type of the Backup Vault.
+        /// The type of Managed Service Identity that is configured on this Backup Vault.
         /// </summary>
         public readonly string Type;
 

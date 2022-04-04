@@ -253,8 +253,6 @@ def get_function_app(name: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionAppResult:
     """
-    Use this data source to access information about a Function App.
-
     ## Example Usage
 
     ```python
@@ -307,8 +305,6 @@ def get_function_app_output(name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionAppResult]:
     """
-    Use this data source to access information about a Function App.
-
     ## Example Usage
 
     ```python

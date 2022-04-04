@@ -57,7 +57,6 @@ export interface GetClusterNodePoolArgs {
  * A collection of values returned by getClusterNodePool.
  */
 export interface GetClusterNodePoolResult {
-    readonly availabilityZones: string[];
     /**
      * Does this Node Pool have Auto-Scaling enabled?
      */

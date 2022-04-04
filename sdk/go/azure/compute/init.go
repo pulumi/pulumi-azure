@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AvailabilitySet{}
 	case "azure:compute/bastionHost:BastionHost":
 		r = &BastionHost{}
-	case "azure:compute/configurationPolicyAssignment:ConfigurationPolicyAssignment":
-		r = &ConfigurationPolicyAssignment{}
 	case "azure:compute/dataDiskAttachment:DataDiskAttachment":
 		r = &DataDiskAttachment{}
 	case "azure:compute/dedicatedHost:DedicatedHost":
@@ -98,11 +96,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/bastionHost",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"compute/configurationPolicyAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

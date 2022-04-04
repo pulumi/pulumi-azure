@@ -23,7 +23,6 @@ class PolicyFileShareArgs:
                  retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyFileShare resource.
@@ -49,8 +48,6 @@ class PolicyFileShareArgs:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -152,15 +149,6 @@ class PolicyFileShareArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
@@ -183,7 +171,6 @@ class _PolicyFileShareState:
                  retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyFileShare resources.
@@ -213,8 +200,6 @@ class _PolicyFileShareState:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -316,15 +301,6 @@ class _PolicyFileShareState:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
@@ -349,7 +325,6 @@ class PolicyFileShare(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']]] = None,
                  retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']]] = None,
                  retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -515,7 +490,6 @@ class PolicyFileShare(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']]] = None,
                  retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']]] = None,
                  retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -545,7 +519,6 @@ class PolicyFileShare(pulumi.CustomResource):
             __props__.__dict__["retention_monthly"] = retention_monthly
             __props__.__dict__["retention_weekly"] = retention_weekly
             __props__.__dict__["retention_yearly"] = retention_yearly
-            __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
         super(PolicyFileShare, __self__).__init__(
             'azure:backup/policyFileShare:PolicyFileShare',
@@ -565,7 +538,6 @@ class PolicyFileShare(pulumi.CustomResource):
             retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']]] = None,
             retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']]] = None,
             retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'PolicyFileShare':
         """
         Get an existing PolicyFileShare resource's state with the given name, id, and optional extra
@@ -596,7 +568,6 @@ class PolicyFileShare(pulumi.CustomResource):
         __props__.__dict__["retention_monthly"] = retention_monthly
         __props__.__dict__["retention_weekly"] = retention_weekly
         __props__.__dict__["retention_yearly"] = retention_yearly
-        __props__.__dict__["tags"] = tags
         __props__.__dict__["timezone"] = timezone
         return PolicyFileShare(resource_name, opts=opts, __props__=__props__)
 
@@ -663,11 +634,6 @@ class PolicyFileShare(pulumi.CustomResource):
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
         return pulumi.get(self, "retention_yearly")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

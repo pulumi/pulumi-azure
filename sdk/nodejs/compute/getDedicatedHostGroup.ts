@@ -73,7 +73,7 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Availability Zones in which this Dedicated Host Group is located.
+     * A list of Availability Zones in which this Dedicated Host Group is located.
      */
     readonly zones: string[];
 }

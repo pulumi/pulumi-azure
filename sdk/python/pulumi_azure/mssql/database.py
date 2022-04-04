@@ -21,7 +21,6 @@ class DatabaseArgs:
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
@@ -39,6 +38,7 @@ class DatabaseArgs:
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+                 transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Database resource.
@@ -48,7 +48,6 @@ class DatabaseArgs:
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -79,11 +78,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "creation_source_database_id", creation_source_database_id)
         if elastic_pool_id is not None:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
-        if extended_auditing_policy is not None:
-            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-        if extended_auditing_policy is not None:
-            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
         if license_type is not None:
@@ -118,6 +112,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
             pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
+        if transparent_data_encryption_enabled is not None:
+            pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -192,18 +188,6 @@ class DatabaseArgs:
     @elastic_pool_id.setter
     def elastic_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "elastic_pool_id", value)
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]:
-        """
-        A `extended_auditing_policy` block as defined below.
-        """
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @extended_auditing_policy.setter
-    def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
-        pulumi.set(self, "extended_auditing_policy", value)
 
     @property
     @pulumi.getter(name="geoBackupEnabled")
@@ -410,6 +394,15 @@ class DatabaseArgs:
         pulumi.set(self, "threat_detection_policy", value)
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionEnabled")
+    def transparent_data_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "transparent_data_encryption_enabled")
+
+    @transparent_data_encryption_enabled.setter
+    def transparent_data_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transparent_data_encryption_enabled", value)
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -430,7 +423,6 @@ class _DatabaseState:
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
@@ -449,6 +441,7 @@ class _DatabaseState:
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+                 transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Database resources.
@@ -457,7 +450,6 @@ class _DatabaseState:
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -488,11 +480,6 @@ class _DatabaseState:
             pulumi.set(__self__, "creation_source_database_id", creation_source_database_id)
         if elastic_pool_id is not None:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
-        if extended_auditing_policy is not None:
-            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-        if extended_auditing_policy is not None:
-            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
         if license_type is not None:
@@ -529,6 +516,8 @@ class _DatabaseState:
             pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
             pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
+        if transparent_data_encryption_enabled is not None:
+            pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -591,18 +580,6 @@ class _DatabaseState:
     @elastic_pool_id.setter
     def elastic_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "elastic_pool_id", value)
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]:
-        """
-        A `extended_auditing_policy` block as defined below.
-        """
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @extended_auditing_policy.setter
-    def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
-        pulumi.set(self, "extended_auditing_policy", value)
 
     @property
     @pulumi.getter(name="geoBackupEnabled")
@@ -821,6 +798,15 @@ class _DatabaseState:
         pulumi.set(self, "threat_detection_policy", value)
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionEnabled")
+    def transparent_data_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "transparent_data_encryption_enabled")
+
+    @transparent_data_encryption_enabled.setter
+    def transparent_data_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transparent_data_encryption_enabled", value)
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -843,7 +829,6 @@ class Database(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
@@ -862,49 +847,13 @@ class Database(pulumi.CustomResource):
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a MS SQL Database.
 
         > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        test = azure.mssql.Database("test",
-            server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
-            max_size_gb=4,
-            read_scale=True,
-            sku_name="BC_Gen5_2",
-            zone_redundant=True,
-            extended_auditing_policy=azure.mssql.DatabaseExtendedAuditingPolicyArgs(
-                storage_endpoint=example_account.primary_blob_endpoint,
-                storage_account_access_key=example_account.primary_access_key,
-                storage_account_access_key_is_secondary=True,
-                retention_in_days=6,
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -921,7 +870,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -953,43 +901,6 @@ class Database(pulumi.CustomResource):
 
         > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        test = azure.mssql.Database("test",
-            server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
-            max_size_gb=4,
-            read_scale=True,
-            sku_name="BC_Gen5_2",
-            zone_redundant=True,
-            extended_auditing_policy=azure.mssql.DatabaseExtendedAuditingPolicyArgs(
-                storage_endpoint=example_account.primary_blob_endpoint,
-                storage_account_access_key=example_account.primary_access_key,
-                storage_account_access_key_is_secondary=True,
-                retention_in_days=6,
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         SQL Database can be imported using the `resource id`, e.g.
@@ -1018,7 +929,6 @@ class Database(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
@@ -1037,6 +947,7 @@ class Database(pulumi.CustomResource):
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -1055,10 +966,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["creation_source_database_id"] = creation_source_database_id
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
-            if extended_auditing_policy is not None and not opts.urn:
-                warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
             __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
@@ -1079,6 +986,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
+            __props__.__dict__["transparent_data_encryption_enabled"] = transparent_data_encryption_enabled
             __props__.__dict__["zone_redundant"] = zone_redundant
         super(Database, __self__).__init__(
             'azure:mssql/database:Database',
@@ -1095,7 +1003,6 @@ class Database(pulumi.CustomResource):
             create_mode: Optional[pulumi.Input[str]] = None,
             creation_source_database_id: Optional[pulumi.Input[str]] = None,
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
-            extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
@@ -1114,6 +1021,7 @@ class Database(pulumi.CustomResource):
             storage_account_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+            transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
@@ -1127,7 +1035,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1157,7 +1064,6 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["creation_source_database_id"] = creation_source_database_id
         __props__.__dict__["elastic_pool_id"] = elastic_pool_id
-        __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
         __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
@@ -1176,6 +1082,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["storage_account_type"] = storage_account_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["threat_detection_policy"] = threat_detection_policy
+        __props__.__dict__["transparent_data_encryption_enabled"] = transparent_data_encryption_enabled
         __props__.__dict__["zone_redundant"] = zone_redundant
         return Database(resource_name, opts=opts, __props__=__props__)
 
@@ -1218,14 +1125,6 @@ class Database(pulumi.CustomResource):
         Specifies the ID of the elastic pool containing this database.
         """
         return pulumi.get(self, "elastic_pool_id")
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> pulumi.Output['outputs.DatabaseExtendedAuditingPolicy']:
-        """
-        A `extended_auditing_policy` block as defined below.
-        """
-        return pulumi.get(self, "extended_auditing_policy")
 
     @property
     @pulumi.getter(name="geoBackupEnabled")
@@ -1370,6 +1269,11 @@ class Database(pulumi.CustomResource):
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionEnabled")
+    def transparent_data_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "transparent_data_encryption_enabled")
 
     @property
     @pulumi.getter(name="zoneRedundant")

@@ -81,9 +81,6 @@ namespace Pulumi.Azure.Network
         [Input("allocationType")]
         public string? AllocationType { get; set; }
 
-        [Input("attached")]
-        public bool? Attached { get; set; }
-
         /// <summary>
         /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
         /// </summary>
@@ -115,9 +112,6 @@ namespace Pulumi.Azure.Network
         [Input("allocationType")]
         public Input<string>? AllocationType { get; set; }
 
-        [Input("attached")]
-        public Input<bool>? Attached { get; set; }
-
         /// <summary>
         /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
         /// </summary>
@@ -146,7 +140,6 @@ namespace Pulumi.Azure.Network
     public sealed class GetPublicIPsResult
     {
         public readonly string? AllocationType;
-        public readonly bool? Attached;
         public readonly string? AttachmentStatus;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -163,8 +156,6 @@ namespace Pulumi.Azure.Network
         private GetPublicIPsResult(
             string? allocationType,
 
-            bool? attached,
-
             string? attachmentStatus,
 
             string id,
@@ -176,7 +167,6 @@ namespace Pulumi.Azure.Network
             string resourceGroupName)
         {
             AllocationType = allocationType;
-            Attached = attached;
             AttachmentStatus = attachmentStatus;
             Id = id;
             NamePrefix = namePrefix;

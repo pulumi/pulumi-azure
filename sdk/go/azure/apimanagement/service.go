@@ -17,8 +17,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -122,7 +122,7 @@ type Service struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
-	// A list of availability zones.
+	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -234,7 +234,7 @@ type serviceState struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
-	// A list of availability zones.
+	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -306,7 +306,7 @@ type ServiceState struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrInput
-	// A list of availability zones.
+	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -366,7 +366,7 @@ type serviceArgs struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
-	// A list of availability zones.
+	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -423,7 +423,7 @@ type ServiceArgs struct {
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrInput
-	// A list of availability zones.
+	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	Zones pulumi.StringArrayInput
 }
 

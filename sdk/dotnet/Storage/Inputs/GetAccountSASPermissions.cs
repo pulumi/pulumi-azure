@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Storage.Inputs
         public bool Delete { get; set; }
 
         /// <summary>
+        /// Should Filter by Index Tags permissions be enabled for this SAS?
+        /// </summary>
+        [Input("filter", required: true)]
+        public bool Filter { get; set; }
+
+        /// <summary>
         /// Should List permissions be enabled for this SAS?
         /// </summary>
         [Input("list", required: true)]
@@ -47,6 +53,12 @@ namespace Pulumi.Azure.Storage.Inputs
         /// </summary>
         [Input("read", required: true)]
         public bool Read { get; set; }
+
+        /// <summary>
+        /// Should Get / Set Index Tags permissions be enabled for this SAS?
+        /// </summary>
+        [Input("tag", required: true)]
+        public bool Tag { get; set; }
 
         /// <summary>
         /// Should Update permissions be enabled for this SAS?

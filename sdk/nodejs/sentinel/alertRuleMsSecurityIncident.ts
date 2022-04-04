@@ -114,10 +114,6 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
     public readonly severityFilters!: pulumi.Output<string[]>;
-    /**
-     * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
-     */
-    public readonly textWhitelists!: pulumi.Output<string[]>;
 
     /**
      * Create a AlertRuleMsSecurityIncident resource with the given unique name, arguments, and options.
@@ -142,7 +138,6 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["productFilter"] = state ? state.productFilter : undefined;
             resourceInputs["severityFilters"] = state ? state.severityFilters : undefined;
-            resourceInputs["textWhitelists"] = state ? state.textWhitelists : undefined;
         } else {
             const args = argsOrState as AlertRuleMsSecurityIncidentArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -167,7 +162,6 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["productFilter"] = args ? args.productFilter : undefined;
             resourceInputs["severityFilters"] = args ? args.severityFilters : undefined;
-            resourceInputs["textWhitelists"] = args ? args.textWhitelists : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleMsSecurityIncident.__pulumiType, name, resourceInputs, opts);
@@ -218,10 +212,6 @@ export interface AlertRuleMsSecurityIncidentState {
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
     severityFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
-     */
-    textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -268,8 +258,4 @@ export interface AlertRuleMsSecurityIncidentArgs {
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
     severityFilters: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
-     */
-    textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }

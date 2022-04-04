@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Synapse Workspace.
+ * Manages Synapse Workspace keys
+ *
+ * > **Note:** Keys that are actively protecting a workspace cannot be deleted. When the keys resource is deleted, if the key is inactive it will be deleted, if it is active it will not be deleted.
  *
  * ## Example Usage
  *
@@ -23,39 +25,7 @@ import * as utilities from "../utilities";
  *     isHnsEnabled: "true",
  * });
  * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
- *     sqlAdministratorLogin: "sqladminuser",
- *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     aadAdmin: {
- *         login: "AzureAD Admin",
- *         objectId: "00000000-0000-0000-0000-000000000000",
- *         tenantId: "00000000-0000-0000-0000-000000000000",
- *     },
- *     tags: {
- *         Env: "production",
- *     },
- * });
- * ```
- * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     isHnsEnabled: "true",
- * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -101,8 +71,8 @@ import * as utilities from "../utilities";
  * });
  * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.identities.apply(identities => identities[0].tenantId),
- *     objectId: exampleWorkspace.identities.apply(identities => identities[0].principalId),
+ *     tenantId: exampleWorkspace.identity.apply(identity => identity.tenantId),
+ *     objectId: exampleWorkspace.identity.apply(identity => identity.principalId),
  *     keyPermissions: [
  *         "Get",
  *         "WrapKey",
@@ -117,22 +87,14 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [workspacePolicy],
  * });
- * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     login: "AzureAD Admin",
- *     objectId: "00000000-0000-0000-0000-000000000000",
- *     tenantId: "00000000-0000-0000-0000-000000000000",
- * }, {
- *     dependsOn: [exampleWorkspaceKey],
- * });
  * ```
  *
  * ## Import
  *
- * Synapse Workspace can be imported using the `resource id`, e.g.
+ * Synapse Workspace Keys can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
+ *  $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
  * ```
  */
 export class WorkspaceKey extends pulumi.CustomResource {
@@ -163,13 +125,21 @@ export class WorkspaceKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceKey.__pulumiType;
     }
 
+    /**
+     * Specifies if the workspace should be encrypted with this key.
+     */
     public readonly active!: pulumi.Output<boolean>;
     /**
-     * @deprecated As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+     * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      */
-    public readonly cusomterManagedKeyName!: pulumi.Output<string>;
     public readonly customerManagedKeyName!: pulumi.Output<string>;
+    /**
+     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+     */
     public readonly customerManagedKeyVersionlessId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the Synapse Workspace where the encryption key should be configured.
+     */
     public readonly synapseWorkspaceId!: pulumi.Output<string>;
 
     /**
@@ -186,7 +156,6 @@ export class WorkspaceKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkspaceKeyState | undefined;
             resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["cusomterManagedKeyName"] = state ? state.cusomterManagedKeyName : undefined;
             resourceInputs["customerManagedKeyName"] = state ? state.customerManagedKeyName : undefined;
             resourceInputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
             resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
@@ -195,11 +164,13 @@ export class WorkspaceKey extends pulumi.CustomResource {
             if ((!args || args.active === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'active'");
             }
+            if ((!args || args.customerManagedKeyName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'customerManagedKeyName'");
+            }
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["cusomterManagedKeyName"] = args ? args.cusomterManagedKeyName : undefined;
             resourceInputs["customerManagedKeyName"] = args ? args.customerManagedKeyName : undefined;
             resourceInputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
             resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
@@ -213,13 +184,21 @@ export class WorkspaceKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkspaceKey resources.
  */
 export interface WorkspaceKeyState {
+    /**
+     * Specifies if the workspace should be encrypted with this key.
+     */
     active?: pulumi.Input<boolean>;
     /**
-     * @deprecated As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+     * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      */
-    cusomterManagedKeyName?: pulumi.Input<string>;
     customerManagedKeyName?: pulumi.Input<string>;
+    /**
+     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+     */
     customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    /**
+     * The ID of the Synapse Workspace where the encryption key should be configured.
+     */
     synapseWorkspaceId?: pulumi.Input<string>;
 }
 
@@ -227,12 +206,20 @@ export interface WorkspaceKeyState {
  * The set of arguments for constructing a WorkspaceKey resource.
  */
 export interface WorkspaceKeyArgs {
+    /**
+     * Specifies if the workspace should be encrypted with this key.
+     */
     active: pulumi.Input<boolean>;
     /**
-     * @deprecated As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+     * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      */
-    cusomterManagedKeyName?: pulumi.Input<string>;
-    customerManagedKeyName?: pulumi.Input<string>;
+    customerManagedKeyName: pulumi.Input<string>;
+    /**
+     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+     */
     customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    /**
+     * The ID of the Synapse Workspace where the encryption key should be configured.
+     */
     synapseWorkspaceId: pulumi.Input<string>;
 }

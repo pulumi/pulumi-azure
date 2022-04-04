@@ -6,11 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Function App.
- *
- * > **Note:** To connect an Azure Function App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
- * For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
- *
  * ## Example Usage
  * ### With App Service Plan)
  *
@@ -195,12 +190,6 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly authSettings!: pulumi.Output<outputs.appservice.FunctionAppAuthSettings>;
     /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     *
-     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-     */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
-    /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      */
     public readonly clientCertMode!: pulumi.Output<string | undefined>;
@@ -235,7 +224,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppIdentity>;
+    public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
@@ -289,10 +278,6 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-     */
-    public readonly storageConnectionString!: pulumi.Output<string>;
-    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -317,7 +302,6 @@ export class FunctionApp extends pulumi.CustomResource {
             resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             resourceInputs["appSettings"] = state ? state.appSettings : undefined;
             resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             resourceInputs["clientCertMode"] = state ? state.clientCertMode : undefined;
             resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
@@ -340,7 +324,6 @@ export class FunctionApp extends pulumi.CustomResource {
             resourceInputs["sourceControl"] = state ? state.sourceControl : undefined;
             resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -351,10 +334,15 @@ export class FunctionApp extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.storageAccountAccessKey === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'storageAccountAccessKey'");
+            }
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'storageAccountName'");
+            }
             resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             resourceInputs["clientCertMode"] = args ? args.clientCertMode : undefined;
             resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
@@ -371,7 +359,6 @@ export class FunctionApp extends pulumi.CustomResource {
             resourceInputs["sourceControl"] = args ? args.sourceControl : undefined;
             resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
@@ -402,12 +389,6 @@ export interface FunctionAppState {
      * A `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
-    /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     *
-     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-     */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      */
@@ -497,10 +478,6 @@ export interface FunctionAppState {
      */
     storageAccountName?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-     */
-    storageConnectionString?: pulumi.Input<string>;
-    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -526,12 +503,6 @@ export interface FunctionAppArgs {
      * A `authSettings` block as defined below.
      */
     authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
-    /**
-     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-     *
-     * @deprecated This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-     */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      */
@@ -591,15 +562,11 @@ export interface FunctionAppArgs {
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey: pulumi.Input<string>;
     /**
      * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
      */
-    storageAccountName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-     */
-    storageConnectionString?: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

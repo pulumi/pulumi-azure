@@ -101,7 +101,7 @@ export class DiskPool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+     * Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
      */
     public readonly zones!: pulumi.Output<string[]>;
 
@@ -181,7 +181,7 @@ export interface DiskPoolState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+     * Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -215,7 +215,7 @@ export interface DiskPoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+     * Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
      */
     zones: pulumi.Input<pulumi.Input<string>[]>;
 }

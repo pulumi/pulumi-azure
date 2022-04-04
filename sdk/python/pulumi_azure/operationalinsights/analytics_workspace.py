@@ -20,7 +20,6 @@ class AnalyticsWorkspaceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
-                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -49,11 +48,6 @@ class AnalyticsWorkspaceArgs:
             pulumi.set(__self__, "name", name)
         if reservation_capacity_in_gb_per_day is not None:
             pulumi.set(__self__, "reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
-        if reservation_capcity_in_gb_per_day is not None:
-            warnings.warn("""As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""", DeprecationWarning)
-            pulumi.log.warn("""reservation_capcity_in_gb_per_day is deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""")
-        if reservation_capcity_in_gb_per_day is not None:
-            pulumi.set(__self__, "reservation_capcity_in_gb_per_day", reservation_capcity_in_gb_per_day)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if sku is not None:
@@ -143,15 +137,6 @@ class AnalyticsWorkspaceArgs:
         pulumi.set(self, "reservation_capacity_in_gb_per_day", value)
 
     @property
-    @pulumi.getter(name="reservationCapcityInGbPerDay")
-    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "reservation_capcity_in_gb_per_day")
-
-    @reservation_capcity_in_gb_per_day.setter
-    def reservation_capcity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "reservation_capcity_in_gb_per_day", value)
-
-    @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -196,10 +181,8 @@ class _AnalyticsWorkspaceState:
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 portal_url: Optional[pulumi.Input[str]] = None,
                  primary_shared_key: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
-                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  secondary_shared_key: Optional[pulumi.Input[str]] = None,
@@ -231,20 +214,10 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if portal_url is not None:
-            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""portal_url is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-        if portal_url is not None:
-            pulumi.set(__self__, "portal_url", portal_url)
         if primary_shared_key is not None:
             pulumi.set(__self__, "primary_shared_key", primary_shared_key)
         if reservation_capacity_in_gb_per_day is not None:
             pulumi.set(__self__, "reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
-        if reservation_capcity_in_gb_per_day is not None:
-            warnings.warn("""As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""", DeprecationWarning)
-            pulumi.log.warn("""reservation_capcity_in_gb_per_day is deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""")
-        if reservation_capcity_in_gb_per_day is not None:
-            pulumi.set(__self__, "reservation_capcity_in_gb_per_day", reservation_capcity_in_gb_per_day)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_in_days is not None:
@@ -316,15 +289,6 @@ class _AnalyticsWorkspaceState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "portal_url")
-
-    @portal_url.setter
-    def portal_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "portal_url", value)
-
-    @property
     @pulumi.getter(name="primarySharedKey")
     def primary_shared_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -347,15 +311,6 @@ class _AnalyticsWorkspaceState:
     @reservation_capacity_in_gb_per_day.setter
     def reservation_capacity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "reservation_capacity_in_gb_per_day", value)
-
-    @property
-    @pulumi.getter(name="reservationCapcityInGbPerDay")
-    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "reservation_capcity_in_gb_per_day")
-
-    @reservation_capcity_in_gb_per_day.setter
-    def reservation_capcity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "reservation_capcity_in_gb_per_day", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -441,7 +396,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
-                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -536,7 +490,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
-                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -559,17 +512,12 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["reservation_capacity_in_gb_per_day"] = reservation_capacity_in_gb_per_day
-            if reservation_capcity_in_gb_per_day is not None and not opts.urn:
-                warnings.warn("""As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""", DeprecationWarning)
-                pulumi.log.warn("""reservation_capcity_in_gb_per_day is deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""")
-            __props__.__dict__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["portal_url"] = None
             __props__.__dict__["primary_shared_key"] = None
             __props__.__dict__["secondary_shared_key"] = None
             __props__.__dict__["workspace_id"] = None
@@ -588,10 +536,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            portal_url: Optional[pulumi.Input[str]] = None,
             primary_shared_key: Optional[pulumi.Input[str]] = None,
             reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
-            reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
             secondary_shared_key: Optional[pulumi.Input[str]] = None,
@@ -627,10 +573,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
-        __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["primary_shared_key"] = primary_shared_key
         __props__.__dict__["reservation_capacity_in_gb_per_day"] = reservation_capacity_in_gb_per_day
-        __props__.__dict__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_in_days"] = retention_in_days
         __props__.__dict__["secondary_shared_key"] = secondary_shared_key
@@ -677,11 +621,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "portal_url")
-
-    @property
     @pulumi.getter(name="primarySharedKey")
     def primary_shared_key(self) -> pulumi.Output[str]:
         """
@@ -696,11 +635,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
-
-    @property
-    @pulumi.getter(name="reservationCapcityInGbPerDay")
-    def reservation_capcity_in_gb_per_day(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "reservation_capcity_in_gb_per_day")
 
     @property
     @pulumi.getter(name="resourceGroupName")

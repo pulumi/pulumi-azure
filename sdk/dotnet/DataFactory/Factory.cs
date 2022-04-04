@@ -54,6 +54,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> CustomerManagedKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+        /// </summary>
+        [Output("customerManagedKeyIdentityId")]
+        public Output<string?> CustomerManagedKeyIdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// A `github_configuration` block as defined below.
         /// </summary>
         [Output("githubConfiguration")]
@@ -69,7 +75,7 @@ namespace Pulumi.Azure.DataFactory
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.FactoryIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.FactoryIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -166,6 +172,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? CustomerManagedKeyId { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+        /// </summary>
+        [Input("customerManagedKeyIdentityId")]
+        public Input<string>? CustomerManagedKeyIdentityId { get; set; }
+
+        /// <summary>
         /// A `github_configuration` block as defined below.
         /// </summary>
         [Input("githubConfiguration")]
@@ -249,6 +261,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("customerManagedKeyId")]
         public Input<string>? CustomerManagedKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+        /// </summary>
+        [Input("customerManagedKeyIdentityId")]
+        public Input<string>? CustomerManagedKeyIdentityId { get; set; }
 
         /// <summary>
         /// A `github_configuration` block as defined below.

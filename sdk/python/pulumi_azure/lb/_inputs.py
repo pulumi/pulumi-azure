@@ -9,55 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BackendAddressPoolBackendAddressArgs',
     'BackendAddressPoolTunnelInterfaceArgs',
     'LoadBalancerFrontendIpConfigurationArgs',
     'OutboundRuleFrontendIpConfigurationArgs',
 ]
-
-@pulumi.input_type
-class BackendAddressPoolBackendAddressArgs:
-    def __init__(__self__, *,
-                 ip_address: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 virtual_network_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
-        """
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "ip_address")
-
-    @ip_address.setter
-    def ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "ip_address", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the Backend Address Pool.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "virtual_network_id")
-
-    @virtual_network_id.setter
-    def virtual_network_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "virtual_network_id", value)
-
 
 @pulumi.input_type
 class BackendAddressPoolTunnelInterfaceArgs:
@@ -130,7 +85,6 @@ class BackendAddressPoolTunnelInterfaceArgs:
 class LoadBalancerFrontendIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 availability_zone: Optional[pulumi.Input[str]] = None,
                  gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -142,10 +96,9 @@ class LoadBalancerFrontendIpConfigurationArgs:
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name of the frontend ip configuration.
-        :param pulumi.Input[str] availability_zone: A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
         :param pulumi.Input[str] id: The id of the Frontend IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
@@ -159,8 +112,6 @@ class LoadBalancerFrontendIpConfigurationArgs:
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
         """
         pulumi.set(__self__, "name", name)
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
             pulumi.set(__self__, "gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
         if id is not None:
@@ -184,9 +135,6 @@ class LoadBalancerFrontendIpConfigurationArgs:
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if zones is not None:
-            warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
-            pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
-        if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
     @property
@@ -200,18 +148,6 @@ class LoadBalancerFrontendIpConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
@@ -347,11 +283,11 @@ class LoadBalancerFrontendIpConfigurationArgs:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
 

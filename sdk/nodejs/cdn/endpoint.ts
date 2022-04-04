@@ -74,6 +74,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly deliveryRules!: pulumi.Output<outputs.cdn.EndpointDeliveryRule[] | undefined>;
     /**
+     * The Fully Qualified Domain Name of the CDN Endpoint.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     public readonly geoFilters!: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
@@ -81,10 +85,6 @@ export class Endpoint extends pulumi.CustomResource {
      * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      */
     public readonly globalDeliveryRule!: pulumi.Output<outputs.cdn.EndpointGlobalDeliveryRule | undefined>;
-    /**
-     * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-     */
-    public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
      * Indicates whether compression is to be enabled.
      */
@@ -157,9 +157,9 @@ export class Endpoint extends pulumi.CustomResource {
             const state = argsOrState as EndpointState | undefined;
             resourceInputs["contentTypesToCompresses"] = state ? state.contentTypesToCompresses : undefined;
             resourceInputs["deliveryRules"] = state ? state.deliveryRules : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["geoFilters"] = state ? state.geoFilters : undefined;
             resourceInputs["globalDeliveryRule"] = state ? state.globalDeliveryRule : undefined;
-            resourceInputs["hostName"] = state ? state.hostName : undefined;
             resourceInputs["isCompressionEnabled"] = state ? state.isCompressionEnabled : undefined;
             resourceInputs["isHttpAllowed"] = state ? state.isHttpAllowed : undefined;
             resourceInputs["isHttpsAllowed"] = state ? state.isHttpsAllowed : undefined;
@@ -203,7 +203,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["querystringCachingBehaviour"] = args ? args.querystringCachingBehaviour : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
@@ -223,6 +223,10 @@ export interface EndpointState {
      */
     deliveryRules?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRule>[]>;
     /**
+     * The Fully Qualified Domain Name of the CDN Endpoint.
+     */
+    fqdn?: pulumi.Input<string>;
+    /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[]>;
@@ -230,10 +234,6 @@ export interface EndpointState {
      * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      */
     globalDeliveryRule?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRule>;
-    /**
-     * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-     */
-    hostName?: pulumi.Input<string>;
     /**
      * Indicates whether compression is to be enabled.
      */

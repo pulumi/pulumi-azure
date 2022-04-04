@@ -429,52 +429,6 @@ class TriggerBlobEvent(pulumi.CustomResource):
         """
         Manages a Blob Event Trigger inside an Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline",
-            resource_group_name=example_resource_group.name,
-            data_factory_id=example_factory.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_trigger_blob_event = azure.datafactory.TriggerBlobEvent("exampleTriggerBlobEvent",
-            data_factory_id=example_factory.id,
-            storage_account_id=example_account.id,
-            events=[
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobDeleted",
-            ],
-            blob_path_ends_with=".txt",
-            ignore_empty_blobs=True,
-            activated=True,
-            annotations=[
-                "test1",
-                "test2",
-                "test3",
-            ],
-            description="example description",
-            pipelines=[azure.datafactory.TriggerBlobEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
-                },
-            )],
-            additional_properties={
-                "foo": "foo1",
-                "bar": "bar2",
-            })
-        ```
-
         ## Import
 
         Data Factory Blob Event Trigger can be imported using the `resource id`, e.g.
@@ -506,52 +460,6 @@ class TriggerBlobEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Blob Event Trigger inside an Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline",
-            resource_group_name=example_resource_group.name,
-            data_factory_id=example_factory.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_trigger_blob_event = azure.datafactory.TriggerBlobEvent("exampleTriggerBlobEvent",
-            data_factory_id=example_factory.id,
-            storage_account_id=example_account.id,
-            events=[
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobDeleted",
-            ],
-            blob_path_ends_with=".txt",
-            ignore_empty_blobs=True,
-            activated=True,
-            annotations=[
-                "test1",
-                "test2",
-                "test3",
-            ],
-            description="example description",
-            pipelines=[azure.datafactory.TriggerBlobEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
-                },
-            )],
-            additional_properties={
-                "foo": "foo1",
-                "bar": "bar2",
-            })
-        ```
 
         ## Import
 

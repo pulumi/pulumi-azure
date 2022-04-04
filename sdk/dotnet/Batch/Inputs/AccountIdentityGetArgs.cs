@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.Batch.Inputs
         }
 
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

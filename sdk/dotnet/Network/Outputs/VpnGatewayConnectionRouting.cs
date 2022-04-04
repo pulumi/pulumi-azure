@@ -21,19 +21,15 @@ namespace Pulumi.Azure.Network.Outputs
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         public readonly Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? PropagatedRouteTable;
-        public readonly ImmutableArray<string> PropagatedRouteTables;
 
         [OutputConstructor]
         private VpnGatewayConnectionRouting(
             string associatedRouteTable,
 
-            Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? propagatedRouteTable,
-
-            ImmutableArray<string> propagatedRouteTables)
+            Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? propagatedRouteTable)
         {
             AssociatedRouteTable = associatedRouteTable;
             PropagatedRouteTable = propagatedRouteTable;
-            PropagatedRouteTables = propagatedRouteTables;
         }
     }
 }

@@ -14,6 +14,9 @@ export * from "./customHostnameBinding";
 export * from "./environment";
 export * from "./environmentV3";
 export * from "./functionApp";
+export * from "./functionAppActiveSlot";
+export * from "./functionAppFunction";
+export * from "./functionAppHybridConnection";
 export * from "./functionAppSlot";
 export * from "./getAppService";
 export * from "./getAppServiceEnvironment";
@@ -23,18 +26,38 @@ export * from "./getCertificateOrder";
 export * from "./getEnvironmentV3";
 export * from "./getFunctionApp";
 export * from "./getFunctionAppHostKeys";
+export * from "./getLinuxFunctionApp";
+export * from "./getLinuxWebApp";
+export * from "./getServicePlan";
+export * from "./getSourceControlToken";
+export * from "./getWindowsFunctionApp";
+export * from "./getWindowsWebApp";
 export * from "./hybridConnection";
 export * from "./kind";
+export * from "./linuxFunctionApp";
+export * from "./linuxFunctionAppSlot";
+export * from "./linuxWebApp";
+export * from "./linuxWebAppSlot";
 export * from "./managedCertificate";
 export * from "./plan";
 export * from "./publicCertificate";
+export * from "./servicePlan";
 export * from "./slot";
 export * from "./slotCustomHostnameBinding";
 export * from "./slotVirtualNetworkSwiftConnection";
 export * from "./sourceCodeToken";
+export * from "./sourceControl";
+export * from "./sourceControlSlot";
+export * from "./sourceControlToken";
 export * from "./staticSite";
 export * from "./staticSiteCustomDomain";
 export * from "./virtualNetworkSwiftConnection";
+export * from "./webAppActiveSlot";
+export * from "./webAppHybridConnection";
+export * from "./windowsFunctionApp";
+export * from "./windowsFunctionAppSlot";
+export * from "./windowsWebApp";
+export * from "./windowsWebAppSlot";
 export * from "./zMixins";
 export * from "./zMixins_durable";
 export * from "./zMixins_http";
@@ -50,18 +73,35 @@ import { CustomHostnameBinding } from "./customHostnameBinding";
 import { Environment } from "./environment";
 import { EnvironmentV3 } from "./environmentV3";
 import { FunctionApp } from "./functionApp";
+import { FunctionAppActiveSlot } from "./functionAppActiveSlot";
+import { FunctionAppFunction } from "./functionAppFunction";
+import { FunctionAppHybridConnection } from "./functionAppHybridConnection";
 import { FunctionAppSlot } from "./functionAppSlot";
 import { HybridConnection } from "./hybridConnection";
+import { LinuxFunctionApp } from "./linuxFunctionApp";
+import { LinuxFunctionAppSlot } from "./linuxFunctionAppSlot";
+import { LinuxWebApp } from "./linuxWebApp";
+import { LinuxWebAppSlot } from "./linuxWebAppSlot";
 import { ManagedCertificate } from "./managedCertificate";
 import { Plan } from "./plan";
 import { PublicCertificate } from "./publicCertificate";
+import { ServicePlan } from "./servicePlan";
 import { Slot } from "./slot";
 import { SlotCustomHostnameBinding } from "./slotCustomHostnameBinding";
 import { SlotVirtualNetworkSwiftConnection } from "./slotVirtualNetworkSwiftConnection";
 import { SourceCodeToken } from "./sourceCodeToken";
+import { SourceControl } from "./sourceControl";
+import { SourceControlSlot } from "./sourceControlSlot";
+import { SourceControlToken } from "./sourceControlToken";
 import { StaticSite } from "./staticSite";
 import { StaticSiteCustomDomain } from "./staticSiteCustomDomain";
 import { VirtualNetworkSwiftConnection } from "./virtualNetworkSwiftConnection";
+import { WebAppActiveSlot } from "./webAppActiveSlot";
+import { WebAppHybridConnection } from "./webAppHybridConnection";
+import { WindowsFunctionApp } from "./windowsFunctionApp";
+import { WindowsFunctionAppSlot } from "./windowsFunctionAppSlot";
+import { WindowsWebApp } from "./windowsWebApp";
+import { WindowsWebAppSlot } from "./windowsWebAppSlot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -85,16 +125,32 @@ const _module = {
                 return new EnvironmentV3(name, <any>undefined, { urn })
             case "azure:appservice/functionApp:FunctionApp":
                 return new FunctionApp(name, <any>undefined, { urn })
+            case "azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot":
+                return new FunctionAppActiveSlot(name, <any>undefined, { urn })
+            case "azure:appservice/functionAppFunction:FunctionAppFunction":
+                return new FunctionAppFunction(name, <any>undefined, { urn })
+            case "azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection":
+                return new FunctionAppHybridConnection(name, <any>undefined, { urn })
             case "azure:appservice/functionAppSlot:FunctionAppSlot":
                 return new FunctionAppSlot(name, <any>undefined, { urn })
             case "azure:appservice/hybridConnection:HybridConnection":
                 return new HybridConnection(name, <any>undefined, { urn })
+            case "azure:appservice/linuxFunctionApp:LinuxFunctionApp":
+                return new LinuxFunctionApp(name, <any>undefined, { urn })
+            case "azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot":
+                return new LinuxFunctionAppSlot(name, <any>undefined, { urn })
+            case "azure:appservice/linuxWebApp:LinuxWebApp":
+                return new LinuxWebApp(name, <any>undefined, { urn })
+            case "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot":
+                return new LinuxWebAppSlot(name, <any>undefined, { urn })
             case "azure:appservice/managedCertificate:ManagedCertificate":
                 return new ManagedCertificate(name, <any>undefined, { urn })
             case "azure:appservice/plan:Plan":
                 return new Plan(name, <any>undefined, { urn })
             case "azure:appservice/publicCertificate:PublicCertificate":
                 return new PublicCertificate(name, <any>undefined, { urn })
+            case "azure:appservice/servicePlan:ServicePlan":
+                return new ServicePlan(name, <any>undefined, { urn })
             case "azure:appservice/slot:Slot":
                 return new Slot(name, <any>undefined, { urn })
             case "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding":
@@ -103,12 +159,30 @@ const _module = {
                 return new SlotVirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             case "azure:appservice/sourceCodeToken:SourceCodeToken":
                 return new SourceCodeToken(name, <any>undefined, { urn })
+            case "azure:appservice/sourceControl:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
+            case "azure:appservice/sourceControlSlot:SourceControlSlot":
+                return new SourceControlSlot(name, <any>undefined, { urn })
+            case "azure:appservice/sourceControlToken:SourceControlToken":
+                return new SourceControlToken(name, <any>undefined, { urn })
             case "azure:appservice/staticSite:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
                 return new StaticSiteCustomDomain(name, <any>undefined, { urn })
             case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
                 return new VirtualNetworkSwiftConnection(name, <any>undefined, { urn })
+            case "azure:appservice/webAppActiveSlot:WebAppActiveSlot":
+                return new WebAppActiveSlot(name, <any>undefined, { urn })
+            case "azure:appservice/webAppHybridConnection:WebAppHybridConnection":
+                return new WebAppHybridConnection(name, <any>undefined, { urn })
+            case "azure:appservice/windowsFunctionApp:WindowsFunctionApp":
+                return new WindowsFunctionApp(name, <any>undefined, { urn })
+            case "azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot":
+                return new WindowsFunctionAppSlot(name, <any>undefined, { urn })
+            case "azure:appservice/windowsWebApp:WindowsWebApp":
+                return new WindowsWebApp(name, <any>undefined, { urn })
+            case "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot":
+                return new WindowsWebAppSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -123,15 +197,32 @@ pulumi.runtime.registerResourceModule("azure", "appservice/customHostnameBinding
 pulumi.runtime.registerResourceModule("azure", "appservice/environment", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environmentV3", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/functionAppActiveSlot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/functionAppFunction", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/functionAppHybridConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionAppSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/hybridConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/linuxFunctionApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/linuxFunctionAppSlot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/linuxWebApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/linuxWebAppSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/managedCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/plan", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/publicCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/servicePlan", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotCustomHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotVirtualNetworkSwiftConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceCodeToken", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/sourceControl", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/sourceControlSlot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/sourceControlToken", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSiteCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/virtualNetworkSwiftConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/webAppActiveSlot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/webAppHybridConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/windowsFunctionApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/windowsFunctionAppSlot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/windowsWebApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/windowsWebAppSlot", _module)

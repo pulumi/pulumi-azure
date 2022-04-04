@@ -19,9 +19,13 @@ class AlertRuleScheduledArgs:
                  log_analytics_workspace_id: pulumi.Input[str],
                  query: pulumi.Input[str],
                  severity: pulumi.Input[str],
+                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+                 alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
                  event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
                  incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,9 +42,13 @@ class AlertRuleScheduledArgs:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleScheduledEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
         :param pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs'] incident_configuration: A `incident_configuration` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -56,12 +64,20 @@ class AlertRuleScheduledArgs:
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "severity", severity)
+        if alert_details_overrides is not None:
+            pulumi.set(__self__, "alert_details_overrides", alert_details_overrides)
         if alert_rule_template_guid is not None:
             pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+        if alert_rule_template_version is not None:
+            pulumi.set(__self__, "alert_rule_template_version", alert_rule_template_version)
+        if custom_details is not None:
+            pulumi.set(__self__, "custom_details", custom_details)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if entity_mappings is not None:
+            pulumi.set(__self__, "entity_mappings", entity_mappings)
         if event_grouping is not None:
             pulumi.set(__self__, "event_grouping", event_grouping)
         if incident_configuration is not None:
@@ -132,6 +148,18 @@ class AlertRuleScheduledArgs:
         pulumi.set(self, "severity", value)
 
     @property
+    @pulumi.getter(name="alertDetailsOverrides")
+    def alert_details_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]:
+        """
+        An `alert_details_override` block as defined below.
+        """
+        return pulumi.get(self, "alert_details_overrides")
+
+    @alert_details_overrides.setter
+    def alert_details_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]):
+        pulumi.set(self, "alert_details_overrides", value)
+
+    @property
     @pulumi.getter(name="alertRuleTemplateGuid")
     def alert_rule_template_guid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -142,6 +170,30 @@ class AlertRuleScheduledArgs:
     @alert_rule_template_guid.setter
     def alert_rule_template_guid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alert_rule_template_guid", value)
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateVersion")
+    def alert_rule_template_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_version")
+
+    @alert_rule_template_version.setter
+    def alert_rule_template_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_rule_template_version", value)
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+        """
+        return pulumi.get(self, "custom_details")
+
+    @custom_details.setter
+    def custom_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_details", value)
 
     @property
     @pulumi.getter
@@ -166,6 +218,18 @@ class AlertRuleScheduledArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="entityMappings")
+    def entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]:
+        """
+        A list of `entity_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "entity_mappings")
+
+    @entity_mappings.setter
+    def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]):
+        pulumi.set(self, "entity_mappings", value)
 
     @property
     @pulumi.getter(name="eventGrouping")
@@ -291,10 +355,14 @@ class AlertRuleScheduledArgs:
 @pulumi.input_type
 class _AlertRuleScheduledState:
     def __init__(__self__, *,
+                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+                 alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
                  event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
                  incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -310,10 +378,14 @@ class _AlertRuleScheduledState:
                  trigger_threshold: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering AlertRuleScheduled resources.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleScheduledEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
         :param pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs'] incident_configuration: A `incident_configuration` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -328,14 +400,22 @@ class _AlertRuleScheduledState:
         :param pulumi.Input[str] trigger_operator: The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         :param pulumi.Input[int] trigger_threshold: The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
         """
+        if alert_details_overrides is not None:
+            pulumi.set(__self__, "alert_details_overrides", alert_details_overrides)
         if alert_rule_template_guid is not None:
             pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+        if alert_rule_template_version is not None:
+            pulumi.set(__self__, "alert_rule_template_version", alert_rule_template_version)
+        if custom_details is not None:
+            pulumi.set(__self__, "custom_details", custom_details)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if entity_mappings is not None:
+            pulumi.set(__self__, "entity_mappings", entity_mappings)
         if event_grouping is not None:
             pulumi.set(__self__, "event_grouping", event_grouping)
         if incident_configuration is not None:
@@ -364,6 +444,18 @@ class _AlertRuleScheduledState:
             pulumi.set(__self__, "trigger_threshold", trigger_threshold)
 
     @property
+    @pulumi.getter(name="alertDetailsOverrides")
+    def alert_details_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]:
+        """
+        An `alert_details_override` block as defined below.
+        """
+        return pulumi.get(self, "alert_details_overrides")
+
+    @alert_details_overrides.setter
+    def alert_details_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]]):
+        pulumi.set(self, "alert_details_overrides", value)
+
+    @property
     @pulumi.getter(name="alertRuleTemplateGuid")
     def alert_rule_template_guid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -374,6 +466,30 @@ class _AlertRuleScheduledState:
     @alert_rule_template_guid.setter
     def alert_rule_template_guid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alert_rule_template_guid", value)
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateVersion")
+    def alert_rule_template_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_version")
+
+    @alert_rule_template_version.setter
+    def alert_rule_template_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_rule_template_version", value)
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+        """
+        return pulumi.get(self, "custom_details")
+
+    @custom_details.setter
+    def custom_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_details", value)
 
     @property
     @pulumi.getter
@@ -410,6 +526,18 @@ class _AlertRuleScheduledState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="entityMappings")
+    def entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]:
+        """
+        A list of `entity_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "entity_mappings")
+
+    @entity_mappings.setter
+    def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]]):
+        pulumi.set(self, "entity_mappings", value)
 
     @property
     @pulumi.getter(name="eventGrouping")
@@ -573,10 +701,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]]] = None,
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+                 alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]]] = None,
                  event_grouping: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']]] = None,
                  incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -636,10 +768,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']] event_grouping: A `event_grouping` block as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']] incident_configuration: A `incident_configuration` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -718,10 +854,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]]] = None,
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+                 alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+                 custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]]] = None,
                  event_grouping: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']]] = None,
                  incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -747,12 +887,16 @@ class AlertRuleScheduled(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertRuleScheduledArgs.__new__(AlertRuleScheduledArgs)
 
+            __props__.__dict__["alert_details_overrides"] = alert_details_overrides
             __props__.__dict__["alert_rule_template_guid"] = alert_rule_template_guid
+            __props__.__dict__["alert_rule_template_version"] = alert_rule_template_version
+            __props__.__dict__["custom_details"] = custom_details
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["entity_mappings"] = entity_mappings
             __props__.__dict__["event_grouping"] = event_grouping
             __props__.__dict__["incident_configuration"] = incident_configuration
             if log_analytics_workspace_id is None and not opts.urn:
@@ -782,10 +926,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]]] = None,
             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+            alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+            custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]]] = None,
             event_grouping: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']]] = None,
             incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -806,10 +954,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledAlertDetailsOverrideArgs']]]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleScheduledEntityMappingArgs']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleScheduledEventGroupingArgs']] event_grouping: A `event_grouping` block as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']] incident_configuration: A `incident_configuration` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -828,10 +980,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
         __props__ = _AlertRuleScheduledState.__new__(_AlertRuleScheduledState)
 
+        __props__.__dict__["alert_details_overrides"] = alert_details_overrides
         __props__.__dict__["alert_rule_template_guid"] = alert_rule_template_guid
+        __props__.__dict__["alert_rule_template_version"] = alert_rule_template_version
+        __props__.__dict__["custom_details"] = custom_details
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["entity_mappings"] = entity_mappings
         __props__.__dict__["event_grouping"] = event_grouping
         __props__.__dict__["incident_configuration"] = incident_configuration
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
@@ -848,12 +1004,36 @@ class AlertRuleScheduled(pulumi.CustomResource):
         return AlertRuleScheduled(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="alertDetailsOverrides")
+    def alert_details_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.AlertRuleScheduledAlertDetailsOverride']]]:
+        """
+        An `alert_details_override` block as defined below.
+        """
+        return pulumi.get(self, "alert_details_overrides")
+
+    @property
     @pulumi.getter(name="alertRuleTemplateGuid")
     def alert_rule_template_guid(self) -> pulumi.Output[Optional[str]]:
         """
         The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
         return pulumi.get(self, "alert_rule_template_guid")
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateVersion")
+    def alert_rule_template_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_version")
+
+    @property
+    @pulumi.getter(name="customDetails")
+    def custom_details(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+        """
+        return pulumi.get(self, "custom_details")
 
     @property
     @pulumi.getter
@@ -878,6 +1058,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
         Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="entityMappings")
+    def entity_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.AlertRuleScheduledEntityMapping']]]:
+        """
+        A list of `entity_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "entity_mappings")
 
     @property
     @pulumi.getter(name="eventGrouping")

@@ -88,12 +88,6 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
-    /**
-     * The storage container name to store the blob inventory files for this rule.
-     *
-     * @deprecated The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
-     */
-    public readonly storageContainerName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BlobInventoryPolicy resource with the given unique name, arguments, and options.
@@ -110,7 +104,6 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             const state = argsOrState as BlobInventoryPolicyState | undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
         } else {
             const args = argsOrState as BlobInventoryPolicyArgs | undefined;
             if ((!args || args.rules === undefined) && !opts.urn) {
@@ -121,7 +114,6 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             }
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BlobInventoryPolicy.__pulumiType, name, resourceInputs, opts);
@@ -140,12 +132,6 @@ export interface BlobInventoryPolicyState {
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
     storageAccountId?: pulumi.Input<string>;
-    /**
-     * The storage container name to store the blob inventory files for this rule.
-     *
-     * @deprecated The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
-     */
-    storageContainerName?: pulumi.Input<string>;
 }
 
 /**
@@ -160,10 +146,4 @@ export interface BlobInventoryPolicyArgs {
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
     storageAccountId: pulumi.Input<string>;
-    /**
-     * The storage container name to store the blob inventory files for this rule.
-     *
-     * @deprecated The policy level destination storage container is deprecated by the service team since API version 2021-04-01, this is not functional and will be removed in v3.0 of the provider. Use the `rules.*.storage_container_name` instead.
-     */
-    storageContainerName?: pulumi.Input<string>;
 }

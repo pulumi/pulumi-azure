@@ -386,17 +386,11 @@ export namespace apimanagement {
         /**
          * One or more `example` blocks as defined above.
          */
-        examples: outputs.apimanagement.ApiOperationRequestRepresentationExample[];
+        examples?: outputs.apimanagement.ApiOperationRequestRepresentationExample[];
         /**
          * One or more `formParameter` block as defined above.
          */
         formParameters?: outputs.apimanagement.ApiOperationRequestRepresentationFormParameter[];
-        /**
-         * An example of this representation.
-         *
-         * @deprecated Deprecated in favour of `example`
-         */
-        sample: string;
         /**
          * The ID of an API Management Schema which represents this Response.
          */
@@ -511,17 +505,11 @@ export namespace apimanagement {
         /**
          * One or more `example` blocks as defined above.
          */
-        examples: outputs.apimanagement.ApiOperationResponseRepresentationExample[];
+        examples?: outputs.apimanagement.ApiOperationResponseRepresentationExample[];
         /**
          * One or more `formParameter` block as defined above.
          */
         formParameters?: outputs.apimanagement.ApiOperationResponseRepresentationFormParameter[];
-        /**
-         * An example of this representation.
-         *
-         * @deprecated Deprecated in favour of `example`
-         */
-        sample: string;
         /**
          * The ID of an API Management Schema which represents this Response.
          */
@@ -752,6 +740,37 @@ export namespace apimanagement {
         thumbprint: string;
     }
 
+    export interface CustomDomainGateway {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: string;
+        /**
+         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+         */
+        defaultSslBinding: boolean;
+        expiry: string;
+        /**
+         * The Hostname to use for the API Proxy Endpoint.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: boolean;
+        sslKeyvaultIdentityClientId?: string;
+        subject: string;
+        thumbprint: string;
+    }
+
     export interface CustomDomainManagement {
         /**
          * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -791,37 +810,6 @@ export namespace apimanagement {
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
-         */
-        hostName: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         */
-        keyVaultId?: string;
-        /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-         */
-        negotiateClientCertificate?: boolean;
-        sslKeyvaultIdentityClientId?: string;
-        subject: string;
-        thumbprint: string;
-    }
-
-    export interface CustomDomainProxy {
-        /**
-         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
-         */
-        certificate?: string;
-        /**
-         * The password associated with the certificate provided above.
-         */
-        certificatePassword?: string;
-        /**
-         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-         */
-        defaultSslBinding: boolean;
-        expiry: string;
-        /**
-         * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: string;
         /**
@@ -1153,19 +1141,19 @@ export namespace apimanagement {
 
     export interface GetServiceIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * The list of User Assigned Managed Identity IDs assigned to this API Management Service.
          */
         identityIds: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that is configured on this API Management Service.
+         * The type of Managed Service Identity that is configured on this API Management Service.
          */
         type: string;
     }
@@ -1438,7 +1426,7 @@ export namespace apimanagement {
          */
         negotiateClientCertificate?: boolean;
         /**
-         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         * The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          */
         sslKeyvaultIdentityClientId?: string;
         /**
@@ -1492,7 +1480,7 @@ export namespace apimanagement {
 
     export interface ServiceIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: string[];
         /**
@@ -1553,12 +1541,6 @@ export namespace apimanagement {
          */
         enableFrontendTls11?: boolean;
         /**
-         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-         *
-         * @deprecated this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
-         */
-        enableTripleDesCiphers: boolean;
-        /**
          * Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
          */
         tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled?: boolean;
@@ -1591,7 +1573,7 @@ export namespace apimanagement {
         /**
          * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
          */
-        tripleDesCiphersEnabled: boolean;
+        tripleDesCiphersEnabled?: boolean;
     }
 
     export interface ServiceSignIn {
@@ -1694,19 +1676,19 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
          */
         identityIds?: string[];
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -2031,7 +2013,7 @@ export namespace appplatform {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -2224,10 +2206,6 @@ export namespace appplatform {
          * The connection string used for Application Insights.
          */
         connectionString?: string;
-        /**
-         * @deprecated This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
-         */
-        instrumentationKey?: string;
         /**
          * The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
          */
@@ -3010,6 +2988,17 @@ export namespace appservice {
          * The value for the Connection String.
          */
         value: string;
+    }
+
+    export interface FunctionAppFunctionFile {
+        /**
+         * The content of the file.
+         */
+        content: string;
+        /**
+         * The filename of the file to be uploaded.
+         */
+        name: string;
     }
 
     export interface FunctionAppIdentity {
@@ -4157,6 +4146,5103 @@ export namespace appservice {
         useMercurial: boolean;
     }
 
+    export interface GetLinuxFunctionAppAuthSetting {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectories: outputs.appservice.GetLinuxFunctionAppAuthSettingActiveDirectory[];
+        additionalLoginParameters: {[key: string]: string};
+        /**
+         * A list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider used when multiple providers are configured.
+         */
+        defaultProvider: string;
+        /**
+         * Is this backup job enabled?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebooks: outputs.appservice.GetLinuxFunctionAppAuthSettingFacebook[];
+        /**
+         * A `github` block as defined below.
+         */
+        githubs: outputs.appservice.GetLinuxFunctionAppAuthSettingGithub[];
+        /**
+         * A `google` block as defined below.
+         */
+        googles: outputs.appservice.GetLinuxFunctionAppAuthSettingGoogle[];
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsofts: outputs.appservice.GetLinuxFunctionAppAuthSettingMicrosoft[];
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API.
+         */
+        tokenRefreshExtensionHours: number;
+        /**
+         * Does the Linux Web App durably store platform-specific security tokens that are obtained during login flows?
+         */
+        tokenStoreEnabled: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitters: outputs.appservice.GetLinuxFunctionAppAuthSettingTwitter[];
+        /**
+         * The action to taken when an unauthenticated client attempts to access the app.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingActiveDirectory {
+        /**
+         * A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
+        appSecret: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingGithub {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingGoogle {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxFunctionAppAuthSettingTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecret: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface GetLinuxFunctionAppBackup {
+        /**
+         * Is this backup job enabled?
+         */
+        enabled: boolean;
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedules: outputs.appservice.GetLinuxFunctionAppBackupSchedule[];
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface GetLinuxFunctionAppBackupSchedule {
+        /**
+         * How often the backup is executed.
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup takes place.
+         */
+        frequencyUnit: string;
+        /**
+         * Does the service keep at least one backup, regardless of age of backup?
+         */
+        keepAtLeastOneBackup: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups are deleted.
+         */
+        retentionPeriodDays: number;
+        /**
+         * When the schedule starts working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface GetLinuxFunctionAppConnectionString {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Linux Function App.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface GetLinuxFunctionAppIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Linux Function App.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Linux Function App.
+         */
+        type: string;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled.
+         */
+        alwaysOn: boolean;
+        /**
+         * The URL of the API definition that describes this Linux Function App.
+         */
+        apiDefinitionUrl: string;
+        /**
+         * The ID of the API Management API for this Linux Function App.
+         */
+        apiManagementApiId: string;
+        /**
+         * The App command line that is launched.
+         */
+        appCommandLine: string;
+        /**
+         * The number of workers this function app can scale out to.
+         */
+        appScaleLimit: number;
+        /**
+         * An `appServiceLogs` block as defined above.
+         */
+        appServiceLogs: outputs.appservice.GetLinuxFunctionAppSiteConfigAppServiceLog[];
+        /**
+         * The Connection String that links the Linux Function App to Application Insights.
+         */
+        applicationInsightsConnectionString: string;
+        /**
+         * The Instrumentation Key that connects the Linux Function App to Application Insights.
+         */
+        applicationInsightsKey: string;
+        /**
+         * An `applicationStack` block as defined above.
+         */
+        applicationStacks: outputs.appservice.GetLinuxFunctionAppSiteConfigApplicationStack[];
+        /**
+         * The Client ID of the Managed Service Identity that is used for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId: string;
+        /**
+         * Do connections for Azure Container Registry use Managed Identity?
+         */
+        containerRegistryUseManagedIdentity: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors: outputs.appservice.GetLinuxFunctionAppSiteConfigCor[];
+        /**
+         * A list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Linux Function App.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this function app.
+         */
+        ftpsState: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path that is checked for this function app health.
+         */
+        healthCheckPath: string;
+        /**
+         * Is the http2 protocol enabled?
+         */
+        http2Enabled: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.GetLinuxFunctionAppSiteConfigIpRestriction[];
+        linuxFxVersion: string;
+        /**
+         * The Site load balancing mode.
+         */
+        loadBalancingMode: string;
+        /**
+         * Managed pipeline mode.
+         */
+        managedPipelineMode: string;
+        /**
+         * The minimum version of TLS required for SSL requests.
+         */
+        minimumTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this function app.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Is Remote Debugging enabled?
+         */
+        remoteDebuggingEnabled: boolean;
+        /**
+         * The Remote Debugging Version.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Is Scale Monitoring of the Functions Runtime enabled?
+         */
+        runtimeScaleMonitoringEnabled: boolean;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.GetLinuxFunctionAppSiteConfigScmIpRestriction[];
+        /**
+         * The minimum version of TLS for SSL requests to the SCM site.
+         */
+        scmMinimumTlsVersion: string;
+        scmType: string;
+        /**
+         * Is the Linux Function App `ipRestriction` configuration used for the SCM also?
+         */
+        scmUseMainIpRestriction: boolean;
+        /**
+         * Does the Linux Web App use a 32-bit worker process?
+         */
+        use32BitWorker: boolean;
+        /**
+         * Does all outbound traffic have Virtual Network Security Groups and User Defined Routes applied?
+         */
+        vnetRouteAllEnabled: boolean;
+        /**
+         * Are Web Sockets enabled?
+         */
+        websocketsEnabled: boolean;
+        /**
+         * The number of Workers for this Linux Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigAppServiceLog {
+        /**
+         * The amount of disk space used for logs.
+         */
+        diskQuotaMb: number;
+        /**
+         * After how many days backups are deleted.
+         */
+        retentionPeriodDays: number;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigApplicationStack {
+        /**
+         * One or more `docker` blocks as defined below.
+         */
+        dockers: outputs.appservice.GetLinuxFunctionAppSiteConfigApplicationStackDocker[];
+        /**
+         * The version of .Net used.
+         */
+        dotnetVersion: string;
+        /**
+         * The Version of Java used.
+         */
+        javaVersion: string;
+        /**
+         * The version of Node used.
+         */
+        nodeVersion: string;
+        /**
+         * The version of PowerShell Core used.
+         */
+        powershellCoreVersion: string;
+        /**
+         * The version of Python used.
+         */
+        pythonVersion: string;
+        /**
+         * Does the Linux Function App use a custom runtime?
+         */
+        useCustomRuntime: boolean;
+        useDotnetIsolatedRuntime: boolean;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigApplicationStackDocker {
+        /**
+         * The name of the Docker image used.
+         */
+        imageName: string;
+        /**
+         * The image tag of the image used.
+         */
+        imageTag: string;
+        /**
+         * The password for the account to use to connect to the registry.
+         */
+        registryPassword: string;
+        /**
+         * The URL of the docker registry.
+         */
+        registryUrl: string;
+        /**
+         * The username used for connections to the registry.
+         */
+        registryUsername: string;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigCor {
+        /**
+         * A list of origins that are allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allowed in CORS requests?
+         */
+        supportCredentials: boolean;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigIpRestriction {
+        /**
+         * The action taken.
+         */
+        action: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers: outputs.appservice.GetLinuxFunctionAppSiteConfigIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range matched.
+         */
+        ipAddress: string;
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigIpRestrictionHeader {
+        /**
+         * A list of Azure Front Door IDs.
+         */
+        xAzureFdids: string[];
+        /**
+         * Should a Front Door Health Probe be expected?
+         */
+        xFdHealthProbes: string[];
+        /**
+         * A list of addresses for which matching is applied.
+         */
+        xForwardedFors: string[];
+        /**
+         * A list of Hosts for which matching is applied.
+         */
+        xForwardedHosts: string[];
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * The action taken.
+         */
+        action: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers: outputs.appservice.GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range matched.
+         */
+        ipAddress: string;
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader {
+        /**
+         * A list of Azure Front Door IDs.
+         */
+        xAzureFdids: string[];
+        /**
+         * Should a Front Door Health Probe be expected?
+         */
+        xFdHealthProbes: string[];
+        /**
+         * A list of addresses for which matching is applied.
+         */
+        xForwardedFors: string[];
+        /**
+         * A list of Hosts for which matching is applied.
+         */
+        xForwardedHosts: string[];
+    }
+
+    export interface GetLinuxFunctionAppSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface GetLinuxWebAppAuthSetting {
+        /**
+         * A `activeDirectory` block as defined above.
+         */
+        activeDirectories: outputs.appservice.GetLinuxWebAppAuthSettingActiveDirectory[];
+        /**
+         * A `additionalLoginParameters` block as defined above.
+         */
+        additionalLoginParameters: {[key: string]: string};
+        /**
+         * A `allowedExternalRedirectUrls` block as defined above.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider in use when multiple providers are configured.
+         */
+        defaultProvider: string;
+        /**
+         * Is the Backup enabled?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebooks: outputs.appservice.GetLinuxWebAppAuthSettingFacebook[];
+        /**
+         * A `github` block as defined below.
+         */
+        githubs: outputs.appservice.GetLinuxWebAppAuthSettingGithub[];
+        /**
+         * A `google` block as defined below.
+         */
+        googles: outputs.appservice.GetLinuxWebAppAuthSettingGoogle[];
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsofts: outputs.appservice.GetLinuxWebAppAuthSettingMicrosoft[];
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API.
+         */
+        tokenRefreshExtensionHours: number;
+        /**
+         * Does Linux Web App durably store platform-specific security tokens that are obtained during login flows enabled?
+         */
+        tokenStoreEnabled: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitters: outputs.appservice.GetLinuxWebAppAuthSettingTwitter[];
+        /**
+         * The action to take when an unauthenticated client attempts to access the app.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface GetLinuxWebAppAuthSettingActiveDirectory {
+        /**
+         * An `allowedAudiences` block as defined below.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+    }
+
+    export interface GetLinuxWebAppAuthSettingFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
+        appSecret: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxWebAppAuthSettingGithub {
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxWebAppAuthSettingGoogle {
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxWebAppAuthSettingMicrosoft {
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetLinuxWebAppAuthSettingTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecret: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface GetLinuxWebAppBackup {
+        /**
+         * Is the Backup enabled?
+         */
+        enabled: boolean;
+        /**
+         * The name of this Linux Web App.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedules: outputs.appservice.GetLinuxWebAppBackupSchedule[];
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface GetLinuxWebAppBackupSchedule {
+        /**
+         * How often the backup will be executed.
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place.
+         */
+        frequencyUnit: string;
+        /**
+         * Will the service keep at least one backup, regardless of age of backup.
+         */
+        keepAtLeastOneBackup: boolean;
+        /**
+         * The time of the last backup attempt.
+         */
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays: number;
+        /**
+         * When the schedule should start in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface GetLinuxWebAppConnectionString {
+        /**
+         * The name of this Linux Web App.
+         */
+        name: string;
+        /**
+         * The Azure Storage Type.
+         */
+        type: string;
+        /**
+         * The Connection String value.
+         */
+        value: string;
+    }
+
+    export interface GetLinuxWebAppIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Linux Web App.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+         */
+        tenantId: string;
+        /**
+         * The Azure Storage Type.
+         */
+        type: string;
+    }
+
+    export interface GetLinuxWebAppLog {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs: outputs.appservice.GetLinuxWebAppLogApplicationLog[];
+        /**
+         * Is Detailed Error Messaging enabled.
+         */
+        detailedErrorMessages: boolean;
+        /**
+         * Is Failed Request Tracing enabled.
+         */
+        failedRequestTracing: boolean;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs: outputs.appservice.GetLinuxWebAppLogHttpLog[];
+    }
+
+    export interface GetLinuxWebAppLogApplicationLog {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorages: outputs.appservice.GetLinuxWebAppLogApplicationLogAzureBlobStorage[];
+        /**
+         * The logging level.
+         */
+        fileSystemLevel: string;
+    }
+
+    export interface GetLinuxWebAppLogApplicationLogAzureBlobStorage {
+        level: string;
+        /**
+         * The retention period in days.
+         */
+        retentionInDays: number;
+        /**
+         * The SAS url to an Azure blob container.
+         */
+        sasUrl: string;
+    }
+
+    export interface GetLinuxWebAppLogHttpLog {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorages: outputs.appservice.GetLinuxWebAppLogHttpLogAzureBlobStorage[];
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystems: outputs.appservice.GetLinuxWebAppLogHttpLogFileSystem[];
+    }
+
+    export interface GetLinuxWebAppLogHttpLogAzureBlobStorage {
+        /**
+         * The retention period in days.
+         */
+        retentionInDays: number;
+        /**
+         * The SAS url to an Azure blob container.
+         */
+        sasUrl: string;
+    }
+
+    export interface GetLinuxWebAppLogHttpLogFileSystem {
+        /**
+         * The retention period in days.
+         */
+        retentionInDays: number;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: number;
+    }
+
+    export interface GetLinuxWebAppSiteConfig {
+        /**
+         * Is this Linux Web App is Always On enabled.
+         */
+        alwaysOn: boolean;
+        /**
+         * The ID of the APIM configuration for this Linux Web App.
+         */
+        apiDefinitionUrl: string;
+        /**
+         * The ID of the API Management API for this Linux Web App.
+         */
+        apiManagementApiId: string;
+        /**
+         * The command line used to launch this app.
+         */
+        appCommandLine: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStacks: outputs.appservice.GetLinuxWebAppSiteConfigApplicationStack[];
+        /**
+         * Are Auto heal rules be enabled.
+         */
+        autoHealEnabled: boolean;
+        /**
+         * A `autoHealSetting` block as defined above.
+         */
+        autoHealSettings: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSetting[];
+        /**
+         * The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId: string;
+        /**
+         * Do connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors: outputs.appservice.GetLinuxWebAppSiteConfigCor[];
+        /**
+         * The list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments: string[];
+        /**
+         * Is Detailed Error Logging enabled.
+         */
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service.
+         */
+        ftpsState: string;
+        /**
+         * (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to the Health Check endpoint.
+         */
+        healthCheckPath: string;
+        /**
+         * Is HTTP2.0 enabled.
+         */
+        http2Enabled: boolean;
+        /**
+         * A `ipRestriction` block as defined above.
+         */
+        ipRestrictions: outputs.appservice.GetLinuxWebAppSiteConfigIpRestriction[];
+        /**
+         * The `LinuxFXVersion` string.
+         */
+        linuxFxVersion: string;
+        /**
+         * The site Load Balancing Mode.
+         */
+        loadBalancingMode: string;
+        /**
+         * Is the Local MySQL enabled.
+         */
+        localMysqlEnabled: boolean;
+        /**
+         * The Managed Pipeline Mode.
+         */
+        managedPipelineMode: string;
+        /**
+         * The Minimum version of TLS for requests.
+         */
+        minimumTlsVersion: string;
+        remoteDebuggingEnabled: boolean;
+        /**
+         * The Remote Debugging Version.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * A `scmIpRestriction` block as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.GetLinuxWebAppSiteConfigScmIpRestriction[];
+        /**
+         * The Minimum version of TLS for requests to SCM.
+         */
+        scmMinimumTlsVersion: string;
+        /**
+         * The Source Control Management Type in use.
+         */
+        scmType: string;
+        /**
+         * Is the Linux Web App `ipRestriction` configuration used for the SCM also.
+         */
+        scmUseMainIpRestriction: boolean;
+        /**
+         * Does the Linux Web App use a 32-bit worker.
+         */
+        use32BitWorker: boolean;
+        vnetRouteAllEnabled: boolean;
+        /**
+         * Are Web Sockets enabled?
+         */
+        websocketsEnabled: boolean;
+        /**
+         * The number of Workers for this Linux App Service.
+         */
+        workerCount: number;
+    }
+
+    export interface GetLinuxWebAppSiteConfigApplicationStack {
+        /**
+         * The Docker image reference, including repository.
+         */
+        dockerImage: string;
+        /**
+         * The image Tag.
+         */
+        dockerImageTag: string;
+        /**
+         * The version of .Net in use.
+         */
+        dotnetVersion: string;
+        /**
+         * The java server type.
+         */
+        javaServer: string;
+        /**
+         * The Version of the `javaServer` in use.
+         */
+        javaServerVersion: string;
+        /**
+         * The Version of Java in use.
+         */
+        javaVersion: string;
+        /**
+         * The version of Node in use.
+         */
+        nodeVersion: string;
+        /**
+         * The version of PHP in use.
+         */
+        phpVersion: string;
+        /**
+         * The version of Python in use.
+         */
+        pythonVersion: string;
+        /**
+         * The version of Ruby in use.
+         */
+        rubyVersion: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        actions: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingAction[];
+        /**
+         * A `trigger` block as defined below.
+         */
+        triggers: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTrigger[];
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSettingAction {
+        /**
+         * The predefined action to be taken to an Auto Heal trigger.
+         */
+        actionType: string;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
+        /**
+         * A `requests` block as defined above.
+         */
+        requests: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest[];
+        /**
+         * A `slowRequest` block as defined above.
+         */
+        slowRequests?: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        /**
+         * A `statusCode` block as defined above.
+         */
+        statusCodes: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode[];
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path: string;
+        /**
+         * The amount of time that qualifies as slow for this rule.
+         */
+        timeTaken: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path: string;
+        /**
+         * The status code or range for this rule.
+         */
+        statusCodeRange: string;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus: number;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigCor {
+        /**
+         * A list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Whether CORS requests with credentials are allowed.
+         */
+        supportCredentials: boolean;
+    }
+
+    export interface GetLinuxWebAppSiteConfigIpRestriction {
+        /**
+         * A `action` block as defined above.
+         */
+        action: string;
+        headers: outputs.appservice.GetLinuxWebAppSiteConfigIpRestrictionHeader[];
+        ipAddress: string;
+        /**
+         * The name of this Linux Web App.
+         */
+        name: string;
+        priority: number;
+        serviceTag: string;
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigIpRestrictionHeader {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
+    export interface GetLinuxWebAppSiteConfigScmIpRestriction {
+        /**
+         * A `action` block as defined above.
+         */
+        action: string;
+        headers: outputs.appservice.GetLinuxWebAppSiteConfigScmIpRestrictionHeader[];
+        ipAddress: string;
+        /**
+         * The name of this Linux Web App.
+         */
+        name: string;
+        priority: number;
+        serviceTag: string;
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
+    export interface GetLinuxWebAppSiteCredential {
+        /**
+         * The name of this Linux Web App.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface GetLinuxWebAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the Storage Share.
+         */
+        mountPath: string;
+        /**
+         * The name of this Linux Web App.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type.
+         */
+        type: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSetting {
+        /**
+         * A `activeDirectory` block as defined above.
+         */
+        activeDirectories: outputs.appservice.GetWindowsFunctionAppAuthSettingActiveDirectory[];
+        /**
+         * A map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
+        additionalLoginParameters: {[key: string]: string};
+        /**
+         * A list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured.
+         */
+        defaultProvider: string;
+        /**
+         * Is the Backup Job enabled?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebooks: outputs.appservice.GetWindowsFunctionAppAuthSettingFacebook[];
+        /**
+         * A `github` block as defined below.
+         */
+        githubs: outputs.appservice.GetWindowsFunctionAppAuthSettingGithub[];
+        /**
+         * A `google` block as defined below.
+         */
+        googles: outputs.appservice.GetWindowsFunctionAppAuthSettingGoogle[];
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+         */
+        issuer: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsofts: outputs.appservice.GetWindowsFunctionAppAuthSettingMicrosoft[];
+        /**
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API.
+         */
+        tokenRefreshExtensionHours: number;
+        /**
+         * Is the durable storing of platform-specific security token that are obtained during login flows enabled?
+         */
+        tokenStoreEnabled: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitters: outputs.appservice.GetWindowsFunctionAppAuthSettingTwitter[];
+        /**
+         * The action to take when an unauthenticated client attempts to access the app.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingActiveDirectory {
+        /**
+         * A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
+        appSecret: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingGithub {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingGoogle {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsFunctionAppAuthSettingTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecret: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface GetWindowsFunctionAppBackup {
+        /**
+         * Is the Backup Job enabled?
+         */
+        enabled: boolean;
+        /**
+         * The name of this Windows Function App.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedules: outputs.appservice.GetWindowsFunctionAppBackupSchedule[];
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface GetWindowsFunctionAppBackupSchedule {
+        /**
+         * How often the backup is executed.
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time the backup should take place.
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup.
+         */
+        keepAtLeastOneBackup: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups is deleted.
+         */
+        retentionPeriodDays: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface GetWindowsFunctionAppConnectionString {
+        /**
+         * The name of this Windows Function App.
+         */
+        name: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Windows Function App.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface GetWindowsFunctionAppIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Windows Function App.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Windows Function App.
+         */
+        type: string;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfig {
+        /**
+         * Is this Windows Function App Always On?.
+         */
+        alwaysOn: boolean;
+        /**
+         * The URL of the API definition that describes this Windows Function App.
+         */
+        apiDefinitionUrl: string;
+        /**
+         * The ID of the API Management API for this Windows Function App.
+         */
+        apiManagementApiId: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine: string;
+        /**
+         * The number of workers this function app can scale out to.
+         */
+        appScaleLimit: number;
+        /**
+         * A `appServiceLogs` block as defined above.
+         */
+        appServiceLogs: outputs.appservice.GetWindowsFunctionAppSiteConfigAppServiceLog[];
+        /**
+         * The Connection String for linking the Windows Function App to Application Insights.
+         */
+        applicationInsightsConnectionString: string;
+        /**
+         * The Instrumentation Key for connecting the Windows Function App to Application Insights.
+         */
+        applicationInsightsKey: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStacks: outputs.appservice.GetWindowsFunctionAppSiteConfigApplicationStack[];
+        /**
+         * A `cors` block as defined above.
+         */
+        cors: outputs.appservice.GetWindowsFunctionAppSiteConfigCor[];
+        /**
+         * A list of Default Documents for the Windows Web App.
+         */
+        defaultDocuments: string[];
+        /**
+         * Is detailed error logging enabled?
+         */
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Windows Function App.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this Windows Function App.
+         */
+        ftpsState: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to be checked for this Windows Function App health.
+         */
+        healthCheckPath: string;
+        /**
+         * Is the http2 protocol enabled?
+         */
+        http2Enabled: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.GetWindowsFunctionAppSiteConfigIpRestriction[];
+        /**
+         * The Site load balancing mode.
+         */
+        loadBalancingMode: string;
+        /**
+         * The Managed pipeline mode.
+         */
+        managedPipelineMode: string;
+        /**
+         * The minimum version of TLS required for SSL requests.
+         */
+        minimumTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this Windows Function App.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Is Remote Debugging enabled?
+         */
+        remoteDebuggingEnabled: boolean;
+        /**
+         * The Remote Debugging Version.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Is Scale Monitoring of the Functions Runtime enabled?
+         */
+        runtimeScaleMonitoringEnabled: boolean;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.GetWindowsFunctionAppSiteConfigScmIpRestriction[];
+        /**
+         * The minimum version of TLS required for SSL requests to the SCM site.
+         */
+        scmMinimumTlsVersion: string;
+        /**
+         * The SCM type.
+         */
+        scmType: string;
+        /**
+         * Is the `ipRestriction` configuration used for the SCM?.
+         */
+        scmUseMainIpRestriction: boolean;
+        /**
+         * Is the Windows Function App using a 32-bit worker process?
+         */
+        use32BitWorker: boolean;
+        /**
+         * Are all outbound traffic to Virtual Network Security Groups and User Defined Routes applied?
+         */
+        vnetRouteAllEnabled: boolean;
+        /**
+         * Are Web Sockets enabled?
+         */
+        websocketsEnabled: boolean;
+        /**
+         * The Windows FX version.
+         */
+        windowsFxVersion: string;
+        /**
+         * The number of Workers for this Windows Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigAppServiceLog {
+        /**
+         * The amount of disk space to use for logs.
+         */
+        diskQuotaMb: number;
+        /**
+         * After how many days backups is deleted.
+         */
+        retentionPeriodDays: number;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigApplicationStack {
+        /**
+         * The version of .Net to use.
+         */
+        dotnetVersion: string;
+        /**
+         * The version of Java to use.
+         */
+        javaVersion: string;
+        /**
+         * The version of Node to use.
+         */
+        nodeVersion: string;
+        /**
+         * The version of PowerShell Core to use.
+         */
+        powershellCoreVersion: string;
+        /**
+         * Is the Windows Function App using a custom runtime?.
+         */
+        useCustomRuntime: boolean;
+        useDotnetIsolatedRuntime: boolean;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigCor {
+        /**
+         * A list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allows in CORS requests?.
+         */
+        supportCredentials: boolean;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigIpRestriction {
+        action: string;
+        headers: outputs.appservice.GetWindowsFunctionAppSiteConfigIpRestrictionHeader[];
+        ipAddress: string;
+        /**
+         * The name of this Windows Function App.
+         */
+        name: string;
+        priority: number;
+        serviceTag: string;
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigIpRestrictionHeader {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigScmIpRestriction {
+        action: string;
+        headers: outputs.appservice.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader[];
+        ipAddress: string;
+        /**
+         * The name of this Windows Function App.
+         */
+        name: string;
+        priority: number;
+        serviceTag: string;
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
+    export interface GetWindowsFunctionAppSiteCredential {
+        /**
+         * The name of this Windows Function App.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface GetWindowsWebAppAuthSetting {
+        /**
+         * A `activeDirectory` block as defined above.
+         */
+        activeDirectories: outputs.appservice.GetWindowsWebAppAuthSettingActiveDirectory[];
+        /**
+         * A `additionalLoginParameters` block as defined above.
+         */
+        additionalLoginParameters: {[key: string]: string};
+        /**
+         * A `allowedExternalRedirectUrls` block as defined above.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider in use when multiple providers are configured.
+         */
+        defaultProvider: string;
+        /**
+         * Is the Backup enabled?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebooks: outputs.appservice.GetWindowsWebAppAuthSettingFacebook[];
+        /**
+         * A `github` block as defined below.
+         */
+        githubs: outputs.appservice.GetWindowsWebAppAuthSettingGithub[];
+        /**
+         * A `google` block as defined below.
+         */
+        googles: outputs.appservice.GetWindowsWebAppAuthSettingGoogle[];
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+         */
+        issuer: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsofts: outputs.appservice.GetWindowsWebAppAuthSettingMicrosoft[];
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API.
+         */
+        tokenRefreshExtensionHours: number;
+        /**
+         * Does Windows Web App durably store platform-specific security tokens that are obtained during login flows enabled?
+         */
+        tokenStoreEnabled: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitters: outputs.appservice.GetWindowsWebAppAuthSettingTwitter[];
+        /**
+         * The action to take when an unauthenticated client attempts to access the app.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface GetWindowsWebAppAuthSettingActiveDirectory {
+        /**
+         * An `allowedAudiences` block as defined below.
+         */
+        allowedAudiences: string[];
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+    }
+
+    export interface GetWindowsWebAppAuthSettingFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
+        appSecret: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         */
+        appSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsWebAppAuthSettingGithub {
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsWebAppAuthSettingGoogle {
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsWebAppAuthSettingMicrosoft {
+        /**
+         * The OAuth 2.0 client ID used by the app for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+         */
+        oauthScopes: string[];
+    }
+
+    export interface GetWindowsWebAppAuthSettingTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecret: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface GetWindowsWebAppBackup {
+        /**
+         * Is the Backup enabled?
+         */
+        enabled: boolean;
+        /**
+         * The name of this Windows Web App.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedules: outputs.appservice.GetWindowsWebAppBackupSchedule[];
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface GetWindowsWebAppBackupSchedule {
+        /**
+         * How often the backup will be executed.
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place.
+         */
+        frequencyUnit: string;
+        /**
+         * Will the service keep at least one backup, regardless of age of backup.
+         */
+        keepAtLeastOneBackup: boolean;
+        /**
+         * The time of the last backup attempt.
+         */
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays: number;
+        /**
+         * When the schedule should start in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface GetWindowsWebAppConnectionString {
+        /**
+         * The name of this Windows Web App.
+         */
+        name: string;
+        /**
+         * The Azure Storage Type.
+         */
+        type: string;
+        /**
+         * The Connection String value.
+         */
+        value: string;
+    }
+
+    export interface GetWindowsWebAppIdentity {
+        /**
+         * A `identityIds` block as defined below.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * The Azure Storage Type.
+         */
+        type: string;
+    }
+
+    export interface GetWindowsWebAppLog {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs: outputs.appservice.GetWindowsWebAppLogApplicationLog[];
+        /**
+         * Is Detailed Error Messaging enabled.
+         */
+        detailedErrorMessages: boolean;
+        /**
+         * Is Failed Request Tracing enabled.
+         */
+        failedRequestTracing: boolean;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs: outputs.appservice.GetWindowsWebAppLogHttpLog[];
+    }
+
+    export interface GetWindowsWebAppLogApplicationLog {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorages: outputs.appservice.GetWindowsWebAppLogApplicationLogAzureBlobStorage[];
+        /**
+         * The logging level.
+         */
+        fileSystemLevel: string;
+    }
+
+    export interface GetWindowsWebAppLogApplicationLogAzureBlobStorage {
+        level: string;
+        /**
+         * The retention period in days.
+         */
+        retentionInDays: number;
+        /**
+         * The SAS url to the Azure Blob container.
+         */
+        sasUrl: string;
+    }
+
+    export interface GetWindowsWebAppLogHttpLog {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorages: outputs.appservice.GetWindowsWebAppLogHttpLogAzureBlobStorage[];
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystems: outputs.appservice.GetWindowsWebAppLogHttpLogFileSystem[];
+    }
+
+    export interface GetWindowsWebAppLogHttpLogAzureBlobStorage {
+        /**
+         * The retention period in days.
+         */
+        retentionInDays: number;
+        /**
+         * The SAS url to the Azure Blob container.
+         */
+        sasUrl: string;
+    }
+
+    export interface GetWindowsWebAppLogHttpLogFileSystem {
+        /**
+         * The retention period in days.
+         */
+        retentionInDays: number;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: number;
+    }
+
+    export interface GetWindowsWebAppSiteConfig {
+        /**
+         * Is this Linux Web App is Always On enabled.
+         */
+        alwaysOn: boolean;
+        /**
+         * The ID of the APIM configuration for this Windows Web App.
+         */
+        apiDefinitionUrl: string;
+        /**
+         * The ID of the API Management setting linked to the Windows Web App.
+         */
+        apiManagementApiId: string;
+        /**
+         * The command line used to launch this app.
+         */
+        appCommandLine: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStacks: outputs.appservice.GetWindowsWebAppSiteConfigApplicationStack[];
+        /**
+         * Are Auto heal rules to be enabled.
+         */
+        autoHealEnabled: boolean;
+        /**
+         * A `autoHealSetting` block as defined above.
+         */
+        autoHealSettings: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSetting[];
+        /**
+         * The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId: string;
+        /**
+         * Do connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors: outputs.appservice.GetWindowsWebAppSiteConfigCor[];
+        /**
+         * The list of Default Documents for the Windows Web App.
+         */
+        defaultDocuments: string[];
+        /**
+         * Is Detailed Error Logging enabled.
+         */
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service.
+         */
+        ftpsState: string;
+        /**
+         * (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to the Health Check endpoint.
+         */
+        healthCheckPath: string;
+        /**
+         * Is HTTP2.0 enabled.
+         */
+        http2Enabled: boolean;
+        /**
+         * A `ipRestriction` block as defined above.
+         */
+        ipRestrictions: outputs.appservice.GetWindowsWebAppSiteConfigIpRestriction[];
+        /**
+         * The site Load Balancing Mode.
+         */
+        loadBalancingMode: string;
+        /**
+         * Is the Local MySQL enabled.
+         */
+        localMysqlEnabled: boolean;
+        /**
+         * The Managed Pipeline Mode.
+         */
+        managedPipelineMode: string;
+        /**
+         * The Minimum version of TLS for requests.
+         */
+        minimumTlsVersion: string;
+        remoteDebuggingEnabled: boolean;
+        /**
+         * The Remote Debugging Version.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * A `scmIpRestriction` block as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.GetWindowsWebAppSiteConfigScmIpRestriction[];
+        /**
+         * The Minimum version of TLS for requests to SCM.
+         */
+        scmMinimumTlsVersion: string;
+        /**
+         * The Source Control Management Type in use.
+         */
+        scmType: string;
+        /**
+         * Is the Windows Web App `ipRestriction` configuration used for the SCM also.
+         */
+        scmUseMainIpRestriction: boolean;
+        /**
+         * Does the Windows Web App use a 32-bit worker.
+         */
+        use32BitWorker: boolean;
+        /**
+         * A `virtualApplication` block as defined below.
+         */
+        virtualApplications: outputs.appservice.GetWindowsWebAppSiteConfigVirtualApplication[];
+        vnetRouteAllEnabled: boolean;
+        /**
+         * Are Web Sockets enabled?
+         */
+        websocketsEnabled: boolean;
+        /**
+         * The string representation of the Windows FX Version.
+         */
+        windowsFxVersion: string;
+        /**
+         * The number of Workers for this Windows App Service.
+         */
+        workerCount: number;
+    }
+
+    export interface GetWindowsWebAppSiteConfigApplicationStack {
+        /**
+         * The Current Stack value of the Windows Web App.
+         */
+        currentStack: string;
+        /**
+         * The name of the Docker Container in used.
+         */
+        dockerContainerName: string;
+        /**
+         * The Container Registry where the Docker Container is pulled from.
+         */
+        dockerContainerRegistry: string;
+        /**
+         * The Docker Container Tag of the Container in use.
+         */
+        dockerContainerTag: string;
+        /**
+         * The version of .Net in use.
+         */
+        dotnetVersion: string;
+        /**
+         * The Java Container in use.
+         */
+        javaContainer: string;
+        /**
+         * The Version of the Java Container in use.
+         */
+        javaContainerVersion: string;
+        /**
+         * The Version of Java in use.
+         */
+        javaVersion: string;
+        /**
+         * The Version of Node in use.
+         */
+        nodeVersion: string;
+        /**
+         * The Version of the PHP in use.
+         */
+        phpVersion: string;
+        /**
+         * The Version of Python in use.
+         */
+        pythonVersion: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        actions: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingAction[];
+        /**
+         * A `trigger` block as defined below.
+         */
+        triggers: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTrigger[];
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingAction {
+        /**
+         * The predefined action to be taken to an Auto Heal trigger.
+         */
+        actionType: string;
+        /**
+         * A `customAction` block as defined below.
+         */
+        customActions: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction[];
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
+        /**
+         * The command run when this `autoHeal` action is triggered.
+         */
+        executable: string;
+        /**
+         * The parameters passed to the `executable`.
+         */
+        parameters: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
+        /**
+         * The amount of Private Memory used.
+         */
+        privateMemoryKb: number;
+        /**
+         * A `requests` block as defined above.
+         */
+        requests: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest[];
+        /**
+         * A `slowRequest` block as defined above.
+         */
+        slowRequests: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        /**
+         * A `statusCode` block as defined above.
+         */
+        statusCodes: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode[];
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path: string;
+        /**
+         * The amount of time that qualifies as slow for this rule.
+         */
+        timeTaken: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path: string;
+        /**
+         * The status code or range for this rule.
+         */
+        statusCodeRange: string;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus: number;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigCor {
+        /**
+         * A `allowedOrigins` block as defined above.
+         */
+        allowedOrigins: string[];
+        /**
+         * Whether CORS requests with credentials are allowed.
+         */
+        supportCredentials: boolean;
+    }
+
+    export interface GetWindowsWebAppSiteConfigIpRestriction {
+        /**
+         * A `action` block as defined above.
+         */
+        action: string;
+        headers: outputs.appservice.GetWindowsWebAppSiteConfigIpRestrictionHeader[];
+        ipAddress: string;
+        /**
+         * The name of this Windows Web App.
+         */
+        name: string;
+        priority: number;
+        serviceTag: string;
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigIpRestrictionHeader {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
+    export interface GetWindowsWebAppSiteConfigScmIpRestriction {
+        /**
+         * A `action` block as defined above.
+         */
+        action: string;
+        headers: outputs.appservice.GetWindowsWebAppSiteConfigScmIpRestrictionHeader[];
+        ipAddress: string;
+        /**
+         * The name of this Windows Web App.
+         */
+        name: string;
+        priority: number;
+        serviceTag: string;
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigScmIpRestrictionHeader {
+        xAzureFdids: string[];
+        xFdHealthProbes: string[];
+        xForwardedFors: string[];
+        xForwardedHosts: string[];
+    }
+
+    export interface GetWindowsWebAppSiteConfigVirtualApplication {
+        /**
+         * The path on disk to the Virtual Directory
+         */
+        physicalPath: string;
+        /**
+         * Is this Application Pre-loaded at startup.
+         */
+        preload: boolean;
+        /**
+         * A `virtualDirectory` block as defined below.
+         */
+        virtualDirectories: outputs.appservice.GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory[];
+        /**
+         * The Virtual Path of the Virtual Directory.
+         */
+        virtualPath: string;
+    }
+
+    export interface GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory {
+        /**
+         * The path on disk to the Virtual Directory
+         */
+        physicalPath: string;
+        /**
+         * The Virtual Path of the Virtual Directory.
+         */
+        virtualPath: string;
+    }
+
+    export interface GetWindowsWebAppSiteCredential {
+        /**
+         * The name of this Windows Web App.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface GetWindowsWebAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the Storage Share.
+         */
+        mountPath: string;
+        /**
+         * The name of this Windows Web App.
+         */
+        name: string;
+        /**
+         * The Name of the File Share.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type.
+         */
+        type: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.LinuxFunctionAppAuthSettingsActiveDirectory;
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.LinuxFunctionAppAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.LinuxFunctionAppAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.LinuxFunctionAppAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.LinuxFunctionAppAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.LinuxFunctionAppAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface LinuxFunctionAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: outputs.appservice.LinuxFunctionAppBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface LinuxFunctionAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface LinuxFunctionAppConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface LinuxFunctionAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface LinuxFunctionAppSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn: boolean;
+        /**
+         * The URL of the API definition that describes this Linux Function App.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The ID of the API Management API for this Linux Function App.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
+        /**
+         * An `appServiceLogs` block as defined above.
+         */
+        appServiceLogs?: outputs.appservice.LinuxFunctionAppSiteConfigAppServiceLogs;
+        /**
+         * The Connection String for linking the Linux Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: string;
+        /**
+         * The Instrumentation Key for connecting the Linux Function App to Application Insights.
+         */
+        applicationInsightsKey?: string;
+        /**
+         * An `applicationStack` block as defined above.
+         */
+        applicationStack?: outputs.appservice.LinuxFunctionAppSiteConfigApplicationStack;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.LinuxFunctionAppSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: string;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.LinuxFunctionAppSiteConfigIpRestriction[];
+        linuxFxVersion: string;
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.LinuxFunctionAppSiteConfigScmIpRestriction[];
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        scmType: string;
+        /**
+         * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+         */
+        use32BitWorker?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: boolean;
+        /**
+         * The number of Workers for this Linux Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface LinuxFunctionAppSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: number;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: number;
+    }
+
+    export interface LinuxFunctionAppSiteConfigApplicationStack {
+        /**
+         * One or more `docker` blocks as defined below.
+         */
+        dockers?: outputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker[];
+        /**
+         * The version of .Net to use. Possible values include `3.1` and `6.0`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The Version of Java to use. Supported versions include `8`, and `11`.
+         */
+        javaVersion?: string;
+        /**
+         * The version of Node to run. Possible values include `12`, `14`, and `16`.
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PowerShell Core to run. Possible values are `7`.
+         */
+        powershellCoreVersion?: string;
+        /**
+         * The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+         */
+        pythonVersion?: string;
+        /**
+         * Should the Linux Function App use a custom runtime?
+         */
+        useCustomRuntime?: boolean;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: boolean;
+    }
+
+    export interface LinuxFunctionAppSiteConfigApplicationStackDocker {
+        /**
+         * The name of the Docker image to use.
+         */
+        imageName: string;
+        /**
+         * The image tag of the image to use.
+         */
+        imageTag: string;
+        /**
+         * The password for the account to use to connect to the registry.
+         */
+        registryPassword?: string;
+        /**
+         * The URL of the docker registry.
+         */
+        registryUrl: string;
+        /**
+         * The username to use for connections to the registry.
+         */
+        registryUsername?: string;
+    }
+
+    export interface LinuxFunctionAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface LinuxFunctionAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.LinuxFunctionAppSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxFunctionAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.LinuxFunctionAppSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxFunctionAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxFunctionAppSiteCredential {
+        /**
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettings {
+        /**
+         * an `activeDirectory` block as detailed below.
+         */
+        activeDirectory?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsActiveDirectory;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * an `allowedExternalRedirectUrls` block as detailed below.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled?
+         */
+        enabled: boolean;
+        /**
+         * a `facebook` block as detailed below.
+         */
+        facebook?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsFacebook;
+        /**
+         * a `github` block as detailed below.
+         */
+        github?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsGithub;
+        /**
+         * a `google` block as detailed below.
+         */
+        google?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+         */
+        issuer?: string;
+        /**
+         * a `microsoft` block as detailed below.
+         */
+        microsoft?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * a `twitter` block as detailed below.
+         */
+        twitter?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsActiveDirectory {
+        /**
+         * an `allowedAudiences` block as detailed below.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface LinuxFunctionAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * a `schedule` block as detailed below.
+         */
+        schedule: outputs.appservice.LinuxFunctionAppSlotBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface LinuxFunctionAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface LinuxFunctionAppSlotConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface LinuxFunctionAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn: boolean;
+        /**
+         * The URL of the API definition that describes this Linux Function App.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The ID of the API Management API for this Linux Function App.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+         */
+        appCommandLine?: string;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
+        /**
+         * an `appServiceLogs` block as detailed below.
+         */
+        appServiceLogs?: outputs.appservice.LinuxFunctionAppSlotSiteConfigAppServiceLogs;
+        /**
+         * The Connection String for linking the Linux Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: string;
+        /**
+         * The Instrumentation Key for connecting the Linux Function App to Application Insights.
+         */
+        applicationInsightsKey?: string;
+        /**
+         * an `applicationStack` block as detailed below.
+         */
+        applicationStack?: outputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStack;
+        /**
+         * The name of the slot to automatically swap with when this slot is successfully deployed.
+         */
+        autoSwapSlotName?: string;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * a `cors` block as detailed below.
+         */
+        cors?: outputs.appservice.LinuxFunctionAppSlotSiteConfigCors;
+        /**
+         * a `defaultDocuments` block as detailed below.
+         */
+        defaultDocuments: string[];
+        /**
+         * Is detailed error logging enabled
+         */
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `healthCheckPath`
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: string;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * an `ipRestriction` block as detailed below.
+         */
+        ipRestrictions: outputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestriction[];
+        /**
+         * The Linux FX Version
+         */
+        linuxFxVersion: string;
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Should Functions Runtime Scale Monitoring be enabled.
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * a `scmIpRestriction` block as detailed below.
+         */
+        scmIpRestrictions: outputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestriction[];
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        /**
+         * The SCM Type in use by the Linux Function App.
+         */
+        scmType: string;
+        /**
+         * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Linux Web App use a 32-bit worker.
+         */
+        use32BitWorker?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: boolean;
+        /**
+         * The number of Workers for this Linux Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: number;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: number;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigApplicationStack {
+        /**
+         * a `docker` block as detailed below.
+         */
+        dockers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker[];
+        /**
+         * The version of .Net. Possible values are `3.1` and `6.0`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The version of Java to use. Possible values are `8`, and `11`.
+         */
+        javaVersion?: string;
+        /**
+         * The version of Node to use. Possible values include `12`, and `14`
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PowerShell Core to use. Possibles values are `7`.
+         */
+        powershellCoreVersion?: string;
+        /**
+         * The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+         */
+        pythonVersion?: string;
+        /**
+         * Should the Linux Function App use a custom runtime?
+         */
+        useCustomRuntime?: boolean;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: boolean;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
+        /**
+         * The name of the Docker image to use.
+         */
+        imageName: string;
+        /**
+         * The image tag of the image to use.
+         */
+        imageTag: string;
+        /**
+         * The password for the account to use to connect to the registry.
+         */
+        registryPassword?: string;
+        /**
+         * The URL of the docker registry.
+         */
+        registryUrl: string;
+        /**
+         * The username to use for connections to the registry.
+         */
+        registryUsername?: string;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigCors {
+        /**
+         * an `allowedOrigins` block as detailed below.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxFunctionAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface LinuxWebAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.LinuxWebAppAuthSettingsActiveDirectory;
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.LinuxWebAppAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.LinuxWebAppAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.LinuxWebAppAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.LinuxWebAppAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.LinuxWebAppAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface LinuxWebAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface LinuxWebAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface LinuxWebAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: outputs.appservice.LinuxWebAppBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface LinuxWebAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface LinuxWebAppConnectionString {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface LinuxWebAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface LinuxWebAppLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: outputs.appservice.LinuxWebAppLogsApplicationLogs;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: boolean;
+        /**
+         * Should failed request tracing be enabled.
+         */
+        failedRequestTracing?: boolean;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs?: outputs.appservice.LinuxWebAppLogsHttpLogs;
+    }
+
+    export interface LinuxWebAppLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: outputs.appservice.LinuxWebAppLogsApplicationLogsAzureBlobStorage;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: string;
+    }
+
+    export interface LinuxWebAppLogsApplicationLogsAzureBlobStorage {
+        level: string;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface LinuxWebAppLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: outputs.appservice.LinuxWebAppLogsHttpLogsAzureBlobStorage;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: outputs.appservice.LinuxWebAppLogsHttpLogsFileSystem;
+    }
+
+    export interface LinuxWebAppLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface LinuxWebAppLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: number;
+    }
+
+    export interface LinuxWebAppSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: boolean;
+        apiDefinitionUrl?: string;
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack: outputs.appservice.LinuxWebAppSiteConfigApplicationStack;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: boolean;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSetting;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.LinuxWebAppSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: string;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.LinuxWebAppSiteConfigIpRestriction[];
+        linuxFxVersion: string;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: boolean;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.LinuxWebAppSiteConfigScmIpRestriction[];
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        scmType: string;
+        /**
+         * Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         */
+        use32BitWorker?: boolean;
+        vnetRouteAllEnabled?: boolean;
+        websocketsEnabled?: boolean;
+        /**
+         * The number of Workers for this Linux App Service.
+         */
+        workerCount: number;
+    }
+
+    export interface LinuxWebAppSiteConfigApplicationStack {
+        /**
+         * The Docker image reference, including repository host as needed.
+         */
+        dockerImage?: string;
+        /**
+         * The image Tag to use. e.g. `latest`.
+         */
+        dockerImageTag?: string;
+        /**
+         * The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         */
+        javaServer?: string;
+        /**
+         * The Version of the `javaServer` to use.
+         */
+        javaServerVersion?: string;
+        /**
+         * The Version of Java to use. Supported versions of Java vary depending on the `javaServer` and `javaServerVersion`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+         */
+        javaVersion?: string;
+        /**
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `javaVersion`.
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         */
+        phpVersion?: string;
+        /**
+         * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         */
+        pythonVersion?: string;
+        /**
+         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         */
+        rubyVersion?: string;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        action?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingAction;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTrigger;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         */
+        actionType: string;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime: string;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTrigger {
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode[];
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: string;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: string;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: string;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: number;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: string;
+    }
+
+    export interface LinuxWebAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface LinuxWebAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.LinuxWebAppSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxWebAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxWebAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.LinuxWebAppSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxWebAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxWebAppSiteCredential {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface LinuxWebAppSlotAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.LinuxWebAppSlotAuthSettingsActiveDirectory;
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.LinuxWebAppSlotAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.LinuxWebAppSlotAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.LinuxWebAppSlotAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.LinuxWebAppSlotAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.LinuxWebAppSlotAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface LinuxWebAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: outputs.appservice.LinuxWebAppSlotBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface LinuxWebAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface LinuxWebAppSlotConnectionString {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface LinuxWebAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface LinuxWebAppSlotLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: outputs.appservice.LinuxWebAppSlotLogsApplicationLogs;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: boolean;
+        /**
+         * Should failed request tracing be enabled.
+         */
+        failedRequestTracing?: boolean;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs?: outputs.appservice.LinuxWebAppSlotLogsHttpLogs;
+    }
+
+    export interface LinuxWebAppSlotLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: outputs.appservice.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: string;
+    }
+
+    export interface LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
+        level: string;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface LinuxWebAppSlotLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: outputs.appservice.LinuxWebAppSlotLogsHttpLogsAzureBlobStorage;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: outputs.appservice.LinuxWebAppSlotLogsHttpLogsFileSystem;
+    }
+
+    export interface LinuxWebAppSlotLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface LinuxWebAppSlotLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: number;
+    }
+
+    export interface LinuxWebAppSlotSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: boolean;
+        /**
+         * The URL to the API Definition for this Linux Web App Slot.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The API Management API ID this Linux Web App Slot os associated with.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack: outputs.appservice.LinuxWebAppSlotSiteConfigApplicationStack;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: boolean;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSetting;
+        /**
+         * The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+         */
+        autoSwapSlotName?: string;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.LinuxWebAppSlotSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: string;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.LinuxWebAppSlotSiteConfigIpRestriction[];
+        linuxFxVersion: string;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: boolean;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestriction[];
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        scmType: string;
+        /**
+         * Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         */
+        use32BitWorker?: boolean;
+        vnetRouteAllEnabled?: boolean;
+        websocketsEnabled?: boolean;
+        /**
+         * The number of Workers for this Linux App Service Slot.
+         */
+        workerCount: number;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigApplicationStack {
+        /**
+         * The Docker image reference, including repository host as needed.
+         */
+        dockerImage?: string;
+        /**
+         * The image Tag to use. e.g. `latest`.
+         */
+        dockerImageTag?: string;
+        /**
+         * The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         */
+        javaServer?: string;
+        /**
+         * The Version of the `javaServer` to use.
+         */
+        javaServerVersion?: string;
+        /**
+         * The Version of Java to use. Supported versions of Java vary depending on the `javaServer` and `javaServerVersion`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+         */
+        javaVersion?: string;
+        /**
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `javaVersion`.
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         */
+        phpVersion?: string;
+        /**
+         * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         */
+        pythonVersion?: string;
+        /**
+         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         */
+        rubyVersion?: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        action?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingAction;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTrigger;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         */
+        actionType: string;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest[];
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode[];
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: string;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: string;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: number;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.LinuxWebAppSlotSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxWebAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface LinuxWebAppSlotSiteCredential {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface LinuxWebAppSlotStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: string;
+    }
+
+    export interface LinuxWebAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: string;
+    }
+
     export interface PlanSku {
         /**
          * Specifies the number of workers associated with this App Service Plan.
@@ -4425,6 +9511,9 @@ export namespace appservice {
          * App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
          */
         appCommandLine?: string;
+        /**
+         * The name of the slot to automatically swap to during deployment
+         */
         autoSwapSlotName?: string;
         /**
          * A `cors` block as defined below.
@@ -4681,6 +9770,98 @@ export namespace appservice {
         type: string;
     }
 
+    export interface SourceControlGithubActionConfiguration {
+        /**
+         * A `codeConfiguration` block as defined above.
+         */
+        codeConfiguration?: outputs.appservice.SourceControlGithubActionConfigurationCodeConfiguration;
+        /**
+         * A `containerConfiguration` block as defined above.
+         */
+        containerConfiguration?: outputs.appservice.SourceControlGithubActionConfigurationContainerConfiguration;
+        generateWorkflowFile?: boolean;
+        linuxAction: boolean;
+    }
+
+    export interface SourceControlGithubActionConfigurationCodeConfiguration {
+        /**
+         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeStack: string;
+        /**
+         * The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeVersion: string;
+    }
+
+    export interface SourceControlGithubActionConfigurationContainerConfiguration {
+        /**
+         * The image name for the build. Changing this forces a new resource to be created.
+         */
+        imageName: string;
+        /**
+         * The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryPassword?: string;
+        /**
+         * The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+         */
+        registryUrl: string;
+        /**
+         * The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryUsername?: string;
+    }
+
+    export interface SourceControlSlotGithubActionConfiguration {
+        /**
+         * A `codeConfiguration` block as detailed below.
+         */
+        codeConfiguration?: outputs.appservice.SourceControlSlotGithubActionConfigurationCodeConfiguration;
+        /**
+         * A `containerConfiguration` block as detailed below.
+         */
+        containerConfiguration?: outputs.appservice.SourceControlSlotGithubActionConfigurationContainerConfiguration;
+        /**
+         * Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
+         */
+        generateWorkflowFile?: boolean;
+        /**
+         * Denotes this action uses a Linux base image.
+         */
+        linuxAction: boolean;
+    }
+
+    export interface SourceControlSlotGithubActionConfigurationCodeConfiguration {
+        /**
+         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeStack: string;
+        /**
+         * The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeVersion: string;
+    }
+
+    export interface SourceControlSlotGithubActionConfigurationContainerConfiguration {
+        /**
+         * The image name for the build. Changing this forces a new resource to be created.
+         */
+        imageName: string;
+        /**
+         * The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryPassword?: string;
+        /**
+         * The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+         */
+        registryUrl: string;
+        /**
+         * The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryUsername?: string;
+    }
+
     export interface StaticSiteIdentity {
         /**
          * A list of Managed Identity ID's which should be assigned to this Static Site resource.
@@ -4689,10 +9870,2662 @@ export namespace appservice {
         principalId: string;
         tenantId: string;
         /**
-         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
+
+    export interface WindowsFunctionAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.WindowsFunctionAppAuthSettingsActiveDirectory;
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Windows Function App?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.WindowsFunctionAppAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.WindowsFunctionAppAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.WindowsFunctionAppAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.WindowsFunctionAppAuthSettingsMicrosoft;
+        /**
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.WindowsFunctionAppAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface WindowsFunctionAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: outputs.appservice.WindowsFunctionAppBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface WindowsFunctionAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface WindowsFunctionAppConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface WindowsFunctionAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface WindowsFunctionAppSiteConfig {
+        /**
+         * If this Windows Function App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn: boolean;
+        /**
+         * The URL of the API definition that describes this Windows Function App.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The ID of the API Management API for this Windows Function App.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
+        /**
+         * An `appServiceLogs` block as defined above.
+         */
+        appServiceLogs?: outputs.appservice.WindowsFunctionAppSiteConfigAppServiceLogs;
+        /**
+         * The Connection String for linking the Windows Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: string;
+        /**
+         * The Instrumentation Key for connecting the Windows Function App to Application Insights.
+         */
+        applicationInsightsKey?: string;
+        /**
+         * An `applicationStack` block as defined above.
+         */
+        applicationStack?: outputs.appservice.WindowsFunctionAppSiteConfigApplicationStack;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.WindowsFunctionAppSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Windows Function App.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to be checked for this Windows Function App health.
+         */
+        healthCheckPath?: string;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.WindowsFunctionAppSiteConfigIpRestriction[];
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        /**
+         * The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.WindowsFunctionAppSiteConfigScmIpRestriction[];
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        scmType: string;
+        /**
+         * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
+         */
+        use32BitWorker?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: boolean;
+        windowsFxVersion: string;
+        /**
+         * The number of Workers for this Windows Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface WindowsFunctionAppSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: number;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: number;
+    }
+
+    export interface WindowsFunctionAppSiteConfigApplicationStack {
+        /**
+         * The version of .Net to use. Possible values include `3.1` and `6`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The Version of Java to use. Supported versions include `8`, and `11`.
+         */
+        javaVersion?: string;
+        /**
+         * The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PowerShell Core to run. Possible values are `7`.
+         */
+        powershellCoreVersion?: string;
+        /**
+         * Should the Windows Function App use a custom runtime?
+         */
+        useCustomRuntime?: boolean;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: boolean;
+    }
+
+    export interface WindowsFunctionAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface WindowsFunctionAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.WindowsFunctionAppSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsFunctionAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.WindowsFunctionAppSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsFunctionAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsFunctionAppSiteCredential {
+        /**
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettings {
+        /**
+         * an `activeDirectory` block as detailed below.
+         */
+        activeDirectory?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsActiveDirectory;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * an `allowedExternalRedirectUrls` block as detailed below.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled?
+         */
+        enabled: boolean;
+        /**
+         * a `facebook` block as detailed below.
+         */
+        facebook?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsFacebook;
+        /**
+         * a `github` block as detailed below.
+         */
+        github?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsGithub;
+        /**
+         * a `google` block as detailed below.
+         */
+        google?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+         */
+        issuer?: string;
+        /**
+         * a `microsoft` block as detailed below.
+         */
+        microsoft?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * a `twitter` block as detailed below.
+         */
+        twitter?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsActiveDirectory {
+        /**
+         * an `allowedAudiences` block as detailed below.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * an `oauthScopes` block as detailed below.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * an `oauthScopes` block as detailed below.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * an `oauthScopes` block as detailed below.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface WindowsFunctionAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * a `schedule` block as detailed below.
+         */
+        schedule: outputs.appservice.WindowsFunctionAppSlotBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface WindowsFunctionAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface WindowsFunctionAppSlotConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface WindowsFunctionAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfig {
+        /**
+         * If this Windows Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn: boolean;
+        /**
+         * The URL of the API definition that describes this Windows Function App.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The ID of the API Management API for this Windows Function App.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+         */
+        appCommandLine?: string;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit: number;
+        /**
+         * an `appServiceLogs` block as detailed below.
+         */
+        appServiceLogs?: outputs.appservice.WindowsFunctionAppSlotSiteConfigAppServiceLogs;
+        /**
+         * The Connection String for linking the Windows Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: string;
+        /**
+         * The Instrumentation Key for connecting the Windows Function App to Application Insights.
+         */
+        applicationInsightsKey?: string;
+        /**
+         * an `applicationStack` block as detailed below.
+         */
+        applicationStack?: outputs.appservice.WindowsFunctionAppSlotSiteConfigApplicationStack;
+        /**
+         * The name of the slot to automatically swap with when this slot is successfully deployed.
+         */
+        autoSwapSlotName?: string;
+        /**
+         * a `cors` block as detailed below.
+         */
+        cors?: outputs.appservice.WindowsFunctionAppSlotSiteConfigCors;
+        /**
+         * a `defaultDocuments` block as detailed below.
+         */
+        defaultDocuments: string[];
+        /**
+         * Is detailed error logging enabled
+         */
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `healthCheckPath`
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: string;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * an `ipRestriction` block as detailed below.
+         */
+        ipRestrictions: outputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestriction[];
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * a `scmIpRestriction` block as detailed below.
+         */
+        scmIpRestrictions: outputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestriction[];
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        /**
+         * The SCM Type in use by the Windows Function App.
+         */
+        scmType: string;
+        /**
+         * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Windows Web App use a 32-bit worker.
+         */
+        use32BitWorker?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: boolean;
+        /**
+         * The Windows FX Version string.
+         */
+        windowsFxVersion: string;
+        /**
+         * The number of Workers for this Windows Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: number;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: number;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
+        /**
+         * The version of .Net. Possible values are `3.1` and `6`
+         */
+        dotnetVersion?: string;
+        /**
+         * The version of Java to use. Possible values are `8`, and `11`
+         */
+        javaVersion?: string;
+        /**
+         * The version of Node to use. Possible values include `12`, and `14`
+         */
+        nodeVersion?: string;
+        /**
+         * The PowerShell Core version to use. Possible values are `7`.
+         */
+        powershellCoreVersion?: string;
+        /**
+         * Does the Function App use a custom Application Stack?
+         */
+        useCustomRuntime?: boolean;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: boolean;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigCors {
+        /**
+         * an `allowedOrigins` block as detailed below.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: outputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: outputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsFunctionAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface WindowsWebAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.WindowsWebAppAuthSettingsActiveDirectory;
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.WindowsWebAppAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.WindowsWebAppAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.WindowsWebAppAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.WindowsWebAppAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.WindowsWebAppAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface WindowsWebAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface WindowsWebAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface WindowsWebAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: outputs.appservice.WindowsWebAppBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface WindowsWebAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface WindowsWebAppConnectionString {
+        /**
+         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface WindowsWebAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface WindowsWebAppLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: outputs.appservice.WindowsWebAppLogsApplicationLogs;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: boolean;
+        /**
+         * Should tracing be enabled for failed requests.
+         */
+        failedRequestTracing?: boolean;
+        /**
+         * A `httpLogs` block as defined above.
+         */
+        httpLogs?: outputs.appservice.WindowsWebAppLogsHttpLogs;
+    }
+
+    export interface WindowsWebAppLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: outputs.appservice.WindowsWebAppLogsApplicationLogsAzureBlobStorage;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: string;
+    }
+
+    export interface WindowsWebAppLogsApplicationLogsAzureBlobStorage {
+        level: string;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface WindowsWebAppLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: outputs.appservice.WindowsWebAppLogsHttpLogsAzureBlobStorage;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: outputs.appservice.WindowsWebAppLogsHttpLogsFileSystem;
+    }
+
+    export interface WindowsWebAppLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface WindowsWebAppLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: number;
+    }
+
+    export interface WindowsWebAppSiteConfig {
+        /**
+         * If this Windows Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: boolean;
+        apiDefinitionUrl?: string;
+        /**
+         * The API Management API ID this Windows Web App Slot is associated with.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack: outputs.appservice.WindowsWebAppSiteConfigApplicationStack;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: boolean;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSetting;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.WindowsWebAppSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Windows Web App.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: string;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.WindowsWebAppSiteConfigIpRestriction[];
+        linuxFxVersion: string;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: boolean;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.WindowsWebAppSiteConfigScmIpRestriction[];
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        scmType: string;
+        /**
+         * Should the Windows Web App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Windows Web App use a 32-bit worker.
+         */
+        use32BitWorker?: boolean;
+        /**
+         * One or more `virtualApplication` blocks as defined below.
+         */
+        virtualApplications?: outputs.appservice.WindowsWebAppSiteConfigVirtualApplication[];
+        vnetRouteAllEnabled?: boolean;
+        websocketsEnabled?: boolean;
+        windowsFxVersion: string;
+        /**
+         * The number of Workers for this Windows App Service.
+         */
+        workerCount: number;
+    }
+
+    export interface WindowsWebAppSiteConfigApplicationStack {
+        /**
+         * The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         */
+        currentStack?: string;
+        /**
+         * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+         */
+        dockerContainerName?: string;
+        /**
+         * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+         */
+        dockerContainerRegistry?: string;
+        /**
+         * The Image Tag of the specified Docker Container to use. For example `latest`
+         */
+        dockerContainerTag?: string;
+        /**
+         * The version of .Net to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The Java container type to use when `currentStack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `javaVersion` and `javaContainerVersion`.
+         */
+        javaContainer?: string;
+        /**
+         * The Version of the `javaContainer` to use. Required with `javaVersion` and `javaContainer`.
+         */
+        javaContainerVersion?: string;
+        /**
+         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `javaContainer` and `javaContainerVersion`.
+         */
+        javaVersion?: string;
+        /**
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PHP to use when `currentStack` is set to `php`. Possible values include `v7.4`.
+         */
+        phpVersion?: string;
+        /**
+         * The version of Python to use when `currentStack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+         */
+        pythonVersion?: string;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSetting {
+        /**
+         * An `action` block as defined above.
+         */
+        action: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingAction;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTrigger;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
+         */
+        actionType: string;
+        /**
+         * A `customAction` block as defined below.
+         */
+        customAction?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingActionCustomAction;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime: string;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
+        /**
+         * The executable to run for the `customAction`.
+         */
+        executable: string;
+        /**
+         * The parameters to pass to the specified `executable`.
+         */
+        parameters?: string;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTrigger {
+        /**
+         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         */
+        privateMemoryKb?: number;
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode[];
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: string;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: string;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: string;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: number;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: string;
+    }
+
+    export interface WindowsWebAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface WindowsWebAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.WindowsWebAppSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsWebAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsWebAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.WindowsWebAppSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsWebAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsWebAppSiteConfigVirtualApplication {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath: string;
+        /**
+         * Should pre-loading be enabled. Defaults to `false`.
+         */
+        preload: boolean;
+        /**
+         * One or more `virtualDirectory` blocks as defined below.
+         */
+        virtualDirectories?: outputs.appservice.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory[];
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath: string;
+    }
+
+    export interface WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath?: string;
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath?: string;
+    }
+
+    export interface WindowsWebAppSiteCredential {
+        /**
+         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface WindowsWebAppSlotAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.WindowsWebAppSlotAuthSettingsActiveDirectory;
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Windows Web App?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.WindowsWebAppSlotAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.WindowsWebAppSlotAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.WindowsWebAppSlotAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.WindowsWebAppSlotAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.WindowsWebAppSlotAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface WindowsWebAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: outputs.appservice.WindowsWebAppSlotBackupSchedule;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    export interface WindowsWebAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: string;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: boolean;
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: number;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime: string;
+    }
+
+    export interface WindowsWebAppSlotConnectionString {
+        /**
+         * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface WindowsWebAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface WindowsWebAppSlotLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: outputs.appservice.WindowsWebAppSlotLogsApplicationLogs;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: boolean;
+        /**
+         * Should failed request tracing be enabled.
+         */
+        failedRequestTracing?: boolean;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs?: outputs.appservice.WindowsWebAppSlotLogsHttpLogs;
+    }
+
+    export interface WindowsWebAppSlotLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: outputs.appservice.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: string;
+    }
+
+    export interface WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage {
+        level: string;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface WindowsWebAppSlotLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: outputs.appservice.WindowsWebAppSlotLogsHttpLogsAzureBlobStorage;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: outputs.appservice.WindowsWebAppSlotLogsHttpLogsFileSystem;
+    }
+
+    export interface WindowsWebAppSlotLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: number;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: string;
+    }
+
+    export interface WindowsWebAppSlotLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: number;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: number;
+    }
+
+    export interface WindowsWebAppSlotSiteConfig {
+        /**
+         * If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: boolean;
+        /**
+         * The URL to the API Definition for this Windows Web App Slot.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The API Management API ID this Windows Web App Slot os associated with.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack: outputs.appservice.WindowsWebAppSlotSiteConfigApplicationStack;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: boolean;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSetting;
+        /**
+         * The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+         */
+        autoSwapSlotName?: string;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.WindowsWebAppSlotSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Windows Web App Slot.
+         */
+        defaultDocuments: string[];
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: string;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin: number;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: string;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.WindowsWebAppSlotSiteConfigIpRestriction[];
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: boolean;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestriction[];
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        scmType: string;
+        /**
+         * Should the Windows Web App Slot `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+         */
+        use32BitWorker: boolean;
+        /**
+         * One or more `virtualApplication` blocks as defined below.
+         */
+        virtualApplications?: outputs.appservice.WindowsWebAppSlotSiteConfigVirtualApplication[];
+        vnetRouteAllEnabled?: boolean;
+        websocketsEnabled?: boolean;
+        windowsFxVersion: string;
+        /**
+         * The number of Workers for this Windows App Service Slot.
+         */
+        workerCount: number;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigApplicationStack {
+        /**
+         * The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         */
+        currentStack?: string;
+        /**
+         * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+         */
+        dockerContainerName?: string;
+        /**
+         * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+         */
+        dockerContainerRegistry?: string;
+        /**
+         * The Image Tag of the specified Docker Container to use. For example `latest`
+         */
+        dockerContainerTag?: string;
+        /**
+         * The version of .Net to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         */
+        dotnetVersion?: string;
+        /**
+         * The Java container type to use when `currentStack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `javaVersion` and `javaContainerVersion`.
+         */
+        javaContainer?: string;
+        /**
+         * The Version of the `javaContainer` to use. Required with `javaVersion` and `javaContainer`.
+         */
+        javaContainerVersion?: string;
+        /**
+         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `javaContainer` and `javaContainerVersion`.
+         */
+        javaVersion?: string;
+        /**
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         */
+        nodeVersion?: string;
+        /**
+         * The version of PHP to use when `currentStack` is set to `php`. Possible values include `v7.4`.
+         */
+        phpVersion?: string;
+        /**
+         * The version of Python to use when `currentStack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+         */
+        pythonVersion?: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        action: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingAction;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTrigger;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         */
+        actionType: string;
+        /**
+         * A `customAction` block as defined below.
+         */
+        customAction?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction {
+        /**
+         * The executable to run for the `customAction`.
+         */
+        executable: string;
+        /**
+         * The parameters to pass to the specified `executable`.
+         */
+        parameters?: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
+        /**
+         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         */
+        privateMemoryKb?: number;
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest[];
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode[];
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: string;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: number;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: string;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: string;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: string;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: number;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.WindowsWebAppSlotSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsWebAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface WindowsWebAppSlotSiteConfigVirtualApplication {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath: string;
+        /**
+         * Should pre-loading be enabled. Defaults to `false`.
+         */
+        preload: boolean;
+        /**
+         * One or more `virtualDirectory` blocks as defined below.
+         */
+        virtualDirectories?: outputs.appservice.WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory[];
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath: string;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath?: string;
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath?: string;
+    }
+
+    export interface WindowsWebAppSlotSiteCredential {
+        /**
+         * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface WindowsWebAppSlotStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: string;
+    }
+
+    export interface WindowsWebAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: string;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: string;
+        /**
+         * The name which should be used for this TODO.
+         */
+        name: string;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: string;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: string;
+    }
+
 }
 
 export namespace authorization {
@@ -4736,10 +12569,16 @@ export namespace automation {
          * The ID of the User Assigned Identity which should be assigned to this Automation Account.
          */
         identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The type of identity used for the automation account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -5005,19 +12844,19 @@ export namespace batch {
 
     export interface AccountIdentity {
         /**
-         * Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+         * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          */
         identityIds?: string[];
         /**
-         * The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -5127,7 +12966,7 @@ export namespace batch {
         /**
          * The inbound NAT pools that are used to address specific ports on the individual compute node externally.
          */
-        endpointConfiguration: outputs.batch.GetPoolNetworkConfigurationEndpointConfiguration;
+        endpointConfigurations: outputs.batch.GetPoolNetworkConfigurationEndpointConfiguration[];
         /**
          * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
          */
@@ -5181,14 +13020,6 @@ export namespace batch {
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
         commonEnvironmentProperties?: {[key: string]: string};
-        /**
-         * A map of strings (key,value) that represents the environment variables to set in the start task.
-         */
-        environment?: {[key: string]: string};
-        /**
-         * The number of retry count.
-         */
-        maxTaskRetryCount: number;
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
@@ -5344,11 +13175,11 @@ export namespace batch {
 
     export interface PoolIdentity {
         /**
-         * Specifies a list of user assigned identity ids.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          */
         identityIds: string[];
         /**
-         * The identity type of the Batch Account. Only possible values is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -5418,19 +13249,7 @@ export namespace batch {
         /**
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
-        commonEnvironmentProperties: {[key: string]: string};
-        /**
-         * A map of strings (key,value) that represents the environment variables to set in the start task.
-         *
-         * @deprecated Deprecated in favour of `common_environment_properties`
-         */
-        environment: {[key: string]: string};
-        /**
-         * The number of retry count. Defaults to `1`.
-         *
-         * @deprecated Deprecated in favour of `task_retry_maximum`
-         */
-        maxTaskRetryCount: number;
+        commonEnvironmentProperties?: {[key: string]: string};
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
@@ -5438,7 +13257,7 @@ export namespace batch {
         /**
          * The number of retry count. Defaults to `1`.
          */
-        taskRetryMaximum: number;
+        taskRetryMaximum?: number;
         /**
          * A `userIdentity` block that describes the user identity under which the start task runs.
          */
@@ -5525,9 +13344,12 @@ export namespace batch {
 
 export namespace blueprint {
     export interface AssignmentIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
+         */
         identityIds: string[];
         /**
-         * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+         * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -6228,20 +14050,26 @@ export namespace cdn {
 export namespace cognitive {
     export interface AccountIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
          */
         identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
 
     export interface AccountNetworkAcls {
         /**
-         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          */
         defaultAction: string;
         /**
@@ -6251,11 +14079,7 @@ export namespace cognitive {
         /**
          * A `virtualNetworkRules` block as defined below.
          */
-        virtualNetworkRules: outputs.cognitive.AccountNetworkAclsVirtualNetworkRule[];
-        /**
-         * @deprecated Deprecated in favour of `virtual_network_rules`
-         */
-        virtualNetworkSubnetIds: string[];
+        virtualNetworkRules?: outputs.cognitive.AccountNetworkAclsVirtualNetworkRule[];
     }
 
     export interface AccountNetworkAclsVirtualNetworkRule {
@@ -6298,32 +14122,6 @@ export namespace compute {
         subnetId: string;
     }
 
-    export interface ConfigurationPolicyAssignmentConfiguration {
-        /**
-         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-         */
-        name: string;
-        /**
-         * One or more `parameter` blocks which define what configuration parameters and values against.
-         */
-        parameters?: outputs.compute.ConfigurationPolicyAssignmentConfigurationParameter[];
-        /**
-         * The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-         */
-        version?: string;
-    }
-
-    export interface ConfigurationPolicyAssignmentConfigurationParameter {
-        /**
-         * The name of the configuration parameter to check.
-         */
-        name: string;
-        /**
-         * The value to check the configuration parameter with.
-         */
-        value: string;
-    }
-
     export interface DiskEncryptionSetIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -6334,7 +14132,7 @@ export namespace compute {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         * The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -6575,16 +14373,19 @@ export namespace compute {
 
     export interface GetVirtualMachineScaleSetIdentity {
         /**
-         * The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+         * The list of User Assigned Managed Identity IDs assigned to this Virtual Machine Scale Set.
          */
         identityIds: string[];
         /**
-         * The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
          */
         principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
+         */
         tenantId: string;
         /**
-         * The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+         * The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
          */
         type: string;
     }
@@ -6664,7 +14465,7 @@ export namespace compute {
     export interface GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
         tag: string;
         /**
-         * The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+         * The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
          */
         type: string;
     }
@@ -6746,19 +14547,19 @@ export namespace compute {
 
     export interface LinuxVirtualMachineIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
          */
         identityIds?: string[];
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -6877,18 +14678,6 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-         */
-        diskIopsReadWrite: number;
-        /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-         */
-        diskMbpsReadWrite: number;
-        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: number;
@@ -6953,16 +14742,19 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
          */
         identityIds?: string[];
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -7221,6 +15013,17 @@ export namespace compute {
         version: string;
     }
 
+    export interface LinuxVirtualMachineTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         */
+        enabled: boolean;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
+        timeout?: string;
+    }
+
     export interface ManagedDiskEncryptionSettings {
         /**
          * A `diskEncryptionKey` block as defined above.
@@ -7271,14 +15074,6 @@ export namespace compute {
         caching: string;
         createOption?: string;
         diskEncryptionSetId?: string;
-        /**
-         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-         */
-        diskIopsReadWrite: number;
-        /**
-         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-         */
-        diskMbpsReadWrite: number;
         diskSizeGb: number;
         lun: number;
         storageAccountType: string;
@@ -7929,15 +15724,15 @@ export namespace compute {
 
     export interface VirtualMachineIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
          */
         identityIds?: string[];
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         * Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -8205,19 +16000,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
          */
         identityIds?: string[];
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -8336,18 +16131,6 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-         */
-        diskIopsReadWrite: number;
-        /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-         */
-        diskMbpsReadWrite: number;
-        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: number;
@@ -8412,16 +16195,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          */
         identityIds?: string[];
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -8699,6 +16485,17 @@ export namespace compute {
         version: string;
     }
 
+    export interface WindowsVirtualMachineTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         */
+        enabled: boolean;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
+        timeout?: string;
+    }
+
     export interface WindowsVirtualMachineWinrmListener {
         /**
          * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
@@ -8711,6 +16508,7 @@ export namespace compute {
 export namespace config {
     export interface Features {
         apiManagement?: outputs.config.FeaturesApiManagement;
+        applicationInsights?: outputs.config.FeaturesApplicationInsights;
         cognitiveAccount?: outputs.config.FeaturesCognitiveAccount;
         keyVault?: outputs.config.FeaturesKeyVault;
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
@@ -8723,6 +16521,11 @@ export namespace config {
 
     export interface FeaturesApiManagement {
         purgeSoftDeleteOnDestroy?: boolean;
+        recoverSoftDeleted?: boolean;
+    }
+
+    export interface FeaturesApplicationInsights {
+        disableGeneratedRule?: boolean;
     }
 
     export interface FeaturesCognitiveAccount {
@@ -8731,11 +16534,17 @@ export namespace config {
 
     export interface FeaturesKeyVault {
         purgeSoftDeleteOnDestroy?: boolean;
+        purgeSoftDeletedCertificatesOnDestroy?: boolean;
+        purgeSoftDeletedKeysOnDestroy?: boolean;
+        purgeSoftDeletedSecretsOnDestroy?: boolean;
+        recoverSoftDeletedCertificates?: boolean;
         recoverSoftDeletedKeyVaults?: boolean;
+        recoverSoftDeletedKeys?: boolean;
+        recoverSoftDeletedSecrets?: boolean;
     }
 
     export interface FeaturesLogAnalyticsWorkspace {
-        permanentlyDeleteOnDestroy: boolean;
+        permanentlyDeleteOnDestroy?: boolean;
     }
 
     export interface FeaturesNetwork {
@@ -9408,141 +17217,7 @@ export namespace containerservice {
         subnetName: string;
     }
 
-    export interface GetKubernetesClusterAddonProfile {
-        azureKeyvaultSecretsProviders: outputs.containerservice.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider[];
-        azurePolicies: outputs.containerservice.GetKubernetesClusterAddonProfileAzurePolicy[];
-        httpApplicationRoutings: outputs.containerservice.GetKubernetesClusterAddonProfileHttpApplicationRouting[];
-        /**
-         * An `ingressApplicationGateway` block as documented below.
-         */
-        ingressApplicationGateways: outputs.containerservice.GetKubernetesClusterAddonProfileIngressApplicationGateway[];
-        kubeDashboards: outputs.containerservice.GetKubernetesClusterAddonProfileKubeDashboard[];
-        /**
-         * An `omsAgent` block as documented below.
-         */
-        omsAgents: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgent[];
-        openServiceMeshes: outputs.containerservice.GetKubernetesClusterAddonProfileOpenServiceMesh[];
-    }
-
-    export interface GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-        enabled: boolean;
-        /**
-         * A `secretIdentity` block as documented below.
-         */
-        secretIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity[];
-        /**
-         * Is secret rotation enabled?
-         */
-        secretRotationEnabled: string;
-        /**
-         * The interval to poll for secret rotation.
-         */
-        secretRotationInterval: string;
-    }
-
-    export interface GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-         */
-        clientId: string;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-         */
-        objectId: string;
-        /**
-         * The ID of the User Assigned Identity assigned to the Kubelets.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface GetKubernetesClusterAddonProfileAzurePolicy {
-        enabled: boolean;
-    }
-
-    export interface GetKubernetesClusterAddonProfileHttpApplicationRouting {
-        enabled: boolean;
-        /**
-         * The Zone Name of the HTTP Application Routing.
-         */
-        httpApplicationRoutingZoneName: string;
-    }
-
-    export interface GetKubernetesClusterAddonProfileIngressApplicationGateway {
-        /**
-         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-         */
-        effectiveGatewayId: string;
-        enabled: boolean;
-        /**
-         * The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
-         */
-        gatewayId: string;
-        /**
-         * An `ingressApplicationGatewayIdentity` block as defined below.
-         */
-        ingressApplicationGatewayIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity[];
-        /**
-         * The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
-         */
-        subnetCidr: string;
-        /**
-         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
-         */
-        subnetId: string;
-    }
-
-    export interface GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-         */
-        clientId: string;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-         */
-        objectId: string;
-        /**
-         * The ID of the User Assigned Identity assigned to the Kubelets.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface GetKubernetesClusterAddonProfileKubeDashboard {
-        enabled: boolean;
-    }
-
-    export interface GetKubernetesClusterAddonProfileOmsAgent {
-        enabled: boolean;
-        /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-         */
-        logAnalyticsWorkspaceId: string;
-        /**
-         * An `omsAgentIdentity` block as defined below.
-         */
-        omsAgentIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity[];
-    }
-
-    export interface GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-         */
-        clientId: string;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-         */
-        objectId: string;
-        /**
-         * The ID of the User Assigned Identity assigned to the Kubelets.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface GetKubernetesClusterAddonProfileOpenServiceMesh {
-        enabled: boolean;
-    }
-
     export interface GetKubernetesClusterAgentPoolProfile {
-        availabilityZones: string[];
         /**
          * The number of Agents (VM's) in the Pool.
          */
@@ -9594,7 +17269,7 @@ export namespace containerservice {
          */
         tags: {[key: string]: string};
         /**
-         * The type of identity used for the managed cluster.
+         * The type of Managed Service Identity that is configured on this Kubernetes Cluster.
          */
         type: string;
         /**
@@ -9610,7 +17285,7 @@ export namespace containerservice {
          */
         vnetSubnetId: string;
         /**
-         * Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+         * A list of Availability Zones in which this Kubernetes Cluster is located.
          */
         zones: string[];
     }
@@ -9644,28 +17319,28 @@ export namespace containerservice {
          */
         serverAppId: string;
         /**
-         * The tenant id of the system assigned identity which is used by primary components.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
          */
         tenantId: string;
     }
 
     export interface GetKubernetesClusterIdentity {
         /**
-         * The principal id of the system assigned identity which is used by primary components.
+         * The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
          */
         principalId: string;
         /**
-         * The tenant id of the system assigned identity which is used by primary components.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
          */
         tenantId: string;
         /**
-         * The type of identity used for the managed cluster.
+         * The type of Managed Service Identity that is configured on this Kubernetes Cluster.
          */
         type: string;
-        /**
-         * The ID of the User Assigned Identity assigned to the Kubelets.
-         */
-        userAssignedIdentityId: string;
     }
 
     export interface GetKubernetesClusterIngressApplicationGateway {
@@ -9876,34 +17551,6 @@ export namespace containerservice {
          * The ID of the User Assigned Identity assigned to the Kubelets.
          */
         userAssignedIdentityId: string;
-    }
-
-    export interface GetKubernetesClusterRoleBasedAccessControl {
-        azureActiveDirectories: outputs.containerservice.GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory[];
-        enabled: boolean;
-    }
-
-    export interface GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-        /**
-         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         */
-        adminGroupObjectIds: string[];
-        /**
-         * The Client ID of an Azure Active Directory Application.
-         */
-        clientAppId: string;
-        /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-         */
-        managed: boolean;
-        /**
-         * The Server ID of an Azure Active Directory Application.
-         */
-        serverAppId: string;
-        /**
-         * The tenant id of the system assigned identity which is used by primary components.
-         */
-        tenantId: string;
     }
 
     export interface GetKubernetesClusterServicePrincipal {
@@ -10193,13 +17840,19 @@ export namespace containerservice {
 
     export interface GroupIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
          */
         identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -10224,242 +17877,6 @@ export namespace containerservice {
          * The subnet name for the virtual nodes to run.
          */
         subnetName: string;
-    }
-
-    export interface KubernetesClusterAddonProfile {
-        /**
-         * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-         *
-         * @deprecated `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        aciConnectorLinux?: outputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux;
-        /**
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        azureKeyvaultSecretsProvider?: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider;
-        /**
-         * @deprecated `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        azurePolicy?: outputs.containerservice.KubernetesClusterAddonProfileAzurePolicy;
-        /**
-         * A `httpApplicationRouting` block as defined below.
-         *
-         * @deprecated `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        httpApplicationRouting?: outputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting;
-        /**
-         * A `ingressApplicationGateway` block as defined below.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        ingressApplicationGateway?: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGateway;
-        /**
-         * @deprecated `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
-         */
-        kubeDashboard?: outputs.containerservice.KubernetesClusterAddonProfileKubeDashboard;
-        /**
-         * A `omsAgent` block as defined below.
-         *
-         * @deprecated `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        omsAgent?: outputs.containerservice.KubernetesClusterAddonProfileOmsAgent;
-        /**
-         * @deprecated `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        openServiceMesh?: outputs.containerservice.KubernetesClusterAddonProfileOpenServiceMesh;
-    }
-
-    export interface KubernetesClusterAddonProfileAciConnectorLinux {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
-        /**
-         * The subnet name for the virtual nodes to run.
-         *
-         * @deprecated `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        subnetName?: string;
-    }
-
-    export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
-        /**
-         * An `secretIdentity` block is exported. The exported attributes are defined below.
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        secretIdentities: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity[];
-        /**
-         * Is secret rotation enabled?
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        secretRotationEnabled?: boolean;
-        /**
-         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        secretRotationInterval?: string;
-    }
-
-    export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-         */
-        clientId: string;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-         */
-        objectId: string;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface KubernetesClusterAddonProfileAzurePolicy {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
-    }
-
-    export interface KubernetesClusterAddonProfileHttpApplicationRouting {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
-        /**
-         * The Zone Name of the HTTP Application Routing.
-         *
-         * @deprecated `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        httpApplicationRoutingZoneName: string;
-    }
-
-    export interface KubernetesClusterAddonProfileIngressApplicationGateway {
-        /**
-         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        effectiveGatewayId: string;
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
-        /**
-         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        gatewayId?: string;
-        /**
-         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        gatewayName?: string;
-        /**
-         * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        ingressApplicationGatewayIdentities: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity[];
-        /**
-         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        subnetCidr?: string;
-        /**
-         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        subnetId?: string;
-    }
-
-    export interface KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-         */
-        clientId: string;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-         */
-        objectId: string;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface KubernetesClusterAddonProfileKubeDashboard {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         */
-        enabled: boolean;
-    }
-
-    export interface KubernetesClusterAddonProfileOmsAgent {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
-        /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-         *
-         * @deprecated `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        logAnalyticsWorkspaceId?: string;
-        /**
-         * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
-         *
-         * @deprecated `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        omsAgentIdentities: outputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity[];
-    }
-
-    export interface KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-         */
-        clientId: string;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-         */
-        objectId: string;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId: string;
-    }
-
-    export interface KubernetesClusterAddonProfileOpenServiceMesh {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: boolean;
     }
 
     export interface KubernetesClusterAutoScalerProfile {
@@ -10566,10 +17983,6 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
-         * A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-         */
-        availabilityZones?: string[];
-        /**
          * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
          */
         enableAutoScaling?: boolean;
@@ -10675,6 +18088,10 @@ export namespace containerservice {
          * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
          */
         vnetSubnetId?: string;
+        /**
+         * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+         */
+        zones?: string[];
     }
 
     export interface KubernetesClusterDefaultNodePoolKubeletConfig {
@@ -10886,7 +18303,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterIdentity {
         /**
-         * The principal id of the system assigned identity which is used by main components.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
@@ -10894,13 +18315,9 @@ export namespace containerservice {
          */
         tenantId: string;
         /**
-         * The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+         * Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId?: string;
     }
 
     export interface KubernetesClusterIngressApplicationGateway {
@@ -10940,7 +18357,7 @@ export namespace containerservice {
          */
         objectId: string;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId: string;
     }
@@ -10970,7 +18387,7 @@ export namespace containerservice {
          */
         objectId: string;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId: string;
     }
@@ -11393,48 +18810,9 @@ export namespace containerservice {
          */
         objectId: string;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId: string;
-    }
-
-    export interface KubernetesClusterRoleBasedAccessControl {
-        azureActiveDirectory?: outputs.containerservice.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory;
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         */
-        enabled: boolean;
-    }
-
-    export interface KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-        /**
-         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         */
-        adminGroupObjectIds?: string[];
-        /**
-         * Is Role Based Access Control based on Azure AD enabled?
-         */
-        azureRbacEnabled?: boolean;
-        /**
-         * The Client ID of an Azure Active Directory Application.
-         */
-        clientAppId?: string;
-        /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-         */
-        managed?: boolean;
-        /**
-         * The Server ID of an Azure Active Directory Application.
-         */
-        serverAppId?: string;
-        /**
-         * The Server Secret of an Azure Active Directory Application.
-         */
-        serverAppSecret?: string;
-        /**
-         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
-         */
-        tenantId: string;
     }
 
     export interface KubernetesClusterServicePrincipal {
@@ -11499,19 +18877,19 @@ export namespace containerservice {
 
     export interface RegistryIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Container Registry.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
          */
         identityIds?: string[];
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -11689,13 +19067,19 @@ export namespace containerservice {
 
     export interface RegistryTaskIdentity {
         /**
-         * Specifies a list of user assigned identity IDs.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
          */
         identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -11950,6 +19334,10 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID of the Policy Assignment for this Resource Group.
          */
         principalId: string;
@@ -11958,7 +19346,7 @@ export namespace core {
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: string;
     }
@@ -11976,6 +19364,10 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID of the Policy Assignment for this Resource.
          */
         principalId: string;
@@ -11984,7 +19376,7 @@ export namespace core {
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: string;
     }
@@ -12035,6 +19427,10 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID of the Policy Assignment for this Subscription.
          */
         principalId: string;
@@ -12043,7 +19439,7 @@ export namespace core {
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: string;
     }
@@ -12154,12 +19550,6 @@ export namespace cosmosdb {
          */
         location: string;
         /**
-         * The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-         *
-         * @deprecated This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
-         */
-        prefix?: string;
-        /**
          * Should zone redundancy be enabled for this region? Defaults to `false`.
          */
         zoneRedundant?: boolean;
@@ -12175,7 +19565,7 @@ export namespace cosmosdb {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -12597,35 +19987,6 @@ export namespace cosmosdb {
          * The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
-    }
-
-}
-
-export namespace costmanagement {
-    export interface ResourceGroupExportDeliveryInfo {
-        /**
-         * The name of the container where exports will be uploaded.
-         */
-        containerName: string;
-        /**
-         * The path of the directory where exports will be uploaded.
-         */
-        rootFolderPath: string;
-        /**
-         * The storage account id where exports will be delivered.
-         */
-        storageAccountId: string;
-    }
-
-    export interface ResourceGroupExportQuery {
-        /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-         */
-        timeFrame: string;
-        /**
-         * The type of the query.
-         */
-        type: string;
     }
 
 }
@@ -13389,21 +20750,6 @@ export namespace datafactory {
         type?: string;
     }
 
-    export interface DatasetSnowflakeStructureColumn {
-        /**
-         * The description of the column.
-         */
-        description?: string;
-        /**
-         * The name of the column.
-         */
-        name: string;
-        /**
-         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-         */
-        type?: string;
-    }
-
     export interface DatasetSqlServerTableSchemaColumn {
         /**
          * The description of the column.
@@ -13459,11 +20805,11 @@ export namespace datafactory {
 
     export interface FactoryIdentity {
         /**
-         * Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
          */
         identityIds?: string[];
         /**
-         * The ID of the Principal (Client) in Azure Active Directory
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
@@ -13471,7 +20817,7 @@ export namespace datafactory {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -13527,9 +20873,12 @@ export namespace datafactory {
     }
 
     export interface GetFactoryIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Data Factory.
+         */
         identityIds: string[];
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
          */
         principalId: string;
         /**
@@ -13537,7 +20886,7 @@ export namespace datafactory {
          */
         tenantId: string;
         /**
-         * The identity type of the Data Factory.
+         * The type of Managed Service Identity that is configured on this Data Factory.
          */
         type: string;
     }
@@ -14086,18 +21435,6 @@ export namespace datafactory {
     }
 }
 
-export namespace datalake {
-    export interface StoreIdentity {
-        principalId: string;
-        tenantId: string;
-        /**
-         * The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
-         */
-        type: string;
-    }
-
-}
-
 export namespace dataprotection {
     export interface BackupPolicyDiskRetentionRule {
         /**
@@ -14177,22 +21514,22 @@ export namespace dataprotection {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
 
     export interface GetBackupVaultIdentity {
         /**
-         * The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Backup Vault.
+         * The type of Managed Service Identity that is configured on this Backup Vault.
          */
         type: string;
     }
@@ -14210,7 +21547,7 @@ export namespace datashare {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -14232,15 +21569,15 @@ export namespace datashare {
 
     export interface GetAccountIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The identity type of the Data Share Account.
+         * The identity type of this Managed Service Identity.
          */
         type: string;
     }
@@ -14293,15 +21630,6 @@ export namespace datashare {
 }
 
 export namespace desktopvirtualization {
-    export interface HostPoolRegistrationInfo {
-        /**
-         * @deprecated This field is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-         */
-        expirationDate?: string;
-        resetToken: boolean;
-        token: string;
-    }
-
     export interface ScalingPlanHostPool {
         /**
          * The ID of the HostPool to assign the Scaling Plan to.
@@ -14833,19 +22161,19 @@ export namespace domainservices {
 export namespace eventgrid {
     export interface DomainIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
          */
         identityIds?: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -15243,20 +22571,6 @@ export namespace eventgrid {
         value?: string;
     }
 
-    export interface EventSubscriptionEventhubEndpoint {
-        /**
-         * Specifies the id of the eventhub where the Event Subscription will receive events.
-         */
-        eventhubId: string;
-    }
-
-    export interface EventSubscriptionHybridConnectionEndpoint {
-        /**
-         * Specifies the id of the hybrid connection where the Event Subscription will receive events.
-         */
-        hybridConnectionId: string;
-    }
-
     export interface EventSubscriptionRetryPolicy {
         /**
          * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -15391,19 +22705,19 @@ export namespace eventgrid {
 
     export interface GetSystemTopicIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
          */
         identityIds: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+         * The type of Managed Service Identity that is configured on this Event Grid System Topic.
          */
         type: string;
     }
@@ -15719,6 +23033,29 @@ export namespace eventgrid {
         userAssignedIdentity?: string;
     }
 
+    export interface SystemTopicEventSubscriptionDeliveryProperty {
+        /**
+         * The name of the header to send on to the destination.
+         */
+        headerName: string;
+        /**
+         * Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won't be returned from Azure API calls.
+         */
+        secret?: boolean;
+        /**
+         * If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+         */
+        sourceField?: string;
+        /**
+         * Either `Static` or `Dynamic`.
+         */
+        type: string;
+        /**
+         * If the `type` is `Static`, then provide the value to use.
+         */
+        value?: string;
+    }
+
     export interface SystemTopicEventSubscriptionRetryPolicy {
         /**
          * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -15800,38 +23137,38 @@ export namespace eventgrid {
 
     export interface SystemTopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
          */
         identityIds?: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
 
     export interface TopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
          */
         identityIds?: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -15888,24 +23225,25 @@ export namespace eventgrid {
          */
         topic?: string;
     }
+
 }
 
 export namespace eventhub {
     export interface DomainIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
          */
         identityIds?: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -15965,19 +23303,19 @@ export namespace eventhub {
 
     export interface EventGridTopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
          */
         identityIds?: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -16083,15 +23421,15 @@ export namespace eventhub {
 
     export interface EventHubNamespaceIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this EventHub Namespace.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -16477,20 +23815,6 @@ export namespace eventhub {
         value?: string;
     }
 
-    export interface EventSubscriptionEventhubEndpoint {
-        /**
-         * Specifies the id of the eventhub where the Event Subscription will receive events.
-         */
-        eventhubId: string;
-    }
-
-    export interface EventSubscriptionHybridConnectionEndpoint {
-        /**
-         * Specifies the id of the hybrid connection where the Event Subscription will receive events.
-         */
-        hybridConnectionId: string;
-    }
-
     export interface EventSubscriptionRetryPolicy {
         /**
          * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -16572,7 +23896,7 @@ export namespace eventhub {
 
     export interface NamespaceIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: string[];
         /**
@@ -16584,7 +23908,7 @@ export namespace eventhub {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -16924,6 +24248,17 @@ export namespace frontdoor {
         successfulSamplesRequired?: number;
     }
 
+    export interface FrontdoorBackendPoolSetting {
+        /**
+         * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+         */
+        backendPoolsSendReceiveTimeoutSeconds?: number;
+        /**
+         * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+         */
+        enforceBackendPoolsCertificateNameCheck: boolean;
+    }
+
     export interface FrontdoorExplicitResourceOrder {
         backendPoolHealthProbeIds: string[];
         backendPoolIds: string[];
@@ -17170,12 +24505,6 @@ export namespace hdinsight {
 
     export interface HBaseClusterGateway {
         /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
-        /**
          * The password used for the Ambari Portal.
          */
         password: string;
@@ -17326,12 +24655,6 @@ export namespace hdinsight {
          * A `autoscale` block as defined below.
          */
         autoscale?: outputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscale;
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -17499,12 +24822,6 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
         /**
          * The password used for the Ambari Portal.
          */
@@ -17687,12 +25004,6 @@ export namespace hdinsight {
          */
         autoscale?: outputs.hdinsight.HadoopClusterRolesWorkerNodeAutoscale;
         /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
-        /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: string;
@@ -17872,12 +25183,6 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterGateway {
         /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
-        /**
          * The password used for the Ambari Portal.
          */
         password: string;
@@ -18028,12 +25333,6 @@ export namespace hdinsight {
          * A `autoscale` block as defined below.
          */
         autoscale?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscale;
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -18217,12 +25516,6 @@ export namespace hdinsight {
 
     export interface KafkaClusterGateway {
         /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
-        /**
          * The password used for the Ambari Portal.
          */
         password: string;
@@ -18401,12 +25694,6 @@ export namespace hdinsight {
 
     export interface KafkaClusterRolesWorkerNode {
         /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
-        /**
          * The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
          */
         numberOfDisksPerNode: number;
@@ -18536,346 +25823,6 @@ export namespace hdinsight {
         storageResourceId: string;
     }
 
-    export interface MLServicesClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
-        /**
-         * The password used for the Ambari Portal.
-         */
-        password: string;
-        /**
-         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface MLServicesClusterRoles {
-        /**
-         * A `edgeNode` block as defined above.
-         */
-        edgeNode: outputs.hdinsight.MLServicesClusterRolesEdgeNode;
-        /**
-         * A `headNode` block as defined above.
-         */
-        headNode: outputs.hdinsight.MLServicesClusterRolesHeadNode;
-        /**
-         * A `workerNode` block as defined below.
-         */
-        workerNode: outputs.hdinsight.MLServicesClusterRolesWorkerNode;
-        /**
-         * A `zookeeperNode` block as defined below.
-         */
-        zookeeperNode: outputs.hdinsight.MLServicesClusterRolesZookeeperNode;
-    }
-
-    export interface MLServicesClusterRolesEdgeNode {
-        /**
-         * The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface MLServicesClusterRolesHeadNode {
-        /**
-         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface MLServicesClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
-        /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The number of instances which should be run for the Worker Nodes.
-         */
-        targetInstanceCount: number;
-        /**
-         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface MLServicesClusterRolesZookeeperNode {
-        /**
-         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface MLServicesClusterStorageAccount {
-        /**
-         * Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
-         */
-        isDefault: boolean;
-        /**
-         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageAccountKey: string;
-        /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         */
-        storageContainerId: string;
-        storageResourceId?: string;
-    }
-
-    export interface RServerClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
-        /**
-         * The password used for the Ambari Portal.
-         */
-        password: string;
-        /**
-         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface RServerClusterRoles {
-        /**
-         * A `edgeNode` block as defined above.
-         */
-        edgeNode: outputs.hdinsight.RServerClusterRolesEdgeNode;
-        /**
-         * A `headNode` block as defined above.
-         */
-        headNode: outputs.hdinsight.RServerClusterRolesHeadNode;
-        /**
-         * A `workerNode` block as defined below.
-         */
-        workerNode: outputs.hdinsight.RServerClusterRolesWorkerNode;
-        /**
-         * A `zookeeperNode` block as defined below.
-         */
-        zookeeperNode: outputs.hdinsight.RServerClusterRolesZookeeperNode;
-    }
-
-    export interface RServerClusterRolesEdgeNode {
-        /**
-         * The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface RServerClusterRolesHeadNode {
-        /**
-         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface RServerClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
-        /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The number of instances which should be run for the Worker Nodes.
-         */
-        targetInstanceCount: number;
-        /**
-         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface RServerClusterRolesZookeeperNode {
-        /**
-         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface RServerClusterStorageAccount {
-        /**
-         * Is this the Default Storage Account for the HDInsight RServer Cluster? Changing this forces a new resource to be created.
-         */
-        isDefault: boolean;
-        /**
-         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageAccountKey: string;
-        /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         */
-        storageContainerId: string;
-        storageResourceId?: string;
-    }
-
     export interface SparkClusterComponentVersion {
         /**
          * The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
@@ -18884,12 +25831,6 @@ export namespace hdinsight {
     }
 
     export interface SparkClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
         /**
          * The password used for the Ambari Portal.
          */
@@ -19041,12 +25982,6 @@ export namespace hdinsight {
          * A `autoscale` block as defined below.
          */
         autoscale?: outputs.hdinsight.SparkClusterRolesWorkerNodeAutoscale;
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -19220,235 +26155,6 @@ export namespace hdinsight {
          */
         storageResourceId: string;
     }
-
-    export interface StormClusterComponentVersion {
-        /**
-         * The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-         */
-        storm: string;
-    }
-
-    export interface StormClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: boolean;
-        /**
-         * The password used for the Ambari Portal.
-         */
-        password: string;
-        /**
-         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface StormClusterMetastores {
-        /**
-         * An `ambari` block as defined below.
-         */
-        ambari?: outputs.hdinsight.StormClusterMetastoresAmbari;
-        /**
-         * A `hive` block as defined below.
-         */
-        hive?: outputs.hdinsight.StormClusterMetastoresHive;
-        /**
-         * An `oozie` block as defined below.
-         */
-        oozie?: outputs.hdinsight.StormClusterMetastoresOozie;
-    }
-
-    export interface StormClusterMetastoresAmbari {
-        /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-         */
-        databaseName: string;
-        /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-         */
-        password: string;
-        /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-         */
-        server: string;
-        /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface StormClusterMetastoresHive {
-        /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-         */
-        databaseName: string;
-        /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-         */
-        password: string;
-        /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-         */
-        server: string;
-        /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface StormClusterMetastoresOozie {
-        /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-         */
-        databaseName: string;
-        /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-         */
-        password: string;
-        /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-         */
-        server: string;
-        /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface StormClusterMonitor {
-        /**
-         * The Operations Management Suite (OMS) workspace ID.
-         */
-        logAnalyticsWorkspaceId: string;
-        /**
-         * The Operations Management Suite (OMS) workspace key.
-         */
-        primaryKey: string;
-    }
-
-    export interface StormClusterRoles {
-        /**
-         * A `headNode` block as defined above.
-         */
-        headNode: outputs.hdinsight.StormClusterRolesHeadNode;
-        /**
-         * A `workerNode` block as defined below.
-         */
-        workerNode: outputs.hdinsight.StormClusterRolesWorkerNode;
-        /**
-         * A `zookeeperNode` block as defined below.
-         */
-        zookeeperNode: outputs.hdinsight.StormClusterRolesZookeeperNode;
-    }
-
-    export interface StormClusterRolesHeadNode {
-        /**
-         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface StormClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount: number;
-        /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The number of instances which should be run for the Worker Nodes.
-         */
-        targetInstanceCount: number;
-        /**
-         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface StormClusterRolesZookeeperNode {
-        /**
-         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        password?: string;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: string[];
-        /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: string;
-        /**
-         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        username: string;
-        /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: string;
-        /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: string;
-    }
-
-    export interface StormClusterStorageAccount {
-        /**
-         * Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
-         */
-        isDefault: boolean;
-        /**
-         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageAccountKey: string;
-        /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         */
-        storageContainerId: string;
-        storageResourceId?: string;
-    }
 }
 
 export namespace healthcare {
@@ -19527,6 +26233,17 @@ export namespace healthcare {
          * The max age to be allowed via CORS.
          */
         maxAgeInSeconds?: number;
+    }
+
+    export interface WorkspacePrivateEndpointConnection {
+        /**
+         * The ID of the Healthcare Workspace.
+         */
+        id: string;
+        /**
+         * Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+         */
+        name: string;
     }
 
 }
@@ -19738,7 +26455,7 @@ export namespace hsm {
 export namespace iot {
     export interface IoTHubCloudToDevice {
         /**
-         * The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         * The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
         defaultTtl?: string;
         /**
@@ -19746,29 +26463,29 @@ export namespace iot {
          */
         feedbacks?: outputs.iot.IoTHubCloudToDeviceFeedback[];
         /**
-         * The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+         * The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
          */
         maxDeliveryCount?: number;
     }
 
     export interface IoTHubCloudToDeviceFeedback {
         /**
-         * The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+         * The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
          */
         lockDuration?: string;
         /**
-         * The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+         * The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
          */
         maxDeliveryCount?: number;
         /**
-         * The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         * The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
         timeToLive?: string;
     }
 
     export interface IoTHubEndpoint {
         /**
-         * Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+         * The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
          */
         authenticationType?: string;
         /**
@@ -19800,7 +26517,7 @@ export namespace iot {
          */
         fileNameFormat?: string;
         /**
-         * ID of the User Managed Identity used to authenticate against the endpoint.
+         * The ID of the User Managed Identity used to authenticate against the endpoint.
          */
         identityId?: string;
         /**
@@ -19831,14 +26548,14 @@ export namespace iot {
          */
         key: string;
         /**
-         * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+         * The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
          */
         value: string;
     }
 
     export interface IoTHubFallbackRoute {
         /**
-         * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
          */
         condition?: string;
         /**
@@ -19857,67 +26574,60 @@ export namespace iot {
 
     export interface IoTHubFileUpload {
         /**
+         * The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+         */
+        authenticationType?: string;
+        /**
          * The connection string for the Azure Storage account to which files are uploaded.
          */
         connectionString: string;
         /**
-         * The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+         * The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
          */
         containerName: string;
         /**
-         * The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         * The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
         defaultTtl: string;
         /**
-         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+         * The ID of the User Managed Identity used to authenticate against the storage account.
+         */
+        identityId?: string;
+        /**
+         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
          */
         lockDuration: string;
         /**
-         * The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+         * The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
          */
         maxDeliveryCount?: number;
         /**
-         * Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+         * Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
          */
         notifications?: boolean;
         /**
-         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
          */
         sasTtl: string;
     }
 
     export interface IoTHubIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
          */
         identityIds?: string[];
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
-    }
-
-    export interface IoTHubIpFilterRule {
-        /**
-         * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-         */
-        action: string;
-        /**
-         * The IP address range in CIDR notation for the rule.
-         */
-        ipMask: string;
-        /**
-         * The name of the filter.
-         */
-        name: string;
     }
 
     export interface IoTHubNetworkRuleSet {
@@ -19952,7 +26662,7 @@ export namespace iot {
 
     export interface IoTHubRoute {
         /**
-         * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
          */
         condition?: string;
         /**
@@ -20062,25 +26772,13 @@ export namespace iot {
          */
         connectionFromIpsNotAlloweds?: string[];
         /**
-         * @deprecated This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-         */
-        connectionToIpNotAlloweds?: string[];
-        /**
          * Specifies which IP is not allowed to be connected to in current device group for outbound connection.
          */
         connectionToIpsNotAlloweds?: string[];
         /**
-         * @deprecated This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-         */
-        localUserNotAlloweds?: string[];
-        /**
          * Specifies which local user is not allowed to Login in current device group.
          */
         localUsersNotAlloweds?: string[];
-        /**
-         * @deprecated This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-         */
-        processNotAlloweds?: string[];
         /**
          * Specifies which process is not allowed to be executed in current device group.
          */
@@ -20835,7 +27533,7 @@ export namespace kusto {
 
     export interface ClusterIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
          */
         identityIds?: string[];
         /**
@@ -20892,15 +27590,6 @@ export namespace kusto {
 }
 
 export namespace lb {
-    export interface BackendAddressPoolBackendAddress {
-        ipAddress: string;
-        /**
-         * Specifies the name of the Backend Address Pool.
-         */
-        name: string;
-        virtualNetworkId: string;
-    }
-
     export interface BackendAddressPoolTunnelInterface {
         /**
          * The unique identifier of this Gateway Lodbalancer Tunnel Interface.
@@ -20979,10 +27668,6 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-         */
-        availabilityZone: string;
-        /**
          * The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
          */
         gatewayLoadBalancerFrontendIpConfigurationId: string;
@@ -21030,10 +27715,7 @@ export namespace lb {
          * The ID of the Subnet which should be associated with the IP Configuration.
          */
         subnetId: string;
-        /**
-         * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
-         */
-        zones: string;
+        zones?: string[];
     }
 
     export interface OutboundRuleFrontendIpConfiguration {
@@ -21093,15 +27775,15 @@ export namespace lighthouse {
 export namespace loganalytics {
     export interface ClusterIdentity {
         /**
-         * The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -21197,17 +27879,20 @@ export namespace logicapps {
     }
 
     export interface GetWorkflowIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+         */
         identityIds: string[];
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity assigned to this Logic App Workflow.
+         * The type of Managed Service Identity that is configured on this API Management Service.
          */
         type: string;
     }
@@ -21361,7 +28046,7 @@ export namespace logicapps {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         * Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -21595,7 +28280,7 @@ export namespace logicapps {
 
     export interface WorkflowIdentity {
         /**
-         * A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
          */
         identityIds?: string[];
         /**
@@ -21607,7 +28292,7 @@ export namespace logicapps {
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -21617,7 +28302,7 @@ export namespace logicapps {
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: string[];
         /**
@@ -21629,7 +28314,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -21677,7 +28362,7 @@ export namespace machinelearning {
 
     export interface ComputeInstanceIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
          */
         identityIds?: string[];
         /**
@@ -21689,7 +28374,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -21730,7 +28415,7 @@ export namespace machinelearning {
 
     export interface InferenceClusterIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
          */
         identityIds?: string[];
         /**
@@ -21742,7 +28427,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -21772,7 +28457,7 @@ export namespace machinelearning {
 
     export interface SynapseSparkIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
          */
         identityIds?: string[];
         /**
@@ -21784,7 +28469,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -21806,19 +28491,19 @@ export namespace machinelearning {
 
     export interface WorkspaceIdentity {
         /**
-         * The user assigned identity IDs associated with the resource.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
          */
         identityIds?: string[];
         /**
-         * The (Client) ID of the Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -21911,6 +28596,10 @@ export namespace managedapplication {
 export namespace management {
     export interface GroupPolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID of the Policy Assignment for this Management Group.
          */
         principalId: string;
@@ -21919,7 +28608,7 @@ export namespace management {
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: string;
     }
@@ -21955,29 +28644,6 @@ export namespace mariadb {
          * The max storage allowed for a server.
          */
         storageMb: number;
-    }
-
-    export interface ServerStorageProfile {
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
-         */
-        autoGrow: string;
-        /**
-         * Backup retention days for the server, supported values are between `7` and `35` days.
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        backupRetentionDays: number;
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
-         */
-        geoRedundantBackup: string;
-        /**
-         * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        storageMb?: number;
     }
 
 }
@@ -24097,7 +30763,7 @@ export namespace monitoring {
         /**
          * Custom payload to be sent for all webhook payloads in alerting action.
          */
-        customWebhookPayload: string;
+        customWebhookPayload?: string;
         /**
          * Custom subject override for all email ids in Azure action group.
          */
@@ -24181,34 +30847,13 @@ export namespace monitoring {
 }
 
 export namespace mssql {
-    export interface DatabaseExtendedAuditingPolicy {
-        logMonitoringEnabled?: boolean;
-        /**
-         * Specifies the number of days to retain logs for in the storage account.
-         */
-        retentionInDays?: number;
-        /**
-         * Specifies the access key to use for the auditing storage account.
-         */
-        storageAccountAccessKey?: string;
-        /**
-         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
-        storageAccountAccessKeyIsSecondary?: boolean;
-        storageAccountSubscriptionId?: string;
-        /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-         */
-        storageEndpoint?: string;
-    }
-
     export interface DatabaseLongTermRetentionPolicy {
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
         monthlyRetention: string;
         /**
-         * The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+         * The week of year to take the yearly backup. Value has to be between `1` and `52`.
          */
         weekOfYear: number;
         /**
@@ -24257,10 +30902,6 @@ export namespace mssql {
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
-        /**
-         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-         */
-        useServerDefault?: string;
     }
 
     export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
@@ -24347,36 +30988,36 @@ export namespace mssql {
 
     export interface GetManagedInstanceIdentity {
         /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The identity type of the SQL Managed Instance.
+         * The identity type of this Managed Service Identity.
          */
         type: string;
     }
 
     export interface GetServerIdentity {
         /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         * The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Server.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
          */
         tenantId: string;
         /**
-         * The identity type of the Microsoft SQL Server.
+         * The type of Managed Service Identity that is configured on this Microsoft SQL Server.
          */
         type: string;
-        /**
-         * A list of the User Assigned Identities of this SQL Server.
-         */
-        userAssignedIdentityIds: string[];
     }
 
     export interface ManagedInstanceFailoverGroupPartnerRegion {
@@ -24435,16 +31076,10 @@ export namespace mssql {
         tenantId: string;
     }
 
-    export interface ServerExtendedAuditingPolicy {
-        logMonitoringEnabled?: boolean;
-        retentionInDays?: number;
-        storageAccountAccessKey?: string;
-        storageAccountAccessKeyIsSecondary?: boolean;
-        storageAccountSubscriptionId?: string;
-        storageEndpoint?: string;
-    }
-
-    export interface ServerFoo {
+    export interface ServerIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         */
         identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -24455,28 +31090,9 @@ export namespace mssql {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
-    }
-
-    export interface ServerIdentity {
-        /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-         */
-        principalId: string;
-        /**
-         * The tenant id of the Azure AD Administrator of this SQL Server.
-         */
-        tenantId: string;
-        /**
-         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
-         */
-        type: string;
-        /**
-         * Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
-         */
-        userAssignedIdentityIds?: string[];
     }
 
     export interface ServerVulnerabilityAssessmentRecurringScans {
@@ -24633,6 +31249,7 @@ export namespace mssql {
          */
         luns: number[];
     }
+
 }
 
 export namespace mysql {
@@ -24642,7 +31259,7 @@ export namespace mysql {
          */
         mode: string;
         /**
-         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         * Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
          */
         standbyAvailabilityZone?: string;
     }
@@ -24720,16 +31337,16 @@ export namespace mysql {
 
     export interface GetServerIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this MySQL Server.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
-         * ---
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The Type of Identity used for this MySQL Server.
+         * The identity type of this Managed Service Identity.
+         * ---
          */
         type: string;
     }
@@ -24767,40 +31384,17 @@ export namespace mysql {
 
     export interface ServerIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this MySQL Server.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this MySQL Server. The only possible value is `SystemAssigned`.
          */
         type: string;
-    }
-
-    export interface ServerStorageProfile {
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
-         */
-        autoGrow: string;
-        /**
-         * Backup retention days for the server, supported values are between `7` and `35` days.
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        backupRetentionDays: number;
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
-         */
-        geoRedundantBackup: string;
-        /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        storageMb?: number;
     }
 
     export interface ServerThreatDetectionPolicy {
@@ -24942,10 +31536,6 @@ export namespace netapp {
          * Frequency of replication.
          */
         replicationFrequency: string;
-        /**
-         * @deprecated This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
-         */
-        replicationSchedule: string;
     }
 
     export interface SnapshotPolicyDailySchedule {
@@ -25040,18 +31630,6 @@ export namespace netapp {
          * A list of allowed clients IPv4 addresses.
          */
         allowedClients: string[];
-        /**
-         * @deprecated Deprecated in favour of `protocols_enabled`
-         */
-        cifsEnabled: boolean;
-        /**
-         * @deprecated Deprecated in favour of `protocols_enabled`
-         */
-        nfsv3Enabled: boolean;
-        /**
-         * @deprecated Deprecated in favour of `protocols_enabled`
-         */
-        nfsv4Enabled: boolean;
         /**
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
@@ -25370,11 +31948,11 @@ export namespace network {
 
     export interface ApplicationGatewayIdentity {
         /**
-         * Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
          */
         identityIds: string[];
         /**
-         * The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -25444,7 +32022,7 @@ export namespace network {
         /**
          * A `match` block as defined above.
          */
-        match: outputs.network.ApplicationGatewayProbeMatch;
+        match?: outputs.network.ApplicationGatewayProbeMatch;
         /**
          * The minimum number of servers that are always marked as healthy. Defaults to `0`.
          */
@@ -25481,13 +32059,13 @@ export namespace network {
 
     export interface ApplicationGatewayProbeMatch {
         /**
-         * A snippet from the Response Body which must be present in the Response..
+         * A snippet from the Response Body which must be present in the Response.
          */
-        body?: string;
+        body: string;
         /**
          * A list of allowed status codes for this Health Probe.
          */
-        statusCodes?: string[];
+        statusCodes: string[];
     }
 
     export interface ApplicationGatewayRedirectConfiguration {
@@ -25765,7 +32343,7 @@ export namespace network {
         /**
          * a `ssl policy` block as defined below.
          */
-        sslPolicies?: outputs.network.ApplicationGatewaySslProfileSslPolicy[];
+        sslPolicy?: outputs.network.ApplicationGatewaySslProfileSslPolicy;
         /**
          * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
          */
@@ -26078,11 +32656,11 @@ export namespace network {
 
     export interface ExpressRoutePortIdentity {
         /**
-         * Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
          */
         identityIds: string[];
         /**
-         * The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -26333,12 +32911,6 @@ export namespace network {
 
     export interface FirewallPolicyDns {
         /**
-         * Should the network rule fqdn be enabled?
-         *
-         * @deprecated This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
-         */
-        networkRuleFqdnEnabled: boolean;
-        /**
          * Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
          */
         proxyEnabled?: boolean;
@@ -26349,16 +32921,14 @@ export namespace network {
     }
 
     export interface FirewallPolicyIdentity {
-        principalId: string;
-        tenantId: string;
         /**
-         * Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+         */
+        identityIds: string[];
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
          */
         type: string;
-        /**
-         * Specifies a list of user assigned managed identities.
-         */
-        userAssignedIdentityIds?: string[];
     }
 
     export interface FirewallPolicyInsights {
@@ -26684,7 +33254,7 @@ export namespace network {
 
     export interface GetApplicationGatewayIdentity {
         /**
-         * A list of Managed Identity ID's assigned to this Application Gateway.
+         * A list of Managed Identity IDs assigned to this Application Gateway.
          */
         identityIds: string[];
         /**
@@ -27313,27 +33883,6 @@ export namespace network {
         peerWeight: number;
     }
 
-    export interface NetworkConnectionMonitorDestination {
-        /**
-         * The IP address or domain name of the Network Connection Monitor endpoint.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        address: string;
-        /**
-         * The port for the HTTP connection.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        port: number;
-        /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        virtualMachineId: string;
-    }
-
     export interface NetworkConnectionMonitorEndpoint {
         /**
          * The IP address or domain name of the Network Connection Monitor endpoint.
@@ -27367,12 +33916,6 @@ export namespace network {
          * The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
          */
         targetResourceType?: string;
-        /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-         *
-         * @deprecated This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
-         */
-        virtualMachineId?: string;
     }
 
     export interface NetworkConnectionMonitorEndpointFilter {
@@ -27395,21 +33938,6 @@ export namespace network {
          * The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
          */
         type?: string;
-    }
-
-    export interface NetworkConnectionMonitorSource {
-        /**
-         * The port for the HTTP connection.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        port: number;
-        /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        virtualMachineId: string;
     }
 
     export interface NetworkConnectionMonitorTestConfiguration {
@@ -27715,44 +34243,6 @@ export namespace network {
         workspaceResourceId: string;
     }
 
-    export interface PacketCaptureFilter {
-        /**
-         * The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        localIpAddress?: string;
-        /**
-         * The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        localPort?: string;
-        /**
-         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-         */
-        protocol: string;
-        /**
-         * The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-         */
-        remoteIpAddress?: string;
-        /**
-         * The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        remotePort?: string;
-    }
-
-    export interface PacketCaptureStorageLocation {
-        /**
-         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-         */
-        filePath?: string;
-        /**
-         * The ID of the storage account to save the packet capture session
-         */
-        storageAccountId?: string;
-        /**
-         * The URI of the storage path to save the packet capture.
-         */
-        storagePath: string;
-    }
-
     export interface PointToPointVpnGatewayConnectionConfiguration {
         /**
          * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
@@ -27920,32 +34410,6 @@ export namespace network {
         last?: string;
         /**
          * The block size (number of leading bits in the subnet mask).
-         */
-        scope?: number;
-    }
-
-    export interface TrafficManagerEndpointCustomHeader {
-        /**
-         * The name of the custom header.
-         */
-        name: string;
-        /**
-         * The value of custom header. Applicable for Http and Https protocol.
-         */
-        value: string;
-    }
-
-    export interface TrafficManagerEndpointSubnet {
-        /**
-         * The First IP....
-         */
-        first: string;
-        /**
-         * The Last IP...
-         */
-        last?: string;
-        /**
-         * The Scope...
          */
         scope?: number;
     }
@@ -28155,10 +34619,6 @@ export namespace network {
          * through BGP peering. Valid values can be between `0` and `100`.
          */
         peerWeight?: number;
-        /**
-         * @deprecated Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
-         */
-        peeringAddress: string;
         /**
          * A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
          */
@@ -28434,10 +34894,6 @@ export namespace network {
          * A `propagatedRouteTable` block as defined below.
          */
         propagatedRouteTable: outputs.network.VpnGatewayConnectionRoutingPropagatedRouteTable;
-        /**
-         * @deprecated Deprecated in favour of `propagated_route_table`
-         */
-        propagatedRouteTables: string[];
     }
 
     export interface VpnGatewayConnectionRoutingPropagatedRouteTable {
@@ -28660,42 +35116,16 @@ export namespace network {
          */
         address: string;
         /**
-         * One or more `clientRootCertificate` blocks as defined above.
+         * The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
          */
-        clientRootCertificates?: outputs.network.VpnServerConfigurationRadiusServerClientRootCertificate[];
+        score: number;
         /**
          * The Secret used to communicate with the Radius Server.
          */
         secret: string;
-        /**
-         * One or more `serverRootCertificate` blocks as defined below.
-         */
-        serverRootCertificates: outputs.network.VpnServerConfigurationRadiusServerServerRootCertificate[];
-    }
-
-    export interface VpnServerConfigurationRadiusServerClientRootCertificate {
-        /**
-         * A name used to uniquely identify this certificate.
-         */
-        name: string;
-        /**
-         * The Thumbprint of the Certificate.
-         */
-        thumbprint: string;
     }
 
     export interface VpnServerConfigurationRadiusServerRootCertificate {
-        /**
-         * A name used to uniquely identify this certificate.
-         */
-        name: string;
-        /**
-         * The Public Key Data associated with the Certificate.
-         */
-        publicCertData: string;
-    }
-
-    export interface VpnServerConfigurationRadiusServerServerRootCertificate {
         /**
          * A name used to uniquely identify this certificate.
          */
@@ -28747,6 +35177,7 @@ export namespace network {
          */
         peeringAddress: string;
     }
+
 }
 
 export namespace notificationhub {
@@ -28839,21 +35270,6 @@ export namespace operationalinsights {
 }
 
 export namespace policy {
-    export interface AssignmentIdentity {
-        /**
-         * The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-         */
-        tenantId: string;
-        /**
-         * The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-         */
-        type?: string;
-    }
-
     export interface GetPolicySetDefinitionPolicyDefinitionGroup {
         /**
          * The ID of a resource that contains additional metadata about this policy definition group.
@@ -28927,13 +35343,7 @@ export namespace policy {
         /**
          * Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
          */
-        parameterValues: string;
-        /**
-         * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-         *
-         * @deprecated Deprecated in favour of `parameter_values`
-         */
-        parameters: {[key: string]: string};
+        parameterValues?: string;
         /**
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */
@@ -28961,12 +35371,6 @@ export namespace policy {
          * The content URI where the Guest Configuration package is stored.
          */
         contentUri: string;
-        /**
-         * This field is no longer used and will be removed in the next major version of the Azure Provider.
-         *
-         * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-         */
-        name?: string;
         /**
          * One or more `parameter` blocks which define what configuration parameters and values against.
          */
@@ -28997,7 +35401,7 @@ export namespace postgresql {
          */
         mode: string;
         /**
-         * The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         * Specifies the Availability Zone in which the standby Flexible Server should be located.
          */
         standbyAvailabilityZone?: string;
     }
@@ -29034,40 +35438,17 @@ export namespace postgresql {
 
     export interface ServerIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this PostgreSQL Server.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
          */
         type: string;
-    }
-
-    export interface ServerStorageProfile {
-        /**
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        autoGrow: string;
-        /**
-         * Backup retention days for the server, supported values are between `7` and `35` days.
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        backupRetentionDays?: number;
-        /**
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        geoRedundantBackup: string;
-        /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        storageMb?: number;
     }
 
     export interface ServerThreatDetectionPolicy {
@@ -29414,15 +35795,15 @@ export namespace privatelink {
 export namespace purview {
     export interface AccountIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of Managed Identity assigned to this Purview Account.
+         * Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -29461,10 +35842,16 @@ export namespace recoveryservices {
     }
 
     export interface VaultIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -29656,7 +36043,7 @@ export namespace search {
          */
         tenantId: string;
         /**
-         * The Type of Managed Identity which is used for the Search Service.
+         * The identity type of this Managed Service Identity.
          */
         type: string;
     }
@@ -29674,15 +36061,15 @@ export namespace search {
 
     export interface ServiceIdentity {
         /**
-         * The (Client) ID of the Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -29775,6 +36162,47 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleScheduledAlertDetailsOverride {
+        /**
+         * The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+         */
+        descriptionFormat?: string;
+        /**
+         * The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+         */
+        displayNameFormat?: string;
+        /**
+         * The column name to take the alert severity from.
+         */
+        severityColumnName?: string;
+        /**
+         * The column name to take the alert tactics from.
+         */
+        tacticsColumnName?: string;
+    }
+
+    export interface AlertRuleScheduledEntityMapping {
+        /**
+         * The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         */
+        entityType: string;
+        /**
+         * A list of `fieldMapping` blocks as defined below.
+         */
+        fieldMappings: outputs.sentinel.AlertRuleScheduledEntityMappingFieldMapping[];
+    }
+
+    export interface AlertRuleScheduledEntityMappingFieldMapping {
+        /**
+         * The column name to be mapped to the identifier.
+         */
+        columnName: string;
+        /**
+         * The identifier of the entity.
+         */
+        identifier: string;
+    }
+
     export interface AlertRuleScheduledEventGrouping {
         /**
          * The aggregation type of grouping the events.
@@ -29802,10 +36230,12 @@ export namespace sentinel {
          * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
          */
         entityMatchingMethod?: string;
+        groupByAlertDetails?: string[];
+        groupByCustomDetails?: string[];
         /**
          * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          */
-        groupBies?: string[];
+        groupByEntities?: string[];
         /**
          * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
          */
@@ -29989,7 +36419,7 @@ export namespace sentinel {
 export namespace servicebus {
     export interface NamespaceIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: string[];
         /**
@@ -30001,7 +36431,7 @@ export namespace servicebus {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -30505,69 +36935,6 @@ export namespace servicefabric {
         url: string;
     }
 
-    export interface MeshApplicationService {
-        /**
-         * Any number `codePackage` block as described below.
-         */
-        codePackages: outputs.servicefabric.MeshApplicationServiceCodePackage[];
-        /**
-         * The name of the service resource.
-         */
-        name: string;
-        /**
-         * The operating system required by the code in service. Valid values are `Linux` or `Windows`.
-         */
-        osType: string;
-    }
-
-    export interface MeshApplicationServiceCodePackage {
-        /**
-         * The Container image the code package will use.
-         */
-        imageName: string;
-        /**
-         * The name of the code package.
-         */
-        name: string;
-        /**
-         * A `resources` block as defined below.
-         */
-        resources: outputs.servicefabric.MeshApplicationServiceCodePackageResources;
-    }
-
-    export interface MeshApplicationServiceCodePackageResources {
-        /**
-         * A `limits` block as defined below.
-         */
-        limits?: outputs.servicefabric.MeshApplicationServiceCodePackageResourcesLimits;
-        /**
-         * A `requests` block as defined below.
-         */
-        requests: outputs.servicefabric.MeshApplicationServiceCodePackageResourcesRequests;
-    }
-
-    export interface MeshApplicationServiceCodePackageResourcesLimits {
-        /**
-         * The maximum number of CPU cores the container can use.
-         */
-        cpu: number;
-        /**
-         * The maximum memory request in GB the container can use.
-         */
-        memory: number;
-    }
-
-    export interface MeshApplicationServiceCodePackageResourcesRequests {
-        /**
-         * The minimum number of CPU cores the container requires.
-         */
-        cpu: number;
-        /**
-         * The minimum memory request in GB the container requires.
-         */
-        memory: number;
-    }
-
 }
 
 export namespace signalr {
@@ -30576,17 +36943,6 @@ export namespace signalr {
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
         allowedOrigins: string[];
-    }
-
-    export interface ServiceFeature {
-        /**
-         * The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-         */
-        flag: string;
-        /**
-         * A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-         */
-        value: string;
     }
 
     export interface ServiceNetworkAclPrivateEndpoint {
@@ -30697,26 +37053,6 @@ export namespace siterecovery {
 }
 
 export namespace sql {
-    export interface DatabaseExtendedAuditingPolicy {
-        logMonitoringEnabled?: boolean;
-        /**
-         * Specifies the number of days to retain logs for in the storage account.
-         */
-        retentionInDays?: number;
-        /**
-         * Specifies the access key to use for the auditing storage account.
-         */
-        storageAccountAccessKey?: string;
-        /**
-         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
-        storageAccountAccessKeyIsSecondary?: boolean;
-        /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-         */
-        storageEndpoint?: string;
-    }
-
     export interface DatabaseImport {
         /**
          * Specifies the name of the SQL administrator.
@@ -30777,10 +37113,6 @@ export namespace sql {
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
-        /**
-         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-         */
-        useServerDefault?: string;
     }
 
     export interface FailoverGroupPartnerServer {
@@ -30818,15 +37150,15 @@ export namespace sql {
 
     export interface GetServerIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The identity type of the SQL Server.
+         * The identity type of this Managed Service Identity.
          */
         type: string;
     }
@@ -30869,23 +37201,9 @@ export namespace sql {
          */
         tenantId: string;
         /**
-         * The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
          */
         type: string;
-    }
-
-    export interface SqlServerExtendedAuditingPolicy {
-        logMonitoringEnabled?: boolean;
-        retentionInDays?: number;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-         */
-        storageAccountAccessKey?: string;
-        storageAccountAccessKeyIsSecondary?: boolean;
-        /**
-         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-         */
-        storageEndpoint?: string;
     }
 
     export interface SqlServerIdentity {
@@ -30898,7 +37216,7 @@ export namespace sql {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -31068,7 +37386,7 @@ export namespace storage {
 
     export interface AccountIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
          */
         identityIds?: string[];
         /**
@@ -31080,7 +37398,7 @@ export namespace storage {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -31462,6 +37780,10 @@ export namespace storage {
          */
         delete: boolean;
         /**
+         * Should Filter by Index Tags permissions be enabled for this SAS?
+         */
+        filter: boolean;
+        /**
          * Should List permissions be enabled for this SAS?
          */
         list: boolean;
@@ -31473,6 +37795,10 @@ export namespace storage {
          * Should Read permissions be enabled for this SAS?
          */
         read: boolean;
+        /**
+         * Should Get / Set Index Tags permissions be enabled for this SAS?
+         */
+        tag: boolean;
         /**
          * Should Update permissions be enabled for this SAS?
          */
@@ -31863,32 +38189,46 @@ export namespace streamanalytics {
         type: string;
     }
 
+    export interface FunctionJavascriptUdaInput {
+        /**
+         * The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
+        type: string;
+    }
+
+    export interface FunctionJavascriptUdaOutput {
+        /**
+         * The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
+        type: string;
+    }
+
     export interface GetJobIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of identity used for the Stream Analytics Job.
+         * The identity type of this Managed Service Identity.
          */
         type: string;
     }
 
     export interface JobIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
-         * The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -32225,7 +38565,7 @@ export namespace synapse {
          */
         tenantId: string;
         /**
-         * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         * Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -32263,32 +38603,6 @@ export namespace synapse {
 }
 
 export namespace trafficmanager {
-    export interface EndpointCustomHeader {
-        /**
-         * The name of the custom header.
-         */
-        name: string;
-        /**
-         * The value of custom header. Applicable for Http and Https protocol.
-         */
-        value: string;
-    }
-
-    export interface EndpointSubnet {
-        /**
-         * The First IP....
-         */
-        first: string;
-        /**
-         * The Last IP...
-         */
-        last?: string;
-        /**
-         * The Scope...
-         */
-        scope?: number;
-    }
-
     export interface ProfileDnsConfig {
         /**
          * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
@@ -32351,11 +38665,11 @@ export namespace trafficmanager {
 export namespace videoanalyzer {
     export interface AnalyzerIdentity {
         /**
-         * A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
          */
         identityIds: string[];
         /**
-         * Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -32366,7 +38680,7 @@ export namespace videoanalyzer {
          */
         id: string;
         /**
-         * Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+         * Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
          */
         userAssignedIdentityId: string;
     }
@@ -32569,13 +38883,19 @@ export namespace webpubsub {
 
     export interface ServiceIdentity {
         /**
-         * A list of User Assigned Identity IDs which should be assigned to this Web PubSub service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId: string;
         /**
-         * The type of identity used for the Web PubSub service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+         * Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }

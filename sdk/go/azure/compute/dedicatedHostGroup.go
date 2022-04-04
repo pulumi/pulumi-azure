@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -67,8 +67,7 @@ type DedicatedHostGroup struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-	Zones pulumi.StringPtrOutput `pulumi:"zones"`
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewDedicatedHostGroup registers a new resource with the given unique name, arguments, and options.
@@ -118,8 +117,7 @@ type dedicatedHostGroupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-	Zones *string `pulumi:"zones"`
+	Zone *string           `pulumi:"zone"`
 }
 
 type DedicatedHostGroupState struct {
@@ -135,8 +133,7 @@ type DedicatedHostGroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-	Zones pulumi.StringPtrInput
+	Zone pulumi.StringPtrInput
 }
 
 func (DedicatedHostGroupState) ElementType() reflect.Type {
@@ -156,8 +153,7 @@ type dedicatedHostGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-	Zones *string `pulumi:"zones"`
+	Zone *string           `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a DedicatedHostGroup resource.
@@ -174,8 +170,7 @@ type DedicatedHostGroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-	Zones pulumi.StringPtrInput
+	Zone pulumi.StringPtrInput
 }
 
 func (DedicatedHostGroupArgs) ElementType() reflect.Type {

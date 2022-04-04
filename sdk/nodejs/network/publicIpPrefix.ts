@@ -61,10 +61,6 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     }
 
     /**
-     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-     */
-    public readonly availabilityZone!: pulumi.Output<string>;
-    /**
      * The IP address prefix value that was allocated.
      */
     public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
@@ -97,9 +93,9 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
+     * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      */
-    public readonly zones!: pulumi.Output<string>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PublicIpPrefix resource with the given unique name, arguments, and options.
@@ -114,7 +110,6 @@ export class PublicIpPrefix extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpPrefixState | undefined;
-            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["ipPrefix"] = state ? state.ipPrefix : undefined;
             resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -129,7 +124,6 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -149,10 +143,6 @@ export class PublicIpPrefix extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PublicIpPrefix resources.
  */
 export interface PublicIpPrefixState {
-    /**
-     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-     */
-    availabilityZone?: pulumi.Input<string>;
     /**
      * The IP address prefix value that was allocated.
      */
@@ -186,19 +176,15 @@ export interface PublicIpPrefixState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
+     * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      */
-    zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
  * The set of arguments for constructing a PublicIpPrefix resource.
  */
 export interface PublicIpPrefixArgs {
-    /**
-     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-     */
-    availabilityZone?: pulumi.Input<string>;
     /**
      * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
      */
@@ -228,7 +214,7 @@ export interface PublicIpPrefixArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
+     * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      */
-    zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

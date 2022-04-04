@@ -26,10 +26,6 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
         /// Should zone redundancy be enabled for this region? Defaults to `false`.
         /// </summary>
         public readonly bool? ZoneRedundant;
@@ -42,14 +38,11 @@ namespace Pulumi.Azure.CosmosDB.Outputs
 
             string location,
 
-            string? prefix,
-
             bool? zoneRedundant)
         {
             FailoverPriority = failoverPriority;
             Id = id;
             Location = location;
-            Prefix = prefix;
             ZoneRedundant = zoneRedundant;
         }
     }

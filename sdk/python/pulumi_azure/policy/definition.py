@@ -18,7 +18,6 @@ class DefinitionArgs:
                  policy_type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 management_group_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
@@ -31,7 +30,6 @@ class DefinitionArgs:
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -50,11 +48,6 @@ class DefinitionArgs:
             pulumi.set(__self__, "description", description)
         if management_group_id is not None:
             pulumi.set(__self__, "management_group_id", management_group_id)
-        if management_group_name is not None:
-            warnings.warn("""Deprecated in favour of `management_group_id`""", DeprecationWarning)
-            pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_id`""")
-        if management_group_name is not None:
-            pulumi.set(__self__, "management_group_name", management_group_name)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -126,18 +119,6 @@ class DefinitionArgs:
         pulumi.set(self, "management_group_id", value)
 
     @property
-    @pulumi.getter(name="managementGroupName")
-    def management_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "management_group_name")
-
-    @management_group_name.setter
-    def management_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "management_group_name", value)
-
-    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
@@ -198,7 +179,6 @@ class _DefinitionState:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 management_group_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -210,7 +190,6 @@ class _DefinitionState:
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -231,11 +210,6 @@ class _DefinitionState:
             pulumi.set(__self__, "display_name", display_name)
         if management_group_id is not None:
             pulumi.set(__self__, "management_group_id", management_group_id)
-        if management_group_name is not None:
-            warnings.warn("""Deprecated in favour of `management_group_id`""", DeprecationWarning)
-            pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_id`""")
-        if management_group_name is not None:
-            pulumi.set(__self__, "management_group_name", management_group_name)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if mode is not None:
@@ -284,18 +258,6 @@ class _DefinitionState:
     @management_group_id.setter
     def management_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "management_group_id", value)
-
-    @property
-    @pulumi.getter(name="managementGroupName")
-    def management_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "management_group_name")
-
-    @management_group_name.setter
-    def management_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "management_group_name", value)
 
     @property
     @pulumi.getter
@@ -385,7 +347,6 @@ class Definition(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 management_group_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -460,7 +421,6 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -561,7 +521,6 @@ class Definition(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
-                 management_group_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -585,10 +544,6 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["management_group_id"] = management_group_id
-            if management_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `management_group_id`""", DeprecationWarning)
-                pulumi.log.warn("""management_group_name is deprecated: Deprecated in favour of `management_group_id`""")
-            __props__.__dict__["management_group_name"] = management_group_name
             __props__.__dict__["metadata"] = metadata
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
@@ -612,7 +567,6 @@ class Definition(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             management_group_id: Optional[pulumi.Input[str]] = None,
-            management_group_name: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -629,7 +583,6 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -651,7 +604,6 @@ class Definition(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["management_group_id"] = management_group_id
-        __props__.__dict__["management_group_name"] = management_group_name
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
@@ -678,19 +630,11 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementGroupId")
-    def management_group_id(self) -> pulumi.Output[str]:
+    def management_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
-
-    @property
-    @pulumi.getter(name="managementGroupName")
-    def management_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "management_group_name")
 
     @property
     @pulumi.getter

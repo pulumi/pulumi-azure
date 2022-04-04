@@ -36,7 +36,6 @@ namespace Pulumi.Azure.Compute
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "premium",
     ///             EnabledForDiskEncryption = true,
-    ///             SoftDeleteEnabled = true,
     ///             PurgeProtectionEnabled = true,
     ///         });
     ///         var example_user = new Azure.KeyVault.AccessPolicy("example-user", new Azure.KeyVault.AccessPolicyArgs

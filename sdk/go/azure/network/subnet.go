@@ -23,8 +23,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -83,10 +83,6 @@ import (
 type Subnet struct {
 	pulumi.CustomResourceState
 
-	// The address prefix to use for the subnet.
-	//
-	// Deprecated: Use the `address_prefixes` property instead.
-	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
 	// The address prefixes to use for the subnet.
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
@@ -142,10 +138,6 @@ func GetSubnet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subnet resources.
 type subnetState struct {
-	// The address prefix to use for the subnet.
-	//
-	// Deprecated: Use the `address_prefixes` property instead.
-	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The address prefixes to use for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
@@ -167,10 +159,6 @@ type subnetState struct {
 }
 
 type SubnetState struct {
-	// The address prefix to use for the subnet.
-	//
-	// Deprecated: Use the `address_prefixes` property instead.
-	AddressPrefix pulumi.StringPtrInput
 	// The address prefixes to use for the subnet.
 	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
@@ -196,10 +184,6 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
-	// The address prefix to use for the subnet.
-	//
-	// Deprecated: Use the `address_prefixes` property instead.
-	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The address prefixes to use for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
@@ -222,10 +206,6 @@ type subnetArgs struct {
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
-	// The address prefix to use for the subnet.
-	//
-	// Deprecated: Use the `address_prefixes` property instead.
-	AddressPrefix pulumi.StringPtrInput
 	// The address prefixes to use for the subnet.
 	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.

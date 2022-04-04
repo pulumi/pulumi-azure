@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -45,8 +45,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureFileStorage(ctx, "exampleLinkedServiceAzureFileStorage", &datafactory.LinkedServiceAzureFileStorageArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
+// 			DataFactoryId: exampleFactory.ID(),
 // 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
 // 				return exampleAccount.PrimaryConnectionString, nil
 // 			}).(pulumi.StringOutput),
@@ -77,10 +76,6 @@ type LinkedServiceAzureFileStorage struct {
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the file share.
@@ -96,9 +91,7 @@ type LinkedServiceAzureFileStorage struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	Password   pulumi.StringPtrOutput `pulumi:"password"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	UserId            pulumi.StringPtrOutput `pulumi:"userId"`
+	UserId     pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
 // NewLinkedServiceAzureFileStorage registers a new resource with the given unique name, arguments, and options.
@@ -111,8 +104,8 @@ func NewLinkedServiceAzureFileStorage(ctx *pulumi.Context,
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource LinkedServiceAzureFileStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage", name, args, &resource, opts...)
@@ -144,10 +137,6 @@ type linkedServiceAzureFileStorageState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The name of the file share.
@@ -163,9 +152,7 @@ type linkedServiceAzureFileStorageState struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	UserId            *string `pulumi:"userId"`
+	UserId     *string           `pulumi:"userId"`
 }
 
 type LinkedServiceAzureFileStorageState struct {
@@ -177,10 +164,6 @@ type LinkedServiceAzureFileStorageState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The name of the file share.
@@ -196,9 +179,7 @@ type LinkedServiceAzureFileStorageState struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
-	UserId            pulumi.StringPtrInput
+	UserId     pulumi.StringPtrInput
 }
 
 func (LinkedServiceAzureFileStorageState) ElementType() reflect.Type {
@@ -213,11 +194,7 @@ type linkedServiceAzureFileStorageArgs struct {
 	// The connection string.
 	ConnectionString string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The name of the file share.
@@ -233,9 +210,7 @@ type linkedServiceAzureFileStorageArgs struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	UserId            *string `pulumi:"userId"`
+	UserId     *string           `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a LinkedServiceAzureFileStorage resource.
@@ -247,11 +222,7 @@ type LinkedServiceAzureFileStorageArgs struct {
 	// The connection string.
 	ConnectionString pulumi.StringInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The name of the file share.
@@ -267,9 +238,7 @@ type LinkedServiceAzureFileStorageArgs struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
-	UserId            pulumi.StringPtrInput
+	UserId     pulumi.StringPtrInput
 }
 
 func (LinkedServiceAzureFileStorageArgs) ElementType() reflect.Type {

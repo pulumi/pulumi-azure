@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -59,8 +59,6 @@ type GetLBRuleArgs struct {
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// The name of this Load Balancer Rule.
 	Name string `pulumi:"name"`
-	// The name of the Resource Group where the Load Balancer Rule exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getLBRule.
@@ -90,8 +88,7 @@ type GetLBRuleResult struct {
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId string `pulumi:"probeId"`
 	// The transport protocol for the external endpoint.
-	Protocol          string `pulumi:"protocol"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Protocol string `pulumi:"protocol"`
 }
 
 func GetLBRuleOutput(ctx *pulumi.Context, args GetLBRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBRuleResultOutput {
@@ -109,8 +106,6 @@ type GetLBRuleOutputArgs struct {
 	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
 	// The name of this Load Balancer Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Resource Group where the Load Balancer Rule exists.
-	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 func (GetLBRuleOutputArgs) ElementType() reflect.Type {
@@ -198,10 +193,6 @@ func (o GetLBRuleResultOutput) ProbeId() pulumi.StringOutput {
 // The transport protocol for the external endpoint.
 func (o GetLBRuleResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLBRuleResult) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-func (o GetLBRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLBRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 func init() {

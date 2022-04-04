@@ -20,7 +20,7 @@ class GetVirtualHubResult:
     """
     A collection of values returned by getVirtualHub.
     """
-    def __init__(__self__, address_prefix=None, default_route_table_id=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_wan_id=None):
+    def __init__(__self__, address_prefix=None, default_route_table_id=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_router_asn=None, virtual_router_ips=None, virtual_wan_id=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -42,6 +42,12 @@ class GetVirtualHubResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if virtual_router_asn and not isinstance(virtual_router_asn, int):
+            raise TypeError("Expected argument 'virtual_router_asn' to be a int")
+        pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+        if virtual_router_ips and not isinstance(virtual_router_ips, list):
+            raise TypeError("Expected argument 'virtual_router_ips' to be a list")
+        pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
         if virtual_wan_id and not isinstance(virtual_wan_id, str):
             raise TypeError("Expected argument 'virtual_wan_id' to be a str")
         pulumi.set(__self__, "virtual_wan_id", virtual_wan_id)
@@ -97,6 +103,22 @@ class GetVirtualHubResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="virtualRouterAsn")
+    def virtual_router_asn(self) -> int:
+        """
+        The Autonomous System Number of the Virtual Hub BGP router.
+        """
+        return pulumi.get(self, "virtual_router_asn")
+
+    @property
+    @pulumi.getter(name="virtualRouterIps")
+    def virtual_router_ips(self) -> Sequence[str]:
+        """
+        The IP addresses of the Virtual Hub BGP router.
+        """
+        return pulumi.get(self, "virtual_router_ips")
+
+    @property
     @pulumi.getter(name="virtualWanId")
     def virtual_wan_id(self) -> str:
         """
@@ -118,6 +140,8 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
+            virtual_router_asn=self.virtual_router_asn,
+            virtual_router_ips=self.virtual_router_ips,
             virtual_wan_id=self.virtual_wan_id)
 
 
@@ -159,6 +183,8 @@ def get_virtual_hub(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
+        virtual_router_asn=__ret__.virtual_router_asn,
+        virtual_router_ips=__ret__.virtual_router_ips,
         virtual_wan_id=__ret__.virtual_wan_id)
 
 

@@ -15,29 +15,18 @@ __all__ = ['IntegrationRuntimeSelfHostedArgs', 'IntegrationRuntimeSelfHosted']
 @pulumi.input_type
 class IntegrationRuntimeSelfHostedArgs:
     def __init__(__self__, *,
-                 resource_group_name: pulumi.Input[str],
-                 data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -46,40 +35,16 @@ class IntegrationRuntimeSelfHostedArgs:
             pulumi.set(__self__, "rbac_authorizations", rbac_authorizations)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+    def data_factory_id(self) -> pulumi.Input[str]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+    def data_factory_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -121,68 +86,33 @@ class IntegrationRuntimeSelfHostedArgs:
 @pulumi.input_type
 class _IntegrationRuntimeSelfHostedState:
     def __init__(__self__, *,
-                 auth_key1: Optional[pulumi.Input[str]] = None,
-                 auth_key2: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 primary_authorization_key: Optional[pulumi.Input[str]] = None,
                  rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 secondary_authorization_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeSelfHosted resources.
-        :param pulumi.Input[str] auth_key1: The primary integration runtime authentication key.
-        :param pulumi.Input[str] auth_key2: The secondary integration runtime authentication key.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        :param pulumi.Input[str] primary_authorization_key: The primary integration runtime authentication key.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]] rbac_authorizations: A `rbac_authorization` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        :param pulumi.Input[str] secondary_authorization_key: The secondary integration runtime authentication key.
         """
-        if auth_key1 is not None:
-            pulumi.set(__self__, "auth_key1", auth_key1)
-        if auth_key2 is not None:
-            pulumi.set(__self__, "auth_key2", auth_key2)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_authorization_key is not None:
+            pulumi.set(__self__, "primary_authorization_key", primary_authorization_key)
         if rbac_authorizations is not None:
             pulumi.set(__self__, "rbac_authorizations", rbac_authorizations)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @property
-    @pulumi.getter(name="authKey1")
-    def auth_key1(self) -> Optional[pulumi.Input[str]]:
-        """
-        The primary integration runtime authentication key.
-        """
-        return pulumi.get(self, "auth_key1")
-
-    @auth_key1.setter
-    def auth_key1(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "auth_key1", value)
-
-    @property
-    @pulumi.getter(name="authKey2")
-    def auth_key2(self) -> Optional[pulumi.Input[str]]:
-        """
-        The secondary integration runtime authentication key.
-        """
-        return pulumi.get(self, "auth_key2")
-
-    @auth_key2.setter
-    def auth_key2(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "auth_key2", value)
+        if secondary_authorization_key is not None:
+            pulumi.set(__self__, "secondary_authorization_key", secondary_authorization_key)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -195,18 +125,6 @@ class _IntegrationRuntimeSelfHostedState:
     @data_factory_id.setter
     def data_factory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -233,6 +151,18 @@ class _IntegrationRuntimeSelfHostedState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="primaryAuthorizationKey")
+    def primary_authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary integration runtime authentication key.
+        """
+        return pulumi.get(self, "primary_authorization_key")
+
+    @primary_authorization_key.setter
+    def primary_authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_authorization_key", value)
+
+    @property
     @pulumi.getter(name="rbacAuthorizations")
     def rbac_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]:
         """
@@ -245,16 +175,16 @@ class _IntegrationRuntimeSelfHostedState:
         pulumi.set(self, "rbac_authorizations", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="secondaryAuthorizationKey")
+    def secondary_authorization_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        The secondary integration runtime authentication key.
         """
-        return pulumi.get(self, "resource_group_name")
+        return pulumi.get(self, "secondary_authorization_key")
 
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
+    @secondary_authorization_key.setter
+    def secondary_authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_authorization_key", value)
 
 
 class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
@@ -263,11 +193,9 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Data Factory Self-hosted Integration Runtime.
@@ -282,9 +210,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted",
-            resource_group_name=example_resource_group.name,
-            data_factory_id=example_factory.id)
+        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", data_factory_id=example_factory.id)
         ```
 
         ## Import
@@ -298,11 +224,9 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         ...
     @overload
@@ -323,9 +247,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted",
-            resource_group_name=example_resource_group.name,
-            data_factory_id=example_factory.id)
+        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", data_factory_id=example_factory.id)
         ```
 
         ## Import
@@ -352,11 +274,9 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -369,19 +289,14 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationRuntimeSelfHostedArgs.__new__(IntegrationRuntimeSelfHostedArgs)
 
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
-            if data_factory_name is not None and not opts.urn:
-                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["rbac_authorizations"] = rbac_authorizations
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["auth_key1"] = None
-            __props__.__dict__["auth_key2"] = None
+            __props__.__dict__["primary_authorization_key"] = None
+            __props__.__dict__["secondary_authorization_key"] = None
         super(IntegrationRuntimeSelfHosted, __self__).__init__(
             'azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted',
             resource_name,
@@ -392,14 +307,12 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_key1: Optional[pulumi.Input[str]] = None,
-            auth_key2: Optional[pulumi.Input[str]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            primary_authorization_key: Optional[pulumi.Input[str]] = None,
             rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'IntegrationRuntimeSelfHosted':
+            secondary_authorization_key: Optional[pulumi.Input[str]] = None) -> 'IntegrationRuntimeSelfHosted':
         """
         Get an existing IntegrationRuntimeSelfHosted resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -407,44 +320,24 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_key1: The primary integration runtime authentication key.
-        :param pulumi.Input[str] auth_key2: The secondary integration runtime authentication key.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        :param pulumi.Input[str] primary_authorization_key: The primary integration runtime authentication key.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        :param pulumi.Input[str] secondary_authorization_key: The secondary integration runtime authentication key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _IntegrationRuntimeSelfHostedState.__new__(_IntegrationRuntimeSelfHostedState)
 
-        __props__.__dict__["auth_key1"] = auth_key1
-        __props__.__dict__["auth_key2"] = auth_key2
         __props__.__dict__["data_factory_id"] = data_factory_id
-        __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["primary_authorization_key"] = primary_authorization_key
         __props__.__dict__["rbac_authorizations"] = rbac_authorizations
-        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_authorization_key"] = secondary_authorization_key
         return IntegrationRuntimeSelfHosted(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="authKey1")
-    def auth_key1(self) -> pulumi.Output[str]:
-        """
-        The primary integration runtime authentication key.
-        """
-        return pulumi.get(self, "auth_key1")
-
-    @property
-    @pulumi.getter(name="authKey2")
-    def auth_key2(self) -> pulumi.Output[str]:
-        """
-        The secondary integration runtime authentication key.
-        """
-        return pulumi.get(self, "auth_key2")
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -453,14 +346,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter
@@ -479,6 +364,14 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="primaryAuthorizationKey")
+    def primary_authorization_key(self) -> pulumi.Output[str]:
+        """
+        The primary integration runtime authentication key.
+        """
+        return pulumi.get(self, "primary_authorization_key")
+
+    @property
     @pulumi.getter(name="rbacAuthorizations")
     def rbac_authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]:
         """
@@ -487,10 +380,10 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         return pulumi.get(self, "rbac_authorizations")
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="secondaryAuthorizationKey")
+    def secondary_authorization_key(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        The secondary integration runtime authentication key.
         """
-        return pulumi.get(self, "resource_group_name")
+        return pulumi.get(self, "secondary_authorization_key")
 

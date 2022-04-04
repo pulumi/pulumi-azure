@@ -138,9 +138,6 @@ namespace Pulumi.Azure.NetApp
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
         /// <summary>
         /// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         /// </summary>
@@ -223,15 +220,6 @@ namespace Pulumi.Azure.NetApp
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")]
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         /// </summary>
@@ -274,15 +262,6 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")]
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.

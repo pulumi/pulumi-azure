@@ -86,13 +86,7 @@ export class EnterpriseCluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Version of redis the cluster supports, e.g. '6'.
-     *
-     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
-     */
-    public /*out*/ readonly version!: pulumi.Output<string>;
-    /**
-     * A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -116,7 +110,6 @@ export class EnterpriseCluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as EnterpriseClusterArgs | undefined;
@@ -134,7 +127,6 @@ export class EnterpriseCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["hostname"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnterpriseCluster.__pulumiType, name, resourceInputs, opts);
@@ -174,13 +166,7 @@ export interface EnterpriseClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Version of redis the cluster supports, e.g. '6'.
-     *
-     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
-     */
-    version?: pulumi.Input<string>;
-    /**
-     * A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -214,7 +200,7 @@ export interface EnterpriseClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+     * Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

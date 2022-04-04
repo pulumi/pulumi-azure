@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string>? MonthlyRetention { get; set; }
 
         /// <summary>
-        /// The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        /// The week of year to take the yearly backup. Value has to be between `1` and `52`.
         /// </summary>
         [Input("weekOfYear")]
         public Input<int>? WeekOfYear { get; set; }

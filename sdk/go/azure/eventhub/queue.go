@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -97,15 +98,13 @@ type Queue struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
-	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	RequiresSession   pulumi.BoolPtrOutput `pulumi:"requiresSession"`
+	ResourceGroupName pulumi.StringOutput  `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
@@ -114,9 +113,12 @@ type Queue struct {
 func NewQueue(ctx *pulumi.Context,
 	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
 	if args == nil {
-		args = &QueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NamespaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceId'")
+	}
 	var resource Queue
 	err := ctx.RegisterResource("azure:eventhub/queue:Queue", name, args, &resource, opts...)
 	if err != nil {
@@ -170,14 +172,12 @@ type queueState struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceId   *string `pulumi:"namespaceId"`
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
-	RequiresSession *bool `pulumi:"requiresSession"`
-	// Deprecated: Deprecated in favor of "namespace_id"
+	RequiresSession   *bool   `pulumi:"requiresSession"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
 	Status *string `pulumi:"status"`
@@ -215,14 +215,12 @@ type QueueState struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceId   pulumi.StringPtrInput
 	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
-	RequiresSession pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
+	RequiresSession   pulumi.BoolPtrInput
 	ResourceGroupName pulumi.StringPtrInput
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
 	Status pulumi.StringPtrInput
@@ -264,15 +262,11 @@ type queueArgs struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName *string `pulumi:"namespaceName"`
+	NamespaceId string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresSession *bool `pulumi:"requiresSession"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 }
@@ -310,15 +304,11 @@ type QueueArgs struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName pulumi.StringPtrInput
+	NamespaceId pulumi.StringInput
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresSession pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 }

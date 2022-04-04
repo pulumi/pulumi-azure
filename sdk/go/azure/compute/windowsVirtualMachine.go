@@ -35,9 +35,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -143,6 +143,8 @@ type WindowsVirtualMachine struct {
 	DedicatedHostGroupId pulumi.StringPtrOutput `pulumi:"dedicatedHostGroupId"`
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -201,6 +203,8 @@ type WindowsVirtualMachine struct {
 	SourceImageReference WindowsVirtualMachineSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification WindowsVirtualMachineTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
@@ -213,8 +217,8 @@ type WindowsVirtualMachine struct {
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayOutput `pulumi:"winrmListeners"`
-	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-	Zone pulumi.StringOutput `pulumi:"zone"`
+	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewWindowsVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -286,6 +290,8 @@ type windowsVirtualMachineState struct {
 	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -344,6 +350,8 @@ type windowsVirtualMachineState struct {
 	SourceImageReference *WindowsVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification *WindowsVirtualMachineTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
@@ -356,7 +364,7 @@ type windowsVirtualMachineState struct {
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
-	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -383,6 +391,8 @@ type WindowsVirtualMachineState struct {
 	DedicatedHostGroupId pulumi.StringPtrInput
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -441,6 +451,8 @@ type WindowsVirtualMachineState struct {
 	SourceImageReference WindowsVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
+	// A `terminationNotification` block as defined below.
+	TerminationNotification WindowsVirtualMachineTerminationNotificationPtrInput
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
@@ -453,7 +465,7 @@ type WindowsVirtualMachineState struct {
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
-	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone pulumi.StringPtrInput
 }
 
@@ -484,6 +496,8 @@ type windowsVirtualMachineArgs struct {
 	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -534,6 +548,8 @@ type windowsVirtualMachineArgs struct {
 	SourceImageReference *WindowsVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification *WindowsVirtualMachineTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
@@ -544,7 +560,7 @@ type windowsVirtualMachineArgs struct {
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
-	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -572,6 +588,8 @@ type WindowsVirtualMachineArgs struct {
 	DedicatedHostGroupId pulumi.StringPtrInput
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -622,6 +640,8 @@ type WindowsVirtualMachineArgs struct {
 	SourceImageReference WindowsVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
+	// A `terminationNotification` block as defined below.
+	TerminationNotification WindowsVirtualMachineTerminationNotificationPtrInput
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
@@ -632,7 +652,7 @@ type WindowsVirtualMachineArgs struct {
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
-	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+	// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
 	Zone pulumi.StringPtrInput
 }
 

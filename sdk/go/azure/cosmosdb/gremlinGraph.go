@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -45,23 +45,19 @@ import (
 // 			DatabaseName:      exampleGremlinDatabase.Name,
 // 			PartitionKeyPath:  pulumi.String("/Example"),
 // 			Throughput:        pulumi.Int(400),
-// 			IndexPolicies: cosmosdb.GremlinGraphIndexPolicyArray{
-// 				&cosmosdb.GremlinGraphIndexPolicyArgs{
-// 					Automatic:    pulumi.Bool(true),
-// 					IndexingMode: pulumi.String("Consistent"),
-// 					IncludedPaths: pulumi.StringArray{
-// 						pulumi.String("/*"),
-// 					},
-// 					ExcludedPaths: pulumi.StringArray{
-// 						pulumi.String("/\"_etag\"/?"),
-// 					},
+// 			IndexPolicy: &cosmosdb.GremlinGraphIndexPolicyArgs{
+// 				Automatic:    pulumi.Bool(true),
+// 				IndexingMode: pulumi.String("Consistent"),
+// 				IncludedPaths: pulumi.StringArray{
+// 					pulumi.String("/*"),
+// 				},
+// 				ExcludedPaths: pulumi.StringArray{
+// 					pulumi.String("/\"_etag\"/?"),
 // 				},
 // 			},
-// 			ConflictResolutionPolicies: cosmosdb.GremlinGraphConflictResolutionPolicyArray{
-// 				&cosmosdb.GremlinGraphConflictResolutionPolicyArgs{
-// 					Mode:                   pulumi.String("LastWriterWins"),
-// 					ConflictResolutionPath: pulumi.String("/_ts"),
-// 				},
+// 			ConflictResolutionPolicy: &cosmosdb.GremlinGraphConflictResolutionPolicyArgs{
+// 				Mode:                   pulumi.String("LastWriterWins"),
+// 				ConflictResolutionPath: pulumi.String("/_ts"),
 // 			},
 // 			UniqueKeys: cosmosdb.GremlinGraphUniqueKeyArray{
 // 				&cosmosdb.GremlinGraphUniqueKeyArgs{
@@ -96,13 +92,13 @@ type GremlinGraph struct {
 	AccountName       pulumi.StringOutput                    `pulumi:"accountName"`
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below.
-	ConflictResolutionPolicies GremlinGraphConflictResolutionPolicyArrayOutput `pulumi:"conflictResolutionPolicies"`
+	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
 	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
-	IndexPolicies GremlinGraphIndexPolicyArrayOutput `pulumi:"indexPolicies"`
+	IndexPolicy GremlinGraphIndexPolicyOutput `pulumi:"indexPolicy"`
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -162,13 +158,13 @@ type gremlinGraphState struct {
 	AccountName       *string                        `pulumi:"accountName"`
 	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below.
-	ConflictResolutionPolicies []GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicies"`
+	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
-	IndexPolicies []GremlinGraphIndexPolicy `pulumi:"indexPolicies"`
+	IndexPolicy *GremlinGraphIndexPolicy `pulumi:"indexPolicy"`
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -188,13 +184,13 @@ type GremlinGraphState struct {
 	AccountName       pulumi.StringPtrInput
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below.
-	ConflictResolutionPolicies GremlinGraphConflictResolutionPolicyArrayInput
+	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl pulumi.IntPtrInput
 	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
-	IndexPolicies GremlinGraphIndexPolicyArrayInput
+	IndexPolicy GremlinGraphIndexPolicyPtrInput
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -218,13 +214,13 @@ type gremlinGraphArgs struct {
 	AccountName       string                         `pulumi:"accountName"`
 	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below.
-	ConflictResolutionPolicies []GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicies"`
+	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
-	IndexPolicies []GremlinGraphIndexPolicy `pulumi:"indexPolicies"`
+	IndexPolicy *GremlinGraphIndexPolicy `pulumi:"indexPolicy"`
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -245,13 +241,13 @@ type GremlinGraphArgs struct {
 	AccountName       pulumi.StringInput
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below.
-	ConflictResolutionPolicies GremlinGraphConflictResolutionPolicyArrayInput
+	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl pulumi.IntPtrInput
 	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
-	IndexPolicies GremlinGraphIndexPolicyArrayInput
+	IndexPolicy GremlinGraphIndexPolicyPtrInput
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.

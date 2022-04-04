@@ -314,7 +314,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             enabled_for_disk_encryption=True,
-            soft_delete_enabled=True,
             purge_protection_enabled=True)
         example_user = azure.keyvault.AccessPolicy("example-user",
             key_vault_id=example_key_vault.id,
@@ -400,7 +399,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             enabled_for_disk_encryption=True,
-            soft_delete_enabled=True,
             purge_protection_enabled=True)
         example_user = azure.keyvault.AccessPolicy("example-user",
             key_vault_id=example_key_vault.id,

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceAzureSqlDatabase = new azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30",
  * });
@@ -79,12 +78,6 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Linked Service Azure SQL Database.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -109,10 +102,6 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      */
@@ -147,35 +136,31 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["connectionString"] = state ? state.connectionString : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
             resourceInputs["keyVaultConnectionString"] = state ? state.keyVaultConnectionString : undefined;
             resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
             resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
             resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureSqlDatabaseArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["connectionString"] = args ? args.connectionString : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             resourceInputs["keyVaultConnectionString"] = args ? args.keyVaultConnectionString : undefined;
             resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
             resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
@@ -207,12 +192,6 @@ export interface LinkedServiceAzureSqlDatabaseState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Linked Service Azure SQL Database.
      */
     description?: pulumi.Input<string>;
@@ -237,10 +216,6 @@ export interface LinkedServiceAzureSqlDatabaseState {
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      */
@@ -278,13 +253,7 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service Azure SQL Database.
      */
@@ -310,10 +279,6 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      */

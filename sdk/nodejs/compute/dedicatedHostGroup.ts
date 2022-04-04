@@ -81,10 +81,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-     */
-    public readonly zones!: pulumi.Output<string | undefined>;
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DedicatedHostGroup resource with the given unique name, arguments, and options.
@@ -105,7 +102,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as DedicatedHostGroupArgs | undefined;
             if ((!args || args.platformFaultDomainCount === undefined) && !opts.urn) {
@@ -120,7 +117,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedHostGroup.__pulumiType, name, resourceInputs, opts);
@@ -155,10 +152,7 @@ export interface DedicatedHostGroupState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-     */
-    zones?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -189,8 +183,5 @@ export interface DedicatedHostGroupArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
-     */
-    zones?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }

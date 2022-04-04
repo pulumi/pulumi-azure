@@ -127,14 +127,6 @@ export class SubscriptionRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     public readonly sqlFilter!: pulumi.Output<string | undefined>;
@@ -142,14 +134,6 @@ export class SubscriptionRule extends pulumi.CustomResource {
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    public readonly subscriptionName!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    public readonly topicName!: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionRule resource with the given unique name, arguments, and options.
@@ -168,27 +152,22 @@ export class SubscriptionRule extends pulumi.CustomResource {
             resourceInputs["correlationFilter"] = state ? state.correlationFilter : undefined;
             resourceInputs["filterType"] = state ? state.filterType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sqlFilter"] = state ? state.sqlFilter : undefined;
             resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            resourceInputs["subscriptionName"] = state ? state.subscriptionName : undefined;
-            resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
             if ((!args || args.filterType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filterType'");
             }
+            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subscriptionId'");
+            }
             resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["correlationFilter"] = args ? args.correlationFilter : undefined;
             resourceInputs["filterType"] = args ? args.filterType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlFilter"] = args ? args.sqlFilter : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/subscriptionRule:SubscriptionRule" }] };
@@ -218,14 +197,6 @@ export interface SubscriptionRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     sqlFilter?: pulumi.Input<string>;
@@ -233,14 +204,6 @@ export interface SubscriptionRuleState {
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
     subscriptionId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    subscriptionName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    topicName?: pulumi.Input<string>;
 }
 
 /**
@@ -264,27 +227,11 @@ export interface SubscriptionRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     sqlFilter?: pulumi.Input<string>;
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    subscriptionName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "subscription_id"
-     */
-    topicName?: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
 }

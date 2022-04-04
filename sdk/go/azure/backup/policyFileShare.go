@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/backup"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -119,7 +119,6 @@ type PolicyFileShare struct {
 	RetentionWeekly PolicyFileShareRetentionWeeklyPtrOutput `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyFileShareRetentionYearlyPtrOutput `pulumi:"retentionYearly"`
-	Tags            pulumi.StringMapOutput                  `pulumi:"tags"`
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
@@ -181,7 +180,6 @@ type policyFileShareState struct {
 	RetentionWeekly *PolicyFileShareRetentionWeekly `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly *PolicyFileShareRetentionYearly `pulumi:"retentionYearly"`
-	Tags            map[string]string               `pulumi:"tags"`
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
@@ -203,7 +201,6 @@ type PolicyFileShareState struct {
 	RetentionWeekly PolicyFileShareRetentionWeeklyPtrInput
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyFileShareRetentionYearlyPtrInput
-	Tags            pulumi.StringMapInput
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
@@ -229,7 +226,6 @@ type policyFileShareArgs struct {
 	RetentionWeekly *PolicyFileShareRetentionWeekly `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly *PolicyFileShareRetentionYearly `pulumi:"retentionYearly"`
-	Tags            map[string]string               `pulumi:"tags"`
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
@@ -252,7 +248,6 @@ type PolicyFileShareArgs struct {
 	RetentionWeekly PolicyFileShareRetentionWeeklyPtrInput
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyFileShareRetentionYearlyPtrInput
-	Tags            pulumi.StringMapInput
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }

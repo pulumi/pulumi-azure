@@ -35,13 +35,11 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var anonymous = new Azure.DataFactory.LinkedServiceOdbc("anonymous", new Azure.DataFactory.LinkedServiceOdbcArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///         });
     ///         var basicAuth = new Azure.DataFactory.LinkedServiceOdbc("basicAuth", new Azure.DataFactory.LinkedServiceOdbcArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///             BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdbcBasicAuthenticationArgs
@@ -119,12 +117,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service ODBC. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -244,12 +236,6 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service ODBC. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         public LinkedServiceOdbcArgs()
         {
         }
@@ -328,12 +314,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service ODBC. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public LinkedServiceOdbcState()
         {

@@ -72,17 +72,6 @@ func GetMetadataHost(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string)
 }
 
-// Deprecated - replaced by `metadata_host`.
-//
-// Deprecated: use `metadata_host` instead
-func GetMetadataUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "azure:metadataUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "ARM_METADATA_URL").(string)
-}
-
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 // automatically.
 func GetMsiEndpoint(ctx *pulumi.Context) string {
@@ -92,13 +81,6 @@ func GetMsiEndpoint(ctx *pulumi.Context) string {
 // A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 func GetPartnerId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:partnerId")
-}
-
-// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-//
-// Deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider
-func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "azure:skipCredentialsValidation")
 }
 
 // Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -132,11 +114,6 @@ func GetSubscriptionId(ctx *pulumi.Context) string {
 // The Tenant ID which should be used.
 func GetTenantId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:tenantId")
-}
-
-// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-func GetUseMsal(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "azure:useMsal")
 }
 
 // Allowed Managed Service Identity be used for Authentication.

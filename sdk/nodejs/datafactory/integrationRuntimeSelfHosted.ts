@@ -19,10 +19,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleIntegrationRuntimeSelfHosted = new azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryId: exampleFactory.id,
- * });
+ * const exampleIntegrationRuntimeSelfHosted = new azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", {dataFactoryId: exampleFactory.id});
  * ```
  *
  * ## Import
@@ -62,23 +59,9 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
     }
 
     /**
-     * The primary integration runtime authentication key.
-     */
-    public /*out*/ readonly authKey1!: pulumi.Output<string>;
-    /**
-     * The secondary integration runtime authentication key.
-     */
-    public /*out*/ readonly authKey2!: pulumi.Output<string>;
-    /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
     /**
      * Integration runtime description.
      */
@@ -88,13 +71,17 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The primary integration runtime authentication key.
+     */
+    public /*out*/ readonly primaryAuthorizationKey!: pulumi.Output<string>;
+    /**
      * A `rbacAuthorization` block as defined below.
      */
     public readonly rbacAuthorizations!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization[] | undefined>;
     /**
-     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+     * The secondary integration runtime authentication key.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAuthorizationKey!: pulumi.Output<string>;
 
     /**
      * Create a IntegrationRuntimeSelfHosted resource with the given unique name, arguments, and options.
@@ -109,27 +96,23 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
-            resourceInputs["authKey1"] = state ? state.authKey1 : undefined;
-            resourceInputs["authKey2"] = state ? state.authKey2 : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryAuthorizationKey"] = state ? state.primaryAuthorizationKey : undefined;
             resourceInputs["rbacAuthorizations"] = state ? state.rbacAuthorizations : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAuthorizationKey"] = state ? state.secondaryAuthorizationKey : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rbacAuthorizations"] = args ? args.rbacAuthorizations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["authKey1"] = undefined /*out*/;
-            resourceInputs["authKey2"] = undefined /*out*/;
+            resourceInputs["primaryAuthorizationKey"] = undefined /*out*/;
+            resourceInputs["secondaryAuthorizationKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationRuntimeSelfHosted.__pulumiType, name, resourceInputs, opts);
@@ -141,23 +124,9 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
  */
 export interface IntegrationRuntimeSelfHostedState {
     /**
-     * The primary integration runtime authentication key.
-     */
-    authKey1?: pulumi.Input<string>;
-    /**
-     * The secondary integration runtime authentication key.
-     */
-    authKey2?: pulumi.Input<string>;
-    /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -167,13 +136,17 @@ export interface IntegrationRuntimeSelfHostedState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The primary integration runtime authentication key.
+     */
+    primaryAuthorizationKey?: pulumi.Input<string>;
+    /**
      * A `rbacAuthorization` block as defined below.
      */
     rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
     /**
-     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+     * The secondary integration runtime authentication key.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    secondaryAuthorizationKey?: pulumi.Input<string>;
 }
 
 /**
@@ -183,13 +156,7 @@ export interface IntegrationRuntimeSelfHostedArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -202,8 +169,4 @@ export interface IntegrationRuntimeSelfHostedArgs {
      * A `rbacAuthorization` block as defined below.
      */
     rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
-    /**
-     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

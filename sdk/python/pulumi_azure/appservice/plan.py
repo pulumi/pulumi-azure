@@ -437,8 +437,6 @@ class Plan(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages an App Service Plan component.
-
         ## Example Usage
         ### Dedicated)
 
@@ -535,8 +533,6 @@ class Plan(pulumi.CustomResource):
                  args: PlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Service Plan component.
-
         ## Example Usage
         ### Dedicated)
 

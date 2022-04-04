@@ -21,9 +21,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -57,7 +57,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewRule(ctx, "exampleRule", &lb.RuleArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
 // 			LoadbalancerId:              exampleLoadBalancer.ID(),
 // 			Protocol:                    pulumi.String("Tcp"),
 // 			FrontendPort:                pulumi.Int(3389),
@@ -82,8 +81,6 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
-	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolIds pulumi.StringArrayOutput `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -111,8 +108,6 @@ type Rule struct {
 	ProbeId pulumi.StringOutput `pulumi:"probeId"`
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -137,9 +132,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	var resource Rule
 	err := ctx.RegisterResource("azure:lb/rule:Rule", name, args, &resource, opts...)
 	if err != nil {
@@ -162,8 +154,6 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
-	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolIds []string `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -191,13 +181,9 @@ type ruleState struct {
 	ProbeId *string `pulumi:"probeId"`
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol *string `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type RuleState struct {
-	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-	BackendAddressPoolId pulumi.StringPtrInput
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolIds pulumi.StringArrayInput
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -225,8 +211,6 @@ type RuleState struct {
 	ProbeId pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -234,8 +218,6 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolIds []string `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -262,14 +244,10 @@ type ruleArgs struct {
 	ProbeId *string `pulumi:"probeId"`
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol string `pulumi:"protocol"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
-	BackendAddressPoolId pulumi.StringPtrInput
 	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolIds pulumi.StringArrayInput
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -296,8 +274,6 @@ type RuleArgs struct {
 	ProbeId pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol pulumi.StringInput
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

@@ -23,8 +23,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -130,6 +130,8 @@ type VirtualNetworkGateway struct {
 	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrOutput `pulumi:"defaultLocalNetworkGatewayId"`
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
@@ -229,6 +231,8 @@ type virtualNetworkGatewayState struct {
 	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId *string `pulumi:"defaultLocalNetworkGatewayId"`
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
@@ -288,6 +292,8 @@ type VirtualNetworkGatewayState struct {
 	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+	EdgeZone pulumi.StringPtrInput
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
@@ -351,6 +357,8 @@ type virtualNetworkGatewayArgs struct {
 	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId *string `pulumi:"defaultLocalNetworkGatewayId"`
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
@@ -411,6 +419,8 @@ type VirtualNetworkGatewayArgs struct {
 	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+	EdgeZone pulumi.StringPtrInput
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput

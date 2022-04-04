@@ -77,9 +77,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.MongoCollectionAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -90,14 +87,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        /// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+        /// * # `index` - (Optional) One or more `index` blocks as defined below.
         /// </summary>
         [Output("defaultTtlSeconds")]
         public Output<int?> DefaultTtlSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `index` blocks as defined below.
-        /// </summary>
         [Output("indices")]
         public Output<ImmutableArray<Outputs.MongoCollectionIndex>> Indices { get; private set; } = null!;
 
@@ -125,9 +120,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("systemIndexes")]
         public Output<ImmutableArray<Outputs.MongoCollectionSystemIndex>> SystemIndexes { get; private set; } = null!;
 
-        /// <summary>
-        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -186,9 +178,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.MongoCollectionAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -199,17 +188,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        /// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+        /// * # `index` - (Optional) One or more `index` blocks as defined below.
         /// </summary>
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
         [Input("indices")]
         private InputList<Inputs.MongoCollectionIndexArgs>? _indices;
-
-        /// <summary>
-        /// One or more `index` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.MongoCollectionIndexArgs> Indices
         {
             get => _indices ?? (_indices = new InputList<Inputs.MongoCollectionIndexArgs>());
@@ -234,9 +220,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("shardKey")]
         public Input<string>? ShardKey { get; set; }
 
-        /// <summary>
-        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -256,9 +239,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.MongoCollectionAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -269,17 +249,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        /// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+        /// * # `index` - (Optional) One or more `index` blocks as defined below.
         /// </summary>
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
         [Input("indices")]
         private InputList<Inputs.MongoCollectionIndexGetArgs>? _indices;
-
-        /// <summary>
-        /// One or more `index` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.MongoCollectionIndexGetArgs> Indices
         {
             get => _indices ?? (_indices = new InputList<Inputs.MongoCollectionIndexGetArgs>());
@@ -316,9 +293,6 @@ namespace Pulumi.Azure.CosmosDB
             set => _systemIndexes = value;
         }
 
-        /// <summary>
-        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

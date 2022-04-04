@@ -160,7 +160,6 @@ namespace Pulumi.Azure.KeyVault
         /// The Name of the SKU used for this Key Vault.
         /// </summary>
         public readonly string SkuName;
-        public readonly bool SoftDeleteEnabled;
         /// <summary>
         /// A mapping of tags assigned to the Key Vault.
         /// </summary>
@@ -200,8 +199,6 @@ namespace Pulumi.Azure.KeyVault
 
             string skuName,
 
-            bool softDeleteEnabled,
-
             ImmutableDictionary<string, string> tags,
 
             string tenantId,
@@ -220,7 +217,6 @@ namespace Pulumi.Azure.KeyVault
             PurgeProtectionEnabled = purgeProtectionEnabled;
             ResourceGroupName = resourceGroupName;
             SkuName = skuName;
-            SoftDeleteEnabled = softDeleteEnabled;
             Tags = tags;
             TenantId = tenantId;
             VaultUri = vaultUri;

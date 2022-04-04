@@ -50,7 +50,6 @@ namespace Pulumi.Azure.HDInsight
     ///             },
     ///             Gateway = new Azure.HDInsight.Inputs.SparkClusterGatewayArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Username = "acctestusrgw",
     ///                 Password = "Password123!",
     ///             },

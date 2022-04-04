@@ -25,6 +25,7 @@ class ManagedDiskArgs:
                  disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -43,7 +44,7 @@ class ManagedDiskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedDisk resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
@@ -56,6 +57,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
@@ -74,7 +76,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -93,6 +95,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
         if gallery_image_reference_id is not None:
@@ -129,8 +133,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "tier", tier)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
-        if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="createOption")
@@ -251,6 +255,18 @@ class ManagedDiskArgs:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="encryptionSettings")
@@ -470,15 +486,15 @@ class ManagedDiskArgs:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        A collection containing the availability zone to allocate the Managed Disk in.
+        Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
-        return pulumi.get(self, "zones")
+        return pulumi.get(self, "zone")
 
-    @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "zones", value)
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type
@@ -492,6 +508,7 @@ class _ManagedDiskState:
                  disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -512,7 +529,7 @@ class _ManagedDiskState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedDisk resources.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
@@ -523,6 +540,7 @@ class _ManagedDiskState:
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
@@ -543,7 +561,7 @@ class _ManagedDiskState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         if create_option is not None:
             pulumi.set(__self__, "create_option", create_option)
@@ -561,6 +579,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
         if gallery_image_reference_id is not None:
@@ -601,8 +621,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "tier", tier)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
-        if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="createOption")
@@ -699,6 +719,18 @@ class _ManagedDiskState:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="encryptionSettings")
@@ -942,15 +974,15 @@ class _ManagedDiskState:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        A collection containing the availability zone to allocate the Managed Disk in.
+        Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
-        return pulumi.get(self, "zones")
+        return pulumi.get(self, "zone")
 
-    @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "zones", value)
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
 
 
 class ManagedDisk(pulumi.CustomResource):
@@ -966,6 +998,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -986,7 +1019,7 @@ class ManagedDisk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a managed disk.
@@ -1055,6 +1088,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
@@ -1075,7 +1109,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         ...
     @overload
@@ -1163,6 +1197,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -1183,7 +1218,7 @@ class ManagedDisk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1206,6 +1241,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["disk_mbps_read_only"] = disk_mbps_read_only
             __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
             __props__.__dict__["disk_size_gb"] = disk_size_gb
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["encryption_settings"] = encryption_settings
             __props__.__dict__["gallery_image_reference_id"] = gallery_image_reference_id
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
@@ -1230,7 +1266,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
             __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
-            __props__.__dict__["zones"] = zones
+            __props__.__dict__["zone"] = zone
         super(ManagedDisk, __self__).__init__(
             'azure:compute/managedDisk:ManagedDisk',
             resource_name,
@@ -1249,6 +1285,7 @@ class ManagedDisk(pulumi.CustomResource):
             disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
             gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -1269,7 +1306,7 @@ class ManagedDisk(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-            zones: Optional[pulumi.Input[str]] = None) -> 'ManagedDisk':
+            zone: Optional[pulumi.Input[str]] = None) -> 'ManagedDisk':
         """
         Get an existing ManagedDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1285,6 +1322,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
@@ -1305,7 +1343,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1319,6 +1357,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["disk_mbps_read_only"] = disk_mbps_read_only
         __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
         __props__.__dict__["disk_size_gb"] = disk_size_gb
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["encryption_settings"] = encryption_settings
         __props__.__dict__["gallery_image_reference_id"] = gallery_image_reference_id
         __props__.__dict__["hyper_v_generation"] = hyper_v_generation
@@ -1339,7 +1378,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tier"] = tier
         __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
-        __props__.__dict__["zones"] = zones
+        __props__.__dict__["zone"] = zone
         return ManagedDisk(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1405,6 +1444,14 @@ class ManagedDisk(pulumi.CustomResource):
         Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="encryptionSettings")
@@ -1568,9 +1615,9 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[str]]:
+    def zone(self) -> pulumi.Output[Optional[str]]:
         """
-        A collection containing the availability zone to allocate the Managed Disk in.
+        Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
-        return pulumi.get(self, "zones")
+        return pulumi.get(self, "zone")
 

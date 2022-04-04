@@ -10,7 +10,6 @@ from .. import _utilities
 
 __all__ = [
     'ServiceCor',
-    'ServiceFeature',
     'ServiceNetworkAclPrivateEndpoint',
     'ServiceNetworkAclPublicNetwork',
     'ServiceSku',
@@ -50,35 +49,6 @@ class ServiceCor(dict):
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
-
-
-@pulumi.output_type
-class ServiceFeature(dict):
-    def __init__(__self__, *,
-                 flag: str,
-                 value: str):
-        """
-        :param str flag: The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-        :param str value: A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        """
-        pulumi.set(__self__, "flag", flag)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def flag(self) -> str:
-        """
-        The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-        """
-        return pulumi.get(self, "flag")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

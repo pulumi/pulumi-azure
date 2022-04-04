@@ -65,13 +65,10 @@ export interface GetFunctionAppHostKeysResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
     /**
      * Function App resource's secret key
-     *
-     * @deprecated This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
      */
-    readonly masterKey: string;
-    readonly name: string;
     readonly primaryKey: string;
     readonly resourceGroupName: string;
     /**

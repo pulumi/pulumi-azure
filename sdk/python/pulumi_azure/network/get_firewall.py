@@ -167,7 +167,7 @@ class GetFirewallResult:
     @pulumi.getter
     def zones(self) -> Sequence[str]:
         """
-        The availability zones in which the Azure Firewall is created.
+        A list of Availability Zones in which this Azure Firewall is located.
         """
         return pulumi.get(self, "zones")
 

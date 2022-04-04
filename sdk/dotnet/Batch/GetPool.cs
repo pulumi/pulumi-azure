@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Batch
         /// The name of the endpoint.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.GetPoolNetworkConfigurationResult NetworkConfiguration;
+        public readonly ImmutableArray<Outputs.GetPoolNetworkConfigurationResult> NetworkConfigurations;
         /// <summary>
         /// The Sku of the node agents in the Batch pool.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Batch
 
             string name,
 
-            Outputs.GetPoolNetworkConfigurationResult networkConfiguration,
+            ImmutableArray<Outputs.GetPoolNetworkConfigurationResult> networkConfigurations,
 
             string nodeAgentSkuId,
 
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Batch
             MaxTasksPerNode = maxTasksPerNode;
             Metadata = metadata;
             Name = name;
-            NetworkConfiguration = networkConfiguration;
+            NetworkConfigurations = networkConfigurations;
             NodeAgentSkuId = nodeAgentSkuId;
             ResourceGroupName = resourceGroupName;
             StartTasks = startTasks;

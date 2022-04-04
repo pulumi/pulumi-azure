@@ -18,35 +18,17 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
-        [Input("clientRootCertificates")]
-        private InputList<Inputs.VpnServerConfigurationRadiusServerClientRootCertificateArgs>? _clientRootCertificates;
-
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
+        /// The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationRadiusServerClientRootCertificateArgs> ClientRootCertificates
-        {
-            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationRadiusServerClientRootCertificateArgs>());
-            set => _clientRootCertificates = value;
-        }
+        [Input("score", required: true)]
+        public Input<int> Score { get; set; } = null!;
 
         /// <summary>
         /// The Secret used to communicate with the Radius Server.
         /// </summary>
         [Input("secret", required: true)]
         public Input<string> Secret { get; set; } = null!;
-
-        [Input("serverRootCertificates", required: true)]
-        private InputList<Inputs.VpnServerConfigurationRadiusServerServerRootCertificateArgs>? _serverRootCertificates;
-
-        /// <summary>
-        /// One or more `server_root_certificate` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.VpnServerConfigurationRadiusServerServerRootCertificateArgs> ServerRootCertificates
-        {
-            get => _serverRootCertificates ?? (_serverRootCertificates = new InputList<Inputs.VpnServerConfigurationRadiusServerServerRootCertificateArgs>());
-            set => _serverRootCertificates = value;
-        }
 
         public VpnServerConfigurationRadiusServerArgs()
         {

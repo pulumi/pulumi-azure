@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -62,8 +62,6 @@ type GetPolicyFileshareResult struct {
 	Name              string `pulumi:"name"`
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 func GetPolicyFileshareOutput(ctx *pulumi.Context, args GetPolicyFileshareOutputArgs, opts ...pulumi.InvokeOption) GetPolicyFileshareResultOutput {
@@ -119,11 +117,6 @@ func (o GetPolicyFileshareResultOutput) RecoveryVaultName() pulumi.StringOutput 
 
 func (o GetPolicyFileshareResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyFileshareResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
-}
-
-// A mapping of tags assigned to the resource.
-func (o GetPolicyFileshareResultOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetPolicyFileshareResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

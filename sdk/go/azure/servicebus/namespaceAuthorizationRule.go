@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -74,16 +75,12 @@ type NamespaceAuthorizationRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
 	PrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Namespace authorization Rule.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Namespace authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The alias Secondary Connection String for the ServiceBus Namespace
@@ -98,9 +95,12 @@ type NamespaceAuthorizationRule struct {
 func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	name string, args *NamespaceAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*NamespaceAuthorizationRule, error) {
 	if args == nil {
-		args = &NamespaceAuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NamespaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceId'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule"),
@@ -137,16 +137,12 @@ type namespaceAuthorizationRuleState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName *string `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
 	PrimaryConnectionStringAlias *string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Namespace authorization Rule.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Namespace authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The alias Secondary Connection String for the ServiceBus Namespace
@@ -166,16 +162,12 @@ type NamespaceAuthorizationRuleState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName pulumi.StringPtrInput
 	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
 	// The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
 	PrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The Primary Key for the ServiceBus Namespace authorization Rule.
 	PrimaryKey pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Connection String for the ServiceBus Namespace authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The alias Secondary Connection String for the ServiceBus Namespace
@@ -198,11 +190,7 @@ type namespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	NamespaceId string `pulumi:"namespaceId"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
 }
@@ -216,11 +204,7 @@ type NamespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	NamespaceName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "namespace_id"
-	ResourceGroupName pulumi.StringPtrInput
+	NamespaceId pulumi.StringInput
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
 }

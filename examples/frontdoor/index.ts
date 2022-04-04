@@ -19,7 +19,6 @@ let loadBalancingName = "exampleLoadBalancingSettings1";
 const fd = new azure.frontdoor.Frontdoor("example", {
     name: rID.id,
     resourceGroupName: resourceGroup.name,
-    enforceBackendPoolsCertificateNameCheck: false,
 
     routingRules: [{
         name: routingRuleName,

@@ -18,10 +18,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryId: exampleFactory.id,
- * });
+ * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
  * ```
  * ### With Activities
  *
@@ -30,7 +27,6 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const test = new azure.datafactory.Pipeline("test", {
- *     resourceGroupName: azurerm_resource_group.test.name,
  *     dataFactoryId: azurerm_data_factory.test.id,
  *     variables: {
  *         bob: "item1",
@@ -104,12 +100,6 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Pipeline.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -129,10 +119,6 @@ export class Pipeline extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Pipeline.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
@@ -155,30 +141,26 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["concurrency"] = state ? state.concurrency : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["folder"] = state ? state.folder : undefined;
             resourceInputs["moniterMetricsAfterDuration"] = state ? state.moniterMetricsAfterDuration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["activitiesJson"] = args ? args.activitiesJson : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["concurrency"] = args ? args.concurrency : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["moniterMetricsAfterDuration"] = args ? args.moniterMetricsAfterDuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -207,12 +189,6 @@ export interface PipelineState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Pipeline.
      */
     description?: pulumi.Input<string>;
@@ -232,10 +208,6 @@ export interface PipelineState {
      * A map of parameters to associate with the Data Factory Pipeline.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
@@ -261,13 +233,7 @@ export interface PipelineArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Pipeline.
      */
@@ -288,10 +254,6 @@ export interface PipelineArgs {
      * A map of parameters to associate with the Data Factory Pipeline.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */

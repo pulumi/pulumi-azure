@@ -12,6 +12,18 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class ServerIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         /// </summary>
@@ -25,22 +37,10 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
+        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
-
-        [Input("userAssignedIdentityIds")]
-        private InputList<string>? _userAssignedIdentityIds;
-
-        /// <summary>
-        /// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
-        /// </summary>
-        public InputList<string> UserAssignedIdentityIds
-        {
-            get => _userAssignedIdentityIds ?? (_userAssignedIdentityIds = new InputList<string>());
-            set => _userAssignedIdentityIds = value;
-        }
 
         public ServerIdentityArgs()
         {

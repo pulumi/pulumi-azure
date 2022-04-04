@@ -25,9 +25,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/blueprint"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/blueprint"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -150,7 +150,7 @@ type Assignment struct {
 	ResourceGroups pulumi.StringPtrOutput `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to.
 	TargetSubscriptionId pulumi.StringOutput `pulumi:"targetSubscriptionId"`
-	// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -218,7 +218,7 @@ type assignmentState struct {
 	ResourceGroups *string `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to.
 	TargetSubscriptionId *string `pulumi:"targetSubscriptionId"`
-	// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
 	Type *string `pulumi:"type"`
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId *string `pulumi:"versionId"`
@@ -249,7 +249,7 @@ type AssignmentState struct {
 	ResourceGroups pulumi.StringPtrInput
 	// The Subscription ID the Blueprint Published Version is to be applied to.
 	TargetSubscriptionId pulumi.StringPtrInput
-	// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+	// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
 	Type pulumi.StringPtrInput
 	// The ID of the Published Version of the blueprint to be assigned.
 	VersionId pulumi.StringPtrInput

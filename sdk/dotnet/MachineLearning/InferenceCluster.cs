@@ -79,7 +79,10 @@ namespace Pulumi.Azure.MachineLearning
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.1.0.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.1.0.0/24",
+    ///             },
     ///         });
     ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
     ///         {

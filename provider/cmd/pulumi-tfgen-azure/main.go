@@ -15,8 +15,8 @@
 package main
 
 import (
-	azure "github.com/pulumi/pulumi-azure/provider/v4"
-	"github.com/pulumi/pulumi-azure/provider/v4/pkg/version"
+	azure "github.com/pulumi/pulumi-azure/provider/v5"
+	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 

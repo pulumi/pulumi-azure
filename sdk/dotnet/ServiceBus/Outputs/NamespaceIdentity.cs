@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
     public sealed class NamespaceIdentity
     {
         /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

@@ -121,10 +121,6 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     public readonly volumeName!: pulumi.Output<string>;
@@ -147,7 +143,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["poolName"] = state ? state.poolName : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["volumeName"] = state ? state.volumeName : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
@@ -168,7 +163,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -201,10 +195,6 @@ export interface SnapshotState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     volumeName?: pulumi.Input<string>;
@@ -234,10 +224,6 @@ export interface SnapshotArgs {
      * The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */

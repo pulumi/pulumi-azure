@@ -32,21 +32,19 @@ import * as cognitive from "./cognitive";
 import * as communication from "./communication";
 import * as compute from "./compute";
 import * as config from "./config";
+import * as connections from "./connections";
 import * as consumption from "./consumption";
 import * as containerservice from "./containerservice";
 import * as core from "./core";
 import * as cosmosdb from "./cosmosdb";
-import * as costmanagement from "./costmanagement";
 import * as dashboard from "./dashboard";
 import * as databasemigration from "./databasemigration";
 import * as databoxedge from "./databoxedge";
 import * as databricks from "./databricks";
 import * as datafactory from "./datafactory";
-import * as datalake from "./datalake";
 import * as dataprotection from "./dataprotection";
 import * as datashare from "./datashare";
 import * as desktopvirtualization from "./desktopvirtualization";
-import * as devspace from "./devspace";
 import * as devtest from "./devtest";
 import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
@@ -88,6 +86,7 @@ import * as network from "./network";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
 import * as policy from "./policy";
+import * as portal from "./portal";
 import * as postgresql from "./postgresql";
 import * as powerbi from "./powerbi";
 import * as privatedns from "./privatedns";
@@ -139,21 +138,19 @@ export {
     communication,
     compute,
     config,
+    connections,
     consumption,
     containerservice,
     core,
     cosmosdb,
-    costmanagement,
     dashboard,
     databasemigration,
     databoxedge,
     databricks,
     datafactory,
-    datalake,
     dataprotection,
     datashare,
     desktopvirtualization,
-    devspace,
     devtest,
     digitaltwins,
     dns,
@@ -195,6 +192,7 @@ export {
     notificationhub,
     operationalinsights,
     policy,
+    portal,
     postgresql,
     powerbi,
     privatedns,

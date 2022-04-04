@@ -10,7 +10,6 @@ from .cluster import *
 from .cluster_customer_managed_key import *
 from .cluster_principal_assignment import *
 from .database import *
-from .database_principal import *
 from .database_principal_assignment import *
 from .event_grid_data_connection import *
 from .eventhub_data_connection import *

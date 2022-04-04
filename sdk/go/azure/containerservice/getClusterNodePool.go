@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -58,7 +58,6 @@ type GetClusterNodePoolArgs struct {
 
 // A collection of values returned by getClusterNodePool.
 type GetClusterNodePoolResult struct {
-	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Does this Node Pool have Auto-Scaling enabled?
 	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
 	// Do nodes in this Node Pool have a Public IP Address?
@@ -148,10 +147,6 @@ func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutput() GetCl
 
 func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutputWithContext(ctx context.Context) GetClusterNodePoolResultOutput {
 	return o
-}
-
-func (o GetClusterNodePoolResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetClusterNodePoolResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // Does this Node Pool have Auto-Scaling enabled?

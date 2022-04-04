@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineIdentity
     {
         /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The ID of the System Managed Service Principal.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The ID of the Tenant the System Managed Service Principal is assigned in.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

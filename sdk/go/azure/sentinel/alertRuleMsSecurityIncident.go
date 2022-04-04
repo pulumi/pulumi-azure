@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/sentinel"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -101,8 +101,6 @@ type AlertRuleMsSecurityIncident struct {
 	ProductFilter pulumi.StringOutput `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters pulumi.StringArrayOutput `pulumi:"severityFilters"`
-	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
-	TextWhitelists pulumi.StringArrayOutput `pulumi:"textWhitelists"`
 }
 
 // NewAlertRuleMsSecurityIncident registers a new resource with the given unique name, arguments, and options.
@@ -166,8 +164,6 @@ type alertRuleMsSecurityIncidentState struct {
 	ProductFilter *string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters []string `pulumi:"severityFilters"`
-	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
-	TextWhitelists []string `pulumi:"textWhitelists"`
 }
 
 type AlertRuleMsSecurityIncidentState struct {
@@ -191,8 +187,6 @@ type AlertRuleMsSecurityIncidentState struct {
 	ProductFilter pulumi.StringPtrInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters pulumi.StringArrayInput
-	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
-	TextWhitelists pulumi.StringArrayInput
 }
 
 func (AlertRuleMsSecurityIncidentState) ElementType() reflect.Type {
@@ -220,8 +214,6 @@ type alertRuleMsSecurityIncidentArgs struct {
 	ProductFilter string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters []string `pulumi:"severityFilters"`
-	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
-	TextWhitelists []string `pulumi:"textWhitelists"`
 }
 
 // The set of arguments for constructing a AlertRuleMsSecurityIncident resource.
@@ -246,8 +238,6 @@ type AlertRuleMsSecurityIncidentArgs struct {
 	ProductFilter pulumi.StringInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters pulumi.StringArrayInput
-	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
-	TextWhitelists pulumi.StringArrayInput
 }
 
 func (AlertRuleMsSecurityIncidentArgs) ElementType() reflect.Type {

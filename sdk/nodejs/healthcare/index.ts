@@ -6,10 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getService";
+export * from "./getWorkspace";
 export * from "./service";
+export * from "./workspace";
 
 // Import resources to register:
 import { Service } from "./service";
+import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +20,12 @@ const _module = {
         switch (type) {
             case "azure:healthcare/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:healthcare/workspace:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "healthcare/service", _module)
+pulumi.runtime.registerResourceModule("azure", "healthcare/workspace", _module)

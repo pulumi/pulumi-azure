@@ -97,10 +97,10 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and less than `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than `102400` GB (`100` TB).
         /// </summary>
         [Output("quota")]
-        public Output<int?> Quota { get; private set; } = null!;
+        public Output<int> Quota { get; private set; } = null!;
 
         /// <summary>
         /// The Resource Manager ID of this File Share.
@@ -204,10 +204,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and less than `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than `102400` GB (`100` TB).
         /// </summary>
-        [Input("quota")]
-        public Input<int>? Quota { get; set; }
+        [Input("quota", required: true)]
+        public Input<int> Quota { get; set; } = null!;
 
         /// <summary>
         /// Specifies the storage account in which to create the share.
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and less than `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than `102400` GB (`100` TB).
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }

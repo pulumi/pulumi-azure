@@ -63,8 +63,8 @@ namespace Pulumi.Azure.DataFactory
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ClusterName = exampleCluster.Name,
     ///             DatabaseName = exampleDatabase.Name,
-    ///             TenantId = exampleFactory.Identity.Apply(identity =&gt; identity.TenantId),
-    ///             PrincipalId = exampleFactory.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///             TenantId = exampleFactory.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///             PrincipalId = exampleFactory.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             PrincipalType = "App",
     ///             Role = "Viewer",
     ///         });

@@ -18,19 +18,6 @@ namespace Pulumi.Azure.Policy.Inputs
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }
 
-        [Input("parameters")]
-        private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-        /// </summary>
-        [Obsolete(@"Deprecated in favour of `parameter_values`")]
-        public InputMap<string> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<string>());
-            set => _parameters = value;
-        }
-
         /// <summary>
         /// The ID of the policy definition or policy set definition that will be included in this policy set definition.
         /// </summary>

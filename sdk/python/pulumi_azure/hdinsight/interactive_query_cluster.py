@@ -640,7 +640,6 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                 interactive_hive="2.1",
             ),
             gateway=azure.hdinsight.InteractiveQueryClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password!",
             ),
@@ -729,7 +728,6 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                 interactive_hive="2.1",
             ),
             gateway=azure.hdinsight.InteractiveQueryClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password!",
             ),

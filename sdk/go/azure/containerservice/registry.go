@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -63,10 +63,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -121,9 +121,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -162,8 +162,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			PrincipalId: exampleKubernetesCluster.KubeletIdentities.ApplyT(func(kubeletIdentities []containerservice.KubernetesClusterKubeletIdentity) (string, error) {
-// 				return kubeletIdentities[0].ObjectId, nil
+// 			PrincipalId: exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (string, error) {
+// 				return kubeletIdentity.ObjectId, nil
 // 			}).(pulumi.StringOutput),
 // 			RoleDefinitionName:           pulumi.String("AcrPull"),
 // 			Scope:                        exampleRegistry.ID(),
@@ -201,10 +201,6 @@ type Registry struct {
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrOutput `pulumi:"exportPolicyEnabled"`
-	// A list of Azure locations where the container registry should be geo-replicated.
-	//
-	// Deprecated: Deprecated in favour of `georeplications`
-	GeoreplicationLocations pulumi.StringArrayOutput `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayOutput `pulumi:"georeplications"`
 	// An `identity` block as defined below.
@@ -227,10 +223,8 @@ type Registry struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy RegistryRetentionPolicyOutput `pulumi:"retentionPolicy"`
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
@@ -248,6 +242,9 @@ func NewRegistry(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource Registry
 	err := ctx.RegisterResource("azure:containerservice/registry:Registry", name, args, &resource, opts...)
@@ -285,10 +282,6 @@ type registryState struct {
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
-	// A list of Azure locations where the container registry should be geo-replicated.
-	//
-	// Deprecated: Deprecated in favour of `georeplications`
-	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
 	// An `identity` block as defined below.
@@ -311,10 +304,8 @@ type registryState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
 	Sku *string `pulumi:"sku"`
-	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
@@ -338,10 +329,6 @@ type RegistryState struct {
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrInput
-	// A list of Azure locations where the container registry should be geo-replicated.
-	//
-	// Deprecated: Deprecated in favour of `georeplications`
-	GeoreplicationLocations pulumi.StringArrayInput
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayInput
 	// An `identity` block as defined below.
@@ -364,10 +351,8 @@ type RegistryState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy RegistryRetentionPolicyPtrInput
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringPtrInput
-	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `trustPolicy` block as documented below.
@@ -391,10 +376,6 @@ type registryArgs struct {
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
-	// A list of Azure locations where the container registry should be geo-replicated.
-	//
-	// Deprecated: Deprecated in favour of `georeplications`
-	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
 	// An `identity` block as defined below.
@@ -415,10 +396,8 @@ type registryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-	Sku *string `pulumi:"sku"`
-	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
@@ -439,10 +418,6 @@ type RegistryArgs struct {
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrInput
-	// A list of Azure locations where the container registry should be geo-replicated.
-	//
-	// Deprecated: Deprecated in favour of `georeplications`
-	GeoreplicationLocations pulumi.StringArrayInput
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayInput
 	// An `identity` block as defined below.
@@ -463,10 +438,8 @@ type RegistryArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `retentionPolicy` block as documented below.
 	RetentionPolicy RegistryRetentionPolicyPtrInput
-	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-	Sku pulumi.StringPtrInput
-	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-	StorageAccountId pulumi.StringPtrInput
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `trustPolicy` block as documented below.

@@ -11,11 +11,11 @@ import (
 )
 
 type IoTHubCloudToDevice struct {
-	// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	DefaultTtl *string `pulumi:"defaultTtl"`
 	// A `feedback` block as defined below.
 	Feedbacks []IoTHubCloudToDeviceFeedback `pulumi:"feedbacks"`
-	// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+	// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 }
 
@@ -31,11 +31,11 @@ type IoTHubCloudToDeviceInput interface {
 }
 
 type IoTHubCloudToDeviceArgs struct {
-	// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
 	// A `feedback` block as defined below.
 	Feedbacks IoTHubCloudToDeviceFeedbackArrayInput `pulumi:"feedbacks"`
-	// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+	// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
 }
 
@@ -116,7 +116,7 @@ func (o IoTHubCloudToDeviceOutput) ToIoTHubCloudToDevicePtrOutputWithContext(ctx
 	}).(IoTHubCloudToDevicePtrOutput)
 }
 
-// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 func (o IoTHubCloudToDeviceOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubCloudToDevice) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
 }
@@ -126,7 +126,7 @@ func (o IoTHubCloudToDeviceOutput) Feedbacks() IoTHubCloudToDeviceFeedbackArrayO
 	return o.ApplyT(func(v IoTHubCloudToDevice) []IoTHubCloudToDeviceFeedback { return v.Feedbacks }).(IoTHubCloudToDeviceFeedbackArrayOutput)
 }
 
-// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
 func (o IoTHubCloudToDeviceOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubCloudToDevice) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
@@ -155,7 +155,7 @@ func (o IoTHubCloudToDevicePtrOutput) Elem() IoTHubCloudToDeviceOutput {
 	}).(IoTHubCloudToDeviceOutput)
 }
 
-// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 func (o IoTHubCloudToDevicePtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubCloudToDevice) *string {
 		if v == nil {
@@ -175,7 +175,7 @@ func (o IoTHubCloudToDevicePtrOutput) Feedbacks() IoTHubCloudToDeviceFeedbackArr
 	}).(IoTHubCloudToDeviceFeedbackArrayOutput)
 }
 
-// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
 func (o IoTHubCloudToDevicePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IoTHubCloudToDevice) *int {
 		if v == nil {
@@ -186,11 +186,11 @@ func (o IoTHubCloudToDevicePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 }
 
 type IoTHubCloudToDeviceFeedback struct {
-	// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+	// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
 	LockDuration *string `pulumi:"lockDuration"`
-	// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+	// The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	TimeToLive *string `pulumi:"timeToLive"`
 }
 
@@ -206,11 +206,11 @@ type IoTHubCloudToDeviceFeedbackInput interface {
 }
 
 type IoTHubCloudToDeviceFeedbackArgs struct {
-	// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+	// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
 	LockDuration pulumi.StringPtrInput `pulumi:"lockDuration"`
-	// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+	// The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
-	// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	TimeToLive pulumi.StringPtrInput `pulumi:"timeToLive"`
 }
 
@@ -265,17 +265,17 @@ func (o IoTHubCloudToDeviceFeedbackOutput) ToIoTHubCloudToDeviceFeedbackOutputWi
 	return o
 }
 
-// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
 func (o IoTHubCloudToDeviceFeedbackOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubCloudToDeviceFeedback) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
 }
 
-// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+// The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
 func (o IoTHubCloudToDeviceFeedbackOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubCloudToDeviceFeedback) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 func (o IoTHubCloudToDeviceFeedbackOutput) TimeToLive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubCloudToDeviceFeedback) *string { return v.TimeToLive }).(pulumi.StringPtrOutput)
 }
@@ -301,7 +301,7 @@ func (o IoTHubCloudToDeviceFeedbackArrayOutput) Index(i pulumi.IntInput) IoTHubC
 }
 
 type IoTHubEndpoint struct {
-	// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	// The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
@@ -317,7 +317,7 @@ type IoTHubEndpoint struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
-	// ID of the User Managed Identity used to authenticate against the endpoint.
+	// The ID of the User Managed Identity used to authenticate against the endpoint.
 	IdentityId *string `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
@@ -341,7 +341,7 @@ type IoTHubEndpointInput interface {
 }
 
 type IoTHubEndpointArgs struct {
-	// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	// The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
@@ -357,7 +357,7 @@ type IoTHubEndpointArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
-	// ID of the User Managed Identity used to authenticate against the endpoint.
+	// The ID of the User Managed Identity used to authenticate against the endpoint.
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
@@ -420,7 +420,7 @@ func (o IoTHubEndpointOutput) ToIoTHubEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+// The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 func (o IoTHubEndpointOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
@@ -460,7 +460,7 @@ func (o IoTHubEndpointOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// ID of the User Managed Identity used to authenticate against the endpoint.
+// The ID of the User Managed Identity used to authenticate against the endpoint.
 func (o IoTHubEndpointOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
@@ -510,7 +510,7 @@ type IoTHubEnrichment struct {
 	EndpointNames []string `pulumi:"endpointNames"`
 	// The key of the enrichment.
 	Key string `pulumi:"key"`
-	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+	// The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
 	Value string `pulumi:"value"`
 }
 
@@ -530,7 +530,7 @@ type IoTHubEnrichmentArgs struct {
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
 	// The key of the enrichment.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+	// The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -595,7 +595,7 @@ func (o IoTHubEnrichmentOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEnrichment) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+// The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
 func (o IoTHubEnrichmentOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEnrichment) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -621,7 +621,7 @@ func (o IoTHubEnrichmentArrayOutput) Index(i pulumi.IntInput) IoTHubEnrichmentOu
 }
 
 type IoTHubFallbackRoute struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -643,7 +643,7 @@ type IoTHubFallbackRouteInput interface {
 }
 
 type IoTHubFallbackRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -730,7 +730,7 @@ func (o IoTHubFallbackRouteOutput) ToIoTHubFallbackRoutePtrOutputWithContext(ctx
 	}).(IoTHubFallbackRoutePtrOutput)
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubFallbackRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -774,7 +774,7 @@ func (o IoTHubFallbackRoutePtrOutput) Elem() IoTHubFallbackRouteOutput {
 	}).(IoTHubFallbackRouteOutput)
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubFallbackRoutePtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFallbackRoute) *string {
 		if v == nil {
@@ -815,19 +815,23 @@ func (o IoTHubFallbackRoutePtrOutput) Source() pulumi.StringPtrOutput {
 }
 
 type IoTHubFileUpload struct {
+	// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString string `pulumi:"connectionString"`
-	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
-	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	// The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	DefaultTtl *string `pulumi:"defaultTtl"`
-	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+	// The ID of the User Managed Identity used to authenticate against the storage account.
+	IdentityId *string `pulumi:"identityId"`
+	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
 	LockDuration *string `pulumi:"lockDuration"`
-	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+	// The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+	// Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
 	Notifications *bool `pulumi:"notifications"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
 	SasTtl *string `pulumi:"sasTtl"`
 }
 
@@ -843,19 +847,23 @@ type IoTHubFileUploadInput interface {
 }
 
 type IoTHubFileUploadArgs struct {
+	// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	// The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
-	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+	// The ID of the User Managed Identity used to authenticate against the storage account.
+	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
+	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
 	LockDuration pulumi.StringPtrInput `pulumi:"lockDuration"`
-	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+	// The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
-	// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+	// Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
 	Notifications pulumi.BoolPtrInput `pulumi:"notifications"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
 	SasTtl pulumi.StringPtrInput `pulumi:"sasTtl"`
 }
 
@@ -936,37 +944,47 @@ func (o IoTHubFileUploadOutput) ToIoTHubFileUploadPtrOutputWithContext(ctx conte
 	}).(IoTHubFileUploadPtrOutput)
 }
 
+// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+func (o IoTHubFileUploadOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
 // The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubFileUploadOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubFileUploadOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+// The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 func (o IoTHubFileUploadOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
 }
 
-// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+// The ID of the User Managed Identity used to authenticate against the storage account.
+func (o IoTHubFileUploadOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
 func (o IoTHubFileUploadOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+// The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
 func (o IoTHubFileUploadOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+// Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
 func (o IoTHubFileUploadOutput) Notifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *bool { return v.Notifications }).(pulumi.BoolPtrOutput)
 }
 
-// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
 func (o IoTHubFileUploadOutput) SasTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.SasTtl }).(pulumi.StringPtrOutput)
 }
@@ -995,6 +1013,16 @@ func (o IoTHubFileUploadPtrOutput) Elem() IoTHubFileUploadOutput {
 	}).(IoTHubFileUploadOutput)
 }
 
+// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+func (o IoTHubFileUploadPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
@@ -1005,7 +1033,7 @@ func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1015,7 +1043,7 @@ func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+// The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1025,7 +1053,17 @@ func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+// The ID of the User Managed Identity used to authenticate against the storage account.
+func (o IoTHubFileUploadPtrOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
 func (o IoTHubFileUploadPtrOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1035,7 +1073,7 @@ func (o IoTHubFileUploadPtrOutput) LockDuration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+// The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
 func (o IoTHubFileUploadPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *int {
 		if v == nil {
@@ -1045,7 +1083,7 @@ func (o IoTHubFileUploadPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+// Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
 func (o IoTHubFileUploadPtrOutput) Notifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *bool {
 		if v == nil {
@@ -1055,7 +1093,7 @@ func (o IoTHubFileUploadPtrOutput) Notifications() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
 func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1066,13 +1104,13 @@ func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
 }
 
 type IoTHubIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -1088,13 +1126,13 @@ type IoTHubIdentityInput interface {
 }
 
 type IoTHubIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1175,22 +1213,22 @@ func (o IoTHubIdentityOutput) ToIoTHubIdentityPtrOutputWithContext(ctx context.C
 	}).(IoTHubIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 func (o IoTHubIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o IoTHubIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the System Managed Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o IoTHubIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o IoTHubIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1219,7 +1257,7 @@ func (o IoTHubIdentityPtrOutput) Elem() IoTHubIdentityOutput {
 	}).(IoTHubIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 func (o IoTHubIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IoTHubIdentity) []string {
 		if v == nil {
@@ -1229,7 +1267,7 @@ func (o IoTHubIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o IoTHubIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubIdentity) *string {
 		if v == nil {
@@ -1239,7 +1277,7 @@ func (o IoTHubIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the System Managed Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o IoTHubIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubIdentity) *string {
 		if v == nil {
@@ -1249,7 +1287,7 @@ func (o IoTHubIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o IoTHubIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubIdentity) *string {
 		if v == nil {
@@ -1257,121 +1295,6 @@ func (o IoTHubIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type IoTHubIpFilterRule struct {
-	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-	Action string `pulumi:"action"`
-	// The IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
-	// The name of the filter.
-	Name string `pulumi:"name"`
-}
-
-// IoTHubIpFilterRuleInput is an input type that accepts IoTHubIpFilterRuleArgs and IoTHubIpFilterRuleOutput values.
-// You can construct a concrete instance of `IoTHubIpFilterRuleInput` via:
-//
-//          IoTHubIpFilterRuleArgs{...}
-type IoTHubIpFilterRuleInput interface {
-	pulumi.Input
-
-	ToIoTHubIpFilterRuleOutput() IoTHubIpFilterRuleOutput
-	ToIoTHubIpFilterRuleOutputWithContext(context.Context) IoTHubIpFilterRuleOutput
-}
-
-type IoTHubIpFilterRuleArgs struct {
-	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-	Action pulumi.StringInput `pulumi:"action"`
-	// The IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// The name of the filter.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (IoTHubIpFilterRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTHubIpFilterRule)(nil)).Elem()
-}
-
-func (i IoTHubIpFilterRuleArgs) ToIoTHubIpFilterRuleOutput() IoTHubIpFilterRuleOutput {
-	return i.ToIoTHubIpFilterRuleOutputWithContext(context.Background())
-}
-
-func (i IoTHubIpFilterRuleArgs) ToIoTHubIpFilterRuleOutputWithContext(ctx context.Context) IoTHubIpFilterRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIpFilterRuleOutput)
-}
-
-// IoTHubIpFilterRuleArrayInput is an input type that accepts IoTHubIpFilterRuleArray and IoTHubIpFilterRuleArrayOutput values.
-// You can construct a concrete instance of `IoTHubIpFilterRuleArrayInput` via:
-//
-//          IoTHubIpFilterRuleArray{ IoTHubIpFilterRuleArgs{...} }
-type IoTHubIpFilterRuleArrayInput interface {
-	pulumi.Input
-
-	ToIoTHubIpFilterRuleArrayOutput() IoTHubIpFilterRuleArrayOutput
-	ToIoTHubIpFilterRuleArrayOutputWithContext(context.Context) IoTHubIpFilterRuleArrayOutput
-}
-
-type IoTHubIpFilterRuleArray []IoTHubIpFilterRuleInput
-
-func (IoTHubIpFilterRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IoTHubIpFilterRule)(nil)).Elem()
-}
-
-func (i IoTHubIpFilterRuleArray) ToIoTHubIpFilterRuleArrayOutput() IoTHubIpFilterRuleArrayOutput {
-	return i.ToIoTHubIpFilterRuleArrayOutputWithContext(context.Background())
-}
-
-func (i IoTHubIpFilterRuleArray) ToIoTHubIpFilterRuleArrayOutputWithContext(ctx context.Context) IoTHubIpFilterRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIpFilterRuleArrayOutput)
-}
-
-type IoTHubIpFilterRuleOutput struct{ *pulumi.OutputState }
-
-func (IoTHubIpFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTHubIpFilterRule)(nil)).Elem()
-}
-
-func (o IoTHubIpFilterRuleOutput) ToIoTHubIpFilterRuleOutput() IoTHubIpFilterRuleOutput {
-	return o
-}
-
-func (o IoTHubIpFilterRuleOutput) ToIoTHubIpFilterRuleOutputWithContext(ctx context.Context) IoTHubIpFilterRuleOutput {
-	return o
-}
-
-// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-func (o IoTHubIpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
-}
-
-// The IP address range in CIDR notation for the rule.
-func (o IoTHubIpFilterRuleOutput) IpMask() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubIpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
-}
-
-// The name of the filter.
-func (o IoTHubIpFilterRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubIpFilterRule) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type IoTHubIpFilterRuleArrayOutput struct{ *pulumi.OutputState }
-
-func (IoTHubIpFilterRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IoTHubIpFilterRule)(nil)).Elem()
-}
-
-func (o IoTHubIpFilterRuleArrayOutput) ToIoTHubIpFilterRuleArrayOutput() IoTHubIpFilterRuleArrayOutput {
-	return o
-}
-
-func (o IoTHubIpFilterRuleArrayOutput) ToIoTHubIpFilterRuleArrayOutputWithContext(ctx context.Context) IoTHubIpFilterRuleArrayOutput {
-	return o
-}
-
-func (o IoTHubIpFilterRuleArrayOutput) Index(i pulumi.IntInput) IoTHubIpFilterRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHubIpFilterRule {
-		return vs[0].([]IoTHubIpFilterRule)[vs[1].(int)]
-	}).(IoTHubIpFilterRuleOutput)
 }
 
 type IoTHubNetworkRuleSet struct {
@@ -1605,7 +1528,7 @@ func (o IoTHubNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) IoTHubNe
 }
 
 type IoTHubRoute struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether a route is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -1629,7 +1552,7 @@ type IoTHubRouteInput interface {
 }
 
 type IoTHubRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
 	// Used to specify whether a route is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -1692,7 +1615,7 @@ func (o IoTHubRouteOutput) ToIoTHubRouteOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -2433,16 +2356,10 @@ func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
 type SecurityDeviceGroupAllowRule struct {
 	// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
 	ConnectionFromIpsNotAlloweds []string `pulumi:"connectionFromIpsNotAlloweds"`
-	// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	ConnectionToIpNotAlloweds []string `pulumi:"connectionToIpNotAlloweds"`
 	// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
 	ConnectionToIpsNotAlloweds []string `pulumi:"connectionToIpsNotAlloweds"`
-	// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	LocalUserNotAlloweds []string `pulumi:"localUserNotAlloweds"`
 	// Specifies which local user is not allowed to Login in current device group.
 	LocalUsersNotAlloweds []string `pulumi:"localUsersNotAlloweds"`
-	// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	ProcessNotAlloweds []string `pulumi:"processNotAlloweds"`
 	// Specifies which process is not allowed to be executed in current device group.
 	ProcessesNotAlloweds []string `pulumi:"processesNotAlloweds"`
 }
@@ -2461,16 +2378,10 @@ type SecurityDeviceGroupAllowRuleInput interface {
 type SecurityDeviceGroupAllowRuleArgs struct {
 	// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
 	ConnectionFromIpsNotAlloweds pulumi.StringArrayInput `pulumi:"connectionFromIpsNotAlloweds"`
-	// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	ConnectionToIpNotAlloweds pulumi.StringArrayInput `pulumi:"connectionToIpNotAlloweds"`
 	// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
 	ConnectionToIpsNotAlloweds pulumi.StringArrayInput `pulumi:"connectionToIpsNotAlloweds"`
-	// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	LocalUserNotAlloweds pulumi.StringArrayInput `pulumi:"localUserNotAlloweds"`
 	// Specifies which local user is not allowed to Login in current device group.
 	LocalUsersNotAlloweds pulumi.StringArrayInput `pulumi:"localUsersNotAlloweds"`
-	// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	ProcessNotAlloweds pulumi.StringArrayInput `pulumi:"processNotAlloweds"`
 	// Specifies which process is not allowed to be executed in current device group.
 	ProcessesNotAlloweds pulumi.StringArrayInput `pulumi:"processesNotAlloweds"`
 }
@@ -2557,29 +2468,14 @@ func (o SecurityDeviceGroupAllowRuleOutput) ConnectionFromIpsNotAlloweds() pulum
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionFromIpsNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o SecurityDeviceGroupAllowRuleOutput) ConnectionToIpNotAlloweds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionToIpNotAlloweds }).(pulumi.StringArrayOutput)
-}
-
 // Specifies which IP is not allowed to be connected to in current device group for outbound connection.
 func (o SecurityDeviceGroupAllowRuleOutput) ConnectionToIpsNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionToIpsNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o SecurityDeviceGroupAllowRuleOutput) LocalUserNotAlloweds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.LocalUserNotAlloweds }).(pulumi.StringArrayOutput)
-}
-
 // Specifies which local user is not allowed to Login in current device group.
 func (o SecurityDeviceGroupAllowRuleOutput) LocalUsersNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.LocalUsersNotAlloweds }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o SecurityDeviceGroupAllowRuleOutput) ProcessNotAlloweds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ProcessNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies which process is not allowed to be executed in current device group.
@@ -2621,16 +2517,6 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionFromIpsNotAlloweds() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpNotAlloweds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectionToIpNotAlloweds
-	}).(pulumi.StringArrayOutput)
-}
-
 // Specifies which IP is not allowed to be connected to in current device group for outbound connection.
 func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpsNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
@@ -2641,16 +2527,6 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpsNotAlloweds() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUserNotAlloweds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
-		if v == nil {
-			return nil
-		}
-		return v.LocalUserNotAlloweds
-	}).(pulumi.StringArrayOutput)
-}
-
 // Specifies which local user is not allowed to Login in current device group.
 func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUsersNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
@@ -2658,16 +2534,6 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUsersNotAlloweds() pulumi.St
 			return nil
 		}
 		return v.LocalUsersNotAlloweds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o SecurityDeviceGroupAllowRulePtrOutput) ProcessNotAlloweds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ProcessNotAlloweds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -3610,8 +3476,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubFileUploadPtrInput)(nil)).Elem(), IoTHubFileUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIdentityInput)(nil)).Elem(), IoTHubIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIdentityPtrInput)(nil)).Elem(), IoTHubIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIpFilterRuleInput)(nil)).Elem(), IoTHubIpFilterRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIpFilterRuleArrayInput)(nil)).Elem(), IoTHubIpFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetInput)(nil)).Elem(), IoTHubNetworkRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetArrayInput)(nil)).Elem(), IoTHubNetworkRuleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubNetworkRuleSetIpRuleInput)(nil)).Elem(), IoTHubNetworkRuleSetIpRuleArgs{})
@@ -3654,8 +3518,6 @@ func init() {
 	pulumi.RegisterOutputType(IoTHubFileUploadPtrOutput{})
 	pulumi.RegisterOutputType(IoTHubIdentityOutput{})
 	pulumi.RegisterOutputType(IoTHubIdentityPtrOutput{})
-	pulumi.RegisterOutputType(IoTHubIpFilterRuleOutput{})
-	pulumi.RegisterOutputType(IoTHubIpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubNetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(IoTHubNetworkRuleSetArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubNetworkRuleSetIpRuleOutput{})

@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  *         hadoop: "2.7",
  *     },
  *     gateway: {
- *         enabled: true,
  *         username: "acctestusrgw",
  *         password: "PAssword123!",
  *     },

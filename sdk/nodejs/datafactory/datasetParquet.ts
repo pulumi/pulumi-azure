@@ -20,13 +20,11 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetParquet = new azure.datafactory.DatasetParquet("exampleDatasetParquet", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     httpServerLocation: {
@@ -90,13 +88,10 @@ export class DatasetParquet extends pulumi.CustomResource {
      */
     public readonly compressionCodec!: pulumi.Output<string | undefined>;
     public readonly compressionLevel!: pulumi.Output<string | undefined>;
-    public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      */
-    public readonly dataFactoryName!: pulumi.Output<string>;
+    public readonly dataFactoryId!: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -122,10 +117,6 @@ export class DatasetParquet extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetParquetSchemaColumn[] | undefined>;
@@ -149,22 +140,20 @@ export class DatasetParquet extends pulumi.CustomResource {
             resourceInputs["compressionCodec"] = state ? state.compressionCodec : undefined;
             resourceInputs["compressionLevel"] = state ? state.compressionLevel : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["folder"] = state ? state.folder : undefined;
             resourceInputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
             resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetParquetArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
@@ -172,14 +161,12 @@ export class DatasetParquet extends pulumi.CustomResource {
             resourceInputs["compressionCodec"] = args ? args.compressionCodec : undefined;
             resourceInputs["compressionLevel"] = args ? args.compressionLevel : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
             resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -208,13 +195,10 @@ export interface DatasetParquetState {
      */
     compressionCodec?: pulumi.Input<string>;
     compressionLevel?: pulumi.Input<string>;
-    dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -239,10 +223,6 @@ export interface DatasetParquetState {
      * A map of parameters to associate with the Data Factory Dataset.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
@@ -270,13 +250,10 @@ export interface DatasetParquetArgs {
      */
     compressionCodec?: pulumi.Input<string>;
     compressionLevel?: pulumi.Input<string>;
-    dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -301,10 +278,6 @@ export interface DatasetParquetArgs {
      * A map of parameters to associate with the Data Factory Dataset.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */

@@ -39,7 +39,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///             EventLogName = "Application",
     ///             EventTypes = 
     ///             {
-    ///                 "error",
+    ///                 "Error",
     ///             },
     ///         });
     ///     }
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> EventLogName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+        /// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.LogAnalytics
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+        /// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.LogAnalytics
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+        /// Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         /// </summary>
         public InputList<string> EventTypes
         {

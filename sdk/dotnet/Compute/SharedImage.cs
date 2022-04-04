@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Compute
     public partial class SharedImage : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("acceleratedNetworkSupportEnabled")]
+        public Output<bool?> AcceleratedNetworkSupportEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A description of this Shared Image.
         /// </summary>
         [Output("description")]
@@ -203,6 +209,12 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("acceleratedNetworkSupportEnabled")]
+        public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
+
+        /// <summary>
         /// A description of this Shared Image.
         /// </summary>
         [Input("description")]
@@ -305,6 +317,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class SharedImageState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("acceleratedNetworkSupportEnabled")]
+        public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
+
         /// <summary>
         /// A description of this Shared Image.
         /// </summary>

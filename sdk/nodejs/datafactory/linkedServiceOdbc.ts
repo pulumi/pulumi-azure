@@ -22,12 +22,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const anonymous = new azure.datafactory.LinkedServiceOdbc("anonymous", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
  * });
  * const basicAuth = new azure.datafactory.LinkedServiceOdbc("basicAuth", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
  *     basicAuthentication: {
@@ -109,10 +107,6 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service ODBC.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service ODBC. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a LinkedServiceOdbc resource with the given unique name, arguments, and options.
@@ -136,7 +130,6 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
             resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceOdbcArgs | undefined;
             if ((!args || args.connectionString === undefined) && !opts.urn) {
@@ -144,9 +137,6 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
             }
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
@@ -157,7 +147,6 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedServiceOdbc.__pulumiType, name, resourceInputs, opts);
@@ -204,10 +193,6 @@ export interface LinkedServiceOdbcState {
      * A map of parameters to associate with the Data Factory Linked Service ODBC.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service ODBC. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -250,8 +235,4 @@ export interface LinkedServiceOdbcArgs {
      * A map of parameters to associate with the Data Factory Linked Service ODBC.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service ODBC. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

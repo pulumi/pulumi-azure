@@ -22,6 +22,7 @@ __all__ = [
     'FrontdoorBackendPoolBackendArgs',
     'FrontdoorBackendPoolHealthProbeArgs',
     'FrontdoorBackendPoolLoadBalancingArgs',
+    'FrontdoorBackendPoolSettingArgs',
     'FrontdoorExplicitResourceOrderArgs',
     'FrontdoorFrontendEndpointArgs',
     'FrontdoorRoutingRuleArgs',
@@ -1125,6 +1126,44 @@ class FrontdoorBackendPoolLoadBalancingArgs:
     @successful_samples_required.setter
     def successful_samples_required(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "successful_samples_required", value)
+
+
+@pulumi.input_type
+class FrontdoorBackendPoolSettingArgs:
+    def __init__(__self__, *,
+                 enforce_backend_pools_certificate_name_check: pulumi.Input[bool],
+                 backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        :param pulumi.Input[int] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        """
+        pulumi.set(__self__, "enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
+        if backend_pools_send_receive_timeout_seconds is not None:
+            pulumi.set(__self__, "backend_pools_send_receive_timeout_seconds", backend_pools_send_receive_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="enforceBackendPoolsCertificateNameCheck")
+    def enforce_backend_pools_certificate_name_check(self) -> pulumi.Input[bool]:
+        """
+        Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        """
+        return pulumi.get(self, "enforce_backend_pools_certificate_name_check")
+
+    @enforce_backend_pools_certificate_name_check.setter
+    def enforce_backend_pools_certificate_name_check(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enforce_backend_pools_certificate_name_check", value)
+
+    @property
+    @pulumi.getter(name="backendPoolsSendReceiveTimeoutSeconds")
+    def backend_pools_send_receive_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        """
+        return pulumi.get(self, "backend_pools_send_receive_timeout_seconds")
+
+    @backend_pools_send_receive_timeout_seconds.setter
+    def backend_pools_send_receive_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backend_pools_send_receive_timeout_seconds", value)
 
 
 @pulumi.input_type

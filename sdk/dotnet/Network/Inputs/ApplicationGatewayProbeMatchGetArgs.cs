@@ -13,12 +13,12 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewayProbeMatchGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A snippet from the Response Body which must be present in the Response..
+        /// A snippet from the Response Body which must be present in the Response.
         /// </summary>
-        [Input("body")]
-        public Input<string>? Body { get; set; }
+        [Input("body", required: true)]
+        public Input<string> Body { get; set; } = null!;
 
-        [Input("statusCodes")]
+        [Input("statusCodes", required: true)]
         private InputList<string>? _statusCodes;
 
         /// <summary>

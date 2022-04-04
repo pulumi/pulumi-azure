@@ -28,7 +28,6 @@ export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Prom
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:management/getGroup:getGroup", {
         "displayName": args.displayName,
-        "groupId": args.groupId,
         "name": args.name,
     }, opts);
 }
@@ -43,12 +42,6 @@ export interface GetGroupArgs {
     displayName?: string;
     /**
      * Specifies the name or UUID of this Management Group.
-     *
-     * @deprecated Deprecated in favour of `name`
-     */
-    groupId?: string;
-    /**
-     * Specifies the name or UUID of this Management Group.
      */
     name?: string;
 }
@@ -58,10 +51,6 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     readonly displayName: string;
-    /**
-     * @deprecated Deprecated in favour of `name`
-     */
-    readonly groupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -89,12 +78,6 @@ export interface GetGroupOutputArgs {
      * Specifies the display name of this Management Group.
      */
     displayName?: pulumi.Input<string>;
-    /**
-     * Specifies the name or UUID of this Management Group.
-     *
-     * @deprecated Deprecated in favour of `name`
-     */
-    groupId?: pulumi.Input<string>;
     /**
      * Specifies the name or UUID of this Management Group.
      */

@@ -10,11 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages a Function App.
-    /// 
-    /// &gt; **Note:** To connect an Azure Function App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
-    /// For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
-    /// 
     /// ## Example Usage
     /// ### With App Service Plan)
     /// 
@@ -241,12 +236,6 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.FunctionAppAuthSettings> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        /// </summary>
-        [Output("clientAffinityEnabled")]
-        public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         /// </summary>
         [Output("clientCertMode")]
@@ -298,7 +287,7 @@ namespace Pulumi.Azure.AppService
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.FunctionAppIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.FunctionAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
@@ -377,9 +366,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
-
-        [Output("storageConnectionString")]
-        public Output<string> StorageConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -462,12 +448,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.FunctionAppAuthSettingsArgs>? AuthSettings { get; set; }
-
-        /// <summary>
-        /// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        /// </summary>
-        [Input("clientAffinityEnabled")]
-        public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
         /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -562,17 +542,14 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        [Input("storageAccountAccessKey", required: true)]
+        public Input<string> StorageAccountAccessKey { get; set; } = null!;
 
         /// <summary>
         /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
-        [Input("storageConnectionString")]
-        public Input<string>? StorageConnectionString { get; set; }
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -622,12 +599,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.FunctionAppAuthSettingsGetArgs>? AuthSettings { get; set; }
-
-        /// <summary>
-        /// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        /// </summary>
-        [Input("clientAffinityEnabled")]
-        public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
         /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -772,9 +743,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
-
-        [Input("storageConnectionString")]
-        public Input<string>? StorageConnectionString { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

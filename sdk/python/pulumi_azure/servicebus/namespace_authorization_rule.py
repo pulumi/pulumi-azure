@@ -13,41 +13,40 @@ __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
 @pulumi.input_type
 class NamespaceAuthorizationRuleArgs:
     def __init__(__self__, *,
+                 namespace_id: pulumi.Input[str],
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if listen is not None:
             pulumi.set(__self__, "listen", listen)
         if manage is not None:
             pulumi.set(__self__, "manage", manage)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if send is not None:
             pulumi.set(__self__, "send", send)
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_id", value)
 
     @property
     @pulumi.getter
@@ -86,36 +85,6 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_id")
-
-    @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_id", value)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -135,11 +104,9 @@ class _NamespaceAuthorizationRuleState:
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
@@ -166,22 +133,12 @@ class _NamespaceAuthorizationRuleState:
             pulumi.set(__self__, "name", name)
         if namespace_id is not None:
             pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if primary_connection_string is not None:
             pulumi.set(__self__, "primary_connection_string", primary_connection_string)
         if primary_connection_string_alias is not None:
             pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
             pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
         if secondary_connection_string_alias is not None:
@@ -240,15 +197,6 @@ class _NamespaceAuthorizationRuleState:
         pulumi.set(self, "namespace_id", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
@@ -283,15 +231,6 @@ class _NamespaceAuthorizationRuleState:
     @primary_key.setter
     def primary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "primary_key", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
@@ -351,8 +290,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -399,7 +336,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NamespaceAuthorizationRuleArgs] = None,
+                 args: NamespaceAuthorizationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
@@ -452,8 +389,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -470,15 +405,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage
             __props__.__dict__["name"] = name
+            if namespace_id is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace_id'")
             __props__.__dict__["namespace_id"] = namespace_id
-            if namespace_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["namespace_name"] = namespace_name
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["send"] = send
             __props__.__dict__["primary_connection_string"] = None
             __props__.__dict__["primary_connection_string_alias"] = None
@@ -502,11 +431,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             manage: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_id: Optional[pulumi.Input[str]] = None,
-            namespace_name: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
@@ -538,11 +465,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["manage"] = manage
         __props__.__dict__["name"] = name
         __props__.__dict__["namespace_id"] = namespace_id
-        __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["primary_connection_string"] = primary_connection_string
         __props__.__dict__["primary_connection_string_alias"] = primary_connection_string_alias
         __props__.__dict__["primary_key"] = primary_key
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_connection_string"] = secondary_connection_string
         __props__.__dict__["secondary_connection_string_alias"] = secondary_connection_string_alias
         __props__.__dict__["secondary_key"] = secondary_key
@@ -582,11 +507,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "namespace_id")
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "namespace_name")
-
-    @property
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> pulumi.Output[str]:
         """
@@ -609,11 +529,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         The Primary Key for the ServiceBus Namespace authorization Rule.
         """
         return pulumi.get(self, "primary_key")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="secondaryConnectionString")

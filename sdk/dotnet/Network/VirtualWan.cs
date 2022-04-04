@@ -53,9 +53,6 @@ namespace Pulumi.Azure.Network
         [Output("allowBranchToBranchTraffic")]
         public Output<bool?> AllowBranchToBranchTraffic { get; private set; } = null!;
 
-        [Output("allowVnetToVnetTraffic")]
-        public Output<bool?> AllowVnetToVnetTraffic { get; private set; } = null!;
-
         /// <summary>
         /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         /// </summary>
@@ -150,9 +147,6 @@ namespace Pulumi.Azure.Network
         [Input("allowBranchToBranchTraffic")]
         public Input<bool>? AllowBranchToBranchTraffic { get; set; }
 
-        [Input("allowVnetToVnetTraffic")]
-        public Input<bool>? AllowVnetToVnetTraffic { get; set; }
-
         /// <summary>
         /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         /// </summary>
@@ -213,9 +207,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("allowBranchToBranchTraffic")]
         public Input<bool>? AllowBranchToBranchTraffic { get; set; }
-
-        [Input("allowVnetToVnetTraffic")]
-        public Input<bool>? AllowVnetToVnetTraffic { get; set; }
 
         /// <summary>
         /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.

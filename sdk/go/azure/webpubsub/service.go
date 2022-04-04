@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Web Pubsub Service.
+// Manages an Azure Web PubSub Service.
 //
 // ## Example Usage
 //
@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/webpubsub"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -57,7 +57,7 @@ import (
 //
 // ## Import
 //
-// Web Pubsub services can be imported using the `resource id`, e.g.
+// Web PubSub services can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
@@ -67,11 +67,11 @@ type Service struct {
 
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrOutput `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity   pulumi.IntPtrOutput `pulumi:"capacity"`
 	ExternalIp pulumi.StringOutput `pulumi:"externalIp"`
-	// The FQDN of the Web Pubsub service.
+	// The FQDN of the Web PubSub service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
@@ -79,27 +79,27 @@ type Service struct {
 	LiveTrace ServiceLiveTracePtrOutput `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
-	// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
 	// forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The primary access key for the Web Pubsub service.
+	// The primary access key for the Web PubSub service.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
-	// The primary connection string for the Web Pubsub service.
+	// The primary connection string for the Web PubSub service.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+	// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
 	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The name of the resource group in which to create the Web Pubsub service. Changing
+	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The secondary access key for the Web Pubsub service.
+	// The secondary access key for the Web PubSub service.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
-	// The secondary connection string for the Web Pubsub service.
+	// The secondary connection string for the Web PubSub service.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
-	// The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
 	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
@@ -148,11 +148,11 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity   *int    `pulumi:"capacity"`
 	ExternalIp *string `pulumi:"externalIp"`
-	// The FQDN of the Web Pubsub service.
+	// The FQDN of the Web PubSub service.
 	Hostname *string `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -160,27 +160,27 @@ type serviceState struct {
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
-	// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
 	// forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The primary access key for the Web Pubsub service.
+	// The primary access key for the Web PubSub service.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
-	// The primary connection string for the Web Pubsub service.
+	// The primary connection string for the Web PubSub service.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+	// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
 	PublicPort *int `pulumi:"publicPort"`
-	// The name of the resource group in which to create the Web Pubsub service. Changing
+	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The secondary access key for the Web Pubsub service.
+	// The secondary access key for the Web PubSub service.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
-	// The secondary connection string for the Web Pubsub service.
+	// The secondary connection string for the Web PubSub service.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort *int `pulumi:"serverPort"`
 	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku *string `pulumi:"sku"`
@@ -195,11 +195,11 @@ type serviceState struct {
 type ServiceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
-	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity   pulumi.IntPtrInput
 	ExternalIp pulumi.StringPtrInput
-	// The FQDN of the Web Pubsub service.
+	// The FQDN of the Web PubSub service.
 	Hostname pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
@@ -207,27 +207,27 @@ type ServiceState struct {
 	LiveTrace ServiceLiveTracePtrInput
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
 	// forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The primary access key for the Web Pubsub service.
+	// The primary access key for the Web PubSub service.
 	PrimaryAccessKey pulumi.StringPtrInput
-	// The primary connection string for the Web Pubsub service.
+	// The primary connection string for the Web PubSub service.
 	PrimaryConnectionString pulumi.StringPtrInput
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+	// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
 	PublicPort pulumi.IntPtrInput
-	// The name of the resource group in which to create the Web Pubsub service. Changing
+	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The secondary access key for the Web Pubsub service.
+	// The secondary access key for the Web PubSub service.
 	SecondaryAccessKey pulumi.StringPtrInput
-	// The secondary connection string for the Web Pubsub service.
+	// The secondary connection string for the Web PubSub service.
 	SecondaryConnectionString pulumi.StringPtrInput
-	// The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort pulumi.IntPtrInput
 	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku pulumi.StringPtrInput
@@ -246,7 +246,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity *int `pulumi:"capacity"`
 	// An `identity` block as defined below.
@@ -255,14 +255,14 @@ type serviceArgs struct {
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
-	// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
 	// forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to create the Web Pubsub service. Changing
+	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
@@ -278,7 +278,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
-	// Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are:
 	// Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
 	Capacity pulumi.IntPtrInput
 	// An `identity` block as defined below.
@@ -287,14 +287,14 @@ type ServiceArgs struct {
 	LiveTrace ServiceLiveTracePtrInput
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
 	// forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Web Pubsub service. Changing this forces a new resource to be created.
+	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to create the Web Pubsub service. Changing
+	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.

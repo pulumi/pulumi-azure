@@ -21,9 +21,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/sentinel"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -81,14 +81,22 @@ import (
 type AlertRuleScheduled struct {
 	pulumi.CustomResourceState
 
+	// An `alertDetailsOverride` block as defined below.
+	AlertDetailsOverrides AlertRuleScheduledAlertDetailsOverrideArrayOutput `pulumi:"alertDetailsOverrides"`
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid pulumi.StringPtrOutput `pulumi:"alertRuleTemplateGuid"`
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateVersion pulumi.StringPtrOutput `pulumi:"alertRuleTemplateVersion"`
+	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+	CustomDetails pulumi.StringMapOutput `pulumi:"customDetails"`
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// A list of `entityMapping` blocks as defined below.
+	EntityMappings AlertRuleScheduledEntityMappingArrayOutput `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
 	EventGrouping AlertRuleScheduledEventGroupingPtrOutput `pulumi:"eventGrouping"`
 	// A `incidentConfiguration` block as defined below.
@@ -158,14 +166,22 @@ func GetAlertRuleScheduled(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRuleScheduled resources.
 type alertRuleScheduledState struct {
+	// An `alertDetailsOverride` block as defined below.
+	AlertDetailsOverrides []AlertRuleScheduledAlertDetailsOverride `pulumi:"alertDetailsOverrides"`
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateVersion *string `pulumi:"alertRuleTemplateVersion"`
+	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+	CustomDetails map[string]string `pulumi:"customDetails"`
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName *string `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A list of `entityMapping` blocks as defined below.
+	EntityMappings []AlertRuleScheduledEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
 	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
 	// A `incidentConfiguration` block as defined below.
@@ -195,14 +211,22 @@ type alertRuleScheduledState struct {
 }
 
 type AlertRuleScheduledState struct {
+	// An `alertDetailsOverride` block as defined below.
+	AlertDetailsOverrides AlertRuleScheduledAlertDetailsOverrideArrayInput
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid pulumi.StringPtrInput
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateVersion pulumi.StringPtrInput
+	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+	CustomDetails pulumi.StringMapInput
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// A list of `entityMapping` blocks as defined below.
+	EntityMappings AlertRuleScheduledEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
 	EventGrouping AlertRuleScheduledEventGroupingPtrInput
 	// A `incidentConfiguration` block as defined below.
@@ -236,14 +260,22 @@ func (AlertRuleScheduledState) ElementType() reflect.Type {
 }
 
 type alertRuleScheduledArgs struct {
+	// An `alertDetailsOverride` block as defined below.
+	AlertDetailsOverrides []AlertRuleScheduledAlertDetailsOverride `pulumi:"alertDetailsOverrides"`
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateVersion *string `pulumi:"alertRuleTemplateVersion"`
+	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+	CustomDetails map[string]string `pulumi:"customDetails"`
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName string `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A list of `entityMapping` blocks as defined below.
+	EntityMappings []AlertRuleScheduledEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
 	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
 	// A `incidentConfiguration` block as defined below.
@@ -274,14 +306,22 @@ type alertRuleScheduledArgs struct {
 
 // The set of arguments for constructing a AlertRuleScheduled resource.
 type AlertRuleScheduledArgs struct {
+	// An `alertDetailsOverride` block as defined below.
+	AlertDetailsOverrides AlertRuleScheduledAlertDetailsOverrideArrayInput
 	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	AlertRuleTemplateGuid pulumi.StringPtrInput
+	// The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateVersion pulumi.StringPtrInput
+	// A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
+	CustomDetails pulumi.StringMapInput
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName pulumi.StringInput
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// A list of `entityMapping` blocks as defined below.
+	EntityMappings AlertRuleScheduledEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
 	EventGrouping AlertRuleScheduledEventGroupingPtrInput
 	// A `incidentConfiguration` block as defined below.

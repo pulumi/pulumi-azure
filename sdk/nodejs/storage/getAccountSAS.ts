@@ -55,6 +55,8 @@ import * as utilities from "../utilities";
  *         create: true,
  *         update: false,
  *         process: false,
+ *         tag: false,
+ *         filter: false,
  *     },
  * });
  * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);

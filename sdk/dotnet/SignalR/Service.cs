@@ -89,19 +89,13 @@ namespace Pulumi.Azure.SignalR
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Output("connectivityLogsEnabled")]
-        public Output<bool> ConnectivityLogsEnabled { get; private set; } = null!;
+        public Output<bool?> ConnectivityLogsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `cors` block as documented below.
         /// </summary>
         [Output("cors")]
         public Output<ImmutableArray<Outputs.ServiceCor>> Cors { get; private set; } = null!;
-
-        /// <summary>
-        /// A `features` block as documented below.
-        /// </summary>
-        [Output("features")]
-        public Output<ImmutableArray<Outputs.ServiceFeature>> Features { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the SignalR service.
@@ -119,7 +113,7 @@ namespace Pulumi.Azure.SignalR
         /// Specifies if Live Trace is enabled or not. Defaults to `false`.
         /// </summary>
         [Output("liveTraceEnabled")]
-        public Output<bool> LiveTraceEnabled { get; private set; } = null!;
+        public Output<bool?> LiveTraceEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -131,7 +125,7 @@ namespace Pulumi.Azure.SignalR
         /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Output("messagingLogsEnabled")]
-        public Output<bool> MessagingLogsEnabled { get; private set; } = null!;
+        public Output<bool?> MessagingLogsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the SignalR service. Changing this forces a new resource to be created.
@@ -185,7 +179,7 @@ namespace Pulumi.Azure.SignalR
         /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         /// </summary>
         [Output("serviceMode")]
-        public Output<string> ServiceMode { get; private set; } = null!;
+        public Output<string?> ServiceMode { get; private set; } = null!;
 
         /// <summary>
         /// A `sku` block as documented below.
@@ -267,19 +261,6 @@ namespace Pulumi.Azure.SignalR
         {
             get => _cors ?? (_cors = new InputList<Inputs.ServiceCorArgs>());
             set => _cors = value;
-        }
-
-        [Input("features")]
-        private InputList<Inputs.ServiceFeatureArgs>? _features;
-
-        /// <summary>
-        /// A `features` block as documented below.
-        /// </summary>
-        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`")]
-        public InputList<Inputs.ServiceFeatureArgs> Features
-        {
-            get => _features ?? (_features = new InputList<Inputs.ServiceFeatureArgs>());
-            set => _features = value;
         }
 
         /// <summary>
@@ -371,19 +352,6 @@ namespace Pulumi.Azure.SignalR
         {
             get => _cors ?? (_cors = new InputList<Inputs.ServiceCorGetArgs>());
             set => _cors = value;
-        }
-
-        [Input("features")]
-        private InputList<Inputs.ServiceFeatureGetArgs>? _features;
-
-        /// <summary>
-        /// A `features` block as documented below.
-        /// </summary>
-        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`")]
-        public InputList<Inputs.ServiceFeatureGetArgs> Features
-        {
-            get => _features ?? (_features = new InputList<Inputs.ServiceFeatureGetArgs>());
-            set => _features = value;
         }
 
         /// <summary>

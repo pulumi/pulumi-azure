@@ -95,10 +95,6 @@ export class StorageInsights extends pulumi.CustomResource {
      */
     public readonly tableNames!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
     public readonly workspaceId!: pulumi.Output<string>;
@@ -122,7 +118,6 @@ export class StorageInsights extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
             resourceInputs["tableNames"] = state ? state.tableNames : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as StorageInsightsArgs | undefined;
@@ -144,7 +139,6 @@ export class StorageInsights extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
             resourceInputs["tableNames"] = args ? args.tableNames : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -181,10 +175,6 @@ export interface StorageInsightsState {
      */
     tableNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
     workspaceId?: pulumi.Input<string>;
@@ -218,10 +208,6 @@ export interface StorageInsightsArgs {
      * The names of the Azure tables that the workspace should read.
      */
     tableNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */

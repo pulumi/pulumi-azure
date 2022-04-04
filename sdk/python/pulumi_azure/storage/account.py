@@ -20,11 +20,12 @@ class AccountArgs:
                  resource_group_name: pulumi.Input[str],
                  access_tier: Optional[pulumi.Input[str]] = None,
                  account_kind: Optional[pulumi.Input[str]] = None,
-                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -50,11 +51,12 @@ class AccountArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
-        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -81,8 +83,8 @@ class AccountArgs:
             pulumi.set(__self__, "access_tier", access_tier)
         if account_kind is not None:
             pulumi.set(__self__, "account_kind", account_kind)
-        if allow_blob_public_access is not None:
-            pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if allow_nested_items_to_be_public is not None:
+            pulumi.set(__self__, "allow_nested_items_to_be_public", allow_nested_items_to_be_public)
         if azure_files_authentication is not None:
             pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
@@ -91,6 +93,8 @@ class AccountArgs:
             pulumi.set(__self__, "custom_domain", custom_domain)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
@@ -189,16 +193,16 @@ class AccountArgs:
         pulumi.set(self, "account_kind", value)
 
     @property
-    @pulumi.getter(name="allowBlobPublicAccess")
-    def allow_blob_public_access(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="allowNestedItemsToBePublic")
+    def allow_nested_items_to_be_public(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         """
-        return pulumi.get(self, "allow_blob_public_access")
+        return pulumi.get(self, "allow_nested_items_to_be_public")
 
-    @allow_blob_public_access.setter
-    def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_blob_public_access", value)
+    @allow_nested_items_to_be_public.setter
+    def allow_nested_items_to_be_public(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_nested_items_to_be_public", value)
 
     @property
     @pulumi.getter(name="azureFilesAuthentication")
@@ -247,6 +251,18 @@ class AccountArgs:
     @customer_managed_key.setter
     def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -470,11 +486,12 @@ class _AccountState:
                  account_kind: Optional[pulumi.Input[str]] = None,
                  account_replication_type: Optional[pulumi.Input[str]] = None,
                  account_tier: Optional[pulumi.Input[str]] = None,
-                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -532,11 +549,12 @@ class _AccountState:
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -597,8 +615,8 @@ class _AccountState:
             pulumi.set(__self__, "account_replication_type", account_replication_type)
         if account_tier is not None:
             pulumi.set(__self__, "account_tier", account_tier)
-        if allow_blob_public_access is not None:
-            pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if allow_nested_items_to_be_public is not None:
+            pulumi.set(__self__, "allow_nested_items_to_be_public", allow_nested_items_to_be_public)
         if azure_files_authentication is not None:
             pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
@@ -607,6 +625,8 @@ class _AccountState:
             pulumi.set(__self__, "custom_domain", custom_domain)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
@@ -759,16 +779,16 @@ class _AccountState:
         pulumi.set(self, "account_tier", value)
 
     @property
-    @pulumi.getter(name="allowBlobPublicAccess")
-    def allow_blob_public_access(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="allowNestedItemsToBePublic")
+    def allow_nested_items_to_be_public(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         """
-        return pulumi.get(self, "allow_blob_public_access")
+        return pulumi.get(self, "allow_nested_items_to_be_public")
 
-    @allow_blob_public_access.setter
-    def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_blob_public_access", value)
+    @allow_nested_items_to_be_public.setter
+    def allow_nested_items_to_be_public(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_nested_items_to_be_public", value)
 
     @property
     @pulumi.getter(name="azureFilesAuthentication")
@@ -817,6 +837,18 @@ class _AccountState:
     @customer_managed_key.setter
     def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -1438,11 +1470,12 @@ class Account(pulumi.CustomResource):
                  account_kind: Optional[pulumi.Input[str]] = None,
                  account_replication_type: Optional[pulumi.Input[str]] = None,
                  account_tier: Optional[pulumi.Input[str]] = None,
-                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1530,11 +1563,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -1641,11 +1675,12 @@ class Account(pulumi.CustomResource):
                  account_kind: Optional[pulumi.Input[str]] = None,
                  account_replication_type: Optional[pulumi.Input[str]] = None,
                  account_tier: Optional[pulumi.Input[str]] = None,
-                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1685,11 +1720,12 @@ class Account(pulumi.CustomResource):
             if account_tier is None and not opts.urn:
                 raise TypeError("Missing required property 'account_tier'")
             __props__.__dict__["account_tier"] = account_tier
-            __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+            __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
             __props__.__dict__["azure_files_authentication"] = azure_files_authentication
             __props__.__dict__["blob_properties"] = blob_properties
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["customer_managed_key"] = customer_managed_key
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
@@ -1757,11 +1793,12 @@ class Account(pulumi.CustomResource):
             account_kind: Optional[pulumi.Input[str]] = None,
             account_replication_type: Optional[pulumi.Input[str]] = None,
             account_tier: Optional[pulumi.Input[str]] = None,
-            allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+            allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
             azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
             blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
             custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1824,11 +1861,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -1889,11 +1927,12 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["account_kind"] = account_kind
         __props__.__dict__["account_replication_type"] = account_replication_type
         __props__.__dict__["account_tier"] = account_tier
-        __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+        __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
         __props__.__dict__["azure_files_authentication"] = azure_files_authentication
         __props__.__dict__["blob_properties"] = blob_properties
         __props__.__dict__["custom_domain"] = custom_domain
         __props__.__dict__["customer_managed_key"] = customer_managed_key
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
@@ -1980,12 +2019,12 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "account_tier")
 
     @property
-    @pulumi.getter(name="allowBlobPublicAccess")
-    def allow_blob_public_access(self) -> pulumi.Output[Optional[bool]]:
+    @pulumi.getter(name="allowNestedItemsToBePublic")
+    def allow_nested_items_to_be_public(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
         """
-        return pulumi.get(self, "allow_blob_public_access")
+        return pulumi.get(self, "allow_nested_items_to_be_public")
 
     @property
     @pulumi.getter(name="azureFilesAuthentication")
@@ -2013,11 +2052,19 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> pulumi.Output['outputs.AccountCustomerManagedKey']:
+    def customer_managed_key(self) -> pulumi.Output[Optional['outputs.AccountCustomerManagedKey']]:
         """
         A `customer_managed_key` block as documented below.
         """
         return pulumi.get(self, "customer_managed_key")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")

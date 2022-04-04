@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -96,6 +96,8 @@ type SystemTopicEventSubscription struct {
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
+	// A `deliveryProperty` block as defined below.
+	DeliveryProperties SystemTopicEventSubscriptionDeliveryPropertyArrayOutput `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
@@ -175,6 +177,8 @@ type systemTopicEventSubscriptionState struct {
 	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
+	// A `deliveryProperty` block as defined below.
+	DeliveryProperties []SystemTopicEventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
@@ -220,6 +224,8 @@ type SystemTopicEventSubscriptionState struct {
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
+	// A `deliveryProperty` block as defined below.
+	DeliveryProperties SystemTopicEventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Specifies the id where the Event Hub is located.
@@ -269,6 +275,8 @@ type systemTopicEventSubscriptionArgs struct {
 	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
+	// A `deliveryProperty` block as defined below.
+	DeliveryProperties []SystemTopicEventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
@@ -315,6 +323,8 @@ type SystemTopicEventSubscriptionArgs struct {
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
+	// A `deliveryProperty` block as defined below.
+	DeliveryProperties SystemTopicEventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Specifies the id where the Event Hub is located.

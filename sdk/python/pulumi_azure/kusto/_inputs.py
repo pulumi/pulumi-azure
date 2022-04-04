@@ -128,7 +128,7 @@ class ClusterIdentityArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
@@ -156,7 +156,7 @@ class ClusterIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
         """
         return pulumi.get(self, "identity_ids")
 

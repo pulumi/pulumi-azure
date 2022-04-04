@@ -78,12 +78,6 @@ export class Subnet extends pulumi.CustomResource {
     }
 
     /**
-     * The address prefix to use for the subnet.
-     *
-     * @deprecated Use the `address_prefixes` property instead.
-     */
-    public readonly addressPrefix!: pulumi.Output<string>;
-    /**
      * The address prefixes to use for the subnet.
      */
     public readonly addressPrefixes!: pulumi.Output<string[]>;
@@ -133,7 +127,6 @@ export class Subnet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetState | undefined;
-            resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             resourceInputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
             resourceInputs["delegations"] = state ? state.delegations : undefined;
             resourceInputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
@@ -151,7 +144,6 @@ export class Subnet extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             resourceInputs["delegations"] = args ? args.delegations : undefined;
             resourceInputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
@@ -171,12 +163,6 @@ export class Subnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Subnet resources.
  */
 export interface SubnetState {
-    /**
-     * The address prefix to use for the subnet.
-     *
-     * @deprecated Use the `address_prefixes` property instead.
-     */
-    addressPrefix?: pulumi.Input<string>;
     /**
      * The address prefixes to use for the subnet.
      */
@@ -219,12 +205,6 @@ export interface SubnetState {
  * The set of arguments for constructing a Subnet resource.
  */
 export interface SubnetArgs {
-    /**
-     * The address prefix to use for the subnet.
-     *
-     * @deprecated Use the `address_prefixes` property instead.
-     */
-    addressPrefix?: pulumi.Input<string>;
     /**
      * The address prefixes to use for the subnet.
      */

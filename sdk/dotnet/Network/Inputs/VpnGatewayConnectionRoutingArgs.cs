@@ -24,15 +24,6 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("propagatedRouteTable")]
         public Input<Inputs.VpnGatewayConnectionRoutingPropagatedRouteTableArgs>? PropagatedRouteTable { get; set; }
 
-        [Input("propagatedRouteTables")]
-        private InputList<string>? _propagatedRouteTables;
-        [Obsolete(@"Deprecated in favour of `propagated_route_table`")]
-        public InputList<string> PropagatedRouteTables
-        {
-            get => _propagatedRouteTables ?? (_propagatedRouteTables = new InputList<string>());
-            set => _propagatedRouteTables = value;
-        }
-
         public VpnGatewayConnectionRoutingArgs()
         {
         }

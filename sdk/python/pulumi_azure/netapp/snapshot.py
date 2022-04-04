@@ -18,8 +18,7 @@ class SnapshotArgs:
                  resource_group_name: pulumi.Input[str],
                  volume_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -37,11 +36,6 @@ class SnapshotArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if tags is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -115,15 +109,6 @@ class SnapshotArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class _SnapshotState:
@@ -133,7 +118,6 @@ class _SnapshotState:
                  name: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
@@ -154,11 +138,6 @@ class _SnapshotState:
             pulumi.set(__self__, "pool_name", pool_name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if tags is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if volume_name is not None:
             pulumi.set(__self__, "volume_name", volume_name)
 
@@ -223,15 +202,6 @@ class _SnapshotState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -254,7 +224,6 @@ class Snapshot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -416,7 +385,6 @@ class Snapshot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -441,10 +409,6 @@ class Snapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if tags is not None and not opts.urn:
-                warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["tags"] = tags
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
@@ -463,7 +427,6 @@ class Snapshot(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             pool_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             volume_name: Optional[pulumi.Input[str]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
@@ -488,7 +451,6 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["pool_name"] = pool_name
         __props__.__dict__["resource_group_name"] = resource_group_name
-        __props__.__dict__["tags"] = tags
         __props__.__dict__["volume_name"] = volume_name
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
@@ -531,11 +493,6 @@ class Snapshot(pulumi.CustomResource):
         The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="volumeName")

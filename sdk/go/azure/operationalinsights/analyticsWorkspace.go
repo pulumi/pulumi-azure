@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -65,14 +65,10 @@ type AnalyticsWorkspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
 	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
 	ReservationCapacityInGbPerDay pulumi.IntOutput `pulumi:"reservationCapacityInGbPerDay"`
-	// Deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-	ReservationCapcityInGbPerDay pulumi.IntOutput `pulumi:"reservationCapcityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
@@ -128,14 +124,10 @@ type analyticsWorkspaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	PortalUrl *string `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
 	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
-	// Deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-	ReservationCapcityInGbPerDay *int `pulumi:"reservationCapcityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
@@ -160,14 +152,10 @@ type AnalyticsWorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	PortalUrl pulumi.StringPtrInput
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringPtrInput
 	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
-	// Deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-	ReservationCapcityInGbPerDay pulumi.IntPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
@@ -198,8 +186,6 @@ type analyticsWorkspaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
-	// Deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-	ReservationCapcityInGbPerDay *int `pulumi:"reservationCapcityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
@@ -223,8 +209,6 @@ type AnalyticsWorkspaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
-	// Deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-	ReservationCapcityInGbPerDay pulumi.IntPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.

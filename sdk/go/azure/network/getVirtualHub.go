@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -67,6 +67,10 @@ type LookupVirtualHubResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
+	// The Autonomous System Number of the Virtual Hub BGP router.
+	VirtualRouterAsn int `pulumi:"virtualRouterAsn"`
+	// The IP addresses of the Virtual Hub BGP router.
+	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The ID of the Virtual WAN within which the Virtual Hub exists.
 	VirtualWanId string `pulumi:"virtualWanId"`
 }
@@ -138,6 +142,16 @@ func (o LookupVirtualHubResultOutput) ResourceGroupName() pulumi.StringOutput {
 // A mapping of tags assigned to the Virtual Hub.
 func (o LookupVirtualHubResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVirtualHubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Autonomous System Number of the Virtual Hub BGP router.
+func (o LookupVirtualHubResultOutput) VirtualRouterAsn() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) int { return v.VirtualRouterAsn }).(pulumi.IntOutput)
+}
+
+// The IP addresses of the Virtual Hub BGP router.
+func (o LookupVirtualHubResultOutput) VirtualRouterIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) []string { return v.VirtualRouterIps }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Virtual WAN within which the Virtual Hub exists.

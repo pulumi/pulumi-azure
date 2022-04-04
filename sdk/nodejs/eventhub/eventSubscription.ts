@@ -104,12 +104,6 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
     /**
-     * A `eventhubEndpoint` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
-     */
-    public readonly eventhubEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionEventhubEndpoint>;
-    /**
      * Specifies the id where the Event Hub is located.
      */
     public readonly eventhubEndpointId!: pulumi.Output<string>;
@@ -117,12 +111,6 @@ export class EventSubscription extends pulumi.CustomResource {
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
     public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
-    /**
-     * A `hybridConnectionEndpoint` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
-     */
-    public readonly hybridConnectionEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionHybridConnectionEndpoint>;
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
@@ -168,12 +156,6 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly subjectFilter!: pulumi.Output<outputs.eventhub.EventSubscriptionSubjectFilter | undefined>;
     /**
-     * (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-     *
-     * @deprecated This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-     */
-    public readonly topicName!: pulumi.Output<string>;
-    /**
      * A `webhookEndpoint` block as defined below.
      */
     public readonly webhookEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionWebhookEndpoint | undefined>;
@@ -201,10 +183,8 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
             resourceInputs["deliveryProperties"] = state ? state.deliveryProperties : undefined;
             resourceInputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
-            resourceInputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
             resourceInputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
             resourceInputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
-            resourceInputs["hybridConnectionEndpoint"] = state ? state.hybridConnectionEndpoint : undefined;
             resourceInputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
             resourceInputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
@@ -216,7 +196,6 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
             resourceInputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
             resourceInputs["subjectFilter"] = state ? state.subjectFilter : undefined;
-            resourceInputs["topicName"] = state ? state.topicName : undefined;
             resourceInputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
@@ -230,10 +209,8 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
             resourceInputs["deliveryProperties"] = args ? args.deliveryProperties : undefined;
             resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
-            resourceInputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
             resourceInputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
             resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
-            resourceInputs["hybridConnectionEndpoint"] = args ? args.hybridConnectionEndpoint : undefined;
             resourceInputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
             resourceInputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
@@ -245,7 +222,6 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
             resourceInputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
             resourceInputs["subjectFilter"] = args ? args.subjectFilter : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
             resourceInputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -286,12 +262,6 @@ export interface EventSubscriptionState {
      */
     eventDeliverySchema?: pulumi.Input<string>;
     /**
-     * A `eventhubEndpoint` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
-     */
-    eventhubEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionEventhubEndpoint>;
-    /**
      * Specifies the id where the Event Hub is located.
      */
     eventhubEndpointId?: pulumi.Input<string>;
@@ -299,12 +269,6 @@ export interface EventSubscriptionState {
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
     expirationTimeUtc?: pulumi.Input<string>;
-    /**
-     * A `hybridConnectionEndpoint` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
-     */
-    hybridConnectionEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionHybridConnectionEndpoint>;
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
@@ -350,12 +314,6 @@ export interface EventSubscriptionState {
      */
     subjectFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionSubjectFilter>;
     /**
-     * (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-     *
-     * @deprecated This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-     */
-    topicName?: pulumi.Input<string>;
-    /**
      * A `webhookEndpoint` block as defined below.
      */
     webhookEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionWebhookEndpoint>;
@@ -394,12 +352,6 @@ export interface EventSubscriptionArgs {
      */
     eventDeliverySchema?: pulumi.Input<string>;
     /**
-     * A `eventhubEndpoint` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
-     */
-    eventhubEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionEventhubEndpoint>;
-    /**
      * Specifies the id where the Event Hub is located.
      */
     eventhubEndpointId?: pulumi.Input<string>;
@@ -407,12 +359,6 @@ export interface EventSubscriptionArgs {
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
     expirationTimeUtc?: pulumi.Input<string>;
-    /**
-     * A `hybridConnectionEndpoint` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
-     */
-    hybridConnectionEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionHybridConnectionEndpoint>;
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
@@ -457,12 +403,6 @@ export interface EventSubscriptionArgs {
      * A `subjectFilter` block as defined below.
      */
     subjectFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionSubjectFilter>;
-    /**
-     * (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-     *
-     * @deprecated This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-     */
-    topicName?: pulumi.Input<string>;
     /**
      * A `webhookEndpoint` block as defined below.
      */

@@ -55,7 +55,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
                *
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -316,7 +316,7 @@ class FlexibleServerArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         return pulumi.get(self, "zone")
 
@@ -331,7 +331,6 @@ class _FlexibleServerState:
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
-                 cmk_enabled: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
@@ -355,7 +354,6 @@ class _FlexibleServerState:
         :param pulumi.Input[str] administrator_login: The Administrator Login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] cmk_enabled: The status showing whether the data encryption is enabled with a customer-managed key.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
@@ -374,7 +372,7 @@ class _FlexibleServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
                *
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -382,11 +380,6 @@ class _FlexibleServerState:
             pulumi.set(__self__, "administrator_password", administrator_password)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if cmk_enabled is not None:
-            warnings.warn("""This attribute has been removed from the API and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""cmk_enabled is deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.""")
-        if cmk_enabled is not None:
-            pulumi.set(__self__, "cmk_enabled", cmk_enabled)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if delegated_subnet_id is not None:
@@ -459,18 +452,6 @@ class _FlexibleServerState:
     @backup_retention_days.setter
     def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_days", value)
-
-    @property
-    @pulumi.getter(name="cmkEnabled")
-    def cmk_enabled(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status showing whether the data encryption is enabled with a customer-managed key.
-        """
-        return pulumi.get(self, "cmk_enabled")
-
-    @cmk_enabled.setter
-    def cmk_enabled(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cmk_enabled", value)
 
     @property
     @pulumi.getter(name="createMode")
@@ -681,7 +662,7 @@ class _FlexibleServerState:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         return pulumi.get(self, "zone")
 
@@ -789,7 +770,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
                *
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         ...
     @overload
@@ -917,7 +898,6 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["zone"] = zone
-            __props__.__dict__["cmk_enabled"] = None
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["public_network_access_enabled"] = None
         super(FlexibleServer, __self__).__init__(
@@ -933,7 +913,6 @@ class FlexibleServer(pulumi.CustomResource):
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_password: Optional[pulumi.Input[str]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
-            cmk_enabled: Optional[pulumi.Input[str]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             delegated_subnet_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
@@ -962,7 +941,6 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The Administrator Login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[str] cmk_enabled: The status showing whether the data encryption is enabled with a customer-managed key.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
@@ -981,7 +959,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
                *
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -990,7 +968,6 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_password"] = administrator_password
         __props__.__dict__["backup_retention_days"] = backup_retention_days
-        __props__.__dict__["cmk_enabled"] = cmk_enabled
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
         __props__.__dict__["fqdn"] = fqdn
@@ -1034,14 +1011,6 @@ class FlexibleServer(pulumi.CustomResource):
         The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         """
         return pulumi.get(self, "backup_retention_days")
-
-    @property
-    @pulumi.getter(name="cmkEnabled")
-    def cmk_enabled(self) -> pulumi.Output[str]:
-        """
-        The status showing whether the data encryption is enabled with a customer-managed key.
-        """
-        return pulumi.get(self, "cmk_enabled")
 
     @property
     @pulumi.getter(name="createMode")
@@ -1184,7 +1153,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[str]]:
         """
-        The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         """
         return pulumi.get(self, "zone")
 

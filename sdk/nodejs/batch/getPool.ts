@@ -87,7 +87,7 @@ export interface GetPoolResult {
      * The name of the endpoint.
      */
     readonly name: string;
-    readonly networkConfiguration: outputs.batch.GetPoolNetworkConfiguration;
+    readonly networkConfigurations: outputs.batch.GetPoolNetworkConfiguration[];
     /**
      * The Sku of the node agents in the Batch pool.
      */

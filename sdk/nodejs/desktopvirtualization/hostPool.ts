@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -109,11 +108,6 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
     /**
-     * This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-     * `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-     */
-    public readonly registrationInfo!: pulumi.Output<outputs.desktopvirtualization.HostPoolRegistrationInfo | undefined>;
-    /**
      * The name of the resource group in which to
      * create the Virtual Desktop Host Pool. Changing the resource group name forces
      * a new resource to be created.
@@ -159,7 +153,6 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["personalDesktopAssignmentType"] = state ? state.personalDesktopAssignmentType : undefined;
             resourceInputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
-            resourceInputs["registrationInfo"] = state ? state.registrationInfo : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -185,7 +178,6 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
             resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -244,11 +236,6 @@ export interface HostPoolState {
      * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      */
     preferredAppGroupType?: pulumi.Input<string>;
-    /**
-     * This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-     * `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-     */
-    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.HostPoolRegistrationInfo>;
     /**
      * The name of the resource group in which to
      * create the Virtual Desktop Host Pool. Changing the resource group name forces
@@ -321,11 +308,6 @@ export interface HostPoolArgs {
      * Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
      */
     preferredAppGroupType?: pulumi.Input<string>;
-    /**
-     * This block is now non-functional and will be removed in version 3.0 of the Azure Provider - use the
-     * `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-     */
-    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.HostPoolRegistrationInfo>;
     /**
      * The name of the resource group in which to
      * create the Virtual Desktop Host Pool. Changing the resource group name forces

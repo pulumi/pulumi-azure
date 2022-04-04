@@ -328,6 +328,12 @@ namespace Pulumi.Azure.SiteRecovery
         [Output("targetResourceGroupId")]
         public Output<string> TargetResourceGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Availability Zone where the Failover VM should exist.
+        /// </summary>
+        [Output("targetZone")]
+        public Output<string?> TargetZone { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ReplicatedVM resource with the given unique name, arguments, and options.
@@ -467,6 +473,12 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("targetResourceGroupId", required: true)]
         public Input<string> TargetResourceGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Availability Zone where the Failover VM should exist.
+        /// </summary>
+        [Input("targetZone")]
+        public Input<string>? TargetZone { get; set; }
+
         public ReplicatedVMArgs()
         {
         }
@@ -566,6 +578,12 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("targetResourceGroupId")]
         public Input<string>? TargetResourceGroupId { get; set; }
+
+        /// <summary>
+        /// Specifies the Availability Zone where the Failover VM should exist.
+        /// </summary>
+        [Input("targetZone")]
+        public Input<string>? TargetZone { get; set; }
 
         public ReplicatedVMState()
         {

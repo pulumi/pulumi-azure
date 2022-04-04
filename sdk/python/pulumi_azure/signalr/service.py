@@ -19,7 +19,6 @@ class ServiceArgs:
                  sku: pulumi.Input['ServiceSkuArgs'],
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
@@ -33,7 +32,6 @@ class ServiceArgs:
         :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]] features: A `features` block as documented below.
         :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -48,11 +46,6 @@ class ServiceArgs:
             pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
-        if features is not None:
-            warnings.warn("""Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`""", DeprecationWarning)
-            pulumi.log.warn("""features is deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`""")
-        if features is not None:
-            pulumi.set(__self__, "features", features)
         if live_trace_enabled is not None:
             pulumi.set(__self__, "live_trace_enabled", live_trace_enabled)
         if location is not None:
@@ -115,18 +108,6 @@ class ServiceArgs:
     @cors.setter
     def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]]):
         pulumi.set(self, "cors", value)
-
-    @property
-    @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]]:
-        """
-        A `features` block as documented below.
-        """
-        return pulumi.get(self, "features")
-
-    @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]]):
-        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter(name="liveTraceEnabled")
@@ -218,7 +199,6 @@ class _ServiceState:
     def __init__(__self__, *,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
@@ -240,7 +220,6 @@ class _ServiceState:
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
@@ -263,11 +242,6 @@ class _ServiceState:
             pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
-        if features is not None:
-            warnings.warn("""Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`""", DeprecationWarning)
-            pulumi.log.warn("""features is deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`""")
-        if features is not None:
-            pulumi.set(__self__, "features", features)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
         if ip_address is not None:
@@ -326,18 +300,6 @@ class _ServiceState:
     @cors.setter
     def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]]):
         pulumi.set(self, "cors", value)
-
-    @property
-    @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]]:
-        """
-        A `features` block as documented below.
-        """
-        return pulumi.get(self, "features")
-
-    @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]]):
-        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter
@@ -551,7 +513,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
@@ -608,7 +569,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -684,7 +644,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
@@ -708,10 +667,6 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
             __props__.__dict__["cors"] = cors
-            if features is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`""", DeprecationWarning)
-                pulumi.log.warn("""features is deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`""")
-            __props__.__dict__["features"] = features
             __props__.__dict__["live_trace_enabled"] = live_trace_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["messaging_logs_enabled"] = messaging_logs_enabled
@@ -745,7 +700,6 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
             cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             live_trace_enabled: Optional[pulumi.Input[bool]] = None,
@@ -772,7 +726,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
@@ -797,7 +750,6 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
         __props__.__dict__["cors"] = cors
-        __props__.__dict__["features"] = features
         __props__.__dict__["hostname"] = hostname
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["live_trace_enabled"] = live_trace_enabled
@@ -819,7 +771,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectivityLogsEnabled")
-    def connectivity_logs_enabled(self) -> pulumi.Output[bool]:
+    def connectivity_logs_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         """
@@ -832,14 +784,6 @@ class Service(pulumi.CustomResource):
         A `cors` block as documented below.
         """
         return pulumi.get(self, "cors")
-
-    @property
-    @pulumi.getter
-    def features(self) -> pulumi.Output[Sequence['outputs.ServiceFeature']]:
-        """
-        A `features` block as documented below.
-        """
-        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter
@@ -859,7 +803,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="liveTraceEnabled")
-    def live_trace_enabled(self) -> pulumi.Output[bool]:
+    def live_trace_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Live Trace is enabled or not. Defaults to `false`.
         """
@@ -875,7 +819,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messagingLogsEnabled")
-    def messaging_logs_enabled(self) -> pulumi.Output[bool]:
+    def messaging_logs_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         """
@@ -947,7 +891,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceMode")
-    def service_mode(self) -> pulumi.Output[str]:
+    def service_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         """

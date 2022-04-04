@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -132,8 +132,6 @@ type Diagnostic struct {
 	BackendRequest DiagnosticBackendRequestOutput `pulumi:"backendRequest"`
 	// A `backendResponse` block as defined below.
 	BackendResponse DiagnosticBackendResponseOutput `pulumi:"backendResponse"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// A `frontendRequest` block as defined below.
 	FrontendRequest DiagnosticFrontendRequestOutput `pulumi:"frontendRequest"`
 	// A `frontendResponse` block as defined below.
@@ -205,8 +203,6 @@ type diagnosticState struct {
 	BackendRequest *DiagnosticBackendRequest `pulumi:"backendRequest"`
 	// A `backendResponse` block as defined below.
 	BackendResponse *DiagnosticBackendResponse `pulumi:"backendResponse"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	Enabled *bool `pulumi:"enabled"`
 	// A `frontendRequest` block as defined below.
 	FrontendRequest *DiagnosticFrontendRequest `pulumi:"frontendRequest"`
 	// A `frontendResponse` block as defined below.
@@ -238,8 +234,6 @@ type DiagnosticState struct {
 	BackendRequest DiagnosticBackendRequestPtrInput
 	// A `backendResponse` block as defined below.
 	BackendResponse DiagnosticBackendResponsePtrInput
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	Enabled pulumi.BoolPtrInput
 	// A `frontendRequest` block as defined below.
 	FrontendRequest DiagnosticFrontendRequestPtrInput
 	// A `frontendResponse` block as defined below.
@@ -275,8 +269,6 @@ type diagnosticArgs struct {
 	BackendRequest *DiagnosticBackendRequest `pulumi:"backendRequest"`
 	// A `backendResponse` block as defined below.
 	BackendResponse *DiagnosticBackendResponse `pulumi:"backendResponse"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	Enabled *bool `pulumi:"enabled"`
 	// A `frontendRequest` block as defined below.
 	FrontendRequest *DiagnosticFrontendRequest `pulumi:"frontendRequest"`
 	// A `frontendResponse` block as defined below.
@@ -309,8 +301,6 @@ type DiagnosticArgs struct {
 	BackendRequest DiagnosticBackendRequestPtrInput
 	// A `backendResponse` block as defined below.
 	BackendResponse DiagnosticBackendResponsePtrInput
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	Enabled pulumi.BoolPtrInput
 	// A `frontendRequest` block as defined below.
 	FrontendRequest DiagnosticFrontendRequestPtrInput
 	// A `frontendResponse` block as defined below.

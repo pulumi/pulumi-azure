@@ -79,17 +79,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
-    public readonly connectivityLogsEnabled!: pulumi.Output<boolean>;
+    public readonly connectivityLogsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `cors` block as documented below.
      */
     public readonly cors!: pulumi.Output<outputs.signalr.ServiceCor[]>;
-    /**
-     * A `features` block as documented below.
-     *
-     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-     */
-    public readonly features!: pulumi.Output<outputs.signalr.ServiceFeature[]>;
     /**
      * The FQDN of the SignalR service.
      */
@@ -101,7 +95,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
      */
-    public readonly liveTraceEnabled!: pulumi.Output<boolean>;
+    public readonly liveTraceEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
@@ -109,7 +103,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
-    public readonly messagingLogsEnabled!: pulumi.Output<boolean>;
+    public readonly messagingLogsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
@@ -145,7 +139,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
-    public readonly serviceMode!: pulumi.Output<string>;
+    public readonly serviceMode!: pulumi.Output<string | undefined>;
     /**
      * A `sku` block as documented below.
      */
@@ -174,7 +168,6 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = state ? state.cors : undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
@@ -202,7 +195,6 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
@@ -238,12 +230,6 @@ export interface ServiceState {
      * A `cors` block as documented below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
-    /**
-     * A `features` block as documented below.
-     *
-     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-     */
-    features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * The FQDN of the SignalR service.
      */
@@ -326,12 +312,6 @@ export interface ServiceArgs {
      * A `cors` block as documented below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
-    /**
-     * A `features` block as documented below.
-     *
-     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
-     */
-    features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
      */

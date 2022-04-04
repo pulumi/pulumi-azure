@@ -76,7 +76,7 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
-     * An `identity` block for this MySQL server as defined below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.mysql.GetServerIdentity[];
     /**

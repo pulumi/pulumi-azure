@@ -7,18 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cluster";
 export * from "./managedCluster";
-export * from "./meshApplication";
-export * from "./meshLocalNetwork";
-export * from "./meshSecret";
-export * from "./meshSecretValue";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
 import { ManagedCluster } from "./managedCluster";
-import { MeshApplication } from "./meshApplication";
-import { MeshLocalNetwork } from "./meshLocalNetwork";
-import { MeshSecret } from "./meshSecret";
-import { MeshSecretValue } from "./meshSecretValue";
 
 const _module = {
     version: utilities.getVersion(),
@@ -28,14 +20,6 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure:servicefabric/managedCluster:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
-            case "azure:servicefabric/meshApplication:MeshApplication":
-                return new MeshApplication(name, <any>undefined, { urn })
-            case "azure:servicefabric/meshLocalNetwork:MeshLocalNetwork":
-                return new MeshLocalNetwork(name, <any>undefined, { urn })
-            case "azure:servicefabric/meshSecret:MeshSecret":
-                return new MeshSecret(name, <any>undefined, { urn })
-            case "azure:servicefabric/meshSecretValue:MeshSecretValue":
-                return new MeshSecretValue(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -43,7 +27,3 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "servicefabric/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "servicefabric/managedCluster", _module)
-pulumi.runtime.registerResourceModule("azure", "servicefabric/meshApplication", _module)
-pulumi.runtime.registerResourceModule("azure", "servicefabric/meshLocalNetwork", _module)
-pulumi.runtime.registerResourceModule("azure", "servicefabric/meshSecret", _module)
-pulumi.runtime.registerResourceModule("azure", "servicefabric/meshSecretValue", _module)

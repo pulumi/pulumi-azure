@@ -70,10 +70,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-     */
-    public readonly backendAddresses!: pulumi.Output<outputs.lb.BackendAddressPoolBackendAddress[] | undefined>;
-    /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
     public /*out*/ readonly backendIpConfigurations!: pulumi.Output<string[]>;
@@ -94,10 +90,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundRules!: pulumi.Output<string[]>;
     /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * One or more `tunnelInterface` blocks as defined below.
      */
     public readonly tunnelInterfaces!: pulumi.Output<outputs.lb.BackendAddressPoolTunnelInterface[] | undefined>;
@@ -115,23 +107,19 @@ export class BackendAddressPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolState | undefined;
-            resourceInputs["backendAddresses"] = state ? state.backendAddresses : undefined;
             resourceInputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
             resourceInputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundRules"] = state ? state.outboundRules : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
         } else {
             const args = argsOrState as BackendAddressPoolArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            resourceInputs["backendAddresses"] = args ? args.backendAddresses : undefined;
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
             resourceInputs["backendIpConfigurations"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
@@ -146,10 +134,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BackendAddressPool resources.
  */
 export interface BackendAddressPoolState {
-    /**
-     * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-     */
-    backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
@@ -171,10 +155,6 @@ export interface BackendAddressPoolState {
      */
     outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * One or more `tunnelInterface` blocks as defined below.
      */
     tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
@@ -185,10 +165,6 @@ export interface BackendAddressPoolState {
  */
 export interface BackendAddressPoolArgs {
     /**
-     * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-     */
-    backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
-    /**
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     loadbalancerId: pulumi.Input<string>;
@@ -196,10 +172,6 @@ export interface BackendAddressPoolArgs {
      * Specifies the name of the Backend Address Pool.
      */
     name?: pulumi.Input<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `tunnelInterface` blocks as defined below.
      */

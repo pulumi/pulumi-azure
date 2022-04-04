@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about a Function App.
- *
  * ## Example Usage
  *
  * ```typescript

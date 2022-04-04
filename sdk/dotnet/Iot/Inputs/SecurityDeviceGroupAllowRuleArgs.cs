@@ -24,15 +24,6 @@ namespace Pulumi.Azure.Iot.Inputs
             set => _connectionFromIpsNotAlloweds = value;
         }
 
-        [Input("connectionToIpNotAlloweds")]
-        private InputList<string>? _connectionToIpNotAlloweds;
-        [Obsolete(@"This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")]
-        public InputList<string> ConnectionToIpNotAlloweds
-        {
-            get => _connectionToIpNotAlloweds ?? (_connectionToIpNotAlloweds = new InputList<string>());
-            set => _connectionToIpNotAlloweds = value;
-        }
-
         [Input("connectionToIpsNotAlloweds")]
         private InputList<string>? _connectionToIpsNotAlloweds;
 
@@ -45,15 +36,6 @@ namespace Pulumi.Azure.Iot.Inputs
             set => _connectionToIpsNotAlloweds = value;
         }
 
-        [Input("localUserNotAlloweds")]
-        private InputList<string>? _localUserNotAlloweds;
-        [Obsolete(@"This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")]
-        public InputList<string> LocalUserNotAlloweds
-        {
-            get => _localUserNotAlloweds ?? (_localUserNotAlloweds = new InputList<string>());
-            set => _localUserNotAlloweds = value;
-        }
-
         [Input("localUsersNotAlloweds")]
         private InputList<string>? _localUsersNotAlloweds;
 
@@ -64,15 +46,6 @@ namespace Pulumi.Azure.Iot.Inputs
         {
             get => _localUsersNotAlloweds ?? (_localUsersNotAlloweds = new InputList<string>());
             set => _localUsersNotAlloweds = value;
-        }
-
-        [Input("processNotAlloweds")]
-        private InputList<string>? _processNotAlloweds;
-        [Obsolete(@"This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")]
-        public InputList<string> ProcessNotAlloweds
-        {
-            get => _processNotAlloweds ?? (_processNotAlloweds = new InputList<string>());
-            set => _processNotAlloweds = value;
         }
 
         [Input("processesNotAlloweds")]

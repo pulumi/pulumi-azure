@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,14 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "azure:servicefabric/managedCluster:ManagedCluster":
 		r = &ManagedCluster{}
-	case "azure:servicefabric/meshApplication:MeshApplication":
-		r = &MeshApplication{}
-	case "azure:servicefabric/meshLocalNetwork:MeshLocalNetwork":
-		r = &MeshLocalNetwork{}
-	case "azure:servicefabric/meshSecret:MeshSecret":
-		r = &MeshSecret{}
-	case "azure:servicefabric/meshSecretValue:MeshSecretValue":
-		r = &MeshSecretValue{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -54,26 +46,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"servicefabric/managedCluster",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"servicefabric/meshApplication",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"servicefabric/meshLocalNetwork",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"servicefabric/meshSecret",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"servicefabric/meshSecretValue",
 		&module{version},
 	)
 }

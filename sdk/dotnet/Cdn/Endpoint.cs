@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<Outputs.EndpointDeliveryRule>> DeliveryRules { get; private set; } = null!;
 
         /// <summary>
+        /// The Fully Qualified Domain Name of the CDN Endpoint.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         /// </summary>
         [Output("geoFilters")]
@@ -83,12 +89,6 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Output("globalDeliveryRule")]
         public Output<Outputs.EndpointGlobalDeliveryRule?> GlobalDeliveryRule { get; private set; } = null!;
-
-        /// <summary>
-        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("hostName")]
-        public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether compression is to be enabled.
@@ -389,6 +389,12 @@ namespace Pulumi.Azure.Cdn
             set => _deliveryRules = value;
         }
 
+        /// <summary>
+        /// The Fully Qualified Domain Name of the CDN Endpoint.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
         [Input("geoFilters")]
         private InputList<Inputs.EndpointGeoFilterGetArgs>? _geoFilters;
 
@@ -406,12 +412,6 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("globalDeliveryRule")]
         public Input<Inputs.EndpointGlobalDeliveryRuleGetArgs>? GlobalDeliveryRule { get; set; }
-
-        /// <summary>
-        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
 
         /// <summary>
         /// Indicates whether compression is to be enabled.

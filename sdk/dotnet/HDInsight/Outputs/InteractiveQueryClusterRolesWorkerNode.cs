@@ -18,10 +18,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly Outputs.InteractiveQueryClusterRolesWorkerNodeAutoscale? Autoscale;
         /// <summary>
-        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int? MinInstanceCount;
-        /// <summary>
         /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Password;
@@ -54,8 +50,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
         private InteractiveQueryClusterRolesWorkerNode(
             Outputs.InteractiveQueryClusterRolesWorkerNodeAutoscale? autoscale,
 
-            int? minInstanceCount,
-
             string? password,
 
             ImmutableArray<string> sshKeys,
@@ -71,7 +65,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
             string vmSize)
         {
             Autoscale = autoscale;
-            MinInstanceCount = minInstanceCount;
             Password = password;
             SshKeys = sshKeys;
             SubnetId = subnetId;

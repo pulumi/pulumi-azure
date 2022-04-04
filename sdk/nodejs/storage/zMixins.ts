@@ -231,12 +231,11 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const resourceGroupName = args.resourceGroupName ?? resolveResourceGroupName(container);
 
         super("azure:storage:BlobEventSubscription",
             name,
             new BlobFunction(name, { ...args, container }),
-            { ...args, resourceGroupName },
+            { ...args },
             { parent: container, ...opts });
 
         this.registerOutputs();
@@ -507,22 +506,12 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         opts = { parent: queue, ...opts };
 
-        const resourceGroupName = args.resourceGroupName ?? resolveResourceGroupName(queue);
-
         super("azure:storage:QueueEventSubscription", name, new QueueFunction(name, { ...args, queue }), {
             ...args,
-            resourceGroupName,
         }, opts);
 
         this.registerOutputs();
     }
-}
-
-// Given a Queue or a Table, resolve the resource group name of the corresponding storage account
-function resolveResourceGroupName(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
-        storage.getAccount({ name: storageAccountName }, { async: true }));
-    return account.resourceGroupName;
 }
 
 // Given a Queue or a Table, produce App Settings and a Connection String Key relevant to the Storage Account

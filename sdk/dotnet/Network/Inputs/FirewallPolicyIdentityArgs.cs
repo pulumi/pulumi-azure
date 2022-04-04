@@ -12,29 +12,23 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class FirewallPolicyIdentityArgs : Pulumi.ResourceArgs
     {
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        [Input("identityIds", required: true)]
+        private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
-
-        [Input("userAssignedIdentityIds")]
-        private InputList<string>? _userAssignedIdentityIds;
-
-        /// <summary>
-        /// Specifies a list of user assigned managed identities.
-        /// </summary>
-        public InputList<string> UserAssignedIdentityIds
-        {
-            get => _userAssignedIdentityIds ?? (_userAssignedIdentityIds = new InputList<string>());
-            set => _userAssignedIdentityIds = value;
-        }
 
         public FirewallPolicyIdentityArgs()
         {

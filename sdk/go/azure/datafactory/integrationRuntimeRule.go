@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,9 +40,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewIntegrationRuntimeRule(ctx, "exampleIntegrationRuntimeRule", &datafactory.IntegrationRuntimeRuleArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Location:      exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -70,18 +69,12 @@ type IntegrationRuntimeRule struct {
 	CoreCount pulumi.IntPtrOutput `pulumi:"coreCount"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrOutput `pulumi:"timeToLiveMin"`
 	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
@@ -95,8 +88,8 @@ func NewIntegrationRuntimeRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource IntegrationRuntimeRule
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule", name, args, &resource, opts...)
@@ -128,18 +121,12 @@ type integrationRuntimeRuleState struct {
 	CoreCount *int `pulumi:"coreCount"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin *int `pulumi:"timeToLiveMin"`
 	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
@@ -155,18 +142,12 @@ type IntegrationRuntimeRuleState struct {
 	CoreCount pulumi.IntPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrInput
 	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
@@ -185,19 +166,13 @@ type integrationRuntimeRuleArgs struct {
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount *int `pulumi:"coreCount"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin *int `pulumi:"timeToLiveMin"`
 	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
@@ -213,19 +188,13 @@ type IntegrationRuntimeRuleArgs struct {
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
 	CoreCount pulumi.IntPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrInput
 	// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.

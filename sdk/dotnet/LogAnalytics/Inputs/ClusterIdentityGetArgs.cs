@@ -13,19 +13,19 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
     public sealed class ClusterIdentityGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -310,9 +310,9 @@ class _EndpointState:
     def __init__(__self__, *,
                  content_types_to_compresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
                  geo_filters: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]]] = None,
                  global_delivery_rule: Optional[pulumi.Input['EndpointGlobalDeliveryRuleArgs']] = None,
-                 host_name: Optional[pulumi.Input[str]] = None,
                  is_compression_enabled: Optional[pulumi.Input[bool]] = None,
                  is_http_allowed: Optional[pulumi.Input[bool]] = None,
                  is_https_allowed: Optional[pulumi.Input[bool]] = None,
@@ -331,9 +331,9 @@ class _EndpointState:
         Input properties used for looking up and filtering Endpoint resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        :param pulumi.Input[str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input['EndpointGlobalDeliveryRuleArgs'] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
-        :param pulumi.Input[str] host_name: A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
@@ -353,12 +353,12 @@ class _EndpointState:
             pulumi.set(__self__, "content_types_to_compresses", content_types_to_compresses)
         if delivery_rules is not None:
             pulumi.set(__self__, "delivery_rules", delivery_rules)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
         if geo_filters is not None:
             pulumi.set(__self__, "geo_filters", geo_filters)
         if global_delivery_rule is not None:
             pulumi.set(__self__, "global_delivery_rule", global_delivery_rule)
-        if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
         if is_compression_enabled is not None:
             pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
         if is_http_allowed is not None:
@@ -413,6 +413,18 @@ class _EndpointState:
         pulumi.set(self, "delivery_rules", value)
 
     @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Fully Qualified Domain Name of the CDN Endpoint.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
     @pulumi.getter(name="geoFilters")
     def geo_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]]]:
         """
@@ -435,18 +447,6 @@ class _EndpointState:
     @global_delivery_rule.setter
     def global_delivery_rule(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleArgs']]):
         pulumi.set(self, "global_delivery_rule", value)
-
-    @property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "host_name")
-
-    @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "host_name", value)
 
     @property
     @pulumi.getter(name="isCompressionEnabled")
@@ -797,7 +797,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["host_name"] = None
+            __props__.__dict__["fqdn"] = None
         super(Endpoint, __self__).__init__(
             'azure:cdn/endpoint:Endpoint',
             resource_name,
@@ -810,9 +810,9 @@ class Endpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             content_types_to_compresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointDeliveryRuleArgs']]]]] = None,
+            fqdn: Optional[pulumi.Input[str]] = None,
             geo_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGeoFilterArgs']]]]] = None,
             global_delivery_rule: Optional[pulumi.Input[pulumi.InputType['EndpointGlobalDeliveryRuleArgs']]] = None,
-            host_name: Optional[pulumi.Input[str]] = None,
             is_compression_enabled: Optional[pulumi.Input[bool]] = None,
             is_http_allowed: Optional[pulumi.Input[bool]] = None,
             is_https_allowed: Optional[pulumi.Input[bool]] = None,
@@ -836,9 +836,9 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointDeliveryRuleArgs']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        :param pulumi.Input[str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGeoFilterArgs']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input[pulumi.InputType['EndpointGlobalDeliveryRuleArgs']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
-        :param pulumi.Input[str] host_name: A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
@@ -860,9 +860,9 @@ class Endpoint(pulumi.CustomResource):
 
         __props__.__dict__["content_types_to_compresses"] = content_types_to_compresses
         __props__.__dict__["delivery_rules"] = delivery_rules
+        __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["geo_filters"] = geo_filters
         __props__.__dict__["global_delivery_rule"] = global_delivery_rule
-        __props__.__dict__["host_name"] = host_name
         __props__.__dict__["is_compression_enabled"] = is_compression_enabled
         __props__.__dict__["is_http_allowed"] = is_http_allowed
         __props__.__dict__["is_https_allowed"] = is_https_allowed
@@ -896,6 +896,14 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "delivery_rules")
 
     @property
+    @pulumi.getter
+    def fqdn(self) -> pulumi.Output[str]:
+        """
+        The Fully Qualified Domain Name of the CDN Endpoint.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
     @pulumi.getter(name="geoFilters")
     def geo_filters(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGeoFilter']]]:
         """
@@ -910,14 +918,6 @@ class Endpoint(pulumi.CustomResource):
         Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         """
         return pulumi.get(self, "global_delivery_rule")
-
-    @property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> pulumi.Output[str]:
-        """
-        A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "host_name")
 
     @property
     @pulumi.getter(name="isCompressionEnabled")

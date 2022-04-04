@@ -17,9 +17,6 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// A list of allowed clients IPv4 addresses.
         /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
-        public readonly bool? CifsEnabled;
-        public readonly bool? Nfsv3Enabled;
-        public readonly bool? Nfsv4Enabled;
         /// <summary>
         /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         /// </summary>
@@ -45,12 +42,6 @@ namespace Pulumi.Azure.NetApp.Outputs
         private VolumeExportPolicyRule(
             ImmutableArray<string> allowedClients,
 
-            bool? cifsEnabled,
-
-            bool? nfsv3Enabled,
-
-            bool? nfsv4Enabled,
-
             string? protocolsEnabled,
 
             bool? rootAccessEnabled,
@@ -62,9 +53,6 @@ namespace Pulumi.Azure.NetApp.Outputs
             bool? unixReadWrite)
         {
             AllowedClients = allowedClients;
-            CifsEnabled = cifsEnabled;
-            Nfsv3Enabled = nfsv3Enabled;
-            Nfsv4Enabled = nfsv4Enabled;
             ProtocolsEnabled = protocolsEnabled;
             RootAccessEnabled = rootAccessEnabled;
             RuleIndex = ruleIndex;

@@ -70,12 +70,6 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("availabilityZones")]
-        public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
-
-        /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Output("enableAutoScaling")]
@@ -279,6 +273,12 @@ namespace Pulumi.Azure.ContainerService
         [Output("workloadRuntime")]
         public Output<string?> WorkloadRuntime { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a KubernetesClusterNodePool resource with the given unique name, arguments, and options.
@@ -325,18 +325,6 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterNodePoolArgs : Pulumi.ResourceArgs
     {
-        [Input("availabilityZones")]
-        private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-        /// </summary>
-        public InputList<string> AvailabilityZones
-        {
-            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
-            set => _availabilityZones = value;
-        }
-
         /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
@@ -559,6 +547,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public KubernetesClusterNodePoolArgs()
         {
         }
@@ -566,18 +566,6 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterNodePoolState : Pulumi.ResourceArgs
     {
-        [Input("availabilityZones")]
-        private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-        /// </summary>
-        public InputList<string> AvailabilityZones
-        {
-            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
-            set => _availabilityZones = value;
-        }
-
         /// <summary>
         /// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
@@ -799,6 +787,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public KubernetesClusterNodePoolState()
         {

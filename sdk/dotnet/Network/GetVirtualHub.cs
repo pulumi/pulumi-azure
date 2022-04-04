@@ -136,6 +136,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The Autonomous System Number of the Virtual Hub BGP router.
+        /// </summary>
+        public readonly int VirtualRouterAsn;
+        /// <summary>
+        /// The IP addresses of the Virtual Hub BGP router.
+        /// </summary>
+        public readonly ImmutableArray<string> VirtualRouterIps;
+        /// <summary>
         /// The ID of the Virtual WAN within which the Virtual Hub exists.
         /// </summary>
         public readonly string VirtualWanId;
@@ -156,6 +164,10 @@ namespace Pulumi.Azure.Network
 
             ImmutableDictionary<string, string> tags,
 
+            int virtualRouterAsn,
+
+            ImmutableArray<string> virtualRouterIps,
+
             string virtualWanId)
         {
             AddressPrefix = addressPrefix;
@@ -165,6 +177,8 @@ namespace Pulumi.Azure.Network
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
+            VirtualRouterAsn = virtualRouterAsn;
+            VirtualRouterIps = virtualRouterIps;
             VirtualWanId = virtualWanId;
         }
     }

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.MySql.Outputs
     public sealed class ServerIdentity
     {
         /// <summary>
-        /// The Client ID of the Service Principal assigned to this MySQL Server.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this MySQL Server. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

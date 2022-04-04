@@ -21,8 +21,6 @@ class ServerArgs:
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']] = None,
-                 foo: Optional[pulumi.Input['ServerFooArgs']] = None,
                  identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -58,13 +56,6 @@ class ServerArgs:
             pulumi.set(__self__, "azuread_administrator", azuread_administrator)
         if connection_policy is not None:
             pulumi.set(__self__, "connection_policy", connection_policy)
-        if extended_auditing_policy is not None:
-            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-        if extended_auditing_policy is not None:
-            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
-        if foo is not None:
-            pulumi.set(__self__, "foo", foo)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -153,24 +144,6 @@ class ServerArgs:
     @connection_policy.setter
     def connection_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_policy", value)
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']]:
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @extended_auditing_policy.setter
-    def extended_auditing_policy(self, value: Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']]):
-        pulumi.set(self, "extended_auditing_policy", value)
-
-    @property
-    @pulumi.getter
-    def foo(self) -> Optional[pulumi.Input['ServerFooArgs']]:
-        return pulumi.get(self, "foo")
-
-    @foo.setter
-    def foo(self, value: Optional[pulumi.Input['ServerFooArgs']]):
-        pulumi.set(self, "foo", value)
 
     @property
     @pulumi.getter
@@ -276,8 +249,6 @@ class _ServerState:
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']] = None,
-                 foo: Optional[pulumi.Input['ServerFooArgs']] = None,
                  fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -317,13 +288,6 @@ class _ServerState:
             pulumi.set(__self__, "azuread_administrator", azuread_administrator)
         if connection_policy is not None:
             pulumi.set(__self__, "connection_policy", connection_policy)
-        if extended_auditing_policy is not None:
-            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-        if extended_auditing_policy is not None:
-            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
-        if foo is not None:
-            pulumi.set(__self__, "foo", foo)
         if fully_qualified_domain_name is not None:
             pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
         if identity is not None:
@@ -396,24 +360,6 @@ class _ServerState:
     @connection_policy.setter
     def connection_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_policy", value)
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']]:
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @extended_auditing_policy.setter
-    def extended_auditing_policy(self, value: Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']]):
-        pulumi.set(self, "extended_auditing_policy", value)
-
-    @property
-    @pulumi.getter
-    def foo(self) -> Optional[pulumi.Input['ServerFooArgs']]:
-        return pulumi.get(self, "foo")
-
-    @foo.setter
-    def foo(self, value: Optional[pulumi.Input['ServerFooArgs']]):
-        pulumi.set(self, "foo", value)
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -569,8 +515,6 @@ class Server(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
-                 foo: Optional[pulumi.Input[pulumi.InputType['ServerFooArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -702,8 +646,6 @@ class Server(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
-                 foo: Optional[pulumi.Input[pulumi.InputType['ServerFooArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -730,11 +672,6 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["azuread_administrator"] = azuread_administrator
             __props__.__dict__["connection_policy"] = connection_policy
-            if extended_auditing_policy is not None and not opts.urn:
-                warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
-            __props__.__dict__["foo"] = foo
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
@@ -765,8 +702,6 @@ class Server(pulumi.CustomResource):
             administrator_login_password: Optional[pulumi.Input[str]] = None,
             azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
             connection_policy: Optional[pulumi.Input[str]] = None,
-            extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
-            foo: Optional[pulumi.Input[pulumi.InputType['ServerFooArgs']]] = None,
             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -811,8 +746,6 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["administrator_login_password"] = administrator_login_password
         __props__.__dict__["azuread_administrator"] = azuread_administrator
         __props__.__dict__["connection_policy"] = connection_policy
-        __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
-        __props__.__dict__["foo"] = foo
         __props__.__dict__["fully_qualified_domain_name"] = fully_qualified_domain_name
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -858,16 +791,6 @@ class Server(pulumi.CustomResource):
         The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         """
         return pulumi.get(self, "connection_policy")
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> pulumi.Output['outputs.ServerExtendedAuditingPolicy']:
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @property
-    @pulumi.getter
-    def foo(self) -> pulumi.Output[Optional['outputs.ServerFoo']]:
-        return pulumi.get(self, "foo")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")

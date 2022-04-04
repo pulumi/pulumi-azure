@@ -15,28 +15,23 @@ __all__ = ['DatasetSnowflakeArgs', 'DatasetSnowflake']
 @pulumi.input_type
 class DatasetSnowflakeArgs:
     def __init__(__self__, *,
+                 data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatasetSnowflake resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset Snowflake.
-        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -45,19 +40,12 @@ class DatasetSnowflakeArgs:
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
-        if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
@@ -70,13 +58,20 @@ class DatasetSnowflakeArgs:
             pulumi.set(__self__, "schema_columns", schema_columns)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
-        if structure_columns is not None:
-            warnings.warn("""This block has been deprecated in favour of `schema_column` and will be removed.""", DeprecationWarning)
-            pulumi.log.warn("""structure_columns is deprecated: This block has been deprecated in favour of `schema_column` and will be removed.""")
-        if structure_columns is not None:
-            pulumi.set(__self__, "structure_columns", structure_columns)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Input[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -89,18 +84,6 @@ class DatasetSnowflakeArgs:
     @linked_service_name.setter
     def linked_service_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_service_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -125,30 +108,6 @@ class DatasetSnowflakeArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_id")
-
-    @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -223,15 +182,6 @@ class DatasetSnowflakeArgs:
         pulumi.set(self, "schema_name", value)
 
     @property
-    @pulumi.getter(name="structureColumns")
-    def structure_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]:
-        return pulumi.get(self, "structure_columns")
-
-    @structure_columns.setter
-    def structure_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]):
-        pulumi.set(self, "structure_columns", value)
-
-    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -250,29 +200,24 @@ class _DatasetSnowflakeState:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatasetSnowflake resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
         :param pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
@@ -283,11 +228,6 @@ class _DatasetSnowflakeState:
             pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
@@ -298,17 +238,10 @@ class _DatasetSnowflakeState:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schema_columns is not None:
             pulumi.set(__self__, "schema_columns", schema_columns)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
-        if structure_columns is not None:
-            warnings.warn("""This block has been deprecated in favour of `schema_column` and will be removed.""", DeprecationWarning)
-            pulumi.log.warn("""structure_columns is deprecated: This block has been deprecated in favour of `schema_column` and will be removed.""")
-        if structure_columns is not None:
-            pulumi.set(__self__, "structure_columns", structure_columns)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -347,18 +280,6 @@ class _DatasetSnowflakeState:
     @data_factory_id.setter
     def data_factory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -421,18 +342,6 @@ class _DatasetSnowflakeState:
         pulumi.set(self, "parameters", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="schemaColumns")
     def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]]:
         """
@@ -457,15 +366,6 @@ class _DatasetSnowflakeState:
         pulumi.set(self, "schema_name", value)
 
     @property
-    @pulumi.getter(name="structureColumns")
-    def structure_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]:
-        return pulumi.get(self, "structure_columns")
-
-    @structure_columns.setter
-    def structure_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeStructureColumnArgs']]]]):
-        pulumi.set(self, "structure_columns", value)
-
-    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -486,16 +386,13 @@ class DatasetSnowflake(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeStructureColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -512,11 +409,9 @@ class DatasetSnowflake(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake",
-            resource_group_name=example_resource_group.name,
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         example_dataset_snowflake = azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake",
-            resource_group_name=azurerm_resource_group["test"]["name"],
             data_factory_id=azurerm_data_factory["test"]["id"],
             linked_service_name=azurerm_data_factory_linked_service_snowflake["test"]["name"],
             schema_name="foo_schema",
@@ -538,13 +433,11 @@ class DatasetSnowflake(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
@@ -569,11 +462,9 @@ class DatasetSnowflake(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake",
-            resource_group_name=example_resource_group.name,
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         example_dataset_snowflake = azure.datafactory.DatasetSnowflake("exampleDatasetSnowflake",
-            resource_group_name=azurerm_resource_group["test"]["name"],
             data_factory_id=azurerm_data_factory["test"]["id"],
             linked_service_name=azurerm_data_factory_linked_service_snowflake["test"]["name"],
             schema_name="foo_schema",
@@ -608,16 +499,13 @@ class DatasetSnowflake(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeStructureColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -633,11 +521,9 @@ class DatasetSnowflake(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
-            if data_factory_name is not None and not opts.urn:
-                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
             if linked_service_name is None and not opts.urn:
@@ -645,15 +531,8 @@ class DatasetSnowflake(pulumi.CustomResource):
             __props__.__dict__["linked_service_name"] = linked_service_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["schema_columns"] = schema_columns
             __props__.__dict__["schema_name"] = schema_name
-            if structure_columns is not None and not opts.urn:
-                warnings.warn("""This block has been deprecated in favour of `schema_column` and will be removed.""", DeprecationWarning)
-                pulumi.log.warn("""structure_columns is deprecated: This block has been deprecated in favour of `schema_column` and will be removed.""")
-            __props__.__dict__["structure_columns"] = structure_columns
             __props__.__dict__["table_name"] = table_name
         super(DatasetSnowflake, __self__).__init__(
             'azure:datafactory/datasetSnowflake:DatasetSnowflake',
@@ -668,16 +547,13 @@ class DatasetSnowflake(pulumi.CustomResource):
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
-            structure_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeStructureColumnArgs']]]]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetSnowflake':
         """
         Get an existing DatasetSnowflake resource's state with the given name, id, and optional extra
@@ -689,13 +565,11 @@ class DatasetSnowflake(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
@@ -707,16 +581,13 @@ class DatasetSnowflake(pulumi.CustomResource):
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["data_factory_id"] = data_factory_id
-        __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["folder"] = folder
         __props__.__dict__["linked_service_name"] = linked_service_name
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["schema_columns"] = schema_columns
         __props__.__dict__["schema_name"] = schema_name
-        __props__.__dict__["structure_columns"] = structure_columns
         __props__.__dict__["table_name"] = table_name
         return DatasetSnowflake(resource_name, opts=opts, __props__=__props__)
 
@@ -743,14 +614,6 @@ class DatasetSnowflake(pulumi.CustomResource):
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter
@@ -793,14 +656,6 @@ class DatasetSnowflake(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @property
     @pulumi.getter(name="schemaColumns")
     def schema_columns(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetSnowflakeSchemaColumn']]]:
         """
@@ -815,11 +670,6 @@ class DatasetSnowflake(pulumi.CustomResource):
         The schema name of the Data Factory Dataset Snowflake.
         """
         return pulumi.get(self, "schema_name")
-
-    @property
-    @pulumi.getter(name="structureColumns")
-    def structure_columns(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetSnowflakeStructureColumn']]]:
-        return pulumi.get(self, "structure_columns")
 
     @property
     @pulumi.getter(name="tableName")

@@ -50,7 +50,6 @@ namespace Pulumi.Azure.HDInsight
     ///             },
     ///             Gateway = new Azure.HDInsight.Inputs.HadoopClusterGatewayArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Username = "acctestusrgw",
     ///                 Password = "PAssword123!",
     ///             },

@@ -20,7 +20,7 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, vnet_peerings=None):
+    def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, vnet_peerings=None, vnet_peerings_addresses=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         pulumi.set(__self__, "address_spaces", address_spaces)
@@ -51,6 +51,9 @@ class GetVirtualNetworkResult:
         if vnet_peerings and not isinstance(vnet_peerings, dict):
             raise TypeError("Expected argument 'vnet_peerings' to be a dict")
         pulumi.set(__self__, "vnet_peerings", vnet_peerings)
+        if vnet_peerings_addresses and not isinstance(vnet_peerings_addresses, list):
+            raise TypeError("Expected argument 'vnet_peerings_addresses' to be a list")
+        pulumi.set(__self__, "vnet_peerings_addresses", vnet_peerings_addresses)
 
     @property
     @pulumi.getter(name="addressSpaces")
@@ -126,6 +129,14 @@ class GetVirtualNetworkResult:
         """
         return pulumi.get(self, "vnet_peerings")
 
+    @property
+    @pulumi.getter(name="vnetPeeringsAddresses")
+    def vnet_peerings_addresses(self) -> Sequence[str]:
+        """
+        A list of virtual network peerings IP addresses.
+        """
+        return pulumi.get(self, "vnet_peerings_addresses")
+
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
@@ -142,7 +153,8 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             resource_group_name=self.resource_group_name,
             subnets=self.subnets,
             tags=self.tags,
-            vnet_peerings=self.vnet_peerings)
+            vnet_peerings=self.vnet_peerings,
+            vnet_peerings_addresses=self.vnet_peerings_addresses)
 
 
 def get_virtual_network(name: Optional[str] = None,
@@ -185,7 +197,8 @@ def get_virtual_network(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         subnets=__ret__.subnets,
         tags=__ret__.tags,
-        vnet_peerings=__ret__.vnet_peerings)
+        vnet_peerings=__ret__.vnet_peerings,
+        vnet_peerings_addresses=__ret__.vnet_peerings_addresses)
 
 
 @_utilities.lift_output_func(get_virtual_network)

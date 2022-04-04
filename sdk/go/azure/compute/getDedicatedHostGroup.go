@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -67,7 +67,7 @@ type LookupDedicatedHostGroupResult struct {
 	ResourceGroupName        string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Availability Zones in which this Dedicated Host Group is located.
+	// A list of Availability Zones in which this Dedicated Host Group is located.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -140,7 +140,7 @@ func (o LookupDedicatedHostGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDedicatedHostGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Availability Zones in which this Dedicated Host Group is located.
+// A list of Availability Zones in which this Dedicated Host Group is located.
 func (o LookupDedicatedHostGroupResultOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDedicatedHostGroupResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Web Pubsub Service.
+ * Manages an Azure Web PubSub Service.
  *
  * ## Example Usage
  *
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Web Pubsub services can be imported using the `resource id`, e.g.
+ * Web PubSub services can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
@@ -73,13 +73,13 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly aadAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
      * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     public /*out*/ readonly externalIp!: pulumi.Output<string>;
     /**
-     * The FQDN of the Web Pubsub service.
+     * The FQDN of the Web PubSub service.
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
@@ -95,20 +95,20 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
      * forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Web Pubsub service. Changing this forces a new resource to be created.
+     * The name of the Web PubSub service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The primary access key for the Web Pubsub service.
+     * The primary access key for the Web PubSub service.
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
-     * The primary connection string for the Web Pubsub service.
+     * The primary connection string for the Web PubSub service.
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
@@ -116,24 +116,24 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+     * The publicly accessible port of the Web PubSub service which is designed for browser/client use.
      */
     public /*out*/ readonly publicPort!: pulumi.Output<number>;
     /**
-     * The name of the resource group in which to create the Web Pubsub service. Changing
+     * The name of the resource group in which to create the Web PubSub service. Changing
      * this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The secondary access key for the Web Pubsub service.
+     * The secondary access key for the Web PubSub service.
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
-     * The secondary connection string for the Web Pubsub service.
+     * The secondary connection string for the Web PubSub service.
      */
     public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
-     * The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+     * The publicly accessible port of the Web PubSub service which is designed for customer server side use.
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
@@ -229,13 +229,13 @@ export interface ServiceState {
      */
     aadAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
      * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     capacity?: pulumi.Input<number>;
     externalIp?: pulumi.Input<string>;
     /**
-     * The FQDN of the Web Pubsub service.
+     * The FQDN of the Web PubSub service.
      */
     hostname?: pulumi.Input<string>;
     /**
@@ -251,20 +251,20 @@ export interface ServiceState {
      */
     localAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
      * forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Web Pubsub service. Changing this forces a new resource to be created.
+     * The name of the Web PubSub service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The primary access key for the Web Pubsub service.
+     * The primary access key for the Web PubSub service.
      */
     primaryAccessKey?: pulumi.Input<string>;
     /**
-     * The primary connection string for the Web Pubsub service.
+     * The primary connection string for the Web PubSub service.
      */
     primaryConnectionString?: pulumi.Input<string>;
     /**
@@ -272,24 +272,24 @@ export interface ServiceState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+     * The publicly accessible port of the Web PubSub service which is designed for browser/client use.
      */
     publicPort?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Web Pubsub service. Changing
+     * The name of the resource group in which to create the Web PubSub service. Changing
      * this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The secondary access key for the Web Pubsub service.
+     * The secondary access key for the Web PubSub service.
      */
     secondaryAccessKey?: pulumi.Input<string>;
     /**
-     * The secondary connection string for the Web Pubsub service.
+     * The secondary connection string for the Web PubSub service.
      */
     secondaryConnectionString?: pulumi.Input<string>;
     /**
-     * The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+     * The publicly accessible port of the Web PubSub service which is designed for customer server side use.
      */
     serverPort?: pulumi.Input<number>;
     /**
@@ -317,7 +317,7 @@ export interface ServiceArgs {
      */
     aadAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are:
      * Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      */
     capacity?: pulumi.Input<number>;
@@ -334,12 +334,12 @@ export interface ServiceArgs {
      */
     localAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
      * forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Web Pubsub service. Changing this forces a new resource to be created.
+     * The name of the Web PubSub service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -347,7 +347,7 @@ export interface ServiceArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the Web Pubsub service. Changing
+     * The name of the resource group in which to create the Web PubSub service. Changing
      * this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;

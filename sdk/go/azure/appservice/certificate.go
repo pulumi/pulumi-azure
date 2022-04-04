@@ -24,8 +24,8 @@ import (
 // 	"encoding/base64"
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -77,10 +77,6 @@ type Certificate struct {
 	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
-	// The ID of the the App Service Environment where the certificate is in use.
-	//
-	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
-	HostingEnvironmentProfileId pulumi.StringOutput `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -144,10 +140,6 @@ type certificateState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
-	// The ID of the the App Service Environment where the certificate is in use.
-	//
-	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
-	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate *string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -180,10 +172,6 @@ type CertificateState struct {
 	FriendlyName pulumi.StringPtrInput
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayInput
-	// The ID of the the App Service Environment where the certificate is in use.
-	//
-	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
-	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The issue date for the certificate.
 	IssueDate pulumi.StringPtrInput
 	// The name of the certificate issuer.
@@ -214,10 +202,6 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
-	// The ID of the the App Service Environment where the certificate is in use.
-	//
-	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
-	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -237,10 +221,6 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
-	// The ID of the the App Service Environment where the certificate is in use.
-	//
-	// Deprecated: This property has been deprecated and replaced with `app_service_plan_id`
-	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

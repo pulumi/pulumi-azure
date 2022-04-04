@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -70,8 +70,9 @@ type LookupPublicIpPrefixResult struct {
 	// The SKU of the Public IP Prefix.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
-	Tags  map[string]string `pulumi:"tags"`
-	Zones []string          `pulumi:"zones"`
+	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones in which this Public IP Prefix is located.
+	Zones []string `pulumi:"zones"`
 }
 
 func LookupPublicIpPrefixOutput(ctx *pulumi.Context, args LookupPublicIpPrefixOutputArgs, opts ...pulumi.InvokeOption) LookupPublicIpPrefixResultOutput {
@@ -149,6 +150,7 @@ func (o LookupPublicIpPrefixResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A list of Availability Zones in which this Public IP Prefix is located.
 func (o LookupPublicIpPrefixResultOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -256,7 +256,7 @@ namespace Pulumi.Azure.Storage
         /// The encryption key type of the queue.
         /// </summary>
         public readonly string QueueEncryptionKeyType;
-        public readonly string ResourceGroupName;
+        public readonly string? ResourceGroupName;
         /// <summary>
         /// The secondary access key for the Storage Account.
         /// </summary>
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.Storage
 
             string queueEncryptionKeyType,
 
-            string resourceGroupName,
+            string? resourceGroupName,
 
             string secondaryAccessKey,
 

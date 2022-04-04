@@ -15,6 +15,7 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]]] = None,
@@ -22,11 +23,10 @@ class EnvironmentArgs:
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_tier: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
@@ -34,9 +34,9 @@ class EnvironmentArgs:
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allowed_user_ip_cidrs is not None:
             pulumi.set(__self__, "allowed_user_ip_cidrs", allowed_user_ip_cidrs)
@@ -50,15 +50,20 @@ class EnvironmentArgs:
             pulumi.set(__self__, "name", name)
         if pricing_tier is not None:
             pulumi.set(__self__, "pricing_tier", pricing_tier)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if user_whitelisted_ip_ranges is not None:
-            warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
-            pulumi.log.warn("""user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""")
-        if user_whitelisted_ip_ranges is not None:
-            pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -145,18 +150,6 @@ class EnvironmentArgs:
         pulumi.set(self, "pricing_tier", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -167,15 +160,6 @@ class EnvironmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "user_whitelisted_ip_ranges")
-
-    @user_whitelisted_ip_ranges.setter
-    def user_whitelisted_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_whitelisted_ip_ranges", value)
 
 
 @pulumi.input_type
@@ -193,8 +177,7 @@ class _EnvironmentState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_ip_address: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
@@ -237,11 +220,6 @@ class _EnvironmentState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if user_whitelisted_ip_ranges is not None:
-            warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
-            pulumi.log.warn("""user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""")
-        if user_whitelisted_ip_ranges is not None:
-            pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
 
     @property
     @pulumi.getter(name="allowedUserIpCidrs")
@@ -399,15 +377,6 @@ class _EnvironmentState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "user_whitelisted_ip_ranges")
-
-    @user_whitelisted_ip_ranges.setter
-    def user_whitelisted_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_whitelisted_ip_ranges", value)
-
 
 class Environment(pulumi.CustomResource):
     @overload
@@ -423,7 +392,6 @@ class Environment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an App Service Environment.
@@ -557,7 +525,6 @@ class Environment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -576,15 +543,13 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["internal_load_balancing_mode"] = internal_load_balancing_mode
             __props__.__dict__["name"] = name
             __props__.__dict__["pricing_tier"] = pricing_tier
+            if resource_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            if user_whitelisted_ip_ranges is not None and not opts.urn:
-                warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
-                pulumi.log.warn("""user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""")
-            __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
             __props__.__dict__["internal_ip_address"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["outbound_ip_addresses"] = None
@@ -611,8 +576,7 @@ class Environment(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_ip_address: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Environment':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -651,12 +615,11 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["service_ip_address"] = service_ip_address
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="allowedUserIpCidrs")
-    def allowed_user_ip_cidrs(self) -> pulumi.Output[Sequence[str]]:
+    def allowed_user_ip_cidrs(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         """
@@ -757,9 +720,4 @@ class Environment(pulumi.CustomResource):
         A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "user_whitelisted_ip_ranges")
 

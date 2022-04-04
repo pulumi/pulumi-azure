@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> VirtualNetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of availability zones.
+        /// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -472,7 +472,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of availability zones.
+        /// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -720,7 +720,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of availability zones.
+        /// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         /// </summary>
         public InputList<string> Zones
         {

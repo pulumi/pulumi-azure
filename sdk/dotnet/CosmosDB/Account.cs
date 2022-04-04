@@ -268,17 +268,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
 
-        [Output("primaryMasterKey")]
-        public Output<string> PrimaryMasterKey { get; private set; } = null!;
-
         /// <summary>
         /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         [Output("primaryReadonlyKey")]
         public Output<string> PrimaryReadonlyKey { get; private set; } = null!;
-
-        [Output("primaryReadonlyMasterKey")]
-        public Output<string> PrimaryReadonlyMasterKey { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not public network access is allowed for this CosmosDB account.
@@ -310,17 +304,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("secondaryKey")]
         public Output<string> SecondaryKey { get; private set; } = null!;
 
-        [Output("secondaryMasterKey")]
-        public Output<string> SecondaryMasterKey { get; private set; } = null!;
-
         /// <summary>
         /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         [Output("secondaryReadonlyKey")]
         public Output<string> SecondaryReadonlyKey { get; private set; } = null!;
-
-        [Output("secondaryReadonlyMasterKey")]
-        public Output<string> SecondaryReadonlyMasterKey { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -807,17 +795,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
-        [Input("primaryMasterKey")]
-        public Input<string>? PrimaryMasterKey { get; set; }
-
         /// <summary>
         /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         [Input("primaryReadonlyKey")]
         public Input<string>? PrimaryReadonlyKey { get; set; }
-
-        [Input("primaryReadonlyMasterKey")]
-        public Input<string>? PrimaryReadonlyMasterKey { get; set; }
 
         /// <summary>
         /// Whether or not public network access is allowed for this CosmosDB account.
@@ -855,17 +837,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
 
-        [Input("secondaryMasterKey")]
-        public Input<string>? SecondaryMasterKey { get; set; }
-
         /// <summary>
         /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         [Input("secondaryReadonlyKey")]
         public Input<string>? SecondaryReadonlyKey { get; set; }
-
-        [Input("secondaryReadonlyMasterKey")]
-        public Input<string>? SecondaryReadonlyMasterKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

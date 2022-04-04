@@ -20,7 +20,7 @@ class GetPolicyFileshareResult:
     """
     A collection of values returned by getPolicyFileshare.
     """
-    def __init__(__self__, id=None, name=None, recovery_vault_name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, id=None, name=None, recovery_vault_name=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -33,9 +33,6 @@ class GetPolicyFileshareResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -60,14 +57,6 @@ class GetPolicyFileshareResult:
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
-        """
-        A mapping of tags assigned to the resource.
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetPolicyFileshareResult(GetPolicyFileshareResult):
     # pylint: disable=using-constant-test
@@ -78,8 +67,7 @@ class AwaitableGetPolicyFileshareResult(GetPolicyFileshareResult):
             id=self.id,
             name=self.name,
             recovery_vault_name=self.recovery_vault_name,
-            resource_group_name=self.resource_group_name,
-            tags=self.tags)
+            resource_group_name=self.resource_group_name)
 
 
 def get_policy_fileshare(name: Optional[str] = None,
@@ -119,8 +107,7 @@ def get_policy_fileshare(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         recovery_vault_name=__ret__.recovery_vault_name,
-        resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        resource_group_name=__ret__.resource_group_name)
 
 
 @_utilities.lift_output_func(get_policy_fileshare)

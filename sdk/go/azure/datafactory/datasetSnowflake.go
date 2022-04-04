@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,15 +40,13 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetSnowflake(ctx, "exampleDatasetSnowflake", &datafactory.DatasetSnowflakeArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
 // 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
 // 			LinkedServiceName: pulumi.Any(azurerm_data_factory_linked_service_snowflake.Test.Name),
 // 			SchemaName:        pulumi.String("foo_schema"),
@@ -80,10 +78,6 @@ type DatasetSnowflake struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset Snowflake.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -94,14 +88,10 @@ type DatasetSnowflake struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetSnowflakeSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
-	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
-	StructureColumns DatasetSnowflakeStructureColumnArrayOutput `pulumi:"structureColumns"`
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 }
@@ -113,11 +103,11 @@ func NewDatasetSnowflake(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetSnowflake
 	err := ctx.RegisterResource("azure:datafactory/datasetSnowflake:DatasetSnowflake", name, args, &resource, opts...)
@@ -147,10 +137,6 @@ type datasetSnowflakeState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset Snowflake.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -161,14 +147,10 @@ type datasetSnowflakeState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetSnowflakeSchemaColumn `pulumi:"schemaColumns"`
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName *string `pulumi:"schemaName"`
-	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
-	StructureColumns []DatasetSnowflakeStructureColumn `pulumi:"structureColumns"`
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName *string `pulumi:"tableName"`
 }
@@ -180,10 +162,6 @@ type DatasetSnowflakeState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset Snowflake.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -194,14 +172,10 @@ type DatasetSnowflakeState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetSnowflakeSchemaColumnArrayInput
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName pulumi.StringPtrInput
-	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
-	StructureColumns DatasetSnowflakeStructureColumnArrayInput
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName pulumi.StringPtrInput
 }
@@ -216,11 +190,7 @@ type datasetSnowflakeArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset Snowflake.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -231,14 +201,10 @@ type datasetSnowflakeArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetSnowflakeSchemaColumn `pulumi:"schemaColumns"`
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName *string `pulumi:"schemaName"`
-	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
-	StructureColumns []DatasetSnowflakeStructureColumn `pulumi:"structureColumns"`
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName *string `pulumi:"tableName"`
 }
@@ -250,11 +216,7 @@ type DatasetSnowflakeArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset Snowflake.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -265,14 +227,10 @@ type DatasetSnowflakeArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetSnowflakeSchemaColumnArrayInput
 	// The schema name of the Data Factory Dataset Snowflake.
 	SchemaName pulumi.StringPtrInput
-	// Deprecated: This block has been deprecated in favour of `schema_column` and will be removed.
-	StructureColumns DatasetSnowflakeStructureColumnArrayInput
 	// The table name of the Data Factory Dataset Snowflake.
 	TableName pulumi.StringPtrInput
 }

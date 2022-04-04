@@ -431,9 +431,6 @@ class VolumeExportPolicyRuleArgs:
     def __init__(__self__, *,
                  allowed_clients: pulumi.Input[Sequence[pulumi.Input[str]]],
                  rule_index: pulumi.Input[int],
-                 cifs_enabled: Optional[pulumi.Input[bool]] = None,
-                 nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
-                 nfsv4_enabled: Optional[pulumi.Input[bool]] = None,
                  protocols_enabled: Optional[pulumi.Input[str]] = None,
                  root_access_enabled: Optional[pulumi.Input[bool]] = None,
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
@@ -448,21 +445,6 @@ class VolumeExportPolicyRuleArgs:
         """
         pulumi.set(__self__, "allowed_clients", allowed_clients)
         pulumi.set(__self__, "rule_index", rule_index)
-        if cifs_enabled is not None:
-            warnings.warn("""Deprecated in favour of `protocols_enabled`""", DeprecationWarning)
-            pulumi.log.warn("""cifs_enabled is deprecated: Deprecated in favour of `protocols_enabled`""")
-        if cifs_enabled is not None:
-            pulumi.set(__self__, "cifs_enabled", cifs_enabled)
-        if nfsv3_enabled is not None:
-            warnings.warn("""Deprecated in favour of `protocols_enabled`""", DeprecationWarning)
-            pulumi.log.warn("""nfsv3_enabled is deprecated: Deprecated in favour of `protocols_enabled`""")
-        if nfsv3_enabled is not None:
-            pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
-        if nfsv4_enabled is not None:
-            warnings.warn("""Deprecated in favour of `protocols_enabled`""", DeprecationWarning)
-            pulumi.log.warn("""nfsv4_enabled is deprecated: Deprecated in favour of `protocols_enabled`""")
-        if nfsv4_enabled is not None:
-            pulumi.set(__self__, "nfsv4_enabled", nfsv4_enabled)
         if protocols_enabled is not None:
             pulumi.set(__self__, "protocols_enabled", protocols_enabled)
         if root_access_enabled is not None:
@@ -495,33 +477,6 @@ class VolumeExportPolicyRuleArgs:
     @rule_index.setter
     def rule_index(self, value: pulumi.Input[int]):
         pulumi.set(self, "rule_index", value)
-
-    @property
-    @pulumi.getter(name="cifsEnabled")
-    def cifs_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "cifs_enabled")
-
-    @cifs_enabled.setter
-    def cifs_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "cifs_enabled", value)
-
-    @property
-    @pulumi.getter(name="nfsv3Enabled")
-    def nfsv3_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "nfsv3_enabled")
-
-    @nfsv3_enabled.setter
-    def nfsv3_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "nfsv3_enabled", value)
-
-    @property
-    @pulumi.getter(name="nfsv4Enabled")
-    def nfsv4_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "nfsv4_enabled")
-
-    @nfsv4_enabled.setter
-    def nfsv4_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "nfsv4_enabled", value)
 
     @property
     @pulumi.getter(name="protocolsEnabled")

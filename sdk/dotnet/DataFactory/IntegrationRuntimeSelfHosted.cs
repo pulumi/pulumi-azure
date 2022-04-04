@@ -33,7 +33,6 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleIntegrationRuntimeSelfHosted = new Azure.DataFactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new Azure.DataFactory.IntegrationRuntimeSelfHostedArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///         });
     ///     }
@@ -53,28 +52,10 @@ namespace Pulumi.Azure.DataFactory
     public partial class IntegrationRuntimeSelfHosted : Pulumi.CustomResource
     {
         /// <summary>
-        /// The primary integration runtime authentication key.
-        /// </summary>
-        [Output("authKey1")]
-        public Output<string> AuthKey1 { get; private set; } = null!;
-
-        /// <summary>
-        /// The secondary integration runtime authentication key.
-        /// </summary>
-        [Output("authKey2")]
-        public Output<string> AuthKey2 { get; private set; } = null!;
-
-        /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryId")]
         public Output<string> DataFactoryId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -89,16 +70,22 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The primary integration runtime authentication key.
+        /// </summary>
+        [Output("primaryAuthorizationKey")]
+        public Output<string> PrimaryAuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
         /// A `rbac_authorization` block as defined below.
         /// </summary>
         [Output("rbacAuthorizations")]
         public Output<ImmutableArray<Outputs.IntegrationRuntimeSelfHostedRbacAuthorization>> RbacAuthorizations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        /// The secondary integration runtime authentication key.
         /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
+        [Output("secondaryAuthorizationKey")]
+        public Output<string> SecondaryAuthorizationKey { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,14 +136,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -182,12 +163,6 @@ namespace Pulumi.Azure.DataFactory
             set => _rbacAuthorizations = value;
         }
 
-        /// <summary>
-        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         public IntegrationRuntimeSelfHostedArgs()
         {
         }
@@ -196,28 +171,10 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeSelfHostedState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The primary integration runtime authentication key.
-        /// </summary>
-        [Input("authKey1")]
-        public Input<string>? AuthKey1 { get; set; }
-
-        /// <summary>
-        /// The secondary integration runtime authentication key.
-        /// </summary>
-        [Input("authKey2")]
-        public Input<string>? AuthKey2 { get; set; }
-
-        /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// Integration runtime description.
@@ -230,6 +187,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The primary integration runtime authentication key.
+        /// </summary>
+        [Input("primaryAuthorizationKey")]
+        public Input<string>? PrimaryAuthorizationKey { get; set; }
 
         [Input("rbacAuthorizations")]
         private InputList<Inputs.IntegrationRuntimeSelfHostedRbacAuthorizationGetArgs>? _rbacAuthorizations;
@@ -244,10 +207,10 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        /// The secondary integration runtime authentication key.
         /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("secondaryAuthorizationKey")]
+        public Input<string>? SecondaryAuthorizationKey { get; set; }
 
         public IntegrationRuntimeSelfHostedState()
         {

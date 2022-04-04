@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -56,8 +56,6 @@ type LookupKubernetesClusterArgs struct {
 type LookupKubernetesClusterResult struct {
 	// An `aciConnectorLinux` block as documented below.
 	AciConnectorLinuxes []GetKubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinuxes"`
-	// Deprecated: `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider
-	AddonProfiles []GetKubernetesClusterAddonProfile `pulumi:"addonProfiles"`
 	// An `agentPoolProfile` block as documented below.
 	AgentPoolProfiles []GetKubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the primaries.
@@ -78,7 +76,7 @@ type LookupKubernetesClusterResult struct {
 	HttpApplicationRoutingZoneName string `pulumi:"httpApplicationRoutingZoneName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A `identity` block as documented below.
+	// An `identity` block as documented below.
 	Identities []GetKubernetesClusterIdentity `pulumi:"identities"`
 	// An `ingressApplicationGateway` block as documented below.
 	IngressApplicationGateways []GetKubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateways"`
@@ -113,14 +111,10 @@ type LookupKubernetesClusterResult struct {
 	// If the cluster has the Kubernetes API only exposed on internal IP addresses.
 	PrivateClusterEnabled bool `pulumi:"privateClusterEnabled"`
 	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
-	PrivateFqdn string `pulumi:"privateFqdn"`
-	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-	PrivateLinkEnabled bool   `pulumi:"privateLinkEnabled"`
-	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	PrivateFqdn       string `pulumi:"privateFqdn"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
 	RoleBasedAccessControlEnabled bool `pulumi:"roleBasedAccessControlEnabled"`
-	// Deprecated: `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.
-	RoleBasedAccessControls []GetKubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControls"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
 	// A mapping of tags to assign to the resource.
@@ -170,11 +164,6 @@ func (o LookupKubernetesClusterResultOutput) AciConnectorLinuxes() GetKubernetes
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAciConnectorLinux {
 		return v.AciConnectorLinuxes
 	}).(GetKubernetesClusterAciConnectorLinuxArrayOutput)
-}
-
-// Deprecated: `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider
-func (o LookupKubernetesClusterResultOutput) AddonProfiles() GetKubernetesClusterAddonProfileArrayOutput {
-	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterAddonProfile { return v.AddonProfiles }).(GetKubernetesClusterAddonProfileArrayOutput)
 }
 
 // An `agentPoolProfile` block as documented below.
@@ -231,7 +220,7 @@ func (o LookupKubernetesClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A `identity` block as documented below.
+// An `identity` block as documented below.
 func (o LookupKubernetesClusterResultOutput) Identities() GetKubernetesClusterIdentityArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterIdentity { return v.Identities }).(GetKubernetesClusterIdentityArrayOutput)
 }
@@ -327,11 +316,6 @@ func (o LookupKubernetesClusterResultOutput) PrivateFqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.PrivateFqdn }).(pulumi.StringOutput)
 }
 
-// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-func (o LookupKubernetesClusterResultOutput) PrivateLinkEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.PrivateLinkEnabled }).(pulumi.BoolOutput)
-}
-
 func (o LookupKubernetesClusterResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -339,13 +323,6 @@ func (o LookupKubernetesClusterResultOutput) ResourceGroupName() pulumi.StringOu
 // Is Role Based Access Control enabled for this managed Kubernetes Cluster.
 func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControlEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.RoleBasedAccessControlEnabled }).(pulumi.BoolOutput)
-}
-
-// Deprecated: `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.
-func (o LookupKubernetesClusterResultOutput) RoleBasedAccessControls() GetKubernetesClusterRoleBasedAccessControlArrayOutput {
-	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterRoleBasedAccessControl {
-		return v.RoleBasedAccessControls
-	}).(GetKubernetesClusterRoleBasedAccessControlArrayOutput)
 }
 
 // A `servicePrincipal` block as documented below.

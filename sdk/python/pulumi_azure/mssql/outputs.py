@@ -10,7 +10,6 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'DatabaseExtendedAuditingPolicy',
     'DatabaseLongTermRetentionPolicy',
     'DatabaseShortTermRetentionPolicy',
     'DatabaseThreatDetectionPolicy',
@@ -23,8 +22,6 @@ __all__ = [
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy',
     'ManagedInstanceIdentity',
     'ServerAzureadAdministrator',
-    'ServerExtendedAuditingPolicy',
-    'ServerFoo',
     'ServerIdentity',
     'ServerVulnerabilityAssessmentRecurringScans',
     'VirtualMachineAutoBackup',
@@ -39,104 +36,6 @@ __all__ = [
     'GetManagedInstanceIdentityResult',
     'GetServerIdentityResult',
 ]
-
-@pulumi.output_type
-class DatabaseExtendedAuditingPolicy(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "logMonitoringEnabled":
-            suggest = "log_monitoring_enabled"
-        elif key == "retentionInDays":
-            suggest = "retention_in_days"
-        elif key == "storageAccountAccessKey":
-            suggest = "storage_account_access_key"
-        elif key == "storageAccountAccessKeyIsSecondary":
-            suggest = "storage_account_access_key_is_secondary"
-        elif key == "storageAccountSubscriptionId":
-            suggest = "storage_account_subscription_id"
-        elif key == "storageEndpoint":
-            suggest = "storage_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabaseExtendedAuditingPolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatabaseExtendedAuditingPolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatabaseExtendedAuditingPolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 log_monitoring_enabled: Optional[bool] = None,
-                 retention_in_days: Optional[int] = None,
-                 storage_account_access_key: Optional[str] = None,
-                 storage_account_access_key_is_secondary: Optional[bool] = None,
-                 storage_account_subscription_id: Optional[str] = None,
-                 storage_endpoint: Optional[str] = None):
-        """
-        :param int retention_in_days: Specifies the number of days to retain logs for in the storage account.
-        :param str storage_account_access_key: Specifies the access key to use for the auditing storage account.
-        :param bool storage_account_access_key_is_secondary: Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
-        if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
-        if storage_account_subscription_id is not None:
-            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-
-    @property
-    @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "log_monitoring_enabled")
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[int]:
-        """
-        Specifies the number of days to retain logs for in the storage account.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[str]:
-        """
-        Specifies the access key to use for the auditing storage account.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
-    def storage_account_access_key_is_secondary(self) -> Optional[bool]:
-        """
-        Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        """
-        return pulumi.get(self, "storage_account_access_key_is_secondary")
-
-    @property
-    @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[str]:
-        return pulumi.get(self, "storage_account_subscription_id")
-
-    @property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[str]:
-        """
-        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
-        return pulumi.get(self, "storage_endpoint")
-
 
 @pulumi.output_type
 class DatabaseLongTermRetentionPolicy(dict):
@@ -170,7 +69,7 @@ class DatabaseLongTermRetentionPolicy(dict):
                  yearly_retention: Optional[str] = None):
         """
         :param str monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
-        :param int week_of_year: The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        :param int week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
         :param str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
@@ -195,7 +94,7 @@ class DatabaseLongTermRetentionPolicy(dict):
     @pulumi.getter(name="weekOfYear")
     def week_of_year(self) -> Optional[int]:
         """
-        The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        The week of year to take the yearly backup. Value has to be between `1` and `52`.
         """
         return pulumi.get(self, "week_of_year")
 
@@ -268,8 +167,6 @@ class DatabaseThreatDetectionPolicy(dict):
             suggest = "storage_account_access_key"
         elif key == "storageEndpoint":
             suggest = "storage_endpoint"
-        elif key == "useServerDefault":
-            suggest = "use_server_default"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DatabaseThreatDetectionPolicy. Access the value via the '{suggest}' property getter instead.")
@@ -289,8 +186,7 @@ class DatabaseThreatDetectionPolicy(dict):
                  retention_days: Optional[int] = None,
                  state: Optional[str] = None,
                  storage_account_access_key: Optional[str] = None,
-                 storage_endpoint: Optional[str] = None,
-                 use_server_default: Optional[str] = None):
+                 storage_endpoint: Optional[str] = None):
         """
         :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         :param str email_account_admins: Should the account administrators be emailed when this alert is triggered?
@@ -314,8 +210,6 @@ class DatabaseThreatDetectionPolicy(dict):
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-        if use_server_default is not None:
-            pulumi.set(__self__, "use_server_default", use_server_default)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -372,11 +266,6 @@ class DatabaseThreatDetectionPolicy(dict):
         Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_endpoint")
-
-    @property
-    @pulumi.getter(name="useServerDefault")
-    def use_server_default(self) -> Optional[str]:
-        return pulumi.get(self, "use_server_default")
 
 
 @pulumi.output_type
@@ -802,87 +691,7 @@ class ServerAzureadAdministrator(dict):
 
 
 @pulumi.output_type
-class ServerExtendedAuditingPolicy(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "logMonitoringEnabled":
-            suggest = "log_monitoring_enabled"
-        elif key == "retentionInDays":
-            suggest = "retention_in_days"
-        elif key == "storageAccountAccessKey":
-            suggest = "storage_account_access_key"
-        elif key == "storageAccountAccessKeyIsSecondary":
-            suggest = "storage_account_access_key_is_secondary"
-        elif key == "storageAccountSubscriptionId":
-            suggest = "storage_account_subscription_id"
-        elif key == "storageEndpoint":
-            suggest = "storage_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServerExtendedAuditingPolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServerExtendedAuditingPolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServerExtendedAuditingPolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 log_monitoring_enabled: Optional[bool] = None,
-                 retention_in_days: Optional[int] = None,
-                 storage_account_access_key: Optional[str] = None,
-                 storage_account_access_key_is_secondary: Optional[bool] = None,
-                 storage_account_subscription_id: Optional[str] = None,
-                 storage_endpoint: Optional[str] = None):
-        if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
-        if storage_account_subscription_id is not None:
-            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-
-    @property
-    @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "log_monitoring_enabled")
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[int]:
-        return pulumi.get(self, "retention_in_days")
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[str]:
-        return pulumi.get(self, "storage_account_access_key")
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
-    def storage_account_access_key_is_secondary(self) -> Optional[bool]:
-        return pulumi.get(self, "storage_account_access_key_is_secondary")
-
-    @property
-    @pulumi.getter(name="storageAccountSubscriptionId")
-    def storage_account_subscription_id(self) -> Optional[str]:
-        return pulumi.get(self, "storage_account_subscription_id")
-
-    @property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[str]:
-        return pulumi.get(self, "storage_endpoint")
-
-
-@pulumi.output_type
-class ServerFoo(dict):
+class ServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -894,14 +703,14 @@ class ServerFoo(dict):
             suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServerFoo. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServerIdentity. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ServerFoo.__key_warning(key)
+        ServerIdentity.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ServerFoo.__key_warning(key)
+        ServerIdentity.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -910,7 +719,8 @@ class ServerFoo(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
@@ -926,13 +736,16 @@ class ServerFoo(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
+        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
@@ -950,81 +763,6 @@ class ServerFoo(dict):
         The tenant id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class ServerIdentity(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentityIds":
-            suggest = "user_assigned_identity_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServerIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServerIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServerIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 type: str,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 user_assigned_identity_ids: Optional[Sequence[str]] = None):
-        """
-        :param str type: Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
-        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
-        :param Sequence[str] user_assigned_identity_ids: Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
-        """
-        pulumi.set(__self__, "type", type)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if user_assigned_identity_ids is not None:
-            pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        """
-        The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The tenant id of the Azure AD Administrator of this SQL Server.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentityIds")
-    def user_assigned_identity_ids(self) -> Optional[Sequence[str]]:
-        """
-        Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
-        """
-        return pulumi.get(self, "user_assigned_identity_ids")
 
 
 @pulumi.output_type
@@ -1697,9 +1435,9 @@ class GetManagedInstanceIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-        :param str type: The identity type of the SQL Managed Instance.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param str type: The identity type of this Managed Service Identity.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1709,7 +1447,7 @@ class GetManagedInstanceIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1717,7 +1455,7 @@ class GetManagedInstanceIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1725,7 +1463,7 @@ class GetManagedInstanceIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type of the SQL Managed Instance.
+        The identity type of this Managed Service Identity.
         """
         return pulumi.get(self, "type")
 
@@ -1733,26 +1471,34 @@ class GetManagedInstanceIdentityResult(dict):
 @pulumi.output_type
 class GetServerIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
-                 type: str,
-                 user_assigned_identity_ids: Sequence[str]):
+                 type: str):
         """
-        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-        :param str type: The identity type of the Microsoft SQL Server.
-        :param Sequence[str] user_assigned_identity_ids: A list of the User Assigned Identities of this SQL Server.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Server.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
+        :param str type: The type of Managed Service Identity that is configured on this Microsoft SQL Server.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "user_assigned_identity_ids", user_assigned_identity_ids)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Server.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1760,7 +1506,7 @@ class GetServerIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1768,16 +1514,8 @@ class GetServerIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type of the Microsoft SQL Server.
+        The type of Managed Service Identity that is configured on this Microsoft SQL Server.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentityIds")
-    def user_assigned_identity_ids(self) -> Sequence[str]:
-        """
-        A list of the User Assigned Identities of this SQL Server.
-        """
-        return pulumi.get(self, "user_assigned_identity_ids")
 
 

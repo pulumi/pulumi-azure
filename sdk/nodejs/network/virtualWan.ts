@@ -61,10 +61,6 @@ export class VirtualWan extends pulumi.CustomResource {
      */
     public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
     /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    public readonly allowVnetToVnetTraffic!: pulumi.Output<boolean | undefined>;
-    /**
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      */
     public readonly disableVpnEncryption!: pulumi.Output<boolean | undefined>;
@@ -107,7 +103,6 @@ export class VirtualWan extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualWanState | undefined;
             resourceInputs["allowBranchToBranchTraffic"] = state ? state.allowBranchToBranchTraffic : undefined;
-            resourceInputs["allowVnetToVnetTraffic"] = state ? state.allowVnetToVnetTraffic : undefined;
             resourceInputs["disableVpnEncryption"] = state ? state.disableVpnEncryption : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -121,7 +116,6 @@ export class VirtualWan extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
-            resourceInputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
             resourceInputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -143,10 +137,6 @@ export interface VirtualWanState {
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
      */
     allowBranchToBranchTraffic?: pulumi.Input<boolean>;
-    /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    allowVnetToVnetTraffic?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      */
@@ -185,10 +175,6 @@ export interface VirtualWanArgs {
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
      */
     allowBranchToBranchTraffic?: pulumi.Input<boolean>;
-    /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    allowVnetToVnetTraffic?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      */

@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -54,9 +54,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -136,8 +136,8 @@ type Account struct {
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
-	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
-	AllowBlobPublicAccess pulumi.BoolPtrOutput `pulumi:"allowBlobPublicAccess"`
+	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	AllowNestedItemsToBePublic pulumi.BoolPtrOutput `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
@@ -145,7 +145,9 @@ type Account struct {
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
-	CustomerManagedKey AccountCustomerManagedKeyOutput `pulumi:"customerManagedKey"`
+	CustomerManagedKey AccountCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
+	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
@@ -296,8 +298,8 @@ type accountState struct {
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier *string `pulumi:"accountTier"`
-	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
-	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
@@ -306,6 +308,8 @@ type accountState struct {
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
+	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
@@ -419,8 +423,8 @@ type AccountState struct {
 	AccountReplicationType pulumi.StringPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringPtrInput
-	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
-	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	AllowNestedItemsToBePublic pulumi.BoolPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
@@ -429,6 +433,8 @@ type AccountState struct {
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
@@ -546,8 +552,8 @@ type accountArgs struct {
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier string `pulumi:"accountTier"`
-	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
-	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
@@ -556,6 +562,8 @@ type accountArgs struct {
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
+	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
@@ -606,8 +614,8 @@ type AccountArgs struct {
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringInput
-	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
-	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	AllowNestedItemsToBePublic pulumi.BoolPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
@@ -616,6 +624,8 @@ type AccountArgs struct {
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information. Defaults to `true`.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput

@@ -12,65 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Azure NAT Gateway.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///         var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new Azure.Network.PublicIpPrefixArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PrefixLength = 30,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///         var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new Azure.Network.NatGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublicIpAddressIds = 
-    ///             {
-    ///                 examplePublicIp.Id,
-    ///             },
-    ///             PublicIpPrefixIds = 
-    ///             {
-    ///                 examplePublicIpPrefix.Id,
-    ///             },
-    ///             SkuName = "Standard",
-    ///             IdleTimeoutInMinutes = 10,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// NAT Gateway can be imported using the `resource id`, e.g.
@@ -101,18 +42,6 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        /// </summary>
-        [Output("publicIpAddressIds")]
-        public Output<ImmutableArray<string>> PublicIpAddressIds { get; private set; } = null!;
-
-        /// <summary>
-        /// / **Deprecated in favour of `azure.network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-        /// </summary>
-        [Output("publicIpPrefixIds")]
-        public Output<ImmutableArray<string>> PublicIpPrefixIds { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -137,7 +66,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -206,32 +135,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("publicIpAddressIds")]
-        private InputList<string>? _publicIpAddressIds;
-
-        /// <summary>
-        /// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        /// </summary>
-        [Obsolete(@"Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.")]
-        public InputList<string> PublicIpAddressIds
-        {
-            get => _publicIpAddressIds ?? (_publicIpAddressIds = new InputList<string>());
-            set => _publicIpAddressIds = value;
-        }
-
-        [Input("publicIpPrefixIds")]
-        private InputList<string>? _publicIpPrefixIds;
-
-        /// <summary>
-        /// / **Deprecated in favour of `azure.network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-        /// </summary>
-        [Obsolete(@"Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.")]
-        public InputList<string> PublicIpPrefixIds
-        {
-            get => _publicIpPrefixIds ?? (_publicIpPrefixIds = new InputList<string>());
-            set => _publicIpPrefixIds = value;
-        }
-
         /// <summary>
         /// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -260,7 +163,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -292,32 +195,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("publicIpAddressIds")]
-        private InputList<string>? _publicIpAddressIds;
-
-        /// <summary>
-        /// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        /// </summary>
-        [Obsolete(@"Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.")]
-        public InputList<string> PublicIpAddressIds
-        {
-            get => _publicIpAddressIds ?? (_publicIpAddressIds = new InputList<string>());
-            set => _publicIpAddressIds = value;
-        }
-
-        [Input("publicIpPrefixIds")]
-        private InputList<string>? _publicIpPrefixIds;
-
-        /// <summary>
-        /// / **Deprecated in favour of `azure.network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-        /// </summary>
-        [Obsolete(@"Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.")]
-        public InputList<string> PublicIpPrefixIds
-        {
-            get => _publicIpPrefixIds ?? (_publicIpPrefixIds = new InputList<string>());
-            set => _publicIpPrefixIds = value;
-        }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
@@ -353,7 +230,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         /// </summary>
         public InputList<string> Zones
         {

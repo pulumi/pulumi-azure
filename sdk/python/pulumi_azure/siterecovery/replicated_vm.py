@@ -28,7 +28,8 @@ class ReplicatedVMArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
                  target_availability_set_id: Optional[pulumi.Input[str]] = None,
-                 target_network_id: Optional[pulumi.Input[str]] = None):
+                 target_network_id: Optional[pulumi.Input[str]] = None,
+                 target_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicatedVM resource.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
@@ -44,6 +45,7 @@ class ReplicatedVMArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
         :param pulumi.Input[str] target_network_id: Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist.
         """
         pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -64,6 +66,8 @@ class ReplicatedVMArgs:
             pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_network_id is not None:
             pulumi.set(__self__, "target_network_id", target_network_id)
+        if target_zone is not None:
+            pulumi.set(__self__, "target_zone", target_zone)
 
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
@@ -230,6 +234,18 @@ class ReplicatedVMArgs:
     def target_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_network_id", value)
 
+    @property
+    @pulumi.getter(name="targetZone")
+    def target_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Availability Zone where the Failover VM should exist.
+        """
+        return pulumi.get(self, "target_zone")
+
+    @target_zone.setter
+    def target_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_zone", value)
+
 
 @pulumi.input_type
 class _ReplicatedVMState:
@@ -247,7 +263,8 @@ class _ReplicatedVMState:
                  target_network_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[str]] = None):
+                 target_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 target_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicatedVM resources.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]] managed_disks: One or more `managed_disk` block.
@@ -263,6 +280,7 @@ class _ReplicatedVMState:
         :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
+        :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist.
         """
         if managed_disks is not None:
             pulumi.set(__self__, "managed_disks", managed_disks)
@@ -292,6 +310,8 @@ class _ReplicatedVMState:
             pulumi.set(__self__, "target_recovery_protection_container_id", target_recovery_protection_container_id)
         if target_resource_group_id is not None:
             pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        if target_zone is not None:
+            pulumi.set(__self__, "target_zone", target_zone)
 
     @property
     @pulumi.getter(name="managedDisks")
@@ -458,6 +478,18 @@ class _ReplicatedVMState:
     def target_resource_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_resource_group_id", value)
 
+    @property
+    @pulumi.getter(name="targetZone")
+    def target_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Availability Zone where the Failover VM should exist.
+        """
+        return pulumi.get(self, "target_zone")
+
+    @target_zone.setter
+    def target_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_zone", value)
+
 
 class ReplicatedVM(pulumi.CustomResource):
     @overload
@@ -478,6 +510,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 target_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
@@ -646,6 +679,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
+        :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist.
         """
         ...
     @overload
@@ -834,6 +868,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 target_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -878,6 +913,7 @@ class ReplicatedVM(pulumi.CustomResource):
             if target_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_group_id'")
             __props__.__dict__["target_resource_group_id"] = target_resource_group_id
+            __props__.__dict__["target_zone"] = target_zone
         super(ReplicatedVM, __self__).__init__(
             'azure:siterecovery/replicatedVM:ReplicatedVM',
             resource_name,
@@ -901,7 +937,8 @@ class ReplicatedVM(pulumi.CustomResource):
             target_network_id: Optional[pulumi.Input[str]] = None,
             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
             target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
-            target_resource_group_id: Optional[pulumi.Input[str]] = None) -> 'ReplicatedVM':
+            target_resource_group_id: Optional[pulumi.Input[str]] = None,
+            target_zone: Optional[pulumi.Input[str]] = None) -> 'ReplicatedVM':
         """
         Get an existing ReplicatedVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -922,6 +959,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
+        :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -941,6 +979,7 @@ class ReplicatedVM(pulumi.CustomResource):
         __props__.__dict__["target_recovery_fabric_id"] = target_recovery_fabric_id
         __props__.__dict__["target_recovery_protection_container_id"] = target_recovery_protection_container_id
         __props__.__dict__["target_resource_group_id"] = target_resource_group_id
+        __props__.__dict__["target_zone"] = target_zone
         return ReplicatedVM(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1051,4 +1090,12 @@ class ReplicatedVM(pulumi.CustomResource):
         Id of resource group where the VM should be created when a failover is done.
         """
         return pulumi.get(self, "target_resource_group_id")
+
+    @property
+    @pulumi.getter(name="targetZone")
+    def target_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Availability Zone where the Failover VM should exist.
+        """
+        return pulumi.get(self, "target_zone")
 

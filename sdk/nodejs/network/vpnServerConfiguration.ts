@@ -111,12 +111,6 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      */
     public readonly radius!: pulumi.Output<outputs.network.VpnServerConfigurationRadius | undefined>;
     /**
-     * A `radiusServer` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `radius`
-     */
-    public readonly radiusServer!: pulumi.Output<outputs.network.VpnServerConfigurationRadiusServer | undefined>;
-    /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -127,7 +121,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      */
-    public readonly vpnAuthenticationTypes!: pulumi.Output<string>;
+    public readonly vpnAuthenticationTypes!: pulumi.Output<string[]>;
     /**
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      */
@@ -153,7 +147,6 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["radius"] = state ? state.radius : undefined;
-            resourceInputs["radiusServer"] = state ? state.radiusServer : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["vpnAuthenticationTypes"] = state ? state.vpnAuthenticationTypes : undefined;
@@ -173,7 +166,6 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["radius"] = args ? args.radius : undefined;
-            resourceInputs["radiusServer"] = args ? args.radiusServer : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpnAuthenticationTypes"] = args ? args.vpnAuthenticationTypes : undefined;
@@ -217,12 +209,6 @@ export interface VpnServerConfigurationState {
      */
     radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
     /**
-     * A `radiusServer` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `radius`
-     */
-    radiusServer?: pulumi.Input<inputs.network.VpnServerConfigurationRadiusServer>;
-    /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -233,7 +219,7 @@ export interface VpnServerConfigurationState {
     /**
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      */
-    vpnAuthenticationTypes?: pulumi.Input<string>;
+    vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      */
@@ -273,12 +259,6 @@ export interface VpnServerConfigurationArgs {
      */
     radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
     /**
-     * A `radiusServer` block as defined below.
-     *
-     * @deprecated Deprecated in favour of `radius`
-     */
-    radiusServer?: pulumi.Input<inputs.network.VpnServerConfigurationRadiusServer>;
-    /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -289,7 +269,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      */
-    vpnAuthenticationTypes: pulumi.Input<string>;
+    vpnAuthenticationTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      */

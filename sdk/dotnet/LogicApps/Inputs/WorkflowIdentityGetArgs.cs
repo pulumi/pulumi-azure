@@ -16,7 +16,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

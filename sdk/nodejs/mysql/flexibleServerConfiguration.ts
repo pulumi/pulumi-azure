@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleFlexibleServerConfiguration = new azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: azurerm_mysql_server.example.name,
+ *     serverName: exampleFlexibleServer.name,
  *     value: "600",
  * });
  * ```

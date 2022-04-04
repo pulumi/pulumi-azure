@@ -76,6 +76,8 @@ namespace Pulumi.Azure.Storage
         ///                 Create = true,
         ///                 Update = false,
         ///                 Process = false,
+        ///                 Tag = false,
+        ///                 Filter = false,
         ///             },
         ///         });
         ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
@@ -156,6 +158,8 @@ namespace Pulumi.Azure.Storage
         ///                 Create = true,
         ///                 Update = false,
         ///                 Process = false,
+        ///                 Tag = false,
+        ///                 Filter = false,
         ///             },
         ///         });
         ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);

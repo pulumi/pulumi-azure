@@ -36,8 +36,7 @@ namespace Pulumi.Azure.Iot
     ///         });
     ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///         var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new Azure.ServiceBus.QueueAuthorizationRuleArgs
@@ -118,12 +117,6 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Output("iothubId")]
         public Output<string> IothubId { get; private set; } = null!;
-
-        /// <summary>
-        /// The IoTHub name for the endpoint.
-        /// </summary>
-        [Output("iothubName")]
-        public Output<string> IothubName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -216,14 +209,8 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The IoTHub ID for the endpoint.
         /// </summary>
-        [Input("iothubId")]
-        public Input<string>? IothubId { get; set; }
-
-        /// <summary>
-        /// The IoTHub name for the endpoint.
-        /// </summary>
-        [Input("iothubName")]
-        public Input<string>? IothubName { get; set; }
+        [Input("iothubId", required: true)]
+        public Input<string> IothubId { get; set; } = null!;
 
         /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -279,12 +266,6 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("iothubId")]
         public Input<string>? IothubId { get; set; }
-
-        /// <summary>
-        /// The IoTHub name for the endpoint.
-        /// </summary>
-        [Input("iothubName")]
-        public Input<string>? IothubName { get; set; }
 
         /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.

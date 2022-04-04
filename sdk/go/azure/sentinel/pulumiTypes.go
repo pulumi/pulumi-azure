@@ -10,6 +10,344 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AlertRuleScheduledAlertDetailsOverride struct {
+	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+	DescriptionFormat *string `pulumi:"descriptionFormat"`
+	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+	DisplayNameFormat *string `pulumi:"displayNameFormat"`
+	// The column name to take the alert severity from.
+	SeverityColumnName *string `pulumi:"severityColumnName"`
+	// The column name to take the alert tactics from.
+	TacticsColumnName *string `pulumi:"tacticsColumnName"`
+}
+
+// AlertRuleScheduledAlertDetailsOverrideInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideArgs and AlertRuleScheduledAlertDetailsOverrideOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideInput` via:
+//
+//          AlertRuleScheduledAlertDetailsOverrideArgs{...}
+type AlertRuleScheduledAlertDetailsOverrideInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledAlertDetailsOverrideOutput() AlertRuleScheduledAlertDetailsOverrideOutput
+	ToAlertRuleScheduledAlertDetailsOverrideOutputWithContext(context.Context) AlertRuleScheduledAlertDetailsOverrideOutput
+}
+
+type AlertRuleScheduledAlertDetailsOverrideArgs struct {
+	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+	DescriptionFormat pulumi.StringPtrInput `pulumi:"descriptionFormat"`
+	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+	DisplayNameFormat pulumi.StringPtrInput `pulumi:"displayNameFormat"`
+	// The column name to take the alert severity from.
+	SeverityColumnName pulumi.StringPtrInput `pulumi:"severityColumnName"`
+	// The column name to take the alert tactics from.
+	TacticsColumnName pulumi.StringPtrInput `pulumi:"tacticsColumnName"`
+}
+
+func (AlertRuleScheduledAlertDetailsOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverride)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideArgs) ToAlertRuleScheduledAlertDetailsOverrideOutput() AlertRuleScheduledAlertDetailsOverrideOutput {
+	return i.ToAlertRuleScheduledAlertDetailsOverrideOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideArgs) ToAlertRuleScheduledAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideOutput)
+}
+
+// AlertRuleScheduledAlertDetailsOverrideArrayInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideArray and AlertRuleScheduledAlertDetailsOverrideArrayOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideArrayInput` via:
+//
+//          AlertRuleScheduledAlertDetailsOverrideArray{ AlertRuleScheduledAlertDetailsOverrideArgs{...} }
+type AlertRuleScheduledAlertDetailsOverrideArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledAlertDetailsOverrideArrayOutput() AlertRuleScheduledAlertDetailsOverrideArrayOutput
+	ToAlertRuleScheduledAlertDetailsOverrideArrayOutputWithContext(context.Context) AlertRuleScheduledAlertDetailsOverrideArrayOutput
+}
+
+type AlertRuleScheduledAlertDetailsOverrideArray []AlertRuleScheduledAlertDetailsOverrideInput
+
+func (AlertRuleScheduledAlertDetailsOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledAlertDetailsOverride)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideArray) ToAlertRuleScheduledAlertDetailsOverrideArrayOutput() AlertRuleScheduledAlertDetailsOverrideArrayOutput {
+	return i.ToAlertRuleScheduledAlertDetailsOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledAlertDetailsOverrideArray) ToAlertRuleScheduledAlertDetailsOverrideArrayOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideArrayOutput)
+}
+
+type AlertRuleScheduledAlertDetailsOverrideOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledAlertDetailsOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverride)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) ToAlertRuleScheduledAlertDetailsOverrideOutput() AlertRuleScheduledAlertDetailsOverrideOutput {
+	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) ToAlertRuleScheduledAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideOutput {
+	return o
+}
+
+// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) DescriptionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) *string { return v.DescriptionFormat }).(pulumi.StringPtrOutput)
+}
+
+// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) DisplayNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) *string { return v.DisplayNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// The column name to take the alert severity from.
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) SeverityColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) *string { return v.SeverityColumnName }).(pulumi.StringPtrOutput)
+}
+
+// The column name to take the alert tactics from.
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) TacticsColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledAlertDetailsOverride) *string { return v.TacticsColumnName }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleScheduledAlertDetailsOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledAlertDetailsOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledAlertDetailsOverride)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) ToAlertRuleScheduledAlertDetailsOverrideArrayOutput() AlertRuleScheduledAlertDetailsOverrideArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) ToAlertRuleScheduledAlertDetailsOverrideArrayOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledAlertDetailsOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduledAlertDetailsOverride {
+		return vs[0].([]AlertRuleScheduledAlertDetailsOverride)[vs[1].(int)]
+	}).(AlertRuleScheduledAlertDetailsOverrideOutput)
+}
+
+type AlertRuleScheduledEntityMapping struct {
+	// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	EntityType string `pulumi:"entityType"`
+	// A list of `fieldMapping` blocks as defined below.
+	FieldMappings []AlertRuleScheduledEntityMappingFieldMapping `pulumi:"fieldMappings"`
+}
+
+// AlertRuleScheduledEntityMappingInput is an input type that accepts AlertRuleScheduledEntityMappingArgs and AlertRuleScheduledEntityMappingOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledEntityMappingInput` via:
+//
+//          AlertRuleScheduledEntityMappingArgs{...}
+type AlertRuleScheduledEntityMappingInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledEntityMappingOutput() AlertRuleScheduledEntityMappingOutput
+	ToAlertRuleScheduledEntityMappingOutputWithContext(context.Context) AlertRuleScheduledEntityMappingOutput
+}
+
+type AlertRuleScheduledEntityMappingArgs struct {
+	// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	EntityType pulumi.StringInput `pulumi:"entityType"`
+	// A list of `fieldMapping` blocks as defined below.
+	FieldMappings AlertRuleScheduledEntityMappingFieldMappingArrayInput `pulumi:"fieldMappings"`
+}
+
+func (AlertRuleScheduledEntityMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledEntityMappingArgs) ToAlertRuleScheduledEntityMappingOutput() AlertRuleScheduledEntityMappingOutput {
+	return i.ToAlertRuleScheduledEntityMappingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledEntityMappingArgs) ToAlertRuleScheduledEntityMappingOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingOutput)
+}
+
+// AlertRuleScheduledEntityMappingArrayInput is an input type that accepts AlertRuleScheduledEntityMappingArray and AlertRuleScheduledEntityMappingArrayOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledEntityMappingArrayInput` via:
+//
+//          AlertRuleScheduledEntityMappingArray{ AlertRuleScheduledEntityMappingArgs{...} }
+type AlertRuleScheduledEntityMappingArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledEntityMappingArrayOutput() AlertRuleScheduledEntityMappingArrayOutput
+	ToAlertRuleScheduledEntityMappingArrayOutputWithContext(context.Context) AlertRuleScheduledEntityMappingArrayOutput
+}
+
+type AlertRuleScheduledEntityMappingArray []AlertRuleScheduledEntityMappingInput
+
+func (AlertRuleScheduledEntityMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledEntityMappingArray) ToAlertRuleScheduledEntityMappingArrayOutput() AlertRuleScheduledEntityMappingArrayOutput {
+	return i.ToAlertRuleScheduledEntityMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledEntityMappingArray) ToAlertRuleScheduledEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingArrayOutput)
+}
+
+type AlertRuleScheduledEntityMappingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledEntityMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledEntityMappingOutput) ToAlertRuleScheduledEntityMappingOutput() AlertRuleScheduledEntityMappingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEntityMappingOutput) ToAlertRuleScheduledEntityMappingOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingOutput {
+	return o
+}
+
+// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleScheduledEntityMappingOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledEntityMapping) string { return v.EntityType }).(pulumi.StringOutput)
+}
+
+// A list of `fieldMapping` blocks as defined below.
+func (o AlertRuleScheduledEntityMappingOutput) FieldMappings() AlertRuleScheduledEntityMappingFieldMappingArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledEntityMapping) []AlertRuleScheduledEntityMappingFieldMapping {
+		return v.FieldMappings
+	}).(AlertRuleScheduledEntityMappingFieldMappingArrayOutput)
+}
+
+type AlertRuleScheduledEntityMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledEntityMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledEntityMappingArrayOutput) ToAlertRuleScheduledEntityMappingArrayOutput() AlertRuleScheduledEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEntityMappingArrayOutput) ToAlertRuleScheduledEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledEntityMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduledEntityMapping {
+		return vs[0].([]AlertRuleScheduledEntityMapping)[vs[1].(int)]
+	}).(AlertRuleScheduledEntityMappingOutput)
+}
+
+type AlertRuleScheduledEntityMappingFieldMapping struct {
+	// The column name to be mapped to the identifier.
+	ColumnName string `pulumi:"columnName"`
+	// The identifier of the entity.
+	Identifier string `pulumi:"identifier"`
+}
+
+// AlertRuleScheduledEntityMappingFieldMappingInput is an input type that accepts AlertRuleScheduledEntityMappingFieldMappingArgs and AlertRuleScheduledEntityMappingFieldMappingOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledEntityMappingFieldMappingInput` via:
+//
+//          AlertRuleScheduledEntityMappingFieldMappingArgs{...}
+type AlertRuleScheduledEntityMappingFieldMappingInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledEntityMappingFieldMappingOutput() AlertRuleScheduledEntityMappingFieldMappingOutput
+	ToAlertRuleScheduledEntityMappingFieldMappingOutputWithContext(context.Context) AlertRuleScheduledEntityMappingFieldMappingOutput
+}
+
+type AlertRuleScheduledEntityMappingFieldMappingArgs struct {
+	// The column name to be mapped to the identifier.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The identifier of the entity.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+}
+
+func (AlertRuleScheduledEntityMappingFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledEntityMappingFieldMappingArgs) ToAlertRuleScheduledEntityMappingFieldMappingOutput() AlertRuleScheduledEntityMappingFieldMappingOutput {
+	return i.ToAlertRuleScheduledEntityMappingFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledEntityMappingFieldMappingArgs) ToAlertRuleScheduledEntityMappingFieldMappingOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingFieldMappingOutput)
+}
+
+// AlertRuleScheduledEntityMappingFieldMappingArrayInput is an input type that accepts AlertRuleScheduledEntityMappingFieldMappingArray and AlertRuleScheduledEntityMappingFieldMappingArrayOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledEntityMappingFieldMappingArrayInput` via:
+//
+//          AlertRuleScheduledEntityMappingFieldMappingArray{ AlertRuleScheduledEntityMappingFieldMappingArgs{...} }
+type AlertRuleScheduledEntityMappingFieldMappingArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledEntityMappingFieldMappingArrayOutput() AlertRuleScheduledEntityMappingFieldMappingArrayOutput
+	ToAlertRuleScheduledEntityMappingFieldMappingArrayOutputWithContext(context.Context) AlertRuleScheduledEntityMappingFieldMappingArrayOutput
+}
+
+type AlertRuleScheduledEntityMappingFieldMappingArray []AlertRuleScheduledEntityMappingFieldMappingInput
+
+func (AlertRuleScheduledEntityMappingFieldMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledEntityMappingFieldMappingArray) ToAlertRuleScheduledEntityMappingFieldMappingArrayOutput() AlertRuleScheduledEntityMappingFieldMappingArrayOutput {
+	return i.ToAlertRuleScheduledEntityMappingFieldMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledEntityMappingFieldMappingArray) ToAlertRuleScheduledEntityMappingFieldMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingFieldMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingFieldMappingArrayOutput)
+}
+
+type AlertRuleScheduledEntityMappingFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledEntityMappingFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingOutput) ToAlertRuleScheduledEntityMappingFieldMappingOutput() AlertRuleScheduledEntityMappingFieldMappingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingOutput) ToAlertRuleScheduledEntityMappingFieldMappingOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingFieldMappingOutput {
+	return o
+}
+
+// The column name to be mapped to the identifier.
+func (o AlertRuleScheduledEntityMappingFieldMappingOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledEntityMappingFieldMapping) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The identifier of the entity.
+func (o AlertRuleScheduledEntityMappingFieldMappingOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledEntityMappingFieldMapping) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+type AlertRuleScheduledEntityMappingFieldMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledEntityMappingFieldMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleScheduledEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) ToAlertRuleScheduledEntityMappingFieldMappingArrayOutput() AlertRuleScheduledEntityMappingFieldMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) ToAlertRuleScheduledEntityMappingFieldMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingFieldMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledEntityMappingFieldMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleScheduledEntityMappingFieldMapping {
+		return vs[0].([]AlertRuleScheduledEntityMappingFieldMapping)[vs[1].(int)]
+	}).(AlertRuleScheduledEntityMappingFieldMappingOutput)
+}
+
 type AlertRuleScheduledEventGrouping struct {
 	// The aggregation type of grouping the events.
 	AggregationMethod string `pulumi:"aggregationMethod"`
@@ -309,9 +647,11 @@ type AlertRuleScheduledIncidentConfigurationGrouping struct {
 	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
+	EntityMatchingMethod *string  `pulumi:"entityMatchingMethod"`
+	GroupByAlertDetails  []string `pulumi:"groupByAlertDetails"`
+	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
 	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-	GroupBies []string `pulumi:"groupBies"`
+	GroupByEntities []string `pulumi:"groupByEntities"`
 	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
 	LookbackDuration *string `pulumi:"lookbackDuration"`
 	// Whether to re-open closed matching incidents? Defaults to `false`.
@@ -333,9 +673,11 @@ type AlertRuleScheduledIncidentConfigurationGroupingArgs struct {
 	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
+	EntityMatchingMethod pulumi.StringPtrInput   `pulumi:"entityMatchingMethod"`
+	GroupByAlertDetails  pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
+	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
 	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
 	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
 	LookbackDuration pulumi.StringPtrInput `pulumi:"lookbackDuration"`
 	// Whether to re-open closed matching incidents? Defaults to `false`.
@@ -429,9 +771,17 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) EntityMatchingMet
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
 }
 
+func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
+}
+
+func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
+}
+
 // A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
+func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByEntities }).(pulumi.StringArrayOutput)
 }
 
 // Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
@@ -488,13 +838,31 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) EntityMatching
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupBies() pulumi.StringArrayOutput {
+func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {
 			return nil
 		}
-		return v.GroupBies
+		return v.GroupByAlertDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByCustomDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByEntities
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -1547,6 +1915,12 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideArrayInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingInput)(nil)).Elem(), AlertRuleScheduledEntityMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingArrayInput)(nil)).Elem(), AlertRuleScheduledEntityMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingFieldMappingInput)(nil)).Elem(), AlertRuleScheduledEntityMappingFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingFieldMappingArrayInput)(nil)).Elem(), AlertRuleScheduledEntityMappingFieldMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEventGroupingInput)(nil)).Elem(), AlertRuleScheduledEventGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEventGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledEventGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
@@ -1569,6 +1943,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArray{})
+	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingFieldMappingOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationOutput{})

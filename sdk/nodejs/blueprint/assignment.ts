@@ -164,7 +164,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly targetSubscriptionId!: pulumi.Output<string>;
     /**
-     * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -283,7 +283,7 @@ export interface AssignmentState {
      */
     targetSubscriptionId?: pulumi.Input<string>;
     /**
-     * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
      */
     type?: pulumi.Input<string>;
     /**

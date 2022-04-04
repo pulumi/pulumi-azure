@@ -11,70 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/sql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   pulumi.String("West US"),
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sql.NewDatabase(ctx, "exampleDatabase", &sql.DatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          pulumi.String("West US"),
-// 			ServerName:        exampleSqlServer.Name,
-// 			ExtendedAuditingPolicy: &sql.DatabaseExtendedAuditingPolicyArgs{
-// 				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
-// 				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
-// 				StorageAccountAccessKeyIsSecondary: pulumi.Bool(true),
-// 				RetentionInDays:                    pulumi.Int(6),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // SQL Databases can be imported using the `resource id`, e.g.
@@ -98,10 +34,6 @@ type Database struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
 	Encryption      pulumi.StringOutput `pulumi:"encryption"`
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyOutput `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -184,10 +116,6 @@ type databaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	Encryption      *string `pulumi:"encryption"`
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -236,10 +164,6 @@ type DatabaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
 	Encryption      pulumi.StringPtrInput
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -287,10 +211,6 @@ type databaseArgs struct {
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -335,10 +255,6 @@ type DatabaseArgs struct {
 	Edition pulumi.StringPtrInput
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

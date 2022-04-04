@@ -14,36 +14,36 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterIdentityResult
     {
         /// <summary>
-        /// The principal id of the system assigned identity which is used by primary components.
+        /// The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by primary components.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of identity used for the managed cluster.
+        /// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The ID of the User Assigned Identity assigned to the Kubelets.
-        /// </summary>
-        public readonly string UserAssignedIdentityId;
 
         [OutputConstructor]
         private GetKubernetesClusterIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
-            string type,
-
-            string userAssignedIdentityId)
+            string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
-            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

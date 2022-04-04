@@ -102,7 +102,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryWriteKey>> SecondaryWriteKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+        /// The SKU name of the App Configuration. Possible values are `free` and `standard`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+        /// The SKU name of the App Configuration. Possible values are `free` and `standard`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+        /// The SKU name of the App Configuration. Possible values are `free` and `standard`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

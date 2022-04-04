@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .cluster import *
 from .function_java_script_udf import *
+from .function_javascript_uda import *
 from .get_job import *
 from .job import *
 from .managed_private_endpoint import *

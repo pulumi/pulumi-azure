@@ -23,6 +23,7 @@ class VirtualNetworkGatewayArgs:
                  bgp_settings: Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']] = None,
                  custom_route: Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']] = None,
                  default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -59,6 +60,7 @@ class VirtualNetworkGatewayArgs:
                gateway is created will be routed (*forced tunnelling*). Refer to the
                [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
@@ -86,6 +88,8 @@ class VirtualNetworkGatewayArgs:
             pulumi.set(__self__, "custom_route", custom_route)
         if default_local_network_gateway_id is not None:
             pulumi.set(__self__, "default_local_network_gateway_id", default_local_network_gateway_id)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if generation is not None:
@@ -216,6 +220,18 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "default_local_network_gateway_id", value)
 
     @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
+
+    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -325,6 +341,7 @@ class _VirtualNetworkGatewayState:
                  bgp_settings: Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']] = None,
                  custom_route: Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']] = None,
                  default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]]] = None,
@@ -349,6 +366,7 @@ class _VirtualNetworkGatewayState:
                gateway is created will be routed (*forced tunnelling*). Refer to the
                [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
@@ -388,6 +406,8 @@ class _VirtualNetworkGatewayState:
             pulumi.set(__self__, "custom_route", custom_route)
         if default_local_network_gateway_id is not None:
             pulumi.set(__self__, "default_local_network_gateway_id", default_local_network_gateway_id)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if generation is not None:
@@ -464,6 +484,18 @@ class _VirtualNetworkGatewayState:
     @default_local_network_gateway_id.setter
     def default_local_network_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_local_network_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableBgp")
@@ -637,6 +669,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
                  custom_route: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']]] = None,
                  default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
@@ -741,6 +774,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                gateway is created will be routed (*forced tunnelling*). Refer to the
                [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
@@ -876,6 +910,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
                  custom_route: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']]] = None,
                  default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
@@ -904,6 +939,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["custom_route"] = custom_route
             __props__.__dict__["default_local_network_gateway_id"] = default_local_network_gateway_id
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["generation"] = generation
             if ip_configurations is None and not opts.urn:
@@ -938,6 +974,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
             custom_route: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']]] = None,
             default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
             generation: Optional[pulumi.Input[str]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
@@ -967,6 +1004,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                gateway is created will be routed (*forced tunnelling*). Refer to the
                [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
@@ -1006,6 +1044,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["bgp_settings"] = bgp_settings
         __props__.__dict__["custom_route"] = custom_route
         __props__.__dict__["default_local_network_gateway_id"] = default_local_network_gateway_id
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_bgp"] = enable_bgp
         __props__.__dict__["generation"] = generation
         __props__.__dict__["ip_configurations"] = ip_configurations
@@ -1055,6 +1094,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="enableBgp")

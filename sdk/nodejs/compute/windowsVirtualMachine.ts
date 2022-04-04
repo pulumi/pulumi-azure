@@ -149,6 +149,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
     public readonly enableAutomaticUpdates!: pulumi.Output<boolean | undefined>;
@@ -265,6 +269,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `terminationNotification` block as defined below.
+     */
+    public readonly terminationNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineTerminationNotification>;
+    /**
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
@@ -289,9 +297,9 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly winrmListeners!: pulumi.Output<outputs.compute.WindowsVirtualMachineWinrmListener[] | undefined>;
     /**
-     * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+     * * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
      */
-    public readonly zone!: pulumi.Output<string>;
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WindowsVirtualMachine resource with the given unique name, arguments, and options.
@@ -317,6 +325,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["customData"] = state ? state.customData : undefined;
             resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
@@ -346,6 +355,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
             resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
@@ -384,6 +394,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["customData"] = args ? args.customData : undefined;
             resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
@@ -409,6 +420,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
@@ -474,6 +486,10 @@ export interface WindowsVirtualMachineState {
      * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
     dedicatedHostId?: pulumi.Input<string>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
@@ -591,6 +607,10 @@ export interface WindowsVirtualMachineState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineTerminationNotification>;
+    /**
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
     timezone?: pulumi.Input<string>;
@@ -615,7 +635,7 @@ export interface WindowsVirtualMachineState {
      */
     winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
     /**
-     * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+     * * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
      */
     zone?: pulumi.Input<string>;
 }
@@ -668,6 +688,10 @@ export interface WindowsVirtualMachineArgs {
      * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
     dedicatedHostId?: pulumi.Input<string>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
@@ -769,6 +793,10 @@ export interface WindowsVirtualMachineArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineTerminationNotification>;
+    /**
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
     timezone?: pulumi.Input<string>;
@@ -789,7 +817,7 @@ export interface WindowsVirtualMachineArgs {
      */
     winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
     /**
-     * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+     * * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
      */
     zone?: pulumi.Input<string>;
 }

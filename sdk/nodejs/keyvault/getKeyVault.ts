@@ -91,10 +91,6 @@ export interface GetKeyVaultResult {
      */
     readonly skuName: string;
     /**
-     * @deprecated Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.
-     */
-    readonly softDeleteEnabled: boolean;
-    /**
      * A mapping of tags assigned to the Key Vault.
      */
     readonly tags: {[key: string]: string};
